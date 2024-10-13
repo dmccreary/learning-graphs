@@ -1,14 +1,29 @@
 # Glossary of Terms
 
+#### Agent
+
+#### Concept
+
+#### Concept Dependency Graph
+
+#### Generative AI
+
+### HyperPersonalization
+
+
 #### ISO Definition
 
-A term definition is considered to be consistent with ISO metadata registry guideline 11179 if it meets the following criteria:
+A term definition is considered to be consistent with ISO/IEC 11179 metadata registry guideline if it meets the following criteria:
 
 1. Precise
 2. Concise
 3. Distinct
 4. Non-circular
 5. Unencumbered with business rules
+
+#### Learning Objective
+
+#### Learning Path
 
 #### Term
 
