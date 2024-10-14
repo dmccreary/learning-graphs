@@ -1,0 +1,1455 @@
+{
+    "nodes": [
+        {
+            "id": 1,
+            "label": "Ohm's Law",
+            "group": 1
+        },
+        {
+            "id": 2,
+            "label": "Voltage",
+            "group": 1
+        },
+        {
+            "id": 3,
+            "label": "Current",
+            "group": 1
+        },
+        {
+            "id": 4,
+            "label": "Resistance",
+            "group": 1
+        },
+        {
+            "id": 5,
+            "label": "Power",
+            "group": 1
+        },
+        {
+            "id": 6,
+            "label": "Energy",
+            "group": 1
+        },
+        {
+            "id": 7,
+            "label": "Electric charge",
+            "group": 1
+        },
+        {
+            "id": 8,
+            "label": "Conductors",
+            "group": 1
+        },
+        {
+            "id": 9,
+            "label": "Insulators",
+            "group": 1
+        },
+        {
+            "id": 10,
+            "label": "Capacitance",
+            "group": 1
+        },
+        {
+            "id": 11,
+            "label": "Inductance",
+            "group": 1
+        },
+        {
+            "id": 12,
+            "label": "Kirchhoff's Current Law",
+            "group": 4
+        },
+        {
+            "id": 13,
+            "label": "Kirchhoff's Voltage Law",
+            "group": 4
+        },
+        {
+            "id": 14,
+            "label": "Direct current",
+            "group": 1
+        },
+        {
+            "id": 15,
+            "label": "Alternating current",
+            "group": 5
+        },
+        {
+            "id": 16,
+            "label": "Series circuits",
+            "group": 11
+        },
+        {
+            "id": 17,
+            "label": "Parallel circuits",
+            "group": 11
+        },
+        {
+            "id": 18,
+            "label": "Combination circuits",
+            "group": 11
+        },
+        {
+            "id": 19,
+            "label": "Voltage divider",
+            "group": 11
+        },
+        {
+            "id": 20,
+            "label": "Current divider",
+            "group": 11
+        },
+        {
+            "id": 21,
+            "label": "Thevenin's theorem",
+            "group": 4
+        },
+        {
+            "id": 22,
+            "label": "Norton's theorem",
+            "group": 4
+        },
+        {
+            "id": 23,
+            "label": "Superposition theorem",
+            "group": 4
+        },
+        {
+            "id": 24,
+            "label": "Maximum power Transfer",
+            "group": 1
+        },
+        {
+            "id": 25,
+            "label": "Mesh analysis",
+            "group": 4
+        },
+        {
+            "id": 26,
+            "label": "Nodal analysis",
+            "group": 4
+        },
+        {
+            "id": 27,
+            "label": "RMS voltage",
+            "group": 5
+        },
+        {
+            "id": 28,
+            "label": "RMS current",
+            "group": 5
+        },
+        {
+            "id": 29,
+            "label": "Phasors",
+            "group": 5
+        },
+        {
+            "id": 30,
+            "label": "Impedance",
+            "group": 5
+        },
+        {
+            "id": 31,
+            "label": "Reactance",
+            "group": 5
+        },
+        {
+            "id": 32,
+            "label": "Frequency",
+            "group": 5
+        },
+        {
+            "id": 33,
+            "label": "Resonance",
+            "group": 5
+        },
+        {
+            "id": 34,
+            "label": "Bandwidth",
+            "group": 5
+        },
+        {
+            "id": 35,
+            "label": "Quality factor",
+            "group": 2
+        },
+        {
+            "id": 36,
+            "label": "Time constant",
+            "group": 2
+        },
+        {
+            "id": 37,
+            "label": "Transients in RC circuits",
+            "group": 6
+        },
+        {
+            "id": 38,
+            "label": "Transients in RL circuits",
+            "group": 6
+        },
+        {
+            "id": 39,
+            "label": "Transients in RLC circuits",
+            "group": 6
+        },
+        {
+            "id": 40,
+            "label": "Steady-state analysis",
+            "group": 6
+        },
+        {
+            "id": 41,
+            "label": "AC power",
+            "group": 9
+        },
+        {
+            "id": 42,
+            "label": "Complex power",
+            "group": 9
+        },
+        {
+            "id": 43,
+            "label": "Active power",
+            "group": 9
+        },
+        {
+            "id": 44,
+            "label": "Reactive power",
+            "group": 9
+        },
+        {
+            "id": 45,
+            "label": "Apparent power",
+            "group": 9
+        },
+        {
+            "id": 46,
+            "label": "Power factor",
+            "group": 9
+        },
+        {
+            "id": 47,
+            "label": "Impedance matching",
+            "group": 9
+        },
+        {
+            "id": 48,
+            "label": "Bode plots",
+            "group": 5
+        },
+        {
+            "id": 49,
+            "label": "Nyquist criterion",
+            "group": 10
+        },
+        {
+            "id": 50,
+            "label": "Stability",
+            "group": 10
+        },
+        {
+            "id": 51,
+            "label": "Poles and zeros",
+            "group": 10
+        },
+        {
+            "id": 52,
+            "label": "Transfer function",
+            "group": 10
+        },
+        {
+            "id": 53,
+            "label": "Feedback",
+            "group": 10
+        },
+        {
+            "id": 54,
+            "label": "Operational amplifiers",
+            "group": 8
+        },
+        {
+            "id": 55,
+            "label": "Differential amplifier",
+            "group": 8
+        },
+        {
+            "id": 56,
+            "label": "Inverting amplifier",
+            "group": 8
+        },
+        {
+            "id": 57,
+            "label": "Non-inverting amplifier",
+            "group": 8
+        },
+        {
+            "id": 58,
+            "label": "Summing amplifier",
+            "group": 8
+        },
+        {
+            "id": 59,
+            "label": "Integrator",
+            "group": 11
+        },
+        {
+            "id": 60,
+            "label": "Differentiator",
+            "group": 11
+        },
+        {
+            "id": 61,
+            "label": "Comparator",
+            "group": 11
+        },
+        {
+            "id": 62,
+            "label": "Voltage follower",
+            "group": 11
+        },
+        {
+            "id": 63,
+            "label": "Negative feedback",
+            "group": 10
+        },
+        {
+            "id": 64,
+            "label": "Positive feedback",
+            "group": 10
+        },
+        {
+            "id": 65,
+            "label": "Diodes",
+            "group": 3
+        },
+        {
+            "id": 66,
+            "label": "Zener diodes",
+            "group": 3
+        },
+        {
+            "id": 67,
+            "label": "Rectification",
+            "group": 9
+        },
+        {
+            "id": 68,
+            "label": "Half-wave rectifier",
+            "group": 9
+        },
+        {
+            "id": 69,
+            "label": "Full-wave rectifier",
+            "group": 9
+        },
+        {
+            "id": 70,
+            "label": "Bridge rectifier",
+            "group": 9
+        },
+        {
+            "id": 71,
+            "label": "Clipping circuits",
+            "group": 11
+        },
+        {
+            "id": 72,
+            "label": "Clamping circuits",
+            "group": 11
+        },
+        {
+            "id": 73,
+            "label": "Transistors",
+            "group": 3
+        },
+        {
+            "id": 74,
+            "label": "Bipolar junction transistor",
+            "group": 3
+        },
+        {
+            "id": 75,
+            "label": "Field effect transistor",
+            "group": 3
+        },
+        {
+            "id": 76,
+            "label": "Switching circuits",
+            "group": 9
+        },
+        {
+            "id": 77,
+            "label": "Amplifiers",
+            "group": 8
+        },
+        {
+            "id": 78,
+            "label": "Small signal analysis",
+            "group": 8
+        },
+        {
+            "id": 79,
+            "label": "Gain",
+            "group": 8
+        },
+        {
+            "id": 80,
+            "label": "Saturation",
+            "group": 3
+        },
+        {
+            "id": 81,
+            "label": "Cutoff",
+            "group": 3
+        },
+        {
+            "id": 82,
+            "label": "Biasing",
+            "group": 3
+        },
+        {
+            "id": 83,
+            "label": "Load line analysis",
+            "group": 4
+        },
+        {
+            "id": 84,
+            "label": "Common-emitter amplifier",
+            "group": 8
+        },
+        {
+            "id": 85,
+            "label": "Common-base amplifier",
+            "group": 8
+        },
+        {
+            "id": 86,
+            "label": "Common-collector amplifier",
+            "group": 8
+        },
+        {
+            "id": 87,
+            "label": "Darlington pair",
+            "group": 8
+        },
+        {
+            "id": 88,
+            "label": "Cascaded amplifiers",
+            "group": 8
+        },
+        {
+            "id": 89,
+            "label": "Differential pairs",
+            "group": 8
+        },
+        {
+            "id": 90,
+            "label": "Coupling capacitors",
+            "group": 2
+        },
+        {
+            "id": 91,
+            "label": "Decoupling capacitors",
+            "group": 2
+        },
+        {
+            "id": 92,
+            "label": "Filters",
+            "group": 7
+        },
+        {
+            "id": 93,
+            "label": "Low-pass filters",
+            "group": 7
+        },
+        {
+            "id": 94,
+            "label": "High-pass filters",
+            "group": 7
+        },
+        {
+            "id": 95,
+            "label": "Band-pass filters",
+            "group": 7
+        },
+        {
+            "id": 96,
+            "label": "Band-stop filters",
+            "group": 7
+        },
+        {
+            "id": 97,
+            "label": "Active filters",
+            "group": 7
+        },
+        {
+            "id": 98,
+            "label": "Passive filters",
+            "group": 7
+        },
+        {
+            "id": 99,
+            "label": "Voltage regulators",
+            "group": 9
+        },
+        {
+            "id": 100,
+            "label": "Pulse-width modulation",
+            "group": 7
+        },
+        {
+            "id": 101,
+            "label": "Resistivity",
+            "group": 1
+        },
+        {
+            "id": 102,
+            "label": "Time",
+            "group": 1
+        },
+        {
+            "id": 103,
+            "label": "Capacitors",
+            "group": 2
+        },
+        {
+            "id": 104,
+            "label": "Magnetic fields",
+            "group": 1
+        },
+        {
+            "id": 105,
+            "label": "Conservation of energy",
+            "group": 1
+        },
+        {
+            "id": 106,
+            "label": "Linearity",
+            "group": 4
+        },
+        {
+            "id": 107,
+            "label": "Complex numbers",
+            "group": 1
+        },
+        {
+            "id": 108,
+            "label": "Frequency response",
+            "group": 5
+        },
+        {
+            "id": 109,
+            "label": "Control systems",
+            "group": 10
+        },
+        {
+            "id": 110,
+            "label": "Semiconductor physics",
+            "group": 3
+        },
+        {
+            "id": 111,
+            "label": "Solid-state physics",
+            "group": 1
+        },
+        {
+            "id": 112,
+            "label": "Elementary charge",
+            "group": 1
+        },
+        {
+            "id": 113,
+            "label": "Conservation laws",
+            "group": 1
+        },
+        {
+            "id": 114,
+            "label": "P-N junctions",
+            "group": 3
+        },
+        {
+            "id": 115,
+            "label": "Material properties",
+            "group": 1
+        },
+        {
+            "id": 116,
+            "label": "Fundamental concepts",
+            "group": 1
+        },
+        {
+            "id": 117,
+            "label": "Mathematical principles",
+            "group": 1
+        },
+        {
+            "id": 118,
+            "label": "Mathematics",
+            "group": 1
+        },
+        {
+            "id": 119,
+            "label": "Physics",
+            "group": 1
+        },
+        {
+            "id": 120,
+            "label": "Atomic structure",
+            "group": 1
+        },
+        {
+            "id": 121,
+            "label": "MOSFET",
+            "group": 3
+        }
+    ],
+    "edges": [
+        {
+            "from": 1,
+            "to": 2
+        },
+        {
+            "from": 1,
+            "to": 3
+        },
+        {
+            "from": 1,
+            "to": 4
+        },
+        {
+            "from": 2,
+            "to": 7
+        },
+        {
+            "from": 3,
+            "to": 7
+        },
+        {
+            "from": 4,
+            "to": 101
+        },
+        {
+            "from": 5,
+            "to": 2
+        },
+        {
+            "from": 5,
+            "to": 3
+        },
+        {
+            "from": 6,
+            "to": 5
+        },
+        {
+            "from": 6,
+            "to": 102
+        },
+        {
+            "from": 7,
+            "to": 120
+        },
+        {
+            "from": 8,
+            "to": 7
+        },
+        {
+            "from": 9,
+            "to": 7
+        },
+        {
+            "from": 10,
+            "to": 2
+        },
+        {
+            "from": 10,
+            "to": 7
+        },
+        {
+            "from": 11,
+            "to": 3
+        },
+        {
+            "from": 11,
+            "to": 104
+        },
+        {
+            "from": 12,
+            "to": 3
+        },
+        {
+            "from": 13,
+            "to": 2
+        },
+        {
+            "from": 14,
+            "to": 3
+        },
+        {
+            "from": 15,
+            "to": 3
+        },
+        {
+            "from": 15,
+            "to": 32
+        },
+        {
+            "from": 16,
+            "to": 1
+        },
+        {
+            "from": 16,
+            "to": 4
+        },
+        {
+            "from": 16,
+            "to": 2
+        },
+        {
+            "from": 16,
+            "to": 3
+        },
+        {
+            "from": 17,
+            "to": 1
+        },
+        {
+            "from": 17,
+            "to": 4
+        },
+        {
+            "from": 17,
+            "to": 2
+        },
+        {
+            "from": 17,
+            "to": 3
+        },
+        {
+            "from": 18,
+            "to": 16
+        },
+        {
+            "from": 18,
+            "to": 17
+        },
+        {
+            "from": 19,
+            "to": 16
+        },
+        {
+            "from": 19,
+            "to": 1
+        },
+        {
+            "from": 20,
+            "to": 17
+        },
+        {
+            "from": 20,
+            "to": 1
+        },
+        {
+            "from": 21,
+            "to": 2
+        },
+        {
+            "from": 21,
+            "to": 3
+        },
+        {
+            "from": 21,
+            "to": 4
+        },
+        {
+            "from": 21,
+            "to": 16
+        },
+        {
+            "from": 21,
+            "to": 17
+        },
+        {
+            "from": 22,
+            "to": 2
+        },
+        {
+            "from": 22,
+            "to": 3
+        },
+        {
+            "from": 22,
+            "to": 4
+        },
+        {
+            "from": 22,
+            "to": 16
+        },
+        {
+            "from": 22,
+            "to": 17
+        },
+        {
+            "from": 23,
+            "to": 106
+        },
+        {
+            "from": 23,
+            "to": 2
+        },
+        {
+            "from": 23,
+            "to": 3
+        },
+        {
+            "from": 23,
+            "to": 1
+        },
+        {
+            "from": 24,
+            "to": 21
+        },
+        {
+            "from": 24,
+            "to": 1
+        },
+        {
+            "from": 24,
+            "to": 5
+        },
+        {
+            "from": 25,
+            "to": 13
+        },
+        {
+            "from": 25,
+            "to": 16
+        },
+        {
+            "from": 26,
+            "to": 12
+        },
+        {
+            "from": 26,
+            "to": 17
+        },
+        {
+            "from": 27,
+            "to": 15
+        },
+        {
+            "from": 27,
+            "to": 2
+        },
+        {
+            "from": 28,
+            "to": 15
+        },
+        {
+            "from": 28,
+            "to": 3
+        },
+        {
+            "from": 29,
+            "to": 15
+        },
+        {
+            "from": 29,
+            "to": 32
+        },
+        {
+            "from": 29,
+            "to": 107
+        },
+        {
+            "from": 30,
+            "to": 4
+        },
+        {
+            "from": 30,
+            "to": 31
+        },
+        {
+            "from": 30,
+            "to": 29
+        },
+        {
+            "from": 31,
+            "to": 10
+        },
+        {
+            "from": 31,
+            "to": 11
+        },
+        {
+            "from": 31,
+            "to": 32
+        },
+        {
+            "from": 32,
+            "to": 15
+        },
+        {
+            "from": 32,
+            "to": 102
+        },
+        {
+            "from": 33,
+            "to": 30
+        },
+        {
+            "from": 33,
+            "to": 32
+        },
+        {
+            "from": 33,
+            "to": 31
+        },
+        {
+            "from": 34,
+            "to": 33
+        },
+        {
+            "from": 34,
+            "to": 32
+        },
+        {
+            "from": 35,
+            "to": 33
+        },
+        {
+            "from": 35,
+            "to": 6
+        },
+        {
+            "from": 36,
+            "to": 10
+        },
+        {
+            "from": 36,
+            "to": 4
+        },
+        {
+            "from": 36,
+            "to": 11
+        },
+        {
+            "from": 37,
+            "to": 36
+        },
+        {
+            "from": 37,
+            "to": 10
+        },
+        {
+            "from": 37,
+            "to": 4
+        },
+        {
+            "from": 38,
+            "to": 36
+        },
+        {
+            "from": 38,
+            "to": 11
+        },
+        {
+            "from": 38,
+            "to": 4
+        },
+        {
+            "from": 39,
+            "to": 37
+        },
+        {
+            "from": 39,
+            "to": 38
+        },
+        {
+            "from": 39,
+            "to": 10
+        },
+        {
+            "from": 39,
+            "to": 11
+        },
+        {
+            "from": 40,
+            "to": 37
+        },
+        {
+            "from": 40,
+            "to": 38
+        },
+        {
+            "from": 40,
+            "to": 39
+        },
+        {
+            "from": 40,
+            "to": 102
+        },
+        {
+            "from": 41,
+            "to": 15
+        },
+        {
+            "from": 41,
+            "to": 2
+        },
+        {
+            "from": 41,
+            "to": 3
+        },
+        {
+            "from": 41,
+            "to": 5
+        },
+        {
+            "from": 42,
+            "to": 41
+        },
+        {
+            "from": 42,
+            "to": 30
+        },
+        {
+            "from": 42,
+            "to": 29
+        },
+        {
+            "from": 43,
+            "to": 42
+        },
+        {
+            "from": 44,
+            "to": 42
+        },
+        {
+            "from": 45,
+            "to": 42
+        },
+        {
+            "from": 46,
+            "to": 43
+        },
+        {
+            "from": 46,
+            "to": 45
+        },
+        {
+            "from": 47,
+            "to": 30
+        },
+        {
+            "from": 47,
+            "to": 24
+        },
+        {
+            "from": 48,
+            "to": 108
+        },
+        {
+            "from": 48,
+            "to": 52
+        },
+        {
+            "from": 49,
+            "to": 50
+        },
+        {
+            "from": 49,
+            "to": 108
+        },
+        {
+            "from": 50,
+            "to": 53
+        },
+        {
+            "from": 50,
+            "to": 109
+        },
+        {
+            "from": 51,
+            "to": 52
+        },
+        {
+            "from": 51,
+            "to": 107
+        },
+        {
+            "from": 52,
+            "to": 109
+        },
+        {
+            "from": 53,
+            "to": 54
+        },
+        {
+            "from": 53,
+            "to": 109
+        },
+        {
+            "from": 54,
+            "to": 73
+        },
+        {
+            "from": 54,
+            "to": 77
+        },
+        {
+            "from": 55,
+            "to": 54
+        },
+        {
+            "from": 56,
+            "to": 54
+        },
+        {
+            "from": 57,
+            "to": 54
+        },
+        {
+            "from": 58,
+            "to": 54
+        },
+        {
+            "from": 59,
+            "to": 54
+        },
+        {
+            "from": 59,
+            "to": 10
+        },
+        {
+            "from": 60,
+            "to": 54
+        },
+        {
+            "from": 60,
+            "to": 10
+        },
+        {
+            "from": 61,
+            "to": 54
+        },
+        {
+            "from": 62,
+            "to": 54
+        },
+        {
+            "from": 63,
+            "to": 53
+        },
+        {
+            "from": 63,
+            "to": 50
+        },
+        {
+            "from": 64,
+            "to": 53
+        },
+        {
+            "from": 64,
+            "to": 50
+        },
+        {
+            "from": 65,
+            "to": 110
+        },
+        {
+            "from": 66,
+            "to": 65
+        },
+        {
+            "from": 67,
+            "to": 65
+        },
+        {
+            "from": 68,
+            "to": 67
+        },
+        {
+            "from": 68,
+            "to": 65
+        },
+        {
+            "from": 69,
+            "to": 67
+        },
+        {
+            "from": 69,
+            "to": 65
+        },
+        {
+            "from": 70,
+            "to": 69
+        },
+        {
+            "from": 71,
+            "to": 65
+        },
+        {
+            "from": 72,
+            "to": 65
+        },
+        {
+            "from": 73,
+            "to": 110
+        },
+        {
+            "from": 74,
+            "to": 73
+        },
+        {
+            "from": 75,
+            "to": 73
+        },
+        {
+            "from": 76,
+            "to": 73
+        },
+        {
+            "from": 77,
+            "to": 73
+        },
+        {
+            "from": 77,
+            "to": 54
+        },
+        {
+            "from": 78,
+            "to": 73
+        },
+        {
+            "from": 78,
+            "to": 77
+        },
+        {
+            "from": 79,
+            "to": 77
+        },
+        {
+            "from": 80,
+            "to": 73
+        },
+        {
+            "from": 81,
+            "to": 73
+        },
+        {
+            "from": 82,
+            "to": 73
+        },
+        {
+            "from": 83,
+            "to": 73
+        },
+        {
+            "from": 83,
+            "to": 82
+        },
+        {
+            "from": 84,
+            "to": 73
+        },
+        {
+            "from": 84,
+            "to": 77
+        },
+        {
+            "from": 85,
+            "to": 73
+        },
+        {
+            "from": 85,
+            "to": 77
+        },
+        {
+            "from": 86,
+            "to": 73
+        },
+        {
+            "from": 86,
+            "to": 77
+        },
+        {
+            "from": 87,
+            "to": 73
+        },
+        {
+            "from": 87,
+            "to": 77
+        },
+        {
+            "from": 88,
+            "to": 77
+        },
+        {
+            "from": 89,
+            "to": 73
+        },
+        {
+            "from": 89,
+            "to": 55
+        },
+        {
+            "from": 90,
+            "to": 10
+        },
+        {
+            "from": 91,
+            "to": 10
+        },
+        {
+            "from": 92,
+            "to": 10
+        },
+        {
+            "from": 92,
+            "to": 11
+        },
+        {
+            "from": 92,
+            "to": 32
+        },
+        {
+            "from": 93,
+            "to": 92
+        },
+        {
+            "from": 94,
+            "to": 92
+        },
+        {
+            "from": 95,
+            "to": 92
+        },
+        {
+            "from": 96,
+            "to": 92
+        },
+        {
+            "from": 97,
+            "to": 92
+        },
+        {
+            "from": 97,
+            "to": 54
+        },
+        {
+            "from": 98,
+            "to": 92
+        },
+        {
+            "from": 99,
+            "to": 65
+        },
+        {
+            "from": 99,
+            "to": 66
+        },
+        {
+            "from": 99,
+            "to": 73
+        },
+        {
+            "from": 100,
+            "to": 76
+        },
+        {
+            "from": 101,
+            "to": 115
+        },
+        {
+            "from": 102,
+            "to": 116
+        },
+        {
+            "from": 103,
+            "to": 10
+        },
+        {
+            "from": 103,
+            "to": 7
+        },
+        {
+            "from": 104,
+            "to": 3
+        },
+        {
+            "from": 105,
+            "to": 6
+        },
+        {
+            "from": 106,
+            "to": 117
+        },
+        {
+            "from": 107,
+            "to": 118
+        },
+        {
+            "from": 108,
+            "to": 32
+        },
+        {
+            "from": 108,
+            "to": 92
+        },
+        {
+            "from": 109,
+            "to": 53
+        },
+        {
+            "from": 109,
+            "to": 52
+        },
+        {
+            "from": 110,
+            "to": 111
+        },
+        {
+            "from": 111,
+            "to": 119
+        },
+        {
+            "from": 112,
+            "to": 120
+        },
+        {
+            "from": 113,
+            "to": 119
+        },
+        {
+            "from": 114,
+            "to": 110
+        },
+        {
+            "from": 115,
+            "to": 119
+        },
+        {
+            "from": 117,
+            "to": 118
+        },
+        {
+            "from": 118,
+            "to": 116
+        },
+        {
+            "from": 119,
+            "to": 116
+        },
+        {
+            "from": 120,
+            "to": 119
+        },
+        {
+            "from": 121,
+            "to": 75
+        }
+    ]
+}

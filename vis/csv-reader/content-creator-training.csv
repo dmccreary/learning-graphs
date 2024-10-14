@@ -1,0 +1,155 @@
+1,Markdown Syntax,8
+2,Git Fundamentals,6
+3,UNIX Shell Commands,7
+4,HTML Basics,8
+5,LaTeX Essentials,8
+6,Version Control Concepts,
+7,Command Line Interface (CLI),151
+8,Text Editors Overview,151
+9,File System Navigation,7
+10,Basic Networking,151
+11,GitHub Repositories,2|152
+12,GitHub Pages Setup,11|152|25
+13,"Git Operations",2|46
+14,Cloning Repositories,2|46|55
+15,Branching and Merging in Git,2|46
+16,Pull Requests on GitHub,11|15
+17,Issue Tracking on GitHub,152
+18,GitHub Actions,152|143
+19,GitHub Security Practices,152
+20,Installing mkdocs,3|7|25
+21,mkdocs Configuration,20|29
+22,mkdocs Themes,21
+23,mkdocs Material Theme,22
+24,Customizing mkdocs Themes,23|116|117
+25,Building Sites with mkdocs,20|21
+26,Deploying mkdocs Sites,25|12
+27,mkdocs Plugins,21
+28,mkdocs Extensions,21
+29,mkdocs.yml Structure,21
+30,Writing in Markdown,1|8
+31,Markdown Headers,1
+32,Markdown Lists,1
+33,Markdown Links,1
+34,Embedding Images in Markdown,1
+35,Code Blocks in Markdown,1
+36,Blockquotes in Markdown,1
+37,Inline Formatting in Markdown,1
+38,Extended Markdown Syntax,1
+39,Markdown Best Practices,1|30
+40,UNIX File Operations,3|9
+41,Directory Navigation in Shell,3|9
+42,Bash Scripting Basics,3|7
+43,Installing Software via Shell,3|40
+44,Environment Variables in UNIX,3
+45,Shell Shortcuts and Aliases,3
+46,Git Command Line Usage,2|3|7
+47,git init,2|46
+48,git add,2|46
+49,git commit,2|46
+50,git push,2|46
+51,git pull,2|46
+52,git status,2|46
+53,git log,2|46
+54,git diff,2|46
+55,git clone,2|46
+56,git remote,2|46
+57,Writing Equations in LaTeX,5
+58,MathJax Integration with mkdocs,5|25
+59,LaTeX Environments,5
+60,Display vs. Inline Math,5
+61,Special Characters in LaTeX,5
+62,LaTeX Packages,5
+63,Troubleshooting LaTeX Issues,5
+64,Installing CircuitTikZ,5|62|43
+65,Drawing Basic Circuits,64|69
+66,Circuit Components Symbols,64|69
+67,Complex Circuit Diagrams,65|66
+68,Integrating Circuits into LaTeX,5|64
+69,CircuitTikZ Syntax,64
+70,CircuitTikZ Examples,64|65
+71,Setting Up Google Analytics (GA),10|151
+72,GA Tracking Code Implementation,71|74
+73,Analyzing GA Reports,71
+74,mkdocs GA Extension Setup,25|71
+75,Interpreting Site Usage Data,73
+76,GA Dashboard Customization,71
+77,GA Events and Goals,71
+78,Installing Visual Studio Code (VS Code),151|8
+79,VS Code Extensions,78
+80,VS Code Markdown Support,78|79
+81,Code Editing Shortcuts in VS Code,78
+82,VS Code Integrated Terminal,78
+83,VS Code Git Integration,78|2
+84,VS Code Settings Configuration,78
+85,Installing Markdown Paste Extension,78|79
+86,Pasting from ChatGPT into VS Code,85|97
+87,Formatting Pasted Content,86
+88,Extension Configuration for Markdown Paste,85
+89,Site Navigation Setup in mkdocs.yml,29|21
+90,Defining Pages in mkdocs.yml,29|21
+91,Sitemap Generation with mkdocs,25|29
+92,Custom Configurations in mkdocs.yml,29|21
+93,Including Plugins in mkdocs.yml,29|27
+94,Enabling Search in mkdocs,25|96
+95,Search Index Generation,94
+96,Customizing mkdocs Search,94|122
+97,Introduction to Generative AI,152
+98,Overview of ChatGPT,97
+99,Creating Content with ChatGPT,98
+100,Using Templates in ChatGPT,98|99
+101,Generating Course Concepts with AI,99|100
+102,Generating Dependencies with ChatGPT,99|100
+103,Building Taxonomies using AI,99|100
+104,Generating FAQs with ChatGPT,99|100
+105,Best Practices with ChatGPT,98|106
+106,Ethical Considerations in AI Content,97
+107,Understanding Embeddings,97
+108,Creating Embeddings with Ollama,107
+109,Using Embeddings for Search Optimization,107|108
+110,Integrating Embeddings into mkdocs,25|109
+111,GitHub Wiki Usage,152|11
+112,GitHub Project Boards,152
+113,Custom Domains with GitHub Pages,12|152
+114,GitHub Webhooks,152|115
+115,GitHub API Basics,152
+116,Custom CSS in mkdocs,25|24
+117,Custom JavaScript in mkdocs,25|24
+118,Internationalization with mkdocs,25
+119,Site Performance Optimization,25
+120,mkdocs Material Icons,23|122
+121,mkdocs Material Color Schemes,23|122
+122,Advanced mkdocs Material Features,23
+123,Mermaid Diagrams in mkdocs,25|123
+124,PlantUML Diagrams Integration,25|124
+125,mkdocs Mermaid Plugin,123
+126,mkdocs Redirects Plugin,27
+127,mkdocs Include Plugin,27
+128,Markdown Tables,1
+129,Task Lists in Markdown,1
+130,Emojis in Markdown,1
+131,Footnotes in Markdown,1
+132,Advanced Math Notation in LaTeX,5|57
+133,Matrices and Equations in LaTeX,5|57
+134,Custom Commands in LaTeX,5
+135,LaTeX Environment Configurations,5
+136,Advanced Shell Scripting,42
+137,Command Line Tools (grep, sed, awk),3
+138,SSH and Remote Access,3|10
+139,Managing File Permissions,3|151
+140,Collaborative Editing Techniques,2|152
+141,Git Workflows (Gitflow, Forking),2|15
+142,Code Reviews on GitHub,16|152
+143,Continuous Integration Basics,2|152
+144,Automating Deployment with mkdocs,25|143
+145,Using Netlify with mkdocs,25|144
+146,Deploying with GitHub Actions,18|144
+147,Organizing Course Content,99|25
+148,Structuring Lessons Effectively,147
+149,Defining Learning Objectives,147
+150,Creating Assessments and Quizzes,147
+151,Operating System Basics,
+152,GitHub Overview,2
+153,Basic Computer Literacy,
+154,Internet Basics,153
+155,Understanding Web Browsers,154

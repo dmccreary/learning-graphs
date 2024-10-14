@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://dmccreary.github.io/learning-graphs/glossary/">
       
       
-        <link rel="prev" href="../chapters/18-agents/">
+        <link rel="prev" href="../vis/graph-editor/">
       
       
         <link rel="next" href="../how-we-built-this-site/">
@@ -357,6 +357,55 @@
       
   
   
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../vis/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Vis
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -442,6 +491,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#directed-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      Directed Graph
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#generative-ai" class="md-nav__link">
     <span class="md-ellipsis">
       Generative AI
@@ -470,6 +528,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#learning-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Graph
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#learning-objective" class="md-nav__link">
     <span class="md-ellipsis">
       Learning Objective
@@ -491,15 +558,6 @@
   <a href="#preferred-label" class="md-nav__link">
     <span class="md-ellipsis">
       Preferred Label
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#term" class="md-nav__link">
-    <span class="md-ellipsis">
-      Term
     </span>
   </a>
   
@@ -681,6 +739,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#directed-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      Directed Graph
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#generative-ai" class="md-nav__link">
     <span class="md-ellipsis">
       Generative AI
@@ -709,6 +776,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#learning-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Graph
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#learning-objective" class="md-nav__link">
     <span class="md-ellipsis">
       Learning Objective
@@ -730,15 +806,6 @@
   <a href="#preferred-label" class="md-nav__link">
     <span class="md-ellipsis">
       Preferred Label
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#term" class="md-nav__link">
-    <span class="md-ellipsis">
-      Term
     </span>
   </a>
   
@@ -777,6 +844,7 @@
 <h4 id="alternate-label">Alternate Label</h4>
 <h4 id="concept">Concept</h4>
 <h4 id="concept-dependency-graph">Concept Dependency Graph</h4>
+<h4 id="directed-graph">Directed Graph</h4>
 <h4 id="generative-ai">Generative AI</h4>
 <h3 id="hyperpersonalization">HyperPersonalization</h3>
 <h4 id="iso-definition">ISO Definition</h4>
@@ -788,11 +856,17 @@
 <li>Non-circular</li>
 <li>Unencumbered with business rules</li>
 </ol>
+<h4 id="learning-graph">Learning Graph</h4>
+<p>A network graph that stores learning <a href="#concept">Concepts</a> and their dependencies.</p>
+<p>Learning graphs are a type of <a href="#directed-graph">Directed Graphs</a> where every node is a learning Concept
+and every edge is a concept dependency or prerequisite.</p>
 <h4 id="learning-objective">Learning Objective</h4>
 <h4 id="learning-path">Learning Path</h4>
 <h4 id="preferred-label">Preferred Label</h4>
-<h4 id="term">Term</h4>
-<p>This is the definition of the term.</p>
+<p>The preferred name of a <a href="#concept">Concept</a>.</p>
+<p>In general, a concept has one and only one preferred name per language such as English, but a Concept
+may have many alternate labels.</p>
+<p>Within a learning graph, no two Concepts should have the same preferred name.</p>
 
 
 
@@ -828,7 +902,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../chapters/18-agents/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Building Intelligent Agents">
+          <a href="../vis/graph-editor/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Editor">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -838,7 +912,7 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Building Intelligent Agents
+                Editor
               </div>
             </div>
           </a>

@@ -1,0 +1,122 @@
+ConceptID,ConceptName,DependencyList,CategoryID,CategoryLabel
+1,Ohm's Law,2|3|4,1,Fundamental Concepts
+2,Voltage,7,1,Fundamental Concepts
+3,Current,7,1,Fundamental Concepts
+4,Resistance,101,1,Fundamental Concepts
+5,Power,2|3,1,Fundamental Concepts
+6,Energy,5|102,1,Fundamental Concepts
+7,Electric charge,120,1,Fundamental Concepts
+8,Conductors,7,1,Fundamental Concepts
+9,Insulators,7,1,Fundamental Concepts
+10,Capacitance,2|7,1,Fundamental Concepts
+11,Inductance,3|104,1,Fundamental Concepts
+12,Kirchhoff's Current Law,3,4,Circuit Analysis Techniques
+13,Kirchhoff's Voltage Law,2,4,Circuit Analysis Techniques
+14,Direct current,3,1,Fundamental Concepts
+15,Alternating current,3|32,5,AC Circuit Concepts
+16,Series circuits,1|4|2|3,11,Types of Circuits
+17,Parallel circuits,1|4|2|3,11,Types of Circuits
+18,Combination circuits,16|17,11,Types of Circuits
+19,Voltage divider,16|1,11,Types of Circuits
+20,Current divider,17|1,11,Types of Circuits
+21,Thevenin's theorem,2|3|4|16|17,4,Circuit Analysis Techniques
+22,Norton's theorem,2|3|4|16|17,4,Circuit Analysis Techniques
+23,Superposition theorem,106|2|3|1,4,Circuit Analysis Techniques
+24,Maximum power Transfer,21|1|5,1,Fundamental Concepts
+25,Mesh analysis,13|16,4,Circuit Analysis Techniques
+26,Nodal analysis,12|17,4,Circuit Analysis Techniques
+27,RMS voltage,15|2,5,AC Circuit Concepts
+28,RMS current,15|3,5,AC Circuit Concepts
+29,Phasors,15|32|107,5,AC Circuit Concepts
+30,Impedance,4|31|29,5,AC Circuit Concepts
+31,Reactance,10|11|32,5,AC Circuit Concepts
+32,Frequency,15|102,5,AC Circuit Concepts
+33,Resonance,30|32|31,5,AC Circuit Concepts
+34,Bandwidth,33|32,5,AC Circuit Concepts
+35,Quality factor,33|6,2,Passive Components
+36,Time constant,10|4|11,2,Passive Components
+37,Transients in RC circuits,36|10|4,6,Transient Analysis
+38,Transients in RL circuits,36|11|4,6,Transient Analysis
+39,Transients in RLC circuits,37|38|10|11,6,Transient Analysis
+40,Steady-state analysis,37|38|39|102,6,Transient Analysis
+41,AC power,15|2|3|5,9,Power Electronics
+42,Complex power,41|30|29,9,Power Electronics
+43,Active power,42,9,Power Electronics
+44,Reactive power,42,9,Power Electronics
+45,Apparent power,42,9,Power Electronics
+46,Power factor,43|45,9,Power Electronics
+47,Impedance matching,30|24,9,Power Electronics
+48,Bode plots,108|52,5,AC Circuit Concepts
+49,Nyquist criterion,50|108,10,Control Systems and Stability
+50,Stability,53|109,10,Control Systems and Stability
+51,Poles and zeros,52|107,10,Control Systems and Stability
+52,Transfer function,109,10,Control Systems and Stability
+53,Feedback,54|109,10,Control Systems and Stability
+54,Operational amplifiers,73|77,8,Amplifiers and Analog Circuits
+55,Differential amplifier,54,8,Amplifiers and Analog Circuits
+56,Inverting amplifier,54,8,Amplifiers and Analog Circuits
+57,Non-inverting amplifier,54,8,Amplifiers and Analog Circuits
+58,Summing amplifier,54,8,Amplifiers and Analog Circuits
+59,Integrator,54|10,11,Types of Circuits
+60,Differentiator,54|10,11,Types of Circuits
+61,Comparator,54,11,Types of Circuits
+62,Voltage follower,54,11,Types of Circuits
+63,Negative feedback,53|50,10,Control Systems and Stability
+64,Positive feedback,53|50,10,Control Systems and Stability
+65,Diodes,110,3,Active Components and Semiconductor Devices
+66,Zener diodes,65,3,Active Components and Semiconductor Devices
+67,Rectification,65,9,Power Electronics
+68,Half-wave rectifier,67|65,9,Power Electronics
+69,Full-wave rectifier,67|65,9,Power Electronics
+70,Bridge rectifier,69,9,Power Electronics
+71,Clipping circuits,65,11,Types of Circuits
+72,Clamping circuits,65,11,Types of Circuits
+73,Transistors,110,3,Active Components and Semiconductor Devices
+74,Bipolar junction transistor,73,3,Active Components and Semiconductor Devices
+75,Field effect transistor,73,3,Active Components and Semiconductor Devices
+76,Switching circuits,73,9,Power Electronics
+77,Amplifiers,73|54,8,Amplifiers and Analog Circuits
+78,Small signal analysis,73|77,8,Amplifiers and Analog Circuits
+79,Gain,77,8,Amplifiers and Analog Circuits
+80,Saturation,73,3,Active Components and Semiconductor Devices
+81,Cutoff,73,3,Active Components and Semiconductor Devices
+82,Biasing,73,3,Active Components and Semiconductor Devices
+83,Load line analysis,73|82,4,Circuit Analysis Techniques
+84,Common-emitter amplifier,73|77,8,Amplifiers and Analog Circuits
+85,Common-base amplifier,73|77,8,Amplifiers and Analog Circuits
+86,Common-collector amplifier,73|77,8,Amplifiers and Analog Circuits
+87,Darlington pair,73|77,8,Amplifiers and Analog Circuits
+88,Cascaded amplifiers,77,8,Amplifiers and Analog Circuits
+89,Differential pairs,73|55,8,Amplifiers and Analog Circuits
+90,Coupling capacitors,10,2,Passive Components
+91,Decoupling capacitors,10,2,Passive Components
+92,Filters,10|11|32,7,Signal Processing and Filters
+93,Low-pass filters,92,7,Signal Processing and Filters
+94,High-pass filters,92,7,Signal Processing and Filters
+95,Band-pass filters,92,7,Signal Processing and Filters
+96,Band-stop filters,92,7,Signal Processing and Filters
+97,Active filters,92|54,7,Signal Processing and Filters
+98,Passive filters,92,7,Signal Processing and Filters
+99,Voltage regulators,65|66|73,9,Power Electronics
+100,Pulse-width modulation,76,7,Signal Processing and Filters
+101,Resistivity,115,1,Fundamental Concepts
+102,Time,116,1,Fundamental Concepts
+103,Capacitors,10|7,2,Passive Components
+104,Magnetic fields,3,1,Fundamental Concepts
+105,Conservation of energy,6,1,Fundamental Concepts
+106,Linearity,117,4,Circuit Analysis Techniques
+107,Complex numbers,118,1,Fundamental Concepts
+108,Frequency response,32|92,5,AC Circuit Concepts
+109,Control systems,53|52,10,Control Systems and Stability
+110,Semiconductor physics,111,3,Active Components and Semiconductor Devices
+111,Solid-state physics,119,1,Fundamental Concepts
+112,Elementary charge,120,1,Fundamental Concepts
+113,Conservation laws,119,1,Fundamental Concepts
+114,P-N junctions,110,3,Active Components and Semiconductor Devices
+115,Material properties,119,1,Fundamental Concepts
+116,Fundamental concepts,,1,Fundamental Concepts
+117,Mathematical principles,118,1,Fundamental Concepts
+118,Mathematics,116,1,Fundamental Concepts
+119,Physics,116,1,Fundamental Concepts
+120,Atomic structure,119,1,Fundamental Concepts
+121,MOSFET,75,3,Active Components and Semiconductor Devices
