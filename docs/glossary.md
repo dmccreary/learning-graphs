@@ -2,6 +2,8 @@
 
 #### Agent
 
+#### Alternate Label
+
 #### Concept
 
 #### Concept Dependency Graph
@@ -24,6 +26,8 @@ A term definition is considered to be consistent with ISO/IEC 11179 metadata reg
 #### Learning Objective
 
 #### Learning Path
+
+#### Preferred Label
 
 #### Term
 
