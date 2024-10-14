@@ -1,0 +1,23 @@
+{
+    "nodes": [
+        {"id": 1, "label": "Learn Python", "title": "Basic Python Programming"},
+        {"id": 2, "label": "Learn NumPy", "title": "Numerical computing with Python"},
+        {"id": 3, "label": "Learn Pandas", "title": "Data manipulation and analysis"},
+        {"id": 4, "label": "Learn Matplotlib", "title": "Data visualization with Python"},
+        {"id": 5, "label": "Learn SciKitLearn", "title": "Machine learning with Python"},
+        {"id": 6, "label": "Learn TensorFlow", "title": "Deep learning with Python"},
+        {"id": 7, "label": "Learn PyTorch", "title": "Deep learning with Python"},
+        {"id": 8, "label": "Learn Seaborn", "title": "Statistical data visualization"},
+        {"id": 9, "label": "Learn Statsmodels", "title": "Statistical models in Python"},
+    ],
+    "edges": [
+        {"from": 1, "to": 2, "label": "prerequisite"},
+        {"from": 1, "to": 3, "label": "prerequisite"},
+        {"from": 1, "to": 4, "label": "prerequisite"},
+        {"from": 1, "to": 5, "label": "prerequisite"},
+        {"from": 1, "to": 6, "label": "prerequisite"},
+        {"from": 1, "to": 7, "label": "prerequisite"},
+        {"from": 1, "to": 8, "label": "prerequisite"},
+        {"from": 1, "to": 9, "label": "prerequisite"},
+    ]
+}

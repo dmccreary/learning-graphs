@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vis.js Graph Network Editor</title>
+  <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <script type="text/javascript" src="graph-editor.js" defer></script>
+  <style>
+    #mynetwork {
+      width: 100%;
+      height: 600px;
+      border: 1px solid lightgray;
+    }
+    #sidebar {
+      float: left;
+      width: 20%;
+      padding: 10px;
+    }
+    #main {
+      margin-left: 22%;
+      padding: 10px;
+    }
+    .stats {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="sidebar">
+  <h3>Graph Editor</h3>
+  <input type="file" id="file-input" accept=".json"><br><br>
+  <button onclick="addNode()">Add Node</button>
+  <button onclick="addEdge()">Add Edge</button><br><br>
+  <button onclick="editSelected()">Edit Selected</button>
+  <button onclick="deleteSelected()">Delete Selected</button><br><br>
+  <button onclick="saveGraph()">Save</button>
+  <button onclick="saveAsGraph()">Save As</button><br><br>
+  <button onclick="changeGlobalOptions()">Global Options</button>
+  <div class="stats" id="stats"></div>
+</div>
+
+<div id="main">
+  <div id="mynetwork"></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+    "nodes": [
+        {"id": 1, "label": "Node 1", "color": "red", "shape": "triangle"},
+        {"id": 2, "label": "Node 2", "color": "orange", "shape": "square"},
+        {"id": 3, "label": "Node 3", "color": "gold", "shape": "circle"},
+        {"id": 4, "label": "Node 4", "color": "green", "shape": "box", "size": 50, "font": {"color": "white"}},
+        {"id": 5, "label": "Node 5", "color": "blue", "shape": "star"},
+        {"id": 6, "label": "Node 6", "color": "purple", "shape": "ellipse", "font": {"color": "white"}}
+    ],
+    "edges": [
+        {"from": 1, "to": 3},
+        {"from": 1, "to": 2},
+        {"from": 2, "to": 4},
+        {"from": 2, "to": 5},
+        {"from": 3, "to": 6}
+    ]
+}

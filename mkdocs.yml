@@ -25,6 +25,10 @@ nav:
     - Customizing Lesson Plans: chapters/16-customizing-lesson-plans.md
     - LMS Integration: chapters/17-lms-integration.md
     - Building Intelligent Agents: chapters/18-agents.md
+  - Vis:
+    - Intro: vis/index.md
+    - Editor: vis/graph-editor/index.md
+
   - Glossary: glossary.md
   - How We Built This Site: how-we-built-this-site.md
   - References: references.md
