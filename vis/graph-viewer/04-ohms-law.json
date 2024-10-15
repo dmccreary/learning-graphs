@@ -1,0 +1,17 @@
+{
+    "nodes": [
+      { "id": 1, "label": "Ohm's Law", "color": "wheat", "size": 150, "x": 150, "y": 0, "fixed": true, "font": { "size": 24 } },
+      { "id": 2, "label": "Voltage", "color": "tan" },
+      { "id": 3, "label": "Current", "color": "tan" },
+      { "id": 4, "label": "Resistance", "color": "tan" },
+      { "id": 5, "label": "Linear Equations", "color": "coral", "shape": "box", "x": -150, "y": 0, "fixed": true }
+    ],
+  
+    "edges": [
+      { "from": 1, "to": 2, "arrows": "to", "label": "DEPENDS_ON" },
+      { "from": 1, "to": 3, "arrows": "to", "label": "DEPENDS_ON" },
+      { "from": 1, "to": 4, "arrows": "to", "label": "DEPENDS_ON" },
+      { "from": 1, "to": 5, "arrows": "to", "label": "DEPENDS_ON" }
+    ]
+  }
+  
