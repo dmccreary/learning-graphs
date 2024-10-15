@@ -3,7 +3,6 @@
 <head>
   <title>Vis.js Graph Viewer</title>
   <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
-  <script type="text/javascript" src="graph-editor.js" defer></script>
   <style>
     #mynetwork {
       width: 100%;
@@ -40,7 +39,7 @@
   <!-- Checkbox for displaying the legend -->
   <label><input type="checkbox" id="legend-checkbox" onchange="toggleLegend()"> Display Legend</label><br><br>
 
-  <div class="stats" id="stats">stats</div>
+  <div class="stats" id="stats">Nodes: 0<br>Edges: 0</div>
   
   <div id="legend"></div>
 </div>
@@ -48,6 +47,7 @@
 <div id="main">
   <div id="mynetwork"></div>
 </div>
+<script type="text/javascript" src="graph-viewer.js" defer></script>
 
 </body>
 </html>
