@@ -25,6 +25,8 @@ nav:
     - Customizing Lesson Plans: chapters/16-customizing-lesson-plans.md
     - LMS Integration: chapters/17-lms-integration.md
     - Building Intelligent Agents: chapters/18-agents.md
+  - Case Studies:
+    - Low-Latency: case-studies/low-latency.md
   - Vis:
     - Intro: vis/index.md
     - Graph Viewer: vis/graph-viewer/index.md
