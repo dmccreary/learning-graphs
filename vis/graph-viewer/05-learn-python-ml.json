@@ -24,13 +24,13 @@
         {"id": 1012, "label": "Level 12 Concept", "group": 12, "shape": "box", "x": -150, "y": 70, "fixed": true}
     ],
     "edges": [
-        {"from": 1, "to": 2, "label": "prerequisite"},
-        {"from": 1, "to": 3, "label": "prerequisite"},
-        {"from": 1, "to": 4, "label": "prerequisite"},
-        {"from": 1, "to": 5, "label": "prerequisite"},
-        {"from": 1, "to": 6, "label": "prerequisite"},
-        {"from": 1, "to": 7, "label": "prerequisite"},
-        {"from": 1, "to": 8, "label": "prerequisite"},
-        {"from": 1, "to": 9, "label": "prerequisite"}
+        {"from": 1, "to": 2, "arrows": "to", "label": "prerequisite"},
+        {"from": 1, "to": 3, "arrows": "to", "label": "prerequisite"},
+        {"from": 1, "to": 4, "arrows": "to", "label": "prerequisite"},
+        {"from": 1, "to": 5, "arrows": "to", "label": "prerequisite"},
+        {"from": 1, "to": 6, "arrows": "to", "label": "prerequisite"},
+        {"from": 1, "to": 7, "arrows": "to", "label": "prerequisite"},
+        {"from": 1, "to": 8, "arrows": "to", "label": "prerequisite"},
+        {"from": 1, "to": 9, "arrows": "to", "label": "prerequisite"}
     ]
 }

@@ -46,6 +46,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/learning-graphs/case-studies/</loc>
+         <lastmod>2024-10-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/case-studies/low-latency/</loc>
+         <lastmod>2024-10-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/learning-graphs/chapters/</loc>
          <lastmod>2024-10-15</lastmod>
          <changefreq>daily</changefreq>
@@ -177,6 +187,11 @@
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/learn-python/</loc>
+         <lastmod>2024-10-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/vis/legends/</loc>
          <lastmod>2024-10-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
