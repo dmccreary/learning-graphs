@@ -1,4 +1,4 @@
-# Learning Graph
+# Learning Graphs
 
 ![](./img/cover-banner-image.png)
 
