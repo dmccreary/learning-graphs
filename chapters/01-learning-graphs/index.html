@@ -1243,13 +1243,13 @@
 
 
 <h1 id="learning-graphs">Learning Graphs</h1>
-<p>In this chapter, we introduce you to the foundational data structures that are used
-by intelligent agents that build customized lesson plans for each student: The Learning Graph.</p>
+<p>In this chapter, we introduce you to the foundational data structure used
+by intelligent agents that build customized lesson plans for
+each student: The Learning Graph.</p>
 <h2 id="what-are-learning-graphs">What Are Learning Graphs?</h2>
 <p>Learning graphs are network graph that stores learning <a href="../../glossary/#concept">Concepts</a> and their dependencies.</p>
-<p>Learning graphs are a type of <a href="../../glossary/#directed-graph">Directed Graphs</a> where every node is a learning Concept
-and every edge is a concept dependency or prerequisite.</p>
-<p>A <strong>Learning Graph</strong> is a powerful representation of knowledge used to model the relationships between different learning concepts and their dependencies. This graph-based approach enables a structured, visual way to map out the sequence in which learners need to acquire knowledge, making it particularly effective for hypercustomized lesson plan generation.</p>
+<p>Learning graphs are a type of <a href="../../glossary/#directed-graph">Directed Graphs</a> where every node is a learning Concept and every edge is a concept dependency or prerequisite.</p>
+<p>A <strong>Learning Graph</strong> is a powerful representation of knowledge used to model the relationships between different learning concepts and their dependencies. This graph-based approach enables a structured, visual way to map out the sequence in which learners need to acquire knowledge, making it particularly effective for <a href="../../glossary/#hyperpersonalization">hyper-personalized</a> lesson plan generation.</p>
 <p>In essence, a learning graph is a type of directed graph where every node represents a learning concept, and each directed edge signifies a prerequisite relationship between two concepts. By modeling the learning process as a graph, we can identify the optimal path a learner should follow to master a specific topic.</p>
 <h3 id="why-learning-graphs-matter">Why Learning Graphs Matter</h3>
 <p>Learning graphs offer several key advantages when designing personalized learning paths:</p>
@@ -1262,10 +1262,11 @@ and every edge is a concept dependency or prerequisite.</p>
 <p>A learning graph is composed of two primary elements:</p>
 <ul>
 <li><strong>Nodes (Concepts)</strong>: Each node represents a distinct learning concept. These could range from fundamental principles, like "Ohm's Law" in an electrical circuits course, to more complex topics like "Neural Networks" in a machine learning course.</li>
-<li><strong>Edges (Prerequisites)</strong>: Each directed edge represents a dependency or prerequisite. For example, a concept such as "Electric Current" must be understood before a learner can grasp "Circuit Resistance."</li>
+<li><strong>Edges (Prerequisites)</strong>: Each directed edge represents a dependency or prerequisite. For example, a concept such as "Addition" or "Subtraction" must be understood before a learner be confident
+they understand "Arithmetic."</li>
 </ul>
-<p><img alt="" src="../../img/arithmetic-dep-graph.png" />
-<caption>
+<p><img alt="" src="../../img/arithmetic-dep-graph.png" /></p>
+<p><caption>
 A diagram showing 5-6 nodes connected by directed edges, illustrating a simple learning path where each node depends on the previous one. For instance, concepts related to mathematics, starting with "Basic Algebra" leading to "Linear Equations" and ending with "Quadratic Functions."
 </caption></p>
 <h2 id="types-of-learning-graphs">Types of Learning Graphs</h2>
