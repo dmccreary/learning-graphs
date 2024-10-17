@@ -1,5 +1,7 @@
 # Learning Graph
 
+![](./img/cover-banner-image.png)
+
 Welcome to the website for Learning Graphs.  Learning
 Graphs are [concept dependency graphs](glossary/#concept-dependency-graph) that are used to:
 
