@@ -4,7 +4,9 @@
 
 [Fix X Positions Demo](./fix-x-positions.html)
 
+[Fix X Positions V2](./fix-x-positions-2.html)
 
+[Fix X Positions V3](./fix-x-positions-3.html)
 
 ## Prompt
 
