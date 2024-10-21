@@ -31,7 +31,12 @@ nav:
     - Intro: vis/index.md
     - Graph Viewer: vis/graph-viewer/index.md
     - Editor: vis/graph-editor/index.md
-
+    - Lab 1 - Default Behavior: vis/lab-01.md
+    - Lab 2 - JSON: vis/lab-02.md
+    - Lab 3 - Node Properties:  vis/lab-03.md
+    - Lab 4 - Edge Properties: vis/lab-04.md
+    - Physics Parameters: vis/physics-params/index.md
+    - Fix X Positions: vis/fix-x-positions/index.md
   - Glossary: glossary.md
   - How We Built This Site: how-we-built-this-site.md
   - References: references.md
@@ -39,17 +44,15 @@ nav:
   - License: license.md
   - Contact: contact.md
  
-# CoderDojo Microsite Standards from here down
+# Dan's MicroSite Standards from here down
 
 theme:
   name: material
-  extra_css:
-    - styles/custom.css
-  # logo: img/my-icon.png
-  # favicon: img/my-icon.png
+  logo: img/logo.png
+  favicon: img/favicon.ico
   palette:
-    primary: 'blue'
-    accent: 'orange'
+    primary: 'orange'
+    accent: 'blue'
   include_sidebar: true
   features:
     - content.code.copy
@@ -70,8 +73,11 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
   - attr_list
+  - md_in_html
   - pymdownx.highlight:
       linenums: true
+extra_css:
+  - css/extra.css
 #extra:
 #  analytics:
 #    provider: google

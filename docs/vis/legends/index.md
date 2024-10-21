@@ -1,5 +1,11 @@
 # Learning Graph Legends
 
+<figure markdown="span">
+  ![Image title](https://dummyimage.com/600x400/){ width="300" }
+  <figcaption>Image caption</figcaption>
+</figure>
+
+
 A legend is a key that shows you what different shapes, icons, images and colors imply
 in your learning graphs.
 There are several ways to place a legend on your learning graph
