@@ -8,6 +8,10 @@
 
 [Fix X Positions V3](./fix-x-positions-3.html)
 
+[Fix X Positions V4](./fix-x-positions-4.html)
+
+[Fix X Positions V5](./fix-x-positions-5.html)
+
 ## Prompt
 
 ```
