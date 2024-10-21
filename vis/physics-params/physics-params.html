@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>vis.js Physics Parameters Demo</title>
+  <!-- Include vis.js library -->
+  <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <style type="text/css">
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    #network {
+      width: 800px;
+      height: 600px;
+      border: 1px solid lightgray;
+      margin-bottom: 20px;
+    }
+    .slider-container {
+      margin: 10px 0;
+    }
+    .slider-label {
+      display: inline-block;
+      width: 190px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="network"></div>
+
+<div class="slider-container">
+  <label class="slider-label" for="repulsion">Repulsion (Node Distance):</label>
+  <input type="range" id="repulsion" min="50" max="500" value="100" step="10">
+  <span id="repulsion-value">100</span>
+</div>
+
+<div class="slider-container">
+  <label class="slider-label" for="gravity">Central Gravity:</label>
+  <input type="range" id="gravity" min="0" max="1" value="0.3" step="0.01">
+  <span id="gravity-value">0.30</span>
+</div>
+
+<div class="slider-container">
+  <label class="slider-label" for="damping">Damping:</label>
+  <input type="range" id="damping" min="0" max="1" value="0.09" step="0.01">
+  <span id="damping-value">0.09</span>
+</div>
+
+<script type="text/javascript">
+  // Create nodes and edges for the network
+  var nodes = new vis.DataSet([
+    {id: 1, label: 'Node 1'},
+    {id: 2, label: 'Node 2'},
+    {id: 3, label: 'Node 3'},
+    {id: 4, label: 'Node 4'},
+    {id: 5, label: 'Node 5'},
+    {id: 6, label: 'Node 6'},
+    {id: 7, label: 'Node 7'}
+  ]);
+
+  var edges = new vis.DataSet([
+    {from: 1, to: 2},
+    {from: 1, to: 3},
+    {from: 2, to: 4},
+    {from: 2, to: 5},
+    {from: 3, to: 6},
+    {from: 3, to: 7}
+  ]);
+
+  // Get the container element
+  var container = document.getElementById('network');
+
+  // Initial physics options
+  var physicsOptions = {
+    repulsion: {
+      centralGravity: 0.3,
+      nodeDistance: 100,
+      damping: 0.09
+    },
+    solver: 'repulsion'
+  };
+
+  // Initialize the network
+  var data = {nodes: nodes, edges: edges};
+  var options = {physics: physicsOptions};
+  var network = new vis.Network(container, data, options);
+
+  // Function to update physics options
+  function updatePhysics() {
+    network.setOptions({physics: physicsOptions});
+  }
+
+  // Event listeners for sliders
+  document.getElementById('repulsion').addEventListener('input', function () {
+    var value = parseInt(this.value);
+    document.getElementById('repulsion-value').innerText = value;
+    physicsOptions.repulsion.nodeDistance = value;
+    updatePhysics();
+  });
+
+  document.getElementById('gravity').addEventListener('input', function () {
+    var value = parseFloat(this.value).toFixed(2);
+    document.getElementById('gravity-value').innerText = value;
+    physicsOptions.repulsion.centralGravity = parseFloat(value);
+    updatePhysics();
+  });
+
+  document.getElementById('damping').addEventListener('input', function () {
+    var value = parseFloat(this.value).toFixed(2);
+    document.getElementById('damping-value').innerText = value;
+    physicsOptions.repulsion.damping = parseFloat(value);
+    updatePhysics();
+  });
+</script>
+
+</body>
+</html>
