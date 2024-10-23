@@ -1,10 +1,10 @@
 // Define the nodes without fixed x values
 var nodes = new vis.DataSet([
-    { id: 1, label: "Foundation 1", "shape": "box", group: 1 },
-    { id: 2, label: "Foundation 2", "shape": "box", group: 1 },
-    { id: 3, label: "Foundation 3", "shape": "box", group: 1 },
-    { id: 4, label: "Foundation 4", "shape": "box", group: 1 },
-    { id: 5, label: "Foundation 5", "shape": "box", group: 1 },
+    { id: 1, label: "Foundation 1", group: 1 },
+    { id: 2, label: "Foundation 2", group: 1 },
+    { id: 3, label: "Foundation 3", group: 1 },
+    { id: 4, label: "Foundation 4", group: 1 },
+    { id: 5, label: "Foundation 5", group: 1 },
 
     { id: 21, label: "Level 2.1 (21)", group: 2},
     { id: 22, label: "Level 2.2 (22)", group: 2},
@@ -27,10 +27,12 @@ var nodes = new vis.DataSet([
 // Function to fix the x positions for groups 1 and 12 after the data is loaded
 nodes.forEach(function (node) {
     if (node.group === 1) {
-        node.x = -1000;
+        node.x = -500;
+        node.shape = "box";
         node.fixed = { x: true, y: false }; // Fix x, but let y be adjusted by physics
     } else if (node.group === 12) {
-        node.x = 1000;
+        node.x = 500;
+        node.shape = "star";
         node.fixed = { x: true, y: false }; // Fix x, but let y be adjusted by physics
     }
 });
@@ -78,50 +80,48 @@ var data = {
     edges: edges
 };
 
-// Configuration options
 var options = {
     physics: {
-      enabled: true,
-      solver: 'forceAtlas2Based',
-      stabilization: {
-        iterations: 1000,
-        updateInterval: 25
-      },
-      forceAtlas2Based: {
-        gravitationalConstant: -50,
-        centralGravity: 0.01,
-        springLength: 50,  // Reduce this to make edges shorter
-        springConstant: 0.08
-      }
+        enabled: true,
+        solver: 'forceAtlas2Based',
+        stabilization: {
+            iterations: 1000,
+            updateInterval: 25
+        },
+        forceAtlas2Based: {
+            gravitationalConstant: -50,
+            centralGravity: 0.01,
+            springLength: 50,  // Reduce this to make edges shorter
+            springConstant: 0.08
+        }
     },
     layout: {
-      improvedLayout: true, // Prevent node overlap
+        improvedLayout: true, // Prevent node overlap
     },
     interaction: { 
-      dragNodes: true // Allow dragging of nodes
+        dragNodes: true // Allow dragging of nodes
     },
     edges: {
         arrows: {
-          to: {
-            enabled: true,
-            type: 'arrow',
-            scaleFactor: 1
-          }
+            to: {
+                enabled: true,
+                type: 'arrow',
+                scaleFactor: 1
+            }
         },
         smooth: {
-          type: 'continuous'
+            type: 'continuous' // Smooth edges
         }
-      },
-    // Optional: Define how nodes behave when fixed
+    },
     nodes: {
-      shape: 'dot',
-      size: 20,
-      font: {
-        size: 14,
-        color: 'black'
-      },
-      borderWidth: 2,
-      borderWidthSelected: 4
+        shape: 'dot',
+        size: 20,
+        font: {
+            size: 14,
+            color: 'black'
+        },
+        borderWidth: 2,
+        borderWidthSelected: 4
     }
 };
 

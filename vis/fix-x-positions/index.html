@@ -675,6 +675,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#lab-2-loading-from-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lab 2 - Loading From JSON
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#prompt" class="md-nav__link">
     <span class="md-ellipsis">
       Prompt
@@ -888,6 +897,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#lab-2-loading-from-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lab 2 - Loading From JSON
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#prompt" class="md-nav__link">
     <span class="md-ellipsis">
       Prompt
@@ -963,12 +981,91 @@
 
 <h1 id="fix-the-x-positions">Fix the X Positions</h1>
 <p><img alt="" src="fix-x-positions.png" /></p>
+<p>In this lesson, we learn how to control the X placement of both
+the foundational concepts to the left and goals to the right
+of the network.</p>
+<p>Here is how the JSON data will look to disable the X movement:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;nodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Foundation 1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;box&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span>
+<span class="w">        </span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-400</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-200</span><span class="p">,</span><span class="w"> </span>
+<span class="w">        </span><span class="nt">&quot;fixed&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nt">&quot;physics&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Foundation 2&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;box&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span>
+<span class="w">        </span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-400</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-150</span><span class="p">,</span><span class="w"> </span>
+<span class="w">        </span><span class="nt">&quot;fixed&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nt">&quot;physics&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Foundation 3&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;box&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span>
+<span class="w">        </span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-400</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-100</span><span class="p">,</span><span class="w"> </span>
+<span class="w">        </span><span class="nt">&quot;fixed&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nt">&quot;physics&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">},</span>
+<span class="p">]}</span>
+</code></pre></div></td></tr></table></div>
+<p>These foundation concepts must be placed on the left edge, around x=-400.
+But we want to also prevent their X locations from getting moved.
+So we use the <code>fixed</code> option and indicate that only the x element is fixed.</p>
 <p><a href="fix-x-positions.html">Fix X Positions Demo</a></p>
-<p><a href="fix-x-positions-2.html">Fix X Positions V2</a></p>
+<p>We </p>
+<h2 id="lab-2-loading-from-json">Lab 2 - Loading From JSON</h2>
+<p>In this lab, we successfully load our graph data from this <a href="graph.json">graph.json</a> file,
+but the nodes placement and instructions to disable the physics is ignored.</p>
+<p><a href="fix-x-positions-2.html">Fix X Positions V2</a> </p>
 <p><a href="fix-x-positions-3.html">Fix X Positions V3</a></p>
 <p><a href="fix-x-positions-4.html">Fix X Positions V4</a></p>
 <p><a href="fix-x-positions-5.html">Fix X Positions V5</a></p>
-<p><a href="fix-x-positions-6.html">Fix X Positions V6</a></p>
+<p><a href="fix-x-positions-6.html">Fix X Positions V6</a> - where group 1 and group 12
+have their X positions pinned to x=-1000 and x=1000 respectively.</p>
+<p>The code that fixes the x positions for nodes in groups 1 and 12 is
+executed immediately after the nodes are created.
+Since the function is written within a forEach
+loop right after the nodes are defined, it runs
+automatically when the script is loaded.
+No explicit function call is needed because the function
+is not declared separately;
+it is an inline anonymous function applied to the nodes directly.</p>
+<p><a href="fix-x-positions-7.html">Fix X Positions V7</a> - where we shorten distance
+between the left and right x positions to be 500, not 1000.</p>
+<p>An alternative that might be easier to work with is to create
+a function that fixes the left and right nodes:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Function to fix x positions for specific groups</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">fixXPositions</span><span class="p">(</span><span class="nx">nodes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">nodes</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">group</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">node</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mf">500</span><span class="p">;</span>
+<span class="w">            </span><span class="nx">node</span><span class="p">.</span><span class="nx">fixed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// Fix x, but let y be adjusted by physics</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">group</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">12</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">node</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">500</span><span class="p">;</span>
+<span class="w">            </span><span class="nx">node</span><span class="p">.</span><span class="nx">fixed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// Fix x, but let y be adjusted by physics</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">}</span>
+
+<span class="c1">// After defining nodes, call the function</span>
+<span class="nx">fixXPositions</span><span class="p">(</span><span class="nx">nodes</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p><a href="fix-x-positions-8.html">Fix X Positions V8</a> -</p>
 <h2 id="prompt">Prompt</h2>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
