@@ -12,6 +12,8 @@
 
 [Fix X Positions V5](./fix-x-positions-5.html)
 
+[Fix X Positions V6](./fix-x-positions-6.html)
+
 ## Prompt
 
 ```
