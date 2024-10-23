@@ -28,8 +28,8 @@
       { "id": 34, "label": "Level 3.4 (34)", "group": 3, "physics": true },
       { "id": 35, "label": "Level 3.5 (35)", "group": 3, "physics": true },
       { "id": 36, "label": "Level 3.6 (36)", "group": 3, "physics": true },
-      { "id": 37, "label": "Level 3.7 (37)", "group": 3, "x": 100, "y": 0, "fixed": { "x": true, "y": false }, "physics": true },
-      { "id": 38, "label": "Level 3.8 (38)", "group": 3, "x": 100, "y": 0, "fixed": { "x": true, "y": false }, "physics": true },
+      { "id": 37, "label": "Level 3.7 (37)", "group": 3, "physics": true },
+      { "id": 38, "label": "Level 3.8 (38)", "group": 3, "physics": true },
 
       { "id": 101, "label": "Goal 1 (101)", "shape": "star", "group": 12, "x": 300, "y": -150, "fixed": { "x": true, "y": false }, "physics": false },
       { "id": 102, "label": "Goal 2 (102)", "shape": "star", "group": 12, "x": 300, "y": 0, "fixed": { "x": true, "y": false }, "physics": false },
