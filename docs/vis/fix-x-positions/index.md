@@ -2,9 +2,31 @@
 
 ![](./fix-x-positions.png)
 
+## Left to Right Concept Graphs
+
 In this lesson, we learn how to control the X placement of both
-the foundational concepts to the left and goals to the right
-of the network.
+the [foundational concepts](../../glossary.md#foundational-concepts) to the **left** of a concept
+dependency graph and goals to the right
+of the network.  This allows us to consistently view
+a learning graph from prerequisite concepts on the left
+and goals on the right.
+
+## Order of Labs
+
+Our first examples will manually have us label each
+of the nodes that disable the physics for x-placement
+of the nodes in the correct locations.  Later, we
+show that you can add a JavaScript function that will
+automatically apply placement rules to nodes in groups.
+This make preparing data much simpler.
+
+## Background on the Physics of Springs
+
+To place nodes on a 2-dimensional surface so they are
+automatically spread apart, we simulated the forces
+on springs.  The springs will pull connected nodes closer
+together on the drawing canvas, but not so close that they
+get stacked on top of each other or overlap too much.
 
 Here is how the JSON data will look to disable the X movement:
 
@@ -23,13 +45,38 @@ Here is how the JSON data will look to disable the X movement:
 ]}
 ```
 
-These foundation concepts must be placed on the left edge, around x=-400.
+The foundation concepts above must be placed on the left edge, around x=-400.
 But we want to also prevent their X locations from getting moved.
 So we use the ```fixed``` option and indicate that only the x element is fixed.
 
+## Use of Vis.js Group Property
+
+Vis.js allows each node in a graph to belong to a single group.  By
+convention, we use group 1 as the group for all Foundation Concepts.
+We also use group 12 for goal concepts, since that is a good number
+to set as the maximum dependency level to reach a goal within a course.
+
+By convention, any concepts that only depend on a Foundation Concept
+are considered to be in level 2 concepts.  If a concept depends on a level 2 concept
+it is called a level 3 concept.  In these demos, we will be using
+a group number that indicates the group number = (number of hops +1) from a foundation concept.
+
 [Fix X Positions Demo](./fix-x-positions.html)
 
-We 
+!!! Warning
+    We must also disable the ```Improved Layout``` which attempts to prevent
+    overlap of the nodes.  Unfortunately, when we use fixed positioning on some
+    nodes this causes conflicts.
+
+```json
+options: {
+   physics: { ...
+   },
+   layout: {
+        "improvedLayout": false, // Prevent node overlap
+  }
+}
+```
 
 ## Lab 2 - Loading From JSON
 

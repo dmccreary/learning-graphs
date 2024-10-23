@@ -10,10 +10,11 @@
 
 #### Directed Graph
 
+#### Foundational Concepts
+
 #### Generative AI
 
 ### HyperPersonalization
-
 
 #### ISO Definition
 
@@ -35,6 +36,8 @@ and every edge is a concept dependency or prerequisite.
 #### Learning Objective
 
 #### Learning Path
+
+#### Node Group
 
 #### Preferred Label
 
