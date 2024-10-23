@@ -1,0 +1,22 @@
+{"nodes": [
+    {"id": 1, "label": "Basic Algebra"},
+    {"id": 2, "label": "Functions and Relations"},
+    {"id": 3, "label": "Trigonometry"},
+    {"id": 4, "label": "Linear Algebra"},
+    {"id": 5, "label": "Derivatives"},
+    {"id": 6, "label": "Integrals"},
+    {"id": 7, "label": "Calculus"},
+    {"id": 8, "label": "Differential Equations"},
+    {"id": 9, "label": "Graph Theory"}],
+"edges": [
+    {"from": 1, "to": 2}, 
+    {"from": 1, "to": 3}, 
+    {"from": 1, "to": 4}, 
+    {"from": 2, "to": 3}, 
+    {"from": 2, "to": 5}, 
+    {"from": 3, "to": 5}, 
+    {"from": 4, "to": 7}, 
+    {"from": 4, "to": 9}, 
+    {"from": 5, "to": 6}, 
+    {"from": 7, "to": 8}
+]}

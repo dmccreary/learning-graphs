@@ -321,6 +321,8 @@
       
         
       
+        
+      
     
     
     
@@ -797,6 +799,42 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#why-visjs-for-learning-graph-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why vis.js for Learning Graph Networks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview-of-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview of Steps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-graph-file-setup-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Graph File Setup Steps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-graph-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Graph Visualization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#basic-properties-of-nodes-and-edges" class="md-nav__link">
     <span class="md-ellipsis">
       Basic Properties of Nodes and Edges
@@ -918,6 +956,37 @@
 <h1 id="vis-tutorials">Vis Tutorials</h1>
 <p>This section provides guidelines for using the vis.js JavaScript library for
 displaying and editing learning graphs.</p>
+<h2 id="why-visjs-for-learning-graph-networks">Why vis.js for Learning Graph Networks</h2>
+<p>Although there are many JavaScript libraries
+that display graph networks, vis.js has a good combination of
+default features, sample code and an active developer community
+that makes it a good fit for learning graph networks.</p>
+<h2 id="overview-of-steps">Overview of Steps</h2>
+<h2 id="learning-graph-file-setup-steps">Learning Graph File Setup Steps</h2>
+<ol>
+<li>Use generative AI to generate a CSV file of a learning graph.<ol>
+<li>Create a clear course description with prerequisites and goals using [Bloom's Taxonomy]</li>
+<li>Enumerate Concepts</li>
+<li>Find <a href="../glossary/#concept-dependency">Concept dependencies</a></li>
+<li>Generate a taxonomy of concepts and place in groups.json</li>
+<li>Add a classifier to each Concept</li>
+<li>Validate the learning graph network</li>
+</ol>
+</li>
+<li>Convert this learning graph to JSON format.</li>
+<li>Use an enricher to add group="1" to all <a href="../glossary/#foundational-concepts">foundational concepts</a> and group="12" to goals</li>
+</ol>
+<h2 id="learning-graph-visualization">Learning Graph Visualization</h2>
+<ol>
+<li>Load graph data from a JSON file and the legend from groups.json</li>
+<li>Log any problems such as missing foundation, goals or orphan nodes and set NODE_COUNT</li>
+<li>Count the number of nodes and estimate the graph X-dimension CANVAS-WIDTH</li>
+<li>Run the enrich_nodes() function which will:<ol>
+<li>Add a x=-CANVAS_WIDTH/2 to foundation nodes and set the shape to "box"</li>
+<li>Add a x=CANVAS_WIDTH/2 to goal nodes and set the shape to be "star"</li>
+</ol>
+</li>
+</ol>
 <h2 id="basic-properties-of-nodes-and-edges">Basic Properties of Nodes and Edges</h2>
 <h3 id="lab-1-default-behavior">Lab 1: Default Behavior</h3>
 <p><a href="lab-01/">Lab 1: Default Behavior</a></p>
