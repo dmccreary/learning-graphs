@@ -79,7 +79,7 @@ var nodes = new vis.DataSet([
       },
     },
     layout: {
-      improvedLayout: true, // Prevent node overlap
+      improvedLayout: false, // Prevent node overlap
     },
     interaction: { 
       dragNodes: true // Allow dragging of nodes

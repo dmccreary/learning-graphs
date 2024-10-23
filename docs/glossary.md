@@ -4,7 +4,13 @@
 
 #### Alternate Label
 
+#### Bloom's Taxonomy
+
+![blooms-taxonomy](./img/blooms-taxonomy.png)
+
 #### Concept
+
+#### Concept Dependency
 
 #### Concept Dependency Graph
 

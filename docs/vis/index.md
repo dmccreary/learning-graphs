@@ -3,6 +3,36 @@
 This section provides guidelines for using the vis.js JavaScript library for
 displaying and editing learning graphs.
 
+## Why vis.js for Learning Graph Networks
+
+Although there are many JavaScript libraries
+that display graph networks, vis.js has a good combination of
+default features, sample code and an active developer community
+that makes it a good fit for learning graph networks.
+
+## Overview of Steps
+
+## Learning Graph File Setup Steps
+
+1. Use generative AI to generate a CSV file of a learning graph.
+    1. Create a clear course description with prerequisites and goals using [Bloom's Taxonomy]
+    1. Enumerate Concepts
+    1. Find [Concept dependencies](../glossary.md#concept-dependency)
+    1. Generate a taxonomy of concepts and place in groups.json
+    1. Add a classifier to each Concept
+    1. Validate the learning graph network
+2. Convert this learning graph to JSON format.
+3. Use an enricher to add group="1" to all [foundational concepts](../glossary.md#foundational-concepts) and group="12" to goals
+
+## Learning Graph Visualization
+
+1. Load graph data from a JSON file and the legend from groups.json
+2. Log any problems such as missing foundation, goals or orphan nodes and set NODE_COUNT
+3. Count the number of nodes and estimate the graph X-dimension CANVAS-WIDTH
+4. Run the enrich_nodes() function which will:
+    1. Add a x=-CANVAS_WIDTH/2 to foundation nodes and set the shape to "box"
+    2. Add a x=CANVAS_WIDTH/2 to goal nodes and set the shape to be "star"
+
 ## Basic Properties of Nodes and Edges
 
 ### Lab 1: Default Behavior

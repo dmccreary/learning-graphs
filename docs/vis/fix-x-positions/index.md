@@ -78,6 +78,10 @@ options: {
 }
 ```
 
+## Simple Demo
+
+[Simple Demo](simple-demo.html)
+
 ## Lab 2 - Loading From JSON
 
 In this lab, we successfully load our graph data from this [graph.json](graph.json) file,

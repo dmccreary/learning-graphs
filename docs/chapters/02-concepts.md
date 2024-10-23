@@ -2,6 +2,8 @@
 
 In this course, it is important to give the term "concept" a precise definition.  Borrowing from the World-Wide-Web (W3C) standard for storing knowledge (SKOS), here is the definition for the term "concept" they use:
 
+## Definition for Learning Graphs
+
 **SKOS Definition of Concept:** A unit of thought, an idea, or a notion, which is considered as an atomic unit of meaning within a given context.
 
 This is a broad definition and to make it a little more useful, we will add one additional property: let's require concepts to have a name.  We also refine "given context" to a specific learning context such as a course or curriculum.  Here is the full definition we can use for this course:
@@ -14,6 +16,13 @@ There are certainly concepts that don't have names.  Our neocortex stores around
 concepts have a name.  Technically, the primary name given
 to a concept is called a [Preferred Label](../glossary.md#preferred-label).
 If a concept has other names they are called [Alternate Labels](../glossary.md#alternate-label)
+
+## Concepts vs. Content
+
+It is important to not confused an abstract Named Concept from specific content such as
+a lesson plan, a wikipedia page, an instructional simulation (MicroSim) or
+a video.  In general, content has references to one or more concepts, but concepts
+are more atomic building blocks that help us arrange content.
 
 ## How Many Concepts in a High School Course?
 

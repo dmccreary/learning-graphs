@@ -13,6 +13,7 @@ nav:
   - Chapters:
     - Table of Contents: chapters/index.md
     - Learning Graphs: chapters/01-learning-graphs.md
+    - Bloom's Taxonomy: chapters/02-blooms-taxonomy.md
     - Concepts: chapters/02-concepts.md
     - Concept Dependency: chapters/03-concept-dependency.md
     - Concept Taxonomies: chapters/04-concept-taxonomies.md
