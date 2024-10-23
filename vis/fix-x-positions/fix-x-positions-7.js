@@ -13,11 +13,11 @@ var nodes = new vis.DataSet([
     { id: 25, label: "Level 2.2 (25)", group: 2},
 
     { id: 31, label: "Level 3.1 (31)", group: 3},
-    { id: 32, label: "Level 3.2 (32)", group: 3, x: 100, y: 0, fixed: false },
-    { id: 33, label: "Level 3.3 (33)", group: 3, x: 100, y: 100, fixed: false },
-    { id: 34, label: "Level 3.1 (34)", group: 3, x: 100, y: -100, fixed: false },
-    { id: 35, label: "Level 3.2 (35)", group: 3, x: 100, y: 0, fixed: false },
-    { id: 36, label: "Level 3.3 (36)", group: 3, x: 100, y: 100, fixed: false },
+    { id: 32, label: "Level 3.2 (32)", group: 3},
+    { id: 33, label: "Level 3.3 (33)", group: 3},
+    { id: 34, label: "Level 3.1 (34)", group: 3},
+    { id: 35, label: "Level 3.2 (35)", group: 3},
+    { id: 36, label: "Level 3.3 (36)", group: 3},
 
     { id: 100, label: "Goal 1 (100)", group: 12 },
     { id: 101, label: "Goal 2 (101)", group: 12 },
@@ -27,11 +27,11 @@ var nodes = new vis.DataSet([
 // Function to fix the x positions for groups 1 and 12 after the data is loaded
 nodes.forEach(function (node) {
     if (node.group === 1) {
-        node.x = -500;
+        node.x = -400;
         node.shape = "box";
         node.fixed = { x: true, y: false }; // Fix x, but let y be adjusted by physics
     } else if (node.group === 12) {
-        node.x = 500;
+        node.x = 400;
         node.shape = "star";
         node.fixed = { x: true, y: false }; // Fix x, but let y be adjusted by physics
     }
@@ -96,7 +96,7 @@ var options = {
         }
     },
     layout: {
-        improvedLayout: true, // Prevent node overlap
+        improvedLayout: false, // Prevent node overlap
     },
     interaction: { 
         dragNodes: true // Allow dragging of nodes

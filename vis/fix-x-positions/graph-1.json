@@ -29,12 +29,8 @@
       { "id": 35, "label": "Level 3.5 (35)", "group": 3, "physics": true },
       { "id": 36, "label": "Level 3.6 (36)", "group": 3, "physics": true },
       { "id": 37, "label": "Level 3.7 (37)", "group": 3, "x": 100, "y": 0, "fixed": { "x": true, "y": false }, "physics": true },
-      { "id": 38, "label": "Level 3.8 (38)", "group": 3, "x": 100, "y": 0, "fixed": { "x": true, "y": false }, "physics": true },
-
-      { "id": 101, "label": "Goal 1 (101)", "shape": "star", "group": 12, "x": 300, "y": -150, "fixed": { "x": true, "y": false }, "physics": false },
-      { "id": 102, "label": "Goal 2 (102)", "shape": "star", "group": 12, "x": 300, "y": 0, "fixed": { "x": true, "y": false }, "physics": false },
-      { "id": 103, "label": "Goal 3 (103)", "shape": "star", "group": 12, "x": 300, "y": 150, "fixed": { "x": true, "y": false }, "physics": false }
-    ],
+      { "id": 38, "label": "Level 3.8 (38)", "group": 3, "x": 100, "y": 0, "fixed": { "x": true, "y": false }, "physics": true }
+  ],
     "edges": [
       { "from": 20, "to": 1 },
       { "from": 21, "to": 2 },
@@ -63,21 +59,7 @@
       { "from": 36, "to": 24 },
       { "from": 36, "to": 25 },
       { "from": 36, "to": 26 },
-      { "from": 37, "to": 27 },
-      { "from": 38, "to": 28 },
-      { "from": 38, "to": 29 },
-
-
-      { "from": 101, "to": 30 },
-      { "from": 101, "to": 31 },
-      { "from": 101, "to": 32 },
-      { "from": 102, "to": 33 },
-      { "from": 102, "to": 34 },
-      { "from": 102, "to": 35 },
-      { "from": 103, "to": 35 },
-      { "from": 103, "to": 36 },
-      { "from": 103, "to": 37 },
-      { "from": 103, "to": 38 }
+      { "from": 37, "to": 27 }
     ]
   }
   
