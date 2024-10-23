@@ -2,9 +2,41 @@
 
 ![](./fix-x-positions.png)
 
+In this lesson, we learn how to control the X placement of both
+the foundational concepts to the left and goals to the right
+of the network.
+
+Here is how the JSON data will look to disable the X movement:
+
+```json
+{
+    "nodes": [
+      { "id": 1, "label": "Foundation 1", "shape": "box", "group": 1, 
+        "x": -400, "y": -200, 
+        "fixed": { "x": true, "y": false }, "physics": false },
+      { "id": 2, "label": "Foundation 2", "shape": "box", "group": 1, 
+        "x": -400, "y": -150, 
+        "fixed": { "x": true, "y": false }, "physics": false },
+      { "id": 3, "label": "Foundation 3", "shape": "box", "group": 1, 
+        "x": -400, "y": -100, 
+        "fixed": { "x": true, "y": false }, "physics": false },
+]}
+```
+
+These foundation concepts must be placed on the left edge, around x=-400.
+But we want to also prevent their X locations from getting moved.
+So we use the ```fixed``` option and indicate that only the x element is fixed.
+
 [Fix X Positions Demo](./fix-x-positions.html)
 
-[Fix X Positions V2](./fix-x-positions-2.html)
+We 
+
+## Lab 2 - Loading From JSON
+
+In this lab, we successfully load our graph data from this [graph.json](graph.json) file,
+but the nodes placement and instructions to disable the physics is ignored.
+
+[Fix X Positions V2](./fix-x-positions-2.html) 
 
 [Fix X Positions V3](./fix-x-positions-3.html)
 
@@ -12,8 +44,44 @@
 
 [Fix X Positions V5](./fix-x-positions-5.html)
 
-[Fix X Positions V6](./fix-x-positions-6.html)
+[Fix X Positions V6](./fix-x-positions-6.html) - where group 1 and group 12
+have their X positions pinned to x=-1000 and x=1000 respectively.
 
+The code that fixes the x positions for nodes in groups 1 and 12 is
+executed immediately after the nodes are created.
+Since the function is written within a forEach
+loop right after the nodes are defined, it runs
+automatically when the script is loaded.
+No explicit function call is needed because the function
+is not declared separately;
+it is an inline anonymous function applied to the nodes directly.
+
+
+[Fix X Positions V7](./fix-x-positions-7.html) - where we shorten distance
+between the left and right x positions to be 500, not 1000.
+
+An alternative that might be easier to work with is to create
+a function that fixes the left and right nodes:
+
+```javascript
+// Function to fix x positions for specific groups
+function fixXPositions(nodes) {
+    nodes.forEach(function (node) {
+        if (node.group === 1) {
+            node.x = -500;
+            node.fixed = { x: true, y: false }; // Fix x, but let y be adjusted by physics
+        } else if (node.group === 12) {
+            node.x = 500;
+            node.fixed = { x: true, y: false }; // Fix x, but let y be adjusted by physics
+        }
+    });
+}
+
+// After defining nodes, call the function
+fixXPositions(nodes);
+```
+
+[Fix X Positions V8](./fix-x-positions-8.html) -
 ## Prompt
 
 ```

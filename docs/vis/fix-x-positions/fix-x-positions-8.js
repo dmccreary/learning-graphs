@@ -1,10 +1,10 @@
 // Define the nodes without fixed x values
 var nodes = new vis.DataSet([
-    { id: 1, label: "Foundation 1", "shape": "box", group: 1 },
-    { id: 2, label: "Foundation 2", "shape": "box", group: 1 },
-    { id: 3, label: "Foundation 3", "shape": "box", group: 1 },
-    { id: 4, label: "Foundation 4", "shape": "box", group: 1 },
-    { id: 5, label: "Foundation 5", "shape": "box", group: 1 },
+    { id: 1, label: "Foundation 1", group: 1 },
+    { id: 2, label: "Foundation 2", group: 1 },
+    { id: 3, label: "Foundation 3", group: 1 },
+    { id: 4, label: "Foundation 4", group: 1 },
+    { id: 5, label: "Foundation 5", group: 1 },
 
     { id: 21, label: "Level 2.1 (21)", group: 2},
     { id: 22, label: "Level 2.2 (22)", group: 2},
@@ -13,9 +13,9 @@ var nodes = new vis.DataSet([
     { id: 25, label: "Level 2.2 (25)", group: 2},
 
     { id: 31, label: "Level 3.1 (31)", group: 3},
-    { id: 32, label: "Level 3.2 (32)", group: 3, x: 100, y: 0, fixed: false },
-    { id: 33, label: "Level 3.3 (33)", group: 3, x: 100, y: 100, fixed: false },
-    { id: 34, label: "Level 3.1 (34)", group: 3, x: 100, y: -100, fixed: false },
+    { id: 32, label: "Level 3.2 (32)", group: 3},
+    { id: 33, label: "Level 3.3 (33)", group: 3},
+    { id: 34, label: "Level 3.1 (34)", group: 3},
     { id: 35, label: "Level 3.2 (35)", group: 3, x: 100, y: 0, fixed: false },
     { id: 36, label: "Level 3.3 (36)", group: 3, x: 100, y: 100, fixed: false },
 
@@ -24,16 +24,38 @@ var nodes = new vis.DataSet([
     { id: 102, label: "Goal 3 (102)", group: 12 }
 ]);
 
+// Function to fix x positions for specific groups
+function fixXPositions(nodes) {
+    nodes.forEach(function (node) {
+        if (node.group === 1) {
+            node.x = -400;
+            node.shape = "box";
+            node.fixed = { x: true, y: false }; // Fix x, but let y be adjusted by physics
+        } else if (node.group === 12) {
+            node.x = 400;
+            node.shape = "star";
+            node.fixed = { x: true, y: false }; // Fix x, but let y be adjusted by physics
+        }
+    });
+}
+
+// After defining nodes, call the function
+fixXPositions(nodes);
+
 // Function to fix the x positions for groups 1 and 12 after the data is loaded
+/*
 nodes.forEach(function (node) {
     if (node.group === 1) {
-        node.x = -1000;
+        node.x = -500;
+        node.shape = "box";
         node.fixed = { x: true, y: false }; // Fix x, but let y be adjusted by physics
     } else if (node.group === 12) {
-        node.x = 1000;
+        node.x = 500;
+        node.shape = "star";
         node.fixed = { x: true, y: false }; // Fix x, but let y be adjusted by physics
     }
 });
+*/
 
 // Define the edges between nodes
 var edges = new vis.DataSet([
@@ -78,50 +100,48 @@ var data = {
     edges: edges
 };
 
-// Configuration options
 var options = {
     physics: {
-      enabled: true,
-      solver: 'forceAtlas2Based',
-      stabilization: {
-        iterations: 1000,
-        updateInterval: 25
-      },
-      forceAtlas2Based: {
-        gravitationalConstant: -50,
-        centralGravity: 0.01,
-        springLength: 50,  // Reduce this to make edges shorter
-        springConstant: 0.08
-      }
+        enabled: true,
+        solver: 'forceAtlas2Based',
+        stabilization: {
+            iterations: 1000,
+            updateInterval: 25
+        },
+        forceAtlas2Based: {
+            gravitationalConstant: -50,
+            centralGravity: 0.01,
+            springLength: 50,  // Reduce this to make edges shorter
+            springConstant: 0.08
+        }
     },
     layout: {
-      improvedLayout: true, // Prevent node overlap
+        improvedLayout: true, // Prevent node overlap
     },
     interaction: { 
-      dragNodes: true // Allow dragging of nodes
+        dragNodes: true // Allow dragging of nodes
     },
     edges: {
         arrows: {
-          to: {
-            enabled: true,
-            type: 'arrow',
-            scaleFactor: 1
-          }
+            to: {
+                enabled: true,
+                type: 'arrow',
+                scaleFactor: 1
+            }
         },
         smooth: {
-          type: 'continuous'
+            type: 'continuous' // Smooth edges
         }
-      },
-    // Optional: Define how nodes behave when fixed
+    },
     nodes: {
-      shape: 'dot',
-      size: 20,
-      font: {
-        size: 14,
-        color: 'black'
-      },
-      borderWidth: 2,
-      borderWidthSelected: 4
+        shape: 'dot',
+        size: 20,
+        font: {
+            size: 14,
+            color: 'black'
+        },
+        borderWidth: 2,
+        borderWidthSelected: 4
     }
 };
 
