@@ -181,6 +181,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/learning-graphs/vis/lab-05/</loc>
+         <lastmod>2024-10-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/csv-reader/</loc>
          <lastmod>2024-10-25</lastmod>
          <changefreq>daily</changefreq>

@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lab-4-custom-shape" class="md-skip">
+        <a href="#lab-4-edge-properties" class="md-skip">
           Skip to content
         </a>
       
@@ -665,18 +665,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#html-code" class="md-nav__link">
+  <a href="#javascript-code" class="md-nav__link">
     <span class="md-ellipsis">
-      HTML Code:
+      JavaScript Code:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#explanation" class="md-nav__link">
+  <a href="#instructions-for-use" class="md-nav__link">
     <span class="md-ellipsis">
-      Explanation:
+      Instructions for Use:
     </span>
   </a>
   
@@ -1110,18 +1110,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#html-code" class="md-nav__link">
+  <a href="#javascript-code" class="md-nav__link">
     <span class="md-ellipsis">
-      HTML Code:
+      JavaScript Code:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#explanation" class="md-nav__link">
+  <a href="#instructions-for-use" class="md-nav__link">
     <span class="md-ellipsis">
-      Explanation:
+      Instructions for Use:
     </span>
   </a>
   
@@ -1150,10 +1150,22 @@
   
 
 
-<h1 id="lab-4-custom-shape">Lab 4: Custom Shape</h1>
-<p><a href="../lab-04.html">Lab 4 Custom Shapes HTML</a></p>
-<p>Here's a small example of a <code>vis.js</code> program that uses the <code>ctxRenderer</code> function to draw a custom hexagonal shape for a node:</p>
-<h3 id="html-code">HTML Code:</h3>
+<h1 id="lab-4-edge-properties">Lab 4: Edge Properties</h1>
+<iframe src="../lab-04.html" height="320px" width="620px"></iframe>
+
+<p><a href="../lab-04.html">Lab 4 Edge HTML</a></p>
+<p>Here's a small example of a <code>vis.js</code> program that shows edge properties:</p>
+<ol>
+<li>Edge Labels</li>
+<li>Edge Color</li>
+<li>Edge Width</li>
+<li>Edge Dashes</li>
+<li>Color Opacity</li>
+<li>Hover Color</li>
+<li>Highlight Color</li>
+<li>Arrows</li>
+</ol>
+<h3 id="javascript-code">JavaScript Code:</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1203,120 +1215,69 @@
 <span class="normal">47</span>
 <span class="normal">48</span>
 <span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span>
-<span class="normal">63</span>
-<span class="normal">64</span>
-<span class="normal">65</span>
-<span class="normal">66</span>
-<span class="normal">67</span>
-<span class="normal">68</span>
-<span class="normal">69</span>
-<span class="normal">70</span>
-<span class="normal">71</span>
-<span class="normal">72</span>
-<span class="normal">73</span>
-<span class="normal">74</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>vis.js Custom Shape Example<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://unpkg.com/vis-network/standalone/umd/vis-network.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">style</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span><span class="p">&gt;</span>
-<span class="w">        </span><span class="p">#</span><span class="nn">mynetwork</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">            </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">            </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="kc">lightgray</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;mynetwork&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="normal">50</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Fetch data from the JSON file</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;lab-04.json&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Parse the data from JSON</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">nodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">DataSet</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">nodes</span><span class="p">);</span>
 
-<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">customShapeRenderer</span><span class="p">({</span><span class="w"> </span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">selected</span><span class="p">,</span><span class="w"> </span><span class="nx">hover</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">style</span><span class="p">.</span><span class="nx">size</span><span class="p">;</span><span class="w">  </span><span class="c1">// size of the shape (radius)</span>
-<span class="w">        </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
-<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">sides</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">6</span><span class="p">;</span><span class="w">  </span><span class="c1">// number of sides for the hexagon</span>
-<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">sides</span><span class="p">;</span><span class="w">  </span><span class="c1">// angle between sides</span>
+<span class="w">        </span><span class="c1">// Define edges with additional properties</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">edges</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">DataSet</span><span class="p">([</span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Edge 1-3&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;red&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span>
+<span class="w">               </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">arrows</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;to&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Edge 1-2&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">               </span><span class="nx">highlight</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;purple&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span>
+<span class="w">               </span><span class="nx">arrows</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">enabled</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;arrow&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span>
+<span class="w">               </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">enabled</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;circle&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Edge 2-4&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;green&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span>
+<span class="w">            </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">dashes</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Edge 2-5&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;orange&#39;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">            </span><span class="nx">hover</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;yellow&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="nx">arrows</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;middle&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">6</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Edge 3-6&#39;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">            </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;purple&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">opacity</span><span class="o">:</span><span class="w"> </span><span class="mf">0.7</span><span class="w"> </span><span class="p">},</span><span class="w"> </span>
+<span class="w">            </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">arrows</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;to&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]);</span>
 
-<span class="w">        </span><span class="c1">// Start drawing the hexagon</span>
-<span class="w">        </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="mf">0</span><span class="p">),</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="mf">0</span><span class="p">));</span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nx">sides</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">i</span><span class="p">),</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">i</span><span class="p">));</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">closePath</span><span class="p">();</span>
-<span class="w">        </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
-<span class="w">        </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">selected</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;blue&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;red&#39;</span><span class="p">;</span><span class="w">  </span><span class="c1">// change color if selected</span>
-<span class="w">        </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
-<span class="w">        </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">strokeStyle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">hover</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;orange&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;black&#39;</span><span class="p">;</span><span class="w">  </span><span class="c1">// change stroke if hovered</span>
-<span class="w">        </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">stroke</span><span class="p">();</span>
-<span class="w">        </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">restore</span><span class="p">();</span>
-
-<span class="w">        </span><span class="c1">// Add label inside the shape</span>
-<span class="w">        </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">font</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;normal 12px sans-serif&quot;</span><span class="p">;</span>
-<span class="w">        </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;black&#39;</span><span class="p">;</span>
-<span class="w">        </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="s1">&#39;Custom Node&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">4</span><span class="p">);</span>
-
-<span class="w">        </span><span class="c1">// Return dimensions of the node</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nx">nodeDimensions</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="c1">// Create a network</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;mynetwork&#39;</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">networkData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">nodes</span><span class="o">:</span><span class="w"> </span><span class="nx">nodes</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">edges</span><span class="o">:</span><span class="w"> </span><span class="nx">edges</span>
 <span class="w">        </span><span class="p">};</span>
-<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="c1">// Create nodes and edges</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">nodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">DataSet</span><span class="p">([</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
-<span class="w">            </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Custom Node&#39;</span><span class="p">,</span>
-<span class="w">            </span><span class="nx">shape</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;custom&#39;</span><span class="p">,</span>
-<span class="w">            </span><span class="nx">ctxRenderer</span><span class="o">:</span><span class="w"> </span><span class="nx">customShapeRenderer</span><span class="p">,</span><span class="w">  </span><span class="c1">// specify the custom renderer</span>
-<span class="w">            </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="mf">40</span><span class="w">  </span><span class="c1">// set the size of the node</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">]);</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">edges</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">font</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="mf">14</span><span class="p">,</span>
+<span class="w">                    </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nx">align</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;horizontal&#39;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nx">smooth</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;cubicBezier&#39;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nx">forceDirection</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nx">roundness</span><span class="o">:</span><span class="w"> </span><span class="mf">0.4</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">};</span>
 
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">edges</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">DataSet</span><span class="p">([]);</span>
-
-<span class="w">    </span><span class="c1">// Create the network</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;mynetwork&#39;</span><span class="p">);</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">nodes</span><span class="o">:</span><span class="w"> </span><span class="nx">nodes</span><span class="p">,</span>
-<span class="w">        </span><span class="nx">edges</span><span class="o">:</span><span class="w"> </span><span class="nx">edges</span>
-<span class="w">    </span><span class="p">};</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">network</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">Network</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="nx">options</span><span class="p">);</span>
-<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="w">        </span><span class="c1">// Initialize the network</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">network</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">Network</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span><span class="w"> </span><span class="nx">networkData</span><span class="p">,</span><span class="w"> </span><span class="nx">options</span><span class="p">);</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="w">    </span><span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Error loading the network data:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">));</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="explanation">Explanation:</h3>
-<ul>
-<li><strong>Custom Renderer (<code>customShapeRenderer</code>)</strong>: This function creates a hexagonal node. It takes the context (<code>ctx</code>) and node state as input, calculates the position of each side of the hexagon, and draws the shape using the <code>canvas</code> API.<ul>
-<li>The node is filled with red unless it is selected, in which case it becomes blue.</li>
-<li>The stroke color is black but changes to orange when the node is hovered over.</li>
-<li>The label "Custom Node" is drawn inside the hexagon.</li>
+<h2 id="instructions-for-use">Instructions for Use:</h2>
+<ol>
+<li><strong>HTML Setup</strong>: We use <a href="../lab-04.html">lab-04.html</a> to load this new script.</li>
+<li><strong>Edge Configuration</strong>: Each edge is customized to demonstrate properties like:<ul>
+<li><strong>Label</strong>: Displays a label on each edge.</li>
+<li><strong>Color</strong>: Sets custom colors and highlights.</li>
+<li><strong>Width</strong>: Adjusts the thickness of edges.</li>
+<li><strong>Arrows</strong>: Adds directional arrows with different placements.</li>
 </ul>
 </li>
-<li><strong>Node Configuration</strong>: The node uses the <code>shape: 'custom'</code> property to specify that it should use a custom renderer. The <code>ctxRenderer</code> property is set to the <code>customShapeRenderer</code> function.</li>
-<li><strong>Node Dimensions</strong>: The size of the hexagonal node is defined by the <code>r</code> variable, which is passed in via <code>style.size</code>.</li>
-</ul>
-<p>When you load this HTML file in a browser, it will draw a single hexagonal node with the ability to change color when selected or hovered. You can easily modify the shape or style further by changing the drawing logic inside the <code>customShapeRenderer</code> function.</p>
-<p>4o</p>
-<p>requestAnimationFrame((function(){window.__oai_logTTI?window.__oai_logTTI():window.__oai_SSR_TTI=window.__oai_SSR_TTI??Date.now()}))</p>
-<p>ChatGPT can make mistakes. Check important info.</p>
+</ol>
+<p>This setup offers a variety of options for exploring edge properties in vis.js networks.</p>
 
 
 
