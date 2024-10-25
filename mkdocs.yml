@@ -38,6 +38,13 @@ nav:
     - Lab 4 - Edge Properties: vis/lab-04.md
     - Physics Parameters: vis/physics-params/index.md
     - Fix X Positions: vis/fix-x-positions/index.md
+  - Sample Prompts:
+    - Introduction: prompts/index.md
+    - Course Description: prompts/01-course-description.md
+    - Concept Enumeration: prompts/02-concept-enumeration.md
+    - Concept Dependencies: prompts/03-concept-dependencies.md
+    - Concept Taxonomies: prompts/04-concept-taxonomies.md
+    - Concept Viewer: prompts/05-concept-viewer.md
   - Glossary: glossary.md
   - How We Built This Site: how-we-built-this-site.md
   - References: references.md
