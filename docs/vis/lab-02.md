@@ -1,5 +1,7 @@
 # Lab 2: JSON
 
+<iframe src="../lab-02.html" height="320px" width="320px"></iframe>
+
 [Run Lab 2](./lab-02.html)
 
 ## Prompt

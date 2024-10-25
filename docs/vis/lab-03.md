@@ -1,6 +1,6 @@
 # Vis Tutorial Lesson 3: Node Properties
 
-![](./lab-03.png)
+<iframe src="../lab-03.html" height="320px" width="620px"></iframe>
 
 [Run Lab 3 HTML](lab-03.html)
 

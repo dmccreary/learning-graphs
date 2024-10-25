@@ -51,9 +51,13 @@ Learn the Properties of a Node
 
 [Lab 3: Node Properties](lab-03.md)
 
-## Lab 4 - Custom Shapes
+## Lab 4 - Edge Shapes
 
-[Lab 4 - Custom Shapes](./lab-04.html)
+[Lab 4 - Edge Properties](./lab-04.html)
+
+## Lab 5 - Custom Shapes
+
+[Lab 4 - Custom Shapes](./lab-05.html)
 
 ## Examples
 

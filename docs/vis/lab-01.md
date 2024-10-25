@@ -1,5 +1,7 @@
 # Vis Tutorial 1
 
+<iframe src="../lab-01.html" height="320px" width="320px"></iframe>
+
 [Lab 1](./lab-01.html)
 
 ```html
@@ -9,9 +11,10 @@
 
     <style type="text/css">
         #mynetwork {
-            width: 600px;
-            height: 400px;
-            border: 1px solid lightgray;
+            width: 300px;
+            height: 300px;
+            background-color: aliceblue;
+            border: 1px solid silver;
         }
     </style>
 </head>
