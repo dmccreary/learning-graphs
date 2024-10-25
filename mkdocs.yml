@@ -44,7 +44,7 @@ nav:
     - vis/learn-python/index.md
     - vis/legends/index.md
     - vis/node-enricher/index.md
-- sims/graph-viewer/index.md
+    - sims/graph-viewer/index.md
   - Sample Prompts:
     - Introduction: prompts/index.md
     - Course Description: prompts/01-course-description.md
