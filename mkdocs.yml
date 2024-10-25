@@ -27,6 +27,7 @@ nav:
     - LMS Integration: chapters/17-lms-integration.md
     - Building Intelligent Agents: chapters/18-agents.md
   - Case Studies:
+    - case-studies/index.md
     - Low-Latency: case-studies/low-latency.md
   - Vis:
     - Intro: vis/index.md
@@ -45,12 +46,13 @@ nav:
     - vis/legends/index.md
     - vis/node-enricher/index.md
     - sims/graph-viewer/index.md
+    - vis/fix-x-positions/index.md
   - Sample Prompts:
     - Introduction: prompts/index.md
     - Course Description: prompts/01-course-description.md
     - Concept Enumeration: prompts/02-concept-enumeration.md
     - Concept Dependencies: prompts/03-concept-dependencies.md
-    - Concept Taxonomies: prompts/04-concept-taxonomies.md
+    - Concept Taxonomies: prompts/04-taxonomies.md
     - Concept Viewer: prompts/05-concept-viewer.md
   - Glossary: glossary.md
   - How We Built This Site: how-we-built-this-site.md
