@@ -438,10 +438,6 @@
         
       
         
-      
-        
-      
-        
           
         
       
@@ -449,6 +445,8 @@
       
         
           
+        
+      
         
       
         
@@ -599,6 +597,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#adding-details-to-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding Details to Node
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chatgpt-said" class="md-nav__link">
+    <span class="md-ellipsis">
+      ChatGPT said:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ChatGPT said:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#updated-javascript-for-node-creationediting-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updated JavaScript for Node Creation/Editing Form
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
       References
@@ -728,7 +759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../fix-x" class="md-nav__link">
+      <a href="../fix-x-positions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -791,11 +822,11 @@
   
   
     <li class="md-nav__item">
-      <a href="prompt-history/" class="md-nav__link">
+      <a href="index.md.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Prompt History for Graph Editor
+    Graph Editor
   </span>
   
 
@@ -837,7 +868,7 @@
         
   
   <span class="md-ellipsis">
-    Learning Graph Legends
+    Legends
   </span>
   
 
@@ -879,28 +910,7 @@
         
   
   <span class="md-ellipsis">
-    Index
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../fix-x-positions/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Fix the X Positions
+    Graph Viewer
   </span>
   
 
@@ -1137,6 +1147,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#adding-details-to-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding Details to Node
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chatgpt-said" class="md-nav__link">
+    <span class="md-ellipsis">
+      ChatGPT said:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ChatGPT said:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#updated-javascript-for-node-creationediting-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updated JavaScript for Node Creation/Editing Form
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
       References
@@ -1184,6 +1227,46 @@ Perform checks on data quality as a new file is opened such as edges without nod
 </code></pre></div>
 <h2 id="graph-editor-check-for-network">Graph Editor Check for Network</h2>
 <p><a href="graph-editor-cfn.html">Check for Network after Load of JSON data</a></p>
+<h2 id="adding-details-to-node">Adding Details to Node</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code>What are the most common properties that a user sets on a node? I can think of the following: 
+1. Label 
+2. Title (for hover text) 
+3. Shape (selected from a list of shapes) 
+4. Size 
+5. Background color (select from list) 
+6. Edge color (select from list) 
+7. x 
+8. y 
+9. Fixed location (checkbox) 
+
+What other parameters might a person change? Update the JavaScript to allow all these parameters to be visible when creating a new node or updating a node.
+</code></pre></div></td></tr></table></div>
+<h2 id="chatgpt-said">ChatGPT said:</h2>
+<p>In addition to the properties you've already listed, here are some other common node properties that users might want to set:</p>
+<ol>
+<li><strong>Image</strong> (for image-based nodes, with a URL to an image)</li>
+<li><strong>Font</strong> (size, color, face for the label)</li>
+<li><strong>Border Width</strong> (controls the thickness of the node's border)</li>
+<li><strong>Border Color</strong> (set separately from edge color, allows customization of node outline)</li>
+<li><strong>Opacity</strong> (allows transparency on nodes)</li>
+<li><strong>Shadow</strong> (option to add shadows for depth perception)</li>
+<li><strong>Group</strong> (used to assign nodes into categories for different styles or behaviors)</li>
+<li><strong>Icon</strong> (if using icons instead of labels)</li>
+<li><strong>Physics</strong> (whether the node is affected by physics simulation)</li>
+</ol>
+<h3 id="updated-javascript-for-node-creationediting-form">Updated JavaScript for Node Creation/Editing Form</h3>
+<p>Here is an updated version of your <strong>graph-editor.js</strong> that includes a form for setting all these parameters when creating or editing nodes:</p>
 <h2 id="references">References</h2>
 <p><a href="https://github.com/metacognitive-technology/tinkertiny/tree/main">Sam Adams TinkerTiny Vis.js Graph Editor</a> - an interesting UI.  One time code commit in 2022.</p>
 

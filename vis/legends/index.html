@@ -26,7 +26,7 @@
     
     
       
-        <title>Learning Graph Legends - Learning Graphs</title>
+        <title>Legends - Learning Graphs</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Learning Graph Legends
+              Legends
             
           </span>
         </div>
@@ -438,10 +438,6 @@
         
       
         
-      
-        
-      
-        
           
         
       
@@ -449,6 +445,8 @@
       
         
           
+        
+      
         
       
         
@@ -661,7 +659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../fix-x" class="md-nav__link">
+      <a href="../fix-x-positions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -724,11 +722,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../graph-editor/prompt-history/" class="md-nav__link">
+      <a href="../graph-editor/index.md.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Prompt History for Graph Editor
+    Graph Editor
   </span>
   
 
@@ -779,7 +777,7 @@
           
   
   <span class="md-ellipsis">
-    Learning Graph Legends
+    Legends
   </span>
   
 
@@ -790,7 +788,7 @@
         
   
   <span class="md-ellipsis">
-    Learning Graph Legends
+    Legends
   </span>
   
 
@@ -812,11 +810,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#node-legend" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Legend
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#html-table-legend" class="md-nav__link">
     <span class="md-ellipsis">
       HTML Table Legend
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#felxbox-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Felxbox Layout
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Felxbox Layout">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -870,28 +901,7 @@
         
   
   <span class="md-ellipsis">
-    Index
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../fix-x-positions/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Fix the X Positions
+    Graph Viewer
   </span>
   
 
@@ -1110,11 +1120,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#node-legend" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Legend
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#html-table-legend" class="md-nav__link">
     <span class="md-ellipsis">
       HTML Table Legend
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#felxbox-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Felxbox Layout
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Felxbox Layout">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1151,19 +1194,106 @@
 
 
 <h1 id="learning-graph-legends">Learning Graph Legends</h1>
-<figure>
-  <img alt="Image title" src="https://dummyimage.com/600x400/" width="300" />
-  <figcaption>Image caption</figcaption>
-</figure>
 <p>A legend is a key that shows you what different shapes, icons, images and colors imply
-in your learning graphs.
-There are several ways to place a legend on your learning graph
+in your learning graphs.  We will demo two ways to place a legend on your learning graph
 and each method has tradeoffs.</p>
+<p><a href="node-legend.html">Node Legend</a> - which uses nodes in the upper left area to
+show the legend.  This legend tends to move around based on the scale of the
+graph layout.</p>
+<p><a href="html-legend.html">HTML Table Legend</a> - which uses a HTML table in a
+CSS flexbox to display the legend.</p>
+<h2 id="node-legend">Node Legend</h2>
+<p>Here is a good example:
+<img alt="" src="node-legend-good.png" /></p>
+<p>Here is a bad example where the actual nodes overlap the legend.
+<img alt="" src="node-legend-bad.png" /></p>
 <h2 id="html-table-legend">HTML Table Legend</h2>
 <p>HTML tables usually are located in a fixed position of the edge of a graph viewer.
+In the example above, we use a left-sidebar.
 They have the benefit of having a regular structure that is easy to align.
 They can also be configured to appear and disappear if the screen region
 is needed for viewing the full graph.</p>
+<h2 id="felxbox-layout">Felxbox Layout</h2>
+<p>The flexbox layout strategy allows us to just put in an HTML table with
+an max value.  All the other region dimensions are calculated automatically with CSS.</p>
+<h3 id="explanation">Explanation:</h3>
+<ul>
+<li><code>display: flex</code> on the <code>body</code> element allows <code>#sidebar</code> and <code>#main</code> to sit side by side.</li>
+<li><code>#sidebar</code> automatically resizes based on its content, constrained by <code>max-width</code>.</li>
+<li><code>#main</code> with <code>flex: 1</code> takes up the remaining available space.</li>
+</ul>
+<p>This approach avoids conflicts and should handle dynamic sizing for the sidebar smoothly.
+Here’s an and example of the CSS using flexbox for layout control:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;sidebar&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Legend Sidebar<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
+          <span class="cm">&lt;!--  table data here --&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;main&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;mynetwork&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">body</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="n">Arial</span><span class="p">,</span><span class="w"> </span><span class="n">Helvetica</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">#</span><span class="nn">sidebar</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span><span class="w"> </span><span class="c">/* Automatically adjust width based on content in the table */</span>
+<span class="w">    </span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="kt">px</span><span class="p">;</span><span class="w"> </span><span class="c">/* Set a maximum width to avoid excessive size */</span>
+<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="p">;</span><span class="w"> </span><span class="c">/* around the sidebar */</span>
+<span class="w">    </span><span class="k">margin-right</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span><span class="w"> </span><span class="c">/* Space between sidebar and main content */</span>
+<span class="w">    </span><span class="k">box-sizing</span><span class="p">:</span><span class="w"> </span><span class="kc">border-box</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">#</span><span class="nn">main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">flex</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c">/* Takes up remaining space to the right */</span>
+<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">#</span><span class="nn">mynetwork</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="w">    </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">700</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">aliceblue</span><span class="p">;</span>
+<span class="w">    </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="kc">lightgray</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
 <h2 id="node-legends">Node Legends</h2>
 <p><a href="https://visjs.github.io/vis-network/examples/network/exampleApplications/nodeLegend.html"></a></p>
 <p>https://jsfiddle.net/adgd87/szt7h6kv/19/</p>
