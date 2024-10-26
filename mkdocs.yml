@@ -38,15 +38,14 @@ nav:
     - Lab 3 - Node Properties:  vis/lab-03.md
     - Lab 4 - Edge Properties: vis/lab-04.md
     - Physics Parameters: vis/physics-params/index.md
-    - Fix X Positions: vis/fix-x             
+    - Fix X Positions: vis/fix-x-positions/index.md            
     - vis/concept-dependency-graph.md
     - vis/csv-reader/index.md
-    - vis/graph-editor/prompt-history.md
+    - Graph Editor: vis/graph-editor/index.md.md
     - vis/learn-python/index.md
-    - vis/legends/index.md
+    - Legends: vis/legends/index.md
     - vis/node-enricher/index.md
-    - sims/graph-viewer/index.md
-    - vis/fix-x-positions/index.md
+    - Graph Viewer: sims/graph-viewer/index.md
   - Sample Prompts:
     - Introduction: prompts/index.md
     - Course Description: prompts/01-course-description.md

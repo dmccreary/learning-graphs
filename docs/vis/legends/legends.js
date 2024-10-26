@@ -1,3 +1,4 @@
+// Icon Legend
 // https://jsfiddle.net/adgd87/szt7h6kv/19/
 var iconSize = 20;
 var legendIconSize = 40;
