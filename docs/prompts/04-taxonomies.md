@@ -10,7 +10,17 @@ To generate a taxonomy using an LLM, you can craft a prompt that provides clear 
 
 ### Sample Taxonomy Prompt
 
-You are given the following list of concepts. Your task is to organize these concepts into a taxonomy by grouping them into appropriate categories. Each category should include concepts that share similar characteristics, functions, or applications. Suggest 7-10 categories for the taxonomy and assign each concept to one or more categories. Ensure that the categories cover a range of concept types, including abstract ideas, practical applications, common misunderstandings, and real-world examples. Avoid redundancy and ensure that each category is distinct.
+```linenumbs="0"
+You are given the following list of concepts. Your task is to
+organize these concepts into a taxonomy by grouping them into
+appropriate categories. Each category should include concepts
+that share similar characteristics, functions, or applications.
+Suggest 7-10 categories for the taxonomy and assign each concept
+to one or more categories. Ensure that the categories cover
+a range of concept types, including abstract ideas, practical
+applications, common misunderstandings, and real-world examples.
+Avoid redundancy and ensure that each category is distinct.
+```
 
 **List of Concepts:**
 

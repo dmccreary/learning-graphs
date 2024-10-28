@@ -2,6 +2,7 @@
 
 ## Sample Prompt
 
+```linenums="0"
 Below is a course description of a course on SUBJECT
 I am teaching at a local HIGH SCHOOL, COLLEGE or University.
 Please generate a list of the 150 core concepts that
