@@ -33,5 +33,9 @@ directly in the HTML.
 
 ## Single File Template With Legend
 
+This is another single-file HTML template file with the CSS and JavaScript
+embedded directly in the HTML.  The addition is a collapsible sidebar
+that displays the legend and graph statistics.
+
 [Single HTML File With Legend](./single-html-file-with-legend.html)
 

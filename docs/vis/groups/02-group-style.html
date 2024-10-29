@@ -1,0 +1,94 @@
+<html>
+<head>
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+
+    <style type="text/css">
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #mynetwork {
+            width: 400px;
+            height: 300px;
+            background-color: aliceblue;
+            border: 1px solid silver;
+        }
+    </style>
+</head>
+<body>
+
+<div id="mynetwork"></div>
+
+<a href=".">Back to Lesson Plan</a>
+
+<script type="text/javascript">
+    // create an array with nodes
+    var nodes = new vis.DataSet([
+        {id: 1, label: 'Numbers', group: "Foundation", x: -200, y: -100, fixed: { x: true, y: false }},
+        {id: 2, label: 'Decimals', group: "Foundation", x: -200, y: 100, fixed: { x: true, y: false }},
+        {id: 3, label: 'Addition', group: 2},
+        {id: 4, label: 'Subtraction', group: 2},
+        {id: 5, label: 'Multiplication', group: 2},
+        {id: 6, label: 'Division', group: 2},
+        {id: 7, label: 'Arithmetic', group: "Goal", x: 200, y: 0, fixed: { x: true, y: false }}
+    ]);
+
+    // create an array with edges
+    var edges = new vis.DataSet([
+        {"from": 3, "to": 1},
+        {"from": 4, "to": 1},
+        {"from": 5, "to": 1},
+        {"from": 6, "to": 1},
+        {"from": 3, "to": 2},
+        {"from": 4, "to": 2},
+        {"from": 5, "to": 2},
+        {"from": 6, "to": 2},
+        {"from": 7, "to": 3},
+        {"from": 7, "to": 4},
+        {"from": 7, "to": 5},
+        {"from": 7, "to": 6}
+    ]);
+
+    // create a network
+    var container = document.getElementById('mynetwork');
+
+    // provide the data in the vis format
+    var data = {
+        nodes: nodes,
+        edges: edges
+    };
+    var options = {
+        edges: {
+          arrows: {
+            to: { enabled: true},     // Arrow at the destination
+          },
+          color: {
+                color: 'black',  // Set edge color to black
+                inherit: false     // Ensure color is applied to all edges explicitly
+          },
+          width: 2
+        },
+        physics: {
+            solver: 'forceAtlas2Based',
+            forceAtlas2Based: {
+                springLength: 100          // Higher value for larger spacing
+            }
+        },
+        groups: {
+          Foundation: {
+            shape: "box",
+            color:{background:'red'}, 
+            borderWidth:3
+          },
+          Goal: {
+            shape: "star",
+            color:{background:'gold'}, 
+            borderWidth:3
+          }
+        }
+    };
+
+    // initialize your network!
+    var network = new vis.Network(container, data, options);
+</script>
+</body>
+</html>

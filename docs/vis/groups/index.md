@@ -27,6 +27,7 @@ Each node in a learning graph can have a group attribute:
 
 Note that in the JSON example file, the type of each group is an integer, but strings can also be used:
 
+```json
 {
     "nodes": [
         {"id": 1, "label": "Node 1", "group": "Foundation"},
@@ -53,9 +54,11 @@ within the options.
 var options = {
   groups: {
     Foundation: {color:{background:'red'}, borderWidth:3}
+    Goal: {color:{background:'gold'}, borderWidth:3}
   }
 }
 ```
+[Run Groups Style](./02-group-style.html)
 
 ## References
 
