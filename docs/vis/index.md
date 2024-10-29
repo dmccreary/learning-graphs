@@ -1,7 +1,13 @@
-# Vis Tutorials
+# Vis.js Tutorials For Learning Graphs
 
 This section provides guidelines for using the vis.js JavaScript library for
-displaying and editing learning graphs.
+displaying and editing learning graphs.  We focus on the key features of
+vis.js to support the following key features of a learning graph:
+
+1. Automatic layout of concepts using a force-directed graph layout engine
+2. Support for displaying legends
+3. Support for using groups to display taxonomies
+4. Clustering to hide group complexity
 
 ## Why vis.js for Learning Graph Networks
 
@@ -18,7 +24,7 @@ that makes it a good fit for learning graph networks.
     1. Create a clear course description with prerequisites and goals using [Bloom's Taxonomy]
     1. Enumerate Concepts
     1. Find [Concept dependencies](../glossary.md#concept-dependency)
-    1. Generate a taxonomy of concepts and place in groups.json
+    1. Generate a taxonomy of concepts and place in groups section of a graph.json file
     1. Add a classifier to each Concept
     1. Validate the learning graph network
 2. Convert this learning graph to JSON format.

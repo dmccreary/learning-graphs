@@ -9,15 +9,25 @@ show the legend.  This legend tends to move around based on the scale of the
 graph layout.
 
 [HTML Table Legend](html-legend.html) - which uses a HTML table in a
-CSS flexbox to display the legend.
+CSS flexbox to display the legend.  The HTML table is usually placed
+in a border region such as a left-sidebar.  This allows you to collapse
+the sidebar with a toggle button (hamburger icon).
 
 ## Node Legend
 
-Here is a good example:
+The node legend has the advantage that it can use exactly the same colors, shapes, icons
+and images as the nodes in the actual graph.
+
+Here is a good example of how this might look:
 ![](node-legend-good.png)
+
+Unfortunately, this legend can easily overlap with the actual graph network.
 
 Here is a bad example where the actual nodes overlap the legend.
 ![](node-legend-bad.png)
+
+Sample of how node legends are use is at [node-legend.js](./html-legend.html) which
+was originally taken from the [vis.js node legend example](https://visjs.github.io/vis-network/examples/network/exampleApplications/nodeLegend.html).
 
 ## HTML Table Legend
 
@@ -45,6 +55,7 @@ Here’s an and example of the CSS using flexbox for layout control:
 <body>
     <div id="sidebar">
         <h3>Legend Sidebar</h3>
+        <button id="toggle-button" onclick="toggleSidebar()">&#9776;</button>
         <table>
           <!--  table data here -->
         </table>

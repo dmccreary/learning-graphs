@@ -5,8 +5,12 @@
 ## Prompt
 
 ```linenums="0"
-Create a vis.js program that demonstrates the different parameters in a physics model. Add horizontal sliders to change the physics parameters.
+Create a vis.js program that demonstrates the different
+parameters in a physics model. Add horizontal sliders
+to change the physics parameters.
 ```
+
+## Response
 
 ChatGPT o1-preview thought for 17 seconds
 

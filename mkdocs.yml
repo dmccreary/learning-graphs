@@ -29,7 +29,7 @@ nav:
   - Case Studies:
     - case-studies/index.md
     - Low-Latency: case-studies/low-latency.md
-  - Vis:
+  - Vis.js Tutorial:
     - Intro: vis/index.md
     - Graph Viewer: vis/graph-viewer/index.md
     - Editor: vis/graph-editor/index.md
@@ -45,6 +45,8 @@ nav:
     - Graph Editor: vis/graph-editor/index.md.md
     - vis/learn-python/index.md
     - Legends: vis/legends/index.md
+    - Groups: vis/groups/index.md
+    - Templates: vis/templates/index.md
     - vis/node-enricher/index.md
     - Graph Viewer: sims/graph-viewer/index.md
   - Sample Prompts:

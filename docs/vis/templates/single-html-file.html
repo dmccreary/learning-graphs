@@ -1,0 +1,78 @@
+<html>
+<head>
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <style type="text/css">
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #mynetwork {
+            width: 350px;
+            height: 200px;
+            background-color: aliceblue;
+            border: 1px solid silver;
+        }
+    </style>
+</head>
+<body>
+<div id="mynetwork"></div>
+<br/>
+<a href=".">Back to Lesson Plan</a>
+<script type="text/javascript">
+
+    // create an array of nodes in groups
+    var nodes = new vis.DataSet([
+      // our goal node place on the right and fixed
+      { id: 1, label: "Arithmetic", color: "gold", shape: "star", size: 50, x: 200, y: 0, fixed: { x: true, y: false }, font: { size: 24 } },
+      // default is from the top to the bottom
+      { id: 2, label: "Addition", color: "tan", y: -200},
+      { id: 3, label: "Subtraction", color: "tan", y: -100},
+      { id: 4, label: "Multiplication", color: "tan", y: 100},
+      { id: 5, label: "Division", color: "tan", y: 200},
+      // our foundation node on the left
+      { id: 6, label: "Numbers", color: "coral", shape: "box", x: -200, y: 0, fixed: { x: true, y: false } }
+    ]);
+  
+    var edges = new vis.DataSet([
+      { from: 1, to: 2},
+      { from: 1, to: 3},
+      { from: 1, to: 4},
+      { from: 1, to: 5},
+      { from: 2, to: 6},
+      { from: 3, to: 6},
+      { from: 4, to: 6},
+      { from: 5, to: 6}
+    ]);
+
+    // create a network
+    var container = document.getElementById('mynetwork');
+
+    // provide the data in the vis format
+    var data = {
+        nodes: nodes,
+        edges: edges
+    };
+
+    var options = {
+        edges: {
+            arrows: {
+                to: { enabled: true}
+            },     // Arrow at the destination
+            color: {
+                color: 'black',  // Set edge color to black
+                inherit: false     // Ensure color is applied to all edges explicitly
+            },
+            width: 2               // Set edge width to 2
+        },
+        physics: {
+            solver: 'forceAtlas2Based',
+            forceAtlas2Based: {
+                springLength: 100          // Higher value for larger spacing
+            }
+        }
+    };
+
+    // initialize your network!
+    var network = new vis.Network(container, data, options);
+</script>
+</body>
+</html>
