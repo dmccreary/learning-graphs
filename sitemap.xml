@@ -206,6 +206,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/learning-graphs/vis/groups/</loc>
+         <lastmod>2024-10-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/learn-python/</loc>
          <lastmod>2024-10-29</lastmod>
          <changefreq>daily</changefreq>
@@ -222,6 +227,11 @@
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/physics-params/</loc>
+         <lastmod>2024-10-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/vis/templates/</loc>
          <lastmod>2024-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>

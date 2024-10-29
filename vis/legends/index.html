@@ -18,7 +18,7 @@
         <link rel="prev" href="../learn-python/">
       
       
-        <link rel="next" href="../node-enricher/">
+        <link rel="next" href="../groups/">
       
       
       <link rel="icon" href="../../img/favicon.ico">
@@ -467,6 +467,14 @@
           
         
       
+        
+          
+        
+      
+        
+          
+        
+      
     
     
     
@@ -485,7 +493,7 @@
               
   
   <span class="md-ellipsis">
-    Vis
+    Vis.js Tutorial
   </span>
   
 
@@ -501,7 +509,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            Vis
+            Vis.js Tutorial
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -908,6 +916,48 @@
   
   
     <li class="md-nav__item">
+      <a href="../groups/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Groups
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../templates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Templates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../node-enricher/" class="md-nav__link">
         
   
@@ -1242,12 +1292,19 @@ and each method has tradeoffs.</p>
 show the legend.  This legend tends to move around based on the scale of the
 graph layout.</p>
 <p><a href="html-legend.html">HTML Table Legend</a> - which uses a HTML table in a
-CSS flexbox to display the legend.</p>
+CSS flexbox to display the legend.  The HTML table is usually placed
+in a border region such as a left-sidebar.  This allows you to collapse
+the sidebar with a toggle button (hamburger icon).</p>
 <h2 id="node-legend">Node Legend</h2>
-<p>Here is a good example:
+<p>The node legend has the advantage that it can use exactly the same colors, shapes, icons
+and images as the nodes in the actual graph.</p>
+<p>Here is a good example of how this might look:
 <img alt="" src="node-legend-good.png" /></p>
+<p>Unfortunately, this legend can easily overlap with the actual graph network.</p>
 <p>Here is a bad example where the actual nodes overlap the legend.
 <img alt="" src="node-legend-bad.png" /></p>
+<p>Sample of how node legends are use is at <a href="html-legend.html">node-legend.js</a> which
+was originally taken from the <a href="https://visjs.github.io/vis-network/examples/network/exampleApplications/nodeLegend.html">vis.js node legend example</a>.</p>
 <h2 id="html-table-legend">HTML Table Legend</h2>
 <p>HTML tables usually are located in a fixed position of the edge of a graph viewer.
 In the example above, we use a left-sidebar.
@@ -1275,9 +1332,11 @@ Here’s an and example of the CSS using flexbox for layout control:</p>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;sidebar&quot;</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Legend Sidebar<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;toggle-button&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;toggleSidebar()&quot;</span><span class="p">&gt;</span><span class="ni">&amp;#9776;</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
           <span class="cm">&lt;!--  table data here --&gt;</span>
         <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
@@ -1392,13 +1451,13 @@ Here’s an and example of the CSS using flexbox for layout control:</p>
         
         
           
-          <a href="../node-enricher/" class="md-footer__link md-footer__link--next" aria-label="Next: Vis.js Node Enricher Example">
+          <a href="../groups/" class="md-footer__link md-footer__link--next" aria-label="Next: Groups">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Vis.js Node Enricher Example
+                Groups
               </div>
             </div>
             <div class="md-footer__button md-icon">

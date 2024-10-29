@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#vis-tutorials" class="md-skip">
+        <a href="#visjs-tutorials-for-learning-graphs" class="md-skip">
           Skip to content
         </a>
       
@@ -467,6 +467,14 @@
           
         
       
+        
+          
+        
+      
+        
+          
+        
+      
     
     
     
@@ -485,7 +493,7 @@
               
   
   <span class="md-ellipsis">
-    Vis
+    Vis.js Tutorial
   </span>
   
 
@@ -501,7 +509,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            Vis
+            Vis.js Tutorial
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -792,6 +800,48 @@
   
   <span class="md-ellipsis">
     Legends
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="groups/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Groups
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="templates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Templates
   </span>
   
 
@@ -1215,9 +1265,16 @@
   
 
 
-<h1 id="vis-tutorials">Vis Tutorials</h1>
+<h1 id="visjs-tutorials-for-learning-graphs">Vis.js Tutorials For Learning Graphs</h1>
 <p>This section provides guidelines for using the vis.js JavaScript library for
-displaying and editing learning graphs.</p>
+displaying and editing learning graphs.  We focus on the key features of
+vis.js to support the following key features of a learning graph:</p>
+<ol>
+<li>Automatic layout of concepts using a force-directed graph layout engine</li>
+<li>Support for displaying legends</li>
+<li>Support for using groups to display taxonomies</li>
+<li>Clustering to hide group complexity</li>
+</ol>
 <h2 id="why-visjs-for-learning-graph-networks">Why vis.js for Learning Graph Networks</h2>
 <p>Although there are many JavaScript libraries
 that display graph networks, vis.js has a good combination of
@@ -1230,7 +1287,7 @@ that makes it a good fit for learning graph networks.</p>
 <li>Create a clear course description with prerequisites and goals using [Bloom's Taxonomy]</li>
 <li>Enumerate Concepts</li>
 <li>Find <a href="../glossary/#concept-dependency">Concept dependencies</a></li>
-<li>Generate a taxonomy of concepts and place in groups.json</li>
+<li>Generate a taxonomy of concepts and place in groups section of a graph.json file</li>
 <li>Add a classifier to each Concept</li>
 <li>Validate the learning graph network</li>
 </ol>

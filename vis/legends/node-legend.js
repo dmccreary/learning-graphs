@@ -1,3 +1,6 @@
+
+// example of node-based legend code.
+// taken from https://visjs.github.io/vis-network/examples/network/exampleApplications/nodeLegend.html
 var nodes = null;
 var edges = null;
 var network = null;
