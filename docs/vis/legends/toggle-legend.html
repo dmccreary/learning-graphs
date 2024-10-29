@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Demo of Toggle Sidebar Legend</title>
+  <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <style>
+    body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+}
+
+#sidebar {
+    width: auto; /* Automatically adjust width based on content in the table */
+    max-width: 300px; /* Set a maximum width to avoid excessive size */
+    padding: 5px; /* around the sidebar */
+    margin-right: 10px; /* Space between sidebar and main content */
+    box-sizing: border-box;
+}
+
+#main {
+    flex: 1; /* Takes up remaining space to the right */
+    padding: 10px;
+}
+
+#mynetwork {
+    width: 100%;
+    height: 700px;
+    background-color: aliceblue;
+    border: 1px solid lightgray;
+}
+  </style>
+</head>
+
+<body>
+    <div id="sidebar-container">
+        <button id="toggle-button" onclick="toggleSidebar()">&#9776;</button>
+
+        <div id="sidebar">
+            <h3>Legend Sidebar</h3>
+            <table>
+                <tr>
+                    <td>Foundation</td>
+                    <td style="background-color: red; color: white;">Red</td>
+                </tr>
+                <tr>
+                    <td>Level 1</td>
+                    <td style="background-color: orange;">Orange</td>
+                </tr>
+                <tr>
+                    <td>Level 2</td>
+                    <td style="background-color: yellow;">Yellow</td>
+                </tr>
+                <tr>
+                    <td>Level 3</td>
+                    <td style="background-color: green; color: white;">Green</td>
+                </tr>
+                <tr>
+                    <td>Level 4</td>
+                    <td style="background-color: cyan;">Cyan</td>
+                </tr>
+                <tr>
+                    <td>Level 5</td>
+                    <td style="background-color: blue; color: white;">Blue</td>
+                </tr>
+                <tr>
+                    <td>Level 6</td>
+                    <td style="background-color: indigo; color: white;">Indigo</td>
+                </tr>
+                <tr>
+                    <td>Level 7</td>
+                    <td style="background-color: violet;">Violet</td>
+                </tr>
+                <tr>
+                    <td>Level 8</td>
+                    <td style="background-color: gray; color: white;">Gray</td>
+                </tr>
+                <tr>
+                    <td>Level 9</td>
+                    <td style="background-color: brown; color: white;">Brown</td>
+                </tr>
+                <tr>
+                    <td>Goal</td>
+                    <td style="background-color: lightgreen; color: black;">LightGreen</td>
+                </tr>
+            </table>
+            <h3>Graph Statistics</h3>
+        <ul>
+            <li><b>Nodes:</b> 100</li>
+            <li><b>Edges:</b> 200</li>
+            <li><b>Orphans:</b> 3</li>
+        </ul>
+        </div>
+        
+    </div>
+    <div id="main">
+        <div id="mynetwork"></div>
+    </div>
+</body>
+
+<script>
+
+    function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        const mainContent = document.getElementById("main");
+        const toggleButton = document.getElementById("toggle-button");
+
+        if (sidebar.style.display === "none") {
+            sidebar.style.display = "block";
+            // toggleButton.textContent = "☰"; // Open icon
+            toggleButton.innerHTML = "&#9776;"; // Hamburger menu icon (open state)
+
+            mainContent.style.marginLeft = "auto"; // Restore margin
+        } else {
+            sidebar.style.display = "none";
+            // toggleButton.textContent = "→"; // Collapse icon
+            toggleButton.innerHTML = "&#8594;"; // Right arrow (collapsed state)
+            mainContent.style.marginLeft = "0"; // Remove margin for full width
+        }
+    }
+    // create an array with nodes
+    var nodes = new vis.DataSet([
+        {id: 1, label: 'Node 1', color: "red", font: {color: "white"}},
+        {id: 2, label: 'Node 2', color: "orange", font: {color: "black"}},
+        {id: 3, label: 'Node 3', color: "yellow", font: {color: "black"}},
+        {id: 4, label: 'Node 4', color: "green", font: {color: "white"}},
+        {id: 5, label: 'Node 5', color: "cyan", font: {color: "white"}},
+        {id: 6, label: 'Node 6', color: "blue", font: {color: "white"}},
+        {id: 7, label: 'Node 7', color: "indigo", font: {color: "white"}},
+        {id: 8, label: 'Node 8', color: "violet", font: {color: "white"}},
+        {id: 9,  label: 'Node 9', color: "gray", font: {color: "white"}},
+        {id: 10, label: 'Node 10', color: "brown", font: {color: "white"}},
+        {id: 11, label: 'Goal', shape: "star", color: "lightgreen", font: {color: "black"}}
+    ]);
+
+    // create an array with edges
+    var edges = new vis.DataSet([
+        {from: 2, to: 1},
+        {from: 2, to: 3},
+        {from: 2, to: 4},
+        {from: 2, to: 5},
+        {from: 2, to: 6},
+        {from: 2, to: 7},
+        {from: 2, to: 8},
+        {from: 2, to: 9},
+        {from: 2, to: 10},
+        {from: 2, to: 11}
+    ]);
+    
+    // create a network
+    var container = document.getElementById('mynetwork');
+
+    // provide the data in the vis format
+    var data = {
+        nodes: nodes,
+        edges: edges
+    };
+    var options = {};
+
+    // initialize your network!
+    var network = new vis.Network(container, data, options);
+    </script>
+</html>

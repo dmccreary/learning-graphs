@@ -82,6 +82,10 @@ body {
 }
 ```
 
+## Toggle Sidebar
+
+[Lab 6: Toggle Sidebar](./toggle-legend.html)
+
 ## Node Legends
 
 [](https://visjs.github.io/vis-network/examples/network/exampleApplications/nodeLegend.html)

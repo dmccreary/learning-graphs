@@ -57,7 +57,8 @@ Learn the Properties of a Node
 
 ## Lab 5 - Custom Shapes
 
-[Lab 4 - Custom Shapes](./lab-05.html)
+[Lab 5 - Custom Shapes](./lab-05.html)
+
 
 ## Examples
 
