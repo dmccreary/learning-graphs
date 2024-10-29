@@ -871,6 +871,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#styling-graph-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Styling Graph Nodes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
       References
@@ -1169,6 +1178,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#styling-graph-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Styling Graph Nodes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
       References
@@ -1236,21 +1254,6 @@
 <p><img alt="" src="simple-groups.png" />
 <a href="01-simple-groups.html">Run Simple Groups Example</a></p>
 <p>Note that in the JSON example file, the type of each group is an integer, but strings can also be used:</p>
-<p>{
-    "nodes": [
-        {"id": 1, "label": "Node 1", "group": "Foundation"},
-        {"id": 2, "label": "Node 2", "group": "Foundation"},
-        {"id": 3, "label": "Node 3", "group": "Level 2"},
-        {"id": 4, "label": "Node 4", "group": "Level 2"},
-        {"id": 5, "label": "Node 5", "group": "Goal"}
-    ],
-    "edges": [
-        {"from": 3, "to": 1},
-        {"from": 2, "to": 1},
-        {"from": 4, "to": 2},
-        {"from": 5, "to": 2}
-    ]
-}
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1261,18 +1264,42 @@
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>## Styling Graph Nodes
-
-When options are loaded, we can add style elements to the groups object
-within the options. 
-
-```js
-var options = {
-  groups: {
-    Foundation: {color:{background:&#39;red&#39;}, borderWidth:3}
-  }
-}
-</code></pre></div></td></tr></table></div></p>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;nodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Node 1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Foundation&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Node 2&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Foundation&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Node 3&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Level 2&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Node 4&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Level 2&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Node 5&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Goal&quot;</span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;edges&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="styling-graph-nodes">Styling Graph Nodes</h2>
+<p>When options are loaded, we can add style elements to the groups object
+within the options. </p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">groups</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">Foundation</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">color</span><span class="o">:</span><span class="p">{</span><span class="nx">background</span><span class="o">:</span><span class="s1">&#39;red&#39;</span><span class="p">},</span><span class="w"> </span><span class="nx">borderWidth</span><span class="o">:</span><span class="mf">3</span><span class="p">}</span>
+<span class="w">    </span><span class="nx">Goal</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">color</span><span class="o">:</span><span class="p">{</span><span class="nx">background</span><span class="o">:</span><span class="s1">&#39;gold&#39;</span><span class="p">},</span><span class="w"> </span><span class="nx">borderWidth</span><span class="o">:</span><span class="mf">3</span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<a href="02-group-style.html">Run Groups Style</a></p>
 <h2 id="references">References</h2>
 <p><a href="https://visjs.github.io/vis-network/docs/network/groups.html">Vis.js Group Documentation</a></p>
 <p><a href="https://visjs.github.io/vis-network/examples/network/nodeStyles/groups.html">Vis.js Groups Example</a></p>
