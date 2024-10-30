@@ -475,6 +475,10 @@
           
         
       
+        
+          
+        
+      
     
     
     
@@ -790,6 +794,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#lab-3-fixing-x-and-fixed-by-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lab 3 - Fixing X and Fixed By Group
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lab 3 - Fixing X and Fixed By Group">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#javascript-to-fix-x-by-group-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      JavaScript to Fix X by Group ID
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group-styling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group Styling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#prompt" class="md-nav__link">
     <span class="md-ellipsis">
       Prompt
@@ -821,6 +858,15 @@
   <a href="#additional-tips" class="md-nav__link">
     <span class="md-ellipsis">
       Additional Tips
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#move-to-center" class="md-nav__link">
+    <span class="md-ellipsis">
+      Move to Center
     </span>
   </a>
   
@@ -1029,6 +1075,27 @@
   
   <span class="md-ellipsis">
     Graph Viewer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network-properties/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network Properties
   </span>
   
 
@@ -1301,6 +1368,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#lab-3-fixing-x-and-fixed-by-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lab 3 - Fixing X and Fixed By Group
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lab 3 - Fixing X and Fixed By Group">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#javascript-to-fix-x-by-group-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      JavaScript to Fix X by Group ID
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group-styling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group Styling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#prompt" class="md-nav__link">
     <span class="md-ellipsis">
       Prompt
@@ -1332,6 +1432,15 @@
   <a href="#additional-tips" class="md-nav__link">
     <span class="md-ellipsis">
       Additional Tips
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#move-to-center" class="md-nav__link">
+    <span class="md-ellipsis">
+      Move to Center
     </span>
   </a>
   
@@ -1459,8 +1568,83 @@ nodes this causes conflicts.</p>
 <h2 id="lab-2-loading-from-json">Lab 2 - Loading From JSON</h2>
 <p>In this lab, we successfully load our graph data from this <a href="graph.json">graph.json</a> file,
 but the nodes placement and instructions to disable the physics is ignored.</p>
-<p><a href="fix-x-positions-2.html">Fix X Positions V2</a> </p>
-<p><a href="fix-x-positions-3.html">Fix X Positions V3</a></p>
+<p><a href="fix-x-positions-2.html">Fix X Positions V2</a></p>
+<h2 id="lab-3-fixing-x-and-fixed-by-group">Lab 3 - Fixing X and Fixed By Group</h2>
+<p><a href="fix-x-positions-3.html">Run the Fix by Groups Demo V3</a></p>
+<p>This demo goes through all the nodes after they are loaded
+and sets their x and fixed properties if they are in the "found"
+or "goal" groups.  It loads data from <a href="graph-3.json">This JSON file graph-3.json</a>
+which does not have any x or y locations specified and does not specify
+fixed physics, only groups.
+The program also used the options/groups to do styling on the nodes.</p>
+<h3 id="javascript-to-fix-x-by-group-id">JavaScript to Fix X by Group ID</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Create DataSet instances for nodes and edges</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">nodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">DataSet</span><span class="p">(</span><span class="nx">graphData</span><span class="p">.</span><span class="nx">nodes</span><span class="p">);</span>
+
+<span class="c1">// Process nodes to fix positions of foundation and goal nodes</span>
+<span class="nx">nodes</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">group</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;found&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">node</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mf">400</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">node</span><span class="p">.</span><span class="nx">fixed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">group</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;goal&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">node</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">400</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">node</span><span class="p">.</span><span class="nx">fixed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="group-styling">Group Styling</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">options</span><span class="w"> </span><span class="p">{...</span>
+<span class="w">  </span><span class="nx">groups</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">found</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">shape</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;box&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">          </span><span class="nx">color</span><span class="o">:</span><span class="p">{</span><span class="nx">background</span><span class="o">:</span><span class="s1">&#39;red&#39;</span><span class="p">},</span>
+<span class="w">          </span><span class="nx">font</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;white&quot;</span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nx">g2</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">color</span><span class="o">:</span><span class="p">{</span><span class="nx">background</span><span class="o">:</span><span class="s1">&#39;orange&#39;</span><span class="p">},</span><span class="w"> </span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nx">g3</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">color</span><span class="o">:</span><span class="p">{</span><span class="nx">background</span><span class="o">:</span><span class="s1">&#39;green&#39;</span><span class="p">},</span><span class="w"> </span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nx">goal</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">shape</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;star&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">          </span><span class="nx">color</span><span class="o">:</span><span class="p">{</span><span class="nx">background</span><span class="o">:</span><span class="s1">&#39;gold&#39;</span><span class="p">},</span><span class="w"> </span>
+<span class="w">          </span><span class="nx">font</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="mf">16</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
 <p><a href="fix-x-positions-4.html">Fix X Positions V4</a></p>
 <p><a href="fix-x-positions-5.html">Fix X Positions V5</a></p>
 <p><a href="fix-x-positions-6.html">Fix X Positions V6</a> - where group 1 and group 12
@@ -1687,6 +1871,11 @@ by the force-directed graph algorithm?
 <p><strong>Debugging Node Positions:</strong> Temporarily disable physics (<code>physics: false</code>) for all nodes to manually position them and ensure they appear correctly within the view. Once satisfied, re-enable physics selectively.</p>
 </li>
 </ul>
+<h3 id="move-to-center">Move to Center</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">network</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">({</span><span class="nx">position</span><span class="o">:</span><span class="p">{</span><span class="nx">x</span><span class="o">:</span><span class="mf">0</span><span class="p">,</span><span class="nx">y</span><span class="o">:</span><span class="mf">0</span><span class="p">},</span><span class="nx">scale</span><span class="o">:</span><span class="mf">1</span><span class="p">})</span>
+</code></pre></div></td></tr></table></div>
+<p><a href="move-to-center.html">Move to Center</a></p>
+<p><a href="https://github.com/visjs/vis-network/issues/2170">Reference</a></p>
 <h3 id="final-thoughts">Final Thoughts</h3>
 <p>By configuring the fixed nodes correctly and ensuring they are excluded from the physics simulation, you should achieve the desired behavior where specific nodes remain anchored on the x-axis while others are dynamically positioned. Centering the graph post-stabilization ensures that all nodes remain within the visible area, providing a clear and organized visualization.</p>
 <p>Feel free to adjust the parameters further based on the specific requirements of your graph and the visual outcome you desire. Let me know if you encounter any more issues or need further assistance!</p>
