@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF8" />
+    <title>Vis Network Example Applications </title>   
+    <script src="https://unpkg.com/vis-network/dist/vis-network.min.js"></script>
+    <style type="text/css">
+     #mynetwork {
+      width: 100px;
+      height: 600px;
+      border: 1px solid lightgray;
+    } 
+    </style>
+  </head>
+<body>
+<div id="mynetwork"></div>
+
+<script type="text/javascript">
+  var nodes = new vis.DataSet([
+    {id: 1, label: 'Node 1', fixed: true,  x:-140, y:-180},
+    {id: 2, label: 'Node 2', fixed: true,  x:-140, y:-120},
+  ]);
+  var edges = new vis.DataSet([]);
+  var options = { physics: false};
+
+  var container = document.getElementById('mynetwork');
+  var data = {  nodes: nodes,  edges: edges  };
+  var network = new vis.Network(container, data, options);
+  
+  network.moveTo({position:{x:0,y:0},scale:1})
+</script>
+</body>
+</html>  
+
+
+
+
+
+network.moveTo({position:{x:0,y:0},scale:1})

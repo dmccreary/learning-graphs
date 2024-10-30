@@ -87,9 +87,63 @@ options: {
 In this lab, we successfully load our graph data from this [graph.json](graph.json) file,
 but the nodes placement and instructions to disable the physics is ignored.
 
-[Fix X Positions V2](./fix-x-positions-2.html) 
+[Fix X Positions V2](./fix-x-positions-2.html)
 
-[Fix X Positions V3](./fix-x-positions-3.html)
+## Lab 3 - Fixing X and Fixed By Group
+
+[Run the Fix by Groups Demo V3](./fix-x-positions-3.html)
+
+This demo goes through all the nodes after they are loaded
+and sets their x and fixed properties if they are in the "found"
+or "goal" groups.  It loads data from [This JSON file graph-3.json](graph-3.json)
+which does not have any x or y locations specified and does not specify
+fixed physics, only groups.
+The program also used the options/groups to do styling on the nodes.
+
+### JavaScript to Fix X by Group ID
+
+```javascript
+// Create DataSet instances for nodes and edges
+const nodes = new vis.DataSet(graphData.nodes);
+
+// Process nodes to fix positions of foundation and goal nodes
+nodes.forEach(function(node) {
+  if (node.group === "found") {
+    node.x = -400;
+    node.fixed = { x: true, y: false };
+  } else if (node.group === "goal") {
+    node.x = 400;
+    node.fixed = { x: true, y: false };
+  }
+});
+```
+
+### Group Styling
+
+```javascript
+options {...
+  groups: {
+        found: {
+          shape: "box", 
+          color:{background:'red'},
+          font: {"color": "white"}
+        },
+        g2: {
+          color:{background:'orange'}, 
+        },
+        g3: {
+          color:{background:'green'}, 
+        },
+        goal: {
+          shape: "star", 
+          color:{background:'gold'}, 
+          font: { size: 16 }
+        }
+    }
+}
+```
+
+
 
 [Fix X Positions V4](./fix-x-positions-4.html)
 
@@ -244,6 +298,16 @@ network.on("beforeDrawing", function () {
 -   **Solver Selection:** While `forceAtlas2Based` is a good general-purpose solver, experimenting with different solvers like `barnesHut` or `repulsion` might yield better results based on your specific graph structure.
 
 -   **Debugging Node Positions:** Temporarily disable physics (`physics: false`) for all nodes to manually position them and ensure they appear correctly within the view. Once satisfied, re-enable physics selectively.
+
+### Move to Center
+
+```javascript
+network.moveTo({position:{x:0,y:0},scale:1})
+```
+
+[Move to Center](./move-to-center.html)
+
+[Reference](https://github.com/visjs/vis-network/issues/2170)
 
 ### Final Thoughts
 

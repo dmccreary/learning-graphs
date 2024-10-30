@@ -49,6 +49,7 @@ nav:
     - Templates: vis/templates/index.md
     - vis/node-enricher/index.md
     - Graph Viewer: sims/graph-viewer/index.md
+    - Network Properties: vis/network-properties/index.md
   - Sample Prompts:
     - Introduction: prompts/index.md
     - Course Description: prompts/01-course-description.md

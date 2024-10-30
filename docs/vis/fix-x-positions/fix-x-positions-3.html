@@ -16,17 +16,24 @@
   </style>
 </head>
 <body>
-  <h5>Fix Foundation and Goal X-Positions Lab 3</h5>
+  <h5>Use Groups To Pin Foundation and Goal Nodes to Left and Right</h5>
 
   <div id="network"></div>
 
   <a href=".">Back to Lesson Plan</a>
+
+  <p>This demo goes through all the nodes after they are loaded
+    and sets their x and fixed properties if they are in the "found"
+    or "goal" groups.  It loads data from <a href="./graph-3.json">This JSON file</a>
+    which does not have any x or y locations specified, only groups.
+    The program also used the options/groups to do styling on the nodes.
+  </p>
   <script>
     // Function to initialize the network
     async function initNetwork() {
       try {
         // Fetch the graph data from graph.json
-        const response = await fetch('graph.json');
+        const response = await fetch('graph-3.json');
         
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -36,6 +43,18 @@
 
         // Create DataSet instances for nodes and edges
         const nodes = new vis.DataSet(graphData.nodes);
+
+        // Process nodes to fix positions of foundation and goal nodes
+        nodes.forEach(function(node) {
+          if (node.group === "found") {
+            node.x = -400;
+            node.fixed = { x: true, y: false };
+          } else if (node.group === "goal") {
+            node.x = 400;
+            node.fixed = { x: true, y: false };
+          }
+        });
+
         const edges = new vis.DataSet(graphData.edges);
 
         // Get the container element
@@ -54,17 +73,8 @@
             solver: 'forceAtlas2Based',
             stabilization: {
               iterations: 1000,
-              updateInterval: 25,
-              fit: true // Ensure network fits to container after stabilization
+              updateInterval: 25
             },
-            forceAtlas2Based: {
-              gravitationalConstant: -50,
-              centralGravity: 0.01,
-              springLength: 100,
-              springConstant: 0.08,
-              damping: 0.4,
-              avoidOverlap: 0.5
-            }
           },
           layout: {
             improvedLayout: false // Prevent node overlap
@@ -92,10 +102,26 @@
               color: 'black'
             },
             borderWidth: 2,
-            borderWidthSelected: 4,
-            physics: undefined
-          }
-
+            borderWidthSelected: 4
+          },
+          groups: {
+            found: {
+              shape: "box", 
+              color:{background:'red'},
+              font: {"color": "white"}
+            },
+            g2: {
+              color:{background:'orange'}, 
+            },
+            g3: {
+              color:{background:'green'}, 
+            },
+            goal: {
+              shape: "star", 
+              color:{background:'gold'}, 
+              font: { size: 16 }
+            }
+        }
         };
 
         // Initialize the network

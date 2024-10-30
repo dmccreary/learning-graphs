@@ -91,6 +91,27 @@ For example:
 
 [See the Node Properties docs for more](https://visjs.github.io/vis-network/docs/network/nodes.html)
 
+## Unable to Set X and Y Positions in the Groups
+
+Vis.js does not permit us to set the x and y and the fixed attributes in a group.
+To do this we must set them after the JSON file is loaded...
+
+```javascript
+// Create DataSet instances for nodes and edges
+    const nodes = new vis.DataSet(graphData.nodes);
+
+// Process nodes to fix positions of foundation and goal nodes
+    nodes.forEach(function(node) {
+    if (node.group === "found") {
+        node.x = -500;
+        node.fixed = { x: true, y: false };
+    } else if (node.group === "goal") {
+        node.x = 500;
+        node.fixed = { x: true, y: false };
+    }
+    });
+```
+
 ## References
 
 [Vis.js Group Documentation](https://visjs.github.io/vis-network/docs/network/groups.html)

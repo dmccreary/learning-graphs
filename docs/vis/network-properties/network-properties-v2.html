@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vis.js Network Properties</title>
+    <style>
+        body {
+            display: flex;
+            font-family: Arial, sans-serif;
+        }
+        #sidebar-container {
+            width: 300px;
+            padding: 10px;
+            background-color: #f4f4f4;
+            overflow-y: auto;
+            border-right: 1px solid #ccc;
+        }
+        #network {
+            flex: 1;
+            margin: 10px;
+            height: 500px;
+            border: 1px solid #ddd;
+        }
+        .property {
+            font-size: 0.9em;
+            line-height: 1.5em;
+            margin: 5px 0;
+            word-wrap: break-word;
+        }
+        .nested {
+            margin-left: 10px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar-container">
+        <button id="toggle-button" onclick="toggleSidebar()">&#9776; Toggle Sidebar</button>
+        <div id="sidebar">
+            <h2>Network Properties</h2>
+            <div id="properties-list">Loading properties...</div>
+        </div>
+    </div>
+    <div id="network"></div>
+
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <script>
+        const nodes = new vis.DataSet([
+            { id: 1, label: 'Node 1' },
+            { id: 2, label: 'Node 2' },
+            { id: 3, label: 'Node 3' },
+            { id: 4, label: 'Node 4' },
+            { id: 5, label: 'Node 5' }
+        ]);
+
+        const edges = new vis.DataSet([
+            { from: 1, to: 2 },
+            { from: 1, to: 3 },
+            { from: 2, to: 4 },
+            { from: 2, to: 5 }
+        ]);
+
+        const container = document.getElementById('network');
+        const data = { nodes, edges };
+        const options = { physics: false }; // disable physics for easier viewing
+        const network = new vis.Network(container, data, options);
+
+        // Recursive function to display nested properties
+        function displayProperties(obj, container, indent = 0) {
+            for (const prop in obj) {
+                if (obj.hasOwnProperty(prop)) {
+                    const value = obj[prop];
+                    const propertyElement = document.createElement('div');
+                    propertyElement.className = 'property';
+                    propertyElement.style.marginLeft = `${indent}px`;
+
+                    if (typeof value === 'object' && value !== null) {
+                        propertyElement.innerHTML = `<strong>${prop}:</strong>`;
+                        container.appendChild(propertyElement);
+                        displayProperties(value, container, indent + 10);
+                    } else {
+                        propertyElement.innerHTML = `<strong>${prop}:</strong> ${value}`;
+                        container.appendChild(propertyElement);
+                    }
+                }
+            }
+        }
+
+        // Initial display of network properties
+        function displayNetworkProperties() {
+            const propertiesList = document.getElementById('properties-list');
+            propertiesList.innerHTML = ''; // Clear existing properties
+            displayProperties(network, propertiesList);
+        }
+
+        displayNetworkProperties();
+
+        // Toggle sidebar visibility
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar-container');
+            sidebar.style.display = sidebar.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
