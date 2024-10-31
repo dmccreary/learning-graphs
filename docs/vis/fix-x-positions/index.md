@@ -305,6 +305,71 @@ network.on("beforeDrawing", function () {
 network.moveTo({position:{x:0,y:0},scale:1})
 ```
 
+## Modifying Nodes after loading
+
+```javascript
+ const modifiedNodes = [];
+        // Function to fix the x positions for groups "found" and "goal" after the data is loaded
+
+        nodes.forEach(function (node) {
+        if (node.group === "found") {
+            // Create an updated node object
+            modifiedNodes.push({
+                id: node.id,
+                group: "found",
+                x: -1000,
+                fixed: { x: true, y: false } // Fix x, but let y be adjusted by physics
+            });
+            } else if (node.group === "goal") {
+                // Create an updated node object
+                modifiedNodes.push({
+                    id: node.id,
+                    group: "goal",
+                    x: 1000,
+                    fixed: { x: true, y: false } // Fix x, but let y be adjusted by physics
+                });
+            }
+        });
+
+        // Update the nodes in the DataSet
+        nodes.update(modifiedNodes);
+```
+
+## Fix to Disable Physics on Foundation and Goal Nodes
+
+After your network is generated add the following JavaScript code:
+
+```javascript
+  // Initialize the network
+  const network = new vis.Network(container, graphData, options);
+
+  // Wait for the stabilization to finish
+        network.once('stabilizationIterationsDone', function () {
+            // Disable physics to prevent further movement
+            network.setOptions({ physics: { enabled: false } });
+
+            // Fix the x positions of the specified nodes
+            const updatedNodes = [];
+            nodes.forEach(function (node) {
+                if (node.group === "found") {
+                    updatedNodes.push({
+                        id: node.id,
+                        x: -2000,
+                        fixed: { x: true, y: false }
+                    });
+                } else if (node.group === "goal") {
+                    updatedNodes.push({
+                        id: node.id,
+                        x: 2000,
+                        fixed: { x: true, y: false }
+                    });
+                }
+            });
+            nodes.update(updatedNodes);
+        });
+    })
+```
+
 [Move to Center](./move-to-center.html)
 
 [Reference](https://github.com/visjs/vis-network/issues/2170)
