@@ -872,6 +872,30 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modifying-nodes-after-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modifying Nodes after loading
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fix-to-disable-physics-on-foundation-and-goal-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fix to Disable Physics on Foundation and Goal Nodes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fix to Disable Physics on Foundation and Goal Nodes">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#final-thoughts" class="md-nav__link">
     <span class="md-ellipsis">
@@ -1446,6 +1470,30 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modifying-nodes-after-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modifying Nodes after loading
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fix-to-disable-physics-on-foundation-and-goal-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fix to Disable Physics on Foundation and Goal Nodes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fix to Disable Physics on Foundation and Goal Nodes">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#final-thoughts" class="md-nav__link">
     <span class="md-ellipsis">
@@ -1873,6 +1921,115 @@ by the force-directed graph algorithm?
 </ul>
 <h3 id="move-to-center">Move to Center</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">network</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">({</span><span class="nx">position</span><span class="o">:</span><span class="p">{</span><span class="nx">x</span><span class="o">:</span><span class="mf">0</span><span class="p">,</span><span class="nx">y</span><span class="o">:</span><span class="mf">0</span><span class="p">},</span><span class="nx">scale</span><span class="o">:</span><span class="mf">1</span><span class="p">})</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="modifying-nodes-after-loading">Modifying Nodes after loading</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">modifiedNodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<span class="w">        </span><span class="c1">// Function to fix the x positions for groups &quot;found&quot; and &quot;goal&quot; after the data is loaded</span>
+
+<span class="w">        </span><span class="nx">nodes</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">group</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;found&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Create an updated node object</span>
+<span class="w">            </span><span class="nx">modifiedNodes</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">                </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">group</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;found&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">1000</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">fixed</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// Fix x, but let y be adjusted by physics</span>
+<span class="w">            </span><span class="p">});</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">group</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;goal&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// Create an updated node object</span>
+<span class="w">                </span><span class="nx">modifiedNodes</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">                    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+<span class="w">                    </span><span class="nx">group</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;goal&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="mf">1000</span><span class="p">,</span>
+<span class="w">                    </span><span class="nx">fixed</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// Fix x, but let y be adjusted by physics</span>
+<span class="w">                </span><span class="p">});</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">});</span>
+
+<span class="w">        </span><span class="c1">// Update the nodes in the DataSet</span>
+<span class="w">        </span><span class="nx">nodes</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">modifiedNodes</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="fix-to-disable-physics-on-foundation-and-goal-nodes">Fix to Disable Physics on Foundation and Goal Nodes</h2>
+<p>After your network is generated add the following JavaScript code:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="c1">// Initialize the network</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">network</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">Network</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span><span class="w"> </span><span class="nx">graphData</span><span class="p">,</span><span class="w"> </span><span class="nx">options</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Wait for the stabilization to finish</span>
+<span class="w">        </span><span class="nx">network</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s1">&#39;stabilizationIterationsDone&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Disable physics to prevent further movement</span>
+<span class="w">            </span><span class="nx">network</span><span class="p">.</span><span class="nx">setOptions</span><span class="p">({</span><span class="w"> </span><span class="nx">physics</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">enabled</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">});</span>
+
+<span class="w">            </span><span class="c1">// Fix the x positions of the specified nodes</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">updatedNodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<span class="w">            </span><span class="nx">nodes</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">group</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;found&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">updatedNodes</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">                        </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+<span class="w">                        </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">2000</span><span class="p">,</span>
+<span class="w">                        </span><span class="nx">fixed</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">});</span>
+<span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">group</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;goal&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">updatedNodes</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">                        </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+<span class="w">                        </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="mf">2000</span><span class="p">,</span>
+<span class="w">                        </span><span class="nx">fixed</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">});</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">});</span>
+<span class="w">            </span><span class="nx">nodes</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">updatedNodes</span><span class="p">);</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">    </span><span class="p">})</span>
 </code></pre></div></td></tr></table></div>
 <p><a href="move-to-center.html">Move to Center</a></p>
 <p><a href="https://github.com/visjs/vis-network/issues/2170">Reference</a></p>
