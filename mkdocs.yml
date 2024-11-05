@@ -45,6 +45,7 @@ nav:
     - Graph Editor: vis/graph-editor/index.md.md
     - vis/learn-python/index.md
     - Legends: vis/legends/index.md
+    - Legend Checkboxes: vis/legend-checkboxes/index.md
     - Groups: vis/groups/index.md
     - Templates: vis/templates/index.md
     - vis/node-enricher/index.md
