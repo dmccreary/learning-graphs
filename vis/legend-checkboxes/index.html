@@ -1,0 +1,2947 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A microsite for teaching how to create and maintain learning graphs (concept dependency graphs) for education.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/learning-graphs/vis/legend-checkboxes/">
+      
+      
+        <link rel="prev" href="../legends/">
+      
+      
+        <link rel="next" href="../groups/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.33">
+    
+    
+      
+        <title>Legend Checkboxes - Learning Graphs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#legend-checkboxes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Learning Graphs" class="md-header__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Learning Graphs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Legend Checkboxes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Learning Graphs" class="md-nav__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Learning Graphs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../chapters/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../case-studies/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Case Studies
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Vis.js Tutorial
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Vis.js Tutorial
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-viewer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graph Viewer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-editor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Editor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab-01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 1 - Default Behavior
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab-02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 2 - JSON
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab-03/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 3 - Node Properties
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab-04/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 4 - Edge Properties
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab 5 - vis/lab-05.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../physics-params/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Physics Parameters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fix-x-positions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fix X Positions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concept-dependency-graph/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concept Dependency Graph
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../csv-reader/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSV to JSON Converter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-editor/index.md.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graph Editor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learn-python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Learn Python and Data Science
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legends/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Legends
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Legend Checkboxes
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Legend Checkboxes
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prompt
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Response">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Explanation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#group-and-checkbox-property-consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group and Checkbox Property Consistency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#javascript-function-to-toggle-group-visibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      JavaScript Function to Toggle Group Visibility
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-the-fix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing the Fix:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Notes:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-legend-checkbox-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Legend Checkbox Program
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-check-all-and-uncheck-all-buttons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding "Check All" and "Uncheck All" Buttons
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adding "Check All" and "Uncheck All" Buttons">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prompt_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prompt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation-of-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation of Changes:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Explanation of Changes:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-added-check-all-and-uncheck-all-buttons" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.  Added "Check All" and "Uncheck All" Buttons:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-implemented-checkallgroups-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.  Implemented checkAllGroups() Function:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-implemented-uncheckallgroups-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.  Implemented uncheckAllGroups() Function:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-optimizing-node-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.  Optimizing Node Updates:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-ensuring-consistent-group-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.  Ensuring Consistent Group Names:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How It Works:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-notes_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Notes:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-the-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing the Implementation:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary-of-check-all-and-uncheck-all" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary of Check All and Uncheck All
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-network-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding Network Statistics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#graph-statistics-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Statistics Prompt
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Graph Statistics Prompt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample Prompt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample Response
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation-of-modifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation of Modifications:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Explanation of Modifications:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-added-placeholders-in-the-html-for-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1.  Added Placeholders in the HTML for Statistics:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-created-updatestatistics-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2.  Created updateStatistics() Function:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-calling-updatestatistics-appropriately" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3.  Calling updateStatistics() Appropriately:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      How It Works:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testing-the-implementation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing the Implementation:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-notes_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Notes:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary-of-dynamic-networks-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary of Dynamic Networks Statistics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groups/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Groups
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../templates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Templates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../node-enricher/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vis.js Node Enricher Example
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/graph-viewer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graph Viewer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network-properties/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network Properties
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Sample Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How We Built This Site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../checklist/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Checklist
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prompt
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Response">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Explanation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#group-and-checkbox-property-consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group and Checkbox Property Consistency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#javascript-function-to-toggle-group-visibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      JavaScript Function to Toggle Group Visibility
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-the-fix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing the Fix:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Notes:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-legend-checkbox-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Legend Checkbox Program
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-check-all-and-uncheck-all-buttons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding "Check All" and "Uncheck All" Buttons
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adding "Check All" and "Uncheck All" Buttons">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prompt_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prompt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation-of-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation of Changes:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Explanation of Changes:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-added-check-all-and-uncheck-all-buttons" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.  Added "Check All" and "Uncheck All" Buttons:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-implemented-checkallgroups-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.  Implemented checkAllGroups() Function:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-implemented-uncheckallgroups-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.  Implemented uncheckAllGroups() Function:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-optimizing-node-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.  Optimizing Node Updates:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-ensuring-consistent-group-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.  Ensuring Consistent Group Names:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How It Works:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-notes_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Notes:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-the-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing the Implementation:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary-of-check-all-and-uncheck-all" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary of Check All and Uncheck All
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-network-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding Network Statistics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#graph-statistics-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Statistics Prompt
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Graph Statistics Prompt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample Prompt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample Response
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation-of-modifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation of Modifications:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Explanation of Modifications:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-added-placeholders-in-the-html-for-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1.  Added Placeholders in the HTML for Statistics:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-created-updatestatistics-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2.  Created updateStatistics() Function:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-calling-updatestatistics-appropriately" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3.  Calling updateStatistics() Appropriately:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      How It Works:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testing-the-implementation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing the Implementation:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-notes_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Notes:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary-of-dynamic-networks-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary of Dynamic Networks Statistics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/learning-graphs/blob/master/docs/vis/legend-checkboxes/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="legend-checkboxes">Legend Checkboxes</h1>
+<p>We had a user that wanted to only display specific groups in a learning graph.
+In order to do this, we need a way to add group-by-group selectors.
+So we asked ChatGPT if we could add checkboxes to the legend.</p>
+<p><img alt="Legend Checkboxes Screen Image" src="legend-checkboxes.png" /></p>
+<p><a class="md-button md-button--primary" href="legend-checkboxes.html">Run the Legend Checkboxes MicroSim</a></p>
+<h2 id="prompt">Prompt</h2>
+<div class="highlight"><pre><span></span><code>I have a vis.js program that has a legend for the node types.
+I would like to conditionally include specific nodes that are
+in groups in the network graphs. 
+Using the following template, create a new version that puts
+checkboxes in the legend in the sidebar.
+The checkboxes will turn on and off the inclusion of each
+group in the network.
+</code></pre></div>
+<h2 id="response">Response</h2>
+<p>To implement checkboxes in the legend sidebar to control the visibility of specific groups in the network, I’ll modify your template to add checkboxes next to each group. The checkboxes will toggle the visibility of nodes in that specific group. When a checkbox is unchecked, nodes in that group will be hidden from the network graph; when checked, they will be displayed.</p>
+<h3 id="explanation">Explanation</h3>
+<h4 id="group-and-checkbox-property-consistency">Group and Checkbox Property Consistency</h4>
+<ul>
+<li><strong>Updated Node Groups</strong>: Each node's <code>group</code> property now matches the IDs of the checkboxes. For example, the node for "Foundation" has <code>group: 'Foundation'</code>.</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span>
+<span class="w">  </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Foundation&#39;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">   </span><span class="nx">shape</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;box&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">   </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">   </span><span class="nx">font</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;white&quot;</span><span class="p">},</span><span class="w"> </span>
+<span class="w">   </span><span class="nx">group</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Foundation&#39;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><strong>Checkbox IDs and <code>toggleGroup</code> Function</strong>: The <code>id</code> attributes of the checkboxes match the <code>group</code> names. The <code>toggleGroup</code> function now uses the <code>groupName</code> to reference both the checkbox and the node group.</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;groupFoundation&quot;</span> <span class="na">checked</span> <span class="na">onchange</span><span class="o">=</span><span class="s">&quot;toggleGroup(&#39;Foundation&#39;)&quot;</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="javascript-function-to-toggle-group-visibility">JavaScript Function to Toggle Group Visibility</h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">toggleGroup</span><span class="p">(</span><span class="nx">groupName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="sb">`group</span><span class="si">${</span><span class="nx">groupName</span><span class="si">}</span><span class="sb">`</span><span class="p">).</span><span class="nx">checked</span><span class="p">;</span>
+<span class="w">      </span><span class="nx">nodes</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">node</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">group</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">groupName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">nodes</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">hidden</span><span class="o">:</span><span class="w"> </span><span class="o">!</span><span class="nx">visible</span><span class="p">});</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">});</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><strong>Consistent Colors</strong>: The colors in the legend now match the colors assigned to the nodes. For example, "Flow and Match" uses <code>color: "indigo"</code> and the legend reflects this with <code>background-color: indigo</code>.</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">td</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;background-color: indigo; color: white;&quot;</span><span class="p">&gt;</span>Indigo<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="testing-the-fix">Testing the Fix:</h3>
+<ul>
+<li>When you uncheck a checkbox in the legend, the corresponding nodes in the network graph should disappear.</li>
+<li>When you check the checkbox again, the nodes reappear.</li>
+</ul>
+<h3 id="additional-notes">Additional Notes:</h3>
+<ul>
+<li>
+<p><strong>Edge Visibility</strong>: If you need the edges connected to the hidden nodes to also be hidden, Vis.js handles this automatically when a connected node is hidden.</p>
+</li>
+<li>
+<p><strong>Multiple Nodes per Group</strong>: If you have more nodes in each group, this method will scale appropriately.</p>
+</li>
+</ul>
+<h3 id="example-legend-checkbox-program">Example Legend Checkbox Program</h3>
+<p><a href="legend-checkboxes-v1.html">Legend Checkboxes</a></p>
+<h2 id="adding-check-all-and-uncheck-all-buttons">Adding "Check All" and "Uncheck All" Buttons</h2>
+<h3 id="prompt_1">Prompt</h3>
+<div class="highlight"><pre><span></span><code>How can I add two buttons that will &quot;Check All&quot; and &quot;Uncheck All&quot;?
+</code></pre></div>
+<h3 id="response_1">Response</h3>
+<p>ChatGPT Thought for 17 seconds</p>
+<p>Certainly! To add "Check All" and "Uncheck All" buttons that control all the group checkboxes and update the network graph accordingly, we'll:</p>
+<ol>
+<li><strong>Add two buttons</strong> labeled "Check All" and "Uncheck All" above the legend table.</li>
+<li><strong>Implement two functions</strong>, <code>checkAllGroups()</code> and <code>uncheckAllGroups()</code>, that will check or uncheck all the checkboxes and update the node visibility in the network graph.</li>
+<li><strong>Ensure that the network graph updates efficiently</strong> when these buttons are clicked.</li>
+</ol>
+<p>Here's the updated code with the new buttons and functions</p>
+<h3 id="explanation-of-changes">Explanation of Changes:</h3>
+<h4 id="1-added-check-all-and-uncheck-all-buttons">1.  <strong>Added "Check All" and "Uncheck All" Buttons:</strong></h4>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;checkAllGroups()&quot;</span><span class="p">&gt;</span>Check All<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;uncheckAllGroups()&quot;</span><span class="p">&gt;</span>Uncheck All<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+-   These buttons are placed above the legend table in the sidebar.
+-   They call the functions <code>checkAllGroups()</code> and <code>uncheckAllGroups()</code> when clicked.</p>
+<h4 id="2-implemented-checkallgroups-function">2.  <strong>Implemented <code>checkAllGroups()</code> Function:</strong></h4>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">checkAllGroups</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">checkboxes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;input[id^=&quot;group&quot;]&#39;</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">checkboxes</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">checkbox</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">checkbox</span><span class="p">.</span><span class="nx">checked</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">checkbox</span><span class="p">.</span><span class="nx">checked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">          </span><span class="c1">// Update nodes in this group to be visible</span>
+<span class="w">          </span><span class="nx">toggleGroup</span><span class="p">(</span><span class="nx">checkbox</span><span class="p">.</span><span class="nx">id</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">});</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+-   <strong>Purpose:</strong> Checks all the group checkboxes and makes all corresponding nodes visible.
+-   <strong>How it Works:</strong>
+    -   Selects all input elements with IDs starting with <code>"group"</code>.
+    -   Loops through each checkbox:
+        -   If it's not already checked, it sets <code>checkbox.checked = true</code>.
+        -   Calls <code>toggleGroup()</code> with the group name to update node visibility.</p>
+<h4 id="3-implemented-uncheckallgroups-function">3.  <strong>Implemented <code>uncheckAllGroups()</code> Function:</strong></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">uncheckAllGroups</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">checkboxes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;input[id^=&quot;group&quot;]&#39;</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">checkboxes</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">checkbox</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">checkbox</span><span class="p">.</span><span class="nx">checked</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">checkbox</span><span class="p">.</span><span class="nx">checked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">          </span><span class="c1">// Update nodes in this group to be hidden</span>
+<span class="w">          </span><span class="nx">toggleGroup</span><span class="p">(</span><span class="nx">checkbox</span><span class="p">.</span><span class="nx">id</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">});</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><strong>Purpose:</strong> Unchecks all the group checkboxes and hides all corresponding nodes.</li>
+<li><strong>How it Works:</strong><ul>
+<li>Selects all input elements with IDs starting with <code>"group"</code>.</li>
+<li>Loops through each checkbox:<ul>
+<li>If it's checked, it sets <code>checkbox.checked = false</code>.<ul>
+<li>Calls <code>toggleGroup()</code> with the group name to update node visibility.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-optimizing-node-updates">4.  <strong>Optimizing Node Updates:</strong></h4>
+<ul>
+<li>By only calling <code>toggleGroup()</code> when a checkbox state changes (from unchecked to checked or vice versa), we avoid unnecessary updates.</li>
+<li>The <code>toggleGroup()</code> function handles updating the node visibility based on the current state of the checkbox.</li>
+</ul>
+<h4 id="5-ensuring-consistent-group-names">5.  <strong>Ensuring Consistent Group Names:</strong></h4>
+<ul>
+<li>The <code>replace('group', '')</code> method extracts the group name from the checkbox ID (e.g., from <code>"groupFoundation"</code> to <code>"Foundation"</code>).</li>
+<li>This ensures that <code>toggleGroup()</code> receives the correct group name to update node visibility.</li>
+</ul>
+<h3 id="how-it-works">How It Works:</h3>
+<ul>
+<li>
+<p><strong>"Check All" Button:</strong></p>
+<ul>
+<li>When clicked, all checkboxes become checked.</li>
+<li>For each checkbox that was previously unchecked, <code>toggleGroup()</code> is called to set the corresponding nodes as visible.</li>
+<li>The network graph updates to show all nodes.</li>
+<li>
+<p><strong>"Uncheck All" Button:</strong></p>
+</li>
+<li>
+<p>When clicked, all checkboxes become unchecked.</p>
+</li>
+<li>For each checkbox that was previously checked, <code>toggleGroup()</code> is called to hide the corresponding nodes.</li>
+<li>The network graph updates to hide all nodes.</li>
+<li>
+<p><strong>Individual Checkboxes:</strong></p>
+</li>
+<li>
+<p>The existing functionality for individual checkboxes remains unchanged.</p>
+</li>
+<li>Checking or unchecking a group checkbox will show or hide nodes in that group.</li>
+</ul>
+</li>
+</ul>
+<h3 id="additional-notes_1">Additional Notes:</h3>
+<ul>
+<li>
+<p><strong>Edge Visibility:</strong></p>
+<ul>
+<li>Vis.js automatically handles edge visibility. If both connected nodes are hidden, the edge is also hidden.</li>
+<li>If one node is visible and the other is hidden, the edge will still be displayed, connected to the visible node.</li>
+<li>
+<p><strong>Scalability:</strong></p>
+</li>
+<li>
+<p>This approach works efficiently even if more groups or nodes are added.</p>
+</li>
+<li>The functions dynamically select checkboxes and nodes based on IDs and group names.</li>
+<li>
+<p><strong>Accessibility:</strong></p>
+</li>
+<li>
+<p>The buttons and checkboxes are standard HTML elements, ensuring compatibility with assistive technologies.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="testing-the-implementation">Testing the Implementation:</h3>
+<ol>
+<li>
+<p><strong>Initial State:</strong></p>
+<ul>
+<li>All checkboxes are checked.</li>
+<li>All nodes are visible in the network graph.</li>
+<li>
+<p><strong>Uncheck All:</strong></p>
+</li>
+<li>
+<p>Click the "Uncheck All" button.</p>
+</li>
+<li>All checkboxes become unchecked.</li>
+<li>All nodes are hidden in the network graph.</li>
+<li><strong>Check All:</strong></li>
+</ul>
+</li>
+<li>
+<p>Click the "Check All" button.</p>
+</li>
+<li>All checkboxes become checked.</li>
+<li>
+<p>All nodes reappear in the network graph.</p>
+</li>
+<li>
+<p><strong>Combination:</strong></p>
+</li>
+<li>
+<p>Uncheck individual checkboxes to hide specific groups.</p>
+</li>
+<li>Use "Check All" to restore visibility to all groups.</li>
+</ol>
+<h3 id="summary-of-check-all-and-uncheck-all">Summary of Check All and Uncheck All</h3>
+<p>By adding the "Check All" and "Uncheck All" buttons and implementing the corresponding functions, users can easily control the visibility of all node groups in the network graph with a single click. This enhancement improves the usability of the application, especially when dealing with a large number of groups.</p>
+<p><a href="legend-checkboxes-v2.html">Example of Check All</a></p>
+<h2 id="adding-network-statistics">Adding Network Statistics</h2>
+<p><img alt="" src="graph-statistics.png" /></p>
+<p>When we disable some nodes with the checkboxes, we often need to
+know that some nodes are now disconnected from the network.
+We can see the number of orphaned nodes by running
+a simple query on the graph.  Here is how it works.</p>
+<h2 id="graph-statistics-prompt">Graph Statistics Prompt</h2>
+<h3 id="sample-prompt">Sample Prompt</h3>
+<div class="highlight"><pre><span></span><code>How would I modify the code to display the network statistics
+in the sidebar such as number of nodes, number of edges and
+number of orphaned nodes? 
+Use HTML in the sidebar under &quot;Graph Statistics&quot;.
+</code></pre></div>
+<h3 id="sample-response">Sample Response</h3>
+<p>ChatGPT o1-preview Thought for 24 seconds</p>
+<p>Certainly! To display dynamic network statistics---such as the number of nodes, number of edges, and number of orphaned nodes---in the sidebar under "Graph Statistics", we'll need to:</p>
+<ol>
+<li><strong>Add placeholders in the HTML</strong> for the statistics.</li>
+<li><strong>Write a function <code>updateStatistics()</code></strong> that calculates these statistics based on the current state of the network.</li>
+<li><strong>Call <code>updateStatistics()</code></strong> whenever the network changes (e.g., when nodes are shown or hidden via the checkboxes).</li>
+</ol>
+<p>Below is the updated code with the necessary modifications:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Demo of Toggle Sidebar Legend<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://unpkg.com/vis-network/standalone/umd/vis-network.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="nt">body</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="n">Arial</span><span class="p">,</span><span class="w"> </span><span class="n">Helvetica</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span>
+<span class="w">      </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="p">#</span><span class="nn">sidebar</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
+<span class="w">      </span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">margin-right</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">box-sizing</span><span class="p">:</span><span class="w"> </span><span class="kc">border-box</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="p">#</span><span class="nn">main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">flex</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">      </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="p">#</span><span class="nn">mynetwork</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="w">      </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">700</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">      </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">aliceblue</span><span class="p">;</span>
+<span class="w">      </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="kc">lightgray</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;sidebar-container&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;toggle-button&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;toggleSidebar()&quot;</span><span class="p">&gt;</span><span class="ni">&amp;#9776;</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;sidebar&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Legend Sidebar<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+
+      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;checkAllGroups()&quot;</span><span class="p">&gt;</span>Check All<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;uncheckAllGroups()&quot;</span><span class="p">&gt;</span>Uncheck All<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;groupFoundation&quot;</span> <span class="na">checked</span> <span class="na">onchange</span><span class="o">=</span><span class="s">&quot;toggleGroup(&#39;Foundation&#39;)&quot;</span><span class="p">&gt;</span> Foundational Concepts and Definitions<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">td</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;background-color: red; color: white;&quot;</span><span class="p">&gt;</span>Red<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;groupTypes&quot;</span> <span class="na">checked</span> <span class="na">onchange</span><span class="o">=</span><span class="s">&quot;toggleGroup(&#39;Types&#39;)&quot;</span><span class="p">&gt;</span> Types and Properties of Graphs<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">td</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;background-color: orange;&quot;</span><span class="p">&gt;</span>Orange<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;groupRepresentations&quot;</span> <span class="na">checked</span> <span class="na">onchange</span><span class="o">=</span><span class="s">&quot;toggleGroup(&#39;Representations&#39;)&quot;</span><span class="p">&gt;</span> Graph Representations and Data Structures<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">td</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;background-color: gold;&quot;</span><span class="p">&gt;</span>Gold<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;groupAlgorithms&quot;</span> <span class="na">checked</span> <span class="na">onchange</span><span class="o">=</span><span class="s">&quot;toggleGroup(&#39;Algorithms&#39;)&quot;</span><span class="p">&gt;</span> Basic Graph Algorithms<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">td</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;background-color: green; color: white;&quot;</span><span class="p">&gt;</span>Green<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;groupPaths&quot;</span> <span class="na">checked</span> <span class="na">onchange</span><span class="o">=</span><span class="s">&quot;toggleGroup(&#39;Paths&#39;)&quot;</span><span class="p">&gt;</span> Shortest Path and Spanning Tree Algorithms<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">td</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;background-color: blue; color: white;&quot;</span><span class="p">&gt;</span>Blue<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;groupFlow&quot;</span> <span class="na">checked</span> <span class="na">onchange</span><span class="o">=</span><span class="s">&quot;toggleGroup(&#39;Flow&#39;)&quot;</span><span class="p">&gt;</span> Network Flow and Matching Algorithms<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">td</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;background-color: indigo; color: white;&quot;</span><span class="p">&gt;</span>Indigo<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;groupAdvanced&quot;</span> <span class="na">checked</span> <span class="na">onchange</span><span class="o">=</span><span class="s">&quot;toggleGroup(&#39;Advanced&#39;)&quot;</span><span class="p">&gt;</span> Advanced Graph Algorithms<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">td</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;background-color: violet; color: white;&quot;</span><span class="p">&gt;</span>Violet<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;groupMetrics&quot;</span> <span class="na">checked</span> <span class="na">onchange</span><span class="o">=</span><span class="s">&quot;toggleGroup(&#39;Metrics&#39;)&quot;</span><span class="p">&gt;</span> Graph Measures and Centrality Metrics<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">td</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;background-color: gray; color: white;&quot;</span><span class="p">&gt;</span>Gray<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;groupSpectral&quot;</span> <span class="na">checked</span> <span class="na">onchange</span><span class="o">=</span><span class="s">&quot;toggleGroup(&#39;Spectral&#39;)&quot;</span><span class="p">&gt;</span> Spectral Graph Theory and Clustering<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">td</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;background-color: brown; color: white;&quot;</span><span class="p">&gt;</span>Brown<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;groupML&quot;</span> <span class="na">checked</span> <span class="na">onchange</span><span class="o">=</span><span class="s">&quot;toggleGroup(&#39;ML&#39;)&quot;</span><span class="p">&gt;</span> Graph Machine Learning and Network Models<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">td</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;background-color: teal; color: white;&quot;</span><span class="p">&gt;</span>Teal<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Graph Statistics<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+
+      <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Nodes:<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;nodeCount&quot;</span><span class="p">&gt;</span>0<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Edges:<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;edgeCount&quot;</span><span class="p">&gt;</span>0<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Orphans:<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;orphanCount&quot;</span><span class="p">&gt;</span>0<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;main&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;mynetwork&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">toggleSidebar</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">sidebar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;sidebar&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">mainContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;main&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">toggleButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;toggle-button&quot;</span><span class="p">);</span>
+
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">sidebar</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;none&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">sidebar</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;block&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="nx">toggleButton</span><span class="p">.</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&amp;#9776;&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="nx">mainContent</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">marginLeft</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;auto&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">sidebar</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;none&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="nx">toggleButton</span><span class="p">.</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&amp;#8594;&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="nx">mainContent</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">marginLeft</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Create an array with nodes</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">nodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">DataSet</span><span class="p">([</span>
+<span class="w">      </span><span class="p">{</span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Foundation&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">shape</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;box&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">font</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;white&quot;</span><span class="p">},</span><span class="w"> </span><span class="nx">group</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Foundation&#39;</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Types&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;orange&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">font</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;black&quot;</span><span class="p">},</span><span class="w"> </span><span class="nx">group</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Types&#39;</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Representations&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;gold&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">font</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;black&quot;</span><span class="p">},</span><span class="w"> </span><span class="nx">group</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Representations&#39;</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Algorithms&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;green&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">font</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;white&quot;</span><span class="p">},</span><span class="w"> </span><span class="nx">group</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Algorithms&#39;</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Paths&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">font</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;white&quot;</span><span class="p">},</span><span class="w"> </span><span class="nx">group</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Paths&#39;</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">6</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Flow and Match&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;indigo&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">font</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;white&quot;</span><span class="p">},</span><span class="w"> </span><span class="nx">group</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Flow&#39;</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">7</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Advanced&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;violet&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">font</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;white&quot;</span><span class="p">},</span><span class="w"> </span><span class="nx">group</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Advanced&#39;</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Metrics&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;gray&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">font</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;white&quot;</span><span class="p">},</span><span class="w"> </span><span class="nx">group</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Metrics&#39;</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">9</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Spectral&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;brown&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">font</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;white&quot;</span><span class="p">},</span><span class="w"> </span><span class="nx">group</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Spectral&#39;</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ML and NN&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">shape</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;star&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;teal&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">font</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;black&quot;</span><span class="p">},</span><span class="w"> </span><span class="nx">group</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ML&#39;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">]);</span>
+
+<span class="w">    </span><span class="c1">// Create an array with edges</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">edges</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">DataSet</span><span class="p">([</span>
+<span class="w">      </span><span class="p">{</span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">6</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">7</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">6</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">7</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">9</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">8</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">9</span><span class="p">}</span>
+<span class="w">    </span><span class="p">]);</span>
+
+<span class="w">    </span><span class="c1">// Create a network</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;mynetwork&#39;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Provide the data in the vis format</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">nodes</span><span class="o">:</span><span class="w"> </span><span class="nx">nodes</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">edges</span><span class="o">:</span><span class="w"> </span><span class="nx">edges</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">edges</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">arrows</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">enabled</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;arrow&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">scaleFactor</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nx">smooth</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;continuous&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nx">layout</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">hierarchical</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">direction</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;LR&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">network</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">Network</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="nx">options</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Function to update statistics</span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">updateStatistics</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// Get all nodes and edges</span>
+<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="nx">allNodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nodes</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
+<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="nx">allEdges</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">edges</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
+
+<span class="w">      </span><span class="c1">// Filter visible nodes</span>
+<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="nx">visibleNodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">allNodes</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">node</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="o">!</span><span class="nx">node</span><span class="p">.</span><span class="nx">hidden</span><span class="p">);</span>
+
+<span class="w">      </span><span class="c1">// Filter visible edges (both connected nodes must be visible)</span>
+<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="nx">visibleEdges</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">allEdges</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">edge</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">fromNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nodes</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">edge</span><span class="p">.</span><span class="kr">from</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">toNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nodes</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">edge</span><span class="p">.</span><span class="nx">to</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">fromNode</span><span class="p">.</span><span class="nx">hidden</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">toNode</span><span class="p">.</span><span class="nx">hidden</span><span class="p">);</span>
+<span class="w">      </span><span class="p">});</span>
+
+<span class="w">      </span><span class="c1">// Calculate number of visible nodes and edges</span>
+<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="nx">nodeCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">visibleNodes</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="nx">edgeCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">visibleEdges</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+
+<span class="w">      </span><span class="c1">// Find orphan nodes (nodes with no visible edges)</span>
+<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="nx">connectedNodeIds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Set</span><span class="p">();</span>
+<span class="w">      </span><span class="nx">visibleEdges</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">edge</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">connectedNodeIds</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">edge</span><span class="p">.</span><span class="kr">from</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">connectedNodeIds</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">edge</span><span class="p">.</span><span class="nx">to</span><span class="p">);</span>
+<span class="w">      </span><span class="p">});</span>
+<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="nx">orphanNodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">visibleNodes</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">node</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="o">!</span><span class="nx">connectedNodeIds</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">id</span><span class="p">));</span>
+<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="nx">orphanCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">orphanNodes</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+
+<span class="w">      </span><span class="c1">// Update the HTML elements with the statistics</span>
+<span class="w">      </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;nodeCount&#39;</span><span class="p">).</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nodeCount</span><span class="p">;</span>
+<span class="w">      </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;edgeCount&#39;</span><span class="p">).</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">edgeCount</span><span class="p">;</span>
+<span class="w">      </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;orphanCount&#39;</span><span class="p">).</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">orphanCount</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Call updateStatistics after the network is initialized</span>
+<span class="w">    </span><span class="nx">updateStatistics</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// Function to toggle groups</span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">toggleGroup</span><span class="p">(</span><span class="nx">groupName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="sb">`group</span><span class="si">${</span><span class="nx">groupName</span><span class="si">}</span><span class="sb">`</span><span class="p">).</span><span class="nx">checked</span><span class="p">;</span>
+<span class="w">      </span><span class="nx">nodes</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">node</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">group</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">groupName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">nodes</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">hidden</span><span class="o">:</span><span class="w"> </span><span class="o">!</span><span class="nx">visible</span><span class="p">});</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">});</span>
+<span class="w">      </span><span class="nx">updateStatistics</span><span class="p">();</span><span class="w"> </span><span class="c1">// Update statistics after toggling a group</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Function to check all groups</span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">checkAllGroups</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">checkboxes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;input[id^=&quot;group&quot;]&#39;</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">checkboxes</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">checkbox</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">checkbox</span><span class="p">.</span><span class="nx">checked</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">checkbox</span><span class="p">.</span><span class="nx">checked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">          </span><span class="c1">// Update nodes in this group to be visible</span>
+<span class="w">          </span><span class="nx">toggleGroup</span><span class="p">(</span><span class="nx">checkbox</span><span class="p">.</span><span class="nx">id</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">});</span>
+<span class="w">      </span><span class="c1">// updateStatistics(); // Already called within toggleGroup</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Function to uncheck all groups</span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">uncheckAllGroups</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">checkboxes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;input[id^=&quot;group&quot;]&#39;</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">checkboxes</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">checkbox</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">checkbox</span><span class="p">.</span><span class="nx">checked</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">checkbox</span><span class="p">.</span><span class="nx">checked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">          </span><span class="c1">// Update nodes in this group to be hidden</span>
+<span class="w">          </span><span class="nx">toggleGroup</span><span class="p">(</span><span class="nx">checkbox</span><span class="p">.</span><span class="nx">id</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">});</span>
+<span class="w">      </span><span class="c1">// updateStatistics(); // Already called within toggleGroup</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="explanation-of-modifications">Explanation of Modifications:</h3>
+<h4 id="step-1-added-placeholders-in-the-html-for-statistics">Step 1.  <strong>Added Placeholders in the HTML for Statistics:</strong></h4>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Graph Statistics<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Nodes:<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;nodeCount&quot;</span><span class="p">&gt;</span>0<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Edges:<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;edgeCount&quot;</span><span class="p">&gt;</span>0<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Orphans:<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;orphanCount&quot;</span><span class="p">&gt;</span>0<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+  -   Replaced the hardcoded numbers with <code>&lt;span&gt;</code> elements having IDs (<code>nodeCount</code>, <code>edgeCount</code>, <code>orphanCount</code>).
+  -   These elements will be updated dynamically via JavaScript.</p>
+<h4 id="step-2-created-updatestatistics-function">Step 2.  <strong>Created <code>updateStatistics()</code> Function:</strong></h4>
+<p>```javascript
+  function updateStatistics() {
+      // Get all nodes and edges
+      var allNodes = nodes.get();
+      var allEdges = edges.get();</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code>  // Filter visible nodes
+  var visibleNodes = allNodes.filter(node =&gt; !node.hidden);
+
+  // Filter visible edges (both connected nodes must be visible)
+  var visibleEdges = allEdges.filter(edge =&gt; {
+    var fromNode = nodes.get(edge.from);
+    var toNode = nodes.get(edge.to);
+    return (!fromNode.hidden &amp;&amp; !toNode.hidden);
+  });
+
+  // Calculate number of visible nodes and edges
+  var nodeCount = visibleNodes.length;
+  var edgeCount = visibleEdges.length;
+
+  // Find orphan nodes (nodes with no visible edges)
+  var connectedNodeIds = new Set();
+  visibleEdges.forEach(edge =&gt; {
+    connectedNodeIds.add(edge.from);
+    connectedNodeIds.add(edge.to);
+  });
+  var orphanNodes = visibleNodes.filter(node =&gt; !connectedNodeIds.has(node.id));
+  var orphanCount = orphanNodes.length;
+
+  // Update the HTML elements with the statistics
+  document.getElementById(&#39;nodeCount&#39;).textContent = nodeCount;
+  document.getElementById(&#39;edgeCount&#39;).textContent = edgeCount;
+  document.getElementById(&#39;orphanCount&#39;).textContent = orphanCount;
+}
+</code></pre></div></td></tr></table></div>
+<p>```</p>
+<ul>
+<li>
+<p><strong>Purpose:</strong> Calculates the current number of visible nodes, visible edges, and orphan nodes, and updates the HTML elements accordingly.</p>
+</li>
+<li>
+<p><strong>Steps in the Function:</strong></p>
+</li>
+<li><strong>Get All Nodes and Edges:</strong> Retrieve all nodes and edges from the DataSets.</li>
+<li><strong>Filter Visible Nodes:</strong> Use <code>filter</code> to get nodes that are not hidden.</li>
+<li><strong>Filter Visible Edges:</strong> Only include edges where both the <code>from</code> and <code>to</code> nodes are visible.</li>
+<li><strong>Calculate Counts:</strong> Count the number of visible nodes and edges.</li>
+<li><strong>Identify Orphan Nodes:</strong><ul>
+<li>Create a <code>Set</code> of node IDs that are connected via visible edges.</li>
+<li>An orphan node is one that is visible but not included in the <code>connectedNodeIds</code> set.</li>
+</ul>
+</li>
+<li><strong>Update HTML Elements:</strong> Set the <code>textContent</code> of the span elements to display the calculated counts.</li>
+</ul>
+<h4 id="step-3-calling-updatestatistics-appropriately">Step 3.  <strong>Calling <code>updateStatistics()</code> Appropriately:</strong></h4>
+<ul>
+<li><strong>After Network Initialization:</strong></li>
+</ul>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Call updateStatistics after the network is initialized</span>
+<span class="w">        </span><span class="nx">updateStatistics</span><span class="p">();</span>
+</code></pre></div></td></tr></table></div>
+-   Ensures that the statistics are accurate when the page first loads.
+-   <strong>Within <code>toggleGroup()</code> Function:</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">toggleGroup</span><span class="p">(</span><span class="nx">groupName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="c1">// ... existing code ...</span>
+<span class="w">  </span><span class="nx">updateStatistics</span><span class="p">();</span><span class="w"> </span><span class="c1">// Update statistics after toggling a group</span>
+<span class="p">}</span><span class="sb">`</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>Updates statistics whenever a group is toggled (shown or hidden).</li>
+<li><strong>No Need to Call <code>updateStatistics()</code> in <code>checkAllGroups()</code> and <code>uncheckAllGroups()</code>:</strong></li>
+<li>Since <code>toggleGroup()</code> is called for each group within these functions and <code>updateStatistics()</code> is called within <code>toggleGroup()</code>, it's unnecessary to call it again.</li>
+<li>This avoids redundant calculations and ensures efficiency.</li>
+</ul>
+<h3 id="how-it-works_1">How It Works:</h3>
+<ul>
+<li><strong>Initial Load:</strong></li>
+<li>The statistics display the total number of nodes and edges in the network.</li>
+<li>Orphan nodes are calculated based on the current visibility of nodes and edges.</li>
+<li><strong>When Nodes Are Hidden/Shown:</strong></li>
+<li>Toggling checkboxes hides or shows nodes.</li>
+<li>Edges connected to hidden nodes are also hidden automatically by Vis.js.</li>
+<li>The <code>updateStatistics()</code> function recalculates the counts and updates the sidebar.</li>
+<li><strong>Orphan Nodes:</strong></li>
+<li>An orphan node is a visible node with no visible edges connected to it.</li>
+<li>As nodes or edges are hidden, the number of orphan nodes may increase.</li>
+</ul>
+<h4 id="testing-the-implementation_1">Testing the Implementation:</h4>
+<ol>
+<li>
+<p><strong>Check All Groups:</strong></p>
+</li>
+<li>
+<p>Click "Check All" to ensure all nodes and edges are visible.</p>
+</li>
+<li>The statistics should display the total number of nodes and edges.</li>
+<li>
+<p>Orphan count should be <code>0</code> if all nodes are connected.</p>
+</li>
+<li>
+<p><strong>Uncheck All Groups:</strong></p>
+</li>
+<li>
+<p>Click "Uncheck All" to hide all nodes.</p>
+</li>
+<li>
+<p>Statistics should show <code>0</code> nodes, <code>0</code> edges, and <code>0</code> orphans.</p>
+</li>
+<li>
+<p><strong>Toggle Individual Groups:</strong></p>
+</li>
+<li>
+<p>Uncheck individual groups to hide specific nodes.</p>
+</li>
+<li>Statistics should update to reflect the current counts.</li>
+<li>Observe how the number of orphans changes as nodes become disconnected.</li>
+</ol>
+<h3 id="additional-notes_2">Additional Notes:</h3>
+<ul>
+<li><strong>Edge Visibility:</strong></li>
+<li>Vis.js hides edges automatically when connected nodes are hidden.</li>
+<li>
+<p>Edges are only considered visible if both connected nodes are visible.</p>
+</li>
+<li>
+<p><strong>Scalability:</strong></p>
+</li>
+<li>The <code>updateStatistics()</code> function works dynamically with any number of nodes and edges.</li>
+<li>
+<p>If you add more nodes or edges, the statistics will adjust accordingly.</p>
+</li>
+<li>
+<p><strong>Performance:</strong></p>
+</li>
+<li>The use of <code>Set</code> for <code>connectedNodeIds</code> improves performance when checking for orphan nodes.</li>
+<li>Filtering and mapping functions are efficient for datasets of moderate size.</li>
+</ul>
+<h3 id="summary-of-dynamic-networks-statistics">Summary of Dynamic Networks Statistics</h3>
+<p>By adding dynamic network statistics to the sidebar, users can gain insights into the structure and connectivity of the network at any given time. The statistics update automatically in response to user interactions, enhancing the interactivity and usefulness of the visualization.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../legends/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Legends">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Legends
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../groups/" class="md-footer__link md-footer__link--next" aria-label="Next: Groups">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Groups
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.af256bd8.min.js"></script>
+      
+    
+  </body>
+</html>
