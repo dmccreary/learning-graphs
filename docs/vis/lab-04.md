@@ -1,6 +1,6 @@
 # Lab 4: Edge Properties
 
-<iframe src="../lab-04.html" height="320px" width="620px"></iframe>
+<iframe src="./lab-04.html" height="320px" width="620px"></iframe>
 
 [Lab 4 Edge HTML](./lab-04.html)
 
