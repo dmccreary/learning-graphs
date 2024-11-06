@@ -416,6 +416,16 @@
         
       
         
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
           
         
       
@@ -426,14 +436,6 @@
         
       
         
-      
-        
-      
-        
-      
-        
-      
-        
           
         
       
@@ -442,11 +444,7 @@
         
       
         
-      
-        
           
-        
-      
         
       
         
@@ -792,6 +790,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#rhizombic-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rhizombic Learning
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#skos" class="md-nav__link">
     <span class="md-ellipsis">
       SKOS
@@ -804,6 +811,15 @@
   <a href="#touchpoint" class="md-nav__link">
     <span class="md-ellipsis">
       Touchpoint
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vis.js
     </span>
   </a>
   
@@ -889,6 +905,26 @@
   
   <span class="md-ellipsis">
     License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../student-volunteers-wanted/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Student Volunteers Wanted
   </span>
   
 
@@ -1115,6 +1151,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#rhizombic-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rhizombic Learning
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#skos" class="md-nav__link">
     <span class="md-ellipsis">
       SKOS
@@ -1127,6 +1172,15 @@
   <a href="#touchpoint" class="md-nav__link">
     <span class="md-ellipsis">
       Touchpoint
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vis.js
     </span>
   </a>
   
@@ -1202,9 +1256,8 @@
 </ol>
 <h4 id="journey-map">Journey Map</h4>
 <p><img alt="Journey Map for Python" src="../img/journey-map-python.png" /></p>
-<p>A visual or structured representation of an individual's experience as they move through a sequence of steps, interactions, or stages to achieve a specific goal, often used to identify <a href="#touchpoints">touchpoints</a>, challenges, and opportunities for improvement.</p>
+<p>A visual or structured representation of an individual's experience as they move through a sequence of steps, interactions, or stages to achieve a specific goal, often used to identify <a href="#touchpoint">touchpoints</a>, challenges, and opportunities for improvement.</p>
 <p><strong>Example:</strong> A journey map for a student's learning process can be derived from a learning concept graph. For instance, the graph shows the required concepts to master "calculus," such as "basic arithmetic" and "algebra." A journey map can be created that outlines the student's progression through these concepts, highlighting key milestones, struggles, and recommended interventions at each stage to ensure the successful understanding of calculus.</p>
-<p>4o</p>
 <h4 id="learning-graph">Learning Graph</h4>
 <p>A network graph that stores learning <a href="#concept">Concepts</a> and their dependencies.</p>
 <p>Learning graphs are a type of <a href="#directed-graph">Directed Graphs</a> where every node is a learning Concept
@@ -1229,17 +1282,23 @@ and every edge is a concept dependency or prerequisite.</p>
 <p>In general, a concept has one and only one preferred name per language such as English, but a Concept
 may have many alternate labels.</p>
 <p>Within a learning graph, no two Concepts should have the same preferred name.</p>
+<h4 id="rhizombic-learning">Rhizombic Learning</h4>
+<p>An educational model inspired by the way rhizomes grow and spread, allowing for non-linear, interconnected, and expansive pathways of knowledge acquisition.</p>
+<p>The Rhizombic Learning approach contrasts with traditional hierarchical or linear models, focusing instead on exploration, connection, and adaptability.  Learning graphs are ideal
+tools to encourage the curious leaner.</p>
 <h4 id="skos">SKOS</h4>
 <p>A W3C standard for representing structured knowledge in a simple, machine-readable format, allowing for the sharing and linking of controlled vocabularies, taxonomies, thesauri, and other knowledge organization systems across different systems and applications.</p>
-<p>Example: SKOS can be used to exchange learning graphs by encoding the relationships between educational concepts as a set of SKOS concepts and properties. For instance, a graph that shows the dependency between "basic arithmetic," "algebra," and "calculus" can be expressed using SKOS, with "broader" and "narrower" properties to define the hierarchy and concept relationships. This allows different educational platforms to share and reuse the same structure for organizing learning materials.</p>
+<p><strong>Example:</strong> SKOS can be used to exchange learning graphs by encoding the relationships between educational concepts as a set of SKOS concepts and properties. For instance, a graph that shows the dependency between "basic arithmetic," "algebra," and "calculus" can be expressed using SKOS, with "broader" and "narrower" properties to define the hierarchy and concept relationships. This allows different educational platforms to share and reuse the same structure for organizing learning materials.</p>
 <p>Note that SKOS is ideal for storing taxonomies and ontologies, but is not use for showing learning order dependencies.</p>
 <ul>
 <li>Also Known as: Simple Knowledge Organization System</li>
 </ul>
 <h4 id="touchpoint">Touchpoint</h4>
 <p>An interaction or moment of engagement between a learner and a learning management system (LMS), typically associated with key stages in the learning process where progress, feedback, or guidance is provided.</p>
-<p>Example: In a learning management system built around a learning graph, touchpoints occur when a student completes a quiz, views instructional content, or seeks help on a specific concept. By analyzing these touchpoints, instructors can identify where students frequently encounter difficulties or disengage. Touchpoint analysis might reveal that many students struggle with "fractions" before advancing to "algebra," allowing instructors to redesign the course by adding additional resources or alternative explanations at that critical stage, improving student success.
-```</p>
+<p>Example: In a learning management system built around a learning graph, touchpoints occur when a student completes a quiz, views instructional content, or seeks help on a specific concept. By analyzing these touchpoints, instructors can identify where students frequently encounter difficulties or disengage. Touchpoint analysis might reveal that many students struggle with "fractions" before advancing to "algebra," allowing instructors to redesign the course by adding additional resources or alternative explanations at that critical stage, improving student success.</p>
+<h4 id="visjs">Vis.js</h4>
+<p>A JavaScript library for visualizing graph networks.</p>
+<p>See: <a href="https://visjs.github.io/vis-network/docs/network/">https://visjs.github.io/vis-network/docs/network/</a></p>
 
 
 
