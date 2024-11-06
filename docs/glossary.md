@@ -80,11 +80,10 @@ A term definition is considered to be consistent with ISO/IEC 11179 metadata reg
 
 ![Journey Map for Python](./img/journey-map-python.png)
 
-A visual or structured representation of an individual's experience as they move through a sequence of steps, interactions, or stages to achieve a specific goal, often used to identify [touchpoints](#touchpoints), challenges, and opportunities for improvement.
+A visual or structured representation of an individual's experience as they move through a sequence of steps, interactions, or stages to achieve a specific goal, often used to identify [touchpoints](#touchpoint), challenges, and opportunities for improvement.
 
 **Example:** A journey map for a student's learning process can be derived from a learning concept graph. For instance, the graph shows the required concepts to master "calculus," such as "basic arithmetic" and "algebra." A journey map can be created that outlines the student's progression through these concepts, highlighting key milestones, struggles, and recommended interventions at each stage to ensure the successful understanding of calculus.
 
-4o
 #### Learning Graph
 
 A network graph that stores learning [Concepts](#concept) and their dependencies.
@@ -127,11 +126,18 @@ may have many alternate labels.
 
 Within a learning graph, no two Concepts should have the same preferred name.
 
+#### Rhizombic Learning
+
+An educational model inspired by the way rhizomes grow and spread, allowing for non-linear, interconnected, and expansive pathways of knowledge acquisition.
+
+The Rhizombic Learning approach contrasts with traditional hierarchical or linear models, focusing instead on exploration, connection, and adaptability.  Learning graphs are ideal
+tools to encourage the curious leaner.
+
 #### SKOS
 
 A W3C standard for representing structured knowledge in a simple, machine-readable format, allowing for the sharing and linking of controlled vocabularies, taxonomies, thesauri, and other knowledge organization systems across different systems and applications.
 
-Example: SKOS can be used to exchange learning graphs by encoding the relationships between educational concepts as a set of SKOS concepts and properties. For instance, a graph that shows the dependency between "basic arithmetic," "algebra," and "calculus" can be expressed using SKOS, with "broader" and "narrower" properties to define the hierarchy and concept relationships. This allows different educational platforms to share and reuse the same structure for organizing learning materials.
+**Example:** SKOS can be used to exchange learning graphs by encoding the relationships between educational concepts as a set of SKOS concepts and properties. For instance, a graph that shows the dependency between "basic arithmetic," "algebra," and "calculus" can be expressed using SKOS, with "broader" and "narrower" properties to define the hierarchy and concept relationships. This allows different educational platforms to share and reuse the same structure for organizing learning materials.
 
 Note that SKOS is ideal for storing taxonomies and ontologies, but is not use for showing learning order dependencies.
 
@@ -142,4 +148,9 @@ Note that SKOS is ideal for storing taxonomies and ontologies, but is not use fo
 An interaction or moment of engagement between a learner and a learning management system (LMS), typically associated with key stages in the learning process where progress, feedback, or guidance is provided.
 
 Example: In a learning management system built around a learning graph, touchpoints occur when a student completes a quiz, views instructional content, or seeks help on a specific concept. By analyzing these touchpoints, instructors can identify where students frequently encounter difficulties or disengage. Touchpoint analysis might reveal that many students struggle with "fractions" before advancing to "algebra," allowing instructors to redesign the course by adding additional resources or alternative explanations at that critical stage, improving student success.
-```
+
+#### Vis.js
+
+A JavaScript library for visualizing graph networks.
+
+See: [https://visjs.github.io/vis-network/docs/network/](https://visjs.github.io/vis-network/docs/network/)

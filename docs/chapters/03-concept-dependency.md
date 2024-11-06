@@ -15,10 +15,17 @@ Please help me write a the chapter called "Concept Dependency". In this chapter 
 
 In this chapter, we will explore the core of learning graphs: how concepts are interrelated and how those relationships can be visualized in a dependency graph. You've already been introduced to Learning Concepts and Bloom's Taxonomy, so we'll focus on structuring these concepts based on their inherent dependencies. This will allow educators, learners, and AI-driven systems to generate a pathway through a body of knowledge, ensuring that foundational concepts (prerequisites) are learned before more advanced ideas are introduced.
 
-
 ### Understanding Concept Dependencies
 
 Concept dependencies refer to the relationships between various [learning concepts](../glossary.md#concept), where one concept must be understood before another can be fully grasped. Just as in building a house, where you need a solid foundation before constructing the walls, in learning, certain foundational concepts need to be mastered before more advanced ones are introduced.
+
+Concept dependencies are not always absolute relationships.
+Some concepts can sometimes be understood with patience without 
+having a deep understanding of a dependent concept.
+However, our graphs don't model the weight of a dependency.
+It is possible that weights can be added to our dependency
+graphs in the future, but this is out-of-scope for this
+course.
 
 A **dependency graph** illustrates these relationships by placing foundational concepts as prerequisites and showing the pathways that lead from basic understanding to advanced learning goals. Each node in the graph represents a learning concept, and the directed edges show the dependencies between them. This way, a learner or an educator can navigate through a structured sequence, ensuring all required knowledge is obtained progressively.
 
@@ -49,6 +56,10 @@ Learning goals can be structured across multiple levels. For instance:
 -   **Ultimate goals**: Achieving proficiency that allows learners to tackle real-world challenges or expert-level problems.
 
 In a dependency graph, these learning goals might appear toward the right side (if you imagine the graph flowing from left to right), while foundational concepts would be on the left. The edges in the graph show the learner's path through intermediate concepts, from the foundations toward their ultimate learning goals.
+
+### Classical Leaning Paths vs. hizombic Learning
+
+Rhizombic learning would be an educational model inspired by the way rhizomes grow and spread, allowing for non-linear, interconnected, and expansive pathways of knowledge acquisition. This approach contrasts with traditional hierarchical or linear models, focusing instead on exploration, connection, and adaptability.
 
 ### Ordering Concepts Using a Dependency Graph
 

@@ -1,7 +1,7 @@
 # Bloom's Taxonomy
 
 ![blooms-taxonomy](../img/blooms-taxonomy.png)
-[Image credit](#image)
+[Image credit: Univ. of Florida Information Technology](https://citt.ufl.edu/resources/the-learning-process/designing-the-learning-experience/blooms-taxonomy/blooms-taxonomy-graphic-description/)
 
 ## Introduction
 

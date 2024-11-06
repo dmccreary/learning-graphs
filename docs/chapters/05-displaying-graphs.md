@@ -12,7 +12,7 @@ editing learning graphs.
 A network graph data structure that uses nodes to represent concepts and edges to
 show the relationship between concepts.
 
-* See also: [SKOS](../glossary.md#SKOS)
+* See also: [SKOS](../glossary.md#skos)
 
 ### Content Graphs
 

@@ -10,7 +10,7 @@ Learning graphs are network graph that stores learning [Concepts](../glossary.md
 
 Learning graphs are a type of [Directed Graphs](../glossary.md#directed-graph) where every node is a learning Concept and every edge is a concept dependency or prerequisite.
 
-A **Learning Graph** is a powerful representation of knowledge used to model the relationships between different learning concepts and their dependencies. This graph-based approach enables a structured, visual way to map out the sequence in which learners need to acquire knowledge, making it particularly effective for [hyper-personalized](../glossary.md#hyperpersonalization) lesson plan generation.
+A **Learning Graph** is a powerful representation of knowledge used to model the relationships between different learning concepts and their dependencies. This graph-based approach enables a structured, visual way to map out the sequence in which learners need to acquire knowledge, making it particularly effective for [hyper-personalized](../glossary.md#hyper-personalization) lesson plan generation.
 
 In essence, a learning graph is a type of directed graph where every node represents a learning concept, and each directed edge signifies a prerequisite relationship between two concepts. By modeling the learning process as a graph, we can identify the optimal path a learner should follow to master a specific topic.
 
