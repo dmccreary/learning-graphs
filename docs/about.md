@@ -5,8 +5,8 @@ The goal of this website is to enable teaching the concepts around Learning Grap
 Learning Graphs are [concept dependency graphs](glossary.md/#concept-dependency-graph) that are used to:
 
 1. Understand the important [concepts](glossary.md#concept) in a course and their dependencies
-2. Suggest [learning paths](glossary#learning-path) to achieve [learning objectives](glossary#learning-objective)
-3. Serve as the core data structure for [hyper-personalization](glossary.md#hyper-personalization) of lesson plans by [generative AI](glossary#generative-ai) [agents](glossary.md#agent).
+2. Suggest [learning paths](glossary.md#learning-path) to achieve [learning objectives](glossary.md#learning-objective)
+3. Serve as the core data structure for [hyper-personalization](glossary.md#hyper-personalization) of lesson plans by [generative AI](glossary.md#generative-ai) [agents](glossary.md#agent).
 
 ## Course Learning Objectives
 
