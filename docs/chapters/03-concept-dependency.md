@@ -57,7 +57,7 @@ Learning goals can be structured across multiple levels. For instance:
 
 In a dependency graph, these learning goals might appear toward the right side (if you imagine the graph flowing from left to right), while foundational concepts would be on the left. The edges in the graph show the learner's path through intermediate concepts, from the foundations toward their ultimate learning goals.
 
-### Classical Leaning Paths vs. hizombic Learning
+### Classical Leaning Paths vs. Rhizomatic Learning
 
 Rhizombic learning would be an educational model inspired by the way rhizomes grow and spread, allowing for non-linear, interconnected, and expansive pathways of knowledge acquisition. This approach contrasts with traditional hierarchical or linear models, focusing instead on exploration, connection, and adaptability.
 
