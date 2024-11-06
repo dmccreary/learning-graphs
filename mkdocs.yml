@@ -14,6 +14,7 @@ nav:
     - Table of Contents: chapters/index.md
     - Learning Graphs: chapters/01-learning-graphs.md
     - Bloom's Taxonomy: chapters/02-blooms-taxonomy.md
+    - Rhizomatic Learning: chapters/02-rhizomatic-learning.md
     - Concepts: chapters/02-concepts.md
     - Concept Dependency: chapters/03-concept-dependency.md
     - Concept Taxonomies: chapters/04-concept-taxonomies.md
@@ -31,7 +32,6 @@ nav:
     - Low-Latency: case-studies/low-latency.md
   - Vis.js Tutorial:
     - Intro: vis/index.md
-
     - Lab 1 - Default Behavior: vis/lab-01.md
     - Lab 2 - JSON: vis/lab-02.md
     - Lab 3 - Node Properties:  vis/lab-03.md
