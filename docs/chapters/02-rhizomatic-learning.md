@@ -1,4 +1,4 @@
-## Rhizomatic Learning
+# Rhizomatic Learning
 
 ![](../img/rhizomatic-learning.png)
 
@@ -32,8 +32,8 @@ This approach contrasts with traditional hierarchical or linear models, focusing
 
 #### Emergent Knowledge Structures
 
-    -   In Rhizombic learning, knowledge structures emerge rather than being pre-imposed. Just as rhizomes grow outward from multiple points, learners' understanding grows in unexpected, non-hierarchical ways.
-    -   This can foster creativity, critical thinking, and a deeper appreciation for complexity, as students see how diverse ideas interrelate.
+-   In Rhizombic learning, knowledge structures emerge rather than being pre-imposed. Just as rhizomes grow outward from multiple points, learners' understanding grows in unexpected, non-hierarchical ways.
+-   This can foster creativity, critical thinking, and a deeper appreciation for complexity, as students see how diverse ideas interrelate.
 
 ### Comparison to Traditional Learning Models
 
@@ -60,32 +60,38 @@ Rhizomatic learning offers unique benefits by leveraging students' natural curio
 
 1.  **Curiosity-Driven Exploration**:
 
-    -   Rhizomatic learning taps into students' intrinsic motivation by encouraging them to pursue topics that genuinely interest them. Instead of passively following a set curriculum, students are active agents, following their curiosity wherever it leads.
-    -   This freedom can create a sense of wonder and excitement as students encounter new questions, investigate tangential ideas, and feel the thrill of discovery. The learning environment transforms into a space where curiosity isn't just welcomed but becomes the driving force behind every step forward.
+-   Rhizomatic learning taps into students' intrinsic motivation by encouraging them to pursue topics that genuinely interest them. Instead of passively following a set curriculum, students are active agents, following their curiosity wherever it leads.
+-   This freedom can create a sense of wonder and excitement as students encounter new questions, investigate tangential ideas, and feel the thrill of discovery. The learning environment transforms into a space where curiosity isn't just welcomed but becomes the driving force behind every step forward.
+
 2.  **Learning as a Personalized Journey**:
 
-    -   Like "choose your own adventure" books, where each choice determines the story's outcome, rhizomatic learning allows students to chart a unique course through their education. They can decide which topics to explore in-depth, which to skim, and which to connect with other areas.
-    -   This personalized journey gives students agency, helping them see learning as something they control rather than something imposed on them. It encourages self-discovery and independence, reinforcing the idea that knowledge is something to be pursued and shaped by personal interests and goals.
+-   Like "choose your own adventure" books, where each choice determines the story's outcome, rhizomatic learning allows students to chart a unique course through their education. They can decide which topics to explore in-depth, which to skim, and which to connect with other areas.
+-   This personalized journey gives students agency, helping them see learning as something they control rather than something imposed on them. It encourages self-discovery and independence, reinforcing the idea that knowledge is something to be pursued and shaped by personal interests and goals.
+
 3.  **Interconnected and Holistic Understanding**:
 
-    -   Rhizomatic learning fosters an interconnected view of knowledge. As students explore various branches, they begin to see how different subjects and concepts interrelate, much like how rhizomes spread and connect beneath the soil.
-    -   This approach cultivates a holistic mindset, where students develop a nuanced understanding of complex topics by seeing their connections to other fields. For example, a student exploring environmental science might delve into chemistry, biology, and social studies, gaining a rich, multi-layered understanding of the subject that traditional, isolated paths might not provide.
+-   Rhizomatic learning fosters an interconnected view of knowledge. As students explore various branches, they begin to see how different subjects and concepts interrelate, much like how rhizomes spread and connect beneath the soil.
+-   This approach cultivates a holistic mindset, where students develop a nuanced understanding of complex topics by seeing their connections to other fields. For example, a student exploring environmental science might delve into chemistry, biology, and social studies, gaining a rich, multi-layered understanding of the subject that traditional, isolated paths might not provide.
+
 4.  **Flexible and Resilient Knowledge Growth**:
 
-    -   Since rhizomatic learning allows for detours, revisits, and shifts in focus, it encourages a flexible approach to learning. Students are not penalized for deviating from a set path; instead, they are encouraged to explore and adapt, which can make learning feel less pressured and more rewarding.
-    -   This adaptability builds resilience. If one path becomes too challenging or loses the student's interest, they can pivot and re-engage with the subject in a different way, much like roots seeking out new ground for nourishment.
+-   Since rhizomatic learning allows for detours, revisits, and shifts in focus, it encourages a flexible approach to learning. Students are not penalized for deviating from a set path; instead, they are encouraged to explore and adapt, which can make learning feel less pressured and more rewarding.
+-   This adaptability builds resilience. If one path becomes too challenging or loses the student's interest, they can pivot and re-engage with the subject in a different way, much like roots seeking out new ground for nourishment.
+
 5.  **Enhanced Creativity and Problem-Solving Skills**:
 
-    -   As students take ownership of their learning journey, they become more creative in how they approach problems and make connections between ideas. Rhizomatic learning cultivates creative thinking by encouraging students to forge their own paths and think outside traditional boundaries.
-    -   Problem-solving also becomes a more personal, self-directed skill. Students learn to navigate ambiguity and make independent decisions, developing strategies to approach challenges without relying solely on preset instructions or steps.
+-   As students take ownership of their learning journey, they become more creative in how they approach problems and make connections between ideas. Rhizomatic learning cultivates creative thinking by encouraging students to forge their own paths and think outside traditional boundaries.
+-   Problem-solving also becomes a more personal, self-directed skill. Students learn to navigate ambiguity and make independent decisions, developing strategies to approach challenges without relying solely on preset instructions or steps.
+
 6.  **Sustained Engagement Through Story-Like Structure**:
 
-    -   In "choose your own adventure" books, each decision affects the plot, creating suspense and engagement. Similarly, rhizomatic learning can sustain students' interest over time because each topic or concept feels like a plot twist or new chapter.
-    -   This story-like structure adds an element of narrative to education, where learning isn't just about reaching the end but about enjoying and exploring each chapter. Students remain engaged as they anticipate new discoveries and realize that they can influence the direction and outcome of their learning experience.
+-   In "choose your own adventure" books, each decision affects the plot, creating suspense and engagement. Similarly, rhizomatic learning can sustain students' interest over time because each topic or concept feels like a plot twist or new chapter.
+-   This story-like structure adds an element of narrative to education, where learning isn't just about reaching the end but about enjoying and exploring each chapter. Students remain engaged as they anticipate new discoveries and realize that they can influence the direction and outcome of their learning experience.
+
 7.  **A Sense of Accomplishment and Ownership**:
 
-    -   Because rhizomatic learning emphasizes student agency, each learner feels a sense of accomplishment with every step taken. As they uncover connections and make discoveries, they build a portfolio of personally meaningful achievements that are unique to their journey.
-    -   This ownership leads to greater self-confidence and a lasting appreciation for learning. Rather than passively receiving knowledge, students feel they've played an active role in building their understanding, which can inspire a lifelong love of learning.
+-   Because rhizomatic learning emphasizes student agency, each learner feels a sense of accomplishment with every step taken. As they uncover connections and make discoveries, they build a portfolio of personally meaningful achievements that are unique to their journey.
+-   This ownership leads to greater self-confidence and a lasting appreciation for learning. Rather than passively receiving knowledge, students feel they've played an active role in building their understanding, which can inspire a lifelong love of learning.
 
 ### Rhizomatic Learning as an Ongoing, Dynamic Adventure
 
