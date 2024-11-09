@@ -109,13 +109,22 @@ A structured sequence of learning activities, materials, or modules designed to 
 
 **Example:** A learning path for mastering algebra might start with basic arithmetic, followed by lessons on solving equations, and then advance to systems of equations and quadratic functions.
 
+#### MicroSim
+
+A small stand-alone educational simulation of a concept.  MicroSims
+are designed to be easy for generative AI agents to create and
+modify to accommodate the individual needs of students.
+
+See also: [MicroSims Website](https://dmccreary.github.io/microsims/)
+
 #### Node Group
 
 A collection of interconnected nodes within a graph that share common characteristics or relationships, often treated as a unit for analysis or visualization.
 
 **Example:** In a concept dependency graph, a node group could represent all the foundational concepts needed for understanding calculus, such as "algebra," "trigonometry," and "functions."
 
-* Also known as: Cluster
+* Also know as: Community
+* Also know as: Cluster
 
 #### Preferred Label
 

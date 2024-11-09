@@ -1,12 +1,12 @@
 # About the Learning Graphs Website
 
-The goal of this website is to enable teaching the concepts around Learning Graphs.  It was inspired by the cyberpunk science fiction novel Diamond Age by Neal Stephenson.  In this novel, a child uses a tablet-like device that customizes stories to the needs of the child.  This form of highly-customized learning is our goal.  We believe that learning graphs are the core data structure that these intelligent learning agents will be built on.
+The goal of this website is to enable teaching the concepts around Learning Graphs.  It was inspired by the cyberpunk science fiction novel [Diamond Age](https://en.wikipedia.org/wiki/The_Diamond_Age) by Neal Stephenson.  In this novel, a child uses a tablet-like device that customizes stories to the needs of the child.  This form of highly-customized learning is our goal.  We believe that learning graphs are the core data structure that these intelligent learning agents will be built on.
 
 Learning Graphs are [concept dependency graphs](glossary.md/#concept-dependency-graph) that are used to:
 
 1. Understand the important [concepts](glossary.md#concept) in a course and their dependencies
 2. Suggest [learning paths](glossary.md#learning-path) to achieve [learning objectives](glossary.md#learning-objective)
-3. Serve as the core data structure for [hyper-personalization](glossary.md#hyper-personalization) of lesson plans by [generative AI](glossary.md#generative-ai) [agents](glossary.md#agent).
+3. Serve as the core data structure for [hyper-personalization](glossary.md#hyper-personalization) of lesson plans by [generative AI](glossary.md#generative-ai) and other content such as [MicroSims](glossary.md#microsim) by [agents](glossary.md#agent).
 
 ## Course Learning Objectives
 
