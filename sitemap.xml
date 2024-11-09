@@ -56,7 +56,27 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/learning-graphs/case-studies/circuits/</loc>
+         <lastmod>2024-11-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/case-studies/graph-algorithms/</loc>
+         <lastmod>2024-11-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/learning-graphs/case-studies/low-latency/</loc>
+         <lastmod>2024-11-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/case-studies/micropython/</loc>
+         <lastmod>2024-11-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/case-studies/signal-processing/</loc>
          <lastmod>2024-11-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
