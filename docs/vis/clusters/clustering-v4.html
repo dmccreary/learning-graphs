@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>vis.js Cluster by Domain Example</title>
+  <!-- Load vis.js from CDN -->
+  <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <style type="text/css">
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    #mynetwork {
+      width: 600px;
+      height: 500px;
+      background: aliceblue;
+      border: 1px solid lightgray;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Example 4: Clustering by Domain Attribute and Repositioning the Label</h2>
+<a href=".">Back to Lesson Plan</a><br/>
+
+<div id="mynetwork"></div>
+<p>Double click on a cluster to expand the cluster.<br/>
+</p>
+
+<script type="text/javascript">
+  // Create an array of nodes with a 'domain' attribute
+  var nodes = new vis.DataSet([
+    { id: 1, label: 'Node 1A', domain: 'A' },
+    { id: 2, label: 'Node 2A', domain: 'A' },
+    { id: 3, label: 'Node 3A', domain: 'A' },
+
+    { id: 4, label: 'Node 4B', domain: 'B' },
+    { id: 5, label: 'Node 5B', domain: 'B' },
+    { id: 6, label: 'Node 6B', domain: 'B' },
+
+    { id: 7, label: 'Node 7C', domain: 'C' },
+    { id: 8, label: 'Node 8C', domain: 'C' },
+    { id: 9, label: 'Node 9C', domain: 'C' }
+  ]);
+
+  // Create an array of edges
+  // Create an array of edges
+  var edges = new vis.DataSet([
+    { from: 1, to: 2 },
+    { from: 1, to: 3 },
+    { from: 2, to: 3 },
+
+    { from: 1, to: 4 },
+
+    { from: 4, to: 5 },
+    { from: 4, to: 6 },
+    { from: 5, to: 6 },
+
+    { from: 4, to: 7 },
+
+    { from: 7, to: 8 },
+    { from: 7, to: 9 },
+    { from: 8, to: 9 },
+
+    { from: 1, to: 7 }
+  ]);
+
+  // Create a network
+  var container = document.getElementById('mynetwork');
+
+  var data = {
+    nodes: nodes,
+    edges: edges
+  };
+
+var options = {
+  nodes: {
+    shape: 'circle',
+    size: 16
+  },
+  physics: true  // Disable/enable physics to cluster immediately
+};
+
+var network = new vis.Network(container, data, options);
+
+// Cluster after stabilization
+network.once('stabilized', function () {
+  clusterByDomain();
+});
+
+// Function to cluster nodes by the 'domain' attribute
+function clusterByDomain() {
+  // Get unique domains from nodes
+  var allNodes = nodes.get();
+  var domains = [...new Set(allNodes.map(node => node.domain))];
+
+  domains.forEach(function(domain) {
+    // Define colors based on domain
+    var domainColors = {
+      'A': { border: '#FF0000', background: '#FFCCCC' }, // Red
+      'B': { border: '#00FF00', background: '#CCFFCC' }, // Green
+      'C': { border: '#0000FF', background: '#CCCCFF' }  // Blue
+    };
+
+    var clusterOptionsByData = {
+      joinCondition: function(childNode) {
+        return childNode.domain === domain;
+      },
+      clusterNodeProperties: {
+        id: 'cluster:' + domain,
+        // bold label
+        label: '<b>Cluster ' + domain + '</b>',
+        shape: 'square',
+        size: 40,
+        align: 'horizontal', // Center align the text
+        color: domainColors[domain],
+        font: {
+            color: '#000000',  // Black font color
+            size: 16,          // Font size
+            vadjust: -55,      // Adjust label position upwards size + 15
+            align: 'horizontal', // Center align the text
+            multi: true
+          }
+      }
+    };
+    network.cluster(clusterOptionsByData);
+  });
+}
+
+  // Cluster the nodes immediately after network creation
+  clusterByDomain();
+
+  // Optionally, handle double-click events to open clusters
+  network.on("doubleClick", function (params) {
+    if (params.nodes.length === 1) {
+      var nodeId = params.nodes[0];
+      if (network.isCluster(nodeId) === true) {
+        network.openCluster(nodeId);
+      }
+    }
+  });
+
+</script>
+
+</body>
+</html>

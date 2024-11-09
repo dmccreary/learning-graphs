@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cluster Graph Nodes Example 1</title>
+  <!-- Load vis.js from CDN -->
+  <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <style type="text/css">
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    #mynetwork {
+      width: 600px;
+      height: 500px;
+      background: aliceblue;
+      border: 1px solid lightgray;
+    }
+  </style>
+</head>
+<body>
+  <h2>Clustering Nodes by Domain Attribute</h2>
+
+  <a href=".">Back to Lesson Plan</a><br/>
+
+  <div id="mynetwork"></div>
+  <p>Double click on a cluster to expand the cluster to the individual nodes
+    that make up that cluster.<br/>
+    Note: This simple example does
+    not allow you to collapse the cluster back together.<br/>
+    <a href="clustering-1.js">View JavaScript Source</a><br/>
+    <a href="graph-data.json">View Graph Data in JSON</a>
+  </p>
+  <script type="text/javascript" src="clustering-1.js"></script>
+
+</body>
+</html>

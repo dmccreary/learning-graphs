@@ -33,7 +33,7 @@ nav:
     - Lab 2 - JSON: vis/lab-02.md
     - Lab 3 - Node Properties:  vis/lab-03.md
     - Lab 4 - Edge Properties: vis/lab-04.md
-    - Lab 5: vis/lab-05.md
+    - Lab 5 - Custom Shapes: vis/lab-05.md
     - Physics Parameters: vis/physics-params/index.md
     - Fix X Positions: vis/fix-x-positions/index.md            
     - Dependency Graph: vis/concept-dependency-graph.md
@@ -42,9 +42,9 @@ nav:
     - Legends: vis/legends/index.md
     - Legend Checkboxes: vis/legend-checkboxes/index.md
     - Groups: vis/groups/index.md
+    - Clusters: vis/clusters/index.md
     - Templates: vis/templates/index.md
     - Node Enricher: vis/node-enricher/index.md
-    - Graph Viewer: sims/graph-viewer/index.md
     - Network Properties: vis/network-properties/index.md
     - Graph Viewer: vis/graph-viewer/index.md
     - Graph Editor: vis/graph-editor/index.md
