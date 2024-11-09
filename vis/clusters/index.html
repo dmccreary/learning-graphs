@@ -1,0 +1,1936 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A microsite for teaching how to create and maintain learning graphs (concept dependency graphs) for education.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/learning-graphs/vis/clusters/">
+      
+      
+        <link rel="prev" href="../groups/">
+      
+      
+        <link rel="next" href="../templates/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.33">
+    
+    
+      
+        <title>Clusters - Learning Graphs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#clustering-in-graph-visualization" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Learning Graphs" class="md-header__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Learning Graphs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Clusters
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Learning Graphs" class="md-nav__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Learning Graphs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../chapters/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../case-studies/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Case Studies
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Vis.js Tutorial
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Vis.js Tutorial
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab-01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 1 - Default Behavior
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab-02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 2 - JSON
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab-03/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 3 - Node Properties
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab-04/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 4 - Edge Properties
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab-05/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 5 - Custom Shapes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../physics-params/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Physics Parameters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fix-x-positions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fix X Positions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concept-dependency-graph/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dependency Graph
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../csv-reader/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSV Reader
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learn-python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Learn Python Example
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legends/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Legends
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legend-checkboxes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Legend Checkboxes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groups/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Groups
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Clusters
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Clusters
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is a Cluster?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-use-clusters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Use Clusters?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why Use Clusters?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-domain-clusters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Domain Clusters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-1-working-interactive-clustering-examples-with-visjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lab 1: Working Interactive Clustering Examples with vis.js
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab2-adding-a-domain-property-to-each-vertex" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lab2: Adding a Domain Property to Each Vertex
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lab2: Adding a Domain Property to Each Vertex">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cluster-drawing-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cluster Drawing Properties
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-3-individual-cluster-colors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lab 3: Individual Cluster Colors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-4-repositioning-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lab 4: Repositioning Text
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-5-recollapse" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lab 5: Recollapse
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lab 5: Recollapse">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-handler-for-double-click-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event Handler for Double-Click Events
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-recluster-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Recluster Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-6-integrating-recollapse" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lab 6: Integrating Recollapse
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../templates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Templates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../node-enricher/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Node Enricher
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network-properties/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network Properties
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-viewer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graph Viewer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-editor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graph Editor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Sample Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How We Built This Site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../checklist/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Checklist
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student-volunteers-wanted/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Student Volunteers Wanted
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is a Cluster?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-use-clusters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Use Clusters?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why Use Clusters?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-domain-clusters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Domain Clusters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-1-working-interactive-clustering-examples-with-visjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lab 1: Working Interactive Clustering Examples with vis.js
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab2-adding-a-domain-property-to-each-vertex" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lab2: Adding a Domain Property to Each Vertex
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lab2: Adding a Domain Property to Each Vertex">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cluster-drawing-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cluster Drawing Properties
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-3-individual-cluster-colors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lab 3: Individual Cluster Colors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-4-repositioning-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lab 4: Repositioning Text
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-5-recollapse" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lab 5: Recollapse
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lab 5: Recollapse">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-handler-for-double-click-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event Handler for Double-Click Events
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-recluster-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Recluster Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-6-integrating-recollapse" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lab 6: Integrating Recollapse
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/learning-graphs/blob/master/docs/vis/clusters/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="clustering-in-graph-visualization">Clustering in Graph Visualization</h1>
+<p>Network diagrams can quickly get vary complicated.  As the number of vertices gets
+larger, the network becomes more difficult to view and see key
+relationships.  We need ways to quickly collapse a group
+of nodes into a single symbol to reduce complexity.  The primary tool we
+used to do this is called a graph node <a href="../../glossary/#cluster">cluster</a>.</p>
+<h2 id="what-is-a-cluster">What is a Cluster?</h2>
+<p>In graph theory, a cluster in is a <strong>composite node</strong> that encapsulates a group of related nodes and their connections, formed based on specific criteria, to simplify and enhance the visualization of network diagrams. It serves as an interactive element that can be expanded or collapsed, allowing users to explore the network at different levels of detail while reducing visual complexity.</p>
+<h2 id="why-use-clusters">Why Use Clusters?</h2>
+<ul>
+<li>
+<p><strong>Representation of Grouped Nodes</strong>: A cluster acts as a <strong>higher-level abstraction</strong>, encapsulating several nodes (and their edges) into one composite node. This helps in visualizing the network at different levels of detail.</p>
+</li>
+<li>
+<p><strong>Formation Criteria</strong>: Clusters are formed based on <strong>specific conditions or attributes</strong> of the nodes, such as shared properties (e.g., a common <code>domain</code> attribute), connectivity patterns, or spatial proximity.</p>
+</li>
+<li>
+<p><strong>Interactivity</strong>: Clusters are <strong>interactive</strong> elements in the network graph. Users can <strong>expand (open)</strong> a cluster to reveal the individual nodes it contains or <strong>collapse</strong> them back into a single cluster node. This dynamic interaction allows for exploration of the network at varying granularities.</p>
+</li>
+<li>
+<p><strong>Visual Simplification</strong>: By clustering nodes, the network diagram becomes <strong>less cluttered</strong>, making it easier to understand the overall structure and relationships without being overwhelmed by too many individual elements.</p>
+</li>
+<li>
+<p><strong>Simplifies Complex Networks</strong>: Clustering reduces the number of visible nodes and edges, making large and complex networks more manageable and understandable.</p>
+</li>
+<li>
+<p><strong>Improves Performance</strong>: By displaying fewer elements, rendering performance is enhanced, leading to smoother interactions, especially with large datasets.</p>
+</li>
+<li>
+<p><strong>Enhances User Experience</strong>: Interactive clustering allows users to focus on areas of interest within the network, drilling down into clusters for detailed information or zooming out for an overview.</p>
+</li>
+<li>
+<p><strong>Facilitates Data Analysis</strong>: Grouping related nodes helps in identifying patterns, relationships, and hierarchical structures within the network data.</p>
+</li>
+</ul>
+<h3 id="example-domain-clusters">Example: Domain Clusters</h3>
+<p>In the following example, we will show how different sections of a large graph
+data model can be grouped into clusters.  We call each grouping of related vertex types a <strong>domain</strong>.</p>
+<p>When we build large complex data models, we would ideally like is to be able to group the nodes
+into domains of similar items.  For example, Location, Address, City, State and Country
+might all be in the <strong>geospatial</strong> domain.  Content that is converted into Documents, DocumentSections, DocumentChunks, Entities and Concepts are part of the <strong>lexical</strong> domain.</p>
+<ul>
+<li>
+<p><strong>Clustering by Attribute (<code>domain</code>)</strong>: Nodes that share the same <code>domain</code> attribute are merged into a cluster. For instance, all nodes with <code>domain: 'A'</code> are grouped into a cluster labeled <strong>'Cluster A'</strong>.</p>
+</li>
+<li>
+<p><strong>Cluster Node Properties</strong>: The appearance of the cluster node can be customized (e.g., shape, size, color, label placement) to distinguish it from regular nodes and to convey meaningful information about the grouped nodes.</p>
+</li>
+<li>
+<p><strong>Re-collapsing Clusters</strong>: The code allows for clusters to be <strong>re-collapsed</strong> by double-clicking on any node that was part of an expanded cluster, enhancing the interactive exploration of the network.</p>
+</li>
+</ul>
+<h2 id="lab-1-working-interactive-clustering-examples-with-visjs">Lab 1: Working Interactive Clustering Examples with vis.js</h2>
+<p>This next section assumes you know about the way that graphs are represented
+in JSON in the vis.js library.  See out <a href="../../library-analysis/vis/index.md">Intro to Vis.js</a></p>
+<p>Here is an example of a flattened view of a small graph:</p>
+<p><img alt="" src="unclustered-nodes.png" /></p>
+<p>Note that there are vertices grouped by three letters: "A", "B" and "C".
+In this lesson we will show you how to group communities of nodes
+together under a single icon called a <a href="../../glossary/#cluster">cluster</a>.<br />
+This allows you to quickly focus
+in on the key nodes in a graph you are concerned with without
+having the rest of the graph get in the way.</p>
+<p>In our example, each domain will have a label property so
+that the software can quickly identify what nodes to cluster
+together or un-cluster to show internal detail.</p>
+<p>Here is a high-level clustered view of the above graph network using circles
+as the grouping icon:</p>
+<p><img alt="" src="cluster-a-b-c.png" /></p>
+<p>Here is a demonstration of opening a clustered node:</p>
+<p><a href="clustering-1.html">Simple Interactive Clustering Example 1 (expand only)</a></p>
+<p>Note that you can drag the cluster around and double click on a cluster to expand the nodes
+within that cluster.  This first example does not have any way to re-collapse a cluster
+other than refreshing the entire page.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When generating graph vertex-type network diagrams with vis.js,
+prefer the '''circle''' shape over the '''dot''' shape
+so the text appears inside the vertex, not under the vertex.</p>
+</div>
+<h2 id="lab2-adding-a-domain-property-to-each-vertex">Lab2: Adding a Domain Property to Each Vertex</h2>
+<p>In the following examples, we will assign each node to
+a specific domain using the <code>domain</code> property.
+The values in the example are "A", "B", and "C" however
+you can use any string for the domain value.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">nodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">DataSet</span><span class="p">([</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Node 1A&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">domain</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;A&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Node 2A&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">domain</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;A&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Node 3A&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">domain</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;A&#39;</span><span class="w"> </span><span class="p">},</span>
+
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Node 4B&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">domain</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;B&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Node 5B&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">domain</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;B&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">6</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Node 6B&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">domain</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;B&#39;</span><span class="w"> </span><span class="p">},</span>
+
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">7</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Node 7C&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">domain</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;C&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Node 8C&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">domain</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;C&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">9</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Node 9C&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">domain</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;C&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]);</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="cluster-drawing-properties">Cluster Drawing Properties</h3>
+<p>Our first step is to learn how to render a cluster.  We do this
+by adding a <code>clusterNodeProperies</code> JSON data structure
+to our program.  Here is an example that uses the <code>square</code> shape
+for the clusters.</p>
+<p><img alt="" src="cluster-boxes.png" /></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">clusterNodeProperties</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;cluster:&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">domain</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Cluster &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">domain</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">shape</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;square&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Change shape to square</span>
+<span class="w">    </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="mf">40</span><span class="p">,</span><span class="w">        </span><span class="c1">// Increase size</span>
+<span class="w">    </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">border</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;orange&#39;</span><span class="p">,</span><span class="w">      </span><span class="c1">// Set border color (e.g., orange)</span>
+<span class="w">        </span><span class="nx">background</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#FFE5B4&#39;</span><span class="w">   </span><span class="c1">// Set background color (e.g., light orange)</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">font</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;black&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// Set font color to black for readability</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Note that we are contacting the string "cluster" to the domain to create the cluster
+<code>id</code> and we are using <code>"Cluster" + domain</code> for the label.</p>
+<p><a href="clustering-v2.html">Clustering Example 2</a></p>
+<h2 id="lab-3-individual-cluster-colors">Lab 3: Individual Cluster Colors</h2>
+<p>One of the key things we can do to each domain is to color the domain
+icons with different colors.  Each domain can have a different
+color for the boarder and the background of the icon.</p>
+<p>To do this we will need to create a list of the domains and then
+use this list to assign the color:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">domainColors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s1">&#39;A&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">border</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#FF0000&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">background</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#FFCCCC&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">// Red</span>
+<span class="w">      </span><span class="s1">&#39;B&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">border</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#00FF00&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">background</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#CCFFCC&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">// Green</span>
+<span class="w">      </span><span class="s1">&#39;C&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">border</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#0000FF&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">background</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#CCCCFF&#39;</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c1">// Blue</span>
+<span class="w">    </span><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">clusterNodeProperties</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="nx">domainColors</span><span class="p">[</span><span class="nx">domain</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><img alt="" src="cluster-boxes-domain-colors.png" /></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">clusterByDomain</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Get unique domains from nodes</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">allNodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nodes</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">domains</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[...</span><span class="ow">new</span><span class="w"> </span><span class="nb">Set</span><span class="p">(</span><span class="nx">allNodes</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">node</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">domain</span><span class="p">))];</span>
+
+<span class="w">  </span><span class="nx">domains</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">domain</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Define colors based on domain</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">domainColors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s1">&#39;A&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">border</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#FF0000&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">background</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#FFCCCC&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">// Red</span>
+<span class="w">      </span><span class="s1">&#39;B&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">border</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#00FF00&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">background</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#CCFFCC&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">// Green</span>
+<span class="w">      </span><span class="s1">&#39;C&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">border</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#0000FF&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">background</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#CCCCFF&#39;</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c1">// Blue</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">clusterOptionsByData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">joinCondition</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">childNode</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">childNode</span><span class="p">.</span><span class="nx">domain</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">domain</span><span class="p">;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nx">clusterNodeProperties</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;cluster:&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">domain</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Cluster &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">domain</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">shape</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;square&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="mf">40</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="nx">domainColors</span><span class="p">[</span><span class="nx">domain</span><span class="p">],</span>
+<span class="w">        </span><span class="nx">font</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#000000&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">    </span><span class="nx">network</span><span class="p">.</span><span class="nx">cluster</span><span class="p">(</span><span class="nx">clusterOptionsByData</span><span class="p">);</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><a href="clustering-v3.html">Example 3: Colored Cluster Icons</a></p>
+<h2 id="lab-4-repositioning-text">Lab 4: Repositioning Text</h2>
+<p>Next, we want the text to be positioned in the center of the cluster icon.
+It would be nice to have a "centerLabel" property, but vis.js does not
+support this.  Instead we must move the vertical positioning up
+by setting negative distance based on the square size.  For a square
+of size 40, we need to move up -55.  For a square if size 50 we need
+to move up -65.</p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">clusterNodeProperties</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">font</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">vadjust</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">55</span><span class="p">,</span><span class="w">      </span><span class="c1">// Adjust label position upwards</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<img alt="" src="cluster-boxes-domain-colors-centered.png" /></p>
+<p><a href="clustering-v4.html">Example 4: Repositioning the Label Within the Square Cluster</a></p>
+<h2 id="lab-5-recollapse">Lab 5: Recollapse</h2>
+<p>Although we can now double click on each cluster to expand it, we might
+change our mind and want the cluster to be collapsed again into a single
+structure.  This allows uses to successively browse through each domain
+in succession, opening and closing each domain.</p>
+<p>To do this, we will need to add an event handler that will
+close the domain if any of the nodes within that domain get
+a double click.  Here is sample code to collapse a domain.</p>
+<h3 id="event-handler-for-double-click-events">Event Handler for Double-Click Events</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Event handler for all double-click events on nodes</span>
+<span class="nx">network</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;doubleClick&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">params</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">nodes</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// get the node we clicked on</span>
+<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="nx">nodeId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">params</span><span class="p">.</span><span class="nx">nodes</span><span class="p">[</span><span class="mf">0</span><span class="p">];</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">network</span><span class="p">.</span><span class="nx">isCluster</span><span class="p">(</span><span class="nx">nodeId</span><span class="p">)</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Open the cluster</span>
+<span class="w">        </span><span class="nx">network</span><span class="p">.</span><span class="nx">openCluster</span><span class="p">(</span><span class="nx">nodeId</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Check if the node belongs to any cluster</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nx">clusterId</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">clusters</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">clusters</span><span class="p">[</span><span class="nx">clusterId</span><span class="p">].</span><span class="nx">includes</span><span class="p">(</span><span class="nx">nodeId</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Re-cluster the nodes</span>
+<span class="w">            </span><span class="nx">recluster</span><span class="p">(</span><span class="nx">clusterId</span><span class="p">);</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<p>The event handler checks if you clicked on a note that is in a cluster.
+If the node is in a cluster and if is, it calls the <code>recluster()</code> function using
+the <code>clusterID</code> as a parameter.  Here is that recluster function.</p>
+<h3 id="the-recluster-function">The Recluster Function</h3>
+<p>This function gets called when you double-click on any node that is in
+a cluster.  It extracts the domain name from the input clusterID
+and then uses that domain to recluster the diagram using cluster
+properties.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Function to re-cluster nodes into the cluster with the given clusterId</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">recluster</span><span class="p">(</span><span class="nx">clusterId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">clusterId</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mf">1</span><span class="p">];</span><span class="w">  </span><span class="c1">// Extract domain from clusterId</span>
+
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">clusterOptionsByData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">joinCondition</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">childNode</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">childNode</span><span class="p">.</span><span class="nx">domain</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">domain</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">childNode</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="nx">clusterId</span><span class="p">;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nx">processProperties</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">clusterOptions</span><span class="p">,</span><span class="w"> </span><span class="nx">childNodes</span><span class="p">,</span><span class="w"> </span><span class="nx">childEdges</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Update the mapping of cluster to its nodes</span>
+<span class="w">        </span><span class="nx">clusters</span><span class="p">[</span><span class="nx">clusterId</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">childNodes</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
+
+<span class="w">        </span><span class="c1">// Set cluster properties</span>
+<span class="w">        </span><span class="nx">clusterOptions</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">clusterId</span><span class="p">;</span>
+<span class="w">        </span><span class="nx">clusterOptions</span><span class="p">.</span><span class="nx">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&lt;b&gt;Cluster &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">domain</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;&lt;/b&gt;&#39;</span><span class="p">;</span>
+<span class="w">        </span><span class="nx">clusterOptions</span><span class="p">.</span><span class="nx">shape</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;square&#39;</span><span class="p">;</span>
+<span class="w">        </span><span class="nx">clusterOptions</span><span class="p">.</span><span class="nx">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">50</span><span class="p">;</span>
+<span class="w">        </span><span class="nx">clusterOptions</span><span class="p">.</span><span class="nx">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">border</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;orange&#39;</span><span class="p">,</span><span class="w">      </span><span class="c1">// Orange border</span>
+<span class="w">          </span><span class="nx">background</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#FFE5B4&#39;</span><span class="w">   </span><span class="c1">// Light orange background</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">        </span><span class="nx">clusterOptions</span><span class="p">.</span><span class="nx">font</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#000000&#39;</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="mf">16</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">vadjust</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">35</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">align</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">multi</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">clusterOptions</span><span class="p">;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nx">clusterNodeProperties</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">allowSingleNodeCluster</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">    </span><span class="nx">network</span><span class="p">.</span><span class="nx">cluster</span><span class="p">(</span><span class="nx">clusterOptionsByData</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><a href="clustering-v5b.html">Example 5: Recollapseing the Cluster</a></p>
+<h2 id="lab-6-integrating-recollapse">Lab 6: Integrating Recollapse</h2>
+<p><a href="clustering-v6.html">Example 6 (work in progress)</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../groups/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Groups">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Groups
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../templates/" class="md-footer__link md-footer__link--next" aria-label="Next: Templates">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Templates
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.af256bd8.min.js"></script>
+      
+    
+  </body>
+</html>

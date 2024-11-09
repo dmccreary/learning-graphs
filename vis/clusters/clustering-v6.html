@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>vis.js Cluster by Domain with Re-collapse</title>
+  <!-- Load vis.js from CDN -->
+  <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <style type="text/css">
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    #mynetwork {
+      width: 100%;
+      height: 600px;
+      background: aliceblue;
+      border: 1px solid lightgray;
+    }
+  </style>
+</head>
+<body>
+
+<h2>vis.js Network - Clustering by Domain with Re-collapse</h2>
+<div id="mynetwork"></div>
+
+<script type="text/javascript">
+  // Create an array of nodes with a 'domain' attribute
+  var nodes = new vis.DataSet([
+    { id: 1, label: 'Node 1A', domain: 'A' },
+    { id: 2, label: 'Node 2A', domain: 'A' },
+    { id: 3, label: 'Node 3A', domain: 'A' },
+
+    { id: 4, label: 'Node 4B', domain: 'B' },
+    { id: 5, label: 'Node 5B', domain: 'B' },
+    { id: 6, label: 'Node 6B', domain: 'B' },
+
+    { id: 7, label: 'Node 7C', domain: 'C' },
+    { id: 8, label: 'Node 8C', domain: 'C' },
+    { id: 9, label: 'Node 9C', domain: 'C' }
+  ]);
+
+  // Create an array of edges
+  var edges = new vis.DataSet([
+    { from: 1, to: 2 },
+    { from: 1, to: 3 },
+    { from: 2, to: 3 },
+
+    { from: 1, to: 4 },
+
+    { from: 4, to: 5 },
+    { from: 4, to: 6 },
+    { from: 5, to: 6 },
+
+    { from: 4, to: 7 },
+
+    { from: 7, to: 8 },
+    { from: 7, to: 9 },
+    { from: 8, to: 9 },
+
+    { from: 1, to: 7 }
+  ]);
+
+// Create a vis.js network
+var container = document.getElementById('mynetwork');
+
+  var data = {
+    nodes: nodes,
+    edges: edges
+};
+
+// general display options
+var options = {
+  nodes: {
+    shape: 'circle',
+    size: 16
+  },
+  physics: true  // Enable or disable physics to cluster immediately
+};
+
+var network = new vis.Network(container, data, options);
+
+// Cluster after stabilization
+network.once('stabilized', function () {
+  clusterByDomain();
+});
+
+// Objects to keep track of clusters and their associated nodes
+var clusters = {};
+var lastClusterId = 0;
+
+// Function to create a unique cluster ID
+function getClusterId(domain) {
+    return 'cluster:' + domain;
+}
+
+// Function to cluster nodes by the 'domain' attribute
+function clusterByDomain() {
+  // Get unique domains from nodes
+  var allNodes = nodes.get();
+  var domains = [...new Set(allNodes.map(node => node.domain))];
+
+  domains.forEach(function(domain) {
+    // Define colors based on domain
+    var domainColors = {
+      'A': { border: '#FF0000', background: '#FFCCCC' }, // Red
+      'B': { border: '#00FF00', background: '#CCFFCC' }, // Green
+      'C': { border: '#0000FF', background: '#CCCCFF' }  // Blue
+    };
+
+    var clusterOptionsByData = {
+      joinCondition: function(childNode) {
+        return childNode.domain === domain;
+      },
+      clusterNodeProperties: {
+        id: 'cluster:' + domain,
+        label: '<b>Cluster ' + domain + '</b>',
+        shape: 'square',
+        size: 50,
+        align: 'horizontal', // Center align the text
+        color: domainColors[domain],
+        font: {
+            color: '#000000',  // Black font color
+            size: 16,          // Font size
+            vadjust: -65,      // Adjust label position upwards
+            align: 'horizontal', // Center align the text
+            multi: true
+          }
+      }
+    };
+    network.cluster(clusterOptionsByData);
+  });
+}
+
+      // Define clustering options for each domain
+      var clusterOptionsByData = {
+        joinCondition: function(childNode) {
+          return childNode.domain === domain && childNode.id !== clusterId;
+        },
+        processProperties: function(clusterOptions, childNodes, childEdges) {
+          // Store the mapping of cluster to its nodes
+          clusters[clusterId] = childNodes.map(function(node) { return node.id; });
+
+          // Set cluster properties
+          clusterOptions.id = clusterId;
+          clusterOptions.label = '<b>Cluster ' + domain + '</b>';
+          clusterOptions.shape = 'square';
+          clusterOptions.size = 50;
+          clusterOptions.color = {
+            border: '#FFA500',      // Orange border
+            background: '#FFE5B4'   // Light orange background
+          };
+          clusterOptions.font = {
+            color: '#000000',
+            size: 16,
+            vadjust: -35,
+            align: 'horizontal',
+            multi: true
+          };
+          return clusterOptions;
+        },
+        clusterNodeProperties: {
+          allowSingleNodeCluster: false  // Do not create cluster if only one node matches
+        }
+      };
+      network.cluster(clusterOptionsByData);
+    });
+  }
+
+  // Cluster the nodes immediately after network creation
+  clusterByDomain();
+
+  // Event handler for double-click events
+  network.on("doubleClick", function (params) {
+    if (params.nodes.length === 1) {
+      var nodeId = params.nodes[0];
+      if (network.isCluster(nodeId) === true) {
+        // Open the cluster
+        network.openCluster(nodeId);
+      } else {
+        // Check if the node belongs to any cluster
+        for (var clusterId in clusters) {
+          if (clusters[clusterId].includes(nodeId)) {
+            // Re-cluster the nodes
+            recluster(clusterId);
+            break;
+          }
+        }
+      }
+    }
+  });
+
+  // Function to re-cluster nodes into the cluster with the given clusterId
+  function recluster(clusterId) {
+    var domain = clusterId.split(':')[1];  // Extract domain from clusterId
+
+    var clusterOptionsByData = {
+      joinCondition: function(childNode) {
+        return childNode.domain === domain && childNode.id !== clusterId;
+      },
+      processProperties: function(clusterOptions, childNodes, childEdges) {
+        // Update the mapping of cluster to its nodes
+        clusters[clusterId] = childNodes.map(function(node) { return node.id; });
+
+        // Set cluster properties
+        clusterOptions.id = clusterId;
+        clusterOptions.label = '<b>Cluster ' + domain + '</b>';
+        clusterOptions.shape = 'square';
+        clusterOptions.size = 50;
+        clusterOptions.color = {
+          border: '#FFA500',      // Orange border
+          background: '#FFE5B4'   // Light orange background
+        };
+        clusterOptions.font = {
+          color: '#000000',
+          size: 16,
+          vadjust: -35,
+          align: 'horizontal',
+          multi: true
+        };
+        return clusterOptions;
+      },
+      clusterNodeProperties: {
+        allowSingleNodeCluster: false
+      }
+    };
+    network.cluster(clusterOptionsByData);
+  }
+
+</script>
+
+</body>
+</html>
