@@ -2,6 +2,8 @@
 
 [Run Graph Editor](graph-editor.html)
 
+[Graph Editor v14](./graph-editor-14.html)
+
 [Graph Editor v13](./graph-editor-13.html)
 
 [Graph Editor V12](./graph-editor-12.html)
