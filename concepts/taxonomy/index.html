@@ -1,0 +1,1128 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A microsite for teaching how to create and maintain learning graphs (concept dependency graphs) for education.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/learning-graphs/concepts/taxonomy/">
+      
+      
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.33">
+    
+    
+      
+        <title>Taxonomy - Learning Graphs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#taxonomy" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Learning Graphs" class="md-header__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Learning Graphs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Taxonomy
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Learning Graphs" class="md-nav__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Learning Graphs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../chapters/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Concepts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../case-studies/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Case Studies
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../vis/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Vis.js Tutorial
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Sample Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How We Built This Site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../checklist/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Checklist
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student-volunteers-wanted/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Student Volunteers Wanted
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#you-said" class="md-nav__link">
+    <span class="md-ellipsis">
+      You said:
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/learning-graphs/blob/master/docs/concepts/taxonomy.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="taxonomy">Taxonomy</h1>
+<p>Now create a taxonomy of 10 classifiers for this set of concepts. Describe your taxonomy with a TaxonomyID (1-10), ShortLabel (name) and Description.</p>
+<p>ChatGPT</p>
+<p>Thought for 21 seconds</p>
+<p>Sure! Below is a taxonomy of 10 classifiers for the set of 50 concepts. Each classifier is described with a TaxonomyID, ShortLabel, and Description.</p>
+<hr />
+<p><strong>Taxonomy of Concepts</strong></p>
+<p><strong>TaxonomyID 1</strong></p>
+<ul>
+<li><strong>ShortLabel:</strong> Graph Concepts</li>
+<li><strong>Description:</strong> Concepts related to the creation, analysis, and visualization of graphs used to represent learning dependencies and structures.</li>
+</ul>
+<p><strong>TaxonomyID 2</strong></p>
+<ul>
+<li><strong>ShortLabel:</strong> Learning Theories</li>
+<li><strong>Description:</strong> Concepts that focus on different approaches and methodologies of learning, including linear, non-linear, and rhizombic learning models.</li>
+</ul>
+<p><strong>TaxonomyID 3</strong></p>
+<ul>
+<li><strong>ShortLabel:</strong> Educational Standards</li>
+<li><strong>Description:</strong> Established frameworks and standards that guide educational content creation, metadata, and learning objectives, such as Bloom's Taxonomy and Dublin Core.</li>
+</ul>
+<p><strong>TaxonomyID 4</strong></p>
+<ul>
+<li><strong>ShortLabel:</strong> Learning Technologies</li>
+<li><strong>Description:</strong> Tools and platforms that facilitate the learning process, including Learning Management Systems, MicroSim, and adaptive learning technologies.</li>
+</ul>
+<p><strong>TaxonomyID 5</strong></p>
+<ul>
+<li><strong>ShortLabel:</strong> Personalization and Adaptive Learning</li>
+<li><strong>Description:</strong> Concepts focused on tailoring learning experiences to individual learner needs through adaptive systems, hyper-personalization, and intelligent agents.</li>
+</ul>
+<p><strong>TaxonomyID 6</strong></p>
+<ul>
+<li><strong>ShortLabel:</strong> Visualization and User Interface</li>
+<li><strong>Description:</strong> Concepts related to the visual representation of learning data and user interface design, including graph visualization libraries and UI considerations.</li>
+</ul>
+<p><strong>TaxonomyID 7</strong></p>
+<ul>
+<li><strong>ShortLabel:</strong> Artificial Intelligence in Education</li>
+<li><strong>Description:</strong> Application of AI and intelligent agents in educational contexts to enhance learning through chatbots, recommendation engines, and analytics.</li>
+</ul>
+<p><strong>TaxonomyID 8</strong></p>
+<ul>
+<li><strong>ShortLabel:</strong> Feedback and Analytics</li>
+<li><strong>Description:</strong> Concepts involving the collection, analysis, and utilization of feedback and data to improve learning outcomes and processes.</li>
+</ul>
+<p><strong>TaxonomyID 9</strong></p>
+<ul>
+<li><strong>ShortLabel:</strong> Similarity Metrics</li>
+<li><strong>Description:</strong> Methods and metrics used to measure similarity between concepts and learners, aiding in personalization and recommendation systems.</li>
+</ul>
+<p><strong>TaxonomyID 10</strong></p>
+<ul>
+<li><strong>ShortLabel:</strong> Assessment and Evaluation</li>
+<li>
+<ul>
+<li><strong>Description:</strong> Concepts related to measuring learner progress, readiness, and course effectiveness through assessments and evaluations.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<p><strong>Summary of Taxonomy:</strong></p>
+<ol>
+<li><strong>Graph Concepts</strong> (ID 1): Focuses on learning graphs, dependency graphs, and related visualization and validation techniques.</li>
+<li><strong>Learning Theories</strong> (ID 2): Encompasses different learning models like linear, non-linear, and rhizombic learning.</li>
+<li><strong>Educational Standards</strong> (ID 3): Covers standards like Bloom's Taxonomy, SKOS, and Dublin Core that guide educational content.</li>
+<li><strong>Learning Technologies</strong> (ID 4): Includes tools and systems like LMS, MicroSim, and adaptive learning platforms.</li>
+<li><strong>Personalization and Adaptive Learning</strong> (ID 5): Pertains to hyper-personalization, adaptive systems, and intelligent agents that customize learning experiences.</li>
+<li><strong>Visualization and User Interface</strong> (ID 6): Deals with graph visualization, UI design, and related technologies like JavaScript libraries.</li>
+<li><strong>Artificial Intelligence in Education</strong> (ID 7): Involves AI applications such as chatbots, recommendation engines, and intelligent analytics.</li>
+<li><strong>Feedback and Analytics</strong> (ID 8): Focuses on collecting and analyzing feedback to enhance learning processes.</li>
+<li><strong>Similarity Metrics</strong> (ID 9): Relates to concept and student similarity measures used in personalization.</li>
+<li><strong>Assessment and Evaluation</strong> (ID 10): Covers assessments, learning touchpoints, and course evaluations to measure learning outcomes.</li>
+</ol>
+<p>If you need further details or wish to see how each concept maps to these classifiers, feel free to ask!</p>
+<p>o1</p>
+<h5 id="you-said">You said:</h5>
+<p>Now return a new CSV file that has the taxonomy ID appended to each row. Return a CSV file with four columns: - Column 1 is the ConceptID in the list below - Column 2 is the ConceptName in the list below - Column 3 is the Dependencies, a pipe-delimited list of the dependant concept IDs - Column 4 is the TaxonomyID for that concept</p>
+<p>ChatGPT</p>
+<p>Thought for 1m 35s</p>
+<p>Certainly! Below is the CSV file with four columns: <strong>ConceptID</strong>, <strong>ConceptName</strong>, <strong>Dependencies</strong>, and <strong>TaxonomyID</strong>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span></pre></div></td><td class="code"><div><pre><span></span><code>csv
+Copy code
+
+`ConceptID,ConceptName,Dependencies,TaxonomyID
+1,Concept Graph,,1
+2,Dependency Graph,1,1
+3,Printed Textbooks,,2
+4,Linear Learning,3,2
+5,Non-linear Learning,4,2
+6,Recommendation Engines,5,7
+7,Learning Paths,4|5,2
+8,Learning Management Systems,7,4
+9,Content Graph,1,1
+10,Adaptive Learning,5|8|9,5
+11,MicroSim,10,4
+12,Intelligent Agents,6|10,7
+13,SKOS,,3
+14,Knowledge Representation,13,3
+15,Course Description,14,3
+16,Learning Objectives,15|17,3
+17,Bloom&#39;s Taxonomy,,3
+18,Dublin Core,14,3
+19,Foundational Concept,,2
+20,Hyper-personalization,10|12|19,5
+21,Journey Map,16|20,5
+22,Accessibility,7|8,5
+23,Learning Graph,2|9,1
+24,Rhizombic Learning,5|23,2
+25,Graph Visualization,23,6
+26,Force Directed Graph,25,6
+27,JavaScript,,6
+28,P5.js,27,6
+29,vis.js,27,6
+30,Graph Validation,23,1
+31,Orphaned Concepts,30,1
+32,Graph Layout Algorithms,26|29,6
+33,Goal Concepts,16|23,3
+34,User Interface,9|25,6
+35,Chatbot,12|34,7
+36,RAG,6|33|34,7
+37,Similarity,,9
+38,Concept Similarity,37,9
+39,Student Similarity,37,9
+40,Feedback Log,,8
+41,Feedback Analysis,40,8
+42,GraphRAG,36|38|39,7
+43,Learning Content Recommendation Engine,6|10|42,7
+44,Learned Concept,19|23,10
+45,Ready to Learn Concept,16|44,5
+46,Assessment,45,10
+47,Learning Touchpoint,45|46,5
+48,Frequently Asked Question,47,8
+49,Content Similarity,37|39,9
+50,Course Evaluation,46|48,10
+`
+</code></pre></div></td></tr></table></div>
+<p><strong>Explanation of Columns:</strong></p>
+<ul>
+<li><strong>ConceptID:</strong> The unique identifier for each concept (1 to 50).</li>
+<li><strong>ConceptName:</strong> The name of the concept.</li>
+<li><strong>Dependencies:</strong> A pipe-delimited list of ConceptIDs that the current concept depends on.</li>
+<li><strong>TaxonomyID:</strong> The identifier of the taxonomy classifier (1 to 10) assigned to each concept.</li>
+</ul>
+<hr />
+<p><strong>Summary of Taxonomy Classifiers:</strong></p>
+<p><strong>TaxonomyID 1</strong></p>
+<ul>
+<li><strong>ShortLabel:</strong> Graph Concepts</li>
+<li><strong>Description:</strong> Concepts related to the creation, analysis, and visualization of graphs used to represent learning dependencies and structures.</li>
+</ul>
+<p><strong>TaxonomyID 2</strong></p>
+<ul>
+<li><strong>ShortLabel:</strong> Learning Theories</li>
+<li><strong>Description:</strong> Concepts focusing on different approaches and methodologies of learning, including linear, non-linear, and rhizombic learning models.</li>
+</ul>
+<p><strong>TaxonomyID 3</strong></p>
+<ul>
+<li><strong>ShortLabel:</strong> Educational Standards</li>
+<li><strong>Description:</strong> Established frameworks and standards guiding educational content creation, metadata, and learning objectives.</li>
+</ul>
+<p><strong>TaxonomyID 4</strong></p>
+<ul>
+<li><strong>ShortLabel:</strong> Learning Technologies</li>
+<li><strong>Description:</strong> Tools and platforms facilitating the learning process, such as Learning Management Systems and MicroSim.</li>
+</ul>
+<p><strong>TaxonomyID 5</strong></p>
+<ul>
+<li><strong>ShortLabel:</strong> Personalization and Adaptive Learning</li>
+<li><strong>Description:</strong> Concepts focused on tailoring learning experiences to individual learner needs through adaptive systems and hyper-personalization.</li>
+</ul>
+<p><strong>TaxonomyID 6</strong></p>
+<ul>
+<li><strong>ShortLabel:</strong> Visualization and User Interface</li>
+<li><strong>Description:</strong> Concepts related to the visual representation of learning data and user interface design, including visualization libraries.</li>
+</ul>
+<p><strong>TaxonomyID 7</strong></p>
+<ul>
+<li><strong>ShortLabel:</strong> Artificial Intelligence in Education</li>
+<li><strong>Description:</strong> Application of AI and intelligent agents in educational contexts to enhance learning through chatbots and recommendation engines.</li>
+</ul>
+<p><strong>TaxonomyID 8</strong></p>
+<ul>
+<li><strong>ShortLabel:</strong> Feedback and Analytics</li>
+<li><strong>Description:</strong> Concepts involving the collection, analysis, and utilization of feedback and data to improve learning outcomes.</li>
+</ul>
+<p><strong>TaxonomyID 9</strong></p>
+<ul>
+<li><strong>ShortLabel:</strong> Similarity Metrics</li>
+<li><strong>Description:</strong> Methods and metrics used to measure similarity between concepts and learners, aiding in personalization and recommendation systems.</li>
+</ul>
+<p><strong>TaxonomyID 10</strong></p>
+<ul>
+<li><strong>ShortLabel:</strong> Assessment and Evaluation</li>
+<li><strong>Description:</strong> Concepts related to measuring learner progress, readiness, and course effectiveness through assessments and evaluations.</li>
+</ul>
+<hr />
+<p><strong>Example Entries Explained:</strong></p>
+<ul>
+<li><strong>ConceptID 1:</strong> <em>Concept Graph</em> has no dependencies and falls under <strong>TaxonomyID 1</strong> (Graph Concepts).</li>
+<li><strong>ConceptID 10:</strong> <em>Adaptive Learning</em> depends on ConceptIDs 5 (<em>Non-linear Learning</em>), 8 (<em>Learning Management Systems</em>), and 9 (<em>Content Graph</em>), and is classified under <strong>TaxonomyID 5</strong> (Personalization and Adaptive Learning).</li>
+<li><strong>ConceptID 35:</strong> <em>Chatbot</em> depends on ConceptIDs 12 (<em>Intelligent Agents</em>) and 34 (<em>User Interface</em>), and is under <strong>TaxonomyID 7</strong> (Artificial Intelligence in Education).</li>
+</ul>
+<hr />
+<p>Feel free to download or copy this CSV content for your use. If you need any further modifications or additional information, please let me know!</p>
+<p>o1</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.af256bd8.min.js"></script>
+      
+    
+  </body>
+</html>
