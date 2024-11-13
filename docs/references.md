@@ -44,11 +44,6 @@ This paper discusses how knowledge graphs can assist curriculum designers in map
 
 These studies demonstrate the potential of graph-based representations in capturing concept dependencies, thereby informing and improving curriculum design processes.
 
-Sources
-![Favicon](https://www.google.com/s2/favicons?domain=https://www.warse.org&sz=32)
-![Favicon](https://www.google.com/s2/favicons?domain=https://www.cs.cmu.edu&sz=32)
-![Favicon](https://www.google.com/s2/favicons?domain=https://link.springer.com&sz=32)
-
 ### Chatbot Prompt
 
 What research papers discuss the use of graph representations
@@ -75,12 +70,8 @@ This article discusses the use of knowledge graphs in AI conversational models, 
 
 These studies demonstrate that incorporating graph representations of course concepts and understanding concept dependencies can significantly enhance the functionality and educational value of chatbots. By leveraging structured knowledge, educational chatbots can provide more personalized, context-aware, and effective support to learners.
 
-Sources
-![Favicon](https://www.google.com/s2/favicons?domain=https://promptengineering.org&sz=32)
-![Favicon](https://www.google.com/s2/favicons?domain=https://link.springer.com&sz=32)
-![Favicon](https://www.google.com/s2/favicons?domain=https://www.mdpi.com&sz=32)
 
-### Other Papers
+### Other Papers and Articles
 
 #### KnowEdu
 
@@ -94,6 +85,27 @@ and Implementation of Curriculum System Based on
 Knowledge Graph**, in Proc IEEE International
 Conference on Consumer Electronics and Computer
 Engineering (ICCECE), pp. 767-770, 2021.
+
+#### Reimagine the College Textbook
+
+[Opinion: The time has come to reimagine college textbooks for the modern digital era](https://hechingerreport.org/opinion-the-time-has-come-to-reimagine-college-textbooks-for-the-modern-digital-era/)
+by Vinay K. Chaudhri November 11, 2024 in The Hechinger Report
+
+Key quotes:
+
+*A process known as “knowledge engineering” powers those improvements. It involves a systematic choice of concepts, a rigorous mapping of the relationships between those concepts and logical definitions that allow them to be used by artificial intelligence and understood by humans.
+
+The simple act of using a controlled vocabulary is vital for learning any complex topic.
+
+Books are linear while knowledge is not.
+
+Mapping of relationships across vastly different topics makes learning exciting and supports many novel capabilities, including precise connections across chapters, visualizations at multiple levels of detail and the development of textbook expert chatbots that can answer students’ questions on the fly.*
+
+#### Knowledge Annotation for Intelligent Textbooks
+
+[Knowledge Annotation for Intelligent Textbooks](https://link.springer.com/article/10.1007/s10758-021-09544-z) - 27 July 2021 - Mengdi Wang et. el,
+
+*“intelligent textbooks,” which have the ability to guide readers according to their learning goals and current knowledge.*
 
 ## Technology Resources
 

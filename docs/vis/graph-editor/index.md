@@ -2,6 +2,10 @@
 
 [Run Graph Editor](graph-editor.html)
 
+[Graph Editor v13](./graph-editor-13.html)
+
+[Graph Editor V12](./graph-editor-12.html)
+
 ## Prompt
 
 ```linenums="0"

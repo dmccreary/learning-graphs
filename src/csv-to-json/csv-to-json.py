@@ -13,18 +13,18 @@ def csv_to_visjs_json(csv_filename, json_filename):
         for row in reader:
             # Extract node information
             try:
-                concept_id = int(row['ID'])
+                concept_id = int(row['ConceptID'])
             except ValueError:
                 print(f"Invalid ID '{row['ID']}' skipped.")
                 continue  # Skip rows with invalid ID
 
-            concept_name = row['Concept Name'].strip()
+            concept_name = row['ConceptName'].strip()
             if not concept_name:
                 print(f"Empty Concept Name for ID {concept_id} skipped.")
                 continue  # Skip nodes without a name
 
             try:
-                category_id = int(row['Category ID'])
+                category_id = int(row['TaxonomyID'])
             except ValueError:
                 print(f"Invalid Category ID '{row['Category ID']}' for ID {concept_id} skipped.")
                 continue  # Skip rows with invalid Category ID

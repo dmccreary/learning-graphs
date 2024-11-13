@@ -1,5 +1,12 @@
 # Glossary of Terms
 
+This glossary was create with the help of ChatGPT using a
+prompt that uses the ISO IEC 11179 standard for creating
+precise, concise, distinct and non-circular definitions.
+<!--
+https://chatgpt.com/share/6732155f-1e6c-8001-994f-f6371995777d
+-->
+
 #### Adaptive Learning
 
 A method of delivering personalized learning experiences by dynamically adjusting the content, pace, and instructional approach in response to an individual learner's performance, needs, and preferences.
@@ -13,6 +20,20 @@ An autonomous entity capable of perceiving its environment, processing inputs, a
 **Example:**  An intelligent agent in an educational platform uses a learning graph to create a customized lesson plan for students. Based on the results of the prior week's quiz and a predefined learning objective, the agent identifies key concepts where students struggled and selects activities that reinforce those concepts. The lesson plan adapts to each student's individual learning needs, ensuring that the content aligns with their current understanding and progress.
 
 * Also known as: Intelligent Agent
+
+#### Agent Characteristics
+
+The main characteristics of learning graph intelligent agents.
+
+This characteristics include:
+
+**Autonomy and Decision-Making:** Intelligent agents can operate independently, making decisions to achieve goals, unlike LLMs, which respond only to prompts.
+
+**Iterative Workflows:** Intelligent agents refine their outputs through repeated cycles, while LLMs do not improve iteratively without external integration.
+
+**Tool Use and Environmental Interaction:** Intelligent agents interact with external tools and environments, whereas LLMs lack this capability.  Specifically, in this course, agents must be able to access a learning graph and generate learning paths for lesson plan customization.
+
+**Modular Design and Multi-Agent Collaboration:** Intelligent agents can work in multi-agent systems, solving complex problems together, unlike LLMs, which work in isolation.
 
 #### Alternate Label
 
@@ -48,6 +69,15 @@ A graph consisting of nodes (vertices) connected by edges (arcs) that have a spe
 
 **Example:** A directed graph representing traffic flow in a city could have intersections as nodes and one-way streets as directed edges, showing how vehicles can travel from one intersection to another.
 
+#### Dublin Core Metadata
+
+A standardized set of 15 metadata elements used to describe and catalog digital resources, making them easier to find, manage, and share.
+
+In a learning graph file, Dublin Core Metadata is used to annotate the
+publication information associated with the file. This ensures consistent organization and enhances discoverability of resources across the platform.
+
+**Example:** The learning graph for “Graph Algorithms” with Dublin Core Metadata elements such as Title (“Introduction to Graph Algorithms”), Creator (“Dan McCreary”), and Subject (“Computer Science”).
+
 #### Foundational Concepts
 
 Basic or essential concepts that serve as the building blocks for understanding more complex ideas or advanced knowledge within a domain.
@@ -76,6 +106,16 @@ A term definition is considered to be consistent with ISO/IEC 11179 metadata reg
 4. Non-circular
 5. Unencumbered with business rules
 
+#### JavaScript Object Notation (JSON)
+
+A lightweight, text-based data interchange format used to store and transmit structured data.
+
+In the field of learning graphs, JSON is commonly used for data representation, including storing concept nodes, edges, groups, and
+learning graph metadata. JSON’s simplicity and compatibility with JavaScript make it ideal for integration with tools like MicroSims, p5.js and
+vis.js.
+
+#### JSON Schema
+
 #### Journey Map
 
 ![Journey Map for Python](./img/journey-map-python.png)
@@ -88,8 +128,7 @@ A visual or structured representation of an individual's experience as they move
 
 A network graph that stores learning [Concepts](#concept) and their dependencies.
 
-Learning graphs are a type of [Directed Graphs](#directed-graph) where every node is a learning Concept
-and every edge is a concept dependency or prerequisite.
+Learning graphs are a type of [Directed Graphs](#directed-graph) where every node is a learning Concept and every edge is a concept dependency or prerequisite.
 
 #### Learning Management System (LMS)
 
@@ -163,3 +202,10 @@ Example: In a learning management system built around a learning graph, touchpoi
 A JavaScript library for visualizing graph networks.
 
 See: [https://visjs.github.io/vis-network/docs/network/](https://visjs.github.io/vis-network/docs/network/)
+
+
+#### YML
+
+A human-readable data serialization format often used for configuration files and data exchange. YML (YAML Ain't Markup Language) structures data hierarchically using indentation, making it suitable for describing learning graph configurations and settings in a clear, concise way.
+
+**Example:** The [mkdocs](https://www.mkdocs.org/) system uses a configuration file called mkdocs.yml to generate the content of a microsite.  See the mkdocs for this site as an example: [https://github.com/dmccreary/learning-graphs/blob/main/mkdocs.yml](https://github.com/dmccreary/learning-graphs/blob/main/mkdocs.yml)

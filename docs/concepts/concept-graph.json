@@ -1,0 +1,596 @@
+{
+    "nodes": [
+        {
+            "id": 1,
+            "label": "Graph Theory",
+            "group": "found"
+        },
+        {
+            "id": 2,
+            "label": "Dependency Graph",
+            "group": "term"
+        },
+        {
+            "id": 3,
+            "label": "Printed Textbooks",
+            "group": "learning-theory"
+        },
+        {
+            "id": 4,
+            "label": "Learning Theory",
+            "group": "found"
+        },
+        {
+            "id": 5,
+            "label": "Non-linear Learning",
+            "group": "term"
+        },
+        {
+            "id": 6,
+            "label": "Recommendation Engines",
+            "group": "ai"
+        },
+        {
+            "id": 7,
+            "label": "Learning Paths",
+            "group": "learning-theory"
+        },
+        {
+            "id": 8,
+            "label": "Learning Management Systems",
+            "group": "learning-theory"
+        },
+        {
+            "id": 9,
+            "label": "Content Graph",
+            "group": "term"
+        },
+        {
+            "id": 10,
+            "label": "Adaptive Learning",
+            "group": "learning-theory"
+        },
+        {
+            "id": 11,
+            "label": "MicroSim",
+            "group": "term"
+        },
+        {
+            "id": 12,
+            "label": "Intelligent Agents",
+            "group": "agents"
+        },
+        {
+            "id": 13,
+            "label": "SKOS",
+            "group": "stand"
+        },
+        {
+            "id": 14,
+            "label": "Knowledge Representation",
+            "group": "found"
+        },
+        {
+            "id": 15,
+            "label": "Course Description",
+            "group": "learning-theory"
+        },
+        {
+            "id": 16,
+            "label": "Learning Objectives",
+            "group": "learning-theory"
+        },
+        {
+            "id": 17,
+            "label": "Bloom's Taxonomy",
+            "group": "learning-theory"
+        },
+        {
+            "id": 18,
+            "label": "Dublin Core",
+            "group": "stand"
+        },
+        {
+            "id": 19,
+            "label": "Foundational Concepts",
+            "group": "learning-theory"
+        },
+        {
+            "id": 20,
+            "label": "Hyper-personalization",
+            "group": "ai"
+        },
+        {
+            "id": 21,
+            "label": "Journey Map",
+            "group": "ui"
+        },
+        {
+            "id": 22,
+            "label": "Accessibility",
+            "group": "ui"
+        },
+        {
+            "id": 23,
+            "label": "Learning Graph",
+            "group": "term"
+        },
+        {
+            "id": 24,
+            "label": "Rhizombic Learning",
+            "group": "learning-theory"
+        },
+        {
+            "id": 25,
+            "label": "Graph Visualization",
+            "group": "ui"
+        },
+        {
+            "id": 26,
+            "label": "Graph Layout",
+            "group": "ui"
+        },
+        {
+            "id": 27,
+            "label": "JavaScript",
+            "group": "ui"
+        },
+        {
+            "id": 28,
+            "label": "P5.js",
+            "group": "ui"
+        },
+        {
+            "id": 29,
+            "label": "vis.js",
+            "group": "ui"
+        },
+        {
+            "id": 30,
+            "label": "Graph Validation",
+            "group": "stand"
+        },
+        {
+            "id": 31,
+            "label": "Orphaned Concepts",
+            "group": "stand"
+        },
+        {
+            "id": 32,
+            "label": "Force Directed Graph",
+            "group": "ui"
+        },
+        {
+            "id": 33,
+            "label": "Goal Concepts",
+            "group": "term"
+        },
+        {
+            "id": 34,
+            "label": "User Interface",
+            "group": "ui"
+        },
+        {
+            "id": 35,
+            "label": "Chatbot",
+            "group": "ai"
+        },
+        {
+            "id": 36,
+            "label": "RAG",
+            "group": "similarity"
+        },
+        {
+            "id": 37,
+            "label": "Similarity",
+            "group": "similarity"
+        },
+        {
+            "id": 38,
+            "label": "Embeddings",
+            "group": "similarity"
+        },
+        {
+            "id": 39,
+            "label": "Student Similarity",
+            "group": "similarity"
+        },
+        {
+            "id": 40,
+            "label": "Feedback Log",
+            "group": "feed"
+        },
+        {
+            "id": 41,
+            "label": "Feedback Analysis",
+            "group": "feed"
+        },
+        {
+            "id": 42,
+            "label": "GraphRAG",
+            "group": "similarity"
+        },
+        {
+            "id": 43,
+            "label": "Recommendation Engine",
+            "group": "ai"
+        },
+        {
+            "id": 44,
+            "label": "Learned Concept",
+            "group": "learning-theory"
+        },
+        {
+            "id": 45,
+            "label": "Ready to Learn Concept",
+            "group": "learning-theory"
+        },
+        {
+            "id": 46,
+            "label": "Assessment",
+            "group": "feed"
+        },
+        {
+            "id": 47,
+            "label": "Learning Touchpoint",
+            "group": "feed"
+        },
+        {
+            "id": 48,
+            "label": "Frequently Asked Question",
+            "group": "feed"
+        },
+        {
+            "id": 49,
+            "label": "Content Similarity",
+            "group": "similarity"
+        },
+        {
+            "id": 50,
+            "label": "Course Evaluation",
+            "group": "feed"
+        },
+        {
+            "id": 51,
+            "label": "LG Standards",
+            "group": "stand"
+        },
+        {
+            "id": 52,
+            "label": "Learning Agents",
+            "group": "agents"
+        },
+        {
+            "id": 53,
+            "label": "Intelligent Textbooks",
+            "group": "agents"
+        },
+        {
+            "id": 54,
+            "label": "LMS Interoperability",
+            "group": "stand"
+        },
+        {
+            "id": 55,
+            "label": "Future Developments",
+            "group": "goal"
+        },
+        {
+            "id": 56,
+            "label": "Course Analytics",
+            "group": "goal"
+        },
+        {
+            "id": 57,
+            "label": "Vector Store",
+            "group": "ai"
+        },
+        {
+            "id": 58,
+            "label": "LLM",
+            "group": "ai"
+        }
+        
+    ],
+    "edges": [
+        {
+            "from": 2,
+            "to": 1
+        },
+        {
+            "from": 3,
+            "to": 4
+        },
+        {
+            "from": 5,
+            "to": 4
+        },
+        {
+            "from": 6,
+            "to": 5
+        },
+        {
+            "from": 7,
+            "to": 4
+        },
+        {
+            "from": 7,
+            "to": 5
+        },{
+            "from": 8,
+            "to": 7
+        },{
+            "from": 9,
+            "to": 1
+        },{
+            "from": 10,
+            "to": 5
+        },
+        {
+            "from": 10,
+            "to": 8
+        },
+        {
+            "from": 10,
+            "to": 9
+        },
+        {
+            "from": 11,
+            "to": 10
+        },
+        {
+            "from": 12,
+            "to": 6
+        },
+        {
+            "from": 12,
+            "to": 10
+        },
+        {
+            "from": 13,
+            "to": 14
+        },{
+            "from": 15,
+            "to": 14
+        },{
+            "from": 16,
+            "to": 15
+        },{
+            "from": 16,
+            "to": 17
+        },{
+            "from": 18,
+            "to": 14
+        },
+        {
+            "from": 20,
+            "to": 10
+        },
+        {
+            "from": 20,
+            "to": 12
+        },
+        {
+            "from": 20,
+            "to": 19
+        },
+        {
+            "from": 21,
+            "to": 16
+        },
+        {
+            "from": 21,
+            "to": 20
+        },
+        {
+            "from": 22,
+            "to": 7
+        },
+        {
+            "from": 22,
+            "to": 8
+        },
+        {
+            "from": 23,
+            "to": 2
+        },
+        {
+            "from": 23,
+            "to": 9
+        },
+        {
+            "from": 24,
+            "to": 5
+        },
+        {
+            "from": 24,
+            "to": 23
+        },
+        {
+            "from": 25,
+            "to": 23
+        },
+        {
+            "from": 26,
+            "to": 25
+        },
+        {
+            "from": 28,
+            "to": 27
+        },
+        {
+            "from": 29,
+            "to": 27
+        },
+        {
+            "from": 30,
+            "to": 23
+        },
+        {
+            "from": 31,
+            "to": 30
+        },
+        {
+            "from": 32,
+            "to": 26
+        },
+        {
+            "from": 32,
+            "to": 29
+        },
+        {
+            "from": 33,
+            "to": 16
+        },
+        {
+            "from": 33,
+            "to": 23
+        },
+        {
+            "from": 34,
+            "to": 9
+        },
+        {
+            "from": 34,
+            "to": 25
+        },
+        {
+            "from": 35,
+            "to": 12
+        },
+        {
+            "from": 35,
+            "to": 34
+        },
+        {
+            "from": 36,
+            "to": 6
+        },
+        {
+            "from": 36,
+            "to": 33
+        },
+        {
+            "from": 36,
+            "to": 34
+        },
+        {
+            "from": 38,
+            "to": 37
+        },
+        {
+            "from": 39,
+            "to": 37
+        },
+        {
+            "from": 41,
+            "to": 40
+        },
+        {
+            "from": 42,
+            "to": 36
+        },
+        {
+            "from": 42,
+            "to": 38
+        },
+        {
+            "from": 42,
+            "to": 39
+        },
+        {
+            "from": 43,
+            "to": 6
+        },
+        {
+            "from": 43,
+            "to": 10
+        },
+        {
+            "from": 43,
+            "to": 42
+        },
+        {
+            "from": 44,
+            "to": 19
+        },
+        {
+            "from": 44,
+            "to": 23
+        },
+        {
+            "from": 45,
+            "to": 16
+        },
+        {
+            "from": 45,
+            "to": 44
+        },
+        {
+            "from": 46,
+            "to": 45
+        },
+        {
+            "from": 47,
+            "to": 45
+        },
+        {
+            "from": 47,
+            "to": 46
+        },
+        {
+            "from": 48,
+            "to": 47
+        },
+        {
+            "from": 49,
+            "to": 37
+        },
+        {
+            "from": 49,
+            "to": 39
+        },
+        {
+            "from": 50,
+            "to": 46
+        },
+        {
+            "from": 50,
+            "to": 48
+        },
+        {
+            "from": 54,
+            "to": 51
+        },{
+            "from": 40,
+            "to": 47
+        },{
+            "from": 52,
+            "to": 12
+        },{
+            "from": 55,
+            "to": 52
+        },{
+            "from": 55,
+            "to": 53
+        },{
+            "from": 55,
+            "to": 54
+        },{
+            "from": 56,
+            "to": 50
+        },{
+            "from": 56,
+            "to": 41
+        },{
+            "from": 51,
+            "to": 13
+        },{
+            "from": 57,
+            "to": 37
+        },{
+            "from": 58,
+            "to": 37
+        }
+    ]
+}

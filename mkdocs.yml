@@ -24,6 +24,9 @@ nav:
     - Customizing Lesson Plans: chapters/16-customizing-lesson-plans.md
     - LMS Integration: chapters/17-lms-integration.md
     - Building Intelligent Agents: chapters/18-agents.md
+    - Validating Learning Graphs: chapters/19-validating.md
+  - Concepts:
+    - Introduction: concepts/index.md
   - Case Studies:
     - Introduction: case-studies/index.md
     - Low-Latency: case-studies/low-latency.md

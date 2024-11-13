@@ -1,0 +1,51 @@
+ConceptID,ConceptName,Dependencies
+1,Concept Graph,
+2,Dependency Graph,1
+3,Printed Textbooks,
+4,Linear Learning,3
+5,Non-linear Learning,4
+6,Recommendation Engines,5
+7,Learning Paths,4|5
+8,Learning Management Systems,7
+9,Content Graph,1
+10,Adaptive Learning,5|8|9
+11,MicroSim,10
+12,Intelligent Agents,6|10
+13,SKOS,
+14,Knowledge Representation,13
+15,Course Description,14
+16,Learning Objectives,15|17
+17,Bloom's Taxonomy,
+18,Dublin Core,14
+19,Foundational Concept,
+20,Hyper-personalization,10|12|19
+21,Journey Map,16|20
+22,Accessibility,7|8
+23,Learning Graph,2|9
+24,Rhizombic Learning,5|23
+25,Graph Visualization,23
+26,Force Directed Graph,25
+27,JavaScript,
+28,P5.js,27
+29,vis.js,27
+30,Graph Validation,23
+31,Orphaned Concepts,30
+32,Graph Layout Algorithms,26|29
+33,Goal Concepts,16|23
+34,User Interface,9|25
+35,Chatbot,12|34
+36,RAG,6|33|34
+37,Similarity,
+38,Concept Similarity,37
+39,Student Similarity,37
+40,Feedback Log,
+41,Feedback Analysis,40
+42,GraphRAG,36|38|39
+43,Learning Content Recommendation Engine,6|10|42
+44,Learned Concept,19|23
+45,Ready to Learn Concept,16|44
+46,Assessment,45
+47,Learning Touchpoint,45|46
+48,Frequently Asked Question,47
+49,Content Similarity,37|39
+50,Course Evaluation,46|48

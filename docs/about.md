@@ -1,10 +1,50 @@
 # About the Learning Graphs Website
 
-The goal of this website is to enable teaching the concepts around Learning Graphs.  It was inspired by the cyberpunk science fiction novel [Diamond Age](https://en.wikipedia.org/wiki/The_Diamond_Age) by Neal Stephenson.  In this novel, a child uses a tablet-like device that customizes stories to the needs of the child.  This form of highly-customized learning is our goal.  We believe that learning graphs are the core data structure that these intelligent learning agents will be built on.
+The goal of this website is to enable teaching the concepts around [Learning Graphs](glossary.md#learning-graph).  It was inspired by the 1988 cyberpunk science fiction novel [The Diamond Age: Or, A Young Lady's Illustrated Primer](https://en.wikipedia.org/wiki/The_Diamond_Age) by Neal Stephenson.  In this novel, a child uses a tablet-like device called "The Primer" that generates customized stories in real-time to meet the needs of the child.  The stories get more sophisticated as the needs of the child mature.
+
+This form of highly-customized learning is our goal.  We believe that learning graphs are the core data structure that these intelligent learning agents will be built on.
+
+Today, there are no formal standards for Learning Graphs.  We hope that the resources on this site can enable an organization to publish
+these learning graph interoperability standards.  See our chapter on [Validating Learning Graphs](./chapters/19-validating.md) for examples.
+
+## Terminology
+
+In this course, the term **learning graph** (lower cases) will
+be used to describe the general topic of using concept graphs
+to empower intelligent agents to generate customized content.
+
+We will use the term **Learning Graph** to describe a JSON file
+that conforms to our proposed Leaning Graph standard.
+
+We will also use the term **Concept Dependency Graph** or CDG
+to describe the general graph structure of these systems.
+
+We also will be using [SKOS](glossary.md#skos) terminology to
+describe Concepts.  When in doubt, we encourage you to use
+the W3C SKOS definitions for concepts and their relationships.
+
+## Integration with other Projects
+
+This websites puts a focus on the creation and editing of learning
+graphs for hyper-personalization of learning content.
+
+It does not cover the following topics:
+
+1. **Graph Algorithms** - Graph algorithms are used
+to traverse a learning graph to build custom lesson plans.  For this topic please see the [Graph Algorithms](https://dmccreary.github.io/graph-algorithms/).  To leverage learning graphs, understanding dependency path finding algorithms is essential.
+2. **LMS Integration** - We do not cover the topic of integrating learning graphs into [learning management systems](glossary.md#learning-management-system-lms).  For this topic please see the [Graph Learning Management Systems](https://dmccreary.github.io/graph-lms/)
+3. **Systems Thinking** - learning graphs do not stand alone.  To be valuable they need to integrate with a complex network of other technologies that make up our educational systems.  To get exposure to Systems Thinking we encourage you to use the [Systems Thinking for Technologists](https://dmccreary.github.io/graph-systems-thinking/).  We feel that understanding the [Network Effect](https://dmccreary.github.io/graph-systems-thinking/archetypes/#network-effect) will help you understand how learning graph standards
+can transform education.
+
+In addition to these websites, we have also worked with specific subject-matter experts to create examples of learning graphs.
+Please see the [Case Studies](./case-studies/index.md) section
+for descriptions and links to these websites.
+
+## What is a Learning Graph?
 
 Learning Graphs are [concept dependency graphs](glossary.md/#concept-dependency-graph) that are used to:
 
-1. Understand the important [concepts](glossary.md#concept) in a course and their dependencies
+1. Understand and visualize the important [concepts](glossary.md#concept) in a course and their dependencies.
 2. Suggest [learning paths](glossary.md#learning-path) to achieve [learning objectives](glossary.md#learning-objective)
 3. Serve as the core data structure for [hyper-personalization](glossary.md#hyper-personalization) of lesson plans by [generative AI](glossary.md#generative-ai) and other content such as [MicroSims](glossary.md#microsim) by [agents](glossary.md#agent).
 
@@ -24,25 +64,28 @@ Here are 10 learning objectives for a course on learning **Concept Dependency Gr
 
 ### 1. **Remembering**:
 
-**Identify the basic structure of Concept Dependency Graphs (CDGs)** used to model concepts and their dependencies in a course.
+**Identify the basic structure of Learning Graphs** used to model concepts and their dependencies in a course.  Understand the graph data model
+and how concept dependency graphs (CDGs) are used to model
+learning concept graphs.
 
-*Example: Define the nodes and edges in a CDG and recognize them in different graphical representations.*
+*Example: Define the nodes and edges in a Learning Graph and recognize them in different graphical representations.*
 
 ### 2. **Understanding**:
 
-**Explain how CDGs represent the relationships between course concepts** and how they suggest learning paths based on these dependencies.
+**Explain how Learning Graphs represent the relationships between course concepts** and how they suggest learning paths based on these dependencies.
 
-*Example: Describe how prerequisite concepts are connected to higher-level concepts within a CDG.*
+*Example: Describe how prerequisite concepts are connected to higher-level concepts within a learning graph.*
 
 ### 3. **Applying**:
 
-**Use Generative AI to generate concepts lists or use NLP frameworks to extract key concepts from course materials** and generate a list of vertices (nodes) for building a CDG.
+**Use Generative AI to generate concepts lists or use NLP frameworks to extract key concepts from course materials** and generate a list of vertices (nodes) for building a learning graph.
 
 *Example: Apply AI tools to analyze a syllabus or textbook and identify core concepts.*
 
 ### 4. Apply JavaScript Graph Libraries
 
-Use [vis.js](glossary.md#visjs) (or similar tools) to visualize a Concept Dependency Graph** for a given set of concepts and dependencies.
+Use [vis.js](glossary.md#visjs) (or similar tools) to visualize a
+ Learning Graph** for a given set of concepts and dependencies.
 
 -   *Example: Use vis.js to create an interactive graph of course concepts and their dependencies.*
 
@@ -54,12 +97,12 @@ Analyze concept relationships using Generative AI to discover hidden dependencie
 
 ### 6. Evaluating
 
-**Evaluate the quality of a generated CDG** in terms of completeness, accuracy, and alignment with learning objectives.
+**Evaluate the quality of a generated learning graph** in terms of completeness, accuracy, and alignment with learning objectives.
 
-**Example:** Critically assess a CDG created by AI for coverage of all key topics and concept dependencies.
+**Example:** Critically assess a learning graph created by a user or an AI agent for coverage of all key topics and concept dependencies.
 
 ### 7.  Assess
-Analyze personalized learning paths generated from a CDG**, ensuring they meet the individual learning objectives of diverse student profiles.
+Analyze personalized learning paths generated from a learning graph**, ensuring they meet the individual learning objectives of diverse student profiles.
 
 **Example:** Review AI-generated personalized lesson plans for different student backgrounds and adjust if needed.*
 
