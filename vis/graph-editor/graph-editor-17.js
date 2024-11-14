@@ -56,9 +56,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Event listeners for toolbar buttons
   document.getElementById('file-input').addEventListener('change', loadGraph);
+
   document.getElementById('create-node-btn').addEventListener('click', () => {
     network.addNodeMode();
   });
+
   document.getElementById('add-edge-btn').addEventListener('click', () => {
     network.addEdgeMode();
   });
@@ -71,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('delete-edge-btn').addEventListener('click', () => {
     network.deleteSelected();
   });
+
   document.getElementById('save-graph-btn').addEventListener('click', saveGraph);
   document.getElementById('save-as-btn').addEventListener('click', saveAsGraph);
 
@@ -112,14 +115,22 @@ function openNodeModal(title, data, callback) {
 
   document.getElementById('node-label').value = data.label || '';
   document.getElementById('node-group').value = data.group || '';
+  document.getElementById('node-color').value = data.color || '';
+  document.getElementById('font-color').value = data.fontColor || '';
+  document.getElementById('shape').value = data.shape || '';
+
 
   modal.style.display = 'block';
 }
 
 // Function to save node data from the modal
 function saveNodeData() {
+  // move form fields into variables
   const label = document.getElementById('node-label').value.trim();
   const group = document.getElementById('node-group').value.trim();
+  const color = document.getElementById('node-color').value.trim();
+  const fontColor = document.getElementById('font-color').value.trim();
+  const nodeShape = document.getElementById('shape').value.trim();
 
   if (label === "") {
     alert("Node label cannot be empty.");
@@ -128,6 +139,9 @@ function saveNodeData() {
 
   modalData.label = label;
   modalData.group = group !== '' ? group : undefined;
+  modalData.color = color;
+  modalData.fontColor = fontColor;
+  modalData.nodeShape = nodeShape;
 
   const modal = document.getElementById('node-modal');
   modal.style.display = 'none';
