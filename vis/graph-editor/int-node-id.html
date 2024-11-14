@@ -3,7 +3,7 @@
 <head>
   <title>Vis.js Graph Network Editor</title>
   <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
-  <script type="text/javascript" src="graph-editor-18.js" defer></script>
+  <script type="text/javascript" src="int-node-id.js" defer></script>
   <style>
     body {
       margin: 0;
@@ -123,7 +123,6 @@
 <body>
 
 <div id="toolbar">
-  <button id="create-node-btn">Create New Node</button>
   <input type="file" id="file-input" accept=".json">
   <button id="save-graph-btn">Save</button>
   <button id="save-as-btn">Save As</button>
@@ -142,14 +141,6 @@
     <label for="node-group">Group:</label>
     <input type="text" id="node-group" placeholder="Enter node group (optional)">
 
-    <label for="node-color">Color:</label>
-    <input type="text" id="node-color" placeholder="Enter node color (optional)">
-
-    <label for="font-color">Font Color:</label>
-    <input type="text" id="font-color" placeholder="Enter font color (optional)">
-
-    <label for="shape">Shape:</label>
-    <input type="text" id="shape" placeholder="Enter node shape (optional)">
     
     <div class="modal-buttons">
       <button class="cancel-btn">Cancel</button>

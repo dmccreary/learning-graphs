@@ -2,8 +2,8 @@
 var nodes = new vis.DataSet();
 var edges = new vis.DataSet();
 var network = null;
-var nodeIdCounter = 1;
 var edgeIdCounter = 1;
+var isNewNode = false; // Global variable to track if we're creating a new node
 
 // Wait until the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
@@ -19,10 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
     manipulation: {
       enabled: true,
       addNode: function (data, callback) {
-        openNodeModal('Create New Node', data, callback);
+        openNodeModal('Create New Node', data, callback, true); // Pass true for isNew
       },
       editNode: function (data, callback) {
-        openNodeModal('Edit Node', data, callback);
+        openNodeModal('Edit Node', data, callback, false); // Pass false for isNew
       },
       addEdge: function (data, callback) {
         console.log('Attempting to add edge:', data);
@@ -56,16 +56,9 @@ document.addEventListener('DOMContentLoaded', () => {
   network = new vis.Network(container, data, options);
 
   // Event listeners for toolbar buttons
-  // we associate four functions with these UI objects
   document.getElementById('file-input').addEventListener('change', loadGraph);
-
-  // the UI gets put in a mode that enables the buttons
-  document.getElementById('create-node-btn').addEventListener('click', () => {
-    network.addNodeMode();
-  });
-
+  
   document.getElementById('save-graph-btn').addEventListener('click', saveGraph);
-
   document.getElementById('save-as-btn').addEventListener('click', saveAsGraph);
 
   // Modal window elements
@@ -97,53 +90,36 @@ var modalCallback = null;
 var modalData = null;
 
 // Function to open the modal for creating or editing a node
-function openNodeModal(title, data, callback) {
+function openNodeModal(title, data, callback, isNew) {
   modalData = data;
   modalCallback = callback;
+  isNewNode = isNew; // Set the global variable
   const modal = document.getElementById('node-modal');
   const modalTitle = document.getElementById('modal-title');
   modalTitle.textContent = title;
 
-  // go into the form elements and get each value from the field
   document.getElementById('node-label').value = data.label || '';
   document.getElementById('node-group').value = data.group || '';
-  document.getElementById('node-color').value = data.color || '';
-  document.getElementById('font-color').value = data.fontColor || '';
-  document.getElementById('shape').value = data.shape || '';
-
 
   modal.style.display = 'block';
 }
 
 // Function to save node data from the modal
 function saveNodeData() {
-
-  // move form fields into local variables
   const label = document.getElementById('node-label').value.trim();
   const group = document.getElementById('node-group').value.trim();
-  const nodeColor = document.getElementById('node-color').value.trim();
-  const fontColor = document.getElementById('font-color').value.trim();
-  const nodeShape = document.getElementById('shape').value.trim();
 
   if (label === "") {
     alert("Node label cannot be empty.");
     return;
   }
 
-  // Assign a new ID if this is a new node (no ID assigned yet)
-  if (typeof modalData.id === 'undefined') {
+  if (isNewNode) {
     modalData.id = getNextNodeId();
   }
 
-  // this is where we construct our JSON node object
   modalData.label = label;
   modalData.group = group !== '' ? group : undefined;
-  modalData.color = nodeColor;
-  // wrong
-  // modalData.font.color = fontColor;
-  // should be font: {color: "blue"}
-  modalData.fontColor = fontColor;
-  modalData.shape = nodeShape;
 
   const modal = document.getElementById('node-modal');
   modal.style.display = 'none';
@@ -153,6 +129,14 @@ function saveNodeData() {
   // Reset modal variables
   modalData = null;
   modalCallback = null;
+  isNewNode = false; // Reset the flag
+}
+
+// Helper function to get the next unique node ID
+function getNextNodeId() {
+  const allNodeIds = nodes.getIds();
+  if (allNodeIds.length === 0) return 1; // Start from 1 if no nodes exist
+  return Math.max(...allNodeIds.map(id => parseInt(id))) + 1;
 }
 
 // Function to cancel node editing
@@ -166,6 +150,7 @@ function cancelNodeEdit() {
   // Reset modal variables
   modalData = null;
   modalCallback = null;
+  isNewNode = false; // Reset the flag
 }
 
 // Function to check for duplicate edges and remove them
@@ -244,11 +229,4 @@ function download(filename, text) {
   document.body.appendChild(element);
   element.click();
   document.body.removeChild(element);
-}
-
-// return the next largest integer of all the current IDs
-function getNextNodeId() {
-  const allNodeIds = nodes.getIds();
-  if (allNodeIds.length === 0) return 1; // Start from 1 if no nodes exist
-  return Math.max(...allNodeIds) + 1;
 }
