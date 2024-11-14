@@ -2,7 +2,7 @@
 var nodes = new vis.DataSet();
 var edges = new vis.DataSet();
 var network = null;
-var nodeIdCounter = 1;
+var isNewNode = false; // Global variable to track if we're creating a new node
 var edgeIdCounter = 1;
 
 // Wait until the DOM is fully loaded
@@ -19,10 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
     manipulation: {
       enabled: true,
       addNode: function (data, callback) {
-        openNodeModal('Create New Node', data, callback);
+        openNodeModal('Create New Node', data, callback, true); // Pass true for isNew
       },
       editNode: function (data, callback) {
-        openNodeModal('Edit Node', data, callback);
+        openNodeModal('Edit Node', data, callback, false); // Pass false for isNew
       },
       addEdge: function (data, callback) {
         console.log('Attempting to add edge:', data);
@@ -97,9 +97,11 @@ var modalCallback = null;
 var modalData = null;
 
 // Function to open the modal for creating or editing a node
-function openNodeModal(title, data, callback) {
+function openNodeModal(title, data, callback, isNew) {
   modalData = data;
   modalCallback = callback;
+  isNewNode = isNew; // Set the global variable
+
   const modal = document.getElementById('node-modal');
   const modalTitle = document.getElementById('modal-title');
   modalTitle.textContent = title;
@@ -131,7 +133,7 @@ function saveNodeData() {
   }
 
   // Assign a new ID if this is a new node (no ID assigned yet)
-  if (typeof modalData.id === 'undefined') {
+  if (isNewNode) {
     modalData.id = getNextNodeId();
   }
 
@@ -153,6 +155,7 @@ function saveNodeData() {
   // Reset modal variables
   modalData = null;
   modalCallback = null;
+  isNewNode = false; // Reset the flag
 }
 
 // Function to cancel node editing
