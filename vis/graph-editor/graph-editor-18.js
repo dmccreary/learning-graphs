@@ -59,11 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // we associate four functions with these UI objects
   document.getElementById('file-input').addEventListener('change', loadGraph);
 
-  // the UI gets put in a mode that enables the buttons
-  document.getElementById('create-node-btn').addEventListener('click', () => {
-    network.addNodeMode();
-  });
-
   document.getElementById('save-graph-btn').addEventListener('click', saveGraph);
 
   document.getElementById('save-as-btn').addEventListener('click', saveAsGraph);
