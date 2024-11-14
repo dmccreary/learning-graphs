@@ -1,8 +1,23 @@
 # Graph Editor
 
+## Label and Group Only
 
-[Run the Graph Editor v18](./graph-editor-18.html){ .md-button .md-button--primary }
+[Run the Graph Editor v20](./graph-editor-20.html){ .md-button .md-button--primary }
 
+This version ONLY allows the user to change the label and the group.
+All other layout is done by these groups.
+
+## Attempting to Edit Color and Shapes
+
+This turned out to be challenging since color can be a property but also an
+object.  For detailed control of all colors including background and
+border colors for standard, hover and selected nodes we must have a very
+complex form.  I feel this is better handled based on the group of the
+node.
+
+[Run the Graph Editor v19](./graph-editor-19.html)
+
+[Run the Graph Editor v18](./graph-editor-18.html)
 [Integer Node ID](./int-node-id.html)
 
 [Run the Graph Editor v17](./graph-editor-17.html)

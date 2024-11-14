@@ -12,17 +12,29 @@ document.addEventListener('DOMContentLoaded', () => {
   const data = { nodes: nodes, edges: edges };
   const options = {
     physics: {
-      enabled: true,
-      solver: "forceAtlas2Based",
-      stabilization: { iterations: 100 }
+        enabled: true,
+        solver: 'forceAtlas2Based',
+        stabilization: {
+            iterations: 1000,
+            updateInterval: 25
+        },
+        forceAtlas2Based: {
+            gravitationalConstant: -50,
+            centralGravity: 0.01,
+            springLength: 50,  // Reduce this to make edges shorter
+            springConstant: 0.08
+        }
+    },
+    layout: {
+        improvedLayout: false, // Prevent node overlap
     },
     manipulation: {
       enabled: true,
       addNode: function (data, callback) {
-        openNodeModal('Create New Node', data, callback, true); // Pass true for isNew
+        openNodeModal('Create New Learning Concept', data, callback, true); // Pass true for isNew
       },
       editNode: function (data, callback) {
-        openNodeModal('Edit Node', data, callback, false); // Pass false for isNew
+        openNodeModal('Edit Learning Concept', data, callback, false); // Pass false for isNew
       },
       addEdge: function (data, callback) {
         console.log('Attempting to add edge:', data);
@@ -33,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         // Assign a unique ID and label to the new edge
         data.id = edgeIdCounter++;
-        data.label = 'New Edge';
         console.log('Adding edge:', data);
         callback(data);
       },
@@ -51,8 +62,31 @@ document.addEventListener('DOMContentLoaded', () => {
           callback(null); // Properly cancel the action
         }
       }
+    },
+    edges: {
+         arrows: {
+          to: { enabled: true, scaleFactor: 1 }// Arrow at the destination
+         }
+    },
+    // just the styles, no placement allowed
+    groups: {
+        found: {
+           shape: "box", 
+           color: {background:'red'},
+           font: {color: "white", size: 16}
+        },
+        term: {
+           shape: "dot",
+           color:{background:'orange'}, 
+        },
+        goal: {
+           shape: "star", 
+           color:{background:'purple'}, 
+           font: { size: 16 }
+        }
     }
   };
+
   network = new vis.Network(container, data, options);
 
   // Event listeners for toolbar buttons
@@ -103,18 +137,6 @@ function openNodeModal(title, data, callback, isNew) {
   document.getElementById('node-label').value = data.label || '';
   document.getElementById('node-group').value = data.group || '';
 
-  // document.getElementById('node-color').value = data.color || '';
-  // format is: color: {"background": "blue"}
-  // Pre-fill background color if it exists
-  document.getElementById('node-color').value = (data.color && data.color.background) ? data.color.background : '';
-
-  // Pre-fill font color if it exists
-  // if there is a font data and if that font has a color then use it else null
-  document.getElementById('font-color').value = (data.font && data.font.color) ? data.font.color : '';
-
-  document.getElementById('shape').value = data.shape || '';
-
-
   modal.style.display = 'block';
 }
 
@@ -124,10 +146,8 @@ function saveNodeData() {
   // move form fields into local variables
   const label = document.getElementById('node-label').value.trim();
   const group = document.getElementById('node-group').value.trim();
-  const nodeColor = document.getElementById('node-color').value.trim();
-  const fontColor = document.getElementById('font-color').value.trim();
-  const nodeShape = document.getElementById('shape').value.trim();
 
+  // check for required fields
   if (label === "") {
     alert("Node label cannot be empty.");
     return;
@@ -141,24 +161,8 @@ function saveNodeData() {
   // this is where we construct our JSON node object
   modalData.label = label;
   modalData.group = group !== '' ? group : undefined;
-
-  //
-  if (nodeColor !== '') {
-    modalData.color = { background: fontColor };
-  } else {
-    delete modalData.color; // Remove the font property if no color is provided
-  }
-
-  // should be font: {color: "blue"}
+  // todo - add the fixed X for foundation and goals nodes
   
-  if (fontColor !== '') {
-    modalData.font = { color: fontColor };
-  } else {
-    delete modalData.font; // Remove the font property if no color is provided
-  }
-  
-  modalData.shape = nodeShape;
-
   const modal = document.getElementById('node-modal');
   modal.style.display = 'none';
 
@@ -198,12 +202,13 @@ function checkForDuplicateEdges(newEdge) {
       );
     }
   });
-
+  /*
   if (duplicates.length > 0) {
     // Remove the new edge if a duplicate exists
     alert('An edge between these nodes already exists. The duplicate edge will be removed.');
     edges.remove(edgeId);
   }
+    */
 }
 
 // Function to save the graph to a JSON file
@@ -233,6 +238,10 @@ function loadGraph(event) {
           nodes.clear();
           edges.clear();
           nodes.add(graphData.nodes);
+
+          // After defining nodes, call the function to fix X positions
+          fixXPositions(nodes);
+
           edges.add(graphData.edges);
           // Update edgeIdCounter to prevent ID conflicts
           const maxEdgeId = graphData.edges.reduce((max, edge) => Math.max(max, edge.id || 0), 0);
@@ -266,4 +275,20 @@ function getNextNodeId() {
   const allNodeIds = nodes.getIds();
   if (allNodeIds.length === 0) return 1; // Start from 1 if no nodes exist
   return Math.max(...allNodeIds) + 1;
+}
+
+// Function to fix x positions for specific groups
+// no styling here - use the options -> groups to style the groups
+function fixXPositions(nodes) {
+    nodes.forEach(function (node) {
+        // place the foundation nodes on the left
+        if (node.group === "found") {
+            node.x = -600;
+            node.fixed = { x: true, y: false }; // Fix x, but let y be adjusted by physics
+        // place the goal nodes on the right
+        } else if (node.group === "goal") {
+            node.x = 600;
+            node.fixed = { x: true, y: false }; // Fix x, but let y be adjusted by physics
+        }
+    });
 }

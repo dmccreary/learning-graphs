@@ -56,15 +56,16 @@ var options = {
       groups: {
         foundation: {
            shape: "box", 
-           color:{background:'red'},
+           color:{background: 'red'},
            font: {"color": "white"},
         },
-        level2: {
-           color:{background:'orange'}, 
+        term: {
+           shape: "dot", 
+           color:{background: 'orange'}, 
         },
         goal: {
            shape: "star", 
-           color:{background:'gold'}, 
+           color:{background: 'gold'}, 
            font: { size: 16 }
         }
      }

@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Vis.js Graph Viewer</title>
+  <title>Vis.js Graph Network Editor</title>
   <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <script type="text/javascript" src="graph-editor-19.js" defer></script>
   <style>
     body {
       margin: 0;
@@ -46,10 +47,9 @@
       color: white;
     }
     #mynetwork {
-      width: 95%;
+      width: 100%;
       height: calc(100vh - 60px);
       border: 1px solid lightgray;
-      background-color: aliceblue;
     }
     /* Modal styles */
     .modal {
@@ -132,26 +132,58 @@
 </head>
 <body>
 
-  <div id="toolbar">
-    <input type="file" id="file-input" accept=".json">
-    <button id="save-graph-btn">Save</button>
-    <button id="save-as-btn">Save As</button>
-  </div>
+<div id="toolbar">
+  <input type="file" id="file-input" accept=".json">
+  <button id="save-graph-btn">Save</button>
+  <button id="save-as-btn">Save As</button>
+</div>
 
-<div id="main">
-  <div id="mynetwork"></div>
-  <div id="sidebar">
-    <h3>Graph Viewer</h3>
+<div id="mynetwork"></div>
+
+<!-- Modal Window -->
+<div id="node-modal" class="modal">
+  <div class="modal-content">
+    <h5 id="modal-title">Create New Node</h5>
+
+    <label for="node-label">Label:</label>
+    <input type="text" id="node-label" placeholder="Enter node label">
+
+    <label for="node-group">Group:</label>
+    <input type="text" id="node-group" placeholder="Enter node group (optional)">
+
+    <label for="node-color">Background Color:</label>
+    <input type="text" id="node-color" placeholder="Enter node color (optional)">
+
+    <label for="font-color">Font Color:</label>
+    <input type="text" id="font-color" placeholder="Enter font color (optional)">
+
+    <label for="shape">Shape:</label>
+    <!-- 
+    <input type="text" id="shape" placeholder="Enter node shape (optional)">
+    -->
+    <select id="shape">
+        <option value="ellipse">Ellipse (text internal)</option>
+        <option value="circle">Circle (text internal)</option>
+        <option value="box">Box (text internal)</option>
+        <option value="database">Database (text internal)</option>
+        <!--
+        <option value="text">Text</option>
+        <option value="icon">Icon</option>
+        <option value="image">Image</option>
+        -->
+        <option value="dot">Dot (text below)</option>
+        <option value="diamond">Diamond (text below)</option>
+        <option value="star">Star (text below)</option>
+        <option value="triangle">Triangle (text below)</option>
+        <option value="triangleDown">Triangle Down  (text below)</option>
+      </select>
     
-    <!-- Checkbox for displaying the legend -->
-    <label><input type="checkbox" id="legend-checkbox" onchange="toggleLegend()"> Display Legend</label><br><br>
-  
-    <div class="stats" id="stats">Nodes: 0<br>Edges: 0</div>
-    
-    <div id="legend"></div>
+    <div class="modal-buttons">
+      <button class="cancel-btn">Cancel</button>
+      <button class="save-btn">Save</button>
+    </div>
   </div>
 </div>
-<script type="text/javascript" src="graph-viewer.js" defer></script>
 
 </body>
 </html>

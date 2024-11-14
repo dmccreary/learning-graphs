@@ -22,6 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
         openNodeModal('Create New Node', data, callback, true); // Pass true for isNew
       },
       editNode: function (data, callback) {
+        // Ensure color is handled as an object when editing
+        if (typeof data.color === 'string') {
+            data.color = { background: data.color };
+        };
         openNodeModal('Edit Node', data, callback, false); // Pass false for isNew
       },
       addEdge: function (data, callback) {
@@ -128,6 +132,7 @@ function saveNodeData() {
   const fontColor = document.getElementById('font-color').value.trim();
   const nodeShape = document.getElementById('shape').value.trim();
 
+  // check for required fields
   if (label === "") {
     alert("Node label cannot be empty.");
     return;
@@ -142,19 +147,18 @@ function saveNodeData() {
   modalData.label = label;
   modalData.group = group !== '' ? group : undefined;
 
-  //
+  // if we have a node color from the form then put it in the color object
   if (nodeColor !== '') {
-    modalData.color = { background: fontColor };
+    modalData.color = { background: nodeColor };
   } else {
-    delete modalData.color; // Remove the font property if no color is provided
+    delete modalData.color; // Remove the color property if no color is provided
   }
 
-  // should be font: {color: "blue"}
-  
+  // if we have a font color
   if (fontColor !== '') {
     modalData.font = { color: fontColor };
   } else {
-    delete modalData.font; // Remove the font property if no color is provided
+    delete modalData.font; // Remove the font property if no font color is provided
   }
   
   modalData.shape = nodeShape;

@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Vis.js Graph Viewer</title>
+  <title>Vis.js Graph Network Editor V 20</title>
   <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <script type="text/javascript" src="graph-editor-20.js" defer></script>
   <style>
     body {
       margin: 0;
@@ -132,26 +133,47 @@
 </head>
 <body>
 
-  <div id="toolbar">
-    <input type="file" id="file-input" accept=".json">
-    <button id="save-graph-btn">Save</button>
-    <button id="save-as-btn">Save As</button>
-  </div>
+    <!-- toolbar at the top-->
+<div id="toolbar">
+  <input type="file" id="file-input" accept=".json">
+  <button id="save-graph-btn">Save</button>
+  <button id="save-as-btn">Save As</button>
+</div>
 
-<div id="main">
-  <div id="mynetwork"></div>
-  <div id="sidebar">
-    <h3>Graph Viewer</h3>
+<div id="mynetwork"></div>
+
+<a href=".">Back to Lesson Plan</a>
+<p>version 20</p>
+
+<!-- Modal Window -->
+<div id="node-modal" class="modal">
+  <div class="modal-content">
+    <h5 id="modal-title">Create New Learning Concept</h5>
+
+    <label for="node-label">Label:</label>
+    <input type="text" id="node-label" placeholder="Enter concept name">
+
+    <label for="node-group">Group:</label>
+    <select id="node-group" placeholder="Enter concept group (optional)">
+        <option value="found">Foundation (no dependencies)</option>
+        <option value="term">Term (key term in this course)</option>
+        <option value="goal">Goal (nothing depends on this)</option>
+        <option value="group3">Group 3</option>
+        <option value="group4">Group 4</option>
+        <option value="group5">Group 5</option>
+        <option value="group6">Group 6</option>
+        <option value="group7">Group 7</option>
+        <option value="group8">Group 8</option>
+        <option value="group9">Group 9</option>
+        <option value="group10">Group 10</option>
+      </select>
     
-    <!-- Checkbox for displaying the legend -->
-    <label><input type="checkbox" id="legend-checkbox" onchange="toggleLegend()"> Display Legend</label><br><br>
-  
-    <div class="stats" id="stats">Nodes: 0<br>Edges: 0</div>
-    
-    <div id="legend"></div>
+    <div class="modal-buttons">
+      <button class="cancel-btn">Cancel</button>
+      <button class="save-btn">Save</button>
+    </div>
   </div>
 </div>
-<script type="text/javascript" src="graph-viewer.js" defer></script>
 
 </body>
 </html>
