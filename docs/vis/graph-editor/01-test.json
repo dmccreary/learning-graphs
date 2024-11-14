@@ -4,7 +4,7 @@
       { "id": 2, "label": "Node 2", "group": "mygroup1"  },
       { "id": 3, "label": "Node 3", "group": "mygroup2", 
          "title": "A long text description for node 3 that is only shown on hover." },
-      { "id": 4, "label": "Node 4", "group": "mygroup2", "color": "red"},
+      { "id": 4, "label": "Node 4", "group": "mygroup2", "color": "red", "font": {"color": "white"}},
       { "id": 5, "label": "Node 5", "group": "mygroup3", "color": "blue", "shape": 
         "circle"},
       { "id": 6, "label": "Node 6", "group": "mygroup3", "color": "green", "shape": 

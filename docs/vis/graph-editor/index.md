@@ -1,8 +1,9 @@
 # Graph Editor
 
-[Run Graph Editor](graph-editor.html)
 
-[Run the Graph Editor v17](./graph-editor-17.html){ .md-button .md-button--primary }
+[Run the Graph Editor v18](./graph-editor-18.html){ .md-button .md-button--primary }
+
+[Run the Graph Editor v17](./graph-editor-17.html)
 
 [Graph Editor v16](./graph-editor-16.html)
 
@@ -13,6 +14,8 @@
 [Graph Editor v13](./graph-editor-13.html)
 
 [Graph Editor V12](./graph-editor-12.html)
+
+[Run Graph Editor](graph-editor.html)
 
 ## Prompt
 
