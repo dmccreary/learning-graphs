@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vis.js Graph Network Editor</title>
+  <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <script type="text/javascript" src="graph-editor-18.js" defer></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    #toolbar {
+      display: flex;
+      align-items: center;
+      background-color: #f1f1f1;
+      padding: 10px;
+    }
+    #toolbar button, #toolbar input[type="file"] {
+      margin-right: 10px;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    #create-node-btn {
+      background-color: #4CAF50;
+      color: white;
+    }
+    #add-edge-btn {
+      background-color: #2196F3;
+      color: white;
+    }
+    #edit-node-btn {
+      background-color: #FFC107;
+      color: white;
+    }
+    #delete-node-btn {
+      background-color: #f44336;
+      color: white;
+    }
+    #delete-edge-btn {
+      background-color: #f44336;
+      color: white;
+    }
+    #save-graph-btn, #save-as-btn {
+      background-color: #555555;
+      color: white;
+    }
+    #mynetwork {
+      width: 100%;
+      height: calc(100vh - 60px);
+      border: 1px solid lightgray;
+    }
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.4);
+    }
+    .modal-content {
+      background-color: lemonchiffon;
+      margin: 2% auto;
+      padding: 5px;
+      border: 1px solid #888;
+      width: 400px;
+      height: 450px;
+      min-height: 200px;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: relative;
+      border-radius: 8px;
+    }
+    .modal-buttons {
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      bottom: 10px;
+      left: 5px;
+      right: 5px;
+    }
+    .modal-buttons button {
+      width: 120px;
+      padding: 5px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    .modal-buttons .save-btn {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .modal-buttons .cancel-btn {
+      background-color: #f44336;
+      color: white;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input[type="text"] {
+      width: 95%;
+      padding: 8px;
+      margin-bottom: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    .model-title {
+      border: solid purple 1px;
+      padding: 2px;
+      margin: 2px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div id="toolbar">
+  <button id="create-node-btn">Create New Node</button>
+  <!--
+  <button id="add-edge-btn">Add Edge</button>
+  <button id="edit-node-btn">Edit Node</button>
+  <button id="delete-node-btn">Delete Node</button>
+  <button id="delete-edge-btn">Delete Edge</button>
+  -->
+  <input type="file" id="file-input" accept=".json">
+  <button id="save-graph-btn">Save</button>
+  <button id="save-as-btn">Save As</button>
+</div>
+
+<div id="mynetwork"></div>
+
+<!-- Modal Window -->
+<div id="node-modal" class="modal">
+  <div class="modal-content">
+    <h5 id="modal-title">Create New Node</h5>
+
+    <label for="node-label">Label:</label>
+    <input type="text" id="node-label" placeholder="Enter node label">
+
+    <label for="node-group">Group:</label>
+    <input type="text" id="node-group" placeholder="Enter node group (optional)">
+
+    <label for="node-color">Color:</label>
+    <input type="text" id="node-color" placeholder="Enter node color (optional)">
+
+    <label for="font-color">Font Color:</label>
+    <input type="text" id="font-color" placeholder="Enter font color (optional)">
+
+    <label for="shape">Shape:</label>
+    <input type="text" id="shape" placeholder="Enter node shape (optional)">
+    
+    <div class="modal-buttons">
+      <button class="cancel-btn">Cancel</button>
+      <button class="save-btn">Save</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
