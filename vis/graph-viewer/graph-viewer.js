@@ -31,6 +31,9 @@ function loadGraphFromFile() {
 
           if (graphData.nodes && graphData.edges) {
             nodes.add(graphData.nodes);
+            // fix edges here
+            // After defining nodes, call the function to fix X positions
+            fixXPositions(nodes);
             edges.add(graphData.edges);
 
             var data = { nodes: nodes, edges: edges };
@@ -58,8 +61,30 @@ document.addEventListener('DOMContentLoaded', (event) => {
       enabled: true,
       solver: "forceAtlas2Based",
       stabilization: { iterations: 100 }
-    }
-  };
+    },
+    edges: {
+      arrows: {
+       to: { enabled: true, scaleFactor: 1 }// Arrow at the destination
+      }
+    },
+    // just the styles, no placement allowed
+    groups: {
+      found: {
+         shape: "box", 
+         color: {background:'red'},
+         font: {color: "white", size: 16}
+      },
+      term: {
+         shape: "dot",
+         color:{background:'orange'}, 
+      },
+      goal: {
+         shape: "star", 
+         color:{background:'purple'}, 
+         font: { size: 16 }
+      }
+  }
+};
 
   network = new vis.Network(container, data, options);
 
@@ -102,4 +127,20 @@ function displayLegend() {
   }
 
   document.getElementById('legend').innerHTML = legendHTML;
+}
+
+// Function to fix x positions for specific groups
+// no styling here - use the options -> groups to style the groups
+function fixXPositions(nodes) {
+  nodes.forEach(function (node) {
+      // place the foundation nodes on the left
+      if (node.group === "found") {
+          node.x = -600;
+          node.fixed = { x: true, y: false }; // Fix x, but let y be adjusted by physics
+      // place the goal nodes on the right
+      } else if (node.group === "goal") {
+          node.x = 600;
+          node.fixed = { x: true, y: false }; // Fix x, but let y be adjusted by physics
+      }
+  });
 }

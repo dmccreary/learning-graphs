@@ -1,0 +1,36 @@
+{
+    "nodes": [
+      { "id": 1, "label": "Foundation 1"},
+      { "id": 2, "label": "Default red", "color": "red"},
+      { "id": 3, "label": "Orange Dot", "shape": "dot", "color": "orange"},
+      { "id": 4, "label": "Red with White Font", "color": "red", "font": {"color": "white"}},
+
+      { "id": 5, "label": "Blue Circle", "color": "blue", "shape": "circle", "font": {"color": "white"}},
+
+      { "id": 6, "label": "Foundation 1 UL", "group": "found", "color": "red", "shape": 
+        "box", "font": {"color": "white"}, "x": -400, "y": -200, "fixed": { "x": true, "y": false }},
+      { "id": 7, "label": "Foundation 2 LL", "group": "found", "color": {"background": "red"}, "shape": 
+        "box",  "font": {"color": "white"}, "x": -400, "y": 200, "fixed": { "x": true, "y": false }},
+
+      { "id": 8, "label": "Goal 1 UR", "group": "goal", "color": {"background": "gold"}, "shape": 
+        "star",  "font": {"color": "black"}, "x": 400, "y": -200, "fixed": { "x": true, "y": false }},
+
+      { "id": 9, "label": "Goal 2 LL", "group": "goal", "color": {"background": "purple"}, "shape": 
+        "star",  "font": {"color": "black"}, "x": 400, "y": 200, "fixed": { "x": true, "y": false }}
+    ],
+    "edges": [
+      { "from": 1, "to": 2},
+      { "from": 2, "to": 3},
+      { "from": 2, "to": 4},
+      { "from": 2, "to": 5},
+      { "from": 2, "to": 6},
+      { "from": 2, "to": 7},
+      { "from": 4, "to": 3},
+      { "from": 5, "to": 3},
+      { "from": 6, "to": 3},
+      { "from": 7, "to": 3},
+      { "from": 8, "to": 3},
+      { "from": 9, "to": 3}
+    ]
+}
+  
