@@ -3,6 +3,8 @@
 
 [Run the Graph Editor v18](./graph-editor-18.html){ .md-button .md-button--primary }
 
+[Integer Node ID](./int-node-id.html)
+
 [Run the Graph Editor v17](./graph-editor-17.html)
 
 [Graph Editor v16](./graph-editor-16.html)
