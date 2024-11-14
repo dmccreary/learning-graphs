@@ -139,7 +139,13 @@ function saveNodeData() {
   // wrong
   // modalData.font.color = fontColor;
   // should be font: {color: "blue"}
-  modalData.fontColor = fontColor;
+  
+  if (fontColor !== '') {
+    modalData.font = { color: fontColor };
+  } else {
+    delete modalData.font; // Remove the font property if no color is provided
+  }
+  
   modalData.shape = nodeShape;
 
   const modal = document.getElementById('node-modal');
