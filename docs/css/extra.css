@@ -13,3 +13,50 @@
     position: relative;
     overflow: hidden;
   }
+
+/* Use superfences and this CSS to change the numbering style
+   of ordered list from numeric (1. 2. 3.) 
+   to upper-case letters A. B. C. D.
+
+```markdown {.upper-alpha}
+1. Response 1
+2. Response 2
+3. Response 3
+4. Response 4
+```
+
+*/
+
+.upper-alpha {
+    counter-reset: list-counter; /* Initialize the counter */
+    font-family: Arial, sans-serif; /* Optional: Set a preferred font */
+    font-size: 16px;               /* Optional: Set font size */
+    color: black;                   /* Optional: Set text color */
+  }
+  
+  .upper-alpha pre {
+    margin: 0; /* Remove default margin */
+  }
+  
+  .upper-alpha code {
+    display: block;               /* Ensure code block occupies full width */
+    white-space: pre-wrap;        /* Allow line wrapping */
+    position: relative;           /* Establish a positioning context for absolute elements */
+  }
+  
+  .upper-alpha .k {
+    display: inline-block;        /* Allow setting width and positioning */
+    width: 15px;                  /* Space for the counter */
+    position: relative;           /* Positioning context for ::before */
+    color: transparent;           /* Hide existing numbers */
+  }
+  
+  .upper-alpha .k::before {
+    counter-increment: list-counter; /* Increment the counter */
+    content: counter(list-counter, upper-alpha) ". "; /* Display A., B., etc. */
+    position: absolute;
+    left: 0; /* Align to the left of the .k span */
+    color: black; /* Color of the new markers */
+    /* Adjust vertical alignment if necessary */
+    top: 0; 
+  }

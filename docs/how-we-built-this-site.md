@@ -176,3 +176,27 @@ instruction set.
 
 * [Cover images for blog post #4364](https://github.com/squidfunk/mkdocs-material/issues/4364)
 * [Discussion on overriding the Social Card Image](https://github.com/squidfunk/mkdocs-material/discussions/5162)
+
+## Upper Alpha Lists
+
+When we design multiple-choice questions we want our possible
+responses to be numbered with uppercase alphas like this:
+
+A. Response 1
+B. Response 2
+C. Response 3
+D. Response 4
+
+However, standard Markdown only supports numeric lists.  So
+to get around this we have to wrap the responses in a "superfence"
+that will turn it into code blocks and then we style it with CSS.
+
+See the css/extras.css for this CSS.  The way
+we store this is in the following format:
+
+```markdown {.upper-alpha}
+1. Response 1
+2. Response 2
+3. Response 3
+4. Response 4
+```

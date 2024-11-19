@@ -94,13 +94,17 @@ plugins:
 markdown_extensions:
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
-  - attr_list
   - md_in_html
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.highlight:
       linenums: true
+  - markdown.extensions.extra
+  - pymdownx.superfences:
+      custom_fences:
+        - name: div
+          class: ''
+          format: pymdownx.superfences.fence_div_format
 extra_css:
   - css/extra.css
 #extra:
