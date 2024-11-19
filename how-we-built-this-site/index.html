@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
     
     
       
@@ -803,6 +803,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#upper-alpha-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upper Alpha Lists
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1057,6 +1066,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#upper-alpha-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upper Alpha Lists
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1217,6 +1235,26 @@ instruction set.</p>
 <li><a href="https://github.com/squidfunk/mkdocs-material/issues/4364">Cover images for blog post #4364</a></li>
 <li><a href="https://github.com/squidfunk/mkdocs-material/discussions/5162">Discussion on overriding the Social Card Image</a></li>
 </ul>
+<h2 id="upper-alpha-lists">Upper Alpha Lists</h2>
+<p>When we design multiple-choice questions we want our possible
+responses to be numbered with uppercase alphas like this:</p>
+<p>A. Response 1
+B. Response 2
+C. Response 3
+D. Response 4</p>
+<p>However, standard Markdown only supports numeric lists.  So
+to get around this we have to wrap the responses in a "superfence"
+that will turn it into code blocks and then we style it with CSS.</p>
+<p>See the css/extras.css for this CSS.  The way
+we store this is in the following format:</p>
+<div class="upper-alpha highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">1.</span> Response 1
+<span class="k">2.</span> Response 2
+<span class="k">3.</span> Response 3
+<span class="k">4.</span> Response 4
+</code></pre></div></td></tr></table></div>
 
 
 
