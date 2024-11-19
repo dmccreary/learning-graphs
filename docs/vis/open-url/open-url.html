@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>vis.js Interactive Network with Links</title>
+    <!-- Include the vis-network library from a CDN -->
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <style type="text/css">
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        #mynetwork {
+            width: 700px;
+            height: 500px;
+            background-color: aliceblue;
+            border: 1px solid silver;
+            cursor: default; /* Default cursor */
+        }
+        #node-details {
+            width: 700px;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            max-height: 200px;
+            overflow-y: auto;
+            font-size: 14px;
+        }
+        #node-details h3 {
+            margin-top: 0;
+        }
+        a {
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table td, table th {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+        }
+        table th {
+            background-color: #f2f2f2;
+            text-align: left;
+            width: 30%;
+        }
+    </style>
+</head>
+<body>
+    <h2>vis.js Hover, Double-Click, and Link Functionality Demo</h2>
+    <div id="mynetwork"></div>
+    <div id="node-details">
+        <h3>Node Details</h3>
+        <p>Double-click on a node to see its properties here.</p>
+    </div>
+    <a href=".">Back to Lesson Plan</a>
+    <script type="text/javascript">
+        // Create an array of nodes with 'title' and 'url' for tooltips and links
+        var nodes = new vis.DataSet([
+            // Goal node on the right, fixed horizontally
+            { 
+                id: 1, 
+                label: "Arithmetic", 
+                color: "gold", 
+                shape: "star", 
+                size: 30, 
+                x: 200, 
+                y: 0, 
+                fixed: { x: true, y: false }, 
+                font: { size: 24 },
+                title: "This is the Arithmetic node representing the main topic.",
+                description: "Arithmetic is the branch of mathematics dealing with numbers and the basic operations on them.",
+                url: "https://en.wikipedia.org/wiki/Arithmetic"
+            },
+            // Operation nodes
+            { 
+                id: 2, 
+                label: "Addition", 
+                color: "tan", 
+                y: -200,
+                title: "Addition is the process of finding the total or sum by combining two or more numbers.",
+                description: "Addition combines two or more numbers into a single sum.",
+                url: "https://en.wikipedia.org/wiki/Addition"
+            },
+            { 
+                id: 3, 
+                label: "Subtraction", 
+                color: "tan", 
+                y: -100,
+                title: "Subtraction is the process of finding the difference between two numbers.",
+                description: "Subtraction calculates the difference by removing one number from another.",
+                url: "https://en.wikipedia.org/wiki/Subtraction"
+            },
+            { 
+                id: 4, 
+                label: "Multiplication", 
+                color: "tan", 
+                y: 100,
+                title: "Multiplication is the process of combining equal groups to find the total.",
+                description: "Multiplication involves adding a number to itself a certain number of times.",
+                url: "https://en.wikipedia.org/wiki/Multiplication"
+            },
+            { 
+                id: 5, 
+                label: "Division", 
+                color: "tan", 
+                y: 200,
+                title: "Division is the process of splitting a number into equal parts.",
+                description: "Division determines how many times one number is contained within another.",
+                url: "https://en.wikipedia.org/wiki/Division"
+            },
+            // Foundation node on the left, fixed horizontally
+            { 
+                id: 6, 
+                label: "Numbers", 
+                color: "coral", 
+                shape: "box", 
+                x: -200, 
+                y: 0, 
+                fixed: { x: true, y: false },
+                title: "Numbers are the basic elements used in arithmetic operations.",
+                description: "Numbers are symbols used to represent quantities and perform calculations.",
+                url: "https://en.wikipedia.org/wiki/Number"
+            }
+        ]);
+
+        // Create an array of edges with 'title' for tooltips
+        var edges = new vis.DataSet([
+            { 
+                from: 1, 
+                to: 2,
+                title: "Connects Arithmetic to Addition"
+            },
+            { 
+                from: 1, 
+                to: 3,
+                title: "Connects Arithmetic to Subtraction"
+            },
+            { 
+                from: 1, 
+                to: 4,
+                title: "Connects Arithmetic to Multiplication"
+            },
+            { 
+                from: 1, 
+                to: 5,
+                title: "Connects Arithmetic to Division"
+            },
+            { 
+                from: 2, 
+                to: 6,
+                title: "Addition relies on Numbers"
+            },
+            { 
+                from: 3, 
+                to: 6,
+                title: "Subtraction relies on Numbers"
+            },
+            { 
+                from: 4, 
+                to: 6,
+                title: "Multiplication relies on Numbers"
+            },
+            { 
+                from: 5, 
+                to: 6,
+                title: "Division relies on Numbers"
+            }
+        ]);
+
+        // Create a network
+        var container = document.getElementById('mynetwork');
+
+        // Provide the data in the vis format
+        var data = {
+            nodes: nodes,
+            edges: edges
+        };
+
+        var options = {
+            edges: {
+                arrows: {
+                    to: { enabled: true }
+                },
+                color: {
+                    color: 'black',
+                    inherit: false
+                },
+                width: 2,
+                smooth: {
+                    type: 'cubicBezier',
+                    roundness: 0.4
+                }
+            },
+            nodes: {
+                font: {
+                    size: 14,
+                    color: '#343434'
+                },
+                borderWidth: 2,
+                shadow: true
+            },
+            physics: {
+                solver: 'forceAtlas2Based',
+                forceAtlas2Based: {
+                    springLength: 100
+                },
+                stabilization: {
+                    iterations: 1000
+                }
+            },
+            interaction: {
+                hover: true, // Enable hover interactions
+                tooltipDelay: 200 // Delay before showing tooltip
+            },
+            layout: {
+                improvedLayout: true
+            }
+        };
+
+        // Initialize your network!
+        var network = new vis.Network(container, data, options);
+
+        // Function to display node properties
+        function displayNodeProperties(nodeId) {
+            var node = nodes.get(nodeId);
+            if (!node) return;
+
+            var detailsDiv = document.getElementById('node-details');
+            var html = '<h3>Node Details</h3>';
+            html += '<table>';
+            for (var prop in node) {
+                if (node.hasOwnProperty(prop)) {
+                    html += '<tr><th>' + prop + '</th><td>' + formatProperty(node[prop]) + '</td></tr>';
+                }
+            }
+            html += '</table>';
+            detailsDiv.innerHTML = html;
+        }
+
+        // Helper function to format property values
+        function formatProperty(value) {
+            if (typeof value === 'object' && value !== null) {
+                return JSON.stringify(value, null, 2)
+                    .replace(/\\n/g, '<br>')
+                    .replace(/ /g, '&nbsp;');
+            }
+            return value;
+        }
+
+        // Add event listener for double-click
+        network.on("doubleClick", function (params) {
+            if (params.nodes.length > 0) {
+                var nodeId = params.nodes[0];
+                displayNodeProperties(nodeId);
+            } else {
+                // If double-clicked on empty space, clear the details
+                var detailsDiv = document.getElementById('node-details');
+                detailsDiv.innerHTML = '<h3>Node Details</h3><p>Double-click on a node to see its properties here.</p>';
+            }
+        });
+
+        // Change cursor to pointer when hovering over a node with a URL
+        network.on("hoverNode", function (params) {
+            var nodeId = params.node;
+            var node = nodes.get(nodeId);
+            if (node.url) {
+                container.style.cursor = 'pointer';
+            } else {
+                container.style.cursor = 'default';
+            }
+        });
+
+        network.on("blurNode", function (params) {
+            container.style.cursor = 'default';
+        });
+
+        // Handle click events with modifier keys to open links
+        network.on("click", function (params) {
+            if (params.nodes.length === 1) {
+                var nodeId = params.nodes[0];
+                var node = nodes.get(nodeId);
+                if (node.url) {
+                    // Check for modifier keys
+                    var url = node.url;
+                    var openInNewTab = params.event.originalEvent.ctrlKey || params.event.originalEvent.metaKey || params.event.originalEvent.shiftKey || params.event.originalEvent.button === 1;
+
+                    if (openInNewTab) {
+                        // Open in a new tab
+                        window.open(url, '_blank');
+                    } else {
+                        // Optionally, you can handle regular clicks here if desired
+                        // For example, display a message or navigate in the same tab
+                        // window.location.href = url; // Uncomment to navigate in the same tab
+                    }
+                }
+            }
+        });
+
+        // Optional: Handle middle-click (mouse wheel click) to open in new tab
+        // This is generally handled by the browser, but ensuring support
+        network.on("oncontext", function (params) {
+            // Prevent the context menu from appearing on right-click
+            params.event.preventDefault();
+        });
+
+    </script>
+</body>
+</html>

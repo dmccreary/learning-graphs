@@ -56,6 +56,7 @@ nav:
     - Legend Checkboxes: vis/legend-checkboxes/index.md
     - Hover Text: vis/hover-text/index.md
     - Double Click: vis/double-click/index.md
+    - Open URL: vis/open-url/index.md
     - Groups: vis/groups/index.md
     - Clusters: vis/clusters/index.md
     - Templates: vis/templates/index.md
