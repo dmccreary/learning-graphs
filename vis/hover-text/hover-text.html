@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>vis.js Hover Demo</title>
+    <!-- Include the vis-network library from a CDN -->
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <style type="text/css">
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+        #mynetwork {
+            width: 600px;
+            height: 400px;
+            background-color: aliceblue;
+            border: 1px solid silver;
+        }
+        a {
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div id="mynetwork"></div>
+    <h4>vis.js Hover Function Demo</h4>
+
+    <a href=".">Back to Lesson Plan</a>
+    <p>Things to try:
+        <ol>
+            <li>Hover over a node - note the text describes the node</li>
+            <li>Hover over an edge - note the text describes the edge</li>
+        </ol>
+    </p>
+    <script type="text/javascript">
+        // Create an array of nodes with 'title' for tooltips
+        var nodes = new vis.DataSet([
+            // Goal node on the right, fixed horizontally
+            { 
+                id: 1, 
+                label: "Arithmetic", 
+                color: "gold", 
+                shape: "star", 
+                size: 30, 
+                x: 200, 
+                y: 0, 
+                fixed: { x: true, y: false }, 
+                font: { size: 24 },
+                title: "This is the Arithmetic node representing the main topic."
+            },
+            // Operation nodes
+            { 
+                id: 2, 
+                label: "Addition", 
+                color: "tan", 
+                y: -200,
+                title: "Addition is the process of finding the total or sum by combining two or more numbers."
+            },
+            { 
+                id: 3, 
+                label: "Subtraction", 
+                color: "tan", 
+                y: -100,
+                title: "Subtraction is the process of finding the difference between two numbers."
+            },
+            { 
+                id: 4, 
+                label: "Multiplication", 
+                color: "tan", 
+                y: 100,
+                title: "Multiplication is the process of combining equal groups to find the total."
+            },
+            { 
+                id: 5, 
+                label: "Division", 
+                color: "tan", 
+                y: 200,
+                title: "Division is the process of splitting a number into equal parts."
+            },
+            // Foundation node on the left, fixed horizontally
+            { 
+                id: 6, 
+                label: "Numbers", 
+                color: "coral", 
+                shape: "box", 
+                x: -200, 
+                y: 0, 
+                fixed: { x: true, y: false },
+                title: "Numbers are the basic elements used in arithmetic operations."
+            }
+        ]);
+
+        // Create an array of edges with 'title' for tooltips
+        var edges = new vis.DataSet([
+            { 
+                from: 1, 
+                to: 2,
+                title: "Connects Arithmetic to Addition"
+            },
+            { 
+                from: 1, 
+                to: 3,
+                title: "Connects Arithmetic to Subtraction"
+            },
+            { 
+                from: 1, 
+                to: 4,
+                title: "Connects Arithmetic to Multiplication"
+            },
+            { 
+                from: 1, 
+                to: 5,
+                title: "Connects Arithmetic to Division"
+            },
+            { 
+                from: 2, 
+                to: 6,
+                title: "Addition relies on Numbers"
+            },
+            { 
+                from: 3, 
+                to: 6,
+                title: "Subtraction relies on Numbers"
+            },
+            { 
+                from: 4, 
+                to: 6,
+                title: "Multiplication relies on Numbers"
+            },
+            { 
+                from: 5, 
+                to: 6,
+                title: "Division relies on Numbers"
+            }
+        ]);
+
+        // Create a network
+        var container = document.getElementById('mynetwork');
+
+        // Provide the data in the vis format
+        var data = {
+            nodes: nodes,
+            edges: edges
+        };
+
+        var options = {
+            edges: {
+                arrows: {
+                    to: { enabled: true }
+                },
+                color: {
+                    color: 'black',
+                    inherit: false
+                },
+                width: 2,
+                smooth: {
+                    type: 'cubicBezier',
+                    roundness: 0.4
+                }
+            },
+            nodes: {
+                font: {
+                    size: 14,
+                    color: '#343434'
+                },
+                borderWidth: 2,
+                shadow: true
+            },
+            physics: {
+                solver: 'forceAtlas2Based',
+                forceAtlas2Based: {
+                    springLength: 100
+                },
+                stabilization: {
+                    iterations: 1000
+                }
+            },
+            interaction: {
+                hover: true, // Enable hover interactions
+                tooltipDelay: 200 // Delay before showing tooltip
+            },
+            layout: {
+                improvedLayout: true
+            }
+        };
+
+        // Initialize your network!
+        var network = new vis.Network(container, data, options);
+
+        // Optional: Customize the tooltip style (CSS)
+        // You can add CSS rules to style the tooltips if desired
+    </script>
+</body>
+</html>
