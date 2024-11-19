@@ -4,7 +4,7 @@
 
 ## Sample Prompt
 
-```linenums="0""Le
+```linenums="0""
 I am creating a course on [SUBJECT] in the [DEPARTMENT] at a [COLLAGE].
 I have a list of the 150 concepts taught in this course.
 
@@ -32,3 +32,4 @@ Here is a numbered list of 150 core concepts for my course, presented in the ord
 
 1,Concept Name 1
 2,Concept Name 2
+```

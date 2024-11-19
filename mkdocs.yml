@@ -106,6 +106,7 @@ plugins:
 #  - social
 markdown_extensions:
   - admonition
+  - attr_list
   - pymdownx.details
   - md_in_html
   - pymdownx.tabbed:

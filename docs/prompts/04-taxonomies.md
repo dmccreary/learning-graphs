@@ -10,7 +10,7 @@ To generate a taxonomy using an LLM, you can craft a prompt that provides clear 
 
 ### Sample Taxonomy Prompt
 
-```linenumbs="0"
+```linenums="0"
 You are given the following list of concepts. Your task is to
 organize these concepts into a taxonomy by grouping them into
 appropriate categories. Each category should include concepts
@@ -22,6 +22,7 @@ applications, common misunderstandings, and real-world examples.
 Avoid redundancy and ensure that each category is distinct.
 ```
 
+### Sample Response 
 **List of Concepts:**
 
 1.  Basic Algebra

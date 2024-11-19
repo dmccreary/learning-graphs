@@ -17,5 +17,6 @@ Make sure that the concepts are distinct not duplicated in the list.
 
 Start with the most basic foundational concepts and then
 proceed to the most complex concepts.
+```
 
 ## ChatGPT Response

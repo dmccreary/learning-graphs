@@ -6,7 +6,7 @@
 Design a detailed and engaging course description for a
 college-level course titled [SUBJECT]
 that is suitable for undergraduate students in
-[DEPARTMENT1] or {DEPARTMENT2}.
+[DEPARTMENT1] or [DEPARTMENT2].
 
 Leverage Bloom’s Taxonomy to structure the course, detailing
 the knowledge, skills, and applications students will
@@ -32,5 +32,10 @@ Learning Activities and Projects: Explain how generative AI will generate scaffo
 Assessment and Feedback: Describe how AI-driven assessments will go beyond traditional grading, providing personalized feedback loops that prompt self-reflection, track learning progress, and guide students through iterative problem-solving exercises.
 
 The course description should aim to inspire curiosity and convey how AI enhances interactivity and personalizes the learning journey, supporting students in achieving a deep and practical understanding of circuits and systems.
-'''
+```
+
+## ChatGPT Response
+
+Here is a sample response for the course "Graph Data Modeling" within the department "Computer Science"
+
 
