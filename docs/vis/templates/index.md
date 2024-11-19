@@ -10,6 +10,21 @@ are using generative AI tools, providing them
 with the simplest template for a working
 learning graph is a good first step.
 
+## Index.md file
+
+```markdown
+![Image Name](./image.png){ width="400" }
+```
+
+```html
+<iframe src="../lab-01.html" height="320px" width="600px"></iframe>
+```
+
+```markdown
+[Run the MicroSim Template](./template.html){ .md-button .md-button--primary }
+[Edit this MicroSim](https://editor.p5js.org/dmccreary/sketches/dJq4nTXE4)
+```
+
 ## Single Template HTML File
 
 This is a very simple of a learning graph example

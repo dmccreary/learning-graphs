@@ -2,7 +2,7 @@
 
 ## Sample Prompt for Multiple-choice Qustions
 
-```linenums="0"
+~~~linenums="0"
 I am preparing a review quiz for a course called "Learning Graphs."
 For the network graph concept of the term "degree," create a four-answer
 multiple-choice questions, the definition of the term "degree."  Create three
@@ -22,7 +22,7 @@ What is the "degree" of a node in a graph?
 
 ??? note "Show Answer"
     The correct answer is **LETTER**.  Explanation of answer text.
-```
+~~~
 
 ## Sample Responses
 

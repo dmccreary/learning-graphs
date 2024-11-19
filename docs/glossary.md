@@ -209,3 +209,11 @@ See: [https://visjs.github.io/vis-network/docs/network/](https://visjs.github.io
 A human-readable data serialization format often used for configuration files and data exchange. YML (YAML Ain't Markup Language) structures data hierarchically using indentation, making it suitable for describing learning graph configurations and settings in a clear, concise way.
 
 **Example:** The [mkdocs](https://www.mkdocs.org/) system uses a configuration file called mkdocs.yml to generate the content of a microsite.  See the mkdocs for this site as an example: [https://github.com/dmccreary/learning-graphs/blob/main/mkdocs.yml](https://github.com/dmccreary/learning-graphs/blob/main/mkdocs.yml)
+
+#### Zone of Proximal Development (ZPD)
+
+The range of tasks or concepts that a learner can accomplish with guidance but not yet independently. This concept, introduced by Lev Vygotsky, highlights the importance of targeted assistance in learning.
+
+In a learning graph, the ZPD is used to guide real-time personalization by identifying concepts that a student is ready to learn with support. A LMS leverages data analytics and AI to dynamically adjust content, ensuring it remains within the student's ZPD.
+
+**Example:** The LMS identifies that a student struggling with graph traversal is within their ZPD for mastering depth-first search and provides an interactive simulation to bridge the gap.
