@@ -59,7 +59,7 @@
     </style>
 </head>
 <body>
-    <h2>vis.js Hover, Double-Click, and Link Functionality with Modifier Keys Debugging</h2>
+    <h2>vis.js Hover, Shift-Click, Control-Click and Command-Click to open a node URL</h2>
     <div id="mynetwork"></div>
     <div id="modifier-keys">
         <h3>Modifier Keys Status</h3>
@@ -72,7 +72,13 @@
     </div>
     <div id="node-details">
         <h3>Node Details</h3>
-        <p>Double-click on a node to see its properties here.</p>
+        <ol>
+            <li>Hover to see the title text.</li>
+            <li>Shift click to display the concept URL in a new window and move to that new window.</li>
+            <li>Ctrl click to open the concept URL in a new tab and navigate to that new tab.</li>
+            <li>Command click to open the concept URL in a new tab in the background without changing focus.</li>
+
+        </ol>
     </div>
     <a href=".">Back to Lesson Plan</a>
     <script type="text/javascript">
