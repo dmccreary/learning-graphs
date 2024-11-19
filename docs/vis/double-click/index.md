@@ -2,7 +2,11 @@
 
 [Run Double Click MicroSim](double-click.html){ .md-button .md-button--primary }
 
-Certainly! Let's enhance the existing `vis.js` demo to include functionality that lists all properties of a node when it's double-clicked. This addition will provide a more interactive experience, allowing users to inspect node details easily.
+We can enhance the hover `vis.js` demo to include functionality that lists all properties of a node when it's double-clicked. This addition will provide a more interactive experience, allowing users to inspect node details easily.
+
+Here is how the node insector will look after you double-click on a node:
+
+![](./node-inspector.png)
 
 ### Features Added:
 - **Double-Click Event on Nodes**: When a user double-clicks on a node, a detailed list of all its properties will be displayed.
