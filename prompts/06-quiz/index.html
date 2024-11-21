@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
     
     
       
@@ -437,6 +437,10 @@
       
         
       
+        
+          
+        
+      
     
     
     
@@ -500,6 +504,10 @@
           
         
       
+        
+      
+        
+          
         
       
         
@@ -838,9 +846,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sample-prompt-for-multiple-choice-qustions" class="md-nav__link">
+  <a href="#sample-prompt-for-multiple-choice-questions" class="md-nav__link">
     <span class="md-ellipsis">
-      Sample Prompt for Multiple-choice Qustions
+      Sample Prompt for Multiple-choice Questions
     </span>
   </a>
   
@@ -910,6 +918,15 @@
   <a href="#render-test-3-superfences" class="md-nav__link">
     <span class="md-ellipsis">
       Render Test 3 Superfences
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
     </span>
   </a>
   
@@ -1098,9 +1115,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sample-prompt-for-multiple-choice-qustions" class="md-nav__link">
+  <a href="#sample-prompt-for-multiple-choice-questions" class="md-nav__link">
     <span class="md-ellipsis">
-      Sample Prompt for Multiple-choice Qustions
+      Sample Prompt for Multiple-choice Questions
     </span>
   </a>
   
@@ -1175,6 +1192,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1199,38 +1225,118 @@
 
 
 <h1 id="learning-graph-quiz">Learning Graph Quiz</h1>
-<h2 id="sample-prompt-for-multiple-choice-qustions">Sample Prompt for Multiple-choice Qustions</h2>
-<div class="highlight"><pre><span></span><code>I am preparing a review quiz for a course called &quot;Learning Graphs.&quot;
-For the network graph concept of the term &quot;degree,&quot; create a four-answer
-multiple-choice questions, the definition of the term &quot;degree.&quot;  Create three
-plausible destructor answers that are incorrect but have a
-similar form to the correct answer.  Use the following format:
+<h2 id="sample-prompt-for-multiple-choice-questions">Sample Prompt for Multiple-choice Questions</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span></pre></div></td><td class="code"><div><pre><span></span><code>You are an expert in creating high-quality multiple-choice
+questions for knowledge assessments. Your goal is to create
+a single multiple-choice question that evaluates understanding
+of a specific concept. The question must meet the following
+requirements:
 
-#### Question 1
+1. The question should assess a clearly defined and specific concept or skill. 
+2. Provide four possible responses labeled **A.**, **B.**, **C.**, and **D.**.
+3. **One response** should be **correct**, clearly aligned with the concept being assessed.
+4. The other **three responses** should be plausible distractors, designed to be reasonable but incorrect. They should reflect common misconceptions or errors that someone learning the material might make.
+
+Here is the structure for your response:
+
+#### Concept being assessed
+
+Question text
+
+&lt;div class=&quot;upper-alpha&quot; markdown&gt;
+1. First item (A)
+2. Second item (B)
+3. Third item (C)
+4. Fourth item (D)
+&lt;/div&gt;
+
+??? question &quot;Show Answer&quot;
+    The correct answer is **LETTER**.
+    Explanation - Provide a brief explanation for why the correct
+    answer is right and why the distractors are incorrect.
+
+Make sure the language used is clear, concise, and appropriate for
+the target audience. Here’s an example of how you should respond:
+
+#### Definition of Degree of a Node
 
 What is the &quot;degree&quot; of a node in a graph?
 
-```markdown {.upper-alpha}
-1. Response 1
-2. Response 2
-3. Response 3
-4. Response 4
-```
+&lt;div class=&quot;upper-alpha&quot; markdown&gt;
+1. The shortest path between two nodes in the graph
+2. The total number of edges connected to the node
+3. The number of nodes directly reachable from the node
+4. The maximum number of edges any node in the graph has
+&lt;/div&gt;
 
-??? note &quot;Show Answer&quot;
-    The correct answer is **LETTER**.  Explanation of answer text.
-</code></pre></div>
+??? Question &quot;Show Answer&quot;
+    The correct answer is **B**. The degree of a node in a 
+    graph is the total number of edges connected to that node. 
+    For undirected graphs, this includes all edges, while for 
+    directed graphs, it can be further classified into in-degree 
+    (edges coming into the node) and out-degree (edges going
+    out of the node).
+</code></pre></div></td></tr></table></div>
 <h2 id="sample-responses">Sample Responses</h2>
 <h4 id="self-assessment-question-47">Self Assessment Question 47</h4>
 <p>What is the "degree" of a node in a graph?</p>
-<div class="upper-alpha highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">1.</span> The shortest path between two nodes in the graph
-<span class="k">2.</span> The total number of edges connected to the node
-<span class="k">3.</span> The number of nodes directly reachable from the node
-<span class="k">4.</span> The maximum number of edges any node in the graph has
-</code></pre></div></td></tr></table></div>
+<div class="upper-alpha">
+<ol>
+<li>The shortest path between two nodes in the graph</li>
+<li>The total number of edges connected to the node</li>
+<li>The number of nodes directly reachable from the node</li>
+<li>The maximum number of edges any node in the graph has</li>
+</ol>
+</div>
 <details class="question">
 <summary>Show Answer</summary>
 <p>The correct answer is <strong>B</strong>. The degree of a node in a 
@@ -1279,6 +1385,8 @@ concepts, do not have dependencies listed for a given course.</p>
 3. Bla Bla Bla
 4. Bla Bla Bla
 :::</p>
+<h2 id="references">References</h2>
+<p><a href="https://workera.ai/blog/chatgpt-learning-assessments">Workera Blog Post on Learning Assessments</a></p>
 
 
 
