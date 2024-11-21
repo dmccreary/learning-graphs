@@ -2,7 +2,7 @@
 
 <iframe src="../lab-02.html" height="320px" width="320px"></iframe>
 
-[Run Lab 2](./lab-02.html)
+[Run Lab 2 Microsim](./lab-02.html){ .md-button .md-button--primary }
 
 ## Prompt
 

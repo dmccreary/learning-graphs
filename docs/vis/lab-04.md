@@ -1,8 +1,8 @@
 # Lab 4: Edge Properties
 
-<iframe src="./lab-04.html" height="320px" width="620px"></iframe>
+<iframe src="lab-04.html" height="320px" width="620px"></iframe>
 
-[Lab 4 Edge HTML](./lab-04.html)
+[Run Lab 4 Edge MicroSim](lab-04.html){ .md-button .md-button--primary }
 
 Here's a small example of a `vis.js` program that shows edge properties:
 

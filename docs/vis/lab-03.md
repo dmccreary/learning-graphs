@@ -2,7 +2,7 @@
 
 <iframe src="../lab-03.html" height="320px" width="620px"></iframe>
 
-[Run Lab 3 HTML](lab-03.html)
+[Run Lab 3 MicroSim](lab-03.html){ .md-button .md-button--primary }
 
 In this lab we learn how to change the properties of each node including:
 
