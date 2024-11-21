@@ -1,57 +1,72 @@
 # Search
 
-[Search Nodes in Graph](search.html)
+[Search Nodes in Graph](search.html){ .md-button .md-button--primary }
 
 ## Prompt
 
 ```text
 I am building a web application using the vis.js network
 graph Javascript library.  I would like to add a search
-feature so a user can search for a specific label or title in the graph network.  Given the following template, can you please add a search function to the HTML file?
+feature so a user can search for a specific label or title
+in the graph network.  Given the following template, can
+you please add a search function to the HTML file?
 
 The search should have an input field in the upper right corner.
-When the user types a string, the list of nodes that the string matches should be listed as a dropdown.  Each character should narrow the list.
-When the user selects an item from the list, the graph should center on the node and select that node.
+When the user types a string, the list of nodes that the string
+matches should be listed as a dropdown.  Each character should
+narrow the list.
+
+When the user selects an item from the list, the graph should
+center on the node and select that node.
 
 Here is the template to get you started:
 ```
+[Sample vis.js Template](../templates/single-html-file.html)
 
 ## Response
 
 Sure! Below is the modified HTML code with the search feature added. The search input field is placed in the upper right corner, and as the user types, a dropdown list of matching node labels appears, narrowing down with each character. When a user selects an item from the list, the graph centers on the node and selects it.
 
+!!! note
+    I changed the layout so that the search is on the top, not on the right.
+    I also modified the layering so that the search dropdown list appears
+    over the graph network so the network is not pushed down the screen.
+
 ```html
 <html>
 <head>
     <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
-    <style type="text/css">
+       <style type="text/css">
         body {
             font-family: Arial, Helvetica, sans-serif;
         }
         #mynetwork {
-            width: 350px;
-            height: 200px;
+            width: 80%;
+            height: 600px;
             background-color: aliceblue;
             border: 1px solid silver;
+            margin: 0 auto; /* Center the network */
         }
         #search-container {
-            position: absolute;
-            top: 10px;
-            right: 10px;
+            width: 80%; /* Same width as #mynetwork */
+            margin: 10px auto; /* Center align and add margin for spacing */
+            position: relative; /* To position #search-results relative to this container */
         }
         #search-input {
-            width: 200px;
+            width: 100%;
+            padding: 5px;
         }
         #search-results {
-            position: absolute;
-            top: 40px;
-            right: 10px;
+            position: absolute; /* Float above the content */
+            top: 100%; /* Align right below the input field */
+            left: 0;
+            width: 100%;
             background-color: white;
             border: 1px solid silver;
             max-height: 150px;
             overflow-y: auto;
+            z-index: 1000; /* Ensure it appears above other elements */
             display: none; /* Initially hidden */
-            z-index: 1000; /* To appear above other elements */
         }
         #search-results div {
             padding: 5px;
@@ -63,11 +78,12 @@ Sure! Below is the modified HTML code with the search feature added. The search 
     </style>
 </head>
 <body>
-  <div id="mynetwork"></div>
+  
   <div id="search-container">
     <input type="text" id="search-input" placeholder="Search nodes...">
     <div id="search-results"></div>
   </div>
+  <div id="mynetwork"></div>
   <br/>
 <a href=".">Back to Lesson Plan</a>
 <script type="text/javascript">
