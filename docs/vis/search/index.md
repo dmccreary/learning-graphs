@@ -1,6 +1,15 @@
 # Search
 
-[Search Nodes in Graph](search.html){ .md-button .md-button--primary }
+![](./search.png)
+
+[Run the Search Nodes in Graph MicroSim](search.html){ .md-button .md-button--primary }
+
+In this lesson we will show how you can add a search function to a graph viewer or graph editor.
+Finding a given node is not a problem when your concept graph is small.  But as
+your graph gets over a few hundred nodes you need a tool to quickly get to a
+specific concept.  By putting a few characters into a search input field you
+can generate a list of matching node labels and a click on an item in
+this list will re-center the graph on that item.
 
 ## Prompt
 
