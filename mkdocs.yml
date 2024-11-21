@@ -71,6 +71,7 @@ nav:
     - Concept Taxonomies: prompts/04-taxonomies.md
     - Concept Viewer: prompts/05-concept-viewer.md
     - Concept Editor: prompts/10-vis-editor.md
+    - Word Cloud: prompts/11-word-cloud.md
     - Quiz: prompts/06-quiz.md
   - Glossary: glossary.md
   - How We Built This Site: how-we-built-this-site.md
