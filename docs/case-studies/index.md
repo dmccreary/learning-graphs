@@ -28,3 +28,7 @@ Teaching Computational Thinking with MicroPython
 [Systems THinking Course Website](https://dmccreary.github.io/graph-systems-thinking)
 
 [Learning Graph for Systems Thinking](https://dmccreary.github.io/graph-systems-thinking/prompts/knowledge-graphs/graph/category-colors.html)
+
+## Learning Graph
+
+[View Learning Graph Concepts](../concepts/view-concept-graph.html)

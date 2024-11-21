@@ -1,0 +1,36 @@
+{
+    "nodes": [
+        {"id": 1, "label": "Python", "group": 1, "title": "Basic Python Programming"},
+        {"id": 2, "label": "NumPy",  "group": 2, "title": "Numerical computing with Python"},
+        {"id": 3, "label": "Pandas", "group": 2, "title": "Data manipulation and analysis"},
+        {"id": 4, "label": "Matplotlib", "group": 3, "title": "Data visualization with Python"},
+        {"id": 5, "label": "SciKitLearn", "group": 4, "title": "Machine learning with Python"},
+        {"id": 6, "label": "TensorFlow", "group": 5, "title": "Deep learning with Python"},
+        {"id": 7, "label": "PyTorch", "group": 5, "title": "Deep learning with Python"},
+        {"id": 8, "label": "Seaborn", "group": 3, "title": "Statistical data visualization"},
+        {"id": 9, "label": "Statsmodels", "group": 2, "title": "Statistical models in Python"},
+        {"id": 1000, "label": "Foundational Concept", "group": 0},
+        {"id": 1001, "label": "Python", "group": 1, "shape": "box", "x": -150, "y": -150, "fixed": true},
+        {"id": 1002, "label": "Data Science", "group": 2, "shape": "box", "x": -150, "y": -130, "fixed": true},
+        {"id": 1003, "label": "Visualization", "group": 3, "shape": "box", "x": -150, "y": -110, "fixed": true},
+        {"id": 1004, "label": "Machine Learning", "group": 4, "shape": "box", "x": -150, "y": -90, "fixed": true},
+        {"id": 1005, "label": "Deep Learning", "group": 5, "shape": "box", "x": -150, "y": -70, "fixed": true},
+        {"id": 1006, "label": "Level 6 Concept", "group": 6, "shape": "box", "x": -150, "y": -50, "fixed": true},
+        {"id": 1007, "label": "Level 7 Concept", "group": 7, "shape": "box", "x": -150, "y": -30, "fixed": true},
+        {"id": 1008, "label": "Level 8 Concept", "group": 8, "shape": "box", "x": -150, "y": -10, "fixed": true},
+        {"id": 1009, "label": "Level 9 Concept", "group": 9, "shape": "box", "x": -150, "y": 10, "fixed": true},
+        {"id": 1010, "label": "Level 10 Concept", "group": 10, "shape": "box", "x": -150, "y": 30, "fixed": true},
+        {"id": 1011, "label": "Level 11 Concept", "group": 11, "shape": "box", "x": -150, "y": 40, "fixed": true},
+        {"id": 1012, "label": "Level 12 Concept", "group": 12, "shape": "box", "x": -150, "y": 70, "fixed": true}
+    ],
+    "edges": [
+        {"from": 1, "to": 2, "arrows": "to", "label": "prerequisite"},
+        {"from": 1, "to": 3, "arrows": "to", "label": "prerequisite"},
+        {"from": 1, "to": 4, "arrows": "to", "label": "prerequisite"},
+        {"from": 1, "to": 5, "arrows": "to", "label": "prerequisite"},
+        {"from": 1, "to": 6, "arrows": "to", "label": "prerequisite"},
+        {"from": 1, "to": 7, "arrows": "to", "label": "prerequisite"},
+        {"from": 1, "to": 8, "arrows": "to", "label": "prerequisite"},
+        {"from": 1, "to": 9, "arrows": "to", "label": "prerequisite"}
+    ]
+}

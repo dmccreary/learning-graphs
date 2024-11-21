@@ -32,14 +32,12 @@ nav:
   - Case Studies:
     - Introduction: case-studies/index.md
     - Low-Latency: case-studies/low-latency.md
-    - case-studies/circuits.md
-    - case-studies/graph-algorithms.md
-    - case-studies/micropython.md
-    - case-studies/signal-processing.md
-    - case-studies/systems-thinking.md
-
-
-      - sims/graph-viewer/index.md
+    - Circuits: case-studies/circuits.md
+    - Graph Algorithms: case-studies/graph-algorithms.md
+    - MicroPython: case-studies/micropython.md
+    - Signal Processing: case-studies/signal-processing.md
+    - Systems Thinking: case-studies/systems-thinking.md
+    - Learning Graph: sims/graph-viewer/index.md
   - Vis.js Tutorial:
     - Intro: vis/index.md
     - Lab 1 - Default Behavior: vis/lab-01.md
@@ -62,6 +60,7 @@ nav:
     - Templates: vis/templates/index.md
     - Node Enricher: vis/node-enricher/index.md
     - Network Properties: vis/network-properties/index.md
+    - Search: vis/search/index.md
     - Graph Viewer: vis/graph-viewer/index.md
     - Graph Editor: vis/graph-editor/index.md
   - Sample Prompts:

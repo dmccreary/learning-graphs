@@ -181,6 +181,14 @@ An educational model inspired by the way rhizomes grow and spread, allowing for 
 The Rhizombic Learning approach contrasts with traditional hierarchical or linear models, focusing instead on exploration, connection, and adaptability.  Learning graphs are ideal
 tools to encourage the curious leaner.
 
+#### Scale-Free Network
+
+A type of network characterized by a power-law degree distribution, where a few nodes (hubs) have a significantly higher number of connections compared to most other nodes.
+
+In the graph LMS, the concept of a scale-free network can describe how certain key concepts or resources (hubs) are highly connected to other learning elements. This insight is useful for optimizing learning paths and prioritizing the development of foundational or widely-used resources.
+
+**Example:** The LMS identifies "Basic Algebra" as a hub in the learning graph because it is a prerequisite for multiple advanced concepts, demonstrating the scale-free nature of the learning graph.
+
 #### SKOS
 
 A W3C standard for representing structured knowledge in a simple, machine-readable format, allowing for the sharing and linking of controlled vocabularies, taxonomies, thesauri, and other knowledge organization systems across different systems and applications.
