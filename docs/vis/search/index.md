@@ -11,7 +11,7 @@ specific concept.  By putting a few characters into a search input field you
 can generate a list of matching node labels and a click on an item in
 this list will re-center the graph on that item.
 
-## Prompt
+## Sample GenAI Prompt
 
 ```text
 I am building a web application using the vis.js network
@@ -32,14 +32,14 @@ Here is the template to get you started:
 ```
 [Sample vis.js Template](../templates/single-html-file.html)
 
-## Response
+## Sample Response from ChatGPT
 
 Sure! Below is the modified HTML code with the search feature added. The search input field is placed in the upper right corner, and as the user types, a dropdown list of matching node labels appears, narrowing down with each character. When a user selects an item from the list, the graph centers on the node and selects it.
 
 !!! note
     I changed the layout so that the search is on the top, not on the right.
     I also modified the layering so that the search dropdown list appears
-    over the graph network so the network is not pushed down the screen.
+    **over** the graph network so the network is not pushed down the screen.
 
 ```html
 <html>
