@@ -48,6 +48,7 @@ nav:
     - Physics Parameters: vis/physics-params/index.md
     - Fix X Positions: vis/fix-x-positions/index.md            
     - Dependency Graph: vis/concept-dependency-graph.md
+    - Trace: vis/trace/index.md
     - CSV Reader: vis/csv-reader/index.md
     - Learn Python Example: vis/learn-python/index.md
     - Legends: vis/legends/index.md
