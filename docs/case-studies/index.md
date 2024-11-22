@@ -18,6 +18,24 @@ learning to write GenAI prompts to generate the first draft of
 a learning graph.  If that is the case, the output of these
 prompts is located in the ```docs/prompts/learning-graph`` area.
 
+## Stages of Learning Graph
+
+There are two paths we have seen.  Start with an existing textbook. Textbooks are usually oopyrighted by an
+author and publisher.  So to keep out of legal issues, we don't have any examples of these.  But we know these exist.
+If you do have an existing textbook or group of papers you can run them through an natural-language processing (NLP) tool to extract the entities, concepts and taxonomies.  These process are
+well documented using the GraphRAG architectures.
+
+These cases studies focus on pure knowledge extraction from large-language models.
+
+## Steps Generative AI Driven
+
+- **Course Description** - we usually start with a generic course description as it would appear in a course catalog
+- **Bloom Taxonomy Refinements** - we refine the course description to fit Blooms't taxonomy which starts out with concept definitions and proceeds to creating hands-on skills for creating new content
+- **Concept Enumeration** - create a flat list of about 150 concepts ideally sorted from simple to complex
+- **Concept Dependencies** - for each concept, create a list of what other concepts it depends on
+- **Concept Taxonomy** - for all the concepts, create about ten classifications for all the concepts
+- **Content Generation** - once you have your concepts organized, you can then use this knowledge to create various content
+
 ## Circuits
 
 This was the course that I worked on with [Sharat Batra](https://www.linkedin.com/in/sharatbatra/)
@@ -63,27 +81,28 @@ One note about this course, the goal of the course are to teach computational th
 where students create what they are most curious about.  So having a rich curriculum full of projects
 that drive colorful moving lights and drive robots is our best way to get these concepts into the classroom.
 
-[MicroPython](./micropython.md)
+- [MicroPython Website](./micropython.md)
 
 Teaching Computational Thinking with MicroPython
 [MicroPython Learning Graph](https://www.coderdojotc.org/micropython/sims/knowledge-graphs/graph/category-colors.html)
 
 ## MicroSims
 
-This course was inspired by the wonderful [Val Lockhart](https://www.linkedin.com/in/valockhart/).
-MicroSims are small interactive simulations that are created and modified by generative AI systems
+This course was inspired by the wonderful [Val Lockhart](https://www.linkedin.com/in/valockhart/) and [Troy Peterson](https://www.linkedin.com/in/troyapeterson/).  Val was the one that coined the term "MicroSim" and showed
+that by combining generative AI with the p5.js system that instructors could create
+fantastic interactive simulations.
+MicroSims are small interactive simulations that run in a browser and are created and modified by generative AI systems
 for use in classroom instruction.
 
-[MicroSims Website](https://dmccreary.github.io/microsims/)
-[MicroSims Learning Graph](https://dmccreary.github.io/microsims/sims/concept-graph/concept-graph.html)
+- [MicroSims Website](https://dmccreary.github.io/microsims/)
+- [MicroSims Learning Graph](https://dmccreary.github.io/microsims/sims/concept-graph/concept-graph.html)
 
 ## Signal Processing
 
 This course came about in collaboration with [Jarvis Haupt](https://cse.umn.edu/ece/jarvis-haupt) at the University of Minnesota Department of Electrical and Computer Engineering.  Jarvis has been instrumental at encouraging others at the University of Minnesota to take a leadership role in the integration of generative AI into their courses.
 
-[Signal Processing](./signal-processing.md)
-
-[Signal Processing Learning Graph](https://dmccreary.github.io/signal-processing/sims/graph-viewer/view-graph-v3.html)
+- [Signal Processing Website](./signal-processing.md)
+- [Signal Processing Learning Graph](https://dmccreary.github.io/signal-processing/sims/graph-viewer/view-graph-v3.html)
 
 ## Systems Thinking
 
