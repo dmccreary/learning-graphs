@@ -111,6 +111,7 @@ plugins:
 markdown_extensions:
   - admonition
   - attr_list
+  - meta
   - pymdownx.details
   - md_in_html
   - pymdownx.tabbed:
