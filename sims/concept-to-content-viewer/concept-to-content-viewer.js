@@ -11,10 +11,18 @@ let numberConceptNodes = 40;  // top level are concept nodes in green
 let numberContentNodes = 40;  // the bottom level are concent nodes in blue on the bottom
 let numberConceptContentConnections = 20;
 
+let myFont;
+
+function preload() {
+  // Load a font file. Here we must have this file in the same directory as our JavaScript file.
+  myFont = loadFont('OpenSans-Regular.ttf');
+}
+
 function setup() {
   const canvas = createCanvas(canvasWidth, canvasHeight, WEBGL);
   var mainElement = document.querySelector('main');
   canvas.parent(mainElement);
+  textFont(myFont);
   noStroke();
   
   // Generate random nodes for top concepts layer
@@ -83,8 +91,35 @@ function draw() {
   
   // Draw precomputed concept-to-content edges
   drawConceptToContentEdges();
+
+  // draw the concept and content labels
+  drawLabels();
 }
 
+function drawLabels() {
+       // Label for Concepts layer
+   push();
+   // Move to above the top nodes
+   translate(0, -150, 110);  
+   // Undo the rotation applied to the entire scene, so text is upright
+   rotateX(-PI/3);
+   fill(0, 150, 0);
+   textAlign(CENTER, CENTER);
+   textSize(20);
+   text('Concepts', 0, 0);
+   pop();
+   
+   // Label for Content layer
+   push();
+   // Move to below the bottom nodes
+   translate(0, 130, -90);
+   rotateX(-PI/3);
+   fill(0, 0, 150);
+   textAlign(CENTER, CENTER);
+   textSize(20);
+   text('Content', 0, 0);
+   pop();
+}
 function drawGraph(nodes, edges, col, zPos, edgeColor) {
   // Draw edges
   stroke(edgeColor, 10);
