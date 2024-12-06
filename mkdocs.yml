@@ -107,7 +107,7 @@ theme:
     - content.action.edit
 plugins:
   - search
-#  - social
+  - social
 markdown_extensions:
   - admonition
   - attr_list
