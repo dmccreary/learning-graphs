@@ -1,14 +1,20 @@
 ---
-og_title: Concept to Content Viewer
-og_description: A MicroSim to help people understand how Concept graphs are tied to Content graphs.
-og_image:: concept-to-content-viewer.png
-image:: concept-to-content-viewer.png
+og:title: "Concept to Content Viewer"
+og:description: "A MicroSim in p5.js that helps users visualized the parallel plans of Concept graphs and Content graphs." 
+og:image: concept-to-content-viewer.png
 ---
-
+<meta property="og:title" content="Learning Graph Concept to Content Viewer">
+<meta property="og:description" content="A MicroSim in p5.js that helps users visualized the parallel plans of Concept graphs and Content graphs.">
+<meta property="og:image" content="/learning-graphs/sims/concept-to-content-viewer/concept-to-content-viewer.png">
+   
 
 # Concept to Content Viewer
 
 ![](./concept-to-content-viewer.png)
+
+[Run the Concept to Content Viewer MicroSim](concept-to-content-viewer.html){ .md-button .md-button--primary }
+
+Note: you can use your mouse to change the viewpoint and zoom of the animation.
 
 When I think of learning graphs, I really image two parallel planes, each with their own nodes.
 
@@ -29,4 +35,3 @@ for learning paths for students.  For example, imagine that a student wants to m
 But first they must learn three other Concepts.  Each of these has an order, and the content that they
 are connected to would be recommended by a Chatbot or a Learning Agent.
 
-[Run the Concept to Content Viewer MicroSim](concept-to-content-viewer.html){ .md-button .md-button--primary }
