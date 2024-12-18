@@ -75,6 +75,7 @@ nav:
     - Quiz: prompts/06-quiz.md
   - Sims:
     - Intro: sims/index.md
+    - Learning Graph Viewer: sims/graph-viewer/index.md
     - sims/concept-to-content-viewer/index.md
   - Glossary: glossary.md
   - How We Built This Site: how-we-built-this-site.md
