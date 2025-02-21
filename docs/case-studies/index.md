@@ -18,6 +18,10 @@ learning to write GenAI prompts to generate the first draft of
 a learning graph.  If that is the case, the output of these
 prompts is located in the ```docs/prompts/learning-graph`` area.
 
+To be included in this list, I selected only projects that have
+at least a 50-concept learning graph.  Some of the projects
+have over 250 concepts and they continue to grow.
+
 ## Stages of Learning Graph
 
 There are two paths we have seen.  Start with an existing textbook. Textbooks are usually oopyrighted by an
@@ -34,6 +38,7 @@ These cases studies focus on pure knowledge extraction from large-language model
 - **Concept Enumeration** - create a flat list of about 150 concepts ideally sorted from simple to complex
 - **Concept Dependencies** - for each concept, create a list of what other concepts it depends on
 - **Concept Taxonomy** - for all the concepts, create about ten classifications for all the concepts
+- **Concept Classification** -- for each Concept in the graph, assign it to a primary Taxonomy ID
 - **Content Generation** - once you have your concepts organized, you can then use this knowledge to create various content
 
 ## Circuits
@@ -43,8 +48,22 @@ at the University of Minnesota.  He has been an inspiration for me, helping me
 understand the time-consuming nature of generating circuit diagrams, equations and
 assessments in his daily teaching work.
 
+[Circuits](https://dmccreary.github.io/circuits/)
+
+## Clocks and Watches
 
 [Circuits Learning Graph](https://dmccreary.github.io/circuits/prompts/knowledge-graph/graph/category-colors.html)
+
+This is one of my favorite intelligent books.  The goal is to teach
+the principals of computational thinking using fun and low-cost projects
+which are timekeeping devices built with the low-cost ($4) Raspberry Pi Pico.
+
+[Clocks and Watches](https://dmccreary.github.io/clocks-and-watches/)
+
+## Deep Learning
+
+[Deep Learning with AI](https://dmccreary.github.io/deep-learning-course/)
+[Deep Learning Learning Graph](https://dmccreary.github.io/deep-learning-course/sims/learning-graph/)
 
 ## Geometry
 
@@ -81,10 +100,10 @@ One note about this course, the goal of the course are to teach computational th
 where students create what they are most curious about.  So having a rich curriculum full of projects
 that drive colorful moving lights and drive robots is our best way to get these concepts into the classroom.
 
-- [MicroPython Website](./micropython.md)
+- [MicroPython Info Page](./micropython.md)
 
 Teaching Computational Thinking with MicroPython
-[MicroPython Learning Graph](https://www.coderdojotc.org/micropython/sims/knowledge-graphs/graph/category-colors.html)
+[MicroPython Learning Graph](https://dmccreary.github.io/learning-micropython/sims/learning-graph/graph/dep-graph.html)
 
 ## MicroSims
 
@@ -96,6 +115,10 @@ for use in classroom instruction.
 
 - [MicroSims Website](https://dmccreary.github.io/microsims/)
 - [MicroSims Learning Graph](https://dmccreary.github.io/microsims/sims/concept-graph/concept-graph.html)
+
+## Python
+
+[Beginning Python](https://dmccreary.github.io/python/)
 
 ## Signal Processing
 
