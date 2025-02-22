@@ -107,6 +107,28 @@ Mapping of relationships across vastly different topics makes learning exciting 
 
 *“intelligent textbooks,” which have the ability to guide readers according to their learning goals and current knowledge.*
 
+### Videos
+
+[Intelligent Textbooks Based on Knowledge Representation and Reasoning](https://www.youtube.com/watch?v=QX_DLrT8JMU) - Stanford Nov 2017, Innovation Ecosystems for AI-Based Education, Training and Learning” Vinay Chaudhri, Former Head AI, SRI International  looks at this issues
+
+#### Take Home Messages
+
+1. Changing the medium of presentation does not improve student learning  
+   [Barbara Means, et al. 2009]((https://eric.ed.gov/?id=ED505824))
+Evaluation of Evidence-Based Practices in Online Learning: A Meta-Analysis and Review of Online Learning Studies Means, Barbara; Toyama, Yukie; Murphy, Robert; Bakia, Marianne; Jones, Karla
+US Department of Education
+
+
+2. An intelligent textbook relies on knowledge representation and reasoning: it *knows* the subject matter  
+   [Chaudhri, et al. 2013](https://www.sri.com/publication/education-learning-pubs/inquire-biology-a-textbook-that-answers-questions/)
+
+3. An intelligent textbook improved student learning by **one full letter grade**  
+   [Chaudhri, et al. 2013](https://www.sri.com/publication/education-learning-pubs/inquire-biology-a-textbook-that-answers-questions/)
+
+1. Simply changing the medium of presentation has no impact on improving student learning.
+2. An intelligent textbook relies on knowledge representation and reasoning to provide concept summaries, suggested questions and question answering.
+3. The resulting learning gains are in the range of one full letter grade.
+
 ## Technology Resources
 
 1. **vis.js** - [https://visjs.github.io/vis-network/docs/network/](https://visjs.github.io/vis-network/docs/network/)

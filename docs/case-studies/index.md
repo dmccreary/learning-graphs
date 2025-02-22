@@ -36,7 +36,9 @@ These cases studies focus on pure knowledge extraction from large-language model
 - **Concept Taxonomy** - for all the concepts, create about ten classifications for all the concepts
 - **Content Generation** - once you have your concepts organized, you can then use this knowledge to create various content
 
-## Circuits
+## Case Studies
+
+### Circuits
 
 This was the course that I worked on with [Sharat Batra](https://www.linkedin.com/in/sharatbatra/)
 at the University of Minnesota.  He has been an inspiration for me, helping me
@@ -46,14 +48,14 @@ assessments in his daily teaching work.
 
 [Circuits Learning Graph](https://dmccreary.github.io/circuits/prompts/knowledge-graph/graph/category-colors.html)
 
-## Geometry
+### Geometry
 
 This is a classic high school geometry course that lends itself to visual thinking.
 
 * [Geometry Course](https://dmccreary.github.io/geometry-course/)
 * [Geometry Course Graph Viewer](https://dmccreary.github.io/geometry-course/sims/graph-viewer/graph-viewer.html)
 
-## Graph Algorithms
+### Graph Algorithms
 
 This website is based on the graph algorithms course I developed for my hands-on graph courses in my consultant practice.  I was fortunate to develop graph database related courses that over 3,000 people have taken in the past.
 The core courses were actually an introduction to graph databases which was an online self-paced course
@@ -64,7 +66,17 @@ with volunteers to get those courses in the public domain sometime in the future
 
 [Learning Graph for Graph Algorithms](https://dmccreary.github.io/graph-algorithms/sims/learning-graph/view-graph.html)
 
-## Learning Graph
+### Building Intelligent Textbooks
+
+This is a hands-on guide to using the mkdocs-material tools to build an intelligent textbook.
+It includes a detailed getting started guide for people that are new to the
+book building process and the ```mkdocs``` document build system.  Our
+focus in getting books to the 2.9 level.
+
+* [Intelligent Textbooks](https://dmccreary.github.io/mkdocs-for-intelligent-textbooks/)
+* [Learning Graph for Intelligent Textbooks](https://dmccreary.github.io/mkdocs-for-intelligent-textbooks/sims/learning-graph/)
+
+### Learning Graph
 
 This is a learning graph for creating learning graphs.  Yes, it is a bit of a recursive definition, but
 this learning graph has helped me fill in the gaps of this website and put more focus
@@ -73,7 +85,7 @@ of building intelligent online textbooks.
 
 [View Learning Graph Concepts](../concepts/view-concept-graph.html)
 
-## MicroPython
+### MicroPython
 
 This is based on the course that I developed with the help of [Jim Tannenbaum](https://www.linkedin.com/in/jetannenbaum/).  Jim has also used these courses in his volunteer work in schools.
 
@@ -86,7 +98,7 @@ that drive colorful moving lights and drive robots is our best way to get these 
 Teaching Computational Thinking with MicroPython
 [MicroPython Learning Graph](https://www.coderdojotc.org/micropython/sims/knowledge-graphs/graph/category-colors.html)
 
-## MicroSims
+### MicroSims
 
 This course was inspired by the wonderful [Val Lockhart](https://www.linkedin.com/in/valockhart/) and [Troy Peterson](https://www.linkedin.com/in/troyapeterson/).  Val was the one that coined the term "MicroSim" and showed
 that by combining generative AI with the p5.js system that instructors could create
@@ -97,14 +109,14 @@ for use in classroom instruction.
 - [MicroSims Website](https://dmccreary.github.io/microsims/)
 - [MicroSims Learning Graph](https://dmccreary.github.io/microsims/sims/concept-graph/concept-graph.html)
 
-## Signal Processing
+### Signal Processing
 
 This course came about in collaboration with [Jarvis Haupt](https://cse.umn.edu/ece/jarvis-haupt) at the University of Minnesota Department of Electrical and Computer Engineering.  Jarvis has been instrumental at encouraging others at the University of Minnesota to take a leadership role in the integration of generative AI into their courses.
 
 - [Signal Processing Website](./signal-processing.md)
 - [Signal Processing Learning Graph](https://dmccreary.github.io/signal-processing/sims/graph-viewer/view-graph-v3.html)
 
-## Systems Thinking
+### Systems Thinking
 
 This is one of my favorite courses.  It was originally inspired by my friend [Arun Batchu](https://www.linkedin.com/in/arunbatchu/).  I have taught this course to a wide variety of audiences including variations for teams
 trying to break down silos within organizations.
