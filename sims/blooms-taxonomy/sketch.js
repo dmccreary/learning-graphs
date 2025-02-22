@@ -10,6 +10,7 @@ function setup() {
   textSize(16);
 
   // Define the levels and their properties
+  // tcolor is the text color for the level and must contrast with the background color
   levels = [
     {
       level: "Remember",
@@ -25,25 +26,25 @@ function setup() {
     },
     {
       level: "Apply",
-      color: "#00FF00", // Green
+      color: "green",
       tcolor: "black",
       description: "Apply: Carrying out or using procedures in given situations, including executing and implementing learned material in new contexts. Your collection of MicroSims appears particularly strong in supporting this level through interactive demonstrations."
     },
     {
       level: "Analyze",
-      color: "#FFAA00", // Orange
+      color: "gold",
       tcolor: "black",
-      description: "Analize: Breaking material into constituent parts and determining how parts relate to one another and to an overall structure or purpose. This includes differentiating, organizing, and attributing knowledge."
+      description: "Analyze: Breaking material into constituent parts and determining how parts relate to one another and to an overall structure or purpose. This includes differentiating, organizing, and attributing knowledge."
     },
     {
       level: "Evaluate",
-      color: "gold", // Gold
+      color: "orange",
       tcolor: "black",
       description: "Evaluate: Making judgments based on criteria and standards, including checking and critiquing. Your learning graphs can help students understand how concepts interconnect at this level."
     },
     {
       level: "Create",
-      color: "#FF0000", // Red
+      color: "red",
       tcolor: "white",
       description: "Create: Putting elements together to form a coherent or functional whole; reorganizing elements into new patterns or structures. This highest level is where students might modify or create their own MicroSims."
     }
