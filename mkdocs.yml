@@ -33,11 +33,16 @@ nav:
     - Introduction: case-studies/index.md
     - Low-Latency: case-studies/low-latency.md
     - Circuits: case-studies/circuits.md
+    - Clocks ans Watches: case-studies/clocks-and-watches.md
+    - Geometry: case-studies/geometry.md
     - Graph Algorithms: case-studies/graph-algorithms.md
     - MicroPython: case-studies/micropython.md
+    - MicroSims: case-studies/microsims.md
     - Signal Processing: case-studies/signal-processing.md
     - Systems Thinking: case-studies/systems-thinking.md
     - Learning Graph: sims/graph-viewer/index.md
+
+
   - Vis.js Tutorial:
     - Intro: vis/index.md
     - Lab 1 - Default Behavior: vis/lab-01.md
@@ -73,10 +78,10 @@ nav:
     - Concept Viewer: prompts/05-concept-viewer.md
     - Concept Editor: prompts/10-vis-editor.md
     - Quiz: prompts/06-quiz.md
-  - Sims:
+  - MicroSims:
     - Intro: sims/index.md
     - Learning Graph Viewer: sims/graph-viewer/index.md
-    - sims/concept-to-content-viewer/index.md
+    - Concept to Content Viewer: sims/concept-to-content-viewer/index.md
   - Glossary: glossary.md
   - How We Built This Site: how-we-built-this-site.md
   - References: references.md
