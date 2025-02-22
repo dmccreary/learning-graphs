@@ -80,12 +80,12 @@ which are timekeeping devices built with the low-cost ($4) Raspberry Pi Pico.
 * [Data Science](https://dmccreary.github.io/data-science-course/)
 * [Data Science Learning Graph](https://dmccreary.github.io/data-science-course/sims/learning-graph/view-graph.html)
 
-## Deep Learning
+### Deep Learning
 
 [Deep Learning with AI](https://dmccreary.github.io/deep-learning-course/)
 [Deep Learning Learning Graph](https://dmccreary.github.io/deep-learning-course/sims/learning-graph/)
 
-## Geometry
+### Geometry
 
 This is a classic high school geometry course that lends itself to visual thinking.
 
@@ -145,15 +145,13 @@ for use in classroom instruction.
 - [MicroSims Website](https://dmccreary.github.io/microsims/)
 - [MicroSims Learning Graph](https://dmccreary.github.io/microsims/sims/concept-graph/concept-graph.html)
 
-<<<<<<< HEAD
-### Signal Processing
-=======
-## Python
+### Python
+
+Intro to Python programming with Trinket.io
 
 [Beginning Python](https://dmccreary.github.io/python/)
 
-## Signal Processing
->>>>>>> origin/main
+### Signal Processing
 
 This course came about in collaboration with [Jarvis Haupt](https://cse.umn.edu/ece/jarvis-haupt) at the University of Minnesota Department of Electrical and Computer Engineering.  Jarvis has been instrumental at encouraging others at the University of Minnesota to take a leadership role in the integration of generative AI into their courses.
 
