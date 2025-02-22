@@ -466,12 +466,6 @@
         
       
         
-      
-        
-      
-        
-      
-        
           
         
       
@@ -564,48 +558,6 @@
   
   
     <li class="md-nav__item">
-      <a href="clocks-and-watches/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Clocks ans Watches
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="geometry/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Geometry
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="graph-algorithms/" class="md-nav__link">
         
   
@@ -632,27 +584,6 @@
   
   <span class="md-ellipsis">
     MicroPython
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="microsims/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    MicroSims
   </span>
   
 
@@ -958,7 +889,7 @@
       
   
   <span class="md-ellipsis">
-    MicroSims
+    Sims
   </span>
   
 
@@ -1158,6 +1089,16 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#case-studies_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Case Studies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Case Studies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#circuits" class="md-nav__link">
     <span class="md-ellipsis">
       Circuits
@@ -1165,26 +1106,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#clocks-and-watches" class="md-nav__link">
-    <span class="md-ellipsis">
-      Clocks and Watches
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deep-learning" class="md-nav__link">
-    <span class="md-ellipsis">
-      Deep Learning
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#geometry" class="md-nav__link">
     <span class="md-ellipsis">
       Geometry
@@ -1192,8 +1115,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#graph-algorithms" class="md-nav__link">
     <span class="md-ellipsis">
       Graph Algorithms
@@ -1201,8 +1124,17 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
+  <a href="#building-intelligent-textbooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building Intelligent Textbooks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#learning-graph" class="md-nav__link">
     <span class="md-ellipsis">
       Learning Graph
@@ -1210,8 +1142,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#micropython" class="md-nav__link">
     <span class="md-ellipsis">
       MicroPython
@@ -1219,8 +1151,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#microsims" class="md-nav__link">
     <span class="md-ellipsis">
       MicroSims
@@ -1228,17 +1160,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    <span class="md-ellipsis">
-      Python
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#signal-processing" class="md-nav__link">
     <span class="md-ellipsis">
       Signal Processing
@@ -1246,13 +1169,18 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#systems-thinking" class="md-nav__link">
     <span class="md-ellipsis">
       Systems Thinking
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1295,9 +1223,6 @@ creating a sim called <code>graph-viewer</code> inside the sims directory.</p>
 learning to write GenAI prompts to generate the first draft of
 a learning graph.  If that is the case, the output of these
 prompts is located in the <code>`docs/prompts/learning-graph</code> area.</p>
-<p>To be included in this list, I selected only projects that have
-at least a 50-concept learning graph.  Some of the projects
-have over 250 concepts and they continue to grow.</p>
 <h2 id="stages-of-learning-graph">Stages of Learning Graph</h2>
 <p>There are two paths we have seen.  Start with an existing textbook. Textbooks are usually oopyrighted by an
 author and publisher.  So to keep out of legal issues, we don't have any examples of these.  But we know these exist.
@@ -1311,54 +1236,54 @@ well documented using the GraphRAG architectures.</p>
 <li><strong>Concept Enumeration</strong> - create a flat list of about 150 concepts ideally sorted from simple to complex</li>
 <li><strong>Concept Dependencies</strong> - for each concept, create a list of what other concepts it depends on</li>
 <li><strong>Concept Taxonomy</strong> - for all the concepts, create about ten classifications for all the concepts</li>
-<li><strong>Concept Classification</strong> -- for each Concept in the graph, assign it to a primary Taxonomy ID</li>
 <li><strong>Content Generation</strong> - once you have your concepts organized, you can then use this knowledge to create various content</li>
 </ul>
-<h2 id="circuits">Circuits</h2>
+<h2 id="case-studies_1">Case Studies</h2>
+<h3 id="circuits">Circuits</h3>
 <p>This was the course that I worked on with <a href="https://www.linkedin.com/in/sharatbatra/">Sharat Batra</a>
 at the University of Minnesota.  He has been an inspiration for me, helping me
 understand the time-consuming nature of generating circuit diagrams, equations and
 assessments in his daily teaching work.</p>
-<p><a href="https://dmccreary.github.io/circuits/">Circuits</a></p>
-<h2 id="clocks-and-watches">Clocks and Watches</h2>
 <p><a href="https://dmccreary.github.io/circuits/prompts/knowledge-graph/graph/category-colors.html">Circuits Learning Graph</a></p>
-<p>This is one of my favorite intelligent books.  The goal is to teach
-the principals of computational thinking using fun and low-cost projects
-which are timekeeping devices built with the low-cost ($4) Raspberry Pi Pico.</p>
-<p><a href="https://dmccreary.github.io/clocks-and-watches/">Clocks and Watches</a></p>
-<h2 id="deep-learning">Deep Learning</h2>
-<p><a href="https://dmccreary.github.io/deep-learning-course/">Deep Learning with AI</a>
-<a href="https://dmccreary.github.io/deep-learning-course/sims/learning-graph/">Deep Learning Learning Graph</a></p>
-<h2 id="geometry">Geometry</h2>
+<h3 id="geometry">Geometry</h3>
 <p>This is a classic high school geometry course that lends itself to visual thinking.</p>
 <ul>
 <li><a href="https://dmccreary.github.io/geometry-course/">Geometry Course</a></li>
 <li><a href="https://dmccreary.github.io/geometry-course/sims/graph-viewer/graph-viewer.html">Geometry Course Graph Viewer</a></li>
 </ul>
-<h2 id="graph-algorithms">Graph Algorithms</h2>
+<h3 id="graph-algorithms">Graph Algorithms</h3>
 <p>This website is based on the graph algorithms course I developed for my hands-on graph courses in my consultant practice.  I was fortunate to develop graph database related courses that over 3,000 people have taken in the past.
 The core courses were actually an introduction to graph databases which was an online self-paced course
 and an instructor-led Hands On Graph course that used TigerGraph.  I hope to work
 with volunteers to get those courses in the public domain sometime in the future.</p>
 <p><a href="graph-algorithms/">Graph Algorithms</a></p>
 <p><a href="https://dmccreary.github.io/graph-algorithms/sims/learning-graph/view-graph.html">Learning Graph for Graph Algorithms</a></p>
-<h2 id="learning-graph">Learning Graph</h2>
+<h3 id="building-intelligent-textbooks">Building Intelligent Textbooks</h3>
+<p>This is a hands-on guide to using the mkdocs-material tools to build an intelligent textbook.
+It includes a detailed getting started guide for people that are new to the
+book building process and the <code>mkdocs</code> document build system.  Our
+focus in getting books to the 2.9 level.</p>
+<ul>
+<li><a href="https://dmccreary.github.io/mkdocs-for-intelligent-textbooks/">Intelligent Textbooks</a></li>
+<li><a href="https://dmccreary.github.io/mkdocs-for-intelligent-textbooks/sims/learning-graph/">Learning Graph for Intelligent Textbooks</a></li>
+</ul>
+<h3 id="learning-graph">Learning Graph</h3>
 <p>This is a learning graph for creating learning graphs.  Yes, it is a bit of a recursive definition, but
 this learning graph has helped me fill in the gaps of this website and put more focus
 when a concept needs to be explain clearly for others to participate in the process
 of building intelligent online textbooks.</p>
 <p><a href="../concepts/view-concept-graph.html">View Learning Graph Concepts</a></p>
-<h2 id="micropython">MicroPython</h2>
+<h3 id="micropython">MicroPython</h3>
 <p>This is based on the course that I developed with the help of <a href="https://www.linkedin.com/in/jetannenbaum/">Jim Tannenbaum</a>.  Jim has also used these courses in his volunteer work in schools.</p>
 <p>One note about this course, the goal of the course are to teach computational thinking in junior high and high school students.  But we have found that the best way to teach these skills is through project-based learning
 where students create what they are most curious about.  So having a rich curriculum full of projects
 that drive colorful moving lights and drive robots is our best way to get these concepts into the classroom.</p>
 <ul>
-<li><a href="micropython/">MicroPython Info Page</a></li>
+<li><a href="micropython/">MicroPython Website</a></li>
 </ul>
 <p>Teaching Computational Thinking with MicroPython
-<a href="https://dmccreary.github.io/learning-micropython/sims/learning-graph/graph/dep-graph.html">MicroPython Learning Graph</a></p>
-<h2 id="microsims">MicroSims</h2>
+<a href="https://www.coderdojotc.org/micropython/sims/knowledge-graphs/graph/category-colors.html">MicroPython Learning Graph</a></p>
+<h3 id="microsims">MicroSims</h3>
 <p>This course was inspired by the wonderful <a href="https://www.linkedin.com/in/valockhart/">Val Lockhart</a> and <a href="https://www.linkedin.com/in/troyapeterson/">Troy Peterson</a>.  Val was the one that coined the term "MicroSim" and showed
 that by combining generative AI with the p5.js system that instructors could create
 fantastic interactive simulations.
@@ -1368,15 +1293,13 @@ for use in classroom instruction.</p>
 <li><a href="https://dmccreary.github.io/microsims/">MicroSims Website</a></li>
 <li><a href="https://dmccreary.github.io/microsims/sims/concept-graph/concept-graph.html">MicroSims Learning Graph</a></li>
 </ul>
-<h2 id="python">Python</h2>
-<p><a href="https://dmccreary.github.io/python/">Beginning Python</a></p>
-<h2 id="signal-processing">Signal Processing</h2>
+<h3 id="signal-processing">Signal Processing</h3>
 <p>This course came about in collaboration with <a href="https://cse.umn.edu/ece/jarvis-haupt">Jarvis Haupt</a> at the University of Minnesota Department of Electrical and Computer Engineering.  Jarvis has been instrumental at encouraging others at the University of Minnesota to take a leadership role in the integration of generative AI into their courses.</p>
 <ul>
 <li><a href="signal-processing/">Signal Processing Website</a></li>
 <li><a href="https://dmccreary.github.io/signal-processing/sims/graph-viewer/view-graph-v3.html">Signal Processing Learning Graph</a></li>
 </ul>
-<h2 id="systems-thinking">Systems Thinking</h2>
+<h3 id="systems-thinking">Systems Thinking</h3>
 <p>This is one of my favorite courses.  It was originally inspired by my friend <a href="https://www.linkedin.com/in/arunbatchu/">Arun Batchu</a>.  I have taught this course to a wide variety of audiences including variations for teams
 trying to break down silos within organizations.</p>
 <p><a href="https://dmccreary.github.io/graph-systems-thinking">Systems THinking Course Website</a></p>

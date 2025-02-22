@@ -464,12 +464,6 @@
         
       
         
-      
-        
-      
-        
-      
-        
           
         
       
@@ -1063,7 +1057,7 @@
       
   
   <span class="md-ellipsis">
-    MicroSims
+    Sims
   </span>
   
 
@@ -1405,12 +1399,23 @@
 <h3 id="creating-a-taxonomy-with-llms">Creating a Taxonomy with LLMs</h3>
 <p>To generate a taxonomy using an LLM, you can craft a prompt that provides clear instructions on how to organize concepts into distinct categories. Below is a sample prompt structure for generating a taxonomy:</p>
 <h3 id="sample-taxonomy-prompt">Sample Taxonomy Prompt</h3>
-<div class="highlight"><pre><span></span><code>You are given the following list of concepts. Your task is to
-organize these concepts into a taxonomy by grouping them into
-appropriate categories. Each category should include concepts
-that share similar characteristics, functions, or applications.
-Suggest 7-10 categories for the taxonomy and assign each concept
-to one or more categories. Ensure that the categories cover
+<div class="highlight"><pre><span></span><code>Now lets focus again on the 150 concepts we have generated.
+Your task is to organize these concepts into a small taxonomy
+of approximately ten classifiers.  You will generate a list
+of the classifier labels.
+
+Here are some suggestions.  The first category is &quot;Foundational Concepts&quot;.
+These are concepts that are introduced at the start of the course
+and are considered prerequisites.
+A second category is &quot;Concept Definitions&quot; where we introduce new terms.
+A last category is &quot;Miscellaneous&quot;.
+Your task is to create the rest of the classifiers and give each classifier a label and definition.
+Each category should include concepts that share similar characteristics, functions, or applications.
+Attempt to evenly divide the 150 concepts into a balanced taxonomy.
+
+Suggest 10 categories for the taxonomy and assign each concept
+to one or more categories. Add an 11th category called &quot;Miscellaneous&quot;.
+Ensure that the categories cover
 a range of concept types, including abstract ideas, practical
 applications, common misunderstandings, and real-world examples.
 Avoid redundancy and ensure that each category is distinct.
