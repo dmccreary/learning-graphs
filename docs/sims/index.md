@@ -1,8 +1,8 @@
 # List of MicroSims for the Learning Graphs Website
 
-## Graph Viewer
+## Learning Graph
 
-[Graph Viewer](./graph-viewer/index.md)
+[Learning Graph](./learning-graph/index.md)
 
 ## Concept to Content Viewer
 
