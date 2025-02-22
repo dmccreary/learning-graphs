@@ -43,6 +43,19 @@ These cases studies focus on pure knowledge extraction from large-language model
 
 ## Case Studies
 
+### Beginning Electronics
+
+This is the beginning of a new textbook on beginning electronics
+we are building for junior-high school students.  It is based
+on using a solderless breadboard and about $30 worth of various
+electrical components.  We do not cover digital electronics
+in depth and we assume that no oscilloscopes are available.
+We try to have MicroSims that also simulate the behavior of the
+parts on a breadboard.
+
+* [Beginning Electronics](https://dmccreary.github.io/beginning-electronics/)
+* [Learning Graph](https://dmccreary.github.io/beginning-electronics/sims/learning-graph/)
+
 ### Circuits
 
 This was the course that I worked on with [Sharat Batra](https://www.linkedin.com/in/sharatbatra/)
@@ -50,20 +63,22 @@ at the University of Minnesota.  He has been an inspiration for me, helping me
 understand the time-consuming nature of generating circuit diagrams, equations and
 assessments in his daily teaching work.
 
-[Circuits](https://dmccreary.github.io/circuits/)
+* [Circuits](https://dmccreary.github.io/circuits/)
+* [Circuits Learning Graph](https://dmccreary.github.io/circuits/prompts/knowledge-graph/graph/category-colors.html)
 
-## Clocks and Watches
+### Clocks and Watches
 
-[Circuits Learning Graph](https://dmccreary.github.io/circuits/prompts/knowledge-graph/graph/category-colors.html)
-
-<<<<<<< HEAD
-### Geometry
-=======
 This is one of my favorite intelligent books.  The goal is to teach
 the principals of computational thinking using fun and low-cost projects
 which are timekeeping devices built with the low-cost ($4) Raspberry Pi Pico.
 
-[Clocks and Watches](https://dmccreary.github.io/clocks-and-watches/)
+* [Clocks and Watches](https://dmccreary.github.io/clocks-and-watches/)
+* [Learning Graph for Clocks and Watches](https://dmccreary.github.io/clocks-and-watches/sims/learning-graph/)
+
+### Data Science
+
+* [Data Science](https://dmccreary.github.io/data-science-course/)
+* [Data Science Learning Graph](https://dmccreary.github.io/data-science-course/sims/learning-graph/view-graph.html)
 
 ## Deep Learning
 
@@ -71,7 +86,6 @@ which are timekeeping devices built with the low-cost ($4) Raspberry Pi Pico.
 [Deep Learning Learning Graph](https://dmccreary.github.io/deep-learning-course/sims/learning-graph/)
 
 ## Geometry
->>>>>>> origin/main
 
 This is a classic high school geometry course that lends itself to visual thinking.
 
@@ -85,9 +99,8 @@ The core courses were actually an introduction to graph databases which was an o
 and an instructor-led Hands On Graph course that used TigerGraph.  I hope to work
 with volunteers to get those courses in the public domain sometime in the future.
 
-[Graph Algorithms](graph-algorithms.md)
-
-[Learning Graph for Graph Algorithms](https://dmccreary.github.io/graph-algorithms/sims/learning-graph/view-graph.html)
+* [Graph Algorithms](graph-algorithms.md)
+* [Learning Graph for Graph Algorithms](https://dmccreary.github.io/graph-algorithms/sims/learning-graph/view-graph.html)
 
 ### Building Intelligent Textbooks
 
@@ -106,7 +119,7 @@ this learning graph has helped me fill in the gaps of this website and put more 
 when a concept needs to be explain clearly for others to participate in the process
 of building intelligent online textbooks.
 
-[View Learning Graph Concepts](../concepts/view-concept-graph.html)
+* [View Learning Graph for Learning Graphs](../sims/learning-graph/index.md)
 
 ### MicroPython
 

@@ -25,23 +25,28 @@ nav:
     - LMS Integration: chapters/17-lms-integration.md
     - Building Intelligent Agents: chapters/18-agents.md
     - Validating Learning Graphs: chapters/19-validating.md
+
   - Concepts:
     - Introduction: concepts/index.md
     - concepts/50-concets.md
     - concepts/taxonomy.md
+  
   - Case Studies:
     - Introduction: case-studies/index.md
     - Low-Latency: case-studies/low-latency.md
+    - Beginning Electronics: case-studies/beginning-electronics.md
     - Circuits: case-studies/circuits.md
     - Clocks ans Watches: case-studies/clocks-and-watches.md
+    - Data Science: case-studies/data-science.md
     - Geometry: case-studies/geometry.md
     - Graph Algorithms: case-studies/graph-algorithms.md
+    - Intelligent Textbooks: case-studies/intelligent-textbooks.md
+    - Learning Graph: sims/graph-viewer/index.md
     - MicroPython: case-studies/micropython.md
     - MicroSims: case-studies/microsims.md
+    - Python: case-studies/python.md
     - Signal Processing: case-studies/signal-processing.md
     - Systems Thinking: case-studies/systems-thinking.md
-    - Learning Graph: sims/graph-viewer/index.md
-
 
   - Vis.js Tutorial:
     - Intro: vis/index.md
@@ -80,7 +85,7 @@ nav:
     - Quiz: prompts/06-quiz.md
   - MicroSims:
     - Intro: sims/index.md
-    - Learning Graph Viewer: sims/graph-viewer/index.md
+    - Learning Graph: sims/learning-graph/index.md
     - Concept to Content Viewer: sims/concept-to-content-viewer/index.md
   - Glossary: glossary.md
   - How We Built This Site: how-we-built-this-site.md
