@@ -3,20 +3,23 @@
 Here are some case studies of Learning Graphs I have worked on with others.
 The list is alphabetical and you will find that the maturity of
 the on-line material varies widely based on the needs and resources of
-each group I work with.  What they all share in common is that
+each group I work with.  I only store what content we had
+when I hand the content off to a school.  What they all share in common is that
 they have a course description that was used to drive a generative
-process to build a learning graph.
+process to build a learning graph and that the people I work with have
+agreed to our creative commons license strategy.
 
 In general when we create a website using a
 tool like mkdocs, we structure all the content under the ```docs```
-directory.  Within docs we place our interactive simulations (MicroSim)
-under the ```sims``` directory by convention.  I would suggest
-creating a sim called ```graph-viewer``` inside the sims directory.
+directory.  Within docs we place our interactive simulations (MicroSims)
+under the ```sims``` directory by convention.  Many of these sites have
+a directory called ```learning-graph``` inside the sims directory.
+You will find the learning graph viewer tools there.
 
 Many of the websites I setup also walk people through the process of
 learning to write GenAI prompts to generate the first draft of
 a learning graph.  If that is the case, the output of these
-prompts is located in the ```docs/prompts/learning-graph`` area.
+prompts is located in the ```docs/prompts/learning-graph`` area.  (Note the "prompts" folder)
 
 To be included in this list, I selected only projects that have
 at least a 50-concept learning graph.  Some of the projects
@@ -24,22 +27,30 @@ have over 250 concepts and they continue to grow.
 
 ## Stages of Learning Graph
 
-There are two paths we have seen.  Start with an existing textbook. Textbooks are usually oopyrighted by an
+There are two paths we have seen.  Start with an existing textbook. Textbooks are usually copyrighted by an
 author and publisher.  So to keep out of legal issues, we don't have any examples of these.  But we know these exist.
-If you do have an existing textbook or group of papers you can run them through an natural-language processing (NLP) tool to extract the entities, concepts and taxonomies.  These process are
+
+If you do have an existing textbook or group of papers you can run them through an 
+natural-language processing (NLP) tool to extract the entities, concepts and taxonomies.  These process are
 well documented using the GraphRAG architectures.
 
 These cases studies focus on pure knowledge extraction from large-language models.
 
 ## Steps Generative AI Driven
 
-- **Course Description** - we usually start with a generic course description as it would appear in a course catalog
-- **Bloom Taxonomy Refinements** - we refine the course description to fit Blooms't taxonomy which starts out with concept definitions and proceeds to creating hands-on skills for creating new content
-- **Concept Enumeration** - create a flat list of about 150 concepts ideally sorted from simple to complex
-- **Concept Dependencies** - for each concept, create a list of what other concepts it depends on
-- **Concept Taxonomy** - for all the concepts, create about ten classifications for all the concepts
-- **Concept Classification** -- for each Concept in the graph, assign it to a primary Taxonomy ID
-- **Content Generation** - once you have your concepts organized, you can then use this knowledge to create various content
+Each of the case studies below have gone through a series of steps that allow GenAI
+tools to generate content will low hallucination by grounding the content around
+a learning graph.  here are the typical steps:
+
+1. **Course Description** - we usually start with a generic course description as it would appear in a course catalog
+1. **Bloom Taxonomy Refinements** - we refine the course description to fit Blooms't taxonomy which starts out with concept definitions and proceeds to creating hands-on skills for creating new content
+1. **Concept Enumeration** - create a flat list of about 150 concepts ideally sorted from simple to complex
+1. **Concept Dependencies** - for each concept, create a list of what other concepts it depends on
+1. **Concept Taxonomy** - for all the concepts, create about ten classifications for all the concepts
+1. **Concept Classification** -- for each Concept in the graph, assign it to a primary Taxonomy ID
+1. **Content Generation** - once you have your concepts organized, you can then use this knowledge to create various content
+
+These steps are explained in detail in the [Prompts](../prompts/index.md) section of this site.
 
 ## Case Studies
 

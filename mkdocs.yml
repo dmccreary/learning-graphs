@@ -83,10 +83,12 @@ nav:
     - Concept Viewer: prompts/05-concept-viewer.md
     - Concept Editor: prompts/10-vis-editor.md
     - Quiz: prompts/06-quiz.md
+  
   - MicroSims:
     - Intro: sims/index.md
     - Learning Graph: sims/learning-graph/index.md
     - Concept to Content Viewer: sims/concept-to-content-viewer/index.md
+    - Bloom's Taxonomy: sims/blooms-taxonomy/index.md
   - Glossary: glossary.md
   - How We Built This Site: how-we-built-this-site.md
   - References: references.md
