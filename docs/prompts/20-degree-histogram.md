@@ -1,5 +1,7 @@
 # Degree Histogram
 
+We want the degree of the graph to have a
+
 ## Prompt
 
 ```

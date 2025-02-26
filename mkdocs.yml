@@ -28,12 +28,12 @@ nav:
 
   - Concepts:
     - Introduction: concepts/index.md
-    - concepts/50-concets.md
+    - concepts/50-concepts.md
     - concepts/taxonomy.md
   
   - Case Studies:
     - Introduction: case-studies/index.md
-    - Low-Latency: case-studies/low-latency.md
+    # - Low-Latency: case-studies/low-latency.md
     - Beginning Electronics: case-studies/beginning-electronics.md
     - Circuits: case-studies/circuits.md
     - Clocks ans Watches: case-studies/clocks-and-watches.md
@@ -74,14 +74,17 @@ nav:
     - Search: vis/search/index.md
     - Graph Viewer: vis/graph-viewer/index.md
     - Graph Editor: vis/graph-editor/index.md
+  
   - Sample Prompts:
     - Introduction: prompts/index.md
     - Course Description: prompts/01-course-description.md
     - Concept Enumeration: prompts/02-concept-enumeration.md
     - Concept Dependencies: prompts/03-concept-dependencies.md
     - Concept Taxonomies: prompts/04-taxonomies.md
+    - Concept Classifier: prompts/20-degree-histogram.md
     - Concept Viewer: prompts/05-concept-viewer.md
     - Concept Editor: prompts/10-vis-editor.md
+    - Degree Histogram: prompts/20-degree-histogram.md
     - Quiz: prompts/06-quiz.md
   
   - MicroSims:
@@ -89,6 +92,8 @@ nav:
     - Learning Graph: sims/learning-graph/index.md
     - Concept to Content Viewer: sims/concept-to-content-viewer/index.md
     - Bloom's Taxonomy: sims/blooms-taxonomy/index.md
+    - MicroSim Template: sims/template/index.md
+  
   - Glossary: glossary.md
   - How We Built This Site: how-we-built-this-site.md
   - References: references.md

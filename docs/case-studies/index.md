@@ -43,12 +43,14 @@ tools to generate content will low hallucination by grounding the content around
 a learning graph.  here are the typical steps:
 
 1. **Course Description** - we usually start with a generic course description as it would appear in a course catalog
-1. **Bloom Taxonomy Refinements** - we refine the course description to fit Blooms't taxonomy which starts out with concept definitions and proceeds to creating hands-on skills for creating new content
-1. **Concept Enumeration** - create a flat list of about 150 concepts ideally sorted from simple to complex
-1. **Concept Dependencies** - for each concept, create a list of what other concepts it depends on
-1. **Concept Taxonomy** - for all the concepts, create about ten classifications for all the concepts
-1. **Concept Classification** -- for each Concept in the graph, assign it to a primary Taxonomy ID
-1. **Content Generation** - once you have your concepts organized, you can then use this knowledge to create various content
+2. **Bloom Taxonomy Refinements** - we refine the course description to fit Blooms't taxonomy which starts out with concept definitions and proceeds to creating hands-on skills for creating new content
+3. **Concept Enumeration** - create a flat list of about 150 concepts ideally sorted from simple to complex
+4. **Concept Dependencies** - for each concept, create a list of what other concepts it depends on
+5. **Concept Taxonomy** - for all the concepts, create about ten classifications for all the concepts
+6. **Concept Classification** -- for each Concept in the graph, assign it to a primary Taxonomy ID
+7. **Content Generation** - once you have your concepts organized, you can then use this knowledge to create various content in different languages
+8. **Glossary of Terms** - we can generate an ISO-11179 concept definition for each of the concepts
+in our concept graph
 
 These steps are explained in detail in the [Prompts](../prompts/index.md) section of this site.
 
@@ -168,6 +170,15 @@ This course came about in collaboration with [Jarvis Haupt](https://cse.umn.edu/
 
 - [Signal Processing Website](./signal-processing.md)
 - [Signal Processing Learning Graph](https://dmccreary.github.io/signal-processing/sims/graph-viewer/view-graph-v3.html)
+
+### STEM Robots
+
+In 2014 I started designing low-cost robots for teaching computational thinking.  Over the years
+I refined my design to be lower-cost and also to have better lesson plans to have fun
+ways to teach these concepts.
+
+* [STEM Robots](https://dmccreary.github.io/stem-robots/)
+* [Stem Robots Learning Graph](https://dmccreary.github.io/stem-robots/sims/learning-graph/)
 
 ### Systems Thinking
 
