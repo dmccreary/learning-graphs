@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Demo of editing nodes and edges with vis.js</title>
+    </head>
+    <script type="text/css" src="edit-nodes.css"></script>
+    <body>
+<h2>Editing the nodes and edges</h2>
+<p style="width: 700px; font-size: 14px; text-align: justify">
+  The localization is only relevant to the manipulation buttons.
+</p>
+
+<p>
+  <label for="locale">Select a locale:</label>
+  <select id="locale" onchange="draw();">
+    <option value="en">en</option>
+    <option value="cn">cn</option>
+    <option value="cs">cs</option>
+    <option value="de">de</option>
+    <option value="es">es</option>
+    <option value="fr">fr</option>
+    <option value="it">it</option>
+    <option value="nl">nl</option>
+    <option value="pt-br">pt</option>
+    <option value="ru">ru</option>
+    <option value="uk">uk</option>
+  </select>
+</p>
+
+<div id="node-popUp">
+  <span id="node-operation">node</span> <br />
+  <table style="margin: auto">
+    <tbody>
+      <tr>
+        <td>id</td>
+        <td><input id="node-id" value="new value" /></td>
+      </tr>
+      <tr>
+        <td>label</td>
+        <td><input id="node-label" value="new value" /></td>
+      </tr>
+    </tbody>
+  </table>
+  <input type="button" value="save" id="node-saveButton" />
+  <input type="button" value="cancel" id="node-cancelButton" />
+</div>
+
+<div id="edge-popUp">
+  <span id="edge-operation">edge</span> <br />
+  <table style="margin: auto">
+    <tbody>
+      <tr>
+        <td>label</td>
+        <td><input id="edge-label" value="new value" /></td>
+      </tr>
+    </tbody>
+  </table>
+  <input type="button" value="save" id="edge-saveButton" />
+  <input type="button" value="cancel" id="edge-cancelButton" />
+</div>
+
+<br />
+<div id="mynetwork"></div>
+<script type="text/javascript" src="edit-nodes.js"></script>
+</body>
+</html>
+
