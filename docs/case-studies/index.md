@@ -115,15 +115,15 @@ with volunteers to get those courses in the public domain sometime in the future
 * [Graph Algorithms](graph-algorithms.md)
 * [Learning Graph for Graph Algorithms](https://dmccreary.github.io/graph-algorithms/sims/learning-graph/view-graph.html)
 
-### Building Intelligent Textbooks
+### Intelligent Textbooks
 
 This is a hands-on guide to using the mkdocs-material tools to build an intelligent textbook.
 It includes a detailed getting started guide for people that are new to the
 book building process and the ```mkdocs``` document build system.  Our
 focus in getting books to the 2.9 level.
 
-* [Intelligent Textbooks](https://dmccreary.github.io/mkdocs-for-intelligent-textbooks/)
-* [Learning Graph for Intelligent Textbooks](https://dmccreary.github.io/mkdocs-for-intelligent-textbooks/sims/learning-graph/)
+* [Intelligent Textbooks](https://dmccreary.github.io/mintelligent-textbooks/)
+* [Learning Graph for Intelligent Textbooks](https://dmccreary.github.iointelligent-textbooks/sims/learning-graph/)
 
 ### Learning Graph
 
