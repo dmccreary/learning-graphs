@@ -171,6 +171,10 @@ This course came about in collaboration with [Jarvis Haupt](https://cse.umn.edu/
 - [Signal Processing Website](./signal-processing.md)
 - [Signal Processing Learning Graph](https://dmccreary.github.io/signal-processing/sims/graph-viewer/view-graph-v3.html)
 
+#### Spectrum Analyzer
+
+- [Spectrum Analyzer](https://dmccreary.github.io/spectrum-analyzer/)
+
 ### STEM Robots
 
 In 2014 I started designing low-cost robots for teaching computational thinking.  Over the years
