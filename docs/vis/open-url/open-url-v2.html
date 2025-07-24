@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>vis.js Interactive Network with Modifier Keys Debugging</title>
+    <!-- Include the vis-network library from a CDN -->
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <style type="text/css">
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        #mynetwork {
+            width: 700px;
+            height: 500px;
+            background-color: aliceblue;
+            border: 1px solid silver;
+            cursor: default; /* Default cursor */
+        }
+        #node-details, #modifier-keys {
+            width: 700px;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            font-size: 14px;
+        }
+        #node-details h3, #modifier-keys h3 {
+            margin-top: 0;
+        }
+        a {
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table td, table th {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+        }
+        table th {
+            background-color: #f2f2f2;
+            text-align: left;
+            width: 30%;
+        }
+        .modifier-active {
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h2>vis.js Hover, Shift-Click, Control-Click and Command-Click to open a node URL</h2>
+    <div id="mynetwork"></div>
+    <div id="modifier-keys">
+        <h3>Modifier Keys Status</h3>
+        <p>
+            Shift: <span id="shift-key">Up</span> |
+            Ctrl: <span id="ctrl-key">Up</span> |
+            Alt: <span id="alt-key">Up</span> |
+            Meta: <span id="meta-key">Up</span>
+        </p>
+    </div>
+    <div id="node-details">
+        <h3>Node Details</h3>
+        <ol>
+            <li>Hover to see the title text.</li>
+            <li>Shift click to display the concept URL in a new window and move to that new window.</li>
+            <li>Ctrl click to open the concept URL in a new tab and navigate to that new tab.</li>
+            <li>Command click to open the concept URL in a new tab in the background without changing focus.</li>
+
+        </ol>
+    </div>
+    <a href=".">Back to Lesson Plan</a>
+    <script type="text/javascript">
+        // Create an array of nodes with 'title' and 'url' for tooltips and links
+        // Create an array of nodes with 'title' and 'url' for tooltips and links
+        var nodes = new vis.DataSet([
+            // Goal node on the right, fixed horizontally
+            { 
+                id: 1, 
+                label: "Arithmetic", 
+                color: "gold", 
+                shape: "star", 
+                size: 30, 
+                x: 200, 
+                y: 0, 
+                fixed: { x: true, y: false }, 
+                font: { size: 24 },
+                title: "This is the Arithmetic node representing the main topic.",
+                description: "Arithmetic is the branch of mathematics dealing with numbers and the basic operations on them.",
+                url: "https://en.wikipedia.org/wiki/Arithmetic"
+            },
+            // Operation nodes
+            { 
+                id: 2, 
+                label: "Addition", 
+                color: "tan", 
+                y: -200,
+                title: "Addition is the process of finding the total or sum by combining two or more numbers.",
+                description: "Addition combines two or more numbers into a single sum.",
+                url: "https://en.wikipedia.org/wiki/Addition"
+            },
+            { 
+                id: 3, 
+                label: "Subtraction", 
+                color: "tan", 
+                y: -100,
+                title: "Subtraction is the process of finding the difference between two numbers.",
+                description: "Subtraction calculates the difference by removing one number from another.",
+                url: "https://en.wikipedia.org/wiki/Subtraction"
+            },
+            { 
+                id: 4, 
+                label: "Multiplication", 
+                color: "tan", 
+                y: 100,
+                title: "Multiplication is the process of combining equal groups to find the total.",
+                description: "Multiplication involves adding a number to itself a certain number of times.",
+                url: "https://en.wikipedia.org/wiki/Multiplication"
+            },
+            { 
+                id: 5, 
+                label: "Division", 
+                color: "tan", 
+                y: 200,
+                title: "Division is the process of splitting a number into equal parts.",
+                description: "Division determines how many times one number is contained within another.",
+                url: "https://en.wikipedia.org/wiki/Division"
+            },
+            // Foundation node on the left, fixed horizontally
+            { 
+                id: 6, 
+                label: "Numbers", 
+                color: "coral", 
+                shape: "box", 
+                x: -200, 
+                y: 0, 
+                fixed: { x: true, y: false },
+                title: "Numbers are the basic elements used in arithmetic operations.",
+                description: "Numbers are symbols used to represent quantities and perform calculations.",
+                url: "https://en.wikipedia.org/wiki/Number"
+            }
+        ]);
+
+        // Create an array of edges with 'title' for tooltips
+        var edges = new vis.DataSet([
+            { 
+                from: 1, 
+                to: 2,
+                title: "Connects Arithmetic to Addition"
+            },
+            { 
+                from: 1, 
+                to: 3,
+                title: "Connects Arithmetic to Subtraction"
+            },
+            { 
+                from: 1, 
+                to: 4,
+                title: "Connects Arithmetic to Multiplication"
+            },
+            { 
+                from: 1, 
+                to: 5,
+                title: "Connects Arithmetic to Division"
+            },
+            { 
+                from: 2, 
+                to: 6,
+                title: "Addition relies on Numbers"
+            },
+            { 
+                from: 3, 
+                to: 6,
+                title: "Subtraction relies on Numbers"
+            },
+            { 
+                from: 4, 
+                to: 6,
+                title: "Multiplication relies on Numbers"
+            },
+            { 
+                from: 5, 
+                to: 6,
+                title: "Division relies on Numbers"
+            }
+        ]);
+
+
+        // Create a network
+        var container = document.getElementById('mynetwork');
+
+        // Provide the data in the vis format
+        var data = {
+            nodes: nodes,
+            edges: edges
+        };
+
+        var options = {
+            edges: {
+                arrows: {
+                    to: { enabled: true }
+                },
+                color: {
+                    color: 'black',
+                    inherit: false
+                },
+                width: 2,
+                smooth: {
+                    type: 'cubicBezier',
+                    roundness: 0.4
+                }
+            },
+            nodes: {
+                font: {
+                    size: 14,
+                    color: '#343434'
+                },
+                borderWidth: 2,
+                shadow: true
+            },
+            physics: {
+                solver: 'forceAtlas2Based',
+                forceAtlas2Based: {
+                    springLength: 100
+                },
+                stabilization: {
+                    iterations: 1000
+                }
+            },
+            interaction: {
+                hover: true, // Enable hover interactions
+                tooltipDelay: 200 // Delay before showing tooltip
+            },
+            layout: {
+                improvedLayout: true
+            }
+        };
+
+        // Initialize your network!
+        var network = new vis.Network(container, data, options);
+
+        // Function to display node properties
+        function displayNodeProperties(nodeId) {
+            // Function as before...
+        }
+
+        // Helper function to format property values
+        function formatProperty(value) {
+            // Function as before...
+        }
+
+        // Add event listener for double-click
+        network.on("doubleClick", function (params) {
+            // Function as before...
+        });
+
+        // Change cursor to pointer when hovering over a node with a URL
+        network.on("hoverNode", function (params) {
+            // Function as before...
+        });
+
+        network.on("blurNode", function (params) {
+            // Function as before...
+        });
+
+        // Handle click events with modifier keys to open links
+        network.on("click", function (params) {
+            console.log('Click event params:', params);
+            if (params.nodes.length === 1) {
+                var nodeId = params.nodes[0];
+                var node = nodes.get(nodeId);
+                if (node.url) {
+                    // Corrected: Use params.event.srcEvent
+                    var srcEvent = params.event.srcEvent;
+                    console.log('Source Event:', srcEvent);
+
+                    // Check for modifier keys
+                    var openInNewTab = srcEvent.ctrlKey || srcEvent.metaKey || srcEvent.shiftKey || srcEvent.button === 1;
+                    console.log('Modifier Keys - Ctrl:', srcEvent.ctrlKey, 'Meta:', srcEvent.metaKey, 'Shift:', srcEvent.shiftKey, 'Alt:', srcEvent.altKey, 'Button:', srcEvent.button);
+
+                    if (openInNewTab) {
+                        // Open in a new tab
+                        console.log('Opening URL in a new tab:', node.url);
+                        window.open(node.url, '_blank');
+                    } else {
+                        console.log('Modifier keys not pressed. No action taken.');
+                        // Optionally, handle regular clicks
+                        // window.location.href = node.url; // Uncomment to navigate in the same tab
+                    }
+                } else {
+                    console.log('Node does not have a URL:', node);
+                }
+            } else {
+                console.log('No node clicked or multiple nodes selected.');
+            }
+        });
+
+        // Visual Indicator for Modifier Keys
+        var shiftKeyIndicator = document.getElementById('shift-key');
+        var ctrlKeyIndicator = document.getElementById('ctrl-key');
+        var altKeyIndicator = document.getElementById('alt-key');
+        var metaKeyIndicator = document.getElementById('meta-key');
+
+        function updateModifierKeys(event) {
+            shiftKeyIndicator.textContent = event.shiftKey ? 'Down' : 'Up';
+            ctrlKeyIndicator.textContent = event.ctrlKey ? 'Down' : 'Up';
+            altKeyIndicator.textContent = event.altKey ? 'Down' : 'Up';
+            metaKeyIndicator.textContent = event.metaKey ? 'Down' : 'Up';
+
+            // Add visual emphasis
+            shiftKeyIndicator.classList.toggle('modifier-active', event.shiftKey);
+            ctrlKeyIndicator.classList.toggle('modifier-active', event.ctrlKey);
+            altKeyIndicator.classList.toggle('modifier-active', event.altKey);
+            metaKeyIndicator.classList.toggle('modifier-active', event.metaKey);
+        }
+
+        // Listen for keydown and keyup events on the window
+        window.addEventListener('keydown', updateModifierKeys);
+        window.addEventListener('keyup', updateModifierKeys);
+
+        // Update modifier keys on focus
+        window.addEventListener('focus', function (event) {
+            // Reset all indicators
+            shiftKeyIndicator.textContent = 'Up';
+            ctrlKeyIndicator.textContent = 'Up';
+            altKeyIndicator.textContent = 'Up';
+            metaKeyIndicator.textContent = 'Up';
+
+            shiftKeyIndicator.classList.remove('modifier-active');
+            ctrlKeyIndicator.classList.remove('modifier-active');
+            altKeyIndicator.classList.remove('modifier-active');
+            metaKeyIndicator.classList.remove('modifier-active');
+        });
+
+        // Optional: Handle middle-click (mouse wheel click) to open in new tab
+        network.on("oncontext", function (params) {
+            // Prevent the context menu from appearing on right-click
+            params.event.preventDefault();
+        });
+
+    </script>
+</body>
+</html>

@@ -2,7 +2,7 @@
 
 <iframe src="../lab-01.html" height="320px" width="320px"></iframe>
 
-[Lab 1](./lab-01.html)
+[Run Lab 1 Mocrosim](./lab-01.html){ .md-button .md-button--primary }
 
 ```html
 <html>

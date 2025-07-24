@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>vis.js DAG Dependency Trace</title>
+  <!-- Updated to the latest version of vis-network -->
+  <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <style>
+    #network {
+      width: 100%;
+      height: 600px;
+      border: 1px solid lightgray;
+    }
+  </style>
+</head>
+<body>
+  <h1>DAG Dependency Trace</h1>
+  <div id="network"></div>
+  <script>
+    // Define nodes
+    const nodes = new vis.DataSet([
+      { id: 1, label: 'Node 1' },
+      { id: 2, label: 'Node 2' },
+      { id: 3, label: 'Node 3' },
+      { id: 4, label: 'Node 4' },
+      { id: 5, label: 'Node 5' }
+    ]);
+
+    // Define edges (directed)
+    const edges = new vis.DataSet([
+      { from: 1, to: 2 },
+      { from: 1, to: 3 },
+      { from: 2, to: 4 },
+      { from: 3, to: 4 },
+      { from: 4, to: 5 }
+    ]);
+
+    // Create a network
+    const container = document.getElementById('network');
+    const data = { nodes, edges };
+    const options = {
+      edges: {
+        arrows: { to: { enabled: true } }
+      },
+      physics: {
+        enabled: true,
+      }
+    };
+
+    const network = new vis.Network(container, data, options);
+
+    // Function to trace dependencies
+    function traceDependencies(nodeId) {
+      const visited = new Set();
+
+      // Depth-first traversal to collect dependencies
+      function dfs(currentNode) {
+        if (visited.has(currentNode)) return;
+        visited.add(currentNode);
+        const connectedEdges = network.getConnectedEdges(currentNode);
+        connectedEdges.forEach(edgeId => {
+          const edge = edges.get(edgeId);
+          if (edge.from === currentNode) {
+            dfs(edge.to);
+          }
+        });
+      }
+
+      // Start traversal from the clicked node
+      dfs(nodeId);
+
+      // Highlight the visited nodes
+      nodes.forEach(node => {
+        if (visited.has(node.id)) {
+          nodes.update({ id: node.id, color: { background: 'lightgreen' } });
+        } else {
+          nodes.update({ id: node.id, color: { background: 'lightgray' } });
+        }
+      });
+    }
+
+    // Event listener for node clicks
+    network.on('click', function (params) {
+      if (params.nodes.length > 0) {
+        const clickedNodeId = params.nodes[0];
+        traceDependencies(clickedNodeId);
+      } else {
+        // Reset all node colors if no node is clicked
+        nodes.forEach(node => {
+          nodes.update({ id: node.id, color: { background: 'white' } });
+        });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -88,3 +88,7 @@ Learn how to create an interactive graph editor
 
 [Adding Legends](./legends/index.md)
 
+## Editing Nodes and Edges
+
+[Edit Nodes](./edit-nodes/index.md)
+

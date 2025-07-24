@@ -1,0 +1,182 @@
+<html>
+<head>
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <style type="text/css">
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #mynetwork {
+            width: 80%;
+            height: 600px;
+            background-color: aliceblue;
+            border: 1px solid silver;
+            margin: 0 auto; /* Center the network */
+        }
+        #search-container {
+            width: 80%; /* Same width as #mynetwork */
+            margin: 10px auto; /* Center align and add margin for spacing */
+            position: relative; /* To position #search-results relative to this container */
+        }
+        #search-input {
+            width: 100%;
+            padding: 5px;
+        }
+        #search-results {
+            position: absolute; /* Float above the content */
+            top: 100%; /* Align right below the input field */
+            left: 0;
+            width: 100%;
+            background-color: white;
+            border: 1px solid silver;
+            max-height: 150px;
+            overflow-y: auto;
+            z-index: 1000; /* Ensure it appears above other elements */
+            display: none; /* Initially hidden */
+        }
+        #search-results div {
+            padding: 5px;
+            cursor: pointer;
+        }
+        #search-results div:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+  <div id="search-container">
+    <input type="text" id="search-input" placeholder="Search nodes...">
+    <div id="search-results"></div>
+  </div>
+  <div id="mynetwork"></div>
+  <br/>
+<a href=".">Back to Lesson Plan</a>
+<script type="text/javascript">
+
+    // create an array of nodes in groups
+var nodes = new vis.DataSet([
+  // existing nodes
+  { id: 1, label: "Arithmetic", color: "gold", shape: "star", size: 30, x: 200, y: 0, fixed: { x: true, y: false }, font: { size: 24 } },
+  { id: 2, label: "Addition", color: "tan", y: -200 },
+  { id: 3, label: "Subtraction", color: "tan", y: -100 },
+  { id: 4, label: "Multiplication", color: "tan", y: 100 },
+  { id: 5, label: "Division", color: "tan", y: 200 },
+  { id: 6, label: "Numbers", color: "coral", shape: "box", x: -400, y: 0, fixed: { x: true, y: false } },
+
+  // new nodes
+  { id: 7, label: "Fractions", color: "lightblue", y: 300 },
+  { id: 8, label: "Decimals", color: "lightblue", y: 400 },
+  { id: 9, label: "Percentages", color: "lightblue", y: 500 },
+  { id: 10, label: "Basic Algebra", color: "lightgreen", y: 600 },
+  { id: 11, label: "Linear Equations", color: "lightgreen", y: 700 },
+  { id: 12, label: "Inequalities", color: "lightgreen", y: 800 },
+  { id: 13, label: "Quadratic Equations", color: "pink", y: 900 },
+  { id: 14, label: "Polynomials", color: "pink", y: 1000 },
+  { id: 15, label: "Exponents", color: "yellow", y: -300 },
+  { id: 16, label: "Logarithms", color: "yellow", y: -400 }
+]);
+
+var edges = new vis.DataSet([
+  // existing edges
+  { from: 1, to: 2 },
+  { from: 1, to: 3 },
+  { from: 1, to: 4 },
+  { from: 1, to: 5 },
+  { from: 2, to: 6 },
+  { from: 3, to: 6 },
+  { from: 4, to: 6 },
+  { from: 5, to: 6 },
+
+  // new edges
+  { from: 6, to: 7 }, // Numbers to Fractions
+  { from: 7, to: 8 }, // Fractions to Decimals
+  { from: 8, to: 9 }, // Decimals to Percentages
+  { from: 9, to: 10 }, // Percentages to Basic Algebra
+  { from: 10, to: 11 }, // Basic Algebra to Linear Equations
+  { from: 11, to: 12 }, // Linear Equations to Inequalities
+  { from: 12, to: 13 }, // Inequalities to Quadratic Equations
+  { from: 13, to: 14 }, // Quadratic Equations to Polynomials
+  { from: 6, to: 15 }, // Numbers to Exponents
+  { from: 15, to: 16 } // Exponents to Logarithms
+]);
+
+    // create a network
+    var container = document.getElementById('mynetwork');
+
+    // provide the data in the vis format
+    var data = {
+        nodes: nodes,
+        edges: edges
+    };
+
+    var options = {
+        edges: {
+            arrows: {
+                to: { enabled: true}
+            },     // Arrow at the destination
+            color: {
+                color: 'black',  // Set edge color to black
+                inherit: false     // Ensure color is applied to all edges explicitly
+            },
+            width: 2               // Set edge width to 2
+        },
+        physics: {
+            solver: 'forceAtlas2Based',
+            forceAtlas2Based: {
+                springLength: 80          // Higher value for larger spacing
+            }
+        }
+    };
+
+    // initialize your network!
+    var network = new vis.Network(container, data, options);
+
+    // Now, add the search functionality
+    var searchInput = document.getElementById('search-input');
+    var searchResults = document.getElementById('search-results');
+    var searchContainer = document.getElementById('search-container');
+
+    searchInput.addEventListener('input', function() {
+        var query = this.value.toLowerCase();
+        if (query === '') {
+            searchResults.style.display = 'none';
+            searchResults.innerHTML = '';
+            return;
+        }
+        var matches = nodes.get({
+            filter: function (item) {
+                return item.label.toLowerCase().includes(query);
+            }
+        });
+        if (matches.length > 0) {
+            searchResults.innerHTML = '';
+            matches.forEach(function(item) {
+                var div = document.createElement('div');
+                div.textContent = item.label;
+                div.dataset.id = item.id;
+                div.addEventListener('click', function() {
+                    var nodeId = this.dataset.id;
+                    network.focus(nodeId, {animation: {duration: 500}});
+                    network.selectNodes([nodeId]);
+                    searchResults.style.display = 'none';
+                    searchResults.innerHTML = '';
+                    searchInput.value = '';
+                });
+                searchResults.appendChild(div);
+            });
+            searchResults.style.display = 'block';
+        } else {
+            searchResults.style.display = 'none';
+            searchResults.innerHTML = '';
+        }
+    });
+
+    // Close the dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!searchContainer.contains(event.target)) {
+            searchResults.style.display = 'none';
+            searchResults.innerHTML = '';
+        }
+    });
+</script>
+</body>
+</html>

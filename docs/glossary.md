@@ -6,6 +6,11 @@ precise, concise, distinct and non-circular definitions.
 <!--
 https://chatgpt.com/share/6732155f-1e6c-8001-994f-f6371995777d
 -->
+#### Adaptive Algorithm
+
+A computational method designed to adjust its parameters or behavior based on real-time input or changing conditions.
+
+**Example:** An adaptive algorithm in a learning system adjusts question difficulty based on the student’s response accuracy.
 
 #### Adaptive Learning
 
@@ -45,6 +50,16 @@ A synonym or alternative term used to represent the same concept within a given 
 
 ![blooms-taxonomy](./img/blooms-taxonomy.png)
 
+A hierarchical model used to classify educational learning objectives into levels of complexity and specificity. The taxonomy progresses from basic knowledge recall to higher-order thinking skills such as evaluation and creation.
+
+Example: In a graph theory course, applying Bloom’s Taxonomy could involve starting with defining basic terms like “node” and “edge,” progressing to analyzing graph structures, and culminating in designing algorithms for solving graph-based problems.
+
+#### Cluster
+
+A group of nodes in a graph that are more densely connected to each other than to nodes outside the group.
+
+**Example:** In a social network graph, a cluster might represent a group of friends who frequently interact with one another.
+
 #### Concept
 
 A fundamental unit of knowledge, representing an abstract idea or a mental construct that can be described, categorized, and related to other concepts within a domain.
@@ -63,6 +78,20 @@ A visual representation of the relationships between concepts, where nodes repre
 
 **Example:** In a concept dependency graph for an algebra course, "solving linear equations" may depend on the prior understanding of "basic arithmetic operations" and "variables." This graph helps to design learning paths for students based on their current knowledge.
 
+#### Constructivism
+
+A learning theory suggesting that learners build their understanding
+and knowledge best through active experiences and reflection.
+
+**Example:** Constructivism is applied when students participate in
+hands-on experiments to understand scientific principles.
+
+#### Dependency
+
+A relationship between two entities where one entity relies on the other for its function, understanding, or completion.
+
+**Example:** In a learning graph, "multiplication" depends on the understanding of "addition," as it is built upon repeated addition.
+
 #### Directed Graph
 
 A graph consisting of nodes (vertices) connected by edges (arcs) that have a specific direction, indicating a one-way relationship between the nodes.
@@ -78,6 +107,12 @@ publication information associated with the file. This ensures consistent organi
 
 **Example:** The learning graph for “Graph Algorithms” with Dublin Core Metadata elements such as Title (“Introduction to Graph Algorithms”), Creator (“Dan McCreary”), and Subject (“Computer Science”).
 
+#### Feedback Loop
+
+A cyclical process in which the output of a system influences its input, often used to improve performance or adapt to changes.
+
+**Example:** An adaptive LMS uses a feedback loop of monitoring snd assessments to refine content based on student performance and engagement.
+
 #### Foundational Concepts
 
 Basic or essential concepts that serve as the building blocks for understanding more complex ideas or advanced knowledge within a domain.
@@ -90,11 +125,29 @@ A type of artificial intelligence capable of producing new content, such as text
 
 **Example:** A generative AI model can create personalized learning materials by analyzing a student's previous responses and generating explanations, questions, or study guides tailored to their learning progress.
 
+#### Graph Representation
+
+The visualization or modeling of data in graph format, where nodes represent entities and edges represent relationships.
+
+**Example:** A graph representation of a transportation network shows cities as nodes and roads as edges.
+
 #### Hyper-Personalization
 
 The process of creating highly individualized experiences or content by leveraging advanced data analysis and machine learning to tailor recommendations, content, and interactions based on unique characteristics of the user.
 
 **Example:** In an online learning platform, hyper-personalization is used to generate lesson plans based on a student's learning preferences, quiz performance, and real-time concept mastery, creating a unique learning path for each student.
+
+#### Hierarchy
+
+An organizational structure where entities are ranked or ordered based on predefined criteria, such as complexity or dependency.
+
+**Example:** In Bloom’s Taxonomy, educational objectives are organized hierarchically, from basic knowledge recall to advanced 
+
+#### Interactive Visualization
+
+A graphical representation of data or concepts that allows users to explore and manipulate elements for deeper understanding.
+
+**Example:** An interactive visualization of a learning graph enables students to click on nodes to view associated resources and dependencies.
 
 #### ISO Definition
 
@@ -116,6 +169,10 @@ vis.js.
 
 #### JSON Schema
 
+A file of rules in JSON format that allows you to annotate and validate the structure of JSON documents.
+
+**Example:** In a graph theory course, a JSON schema could define the structure for graph data, ensuring that each node has a unique identifier, and edges include both source and target nodes with specified attributes.
+
 #### Journey Map
 
 ![Journey Map for Python](./img/journey-map-python.png)
@@ -123,6 +180,12 @@ vis.js.
 A visual or structured representation of an individual's experience as they move through a sequence of steps, interactions, or stages to achieve a specific goal, often used to identify [touchpoints](#touchpoint), challenges, and opportunities for improvement.
 
 **Example:** A journey map for a student's learning process can be derived from a learning concept graph. For instance, the graph shows the required concepts to master "calculus," such as "basic arithmetic" and "algebra." A journey map can be created that outlines the student's progression through these concepts, highlighting key milestones, struggles, and recommended interventions at each stage to ensure the successful understanding of calculus.
+
+#### Knowledge Graph
+
+A structured representation of knowledge in graph form, consisting of nodes (entities) and edges (relationships) to facilitate understanding, querying, and reasoning.
+
+**Example:** A knowledge graph of historical events connects key figures, dates, and places to provide contextual insights
 
 #### Learning Graph
 
@@ -148,6 +211,12 @@ A structured sequence of learning activities, materials, or modules designed to 
 
 **Example:** A learning path for mastering algebra might start with basic arithmetic, followed by lessons on solving equations, and then advance to systems of equations and quadratic functions.
 
+#### Learning Resource
+
+Any material, tool, or content used to facilitate learning, such as books, videos, simulations, or lesson plans.
+
+**Example:** An interactive video on the water cycle serves as a learning resource for an environmental science course.
+
 #### MicroSim
 
 A small stand-alone educational simulation of a concept.  MicroSims
@@ -165,14 +234,28 @@ A collection of interconnected nodes within a graph that share common characteri
 * Also know as: Community
 * Also know as: Cluster
 
+#### Ontology
+
+A formal representation of knowledge as a set of concepts within a domain and the relationships between those concepts.
+
+**Example:** In a learning graph, an ontology may define the relationships between mathematical concepts like “algebra” and “geometry.
+
 #### Preferred Label
 
-The preferred name of a [Concept](#concept).
+The primary or most commonly used name assigned to a [Concept](#concept) in a graph or ontology, intended to standardize references to that concept.
+
+**Example:** In a graph theory course, the preferred label for a concept might be "Bipartite Graph," while alternate labels could include "Two-Part Graph."
 
 In general, a concept has one and only one preferred name per language such as English, but a Concept
 may have many alternate labels.
 
 Within a learning graph, no two Concepts should have the same preferred name.
+
+#### Real-Time Analytics
+
+The immediate analysis of data as it is collected, enabling real-time insights and decision-making.
+
+**Example:** A learning management system uses real-time analytics to monitor a student’s quiz performance and adapt subsequent content.
 
 #### Rhizombic Learning
 
@@ -180,6 +263,38 @@ An educational model inspired by the way rhizomes grow and spread, allowing for 
 
 The Rhizombic Learning approach contrasts with traditional hierarchical or linear models, focusing instead on exploration, connection, and adaptability.  Learning graphs are ideal
 tools to encourage the curious leaner.
+
+#### Prerequisite Chain
+
+A sequence of concepts or courses that must be mastered in a specific order to achieve a learning objective.
+
+**Example:** In mathematics, the prerequisite chain might include arithmetic before algebra, followed by calculus.
+
+#### Scaffolding
+
+A teaching method that provides structured support to help learners progress toward independence in mastering a concept or skill.
+
+**Example:** A teacher uses scaffolding by providing step-by-step guidance for solving equations, gradually reducing support as students gain confidence.
+
+#### Scale-Free Network
+
+A type of network characterized by a power-law degree distribution, where a few nodes (hubs) have a significantly higher number of connections compared to most other nodes.
+
+In the graph LMS, the concept of a scale-free network can describe how certain key concepts or resources (hubs) are highly connected to other learning elements. This insight is useful for optimizing learning paths and prioritizing the development of foundational or widely-used resources.
+
+**Example:** The LMS identifies "Basic Algebra" as a hub in the learning graph because it is a prerequisite for multiple advanced concepts, demonstrating the scale-free nature of the learning graph.
+
+#### Simulation
+
+A computer-based or interactive program that models real-world processes or systems for educational purposes.
+
+**Example:** A physics simulation allows students to adjust variables like gravity and observe the effects on a pendulum.
+
+#### Skill Gap
+
+The difference between a learner’s current capabilities and the required skills or knowledge to achieve a specific goal.
+
+**Example:** A skill gap analysis reveals that a student needs to improve problem-solving skills before advancing to calculus.
 
 #### SKOS
 

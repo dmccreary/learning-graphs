@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+.vscode/settings.json
+=======
+.cache/
+>>>>>>> 84368afb1e4af034ee554f4438ce403eca74633c
 site
 .DS_Store
 ~$*
