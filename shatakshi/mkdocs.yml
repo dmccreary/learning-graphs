@@ -1,0 +1,26 @@
+site_name: MkLorum
+repo_url: https://github.com/shatakshidata/my-mkdocs-site
+nav:
+  - Home: index.md
+  - About: about.md
+  - Concepts: knowledge_graph.md
+  - Text Analytics:
+    - Tokenization: textanalytics/tokenization.md
+    - Word Cloud: textanalytics/wordcloud.md
+    - N Gram Analysis: textanalytics/ngram.md
+    - Sentiment Analysis: textanalytics/sentiment.md
+  - Image Analytics: 
+    - Image Processing: imageanalytics/imageprocess.md
+  - Machine Learning:
+    - Linear Regression: ml/linear_regression.md
+    - KNN Classification: ml/knn_classification.md
+    - Clustering: ml/clustering.md
+  - Data Visualization:
+    - Time-Series: datavis/line_visuals.md
+    - Categorical_bar: datavis/bar_visuals.md
+    - Categorical_Pie: datavis/pie_visuals.md
+    - Scatter-Plot: datavis/scatter_visuals.md
+  - LLM: llm.md
+  - Wolfram: simulation.md
+theme: material
+
