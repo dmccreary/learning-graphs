@@ -56,6 +56,13 @@ These steps are explained in detail in the [Prompts](../prompts/index.md) sectio
 
 ## Case Studies
 
+### Agents Course
+
+This is a course on using LLMs and knowledge graphs to build intelligent agents.
+
+* [Agents Course](https://dmccreary.github.io/agents-course/)
+* [Learning Graph for Agents Course](https://dmccreary.github.io/agents-course/sims/learning-graph/graph-viewer.html)
+
 ### Beginning Electronics
 
 This is the beginning of a new textbook on beginning electronics
@@ -171,7 +178,9 @@ This course came about in collaboration with [Jarvis Haupt](https://cse.umn.edu/
 - [Signal Processing Website](./signal-processing.md)
 - [Signal Processing Learning Graph](https://dmccreary.github.io/signal-processing/sims/graph-viewer/view-graph-v3.html)
 
-#### Spectrum Analyzer
+### Spectrum Analyzer
+
+This is a textbook built around a low-cost ($20) spectrum analyzer kit created around the Raspberry Pi Pico 2.
 
 - [Spectrum Analyzer](https://dmccreary.github.io/spectrum-analyzer/)
 

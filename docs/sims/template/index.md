@@ -9,8 +9,10 @@
 
 ## About this MicroSim
 
-This MicroSim teaches us how to
-specify the drawing of a static filled circle.
+This MicroSim teaches us how to calculate the time
+before a college loan is repaid.
+
+Note that the average interest rate for an undergraduate loan is 6.5% [EducationData.org report](https://educationdata.org/average-student-loan-interest-rate)
 
 ## Sample Prompt
 

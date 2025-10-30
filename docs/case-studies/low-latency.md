@@ -2,20 +2,18 @@
 
 ## Sample Prompt
 
-```linenums="0"
-Create a list of concepts that might be taught in a class on
-building low-latency applications. These are applications that
-must return results in a short window of time, typically 100 milliseconds.
-List Concepts about the infrastructure necessary to support
-these types of applications and how the cloud may not be
-the right way to solve these problems. List the concepts
-in setting up virtual private networks and in-memory graph
-databases to execute fast business logic.
-```
+!!! prompt
+    Create a list of concepts that might be taught in a class on
+    building low-latency applications. These are applications that
+    must return results in a short window of time, typically 100 milliseconds.
+    List Concepts about the infrastructure necessary to support
+    these types of applications and how the cloud may not be
+    the right way to solve these problems. List the concepts
+    in setting up virtual private networks and in-memory graph
+    databases to execute fast business logic.
 
-ChatGPT
-
-Thought for 46 seconds
+## Results
+    ChatGPT o1-preview Thought for 46 seconds
 
 **Concepts Covered in a Class on Building Low-Latency Applications**
 
