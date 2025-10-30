@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Textbook Word Cloud</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wordcloud2.js/1.0.6/wordcloud2.min.js"></script>
+    <style>
+        #word-cloud {
+            width: 100%;
+            height: 400px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Interactive Web-Based Textbook Word Cloud</h1>
+    <div id="word-cloud"></div>
+
+    <script>
+        // Define the terms and their relative weights
+        const words = [
+            ["Search", 40],
+            ["Deep Linking", 40],
+            ["Social Preview Images", 35],
+            ["Interactive Quizzes", 50],
+            ["Learning Graph", 50],
+            ["Glossary Links", 40],
+            ["Table of Contents", 30],
+            ["Index Links", 30],
+            ["MicroSims", 35],
+            ["Animated Charts", 30],
+            ["Interactivity", 50],
+            ["Gamification", 35],
+            ["Responsive Design", 30],
+            ["Progress Tracking", 35],
+            ["Collaborative Features", 25],
+            ["Accessible Design", 40],
+            ["Real-time Feedback", 30],
+            ["Highlighting", 25],
+            ["Annotations", 25],
+            ["Bookmarking", 20],
+            ["Dynamic Content", 30],
+            ["Adaptive Learning", 35],
+            ["Mobile Friendly", 30],
+            ["Embedded Videos", 25],
+            ["Code Snippets", 20],
+            ["Interactive Diagrams", 35],
+            ["Rich Media Content", 30],
+            ["Contextual Help", 25],
+            ["Version Control", 20],
+            ["Open Educational Resources", 25],
+            ["Cross-referencing", 30],
+            ["Customizable Layouts", 20],
+            ["Offline Access", 25],
+            ["Interactive Labs", 40],
+            ["Drag-and-Drop Activities", 30],
+            ["Dynamic Assessments", 35],
+            ["Behavior Analytics", 30],
+            ["Learning Objectives", 25],
+            ["Digital Badges", 20],
+            ["Knowledge Checks", 25],
+            ["Threaded Discussions", 20]
+        ];
+
+        // Generate the word cloud
+        WordCloud(document.getElementById('word-cloud'), {
+            list: words,
+            gridSize: 3,
+            weightFactor: 1.1,
+            fontFamily: 'Times, serif',
+            color: function () {
+                return 'rgb(' + 
+                    Math.floor(Math.random() * 256) + ',' +
+                    Math.floor(Math.random() * 200) + ',' +
+                    Math.floor(Math.random() * 256) + ')';
+            },
+            backgroundColor: '#ffffff'
+        });
+    </script>
+</body>
+</html>
