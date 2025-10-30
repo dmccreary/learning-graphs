@@ -64,7 +64,9 @@ Create a CSV file mapping dependencies between concepts:
 
 ## Step 4: Quality Validation
 
-Perform comprehensive quality checks on the dependency graph:
+Perform comprehensive quality checks on the dependency graph
+by using the Python program analyze-graph.py in this skill.
+It will do the following checks:
 
 1. **Verify DAG structure**: Ensure no cycles exist
 2. **Check for self-dependencies**: No concept should depend on itself
@@ -112,6 +114,9 @@ Update the dependencies CSV file:
 3. Use "MISC" for concepts without a clear category match
 4. Save the updated file to `/data/concept-dependencies.csv`
 
+You can use the Python Program add-taxonomy.py as a template
+that will do the substitution.
+
 **Final CSV columns:** `ConceptID,ConceptLabel,Dependencies,TaxonomyID`
 
 ## Step 7: Taxonomy Distribution Report
@@ -123,6 +128,8 @@ Generate a distribution analysis:
 3. Identify over-represented categories (>30%)
 4. Suggest alternative categorization if needed
 
+Use the python report in this skill called taxonomy-distribution.py
+
 **Output:**
 - Save to `/data/taxonomy-distribution.md`
 - Format as markdown table with columns:
@@ -131,7 +138,14 @@ Generate a distribution analysis:
   - Count
   - Percentage
 
-## Step 8: Completion
+## Step 8: Convert CSV to JSON
+
+Convert the CSV file to JSON format.  This is the format used
+by the learning-graph viewer and learning graph editor tools.
+
+Use the Python program convert-to-json.py in this skill.
+
+## Step 9: Completion
 
 Inform the user that the learning graph generation is complete! Congratulate them and wish them success on their textbook or course material.
 
