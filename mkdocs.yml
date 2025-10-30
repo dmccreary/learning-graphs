@@ -45,6 +45,7 @@ nav:
     - Learning Graph: sims/graph-viewer/index.md
     - MicroPython: case-studies/micropython.md
     - MicroSims: case-studies/microsims.md
+    - Personal Finance: case-studies/personal-finance.md
     - Python: case-studies/python.md
     - Signal Processing: case-studies/signal-processing.md
     - Spectrum Analyzer: case-studies/spectrum-analyzer.md
@@ -89,6 +90,9 @@ nav:
     - Concept Editor: prompts/10-vis-editor.md
     - Word Cloud: prompts/11-word-cloud.md
     - Degree Histogram: prompts/20-degree-histogram.md
+    - Concept Classifier: prompts/04b-classifier.md
+    - Graph Editor: prompts/30-graph-editor.md
+    - Creating Skill: prompts/40-create-skill.md
     - Quiz: prompts/06-quiz.md
   
   - MicroSims:
