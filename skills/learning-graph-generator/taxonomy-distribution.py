@@ -11,24 +11,27 @@ from collections import defaultdict
 from typing import Dict, List, Tuple
 
 
-def analyze_taxonomy_distribution(csv_path: str, output_path: str):
-    """Analyze taxonomy distribution and generate report."""
+def analyze_taxonomy_distribution(csv_path: str, output_path: str, taxonomy_names: dict = None):
+    """
+    Analyze taxonomy distribution and generate report.
 
-    # Taxonomy names
-    taxonomy_names = {
-        'MATH': 'Mathematical Foundations',
-        'SIG': 'Signal Fundamentals',
-        'SYS': 'Systems Theory',
-        'SAMP': 'Sampling and Quantization',
-        'FOUR': 'Fourier Analysis',
-        'TRANS': 'Other Transforms',
-        'FILT': 'Filtering Fundamentals',
-        'FDES': 'Filter Design',
-        'ADV': 'Advanced DSP Topics',
-        'APP': 'Applications',
-        'AI': 'AI and Machine Learning',
-        'MISC': 'Miscellaneous'
+    Args:
+        csv_path: Path to input CSV file
+        output_path: Path to output markdown report
+        taxonomy_names: Optional dictionary mapping taxonomy IDs to full names
+    """
+    # Default taxonomy names
+    default_names = {
+        'MISC': 'Miscellaneous',
+        'FOUNDATION': 'Foundation Concepts',
+        'CORE': 'Core Concepts',
+        'INTERMEDIATE': 'Intermediate Topics',
+        'ADVANCED': 'Advanced Topics',
+        'APPLIED': 'Applied Concepts',
+        'SPECIALIZED': 'Specialized Topics'
     }
+
+    names = taxonomy_names if taxonomy_names is not None else default_names
 
     # Read CSV and count by taxonomy
     taxonomy_counts = defaultdict(int)
@@ -47,7 +50,7 @@ def analyze_taxonomy_distribution(csv_path: str, output_path: str):
     taxonomy_data = []
     for tax, count in taxonomy_counts.items():
         percentage = (count / total_concepts) * 100
-        name = taxonomy_names.get(tax, tax)
+        name = names.get(tax, tax)
         taxonomy_data.append((tax, name, count, percentage))
 
     # Sort by count descending
@@ -169,13 +172,30 @@ def analyze_taxonomy_distribution(csv_path: str, output_path: str):
 
 if __name__ == "__main__":
     import sys
+    import json
 
-    csv_path = "/Users/danmccreary/Documents/ws/signal-processing/data/concept-dependencies.csv"
-    output_path = "/Users/danmccreary/Documents/ws/signal-processing/data/taxonomy-distribution.md"
+    # Parse command line arguments
+    if len(sys.argv) < 3:
+        print("Usage: python taxonomy-distribution.py <input_csv> <output_report.md> [taxonomy_names.json]")
+        print("\nExample:")
+        print("  python taxonomy-distribution.py data/concept-dependencies.csv reports/taxonomy-distribution.md")
+        print("\nOptional taxonomy_names.json format:")
+        print(json.dumps({
+            'FOUNDATION': 'Foundation Concepts',
+            'CORE': 'Core Concepts',
+            'ADVANCED': 'Advanced Topics'
+        }, indent=2))
+        sys.exit(1)
 
-    if len(sys.argv) > 1:
-        csv_path = sys.argv[1]
-    if len(sys.argv) > 2:
-        output_path = sys.argv[2]
+    csv_path = sys.argv[1]
+    output_path = sys.argv[2]
 
-    analyze_taxonomy_distribution(csv_path, output_path)
+    # Load taxonomy names if provided
+    taxonomy_names = None
+    if len(sys.argv) > 3:
+        config_file = sys.argv[3]
+        with open(config_file, 'r', encoding='utf-8') as f:
+            taxonomy_names = json.load(f)
+        print(f"📋 Loaded taxonomy names from: {config_file}")
+
+    analyze_taxonomy_distribution(csv_path, output_path, taxonomy_names)

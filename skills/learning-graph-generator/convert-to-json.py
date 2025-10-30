@@ -11,24 +11,28 @@ import json
 from typing import Dict, List
 
 
-def csv_to_json(csv_path: str, json_path: str):
-    """Convert CSV dependency graph to vis.js JSON format."""
+def csv_to_json(csv_path: str, json_path: str, color_config: dict = None):
+    """
+    Convert CSV dependency graph to vis.js JSON format.
 
-    # Taxonomy group colors for visualization
-    taxonomy_colors = {
-        'MATH': '#ff6b6b',      # Red - foundations
-        'SIG': '#4ecdc4',       # Cyan - signals
-        'SYS': '#45b7d1',       # Blue - systems
-        'SAMP': '#96ceb4',      # Green - sampling
-        'FOUR': '#ffeaa7',      # Yellow - Fourier
-        'TRANS': '#dfe6e9',     # Gray - other transforms
-        'FILT': '#a29bfe',      # Purple - filtering
-        'FDES': '#fd79a8',      # Pink - filter design
-        'ADV': '#fdcb6e',       # Orange - advanced
-        'APP': '#00b894',       # Teal - applications
-        'AI': '#6c5ce7',        # Indigo - AI/ML
-        'MISC': '#b2bec3'       # Light gray - misc
+    Args:
+        csv_path: Path to input CSV file
+        json_path: Path to output JSON file
+        color_config: Optional dictionary mapping taxonomy IDs to colors.
+                     If not provided, uses default color scheme.
+    """
+    # Default taxonomy group colors for visualization
+    default_colors = {
+        'MISC': '#b2bec3',      # Light gray - misc/default
+        'FOUNDATION': '#ff6b6b', # Red
+        'CORE': '#4ecdc4',      # Cyan
+        'INTERMEDIATE': '#45b7d1', # Blue
+        'ADVANCED': '#96ceb4',  # Green
+        'APPLIED': '#00b894',   # Teal
+        'SPECIALIZED': '#a29bfe' # Purple
     }
+
+    taxonomy_colors = color_config if color_config is not None else default_colors
 
     # Read CSV
     nodes = []
@@ -93,45 +97,74 @@ def csv_to_json(csv_path: str, json_path: str):
     return graph_data
 
 
-def create_taxonomy_legend():
-    """Generate a legend of taxonomy colors for documentation."""
-    
-    """Sample Taxonomy Color Legend"""
-    taxonomy_info = [
-        ('MATH', 'Mathematical Foundations', '#ff6b6b'),
-        ('SIG', 'Signal Fundamentals', '#4ecdc4'),
-        ('SYS', 'Systems Theory', '#45b7d1'),
-        ('SAMP', 'Sampling and Quantization', '#96ceb4'),
-        ('FOUR', 'Fourier Analysis', '#ffeaa7'),
-        ('TRANS', 'Other Transforms', '#dfe6e9'),
-        ('FILT', 'Filtering Fundamentals', '#a29bfe'),
-        ('FDES', 'Filter Design', '#fd79a8'),
-        ('ADV', 'Advanced DSP Topics', '#fdcb6e'),
-        ('APP', 'Applications', '#00b894'),
-        ('AI', 'AI and Machine Learning', '#6c5ce7'),
-        ('MISC', 'Miscellaneous', '#b2bec3')
-    ]
+def create_taxonomy_legend(color_config: dict = None, taxonomy_names: dict = None):
+    """
+    Generate a legend of taxonomy colors for documentation.
+
+    Args:
+        color_config: Dictionary mapping taxonomy IDs to colors
+        taxonomy_names: Dictionary mapping taxonomy IDs to full names
+    """
+    default_colors = {
+        'MISC': '#b2bec3',
+        'FOUNDATION': '#ff6b6b',
+        'CORE': '#4ecdc4',
+        'INTERMEDIATE': '#45b7d1',
+        'ADVANCED': '#96ceb4',
+        'APPLIED': '#00b894',
+        'SPECIALIZED': '#a29bfe'
+    }
+
+    default_names = {
+        'MISC': 'Miscellaneous',
+        'FOUNDATION': 'Foundation Concepts',
+        'CORE': 'Core Concepts',
+        'INTERMEDIATE': 'Intermediate Topics',
+        'ADVANCED': 'Advanced Topics',
+        'APPLIED': 'Applied Concepts',
+        'SPECIALIZED': 'Specialized Topics'
+    }
+
+    colors = color_config if color_config is not None else default_colors
+    names = taxonomy_names if taxonomy_names is not None else default_names
 
     print("\n## Taxonomy Color Legend\n")
     print("| TaxonomyID | Category | Color |")
     print("|------------|----------|-------|")
-    for tax_id, name, color in taxonomy_info:
+    for tax_id in sorted(colors.keys()):
+        name = names.get(tax_id, tax_id)
+        color = colors[tax_id]
         print(f"| {tax_id} | {name} | {color} |")
 
 
 if __name__ == "__main__":
     import sys
 
-    csv_path = "/Users/danmccreary/Documents/ws/signal-processing/data/concept-dependencies.csv"
-    json_path = "/Users/danmccreary/Documents/ws/signal-processing/data/learning-graph.json"
+    # Parse command line arguments
+    if len(sys.argv) < 3:
+        print("Usage: python convert-to-json.py <input_csv> <output_json> [color_config.json]")
+        print("\nExample:")
+        print("  python convert-to-json.py data/concept-dependencies.csv output/learning-graph.json")
+        print("\nOptional color_config.json format:")
+        print(json.dumps({
+            'FOUNDATION': '#ff6b6b',
+            'CORE': '#4ecdc4',
+            'ADVANCED': '#96ceb4'
+        }, indent=2))
+        sys.exit(1)
 
-    if len(sys.argv) > 1:
-        csv_path = sys.argv[1]
-    if len(sys.argv) > 2:
-        json_path = sys.argv[2]
+    csv_path = sys.argv[1]
+    json_path = sys.argv[2]
 
-    graph_data = csv_to_json(csv_path, json_path)
-    create_taxonomy_legend()
+    # Load color config if provided
+    color_config = None
+    if len(sys.argv) > 3:
+        config_file = sys.argv[3]
+        with open(config_file, 'r', encoding='utf-8') as f:
+            color_config = json.load(f)
+        print(f"📋 Loaded color config from: {config_file}")
+
+    graph_data = csv_to_json(csv_path, json_path, color_config)
+    create_taxonomy_legend(color_config)
 
     print("\n✅ Ready to use with graph viewer!")
-    print(f"   Copy {json_path} to /docs/sims/graph-viewer/ to visualize")

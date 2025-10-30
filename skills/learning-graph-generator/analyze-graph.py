@@ -327,12 +327,14 @@ def generate_report(csv_path: str, output_path: str):
 if __name__ == "__main__":
     import sys
 
-    csv_path = "/Users/danmccreary/Documents/ws/signal-processing/data/concept-dependencies.csv"
-    output_path = "/Users/danmccreary/Documents/ws/signal-processing/data/quality-metrics.md"
+    # Parse command line arguments
+    if len(sys.argv) < 3:
+        print("Usage: python analyze-graph.py <input_csv> <output_report.md>")
+        print("\nExample:")
+        print("  python analyze-graph.py data/concept-dependencies.csv reports/quality-metrics.md")
+        sys.exit(1)
 
-    if len(sys.argv) > 1:
-        csv_path = sys.argv[1]
-    if len(sys.argv) > 2:
-        output_path = sys.argv[2]
+    csv_path = sys.argv[1]
+    output_path = sys.argv[2]
 
     generate_report(csv_path, output_path)

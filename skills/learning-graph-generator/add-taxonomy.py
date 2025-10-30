@@ -11,133 +11,74 @@ import re
 from typing import Dict, List
 
 
-def assign_taxonomy(concept_id: int, concept_label: str) -> str:
-    """Assign taxonomy ID based on concept ID and label."""
+def assign_taxonomy(concept_id: int, concept_label: str, taxonomy_config: dict = None) -> str:
+    """
+    Assign taxonomy ID based on concept ID and label.
+
+    Args:
+        concept_id: The concept identifier
+        concept_label: The concept name/label
+        taxonomy_config: Optional dictionary mapping taxonomy IDs to their configurations.
+                        Each config contains 'range' (tuple) and 'keywords' (list).
+                        If not provided, returns 'MISC' for all concepts.
+
+    Returns:
+        Taxonomy ID string
+
+    Example taxonomy_config:
+    {
+        'MATH': {
+            'range': (1, 20),
+            'keywords': ['number', 'algebra', 'calculus', 'derivative']
+        },
+        'CORE': {
+            'range': (21, 50),
+            'keywords': ['fundamental', 'basic', 'foundation']
+        }
+    }
+    """
+    if taxonomy_config is None:
+        return 'MISC'
 
     label_lower = concept_label.lower()
 
-    # MATH - Mathematical Foundations (1-20)
-    math_keywords = ['number', 'complex', 'imaginary', 'euler', 'phasor',
-                     'vector', 'matri', 'algebra', 'calculus', 'derivative',
-                     'integral', 'differential', 'partial', 'probability',
-                     'random', 'statistical', 'mean', 'variance', 'deviation',
-                     'trigonometry', 'exponential', 'function']
-    if concept_id <= 20 or any(kw in label_lower for kw in math_keywords):
-        return 'MATH'
+    # Check each taxonomy in order
+    for tax_id, config in taxonomy_config.items():
+        range_start, range_end = config.get('range', (0, 0))
+        keywords = config.get('keywords', [])
+        exclude_keywords = config.get('exclude', [])
 
-    # SIG - Signal Fundamentals (21-45)
-    sig_keywords = ['signal', 'continuous-time', 'discrete-time', 'analog',
-                    'digital', 'periodic', 'aperiodic', 'even', 'odd',
-                    'energy signal', 'power signal', 'unit step', 'unit impulse',
-                    'sinusoidal', 'exponential signal', 'operation', 'shifting',
-                    'scaling', 'amplitude', 'phase', 'time domain', 'frequency domain',
-                    'representation']
-    if 21 <= concept_id <= 45 or any(kw in label_lower for kw in sig_keywords):
-        # Exclude if it's clearly a system concept
-        if 'system' not in label_lower and 'filter' not in label_lower:
-            return 'SIG'
+        # Check if in range or matches keywords
+        in_range = range_start <= concept_id <= range_end
+        matches_keywords = any(kw in label_lower for kw in keywords)
+        has_exclusions = any(kw in label_lower for kw in exclude_keywords)
 
-    # SYS - Systems Theory (46-65)
-    sys_keywords = ['system', 'linear', 'time-invariant', 'lti', 'causality',
-                    'stability', 'bibo', 'impulse response', 'step response',
-                    'frequency response', 'characterization', 'convolution',
-                    'superposition', 'transfer', 'pole', 'zero', 'memory',
-                    'invertibility', 'feedback', 'feedforward']
-    if 46 <= concept_id <= 65 or any(kw in label_lower for kw in sys_keywords):
-        return 'SYS'
-
-    # SAMP - Sampling and Quantization (66-80)
-    samp_keywords = ['sampling', 'sample', 'nyquist', 'aliasing', 'anti-aliasing',
-                     'oversampling', 'undersampling', 'quantization', 'quantization error',
-                     'quantization noise', 'sample-and-hold', 'analog-to-digital',
-                     'adc', 'a/d']
-    if 66 <= concept_id <= 80 or any(kw in label_lower for kw in samp_keywords):
-        return 'SAMP'
-
-    # FOUR - Fourier Analysis (81-105)
-    four_keywords = ['fourier', 'dft', 'fft', 'harmonic', 'fundamental frequency',
-                     'spectral', 'parseval', 'window', 'rectangular window',
-                     'hamming', 'hanning', 'leakage', 'zero padding']
-    if 81 <= concept_id <= 105 or any(kw in label_lower for kw in four_keywords):
-        # Check if it's not a different transform
-        if 'laplace' not in label_lower and 'z-transform' not in label_lower and 'wavelet' not in label_lower:
-            return 'FOUR'
-
-    # TRANS - Other Transforms (106-120)
-    trans_keywords = ['laplace', 'z-transform', 'z-plane', 'unit circle',
-                      'bilinear transform', 'short-time', 'stft', 'wavelet',
-                      'continuous wavelet', 'discrete wavelet', 'cwt', 'dwt',
-                      'region of convergence']
-    if 106 <= concept_id <= 120 or any(kw in label_lower for kw in trans_keywords):
-        return 'TRANS'
-
-    # FILT - Filtering Fundamentals (121-145)
-    filt_keywords = ['filter', 'filtering', 'low-pass', 'high-pass', 'band-pass',
-                     'band-stop', 'all-pass', 'ideal filter', 'practical filter',
-                     'filter order', 'cutoff', 'bandwidth', 'rolloff', 'passband',
-                     'stopband', 'transition', 'ripple', 'attenuation', 'fir',
-                     'iir', 'filter impulse', 'filter stability', 'phase response',
-                     'phase distortion', 'group delay']
-    if 121 <= concept_id <= 145 or any(kw in label_lower for kw in filt_keywords):
-        # Check if it's not filter design
-        design_keywords = ['design', 'butterworth', 'chebyshev', 'elliptic',
-                          'bessel', 'parks-mcclellan', 'specification']
-        if not any(kw in label_lower for kw in design_keywords):
-            return 'FILT'
-
-    # FDES - Filter Design (146-165)
-    fdes_keywords = ['filter design', 'filter specification', 'butterworth',
-                     'chebyshev', 'elliptic', 'bessel', 'window method',
-                     'frequency sampling', 'parks-mcclellan', 'optimal',
-                     'pole-zero placement', 'digital filter design',
-                     'analog filter design', 'filter implementation',
-                     'direct form', 'cascade', 'parallel', 'lattice',
-                     'polyphase']
-    if 146 <= concept_id <= 165 or any(kw in label_lower for kw in fdes_keywords):
-        return 'FDES'
-
-    # ADV - Advanced DSP Topics (166-180)
-    adv_keywords = ['adaptive', 'lms', 'rls', 'wiener', 'kalman',
-                    'correlation', 'autocorrelation', 'cross-correlation',
-                    'power spectral density', 'energy spectral density',
-                    'psd', 'esd', 'spectrogram', 'compression', 'lossless',
-                    'lossy', 'multirate']
-    if 166 <= concept_id <= 180 or any(kw in label_lower for kw in adv_keywords):
-        return 'ADV'
-
-    # APP - Applications (181-190)
-    app_keywords = ['audio', 'speech', 'music', 'image', 'video',
-                    'communication', 'modulation', 'biomedical', 'radar',
-                    'sonar', 'processing']
-    if 181 <= concept_id <= 190 or any(kw in label_lower for kw in app_keywords):
-        # Must have an application domain keyword
-        domain_keywords = ['audio', 'speech', 'music', 'image', 'video',
-                          'biomedical', 'radar', 'sonar', 'communication']
-        if any(kw in label_lower for kw in domain_keywords):
-            return 'APP'
-
-    # AI - AI and Machine Learning (191-200)
-    ai_keywords = ['machine learning', 'neural network', 'deep learning',
-                   'convolutional', 'cnn', 'feature extraction',
-                   'pattern recognition', 'generative', 'simulation',
-                   'interactive learning', 'adaptive educational', 'ai']
-    if 191 <= concept_id <= 200 or any(kw in label_lower for kw in ai_keywords):
-        return 'AI'
+        if (in_range or matches_keywords) and not has_exclusions:
+            return tax_id
 
     # Default to MISC
     return 'MISC'
 
 
-def add_taxonomy_to_csv(input_csv: str, output_csv: str):
-    """Read CSV, add taxonomy column, and write updated CSV."""
+def add_taxonomy_to_csv(input_csv: str, output_csv: str, taxonomy_config: dict = None):
+    """
+    Read CSV, add taxonomy column, and write updated CSV.
 
+    Args:
+        input_csv: Path to input CSV file
+        output_csv: Path to output CSV file
+        taxonomy_config: Optional taxonomy configuration dictionary
+
+    Returns:
+        Dictionary of taxonomy counts
+    """
     rows = []
     with open(input_csv, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         for row in reader:
             concept_id = int(row['ConceptID'])
             concept_label = row['ConceptLabel']
-            taxonomy_id = assign_taxonomy(concept_id, concept_label)
+            taxonomy_id = assign_taxonomy(concept_id, concept_label, taxonomy_config)
 
             rows.append({
                 'ConceptID': concept_id,
@@ -171,13 +112,38 @@ def add_taxonomy_to_csv(input_csv: str, output_csv: str):
 
 if __name__ == "__main__":
     import sys
+    import json
 
-    input_csv = "/Users/danmccreary/Documents/ws/signal-processing/data/concept-dependencies.csv"
-    output_csv = "/Users/danmccreary/Documents/ws/signal-processing/data/concept-dependencies.csv"
+    # Parse command line arguments
+    if len(sys.argv) < 3:
+        print("Usage: python add-taxonomy.py <input_csv> <output_csv> [taxonomy_config.json]")
+        print("\nExample taxonomy_config.json format:")
+        print(json.dumps({
+            'FOUNDATION': {
+                'range': [1, 20],
+                'keywords': ['basic', 'fundamental', 'introduction'],
+                'exclude': []
+            },
+            'ADVANCED': {
+                'range': [21, 50],
+                'keywords': ['advanced', 'complex', 'detailed'],
+                'exclude': []
+            }
+        }, indent=2))
+        sys.exit(1)
 
-    if len(sys.argv) > 1:
-        input_csv = sys.argv[1]
-    if len(sys.argv) > 2:
-        output_csv = sys.argv[2]
+    input_csv = sys.argv[1]
+    output_csv = sys.argv[2]
 
-    taxonomy_counts = add_taxonomy_to_csv(input_csv, output_csv)
+    # Load taxonomy config if provided
+    taxonomy_config = None
+    if len(sys.argv) > 3:
+        config_file = sys.argv[3]
+        with open(config_file, 'r', encoding='utf-8') as f:
+            taxonomy_config = json.load(f)
+        print(f"📋 Loaded taxonomy config from: {config_file}")
+    else:
+        print("⚠️  No taxonomy config provided. All concepts will be marked as 'MISC'.")
+        print("   Provide a taxonomy config JSON file as the third argument.")
+
+    taxonomy_counts = add_taxonomy_to_csv(input_csv, output_csv, taxonomy_config)
