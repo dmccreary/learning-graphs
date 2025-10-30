@@ -34,6 +34,7 @@ nav:
   - Case Studies:
     - Introduction: case-studies/index.md
     # - Low-Latency: case-studies/low-latency.md
+    - Agents: case-studies/agents.md
     - Beginning Electronics: case-studies/beginning-electronics.md
     - Circuits: case-studies/circuits.md
     - Clocks ans Watches: case-studies/clocks-and-watches.md
@@ -46,6 +47,8 @@ nav:
     - MicroSims: case-studies/microsims.md
     - Python: case-studies/python.md
     - Signal Processing: case-studies/signal-processing.md
+    - Spectrum Analyzer: case-studies/spectrum-analyzer.md
+    - STEM Robots: case-studies/stem-robots.md
     - Systems Thinking: case-studies/systems-thinking.md
 
   - Vis.js Tutorial:
