@@ -78,6 +78,7 @@ nav:
     - Search: vis/search/index.md
     - Graph Viewer: vis/graph-viewer/index.md
     - Graph Editor: vis/graph-editor/index.md
+    - Edit Nodes: vis/edit-nodes/index.md
   
   - Sample Prompts:
     - Introduction: prompts/index.md
@@ -98,6 +99,7 @@ nav:
   - MicroSims:
     - Intro: sims/index.md
     - Learning Graph: sims/learning-graph/index.md
+    - Book Generation Workflow: sims/book-gen-workflow/index.md
     - Concept to Content Viewer: sims/concept-to-content-viewer/index.md
     - Bloom's Taxonomy: sims/blooms-taxonomy/index.md
     - MicroSim Template: sims/template/index.md
