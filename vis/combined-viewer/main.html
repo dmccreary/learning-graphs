@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Combined Learning Graph Viewer - Search & Taxonomy Legend</title>
+  <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <link rel="stylesheet" href="local.css">
+</head>
+
+<body>
+  <div id="sidebar-container">
+    <button id="toggle-button" onclick="toggleSidebar()">&#9776;</button>
+
+    <div id="sidebar">
+      <h3>Legend & Controls</h3>
+
+      <div class="control-buttons">
+        <button onclick="checkAllGroups()">Check All</button>
+        <button onclick="uncheckAllGroups()">Uncheck All</button>
+      </div>
+
+      <table class="legend-table">
+        <tr>
+          <td><input type="checkbox" id="groupFoundation" checked onchange="toggleGroup('Foundation')"> Foundation</td>
+          <td class="color-indicator" style="background-color: red; color: white;">Red</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" id="groupTypes" checked onchange="toggleGroup('Types')"> Types</td>
+          <td class="color-indicator" style="background-color: orange;">Orange</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" id="groupRepresentations" checked onchange="toggleGroup('Representations')"> Representations</td>
+          <td class="color-indicator" style="background-color: gold;">Gold</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" id="groupAlgorithms" checked onchange="toggleGroup('Algorithms')"> Algorithms</td>
+          <td class="color-indicator" style="background-color: green; color: white;">Green</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" id="groupPaths" checked onchange="toggleGroup('Paths')"> Paths</td>
+          <td class="color-indicator" style="background-color: blue; color: white;">Blue</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" id="groupFlow" checked onchange="toggleGroup('Flow')"> Flow</td>
+          <td class="color-indicator" style="background-color: indigo; color: white;">Indigo</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" id="groupAdvanced" checked onchange="toggleGroup('Advanced')"> Advanced</td>
+          <td class="color-indicator" style="background-color: violet; color: white;">Violet</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" id="groupMetrics" checked onchange="toggleGroup('Metrics')"> Metrics</td>
+          <td class="color-indicator" style="background-color: gray; color: white;">Gray</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" id="groupSpectral" checked onchange="toggleGroup('Spectral')"> Spectral</td>
+          <td class="color-indicator" style="background-color: brown; color: white;">Brown</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" id="groupML" checked onchange="toggleGroup('ML')"> ML & Networks</td>
+          <td class="color-indicator" style="background-color: teal; color: white;">Teal</td>
+        </tr>
+      </table>
+
+      <h3>Graph Statistics</h3>
+      <ul class="stats-list">
+        <li><b>Nodes:</b> <span id="nodeCount">0</span></li>
+        <li><b>Edges:</b> <span id="edgeCount">0</span></li>
+        <li><b>Orphans:</b> <span id="orphanCount">0</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="main">
+    <h4>Combined Learning Graph Viewer</h4>
+
+    <div id="search-container">
+      <input type="text" id="search-input" placeholder="Search nodes by name...">
+      <div id="search-results"></div>
+    </div>
+
+    <div id="mynetwork"></div>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

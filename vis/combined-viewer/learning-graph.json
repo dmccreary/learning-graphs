@@ -1,0 +1,329 @@
+{
+  "nodes": [
+    {
+      "id": 1,
+      "label": "Graph",
+      "shape": "box",
+      "color": "red",
+      "font": {
+        "color": "white"
+      },
+      "group": "Foundation"
+    },
+    {
+      "id": 2,
+      "label": "Vertex",
+      "color": "red",
+      "font": {
+        "color": "white"
+      },
+      "group": "Foundation"
+    },
+    {
+      "id": 3,
+      "label": "Edge",
+      "color": "red",
+      "font": {
+        "color": "white"
+      },
+      "group": "Foundation"
+    },
+    {
+      "id": 4,
+      "label": "Directed Graph",
+      "color": "orange",
+      "font": {
+        "color": "black"
+      },
+      "group": "Types"
+    },
+    {
+      "id": 5,
+      "label": "Undirected Graph",
+      "color": "orange",
+      "font": {
+        "color": "black"
+      },
+      "group": "Types"
+    },
+    {
+      "id": 6,
+      "label": "Weighted Graph",
+      "color": "orange",
+      "font": {
+        "color": "black"
+      },
+      "group": "Types"
+    },
+    {
+      "id": 7,
+      "label": "Adjacency Matrix",
+      "color": "gold",
+      "font": {
+        "color": "black"
+      },
+      "group": "Representations"
+    },
+    {
+      "id": 8,
+      "label": "Adjacency List",
+      "color": "gold",
+      "font": {
+        "color": "black"
+      },
+      "group": "Representations"
+    },
+    {
+      "id": 9,
+      "label": "DFS",
+      "color": "green",
+      "font": {
+        "color": "white"
+      },
+      "group": "Algorithms"
+    },
+    {
+      "id": 10,
+      "label": "BFS",
+      "color": "green",
+      "font": {
+        "color": "white"
+      },
+      "group": "Algorithms"
+    },
+    {
+      "id": 11,
+      "label": "Dijkstra",
+      "color": "blue",
+      "font": {
+        "color": "white"
+      },
+      "group": "Paths"
+    },
+    {
+      "id": 12,
+      "label": "Bellman-Ford",
+      "color": "blue",
+      "font": {
+        "color": "white"
+      },
+      "group": "Paths"
+    },
+    {
+      "id": 13,
+      "label": "MST",
+      "color": "blue",
+      "font": {
+        "color": "white"
+      },
+      "group": "Paths"
+    },
+    {
+      "id": 14,
+      "label": "Max Flow",
+      "color": "indigo",
+      "font": {
+        "color": "white"
+      },
+      "group": "Flow"
+    },
+    {
+      "id": 15,
+      "label": "Min Cut",
+      "color": "indigo",
+      "font": {
+        "color": "white"
+      },
+      "group": "Flow"
+    },
+    {
+      "id": 16,
+      "label": "Matching",
+      "color": "indigo",
+      "font": {
+        "color": "white"
+      },
+      "group": "Flow"
+    },
+    {
+      "id": 17,
+      "label": "Tarjan SCC",
+      "color": "violet",
+      "font": {
+        "color": "white"
+      },
+      "group": "Advanced"
+    },
+    {
+      "id": 18,
+      "label": "Topological Sort",
+      "color": "violet",
+      "font": {
+        "color": "white"
+      },
+      "group": "Advanced"
+    },
+    {
+      "id": 19,
+      "label": "Degree Centrality",
+      "color": "gray",
+      "font": {
+        "color": "white"
+      },
+      "group": "Metrics"
+    },
+    {
+      "id": 20,
+      "label": "Betweenness",
+      "color": "gray",
+      "font": {
+        "color": "white"
+      },
+      "group": "Metrics"
+    },
+    {
+      "id": 21,
+      "label": "PageRank",
+      "color": "gray",
+      "font": {
+        "color": "white"
+      },
+      "group": "Metrics"
+    },
+    {
+      "id": 22,
+      "label": "Laplacian",
+      "color": "brown",
+      "font": {
+        "color": "white"
+      },
+      "group": "Spectral"
+    },
+    {
+      "id": 23,
+      "label": "Spectral Clustering",
+      "color": "brown",
+      "font": {
+        "color": "white"
+      },
+      "group": "Spectral"
+    },
+    {
+      "id": 24,
+      "label": "GNN",
+      "shape": "star",
+      "color": "teal",
+      "font": {
+        "color": "black"
+      },
+      "group": "ML"
+    },
+    {
+      "id": 25,
+      "label": "Graph Embeddings",
+      "color": "teal",
+      "font": {
+        "color": "white"
+      },
+      "group": "ML"
+    }
+  ],
+  "edges": [
+    {
+      "from": 2,
+      "to": 1
+    },
+    {
+      "from": 3,
+      "to": 1
+    },
+    {
+      "from": 4,
+      "to": 1
+    },
+    {
+      "from": 5,
+      "to": 1
+    },
+    {
+      "from": 6,
+      "to": 1
+    },
+    {
+      "from": 7,
+      "to": 1
+    },
+    {
+      "from": 8,
+      "to": 1
+    },
+    {
+      "from": 9,
+      "to": 1
+    },
+    {
+      "from": 10,
+      "to": 1
+    },
+    {
+      "from": 11,
+      "to": 6
+    },
+    {
+      "from": 12,
+      "to": 6
+    },
+    {
+      "from": 13,
+      "to": 6
+    },
+    {
+      "from": 14,
+      "to": 6
+    },
+    {
+      "from": 15,
+      "to": 14
+    },
+    {
+      "from": 16,
+      "to": 6
+    },
+    {
+      "from": 17,
+      "to": 9
+    },
+    {
+      "from": 18,
+      "to": 4
+    },
+    {
+      "from": 19,
+      "to": 1
+    },
+    {
+      "from": 20,
+      "to": 1
+    },
+    {
+      "from": 21,
+      "to": 1
+    },
+    {
+      "from": 22,
+      "to": 7
+    },
+    {
+      "from": 23,
+      "to": 22
+    },
+    {
+      "from": 24,
+      "to": 1
+    },
+    {
+      "from": 25,
+      "to": 24
+    }
+  ]
+}
