@@ -12,6 +12,26 @@ A learning graph is an DAG Concept graph.  Each arrow is a "Learning Dependency"
 
 Follow these steps carefully:
 
+## Markdown Generation Rules
+
+1. Always place a blank line before any markdown list.  This is required by the mkdocs markdown tools.
+
+## Mkdocs Navigation Rules
+
+After you add a markdown file (any file with an extenion `.md`) make sure to add that file
+to the navigation structure in the mkdocs.yml file.  Here is an example of the nav section
+for the learning graph section:
+
+```yml
+  - Learning Graph:
+    - Introduction: learning-graph/index.md
+    - Course Description Assessment: learning-graph/course-description-assessment.md
+    - Concept Enumeration: learning-graph/list-concepts.md
+    - Graph Quality Analysis: learning-graph/graph-quality-analysis.md
+    - Concept Taxonomy: learning-graph/concept-taxonomy.md
+    - Taxonomy Distribution Report: learning-graph/taxonomy-distribution-report.md
+```
+
 ## Step 0: Setup
 
 The default context is that the skill is run from claude code in the home directory of an intelligent textbook that has been checked out from GitHub.
