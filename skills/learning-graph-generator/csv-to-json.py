@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """
-Convert CSV Learning Graph to JSON for vis.js
-
+Convert CSV Learning Graph to JSON for vis-network.js
 Converts the concept dependency CSV into the JSON format
-used by the existing graph viewer (vis.js network format).
+uUed by the existing graph viewer (vis.js network format).
 """
 
 import csv
@@ -16,20 +15,22 @@ def csv_to_json(csv_path: str, json_path: str, color_config: dict = None):
     Convert CSV dependency graph to vis.js JSON format.
 
     Args:
-        csv_path: Path to input CSV file
+        csv_path: Path to input CSV file with columns: ConceptID, ConceptLabel, Dependencies, TaxonomyID
         json_path: Path to output JSON file
         color_config: Optional dictionary mapping taxonomy IDs to colors.
                      If not provided, uses default color scheme.
     """
     # Default taxonomy group colors for visualization
     default_colors = {
-        'MISC': '#b2bec3',      # Light gray - misc/default
-        'FOUNDATION': '#ff6b6b', # Red
-        'CORE': '#4ecdc4',      # Cyan
-        'INTERMEDIATE': '#45b7d1', # Blue
-        'ADVANCED': '#96ceb4',  # Green
-        'APPLIED': '#00b894',   # Teal
-        'SPECIALIZED': '#a29bfe' # Purple
+        'FOUND': 'red',
+        'DEF': 'orange',
+        'CORE': 'yellow',
+        'INTER': 'treen',
+        'ADV': 'blue',
+        'APPL': 'cyan',
+        'SPEC': 'indigo',
+        'CAP': 'violet',
+        'MISC': 'gray',
     }
 
     taxonomy_colors = color_config if color_config is not None else default_colors
@@ -106,23 +107,28 @@ def create_taxonomy_legend(color_config: dict = None, taxonomy_names: dict = Non
         taxonomy_names: Dictionary mapping taxonomy IDs to full names
     """
     default_colors = {
-        'MISC': '#b2bec3',
-        'FOUNDATION': '#ff6b6b',
-        'CORE': '#4ecdc4',
-        'INTERMEDIATE': '#45b7d1',
-        'ADVANCED': '#96ceb4',
-        'APPLIED': '#00b894',
-        'SPECIALIZED': '#a29bfe'
+        'FOUND': 'red',
+        'DEF': 'orange',
+        'CORE': 'yellow',
+        'INTER': 'treen',
+        'ADV': 'blue',
+        'APPL': 'cyan',
+        'SPEC': 'indigo',
+        'CAP': 'violet',
+        'MISC': 'gray',
     }
 
     default_names = {
-        'MISC': 'Miscellaneous',
-        'FOUNDATION': 'Foundation Concepts',
+        'FOUND': 'Foundation Concepts',
+        'DEF': 'Definitional Concepts',
         'CORE': 'Core Concepts',
-        'INTERMEDIATE': 'Intermediate Topics',
-        'ADVANCED': 'Advanced Topics',
-        'APPLIED': 'Applied Concepts',
-        'SPECIALIZED': 'Specialized Topics'
+        'INTER': 'Intermediate Topics',
+        'ADV': 'Advanced Topics',
+        'APPL': 'Applied Concepts',
+        'SPEC': 'Specialized Topics',
+        'CAP': 'Capstone Projects Ideas',
+        'MISC': 'Miscellaneous',
+
     }
 
     colors = color_config if color_config is not None else default_colors
@@ -142,9 +148,10 @@ if __name__ == "__main__":
 
     # Parse command line arguments
     if len(sys.argv) < 3:
-        print("Usage: python convert-to-json.py <input_csv> <output_json> [color_config.json]")
+        print("Usage: python csv-to-json.py <input_csv> <output_json> [color_config.json]")
+        print("Looking for column names: ConceptID, ConceptLabel, Dependencies, TaxonomyID)")
         print("\nExample:")
-        print("  python convert-to-json.py data/concept-dependencies.csv output/learning-graph.json")
+        print("   python csv-to-json.py learning-graph.csv learning-graph.json")
         print("\nOptional color_config.json format:")
         print(json.dumps({
             'FOUNDATION': '#ff6b6b',
@@ -167,4 +174,4 @@ if __name__ == "__main__":
     graph_data = csv_to_json(csv_path, json_path, color_config)
     create_taxonomy_legend(color_config)
 
-    print("\n✅ Ready to use with graph viewer!")
+    print("\n✅ CSV to JSON format complete.  Ready to use with graph-viewer!")

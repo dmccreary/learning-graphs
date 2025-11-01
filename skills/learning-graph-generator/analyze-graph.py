@@ -331,7 +331,7 @@ if __name__ == "__main__":
     if len(sys.argv) < 3:
         print("Usage: python analyze-graph.py <input_csv> <output_report.md>")
         print("\nExample:")
-        print("  python analyze-graph.py data/concept-dependencies.csv reports/quality-metrics.md")
+        print("  python analyze-graph.py learning-graph.csv quality-metrics.md")
         sys.exit(1)
 
     csv_path = sys.argv[1]

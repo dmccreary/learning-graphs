@@ -22,13 +22,15 @@ def analyze_taxonomy_distribution(csv_path: str, output_path: str, taxonomy_name
     """
     # Default taxonomy names
     default_names = {
-        'MISC': 'Miscellaneous',
-        'FOUNDATION': 'Foundation Concepts',
+        'FOUND': 'Foundation Concepts - Prerequisites',
+        'DEF': 'Definitional Concepts',
         'CORE': 'Core Concepts',
-        'INTERMEDIATE': 'Intermediate Topics',
-        'ADVANCED': 'Advanced Topics',
+        'INTER': 'Intermediate Topics',
+        'ADV': 'Advanced Topics',
         'APPLIED': 'Applied Concepts',
-        'SPECIALIZED': 'Specialized Topics'
+        'SPEC': 'Specialized Topics',
+        'PROJ': 'Capstone Projects Ideas',
+        'MISC': 'Miscellaneous',
     }
 
     names = taxonomy_names if taxonomy_names is not None else default_names
