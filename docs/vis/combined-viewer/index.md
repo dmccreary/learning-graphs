@@ -44,7 +44,7 @@ The demo includes a Graph Theory learning graph with 10 taxonomy categories:
 
 ## Try It Out
 
-[Open Combined Viewer](combined-viewer.html){ .md-button .md-button--primary }
+[Open Combined Viewer](main.html){ .md-button .md-button--primary }
 
 ## Usage Tips
 
