@@ -1,5 +1,7 @@
 # Combined Learning Graph Viewer
 
+[Run the Combined Learning Graph Viewer](main.html){ .md-button .md-button--primary }
+
 This viewer combines two powerful features for exploring learning graphs:
 
 1. **Search Functionality** - Quick node lookup with autocomplete
@@ -41,10 +43,6 @@ The demo includes a Graph Theory learning graph with 10 taxonomy categories:
 - **Metrics** (Gray) - Centrality measures
 - **Spectral** (Brown) - Spectral theory
 - **ML & Networks** (Teal) - Machine learning
-
-## Try It Out
-
-[Open Combined Viewer](main.html){ .md-button .md-button--primary }
 
 ## Usage Tips
 

@@ -102,6 +102,7 @@ function initializeNetwork(graphData) {
   };
 
   var options = {
+    groups: graphData.groups || {},  // Apply group-based styling
     edges: {
       arrows: {
         to: { enabled: true, type: 'arrow', color: 'black', scaleFactor: 1 }
