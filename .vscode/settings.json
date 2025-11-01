@@ -1,18 +1,15 @@
 {
     "cSpell.words": [
+        "Betweenness",
         "distractors",
         "flexbox",
         "linenums",
         "matplotlib",
         "Microconroller",
         "Microcontroller",
-<<<<<<< HEAD
         "microcontrollers",
         "micropython",
         "microsims",
-=======
-        "micropython",
->>>>>>> 84368afb1e4af034ee554f4438ce403eca74633c
         "microsite",
         "mynetwork",
         "networkx",
@@ -20,6 +17,7 @@
         "pymdownx",
         "Rhizombic",
         "SKOS",
+        "Tarjan",
         "Touchpoint",
         "touchpoints",
         "Vygotsky"
