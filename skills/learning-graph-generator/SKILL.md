@@ -107,9 +107,6 @@ Create a CSV file mapping dependencies between concepts:
 - The graph must be a Directed Acyclic Graph (DAG) - no cycles
 - Create meaningful learning pathways, not just linear chains
 - Consider prerequisite relationships carefully
-- Next, run the csv-to-json.py program.  
-- `python csv-to-json.py learning-graph.csv learning-graph.json`
-It will read the [learning-graph.csv](./learning-graph.csv) and return a [learning-graph.json](./learning-graph.json) file in vis-network.js format
 
 Verify that the file [learning-graph.json](./learning-graph.json) is present and is a valid JSON file.
 
@@ -194,13 +191,34 @@ Use the python report in this skill called taxonomy-distribution.py
   - Count
   - Percentage
 
-## Step 8: Create new index.md from index-template.md
+## Step 8: Create the learning-graph.json File
 
-Create a new `index.md` file in the learning-graph directory from the file index-template.md in this skill.
+Our next task is to create a JSON file that has the following four elements:
+
+1. metadata - the only required fields are title and description
+2. groups - list of the taxonomy groups in the concept-taxonomy.md file in JSON format
+3. nodes - list of the nodes
+4. edges - list of edges between the nodes
+
+The structure of the file is provided by a JSON schema here:
+
+`https://github.com/dmccreary/learning-graphs/blob/main/src/schema/learning-graph-schema.json`
+
+
+- In order to generate a valid JSON file, use the Python program: csv-to-json.py program.  
+- `python csv-to-json.py learning-graph.csv learning-graph.json`
+
+It will read the [learning-graph.csv](./learning-graph.csv) and return a [learning-graph.json](./learning-graph.json) file in vis-network.js format.  Continue working until you have a valid JSON file.
+
+## Step 9: Create new index.md from index-template.md
+
+Create a new `index.md` file in the learning-graph directory from the file `index-template.md` in this skill.
+You can do this by copying the template into the index.md file.
+
 Customize the new index.md file to reflect the name of this intelligent book.  Look for values in all uppercase (TEXTBOOK_NAME)
 and replace them with the appropriate values.
 
-## Step 9: Completion
+## Step 10: Completion
 
 Inform the user that the learning graph generation is complete! Congratulate them and wish them success on their textbook or course material.
 
@@ -208,7 +226,7 @@ Inform the user that the learning graph generation is complete! Congratulate the
 - [course-description-assessment.md](./course-description-assessment.md) - quality assessment of the course description
 - [concept-list.md](./concept-list.md) - Numbered list of 200 concepts
 - [learning-graph.csv](./learning-graph.csv) - Full dependency graph with taxonomy
-- [learning-graph.json](./learning-graph.json) - Full dependency graph in vis-network.js JSON format
+- [learning-graph.json](./learning-graph.json) - Full dependency graph in vis-network.js JSON format with metadata, groups, nodes and edges
 - [concept-taxonomy.md](./concept-taxonomy.md) - Category definitions
 - [quality-metrics.md](./quality-metrics.md) - Quality validation report
 - [taxonomy-distribution.md](./taxonomy-distribution.md) - Category distribution analysis
