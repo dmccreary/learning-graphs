@@ -66,7 +66,7 @@ body {
 
 #mynetwork {
   width: 100%;
-  height: 600px;
+  height: 800px;
   background-color: aliceblue;
   border: 1px solid lightgray;
 }
@@ -92,7 +92,7 @@ body {
 
 .legend-table td {
   padding: 5px;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .legend-table input[type="checkbox"] {
