@@ -6,7 +6,7 @@
     "date": "2025-11-01",
     "version": "1.0",
     "format": "Learning Graph JSON v1.0",
-    "schema": "https://example.com/schemas/learning-graph-v1.0.json",
+    "schema": "https://raw.githubusercontent.com/dmccreary/learning-graphs/refs/heads/main/src/schema/learning-graph-schema.json",
     "license": "CC BY-NC-SA 4.0 DEED"
   },
   "groups": {
