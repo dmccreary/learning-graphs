@@ -85,9 +85,74 @@ function uncheckAllGroups() {
   });
 }
 
+// Helper function to get readable color name
+function getColorName(color) {
+  const colorNames = {
+    'red': 'Red',
+    'orange': 'Orange',
+    'gold': 'Gold',
+    'green': 'Green',
+    'blue': 'Blue',
+    'indigo': 'Indigo',
+    'violet': 'Violet',
+    'gray': 'Gray',
+    'brown': 'Brown',
+    'teal': 'Teal'
+  };
+  return colorNames[color.toLowerCase()] || color;
+}
+
+// Helper function to determine if text should be white or black
+function getTextColorForBackground(backgroundColor) {
+  // Colors that need white text
+  const darkColors = ['red', 'green', 'blue', 'indigo', 'violet', 'gray', 'brown'];
+  return darkColors.includes(backgroundColor.toLowerCase()) ? 'white' : 'black';
+}
+
+// Function to generate legend table from groups data
+function generateLegend(groups) {
+  const legendTable = document.getElementById('legend-table');
+  legendTable.innerHTML = ''; // Clear existing content
+
+  // Iterate through groups and create table rows
+  for (const [groupName, groupStyle] of Object.entries(groups)) {
+    const row = document.createElement('tr');
+
+    // Create checkbox cell
+    const checkboxCell = document.createElement('td');
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.id = `group${groupName}`;
+    checkbox.checked = true;
+    checkbox.onchange = function() { toggleGroup(groupName); };
+
+    const label = document.createTextNode(' ' + groupName);
+    checkboxCell.appendChild(checkbox);
+    checkboxCell.appendChild(label);
+
+    // Create color indicator cell
+    const colorCell = document.createElement('td');
+    colorCell.className = 'color-indicator';
+    const bgColor = groupStyle.color;
+    const textColor = getTextColorForBackground(bgColor);
+    colorCell.style.backgroundColor = bgColor;
+    colorCell.style.color = textColor;
+    colorCell.textContent = getColorName(bgColor);
+
+    row.appendChild(checkboxCell);
+    row.appendChild(colorCell);
+    legendTable.appendChild(row);
+  }
+}
+
 // ========== INITIALIZATION ==========
 
 function initializeNetwork(graphData) {
+  // Generate legend from groups data
+  if (graphData.groups) {
+    generateLegend(graphData.groups);
+  }
+
   // Create DataSets from loaded data
   nodes = new vis.DataSet(graphData.nodes);
   edges = new vis.DataSet(graphData.edges);
