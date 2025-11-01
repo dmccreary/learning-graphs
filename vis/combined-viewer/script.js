@@ -145,9 +145,29 @@ function generateLegend(groups) {
   }
 }
 
+// Function to set metadata (title and description)
+function setMetadata(metadata) {
+  if (metadata && metadata.title) {
+    const titleElement = document.getElementById('graph-title');
+    if (titleElement) {
+      titleElement.textContent = metadata.title;
+    }
+
+    // Update document title as well
+    if (metadata.title) {
+      document.title = metadata.title + ' - Learning Graph Viewer';
+    }
+  }
+}
+
 // ========== INITIALIZATION ==========
 
 function initializeNetwork(graphData) {
+  // Set metadata (title, description)
+  if (graphData.metadata) {
+    setMetadata(graphData.metadata);
+  }
+
   // Generate legend from groups data
   if (graphData.groups) {
     generateLegend(graphData.groups);

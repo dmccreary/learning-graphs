@@ -1,4 +1,14 @@
 {
+  "metadata": {
+    "title": "Graph Theory Learning Graph",
+    "description": "A comprehensive learning graph covering fundamental graph theory concepts, algorithms, and advanced topics including machine learning applications.",
+    "creator": "Dan McCreary",
+    "date": "2025-11-01",
+    "version": "1.0",
+    "format": "Learning Graph JSON v1.0",
+    "schema": "https://example.com/schemas/learning-graph-v1.0.json",
+    "license": "CC BY-NC-SA 4.0 DEED"
+  },
   "groups": {
     "Foundation": {
       "color": "red",
