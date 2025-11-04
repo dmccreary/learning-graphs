@@ -276,11 +276,12 @@ function initializeSearch() {
 
 // ========== LOAD DATA AND START APPLICATION ==========
 
-// Load the graph data from JSON file
-fetch('learning-graph.json')
+// Load the graph data from JSON file by going up to the learning-graph directory and reading the learning-graph.json file
+// Adjust the path as necessary based on your directory structure
+fetch('../../learning-graph/learning-graph.json')
   .then(response => {
     if (!response.ok) {
-      throw new Error('Failed to load learning-graph.json');
+      throw new Error('Failed to load ../../learning-graph/learning-graph.json');
     }
     return response.json();
   })
