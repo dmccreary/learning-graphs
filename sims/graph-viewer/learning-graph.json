@@ -1,0 +1,304 @@
+{
+  "metadata": {
+    "title": "Graph Theory Learning Graph",
+    "description": "A comprehensive learning graph covering fundamental graph theory concepts, algorithms, and advanced topics including machine learning applications.",
+    "creator": "Dan McCreary",
+    "date": "2025-11-01",
+    "version": "1.0",
+    "format": "Learning Graph JSON v1.0",
+    "schema": "https://raw.githubusercontent.com/dmccreary/learning-graphs/refs/heads/main/src/schema/learning-graph-schema.json",
+    "license": "CC BY-NC-SA 4.0 DEED"
+  },
+  "groups": {
+    "Foundation": {
+      "color": "red",
+      "font": {
+        "color": "white"
+      }
+    },
+    "Types": {
+      "color": "orange",
+      "font": {
+        "color": "black"
+      }
+    },
+    "Representations": {
+      "color": "gold",
+      "font": {
+        "color": "black"
+      }
+    },
+    "Algorithms": {
+      "color": "green",
+      "font": {
+        "color": "white"
+      }
+    },
+    "Paths": {
+      "color": "blue",
+      "font": {
+        "color": "white"
+      }
+    },
+    "Flow": {
+      "color": "indigo",
+      "font": {
+        "color": "white"
+      }
+    },
+    "Advanced": {
+      "color": "violet",
+      "font": {
+        "color": "white"
+      }
+    },
+    "Metrics": {
+      "color": "gray",
+      "font": {
+        "color": "white"
+      }
+    },
+    "Spectral": {
+      "color": "brown",
+      "font": {
+        "color": "white"
+      }
+    },
+    "ML": {
+      "color": "teal",
+      "font": {
+        "color": "white"
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "label": "Graph",
+      "shape": "box",
+      "group": "Foundation"
+    },
+    {
+      "id": 2,
+      "label": "Vertex",
+      "group": "Foundation"
+    },
+    {
+      "id": 3,
+      "label": "Edge",
+      "group": "Foundation"
+    },
+    {
+      "id": 4,
+      "label": "Directed Graph",
+      "group": "Types"
+    },
+    {
+      "id": 5,
+      "label": "Undirected Graph",
+      "group": "Types"
+    },
+    {
+      "id": 6,
+      "label": "Weighted Graph",
+      "group": "Types"
+    },
+    {
+      "id": 7,
+      "label": "Adjacency Matrix",
+      "group": "Representations"
+    },
+    {
+      "id": 8,
+      "label": "Adjacency List",
+      "group": "Representations"
+    },
+    {
+      "id": 9,
+      "label": "DFS",
+      "group": "Algorithms"
+    },
+    {
+      "id": 10,
+      "label": "BFS",
+      "group": "Algorithms"
+    },
+    {
+      "id": 11,
+      "label": "Dijkstra",
+      "group": "Paths"
+    },
+    {
+      "id": 12,
+      "label": "Bellman-Ford",
+      "group": "Paths"
+    },
+    {
+      "id": 13,
+      "label": "MST",
+      "group": "Paths"
+    },
+    {
+      "id": 14,
+      "label": "Max Flow",
+      "group": "Flow"
+    },
+    {
+      "id": 15,
+      "label": "Min Cut",
+      "group": "Flow"
+    },
+    {
+      "id": 16,
+      "label": "Matching",
+      "group": "Flow"
+    },
+    {
+      "id": 17,
+      "label": "Tarjan SCC",
+      "group": "Advanced"
+    },
+    {
+      "id": 18,
+      "label": "Topological Sort",
+      "group": "Advanced"
+    },
+    {
+      "id": 19,
+      "label": "Degree Centrality",
+      "group": "Metrics"
+    },
+    {
+      "id": 20,
+      "label": "Betweenness",
+      "group": "Metrics"
+    },
+    {
+      "id": 21,
+      "label": "PageRank",
+      "group": "Metrics"
+    },
+    {
+      "id": 22,
+      "label": "Laplacian",
+      "group": "Spectral"
+    },
+    {
+      "id": 23,
+      "label": "Spectral Clustering",
+      "group": "Spectral"
+    },
+    {
+      "id": 24,
+      "label": "GNN",
+      "shape": "star",
+      "font": {
+        "color": "black"
+      },
+      "group": "ML"
+    },
+    {
+      "id": 25,
+      "label": "Graph Embeddings",
+      "group": "ML"
+    }
+  ],
+  "edges": [
+    {
+      "from": 2,
+      "to": 1
+    },
+    {
+      "from": 3,
+      "to": 1
+    },
+    {
+      "from": 4,
+      "to": 1
+    },
+    {
+      "from": 5,
+      "to": 1
+    },
+    {
+      "from": 6,
+      "to": 1
+    },
+    {
+      "from": 7,
+      "to": 1
+    },
+    {
+      "from": 8,
+      "to": 1
+    },
+    {
+      "from": 9,
+      "to": 1
+    },
+    {
+      "from": 10,
+      "to": 1
+    },
+    {
+      "from": 11,
+      "to": 6
+    },
+    {
+      "from": 12,
+      "to": 6
+    },
+    {
+      "from": 13,
+      "to": 6
+    },
+    {
+      "from": 14,
+      "to": 6
+    },
+    {
+      "from": 15,
+      "to": 14
+    },
+    {
+      "from": 16,
+      "to": 6
+    },
+    {
+      "from": 17,
+      "to": 9
+    },
+    {
+      "from": 18,
+      "to": 4
+    },
+    {
+      "from": 19,
+      "to": 1
+    },
+    {
+      "from": 20,
+      "to": 1
+    },
+    {
+      "from": 21,
+      "to": 1
+    },
+    {
+      "from": 22,
+      "to": 7
+    },
+    {
+      "from": 23,
+      "to": 22
+    },
+    {
+      "from": 24,
+      "to": 1
+    },
+    {
+      "from": 25,
+      "to": 24
+    }
+  ]
+}
