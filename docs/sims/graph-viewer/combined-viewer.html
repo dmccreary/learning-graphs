@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Combined Learning Graph Viewer - Search & Taxonomy Legend</title>
+  <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    #sidebar-container {
+      min-width: 250px;
+    }
+
+    #sidebar {
+      width: auto;
+      max-width: 300px;
+      padding: 10px;
+      box-sizing: border-box;
+      border-right: 1px solid lightgray;
+    }
+
+    #main {
+      flex: 1;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #search-container {
+      width: 100%;
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    #search-input {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      font-size: 14px;
+      border: 1px solid silver;
+      border-radius: 4px;
+    }
+
+    #search-results {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      border: 1px solid silver;
+      border-top: none;
+      max-height: 200px;
+      overflow-y: auto;
+      z-index: 1000;
+      display: none;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    #search-results div {
+      padding: 8px;
+      cursor: pointer;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    #search-results div:hover {
+      background-color: #f0f0f0;
+    }
+
+    #mynetwork {
+      width: 100%;
+      height: 600px;
+      background-color: aliceblue;
+      border: 1px solid lightgray;
+    }
+
+    #toggle-button {
+      margin: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    #toggle-button:hover {
+      background-color: #e0e0e0;
+    }
+
+    .legend-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    .legend-table td {
+      padding: 5px;
+      font-size: 12px;
+    }
+
+    .legend-table input[type="checkbox"] {
+      margin-right: 5px;
+    }
+
+    .color-indicator {
+      padding: 3px 8px;
+      text-align: center;
+      border-radius: 3px;
+      font-size: 11px;
+    }
+
+    .control-buttons {
+      margin: 10px 0;
+    }
+
+    .control-buttons button {
+      margin-right: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 3px;
+    }
+
+    .control-buttons button:hover {
+      background-color: #45a049;
+    }
+
+    .stats-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .stats-list li {
+      padding: 5px 0;
+      font-size: 14px;
+    }
+
+    h3 {
+      margin: 15px 0 10px 0;
+      font-size: 16px;
+    }
+
+    h4 {
+      margin: 0 0 10px 0;
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="sidebar-container">
+    <button id="toggle-button" onclick="toggleSidebar()">&#9776;</button>
+
+    <div id="sidebar">
+      <h3>Legend & Controls</h3>
+
+      <div class="control-buttons">
+        <button onclick="checkAllGroups()">Check All</button>
+        <button onclick="uncheckAllGroups()">Uncheck All</button>
+      </div>
+
+      <table class="legend-table">
+        <tr>
+          <td><input type="checkbox" id="groupFoundation" checked onchange="toggleGroup('Foundation')"> Foundation</td>
+          <td class="color-indicator" style="background-color: red; color: white;">Red</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" id="groupTypes" checked onchange="toggleGroup('Types')"> Types</td>
+          <td class="color-indicator" style="background-color: orange;">Orange</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" id="groupRepresentations" checked onchange="toggleGroup('Representations')"> Representations</td>
+          <td class="color-indicator" style="background-color: gold;">Gold</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" id="groupAlgorithms" checked onchange="toggleGroup('Algorithms')"> Algorithms</td>
+          <td class="color-indicator" style="background-color: green; color: white;">Green</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" id="groupPaths" checked onchange="toggleGroup('Paths')"> Paths</td>
+          <td class="color-indicator" style="background-color: blue; color: white;">Blue</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" id="groupFlow" checked onchange="toggleGroup('Flow')"> Flow</td>
+          <td class="color-indicator" style="background-color: indigo; color: white;">Indigo</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" id="groupAdvanced" checked onchange="toggleGroup('Advanced')"> Advanced</td>
+          <td class="color-indicator" style="background-color: violet; color: white;">Violet</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" id="groupMetrics" checked onchange="toggleGroup('Metrics')"> Metrics</td>
+          <td class="color-indicator" style="background-color: gray; color: white;">Gray</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" id="groupSpectral" checked onchange="toggleGroup('Spectral')"> Spectral</td>
+          <td class="color-indicator" style="background-color: brown; color: white;">Brown</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" id="groupML" checked onchange="toggleGroup('ML')"> ML & Networks</td>
+          <td class="color-indicator" style="background-color: teal; color: white;">Teal</td>
+        </tr>
+      </table>
+
+      <h3>Graph Statistics</h3>
+      <ul class="stats-list">
+        <li><b>Nodes:</b> <span id="nodeCount">0</span></li>
+        <li><b>Edges:</b> <span id="edgeCount">0</span></li>
+        <li><b>Orphans:</b> <span id="orphanCount">0</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="main">
+    <h4>Combined Learning Graph Viewer</h4>
+
+    <div id="search-container">
+      <input type="text" id="search-input" placeholder="Search nodes by name...">
+      <div id="search-results"></div>
+    </div>
+
+    <div id="mynetwork"></div>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      const mainContent = document.getElementById("main");
+      const toggleButton = document.getElementById("toggle-button");
+
+      if (sidebar.style.display === "none") {
+        sidebar.style.display = "block";
+        toggleButton.innerHTML = "&#9776;";
+      } else {
+        sidebar.style.display = "none";
+        toggleButton.innerHTML = "&#8594;";
+      }
+    }
+
+    // Create an array with nodes
+    var nodes = new vis.DataSet([
+      {id: 1, label: 'Graph', shape: "box", color: "red", font: {color: "white"}, group: 'Foundation'},
+      {id: 2, label: 'Vertex', color: "red", font: {color: "white"}, group: 'Foundation'},
+      {id: 3, label: 'Edge', color: "red", font: {color: "white"}, group: 'Foundation'},
+      {id: 4, label: 'Directed Graph', color: "orange", font: {color: "black"}, group: 'Types'},
+      {id: 5, label: 'Undirected Graph', color: "orange", font: {color: "black"}, group: 'Types'},
+      {id: 6, label: 'Weighted Graph', color: "orange", font: {color: "black"}, group: 'Types'},
+      {id: 7, label: 'Adjacency Matrix', color: "gold", font: {color: "black"}, group: 'Representations'},
+      {id: 8, label: 'Adjacency List', color: "gold", font: {color: "black"}, group: 'Representations'},
+      {id: 9, label: 'DFS', color: "green", font: {color: "white"}, group: 'Algorithms'},
+      {id: 10, label: 'BFS', color: "green", font: {color: "white"}, group: 'Algorithms'},
+      {id: 11, label: 'Dijkstra', color: "blue", font: {color: "white"}, group: 'Paths'},
+      {id: 12, label: 'Bellman-Ford', color: "blue", font: {color: "white"}, group: 'Paths'},
+      {id: 13, label: 'MST', color: "blue", font: {color: "white"}, group: 'Paths'},
+      {id: 14, label: 'Max Flow', color: "indigo", font: {color: "white"}, group: 'Flow'},
+      {id: 15, label: 'Min Cut', color: "indigo", font: {color: "white"}, group: 'Flow'},
+      {id: 16, label: 'Matching', color: "indigo", font: {color: "white"}, group: 'Flow'},
+      {id: 17, label: 'Tarjan SCC', color: "violet", font: {color: "white"}, group: 'Advanced'},
+      {id: 18, label: 'Topological Sort', color: "violet", font: {color: "white"}, group: 'Advanced'},
+      {id: 19, label: 'Degree Centrality', color: "gray", font: {color: "white"}, group: 'Metrics'},
+      {id: 20, label: 'Betweenness', color: "gray", font: {color: "white"}, group: 'Metrics'},
+      {id: 21, label: 'PageRank', color: "gray", font: {color: "white"}, group: 'Metrics'},
+      {id: 22, label: 'Laplacian', color: "brown", font: {color: "white"}, group: 'Spectral'},
+      {id: 23, label: 'Spectral Clustering', color: "brown", font: {color: "white"}, group: 'Spectral'},
+      {id: 24, label: 'GNN', shape: "star", color: "teal", font: {color: "white"}, group: 'ML'},
+      {id: 25, label: 'Graph Embeddings', color: "teal", font: {color: "white"}, group: 'ML'}
+    ]);
+
+    // Create an array with edges
+    var edges = new vis.DataSet([
+      {from: 2, to: 1},
+      {from: 3, to: 1},
+      {from: 4, to: 1},
+      {from: 5, to: 1},
+      {from: 6, to: 1},
+      {from: 7, to: 1},
+      {from: 8, to: 1},
+      {from: 9, to: 1},
+      {from: 10, to: 1},
+      {from: 11, to: 6},
+      {from: 12, to: 6},
+      {from: 13, to: 6},
+      {from: 14, to: 6},
+      {from: 15, to: 14},
+      {from: 16, to: 6},
+      {from: 17, to: 9},
+      {from: 18, to: 4},
+      {from: 19, to: 1},
+      {from: 20, to: 1},
+      {from: 21, to: 1},
+      {from: 22, to: 7},
+      {from: 23, to: 22},
+      {from: 24, to: 1},
+      {from: 25, to: 24}
+    ]);
+
+    // Create a network
+    var container = document.getElementById('mynetwork');
+
+    // Provide the data in the vis format
+    var data = {
+      nodes: nodes,
+      edges: edges
+    };
+
+    var options = {
+      edges: {
+        arrows: {
+          to: { enabled: true, type: 'arrow', color: 'black', scaleFactor: 1 }
+        },
+        color: {
+          color: 'black',
+          inherit: false
+        },
+        width: 2,
+        smooth: { type: 'continuous' }
+      },
+      physics: {
+        solver: 'forceAtlas2Based',
+        forceAtlas2Based: {
+          springLength: 100
+        }
+      }
+    };
+
+    var network = new vis.Network(container, data, options);
+
+    // ========== SEARCH FUNCTIONALITY ==========
+    var searchInput = document.getElementById('search-input');
+    var searchResults = document.getElementById('search-results');
+    var searchContainer = document.getElementById('search-container');
+
+    searchInput.addEventListener('input', function() {
+      var query = this.value.toLowerCase();
+      if (query === '') {
+        searchResults.style.display = 'none';
+        searchResults.innerHTML = '';
+        return;
+      }
+
+      // Only search visible nodes
+      var matches = nodes.get({
+        filter: function (item) {
+          return !item.hidden && item.label.toLowerCase().includes(query);
+        }
+      });
+
+      if (matches.length > 0) {
+        searchResults.innerHTML = '';
+        matches.forEach(function(item) {
+          var div = document.createElement('div');
+          div.textContent = item.label + ' (' + item.group + ')';
+          div.dataset.id = item.id;
+          div.addEventListener('click', function() {
+            var nodeId = parseInt(this.dataset.id);
+            network.focus(nodeId, {
+              animation: {
+                duration: 500,
+                easingFunction: 'easeInOutQuad'
+              },
+              scale: 1.5
+            });
+            network.selectNodes([nodeId]);
+            searchResults.style.display = 'none';
+            searchResults.innerHTML = '';
+            searchInput.value = '';
+          });
+          searchResults.appendChild(div);
+        });
+        searchResults.style.display = 'block';
+      } else {
+        searchResults.innerHTML = '<div style="color: gray; padding: 8px;">No matches found</div>';
+        searchResults.style.display = 'block';
+      }
+    });
+
+    // Close the dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!searchContainer.contains(event.target)) {
+        searchResults.style.display = 'none';
+        searchResults.innerHTML = '';
+      }
+    });
+
+    // ========== LEGEND/TAXONOMY FUNCTIONALITY ==========
+
+    // Function to update statistics
+    function updateStatistics() {
+      var allNodes = nodes.get();
+      var allEdges = edges.get();
+
+      // Filter visible nodes
+      var visibleNodes = allNodes.filter(node => !node.hidden);
+
+      // Filter visible edges (both connected nodes must be visible)
+      var visibleEdges = allEdges.filter(edge => {
+        var fromNode = nodes.get(edge.from);
+        var toNode = nodes.get(edge.to);
+        return (!fromNode.hidden && !toNode.hidden);
+      });
+
+      var nodeCount = visibleNodes.length;
+      var edgeCount = visibleEdges.length;
+
+      // Find orphan nodes (nodes with no visible edges)
+      var connectedNodeIds = new Set();
+      visibleEdges.forEach(edge => {
+        connectedNodeIds.add(edge.from);
+        connectedNodeIds.add(edge.to);
+      });
+      var orphanNodes = visibleNodes.filter(node => !connectedNodeIds.has(node.id));
+      var orphanCount = orphanNodes.length;
+
+      // Update the HTML elements with the statistics
+      document.getElementById('nodeCount').textContent = nodeCount;
+      document.getElementById('edgeCount').textContent = edgeCount;
+      document.getElementById('orphanCount').textContent = orphanCount;
+    }
+
+    // Call updateStatistics after the network is initialized
+    updateStatistics();
+
+    // Function to toggle groups
+    function toggleGroup(groupName) {
+      const visible = document.getElementById(`group${groupName}`).checked;
+      nodes.forEach(node => {
+        if (node.group === groupName) {
+          nodes.update({id: node.id, hidden: !visible});
+        }
+      });
+      updateStatistics();
+    }
+
+    // Function to check all groups
+    function checkAllGroups() {
+      const checkboxes = document.querySelectorAll('input[id^="group"]');
+      checkboxes.forEach(checkbox => {
+        if (!checkbox.checked) {
+          checkbox.checked = true;
+          toggleGroup(checkbox.id.replace('group', ''));
+        }
+      });
+    }
+
+    // Function to uncheck all groups
+    function uncheckAllGroups() {
+      const checkboxes = document.querySelectorAll('input[id^="group"]');
+      checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+          checkbox.checked = false;
+          toggleGroup(checkbox.id.replace('group', ''));
+        }
+      });
+    }
+  </script>
+</body>
+</html>
