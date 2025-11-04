@@ -1,8 +1,8 @@
-# Combined Learning Graph Viewer
+# Learning Graph Viewer
 
-[Run the Combined Learning Graph Viewer](main.html){ .md-button .md-button--primary }
+[Run the Learning Graph Viewer](main.html){ .md-button .md-button--primary }
 
-This viewer combines two powerful features for exploring learning graphs:
+This viewer reads a learning graph data from [../../learning-graph/learning-graph.json](../../learning-graph/learning-graph.json):
 
 1. **Search Functionality** - Quick node lookup with autocomplete
 2. **Taxonomy Legend Controls** - Filter nodes by category/taxonomy
@@ -27,13 +27,13 @@ This viewer combines two powerful features for exploring learning graphs:
 Real-time statistics that update as you filter:
 - **Nodes**: Count of visible nodes
 - **Edges**: Count of visible edges (both endpoints must be visible)
-- **Orphans**: Nodes with no visible connections
+- **Orphans**: Nodes with no connections (this is an indication that the learning graph needs editing)
 
-## Sample Graph
+## Sample Graph Demo
 
 The demo includes a Graph Theory learning graph with 10 taxonomy categories:
 
-- **Foundation** (Red) - Core concepts
+- **Foundation** (Red) - Core concepts in red boxes that should be pinned to the left
 - **Types** (Orange) - Graph types
 - **Representations** (Gold) - Data structures
 - **Algorithms** (Green) - Basic algorithms
