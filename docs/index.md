@@ -9,6 +9,9 @@ social:
 hide:
     toc
 ---
+<style>
+.md-content__inner h1 {display: none !important;}
+</style>
 # Learning Graphs
 
 ![](./img/cover-banner-image.png)
