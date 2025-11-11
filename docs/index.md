@@ -1,3 +1,14 @@
+---
+title: Learning Graphs
+description: A textbook on learning graphs that guide the creation of intelligent textbooks using LLMs. 
+image: /img/cover-banner-image.png
+og:image: /img/cover-banner-image.png
+twitter:image: /img/cover-banner-image.png
+social:
+   cards: false
+hide:
+    toc
+---
 # Learning Graphs
 
 ![](./img/cover-banner-image.png)
