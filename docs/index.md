@@ -1,3 +1,12 @@
+---
+title: Learning Graphs
+description: A textbook on the use of learning graphs to guide the creation of intelligent textbooks.
+image: img/cover-banner-image.png
+og-image: img/cover-banner-image.png
+---
+<style>
+.md-content__inner h1 {display: none !important;}
+</style>
 # Learning Graphs
 
 ![](./img/cover-banner-image.png)

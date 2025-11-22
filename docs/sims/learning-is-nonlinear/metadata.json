@@ -1,0 +1,105 @@
+{
+  "title": "Learning is Nonlinear",
+  "description": "Interactive visualization comparing linear (sequential) and nonlinear (concept dependency) learning pathways using 40 calculus topics. Demonstrates how knowledge forms a dependency graph rather than a simple linear sequence.",
+  "subject": "Educational Technology, Learning Theory, Graph Theory, Calculus",
+  "creator": "Claude AI Skills - vis-network MicroSim Generator",
+  "date": "2025-11-22",
+  "type": "Interactive Educational Simulation",
+  "format": "HTML5, JavaScript, vis-network.js",
+  "identifier": "learning-is-nonlinear-v1",
+  "language": "en-US",
+  "audience": "Undergraduate students, Educators, Instructional Designers",
+  "educationLevel": "Undergraduate (College Calculus I-II)",
+  "learningResourceType": "Simulation, Interactive Visualization",
+  "interactivityType": "Active",
+  "typicalLearningTime": "PT15M",
+  "bloomsTaxonomy": [
+    "Understand",
+    "Analyze",
+    "Evaluate"
+  ],
+  "prerequisites": [
+    "Basic familiarity with calculus topics (helpful but not required)",
+    "Understanding of graphs and networks (helpful)"
+  ],
+  "learningObjectives": [
+    "Understand the difference between linear and nonlinear learning pathways",
+    "Analyze how concept dependencies create a learning graph structure",
+    "Evaluate the limitations of sequential, textbook-style learning",
+    "Apply this understanding to personal study strategies"
+  ],
+  "controls": {
+    "radioButtons": [
+      {
+        "name": "Linear Learning",
+        "id": "linear",
+        "description": "Displays topics in sequential, serpentine pattern from top to bottom, showing traditional textbook progression"
+      },
+      {
+        "name": "Nonlinear Learning",
+        "id": "nonlinear",
+        "description": "Displays force-directed graph showing actual concept dependencies with Limits pinned to the left as foundational concept",
+        "default": true
+      }
+    ],
+    "interactions": [
+      "Click and drag nodes in nonlinear mode to explore relationships",
+      "Zoom in/out using mouse wheel or pinch gesture",
+      "Pan view by clicking and dragging background"
+    ]
+  },
+  "dataStructure": {
+    "nodes": 40,
+    "edges": 43,
+    "dataFile": "../linear-vs-non-linear.json",
+    "nodeShape": "ellipse",
+    "edgeLabels": "DEPENDS_ON (8pt font)",
+    "groups": [
+      "foundations",
+      "derivatives",
+      "applications",
+      "theorems",
+      "integrals",
+      "transcendental",
+      "advanced",
+      "sequences"
+    ]
+  },
+  "technicalSpecifications": {
+    "library": "vis-network.js",
+    "layoutAlgorithms": {
+      "linear": "Fixed serpentine grid (8 columns)",
+      "nonlinear": "Barnes-Hut force-directed with stabilization"
+    },
+    "physics": {
+      "linear": false,
+      "nonlinear": true
+    },
+    "responsive": true,
+    "accessibility": "Visual visualization with descriptive labels"
+  },
+  "keywords": [
+    "learning theory",
+    "concept dependencies",
+    "directed acyclic graph",
+    "DAG",
+    "calculus curriculum",
+    "knowledge graph",
+    "educational visualization",
+    "nonlinear learning",
+    "mastery learning",
+    "prerequisite knowledge",
+    "force-directed graph",
+    "vis-network"
+  ],
+  "license": "MIT",
+  "coverage": "Calculus I and II curriculum (40 topics from Limits through Series)",
+  "rights": "Open educational resource",
+  "source": "Generated from calculus curriculum analysis",
+  "relation": [
+    "Concept Mapping",
+    "Learning Graphs",
+    "Bloom's Taxonomy",
+    "Directed Acyclic Graphs"
+  ]
+}
