@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning is Nonlinear</title>
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #title {
+            text-align: center;
+            padding: 15px;
+            background-color: #2c3e50;
+            color: white;
+            margin: 0;
+            font-size: 24px;
+        }
+
+        #mynetwork {
+            flex: 1;
+            min-height: 600px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+
+        #controls {
+            padding: 15px;
+            background-color: #ecf0f1;
+            border-top: 2px solid #bdc3c7;
+            text-align: center;
+        }
+
+        .radio-group {
+            display: inline-block;
+            margin: 0 20px;
+        }
+
+        .radio-group input[type="radio"] {
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        .radio-group label {
+            font-size: 16px;
+            cursor: pointer;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .radio-group input[type="radio"]:checked + label {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+
+        #description {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">Learning is Nonlinear</h1>
+    <div id="mynetwork"></div>
+    <div id="controls">
+        <div class="radio-group">
+            <input type="radio" id="linear" name="mode" value="linear" checked>
+            <label for="linear">Linear Learning</label>
+        </div>
+        <div class="radio-group">
+            <input type="radio" id="nonlinear" name="mode" value="nonlinear">
+            <label for="nonlinear">Nonlinear Learning</label>
+        </div>
+        <div id="description">
+            Switch between linear (sequential) and nonlinear (concept dependency) views of calculus topics
+        </div>
+    </div>
+    <script src="learning-is-nonlinear.js"></script>
+</body>
+</html>
