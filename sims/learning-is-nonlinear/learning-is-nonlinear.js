@@ -41,7 +41,7 @@ async function init() {
             },
             font: {
                 color: '#000000',
-                size: 14,
+                size: 16,
                 face: 'Arial'
             },
             borderWidth: 2,
@@ -51,7 +51,7 @@ async function init() {
         // Store original edges for later use
         originalEdgesData = data.edges.map(edge => ({
             ...edge,
-            arrows: 'to',
+            arrows: 'from',
             font: {
                 size: 8,
                 align: 'middle'
@@ -98,8 +98,18 @@ function createNetwork() {
 
 // Get network options based on current mode
 function getNetworkOptions() {
+    const baseOptions = {
+        interaction: {
+            navigationButtons: true,
+            keyboard: true,
+            zoomView: true,
+            dragView: true
+        }
+    };
+
     if (currentMode === 'linear') {
         return {
+            ...baseOptions,
             physics: {
                 enabled: false
             },
@@ -107,9 +117,8 @@ function getNetworkOptions() {
                 hierarchical: false
             },
             interaction: {
-                dragNodes: false,
-                zoomView: true,
-                dragView: true
+                ...baseOptions.interaction,
+                dragNodes: false
             },
             edges: {
                 smooth: {
@@ -120,6 +129,7 @@ function getNetworkOptions() {
         };
     } else {
         return {
+            ...baseOptions,
             physics: {
                 enabled: true,
                 barnesHut: {
@@ -140,9 +150,8 @@ function getNetworkOptions() {
                 improvedLayout: true
             },
             interaction: {
-                dragNodes: true,
-                zoomView: true,
-                dragView: true
+                ...baseOptions.interaction,
+                dragNodes: true
             },
             edges: {
                 smooth: {
@@ -181,7 +190,7 @@ function applyLinearLayout() {
             from: i,
             to: i + 1,
             label: 'DEPENDS_ON',
-            arrows: 'to',
+            arrows: 'from',
             font: { size: 8, align: 'middle' },
             color: { color: '#95a5a6', highlight: '#2c3e50' },
             smooth: { type: 'continuous', roundness: 0.5 }
