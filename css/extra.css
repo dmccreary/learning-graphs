@@ -7,28 +7,43 @@
     width: 50px;
 }
 
-/* Container to control the iframe size and scaling */
+* Container to control the iframe size and scaling */
 .iframe-container {
     width: 100%;
     position: relative;
     overflow: hidden;
   }
 
-  /* for use in formatting multiple choice question responses
-  that need to be ordered A. B. C. D.
-  This requires that the md_in_html extension is enabled
-  and that a <div class="upper-alpha" markdown> wraps
-  the ordered list.
+  /* Iframe styles */
+  iframe {
+    width: 100%;
+    border: solid 2px blue;
+  }
 
-
-<div class="upper-alpha" markdown>
-1. First item
-2. Second item
-3. Third item
-4. Fourth item
-</div>
-
-  */
+  /* if a div with <div class="upper-alpha"> wraps a list, then number A.B.C.D etc */
+  /* this requires that the markdown extension md_in_html is enabled in the mkdocs.yml file */
   .upper-alpha ol {
     list-style-type: upper-alpha;
   }
+
+/* Styling for the Copy Button */
+.admonition.prompt {
+  position: relative;
+}
+
+.admonition.prompt .copy-button {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  background-color: #0056d6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.3rem 0.3rem;
+  cursor: pointer;
+  font-size: 0.7rem;
+}
+
+.admonition.prompt .copy-button:hover {
+  background-color: #0041a4; /* Darker blue on hover */
+}
