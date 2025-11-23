@@ -1,8 +1,19 @@
 ---
 title: Learning Graphs
+<<<<<<< HEAD
 description: A textbook on the use of learning graphs to guide the creation of intelligent textbooks.
 image: img/cover-banner-image.png
 og-image: img/cover-banner-image.png
+=======
+description: A textbook on learning graphs that guide the creation of intelligent textbooks using LLMs. 
+image: /img/cover-banner-image.png
+og:image: /img/cover-banner-image.png
+twitter:image: /img/cover-banner-image.png
+social:
+   cards: false
+hide:
+    toc
+>>>>>>> refs/remotes/origin/main
 ---
 <style>
 .md-content__inner h1 {display: none !important;}
