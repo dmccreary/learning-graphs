@@ -2,8 +2,6 @@
 
 <iframe src="main.html" height="400"></iframe>
 
-![Image Name](./image.png){ width="400" }
-
 [Run the MicroSim Template](./main.html){ .md-button .md-button--primary }
 [Edit this MicroSim](https://editor.p5js.org/dmccreary/sketches/dJq4nTXE4)
 
