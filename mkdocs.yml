@@ -101,6 +101,7 @@ nav:
     - Intro: sims/index.md
     - Learning is Nonlinear: sims/learning-is-nonlinear/index.md
     - Learning Graph: sims/learning-graph/index.md
+    - Book Build Workflow: sims/book-build-workflow/index.md
     - Book Generation Workflow: sims/book-gen-workflow/index.md
     - Concept to Content Viewer: sims/concept-to-content-viewer/index.md
     - Bloom's Taxonomy: sims/blooms-taxonomy/index.md
