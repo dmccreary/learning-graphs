@@ -101,5 +101,12 @@
     "Learning Graphs",
     "Bloom's Taxonomy",
     "Directed Acyclic Graphs"
+  ],
+  "visualizationType": [
+    "animation",
+    "interactive-demo",
+    "map",
+    "network",
+    "simulation"
   ]
 }
