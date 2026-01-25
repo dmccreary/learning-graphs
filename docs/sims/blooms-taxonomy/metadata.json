@@ -37,5 +37,32 @@
     "interactive-demo",
     "network",
     "map"
-  ]
+  ],
+  "learningObjectives": [
+    "Understand the mathematical concept of folder index.md template",
+    "Apply folder index.md template to solve problems",
+    "Visualize and interpret folder index.md template relationships"
+  ],
+  "pedagogical": {
+    "pattern": "demonstration",
+    "bloomAlignment": [
+      "understand",
+      "apply",
+      "analyze"
+    ],
+    "bloomVerbs": [
+      "classify",
+      "compare",
+      "explain",
+      "interpret",
+      "summarize"
+    ],
+    "pacing": "self-paced",
+    "supportsPrediction": false,
+    "dataVisibility": "high",
+    "feedbackType": [
+      "explanatory"
+    ],
+    "interactionStyle": "construct"
+  }
 }
