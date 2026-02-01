@@ -154,6 +154,9 @@ markdown_extensions:
 extra_css:
   - css/extra.css
 extra:
+  schema: https://dmccreary.github.io/intelligent-textbooks/ns/textbook/v1
+  textbook_name: Learning Graphs
+  textbook_version: "1.0"
   analytics:
     provider: google
      # https://analytics.google.com/analytics/web/#/a1420179p349994530/admin/streams/table/4433129821
