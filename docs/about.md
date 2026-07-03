@@ -5,7 +5,7 @@ The goal of this website is to enable teaching the concepts around [Learning Gra
 This form of highly-customized learning is our goal.  We believe that learning graphs are the core data structure that these intelligent learning agents will be built on.
 
 Today, there are no formal standards for Learning Graphs.  We hope that the resources on this site can enable an organization to publish
-these learning graph interoperability standards.  See our chapter on [Validating Learning Graphs](./chapters/19-validating.md) for examples.
+these learning graph interoperability standards.  See our chapter on [Learning Graph Quality, Validation, and File Formats](./chapters/05-graph-quality-validation-file-formats/index.md) for examples.
 
 ## Terminology
 

@@ -264,6 +264,9 @@ An educational model inspired by the way rhizomes grow and spread, allowing for 
 The Rhizombic Learning approach contrasts with traditional hierarchical or linear models, focusing instead on exploration, connection, and adaptability.  Learning graphs are ideal
 tools to encourage the curious leaner.
 
+!!! note
+    The [Wikipedia article on this topic](https://en.wikipedia.org/wiki/Rhizomatic_learning) uses the spelling "Rhizomatic Learning." We use "Rhizombic Learning" throughout this textbook instead.
+
 #### Prerequisite Chain
 
 A sequence of concepts or courses that must be mastered in a specific order to achieve a learning objective.

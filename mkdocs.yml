@@ -10,21 +10,36 @@ nav:
   - Home: index.md
   - About: about.md
   - Course Description: course-description.md
+  - Learning Graph:
+    - Introduction: learning-graph/index.md
+    - Course Description Assessment: learning-graph/course-description-assessment.md
+    - Concept List v1: learning-graph/concept-list-v1.md
+    - Concept List: learning-graph/concept-list.md
+    - Concept Taxonomy: learning-graph/concept-taxonomy.md
+    - Taxonomy Distribution Report: learning-graph/taxonomy-distribution.md
+    - Graph Quality Metrics: learning-graph/quality-metrics.md
+    - Mascot Style Guide: learning-graph/mascot-test.md
   - Chapters:
     - Table of Contents: chapters/index.md
-    - Learning Graphs: chapters/01-learning-graphs.md
-    - Bloom's Taxonomy: chapters/02-blooms-taxonomy.md
-    - Rhizomatic Learning: chapters/02-rhizomatic-learning.md
-    - Concepts: chapters/02-concepts.md
-    - Concept Dependency: chapters/03-concept-dependency.md
-    - Concept Taxonomies: chapters/04-concept-taxonomies.md
-    - Displaying Graphs: chapters/05-displaying-graphs.md
-    - Vis.js: chapters/06-vis-js.md
-    - Dependency Analysis: chapters/15-dependency-analysis.md
-    - Customizing Lesson Plans: chapters/16-customizing-lesson-plans.md
-    - LMS Integration: chapters/17-lms-integration.md
-    - Building Intelligent Agents: chapters/18-agents.md
-    - Validating Learning Graphs: chapters/19-validating.md
+    - 1. Foundations of Concept Graphs: chapters/01-foundations-of-concept-graphs/index.md
+    - 2. Concept Labeling and Metadata Standards: chapters/02-concept-labeling-metadata-standards/index.md
+    - 3. Concept Dependencies and Prerequisites: chapters/03-concept-dependencies-prerequisites/index.md
+    - 4. Concept Taxonomies and Ontologies: chapters/04-concept-taxonomies-ontologies/index.md
+    - 5. Learning Graph Quality, Validation, and File Formats: chapters/05-graph-quality-validation-file-formats/index.md
+    - 6. Bloom's Taxonomy and Learning Objectives: chapters/06-blooms-taxonomy-learning-objectives/index.md
+    - 7. Learning Theories and Instructional Design: chapters/07-learning-theories-instructional-design/index.md
+    - 8. Cognitive Load and Knowledge Space Theory: chapters/08-cognitive-load-knowledge-space-theory/index.md
+    - 9. Mastery, Metacognition, and Instructional Sequencing: chapters/09-mastery-metacognition-sequencing/index.md
+    - 10. Assessment, Feedback, and Quizzes: chapters/10-assessment-feedback-quizzes/index.md
+    - 11. Vis.js Fundamentals and Node Styling: chapters/11-visjs-fundamentals-node-styling/index.md
+    - 12. Edge Styling and Visual Properties: chapters/12-edge-styling-visual-properties/index.md
+    - 13. Physics Simulation and Graph Layout: chapters/13-physics-simulation-graph-layout/index.md
+    - 14. Interactive Navigation in Vis.js: chapters/14-interactive-navigation-visjs/index.md
+    - 15. Graph Clustering and Editing Tools: chapters/15-graph-clustering-editing-tools/index.md
+    - 16. Personalization and Adaptive Learning Paths: chapters/16-personalization-adaptive-learning-paths/index.md
+    - 17. Intelligent Agents and Generative AI: chapters/17-intelligent-agents-generative-ai/index.md
+    - 18. Intelligent Textbooks, MicroSims, and Deployment: chapters/18-intelligent-textbooks-microsims-deployment/index.md
+    - 19. Using a Skill to Generate a Learning Graph: chapters/19-skill-generate-learning-graph/index.md
 
   - Concepts:
     - Introduction: concepts/index.md
@@ -153,6 +168,7 @@ markdown_extensions:
   - pymdownx.superfences
 extra_css:
   - css/extra.css
+  - css/mascot.css
 extra:
   schema: https://dmccreary.github.io/intelligent-textbooks/ns/textbook/v1
   textbook_name: Learning Graphs

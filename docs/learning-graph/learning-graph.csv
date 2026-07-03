@@ -1,0 +1,267 @@
+ConceptID,ConceptLabel,Dependencies,TaxonomyID
+1,Concept,,FOUND
+2,Concept Graph,1,FOUND
+3,Content Graph,2,FOUND
+4,Knowledge Graph,2,FOUND
+5,Dependency Graph,2,FOUND
+6,Learning Graph,5|4,FOUND
+7,Directed Graph,,FOUND
+8,Directed Acyclic Graph (DAG),7,FOUND
+9,Node,,FOUND
+10,Edge,9,FOUND
+11,Hierarchy,2,FOUND
+12,Graph Representation,9|10,FOUND
+13,Cluster (Graph),2,FOUND
+14,Journey Map,6,FOUND
+15,Hybrid Graph,2|3,FOUND
+16,Concept Label,1,FOUND
+17,Preferred Label,16,FOUND
+18,Alternate Label,16,FOUND
+19,SKOS,17|18,FOUND
+20,ISO/IEC 11179,16,FOUND
+21,Dublin Core Metadata,16,FOUND
+22,Controlled Vocabulary,19,FOUND
+23,Concept Definition,16,FOUND
+24,Textbook Index,16,FOUND
+25,Named Concept,16,FOUND
+26,Concept Dependency,6|9|10,DEPEND
+27,Prerequisite Relationship,26,DEPEND
+28,Prerequisite Chain,27,DEPEND
+29,Prerequisite Concept,27,DEPEND
+30,Foundational Concept,26,DEPEND
+31,Goal Concept,26,DEPEND
+32,Immediate Goal,31,DEPEND
+33,Intermediate Goal,31,DEPEND
+34,Ultimate Goal,31,DEPEND
+35,Learning Goal,31,DEPEND
+36,Ready-to-Learn Concept,30|29,DEPEND
+37,Learned Concept,36,DEPEND
+38,Skill Gap,37,DEPEND
+39,Transitive Dependency,28,DEPEND
+40,Hop Count,39,DEPEND
+41,Dependency Analysis,26|40,DEPEND
+42,Concept Taxonomy,25|26,TAXON
+43,Ontology,42,TAXON
+44,TaxonomyID,42,TAXON
+45,Taxonomy Classifier,44,TAXON
+46,Taxonomy Category,44,TAXON
+47,Taxonomy Distribution Report,46,TAXON
+48,Taxonomy Legend,46,TAXON
+49,Node Group,46,TAXON
+50,Concept-to-Taxonomy Mapping,44|46,TAXON
+51,Balanced Taxonomy,47,TAXON
+52,Miscellaneous Category,46,TAXON
+53,Abstraction (Graph),42,TAXON
+54,Clustering (Graph),13|42,TAXON
+55,Learning Graph Validation,8|26,QUAL
+56,Graph Quality Metric,55,QUAL
+57,Orphaned Node,26,QUAL
+58,Disconnected Subgraph,26,QUAL
+59,Cycle Detection,8,QUAL
+60,Self-Dependency Prevention,26,QUAL
+61,Indegree,26,QUAL
+62,Out-Degree,26,QUAL
+63,Node Degree,61|62,QUAL
+64,Full Coverage Check,58,QUAL
+65,Structural Check,55,QUAL
+66,Graph Connectivity,58,QUAL
+67,Quality Metrics Report,56|57|58|59,QUAL
+68,Third-Party Certification,67,QUAL
+69,Bloom's Taxonomy,,EDUF
+70,Cognitive Domain,69,EDUF
+71,Affective Domain,69,EDUF
+72,Psychomotor Domain,69,EDUF
+73,Remembering,70,EDUF
+74,Understanding,70,EDUF
+75,Applying,70,EDUF
+76,Analyzing,70,EDUF
+77,Evaluating,70,EDUF
+78,Creating,70,EDUF
+79,Learning Objective,69,EDUF
+80,Instructional Design,79|82|222|223,EDUF
+81,Scaffolding,80,EDUF
+82,Constructivism,,EDUF
+83,Zone of Proximal Development,82,EDUF
+84,Rhizombic Learning,82,EDUF
+85,Non-Linear Learning Path,84|224,EDUF
+86,Self-Directed Exploration,84,EDUF
+87,Emergent Knowledge Structure,84,EDUF
+88,Mastery Learning,81|83,EDUF
+89,Curriculum Design,79|80,EDUF
+90,Learning Path,26|89,PERS
+91,Personalized Learning Path,90,PERS
+92,Adaptive Learning,88|90,PERS
+93,Adaptive Learning Path,92,PERS
+94,Adaptive Algorithm,92,PERS
+95,Hyper-Personalization,91|92,PERS
+96,Hyper-Customized Lesson Plan,95,PERS
+97,Custom Learning Plan,96,PERS
+98,Content Recommendation Engine,94,PERS
+99,Recommendation Engine,98,PERS
+100,Concept Similarity,42,PERS
+101,Student Similarity,99,PERS
+102,Content Similarity,99,PERS
+103,Similarity Metric,100|101|102,PERS
+104,Generative AI,,AI
+105,Intelligent Agent,104,AI
+106,Agent Autonomy,105,AI
+107,Multi-Agent Collaboration,105,AI
+108,Tool Use (Agent),105,AI
+109,Iterative Workflow,105,AI
+110,LLM-Generated Dependency Graph,104|26,AI
+111,Prompt Engineering,104,AI
+112,Chatbot,105|111,AI
+113,Retrieval-Augmented Generation,104,AI
+114,GraphRAG,113|42,AI
+115,Learning Agent,105|92,AI
+116,Assessment,79,ASSESS
+117,Formative Feedback,116,ASSESS
+118,Personalized Feedback Loop,117|95,ASSESS
+119,Feedback Loop,117,ASSESS
+120,Feedback Log,119,ASSESS
+121,Feedback Analysis,120,ASSESS
+122,Course Evaluation,116,ASSESS
+123,Learning Touchpoint,116,ASSESS
+124,Frequently Asked Question,123,ASSESS
+125,Quiz,116,ASSESS
+126,Multiple-Choice Question,125,ASSESS
+127,Quiz Distractor,126,ASSESS
+128,True/False Question,125,ASSESS
+129,Vis.js,,VISCORE
+130,Vis-Network Library,129,VISCORE
+131,DataSet,130,VISCORE
+132,Network Container,130,VISCORE
+133,Network Initialization,131|132,VISCORE
+134,JSON Data Format,195,VISCORE
+135,Force-Directed Graph,12,VISCORE
+136,Force-Directed Graph Layout,135|157,VISCORE
+137,Legend Display,46|131,VISCORE
+138,Node Shape,131,VISCORE
+139,Node Background Color,131,VISCORE
+140,Node Size,131,VISCORE
+141,Node Font Color,131,VISCORE
+142,Node Border Width,131,VISCORE
+143,Node Border Color,131,VISCORE
+144,Node Opacity,131,VISCORE
+145,Node Icon,131,VISCORE
+146,Node Image,131,VISCORE
+147,Node Shadow,131,VISCORE
+148,Custom Canvas Shape,138,VISCORE
+149,Edge Label,131,VISCORE
+150,Edge Color,131,VISCORE
+151,Edge Width,131,VISCORE
+152,Edge Dashes,131,VISCORE
+153,Edge Smoothing,151,VISCORE
+154,Cubic Bezier Curve,153,VISCORE
+155,Edge Arrows,131,VISCORE
+156,Edge Font,149,VISCORE
+157,Physics Simulation,133,VISLAYOUT
+158,Barnes-Hut Solver,157,VISLAYOUT
+159,ForceAtlas2 Layout,157,VISLAYOUT
+160,Repulsion Solver,157,VISLAYOUT
+161,Central Gravity,157,VISLAYOUT
+162,Damping,157,VISLAYOUT
+163,Hierarchical Layout,133,VISLAYOUT
+164,Layout Direction,163,VISLAYOUT
+165,Fixed Node Position,157,VISLAYOUT
+166,Node Pinning,165,VISLAYOUT
+167,Spring Length Parameter,158|159,VISLAYOUT
+168,Stabilization,157,VISLAYOUT
+169,Graph Layout Algorithm,136|163,VISLAYOUT
+170,Node Tooltip,172,VISLAYOUT
+171,Edge Tooltip,172,VISLAYOUT
+172,Hover State,131,VISLAYOUT
+173,Double-Click Event,175,VISLAYOUT
+174,Node Inspector,173,VISLAYOUT
+175,Click Event Handling,131,VISLAYOUT
+176,Node URL Property,175,VISLAYOUT
+177,Clickable Node,176,VISLAYOUT
+178,Search Feature (Graph),131,VISLAYOUT
+179,Type-Ahead Filtering,178,VISLAYOUT
+180,Focus Node Navigation,178,VISLAYOUT
+181,Graph Cluster,13,VISTOOLS
+182,Composite Node,181,VISTOOLS
+183,Cluster Expand/Collapse,182,VISTOOLS
+184,Group Visibility Checkbox,49|183,VISTOOLS
+185,Group Styling,49,VISTOOLS
+186,Domain Attribute (Clustering),181,VISTOOLS
+187,Graph Editor,131,VISTOOLS
+188,Node Property Editor,187,VISTOOLS
+189,Edge Property Editor,187,VISTOOLS
+190,JSON Graph Import,187|195,VISTOOLS
+191,JSON Graph Export,187|195,VISTOOLS
+192,Node Enricher Script,190,VISTOOLS
+193,Data Validation on Import,190,VISTOOLS
+194,Orphaned Node Detection,57|193,VISTOOLS
+195,JSON,,DATA
+196,JSON Schema,195,DATA
+197,CSV,,DATA
+198,YAML,,DATA
+199,Markdown,,DATA
+200,CSV to JSON Conversion,195|197,DATA
+201,groups.json,195|46,DATA
+202,Intelligent Textbook,6|104|217,TEXTBOOK
+203,MicroSim,204,TEXTBOOK
+204,p5.js,205,TEXTBOOK
+205,JavaScript,,TEXTBOOK
+206,Interactive Visualization,129|203,TEXTBOOK
+207,Interactive Simulation,203,TEXTBOOK
+208,Book Build Workflow,202|90|218,TEXTBOOK
+209,Book Metrics,208,TEXTBOOK
+210,Chapter Metrics,208,TEXTBOOK
+211,Content Generation Pipeline,208|104,TEXTBOOK
+212,Quality Gate,211|55,TEXTBOOK
+213,Concept-to-Content Viewer,202|90,TEXTBOOK
+214,Learning Path Recommendation,90|98,TEXTBOOK
+215,Learning Management System (LMS),,LMS
+216,LMS Integration,215|6,LMS
+217,MkDocs,199|198,LMS
+218,GitHub Pages,219,LMS
+219,Git,,LMS
+220,Case Study,202,LMS
+221,Real-World Application,220,LMS
+222,Cognitivism,,LSCI
+223,Behaviorism,,LSCI
+224,Connectivism,,LSCI
+225,Andragogy,,LSCI
+226,Cognitive Load Theory,222,LSCI
+227,Working Memory Constraint,226,LSCI
+228,Schema Theory,222,LSCI
+229,Prior Knowledge Activation,228|30,LSCI
+230,Chunking (Cognitive Load),227,LSCI
+231,Knowledge Space Theory,26|42,LSCI
+232,Learning Progression,79|89,LSCI
+233,Spiral Curriculum,232,LSCI
+234,Backward Design,79,LSCI
+235,Constructive Alignment,234,LSCI
+236,Topological Sort,8,LSCI
+237,Partial Order,26,LSCI
+238,Prerequisite-Based Sequencing,236|237,LSCI
+239,Content Sequencing Algorithm,238,LSCI
+240,Competency-Based Education,79|225,LSCI
+241,Differentiated Instruction,92,LSCI
+242,Universal Design for Learning,241,LSCI
+243,Learning Trajectory,90|238,LSCI
+244,Spaced Repetition,88,LSCI
+245,Retrieval Practice,244,LSCI
+246,Interleaved Practice,244,LSCI
+247,Desirable Difficulty,245|246,LSCI
+248,Metacognition,80,LSCI
+249,Self-Regulated Learning,248,LSCI
+250,Growth Mindset,249,LSCI
+251,Vygotsky's Social Theory,83,LSCI
+252,Nine Events of Instruction,80,LSCI
+253,Just-in-Time Learning,92,LSCI
+254,Curriculum Alignment,89|232,LSCI
+255,Agent Skill,105|108,SKILL
+256,Claude Code,255,SKILL
+257,Skill Invocation,256,SKILL
+258,Course Description Scoring,69|257,SKILL
+259,Concept List Generation,16|104|258,SKILL
+260,Concept List Review,259,SKILL
+261,Dependency CSV Generation,26|260,SKILL
+262,Automated Quality Validation,56|261,SKILL
+263,Taxonomy Generation Step,42|262,SKILL
+264,Pipeline Session Log,263,SKILL
+265,Iterative Graph Regeneration,67|264,SKILL
+266,Human-in-the-Loop Review,260|265,SKILL

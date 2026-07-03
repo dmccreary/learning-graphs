@@ -1,0 +1,157 @@
+/* ============================================
+   Learning Mascot: Axiom the Owl
+   Pedagogical agent for Learning Graphs
+   Shared character — see docs/img/mascot/character-sheet.md
+   ============================================ */
+
+:root {
+  --mascot-primary:   #1976d2; /* academic blue (Axiom's feathers)  */
+  --mascot-secondary: #0d47a1; /* dark blue accent                  */
+  --mascot-gold:      #f9a825; /* Axiom's gold collar               */
+  --mascot-red:       #e53935; /* Axiom's red tie                   */
+  --mascot-size: 90px;
+}
+
+/* ---- Shared base for all mascot admonitions ---- */
+/* Override MkDocs Material's default smaller admonition font size
+   so mascot admonition text matches the body text exactly. */
+.md-typeset .admonition.mascot-welcome,
+.md-typeset .admonition.mascot-explain,
+.md-typeset .admonition.mascot-thinking,
+.md-typeset .admonition.mascot-tip,
+.md-typeset .admonition.mascot-warning,
+.md-typeset .admonition.mascot-celebration,
+.md-typeset .admonition.mascot-encourage,
+.md-typeset .admonition.mascot-neutral,
+.md-typeset details.mascot-welcome,
+.md-typeset details.mascot-explain,
+.md-typeset details.mascot-thinking,
+.md-typeset details.mascot-tip,
+.md-typeset details.mascot-warning,
+.md-typeset details.mascot-celebration,
+.md-typeset details.mascot-encourage,
+.md-typeset details.mascot-neutral {
+  font-size: inherit;
+}
+
+/* ---- Welcome (chapter openings) — academic blue ---- */
+.md-typeset .admonition.mascot-welcome,
+.md-typeset details.mascot-welcome {
+  border-color: var(--mascot-primary);
+  background-color: #e3f2fd;
+}
+.md-typeset .mascot-welcome > .admonition-title,
+.md-typeset .mascot-welcome > summary {
+  background-color: var(--mascot-primary);
+  color: white;
+}
+
+/* ---- Explain (concept clarification) — deep blue ---- */
+.md-typeset .admonition.mascot-explain,
+.md-typeset details.mascot-explain {
+  border-color: var(--mascot-secondary);
+  background-color: #e8eaf6;
+}
+.md-typeset .mascot-explain > .admonition-title,
+.md-typeset .mascot-explain > summary {
+  background-color: var(--mascot-secondary);
+  color: white;
+}
+
+/* ---- Thinking (key concepts) — warm amber-brown ---- */
+.md-typeset .admonition.mascot-thinking,
+.md-typeset details.mascot-thinking {
+  border-color: #6d4c41;
+  background-color: #efebe9;
+}
+.md-typeset .mascot-thinking > .admonition-title,
+.md-typeset .mascot-thinking > summary {
+  background-color: #6d4c41;
+  color: white;
+}
+
+/* ---- Tip (hints) — teal ---- */
+.md-typeset .admonition.mascot-tip,
+.md-typeset details.mascot-tip {
+  border-color: #00897b;
+  background-color: #e0f2f1;
+}
+.md-typeset .mascot-tip > .admonition-title,
+.md-typeset .mascot-tip > summary {
+  background-color: #00897b;
+  color: white;
+}
+
+/* ---- Warning (common mistakes) — Axiom's red ---- */
+.md-typeset .admonition.mascot-warning,
+.md-typeset details.mascot-warning {
+  border-color: var(--mascot-red);
+  background-color: #ffebee;
+}
+.md-typeset .mascot-warning > .admonition-title,
+.md-typeset .mascot-warning > summary {
+  background-color: var(--mascot-red);
+  color: white;
+}
+
+/* ---- Encourage (difficult content) — green ---- */
+.md-typeset .admonition.mascot-encourage,
+.md-typeset details.mascot-encourage {
+  border-color: #2e7d32;
+  background-color: #e8f5e9;
+}
+.md-typeset .mascot-encourage > .admonition-title,
+.md-typeset .mascot-encourage > summary {
+  background-color: #2e7d32;
+  color: white;
+}
+
+/* ---- Celebration (achievements) — Axiom's gold, dark body ---- */
+/* NOTE: the celebration pose contains pale gold confetti/sparkle accents
+   that vanish against a light background. Keep the body dark and flip
+   text color to light so those details remain visible. */
+.md-typeset .admonition.mascot-celebration,
+.md-typeset details.mascot-celebration {
+  border-color: var(--mascot-gold);
+  background-color: #1a237e;
+  color: #fff8e1;
+}
+.md-typeset .mascot-celebration > .admonition-title,
+.md-typeset .mascot-celebration > summary {
+  background-color: var(--mascot-gold);
+  color: #1a237e;
+}
+
+/* ---- Neutral (general purpose) — slate gray ---- */
+.md-typeset .admonition.mascot-neutral,
+.md-typeset details.mascot-neutral {
+  border-color: #546e7a;
+  background-color: #eceff1;
+}
+.md-typeset .mascot-neutral > .admonition-title,
+.md-typeset .mascot-neutral > summary {
+  background-color: #546e7a;
+  color: white;
+}
+
+/* ---- Title: left-align text, remove default MkDocs icon completely ---- */
+.md-typeset [class*="mascot-"] > .admonition-title,
+.md-typeset [class*="mascot-"] > summary {
+  text-align: left;
+  padding-left: 0.8rem;
+}
+.md-typeset [class*="mascot-"] > .admonition-title::before,
+.md-typeset [class*="mascot-"] > summary::before {
+  display: none;
+}
+
+/* ---- Mascot image floated LEFT of admonition body text ---- */
+.mascot-admonition-img {
+  float: left;
+  width: var(--mascot-size);
+  height: var(--mascot-size);
+  /* margin: top right bottom left */
+  margin: 0 .5em 0 0;
+  object-fit: contain;
+  pointer-events: none;  /* belt-and-suspenders; real exclusion is via glightbox skip_classes */
+}

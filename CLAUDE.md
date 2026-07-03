@@ -136,3 +136,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
 2. Add entry to `mkdocs.yml` navigation if needed
 3. Test locally with `mkdocs serve`
 4. Build and deploy with `mkdocs gh-deploy` after review
+
+## Content Generation Rules
+
+`CONTENT-GENERATION-GUIDE.md` MUST be read before generating any user-facing content —
+chapters, lesson plans, quizzes, FAQ entries, glossary definitions, MicroSim copy, or any
+other text a student will read. It consolidates the target audience/voice, reading-level
+target, and learning-mascot (Axiom the Owl) rules for this project. Note that the teacher
+guide or instructor guide or other instructor-facing content does not need to use the
+mascot described in CONTENT-GENERATION-GUIDE.md, but should still follow its reading-level
+and audience guidance.

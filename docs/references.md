@@ -73,6 +73,12 @@ These studies demonstrate that incorporating graph representations of course con
 
 ### Other Papers and Articles
 
+#### A Five-Level Classification Framework for Intelligent Textbooks
+
+[Five Levels of Intelligent Textbooks](https://github.com/dmccreary/intelligent-textbooks/tree/main/papers/five-levels) - Dan McCreary (2025)
+
+Proposes a five-level classification system for intelligent textbooks, modeled on the SAE J3016 standard for autonomous vehicles: Level 1 static textbooks, Level 2 interactive textbooks (MicroSims, learning graphs, embedded simulations, path recommendations), Level 3 adaptive textbooks, Level 4 chatbot textbooks, and Level 5 autonomous AI textbooks. The paper identifies Level 3 as a privacy inflection point — below it, textbooks need minimal student data, while Level 3 and above require detailed learning histories that raise FERPA, COPPA, and GDPR concerns. It also discusses cost projections driven by AI capability growth and the role of standards such as xAPI and Learning Record Stores in enabling personalization with student-controlled data portability.
+
 #### KnowEdu
 
 Chen, Penghe et al. “KnowEdu: A System to Construct Knowledge Graph for Education.” IEEE Access 6 (2018): 31553-31563.

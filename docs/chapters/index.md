@@ -1,0 +1,33 @@
+# Chapters
+
+This textbook is organized into 19 chapters covering 266 concepts.
+
+## Chapter Overview
+
+1. [Foundations of Concept Graphs](01-foundations-of-concept-graphs/index.md) - Introduces the vocabulary of graph-based knowledge representation -- concepts, nodes, edges, and the directed acyclic graph (DAG) structure that makes a learning graph different from a simple table of contents.
+2. [Concept Labeling and Metadata Standards](02-concept-labeling-metadata-standards/index.md) - Covers how individual concepts are named, defined, and standardized so a learning graph stays machine-readable and consistent across a large book.
+3. [Concept Dependencies and Prerequisites](03-concept-dependencies-prerequisites/index.md) - Explains how prerequisite relationships are modeled between concepts, including foundational concepts, goal concepts, and the different types of learning goals (immediate, intermediate, ultimate).
+4. [Concept Taxonomies and Ontologies](04-concept-taxonomies-ontologies/index.md) - Covers how concepts are grouped into balanced, non-overlapping categories using taxonomies and ontologies.
+5. [Learning Graph Quality, Validation, and File Formats](05-graph-quality-validation-file-formats/index.md) - Combines the quality-assurance side of learning graphs (cycle detection, orphaned-node detection, connectivity analysis, degree metrics) with the file formats -- JSON, CSV, YAML, and Markdown -- used to store, validate, and exchange them.
+6. [Bloom's Taxonomy and Learning Objectives](06-blooms-taxonomy-learning-objectives/index.md) - Introduces the six cognitive-domain levels of the 2001 revised Bloom's Taxonomy -- remembering, understanding, applying, analyzing, evaluating, and creating -- along with the affective and psychomotor domains.
+7. [Learning Theories and Instructional Design](07-learning-theories-instructional-design/index.md) - Surveys the major learning theories -- constructivism, cognitivism, behaviorism, connectivism, and andragogy -- and how they inform instructional design practices like scaffolding, curriculum design, and mastery learning.
+8. [Cognitive Load and Knowledge Space Theory](08-cognitive-load-knowledge-space-theory/index.md) - Covers cognitive load theory (working memory constraints, schema theory, chunking) and knowledge space theory, along with the sequencing frameworks -- spiral curriculum, backward design, constructive alignment, topological sort -- that connect learning-science theory back to the graph structures from earlier chapters..
+9. [Mastery, Metacognition, and Instructional Sequencing](09-mastery-metacognition-sequencing/index.md) - Covers competency-based education, spaced repetition, retrieval practice, and other evidence-based sequencing strategies, along with metacognition, self-regulated learning, and growth mindset.
+10. [Assessment, Feedback, and Quizzes](10-assessment-feedback-quizzes/index.md) - Covers how assessments and feedback loops close the loop between what a learning graph says a student should know and what they actually demonstrate.
+11. [Vis.js Fundamentals and Node Styling](11-visjs-fundamentals-node-styling/index.md) - Introduces vis.js and the vis-network library as the primary tool for visualizing concept dependency graphs, covering DataSet, network initialization, and the full range of node visual properties (shape, color, size, icons, images, shadows)..
+12. [Edge Styling and Visual Properties](12-edge-styling-visual-properties/index.md) - Covers how prerequisite relationships are rendered visually -- edge labels, color, width, dashes, smoothing, and arrows -- so dependency direction and relationship type stay legible in a rendered graph..
+13. [Physics Simulation and Graph Layout](13-physics-simulation-graph-layout/index.md) - Covers the physics solvers (Barnes-Hut, ForceAtlas2, repulsion, central gravity, damping) and layout algorithms (force-directed, hierarchical) that determine how a large graph arranges itself on screen, plus fixed node positions and stabilization..
+14. [Interactive Navigation in Vis.js](14-interactive-navigation-visjs/index.md) - Covers the interaction patterns that let a learner explore a rendered graph -- tooltips, hover states, click and double-click events, a node inspector, and type-ahead search with focus navigation..
+15. [Graph Clustering and Editing Tools](15-graph-clustering-editing-tools/index.md) - Covers grouping related nodes into composite clusters that can expand and collapse, plus the interactive graph editor used to create and modify a learning graph directly, including JSON import/export and data validation on import..
+16. [Personalization and Adaptive Learning Paths](16-personalization-adaptive-learning-paths/index.md) - Covers how a learning graph becomes the backbone for adaptive and hyper-personalized learning paths, including recommendation engines driven by concept, student, and content similarity metrics.
+17. [Intelligent Agents and Generative AI](17-intelligent-agents-generative-ai/index.md) - Covers how generative AI and intelligent agents use a learning graph -- prompt engineering, tool use, multi-agent collaboration, retrieval-augmented generation, and GraphRAG -- to enumerate concepts, infer dependencies, and act as learning agents..
+18. [Intelligent Textbooks, MicroSims, and Deployment](18-intelligent-textbooks-microsims-deployment/index.md) - Covers how a validated learning graph drives the generation of an intelligent textbook itself -- MicroSims, interactive visualizations and simulations, the book-build workflow, and publishing through MkDocs, Git, and GitHub Pages, closing with case studies and real-world applications..
+19. [Using a Skill to Generate a Learning Graph](19-skill-generate-learning-graph/index.md) - Walks through the actual agent-skill workflow (as implemented in the learning-graph-generator Claude Code skill) for turning a course description into a validated learning graph -- scoring the course description, generating and reviewing a concept list, producing a dependency CSV, running automated quality validation, assigning taxonomy, and iterating with human-in-the-loop review before moving on to chapter design.
+
+## How to Use This Textbook
+
+Chapters are ordered so that every concept appears after all of its prerequisites -- work through them in sequence for the smoothest path. Readers with prior background in a given area (graph theory, learning science, or vis.js) can jump ahead, but should skim the chapter's concept list first to check for any unfamiliar prerequisite terms.
+
+---
+
+**Note:** Each chapter includes a list of concepts covered. Make sure to complete prerequisites before moving to advanced chapters.
