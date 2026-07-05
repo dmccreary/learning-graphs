@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Graph Family Lens Explorer</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Network canvas - background layer -->
+        <div id="network"></div>
+
+        <!-- Title at top center -->
+        <div class="title">Graph Family Lens Explorer</div>
+
+        <!-- Legend in upper left -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-shape shape-circle"></div><span>Concept</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-shape shape-rect"></div><span>Content item</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-shape shape-hex"></div><span>External entity</span>
+            </div>
+        </div>
+
+        <!-- Right panel: lens selector + infobox -->
+        <div class="right-panel">
+            <div class="lens-control">
+                <label for="lens-select">Graph-type lens</label>
+                <select id="lens-select">
+                    <option value="concept">Concept Graph</option>
+                    <option value="content">Content Graph</option>
+                    <option value="knowledge">Knowledge Graph</option>
+                    <option value="dependency">Dependency Graph</option>
+                    <option value="learning">Learning Graph</option>
+                </select>
+                <div class="dag-badge" id="dag-badge" style="display: none;">Valid DAG</div>
+            </div>
+
+            <div class="infobox" id="infobox">
+                <div class="infobox-title" id="infobox-title">Concept Graph</div>
+                <div class="infobox-text" id="infobox-text">
+                    Select a lens to change which edges connect the entities. Click a node to learn which graph types its node type belongs to.
+                </div>
+            </div>
+        </div>
+
+        <!-- Persistent caption below canvas -->
+        <div class="caption" id="caption">
+            Showing the <strong>Concept Graph</strong> lens: two concepts joined by an undirected &ldquo;related to&rdquo; edge.
+        </div>
+    </div>
+
+    <script src="graph-family-lens-explorer.js"></script>
+</body>
+</html>

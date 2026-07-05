@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Transitive Dependency and Hop Count Finder</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Network canvas - siblings only, never nest overlays inside #network -->
+        <div id="network"></div>
+
+        <!-- Title at top center -->
+        <div class="title">Transitive Dependency &amp; Hop Count Finder</div>
+
+        <!-- Legend in upper left -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color color-blue"></div>
+                <span><strong>Concept</strong></span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-gold"></div>
+                <span><strong>On the path</strong></span>
+            </div>
+        </div>
+
+        <!-- Right panel: dropdown controls + result infobox -->
+        <div class="right-panel">
+            <div class="controls">
+                <label class="ctrl-label" for="from-select">From concept</label>
+                <select id="from-select"></select>
+
+                <label class="ctrl-label" for="to-select">To concept</label>
+                <select id="to-select"></select>
+
+                <div class="btn-row">
+                    <button class="btn btn-primary" id="find-btn">Find Path</button>
+                    <button class="btn btn-secondary" id="reset-btn">Reset</button>
+                </div>
+            </div>
+
+            <div class="infobox" id="infobox">
+                <div class="info-title">Result</div>
+                <div class="info-text" id="info-text">
+                    Pick a <b>From</b> concept and a <b>To</b> concept, then click
+                    <b>Find Path</b> to trace the dependency and count the hops.
+                </div>
+            </div>
+
+            <div class="status-panel">
+                <div class="status-title">How to read it</div>
+                <div class="status-text">
+                    Arrows point from a concept to the prerequisite it depends on.
+                    <b>Hop Count 1</b> is a direct dependency; <b>2 or more</b> is a
+                    transitive (indirect) dependency.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="transitive-dependency-hop-finder.js"></script>
+</body>
+</html>

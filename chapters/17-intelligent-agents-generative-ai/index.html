@@ -1,0 +1,2583 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Covers how generative AI and intelligent agents use a learning graph — prompt engineering, tool use, multi-agent collaboration, retrieval-augmented generation, and GraphRAG — to enumerate concepts, infer dependencies, and act as learning agents.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/learning-graphs/chapters/17-intelligent-agents-generative-ai/">
+      
+      
+        <link rel="prev" href="../16-personalization-adaptive-learning-paths/">
+      
+      
+        <link rel="next" href="../18-intelligent-textbooks-microsims-deployment/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Intelligent Agents and Generative AI - Learning Graphs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-Z6JDD2PWQZ"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-Z6JDD2PWQZ",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-Z6JDD2PWQZ",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Intelligent Agents and Generative AI - Learning Graphs" >
+      
+        <meta  property="og:description"  content="Covers how generative AI and intelligent agents use a learning graph — prompt engineering, tool use, multi-agent collaboration, retrieval-augmented generation, and GraphRAG — to enumerate concepts, infer dependencies, and act as learning agents." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/learning-graphs/assets/images/social/chapters/17-intelligent-agents-generative-ai/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/learning-graphs/chapters/17-intelligent-agents-generative-ai/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Intelligent Agents and Generative AI - Learning Graphs" >
+      
+        <meta  name="twitter:description"  content="Covers how generative AI and intelligent agents use a learning graph — prompt engineering, tool use, multi-agent collaboration, retrieval-augmented generation, and GraphRAG — to enumerate concepts, infer dependencies, and act as learning agents." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/learning-graphs/assets/images/social/chapters/17-intelligent-agents-generative-ai/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#intelligent-agents-and-generative-ai" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Learning Graphs" class="md-header__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Learning Graphs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Intelligent Agents and Generative AI
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Learning Graphs" class="md-nav__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Learning Graphs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-foundations-of-concept-graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Foundations of Concept Graphs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-concept-labeling-metadata-standards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Concept Labeling and Metadata Standards
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-concept-dependencies-prerequisites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Concept Dependencies and Prerequisites
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-concept-taxonomies-ontologies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Concept Taxonomies and Ontologies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-graph-quality-validation-file-formats/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Learning Graph Quality, Validation, and File Formats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-blooms-taxonomy-learning-objectives/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Bloom's Taxonomy and Learning Objectives
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-learning-theories-instructional-design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Learning Theories and Instructional Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-cognitive-load-knowledge-space-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Cognitive Load and Knowledge Space Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-mastery-metacognition-sequencing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Mastery, Metacognition, and Instructional Sequencing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-assessment-feedback-quizzes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Assessment, Feedback, and Quizzes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-visjs-fundamentals-node-styling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Vis.js Fundamentals and Node Styling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-edge-styling-visual-properties/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Edge Styling and Visual Properties
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-physics-simulation-graph-layout/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Physics Simulation and Graph Layout
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-interactive-navigation-visjs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Interactive Navigation in Vis.js
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-graph-clustering-editing-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Graph Clustering and Editing Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-personalization-adaptive-learning-paths/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Personalization and Adaptive Learning Paths
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    17. Intelligent Agents and Generative AI
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    17. Intelligent Agents and Generative AI
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generative-ai-producing-new-content-from-learned-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generative AI: Producing New Content From Learned Patterns
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prompt-engineering-directing-what-generative-ai-produces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prompt Engineering: Directing What Generative AI Produces
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#llm-generated-dependency-graph-prompt-engineering-applied-to-this-books-core-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      LLM-Generated Dependency Graph: Prompt Engineering Applied to This Book's Core Structure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LLM-Generated Dependency Graph: Prompt Engineering Applied to This Book's Core Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-generative-ai-to-learning-graph-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Generative AI to Learning Graph Pipeline
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intelligent-agent-from-responding-to-acting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intelligent Agent: From Responding to Acting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent-autonomy-deciding-without-a-new-prompt-each-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agent Autonomy: Deciding Without a New Prompt Each Time
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iterative-workflow-autonomy-applied-across-repeated-cycles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iterative Workflow: Autonomy Applied Across Repeated Cycles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-use-agent-reaching-outside-the-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tool Use (Agent): Reaching Outside the Model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-agent-collaboration-several-agents-one-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-Agent Collaboration: Several Agents, One Problem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-Agent Collaboration: Several Agents, One Problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-agent-capability-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Agent Capability Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chatbot-intelligent-agent-with-a-conversational-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chatbot: Intelligent Agent With a Conversational Interface
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrieval-augmented-generation-grounding-output-in-real-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retrieval-Augmented Generation: Grounding Output in Real Content
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Retrieval-Augmented Generation: Grounding Output in Real Content">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-retrieval-augmented-generation-step-through" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Retrieval-Augmented Generation Step-Through
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#graphrag-retrieval-augmented-by-graph-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      GraphRAG: Retrieval Augmented by Graph Structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-agent-every-capability-applied-to-one-learner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Agent: Every Capability Applied to One Learner
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chapter Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-intelligent-textbooks-microsims-deployment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Intelligent Textbooks, MicroSims, and Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-skill-generate-learning-graph/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Using a Skill to Generate a Learning Graph
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../case-studies/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Case Studies
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../vis/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Vis.js Tutorial
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Sample Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How We Built This Site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student-volunteers-wanted/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Student Volunteers Wanted
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generative-ai-producing-new-content-from-learned-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generative AI: Producing New Content From Learned Patterns
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prompt-engineering-directing-what-generative-ai-produces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prompt Engineering: Directing What Generative AI Produces
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#llm-generated-dependency-graph-prompt-engineering-applied-to-this-books-core-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      LLM-Generated Dependency Graph: Prompt Engineering Applied to This Book's Core Structure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LLM-Generated Dependency Graph: Prompt Engineering Applied to This Book's Core Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-generative-ai-to-learning-graph-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Generative AI to Learning Graph Pipeline
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intelligent-agent-from-responding-to-acting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intelligent Agent: From Responding to Acting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent-autonomy-deciding-without-a-new-prompt-each-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agent Autonomy: Deciding Without a New Prompt Each Time
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iterative-workflow-autonomy-applied-across-repeated-cycles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iterative Workflow: Autonomy Applied Across Repeated Cycles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-use-agent-reaching-outside-the-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tool Use (Agent): Reaching Outside the Model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-agent-collaboration-several-agents-one-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-Agent Collaboration: Several Agents, One Problem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-Agent Collaboration: Several Agents, One Problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-agent-capability-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Agent Capability Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chatbot-intelligent-agent-with-a-conversational-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chatbot: Intelligent Agent With a Conversational Interface
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrieval-augmented-generation-grounding-output-in-real-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retrieval-Augmented Generation: Grounding Output in Real Content
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Retrieval-Augmented Generation: Grounding Output in Real Content">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-retrieval-augmented-generation-step-through" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Retrieval-Augmented Generation Step-Through
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#graphrag-retrieval-augmented-by-graph-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      GraphRAG: Retrieval Augmented by Graph Structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-agent-every-capability-applied-to-one-learner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Agent: Every Capability Applied to One Learner
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chapter Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/learning-graphs/blob/master/docs/chapters/17-intelligent-agents-generative-ai/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="intelligent-agents-and-generative-ai">Intelligent Agents and Generative AI</h1>
+<h2 id="summary">Summary</h2>
+<p>Covers how generative AI and intelligent agents use a learning graph — prompt engineering, tool use, multi-agent collaboration, retrieval-augmented generation, and GraphRAG — to enumerate concepts, infer dependencies, and act as learning agents.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 12 concepts from the learning graph:</p>
+<ol>
+<li>Generative AI</li>
+<li>Intelligent Agent</li>
+<li>Agent Autonomy</li>
+<li>Multi-Agent Collaboration</li>
+<li>Tool Use (Agent)</li>
+<li>Iterative Workflow</li>
+<li>LLM-Generated Dependency Graph</li>
+<li>Prompt Engineering</li>
+<li>Chatbot</li>
+<li>Retrieval-Augmented Generation</li>
+<li>GraphRAG</li>
+<li>Learning Agent</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../16-personalization-adaptive-learning-paths/">Chapter 16: Personalization and Adaptive Learning Paths</a></li>
+</ul>
+<hr />
+<div class="admonition mascot-welcome">
+<p class="admonition-title">The Graph Meets the Agent</p>
+<p><img alt="Axiom waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+Let's connect the concepts! Chapter 16 closed with a promise: the personalization pipeline you just learned — similarity metrics, recommendation engines, hyper-customized lesson plans — is machinery that something has to <em>run</em>. This chapter introduces the thing that runs it. We are moving from static definitions to a system that reads your learning graph, reasons about it, and acts.</p>
+</div>
+<p>Every chapter so far has treated the learning graph as an artifact a human — or a script — reads and writes. This chapter changes that relationship. Generative AI systems can now enumerate concepts, propose dependency edges, and hold a conversation about a learning graph's structure. Intelligent agents can go further: they can decide, on their own, which action to take next, call external tools, and revise a lesson plan across an extended session. Understanding both — what generative AI is good at, and what an intelligent agent adds on top of it — is the last piece needed before Chapter 18 shows agents driving MicroSim generation directly.</p>
+<h2 id="generative-ai-producing-new-content-from-learned-patterns">Generative AI: Producing New Content From Learned Patterns</h2>
+<p>Chapter 1 through 16 assumed a human, or a deterministic script, authored every learning graph, glossary entry, and chapter. <strong>Generative AI</strong> is a type of artificial intelligence capable of producing new content — such as text, images, or other data — by learning patterns from existing data and generating outputs that follow those patterns. Generative AI has no prerequisites within this chapter's concept set; it is the foundational capability everything else in this chapter builds on.</p>
+<p>The glossary example already used elsewhere in this book is worth restating precisely, because it anchors every later section: a generative AI model can create personalized learning materials by analyzing a student's previous responses and generating explanations, questions, or study guides tailored to their learning progress. Two properties of generative AI matter for how a learning graph project actually uses it:</p>
+<ul>
+<li><strong>Pattern-based, not rule-based.</strong> A generative AI model does not follow an explicit set of authored rules the way the cycle-detection algorithm from Chapter 5 does. It produces output statistically consistent with patterns learned from training data.</li>
+<li><strong>Prompt-driven, not autonomous.</strong> On its own, a generative AI model responds to a single input and produces a single output. It does not decide to take a second action, check its own work, or call an external tool unless something else is built around it to do so.</li>
+</ul>
+<p>That second property is the hinge this entire chapter turns on. Everything from here forward is about what happens when you build a system <em>around</em> generative AI that lets it act rather than just respond.</p>
+<h2 id="prompt-engineering-directing-what-generative-ai-produces">Prompt Engineering: Directing What Generative AI Produces</h2>
+<p>Because a generative AI model's output is shaped entirely by its input, the wording, structure, and context of that input becomes a skill in its own right. <strong>Prompt Engineering</strong> is the practice of designing and refining input text (prompts) to elicit accurate, relevant, or creative responses from a generative AI model. Prompt Engineering depends directly on Generative AI in the learning graph — it is the applied discipline of controlling generative AI's output, not a separate capability.</p>
+<p>This book has used prompt engineering implicitly since Chapter 2, whenever a skill generated a concept list or a dependency CSV from a course description. A well-engineered prompt for learning-graph work typically specifies four things explicitly, rather than leaving them for the model to guess:</p>
+<ol>
+<li><strong>Role and context</strong> — e.g., "You are building a concept dependency graph for a professional-level course on X"</li>
+<li><strong>Output format</strong> — e.g., "Return a JSON array of nodes with id, label, and taxonomy fields"</li>
+<li><strong>Constraints</strong> — e.g., "Generate exactly 200 distinct concepts, no duplicates, ISO/IEC 11179-style labels"</li>
+<li><strong>Evaluation criteria</strong> — e.g., "Each concept must have at least one valid prerequisite unless it is foundational"</li>
+</ol>
+<div class="admonition mascot-tip">
+<p class="admonition-title">A Prompt Is Not a Wish</p>
+<p><img alt="Axiom with a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+The single biggest improvement in prompt quality for learning-graph work comes from specifying output format explicitly. "List some concepts" produces inconsistent results. "Return a JSON array of objects with <code>id</code>, <code>label</code>, and <code>dependencies</code> fields, one object per concept" produces something a script can actually parse.</p>
+</div>
+<h2 id="llm-generated-dependency-graph-prompt-engineering-applied-to-this-books-core-structure">LLM-Generated Dependency Graph: Prompt Engineering Applied to This Book's Core Structure</h2>
+<p>Prompt engineering, as just defined, is a general-purpose skill applicable to any generative AI task. Applying it specifically to the structure this entire book is organized around — the dependency edges between concepts — produces the chapter's next idea. An <strong>LLM-Generated Dependency Graph</strong> is a concept dependency graph whose nodes, edges, or both were proposed by a large language model in response to an engineered prompt, typically followed by human or automated validation before use. LLM-Generated Dependency Graph depends on both Generative AI and Concept Dependency in the learning graph — it combines generative AI's pattern-based content production with Chapter 1's dependency relationship, applying the former to generate instances of the latter at scale.</p>
+<p>This is precisely the workflow the <code>learning-graph-generator</code> skill used to produce this book's own 300-plus-node graph, and it is worth being explicit about the two-stage pattern, since every LLM-generated dependency graph in this book followed it:</p>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>What Happens</th>
+<th>Chapter Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Generation</td>
+<td>A prompt-engineered request asks the model to propose concept labels and "depends on" edges</td>
+<td>This chapter</td>
+</tr>
+<tr>
+<td>Validation</td>
+<td>Cycle detection, orphan detection, and connectivity analysis check the proposal before it is trusted</td>
+<td>Chapter 5</td>
+</tr>
+</tbody>
+</table>
+<p>An LLM-generated dependency graph is a <em>proposal</em>, not a finished artifact. Chapter 5's validation checks exist precisely because a generative AI model can produce a dependency claim that sounds plausible in a sentence — "Backward Design depends on Bloom's Taxonomy" — without the model ever formally verifying that the claim is acyclic or that both concepts already exist in the graph. Treating LLM output as a first draft awaiting validation, rather than ground truth, is the discipline this book has modeled since Chapter 2.</p>
+<p>Before comparing this workflow to how a chatbot handles a single question, it helps to see the proposal step as one node in a larger, clickable picture — a preview of every mechanism this chapter still has to define.</p>
+<h4 id="diagram-generative-ai-to-learning-graph-pipeline">Diagram: Generative AI to Learning Graph Pipeline</h4>
+<iframe src="../../sims/genai-learning-graph-pipeline/main.html" width="100%" height="522px" scrolling="no"></iframe>
+
+<details>
+<summary>Generative AI to Learning Graph Pipeline</summary>
+<p>Type: workflow
+<strong>sim-id:</strong> genai-learning-graph-pipeline<br/>
+<strong>Library:</strong> Mermaid<br/>
+<strong>Status:</strong> Specified</p>
+<p>Purpose: Let learners click through the pipeline that turns a course description into a validated learning graph using generative AI, reinforcing that an LLM-generated dependency graph is a proposal that passes through validation before use, not a finished artifact.</p>
+<p>Bloom Level: Understand (L2)
+Bloom Verb: explain, summarize, sequence</p>
+<p>Learning objective: Given the five-stage pipeline rendered as a flowchart, the learner can explain what happens at each stage and identify which stage is responsible for catching an invalid (cyclic or orphaned) LLM proposal.</p>
+<p>Visual style: Mermaid left-to-right flowchart, five rectangular nodes connected by arrows, with the validation node styled as a decision diamond</p>
+<p>Steps (each is one Mermaid node with a click directive):
+1. "Course Description" — click reveals: "A human-authored document stating audience, topics, and learning outcomes (Chapter 2)."
+2. "Prompt-Engineered Request" — click reveals: "A structured prompt asks the model for a fixed number of distinct concept labels and candidate dependency edges."
+3. "LLM-Generated Proposal" — click reveals: "The model returns a concept list and edges, formatted as JSON, but unverified."
+4. "Validation" — click reveals: "Cycle detection, orphan detection, and connectivity analysis (Chapter 5) check the proposal before anything downstream trusts it."
+5. "Validated Learning Graph JSON" — click reveals: "The artifact every later chapter — visualization, personalization, chapter generation — is built on."</p>
+<p>Interactive features: every node has a click directive that opens an infobox below the diagram with the step's description; the Validation node is colored gold to flag it as the quality gate; a "Reject" label on a dashed arrow loops from Validation back to Prompt-Engineered Request, clickable to reveal "If validation fails, the prompt is refined and the model is asked again — this is Iterative Workflow, covered later in this chapter."</p>
+<p>Color scheme: indigo fill for content nodes, gold fill for the Validation decision node, dashed gray for the reject loop</p>
+<p>Responsive behavior: flowchart scales to container width and reflows to a vertical layout on viewports narrower than 600px; infobox appears below the diagram</p>
+<p>Canvas size: responsive, 100% width, 480px height</p>
+<p>Implementation: Mermaid.js flowchart with click bindings wired to a JavaScript showInfo() function populating a div below the diagram with the selected step's stored description text</p>
+</details>
+<h2 id="intelligent-agent-from-responding-to-acting">Intelligent Agent: From Responding to Acting</h2>
+<p>Every concept covered so far in this chapter describes generative AI producing output in response to a single, well-crafted prompt. A different category of system decides <em>on its own</em> what to do next, potentially across many steps, without a human writing a new prompt for each one. An <strong>Intelligent Agent</strong> is an autonomous entity capable of perceiving its environment, processing inputs, and taking actions to achieve specific goals or objectives, often with the ability to adapt or learn from experience. Intelligent Agent depends directly on Generative AI in the learning graph — it uses generative AI's content-production capability as one component inside a larger system that also perceives, decides, and acts.</p>
+<p>This book's own glossary example makes the distinction concrete: an intelligent agent in an educational platform uses a learning graph to create a customized lesson plan for students, identifying key concepts where students struggled after the prior week's quiz and selecting activities that reinforce those concepts — adapting to each student's individual needs. Notice what that example requires beyond a single generated paragraph of text: the agent must read a quiz result, consult the learning graph, and select activities — a sequence of decisions, not one text-completion step.</p>
+<p>The distinction between generative AI and an intelligent agent is easy to blur in casual conversation, so it is worth stating the contrast directly, expanding on the four characteristics this book's own glossary already lists under "Agent Characteristics":</p>
+<ul>
+<li><strong>Autonomy and decision-making</strong> — an intelligent agent can operate independently, making decisions to achieve a goal, unlike generative AI alone, which only responds to a prompt</li>
+<li><strong>Iterative workflows</strong> — an intelligent agent refines its output through repeated cycles, while generative AI alone does not improve iteratively without something external driving it</li>
+<li><strong>Tool use and environmental interaction</strong> — an intelligent agent interacts with external tools and environments (including a learning graph), which generative AI alone cannot do on its own</li>
+<li><strong>Modular design and multi-agent collaboration</strong> — an intelligent agent can work as part of a multi-agent system, solving complex problems together, unlike an isolated generative AI call</li>
+</ul>
+<p>Each of those four bullets names a concept this chapter still needs to define precisely. The next four sections take them one at a time.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Key Distinction</p>
+<p><img alt="Axiom thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+Generative AI is the engine. An intelligent agent is the car — it has a destination, a steering wheel, sensors, and a plan for using the engine repeatedly to get there. This chapter's remaining sections describe the steering wheel, the sensors, and the plan.</p>
+</div>
+<h2 id="agent-autonomy-deciding-without-a-new-prompt-each-time">Agent Autonomy: Deciding Without a New Prompt Each Time</h2>
+<p>The first characteristic distinguishing an intelligent agent from a single generative AI call is the ability to make decisions independently. <strong>Agent Autonomy</strong> is the capacity of an intelligent agent to make decisions and take actions to achieve its goals without requiring step-by-step human instruction for each individual action. Agent Autonomy depends directly on Intelligent Agent in the learning graph — it is one defining capability of an intelligent agent, not a separate kind of system.</p>
+<p>Autonomy exists on a spectrum rather than as an on/off switch, and it is useful to place a few familiar learning-graph tools on that spectrum before defining the more advanced concepts still ahead:</p>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th>Human Involvement</th>
+<th>Autonomy Level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A single generative AI prompt (e.g., "generate 10 concept labels")</td>
+<td>Human writes every prompt, reviews every output</td>
+<td>Low — no autonomy</td>
+</tr>
+<tr>
+<td>The <code>learning-graph-generator</code> skill run once</td>
+<td>Human triggers the skill, reviews the final validated graph</td>
+<td>Medium — the skill chains several internal steps without a new prompt for each</td>
+</tr>
+<tr>
+<td>A fully autonomous learning agent (defined later in this chapter) monitoring a live classroom</td>
+<td>Human sets goals and constraints up front; agent acts continuously</td>
+<td>High — sustained autonomy</td>
+</tr>
+</tbody>
+</table>
+<p>Higher autonomy is not automatically better. An agent with unchecked autonomy over a student-facing lesson plan could, in principle, make a pedagogically unsound decision with no human catching it before a learner encounters it — which is exactly why Chapter 5's validation habit and this chapter's tool-use constraints matter even more once a system starts acting autonomously rather than just generating a single response for human review.</p>
+<h2 id="iterative-workflow-autonomy-applied-across-repeated-cycles">Iterative Workflow: Autonomy Applied Across Repeated Cycles</h2>
+<p>Agent autonomy, as just defined, describes the capacity to decide. Applying that capacity repeatedly, so that each decision's outcome informs the next one, produces a distinct pattern already familiar from Chapter 16's adaptive learning loop. An <strong>Iterative Workflow</strong> is a process in which an intelligent agent repeatedly executes a cycle of action, evaluation, and refinement, using the outcome of each cycle to improve the next, rather than producing a single output and stopping. Iterative Workflow depends directly on Intelligent Agent in the learning graph — it is autonomy exercised across multiple cycles rather than a single decision.</p>
+<p>The parallel to Chapter 16 is worth making explicit, because the underlying pattern is the same loop applied to a different subject. Chapter 16's adaptive learning loop cycled through present, observe, adjust, repeat for a single learner's content. An agent's iterative workflow cycles through a comparable pattern for its own output:</p>
+<ol>
+<li><strong>Act</strong> — the agent takes an action, such as generating a candidate dependency edge or drafting a chapter section</li>
+<li><strong>Evaluate</strong> — the agent (or an external validation step, such as Chapter 5's cycle detector) checks the result against a standard</li>
+<li><strong>Refine</strong> — if the result fails the check, the agent revises its approach and tries again</li>
+<li><strong>Repeat</strong> — the cycle continues until the result passes, or until a maximum number of attempts is reached</li>
+</ol>
+<p>This is exactly the "Reject" loop shown in the pipeline diagram earlier in this chapter: when validation fails an LLM-generated dependency graph proposal, an iterative workflow is what sends the process back to a refined prompt rather than simply failing outright. Generative AI alone, without an iterative workflow wrapped around it, would stop at the first (possibly invalid) output.</p>
+<h2 id="tool-use-agent-reaching-outside-the-model">Tool Use (Agent): Reaching Outside the Model</h2>
+<p>The third characteristic distinguishing an intelligent agent from generative AI alone concerns what the agent can act on, not just how many times it acts. <strong>Tool Use (Agent)</strong> is the capability of an intelligent agent to invoke external functions, APIs, databases, or systems — beyond its own generated text — in order to gather information or take action in its environment. Tool Use (Agent) depends directly on Intelligent Agent in the learning graph — it is the specific capability that lets an intelligent agent's decisions reach outside the model itself.</p>
+<p>This book's glossary already names the specific tool that matters most for this course: in this course, agents must be able to access a learning graph and generate learning paths for lesson plan customization. A learning graph functions as one such external tool — an agent with tool use can query it (e.g., "which concepts are ready-to-learn for student 42, given their mastery record?"), rather than trying to recall or hallucinate the graph's structure from its own training data. Other tools an intelligent agent in this domain might invoke include:</p>
+<ul>
+<li>A learning management system's gradebook API, to read a student's recent quiz scores</li>
+<li>Chapter 5's validation scripts, to check a proposed dependency edge before accepting it</li>
+<li>A content library search index, to retrieve candidate resources for Chapter 16's content recommendation engine</li>
+<li>A text-to-speech or MicroSim-generation service, to produce new instructional material on demand</li>
+</ul>
+<div class="admonition mascot-warning">
+<p class="admonition-title">A Common Mistake</p>
+<p><img alt="Axiom warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+A generative AI model with no tool use can only work from what it already learned during training, plus whatever text is in its current prompt. Asking it to "check the learning graph for cycles" without giving it actual access to the graph produces a plausible-sounding but unverified answer — the exact failure mode Chapter 5's validation habit exists to catch. Tool use is what closes that gap.</p>
+</div>
+<h2 id="multi-agent-collaboration-several-agents-one-problem">Multi-Agent Collaboration: Several Agents, One Problem</h2>
+<p>The fourth and final characteristic distinguishing an intelligent agent from a single generative AI call concerns how many agents are involved. <strong>Multi-Agent Collaboration</strong> is an architecture in which multiple intelligent agents, each often specialized for a distinct subtask, coordinate and share information to solve a problem too complex or too broad for a single agent to handle efficiently alone. Multi-Agent Collaboration depends directly on Intelligent Agent in the learning graph — it is a modular composition of multiple instances of the same underlying concept, not a fundamentally different kind of system.</p>
+<p>This book's own production process is itself an example. The <code>book-chapter-generator</code> skill and the <code>chapter-content-generator</code> skill you are reading the output of right now are two functionally distinct agents: one determines chapter structure and concept ordering from the learning graph, the other generates prose, diagrams, and MicroSim specifications for a single chapter. Neither skill needs to know how to perform the other's job — each is specialized, and the overall book emerges from their coordination, run in sequence rather than by one monolithic agent trying to do everything at once.</p>
+<p>Multi-agent architectures for learning-graph work typically split responsibility along one of a few common lines:</p>
+<ul>
+<li><strong>By pipeline stage</strong> — one agent generates concepts, a second infers dependencies, a third validates the result (mirroring the pipeline diagram earlier in this chapter)</li>
+<li><strong>By domain</strong> — one agent specializes in mathematics concepts, another in humanities concepts, each contributing to a shared graph</li>
+<li><strong>By role</strong> — one agent proposes content, a second critiques or reviews it before it reaches a human, an emerging pattern sometimes called a "generator-critic" pair</li>
+</ul>
+<p>Before the interactive comparison below, it is worth being explicit about why these four capabilities — autonomy, iterative workflow, tool use, and multi-agent collaboration — are being presented together: an intelligent agent does not need all four to qualify as an agent, but a system with none of them is simply generative AI responding to a single prompt. The MicroSim below lets you toggle each capability independently and observe how a simulated agent's behavior description changes.</p>
+<h4 id="diagram-agent-capability-explorer">Diagram: Agent Capability Explorer</h4>
+<iframe src="../../sims/agent-capability-explorer/main.html" width="100%" height="542px" scrolling="no"></iframe>
+
+<details>
+<summary>Agent Capability Explorer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> agent-capability-explorer<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Purpose: Let learners toggle the four defining capabilities (agent autonomy, iterative workflow, tool use, multi-agent collaboration) on and off and read a simulated behavior description that updates live, making concrete that each capability contributes independently to what distinguishes an intelligent agent from a single generative AI call.</p>
+<p>Bloom Level: Analyze (L4)
+Bloom Verb: differentiate, examine, distinguish</p>
+<p>Learning objective: Given four togglable agent capabilities, the learner can differentiate which behaviors each capability enables and explain why a system with all four toggles off is equivalent to generative AI responding to a single prompt.</p>
+<p>Canvas layout:
+- Left (300px): four toggle switches, one per capability, each with a one-line label
+- Right (400px): a "Simulated Agent Behavior" text panel that updates as toggles change</p>
+<p>Visual elements:
+- Toggle 1: "Agent Autonomy" — when on, the behavior panel adds: "Decides its next action without waiting for a new human prompt."
+- Toggle 2: "Iterative Workflow" — when on, the behavior panel adds: "Evaluates its own output and refines it across repeated cycles."
+- Toggle 3: "Tool Use" — when on, the behavior panel adds: "Queries the learning graph and other external systems for real data instead of relying on memory."
+- Toggle 4: "Multi-Agent Collaboration" — when on, the behavior panel adds: "Coordinates with other specialized agents on subtasks."
+- With all four off, the panel shows: "Generates one response to one prompt, then stops."</p>
+<p>Interactive controls:
+- Four independent toggle switches (all default off)
+- Button: "Reset All Toggles"</p>
+<p>Default parameters:
+- All four toggles off; behavior panel shows the baseline generative-AI-only description</p>
+<p>Data Visibility Requirements:
+Stage 1: With all toggles off, show the baseline description and a caption: "This is generative AI without agent capabilities"
+Stage 2: As each toggle is switched on, append its corresponding behavior sentence to the panel with a brief highlight animation
+Stage 3: With all four toggles on, show all four behavior sentences together with a caption: "This is a fully capable intelligent agent"
+Final: Clicking any toggle off again removes its sentence immediately, reinforcing that each capability is independent and additive</p>
+<p>Instructional Rationale: An Analyze-level objective requires the learner to isolate the contribution of each capability, which is best served by direct toggling that adds or removes one behavior sentence at a time, rather than a static paragraph describing all four capabilities at once.</p>
+<p>Responsive behavior: toggle panel and behavior panel stack vertically on viewports narrower than 640px</p>
+<p>Canvas size: responsive, 100% width, 540px height</p>
+<p>Implementation: p5.js; four boolean toggle states drive a lookup table of behavior sentences, concatenated into the display panel; no live AI model involved, clearly labeled as an illustrative simulation</p>
+</details>
+<h2 id="chatbot-intelligent-agent-with-a-conversational-interface">Chatbot: Intelligent Agent With a Conversational Interface</h2>
+<p>With all four defining capabilities of an intelligent agent now established, one especially common and familiar interface for interacting with such a system deserves its own definition. A <strong>Chatbot</strong> is an intelligent agent, typically powered by generative AI and guided by prompt engineering, that interacts with users through natural-language conversation to answer questions, provide guidance, or complete tasks. Chatbot depends on both Intelligent Agent and Prompt Engineering in the learning graph — it is a specific interface pattern for an intelligent agent, one whose inputs and outputs are engineered natural-language prompts and responses rather than, say, a structured API call.</p>
+<p>Not every chatbot exercises all four agent capabilities from the previous sections. A simple question-answering chatbot might have no tool use, no multi-agent collaboration, and only limited autonomy — it primarily performs prompt engineering behind a conversational front end. A chatbot designed to tutor a student through this book's own material, by contrast, might combine several capabilities at once:</p>
+<ul>
+<li><strong>Tool use</strong> to query the learning graph for the student's current ready-to-learn concepts</li>
+<li><strong>Iterative workflow</strong> to refine an explanation if the student says "I still don't understand"</li>
+<li><strong>Autonomy</strong> to decide, without a new human prompt, whether to offer a hint or a full worked example</li>
+<li>Conversational, natural-language input and output — the property that makes it a chatbot specifically, rather than some other kind of agent</li>
+</ul>
+<p>The chatbot pattern is worth distinguishing clearly from the retrieval and graph-aware patterns covered next, because those patterns are frequently combined with a chatbot's conversational interface without being the same thing as the interface itself.</p>
+<h2 id="retrieval-augmented-generation-grounding-output-in-real-content">Retrieval-Augmented Generation: Grounding Output in Real Content</h2>
+<p>Generative AI, as defined at the start of this chapter, produces output based on patterns learned during training — which means its knowledge is frozen at whatever point its training data ended, and it has no built-in way to cite a specific, current source for a claim. <strong>Retrieval-Augmented Generation</strong> (RAG) is a technique that improves generative AI output by first retrieving relevant documents or data from an external knowledge source, then including that retrieved content in the prompt so the model's response is grounded in current, verifiable information rather than relying solely on patterns memorized during training. Retrieval-Augmented Generation depends directly on Generative AI in the learning graph — it is a technique for improving generative AI's output quality and factual grounding, applied on top of the base generative capability.</p>
+<p>RAG matters directly for learning-graph work because a generative AI model asked to "explain Universal Design for Learning the way this book defines it" has no guarantee, without retrieval, that its answer matches this book's own Chapter 16 definition rather than some other, possibly conflicting, definition it encountered during training. A RAG-based system instead performs a specific sequence before generating its answer:</p>
+<ol>
+<li><strong>Retrieve</strong> — search a chosen knowledge source (this book's own glossary and chapter text, for instance) for passages relevant to the query</li>
+<li><strong>Augment</strong> — insert the retrieved passages into the prompt alongside the original question</li>
+<li><strong>Generate</strong> — ask the generative AI model to answer using the retrieved passages as grounding context</li>
+</ol>
+<p>Before the interactive tool below, it is useful to be explicit about the trade-off RAG makes: retrieval adds a lookup step, but that step is what lets a chatbot answer questions about this specific, evolving learning graph — including chapters written after the underlying model's training cutoff — rather than only about whatever the model happened to learn during training.</p>
+<h4 id="diagram-retrieval-augmented-generation-step-through">Diagram: Retrieval-Augmented Generation Step-Through</h4>
+<iframe src="../../sims/rag-step-through/main.html" width="100%" height="562px" scrolling="no"></iframe>
+
+<details>
+<summary>Retrieval-Augmented Generation Step-Through</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> rag-step-through<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Purpose: Let learners step through the retrieve-augment-generate sequence with a concrete worked example (a question about a glossary term), seeing the actual retrieved text and augmented prompt at each stage, to make the abstract RAG technique concrete before GraphRAG extends it in the next section.</p>
+<p>Bloom Level: Understand (L2)
+Bloom Verb: explain, summarize, sequence</p>
+<p>Learning objective: Given a worked example question ("What is Universal Design for Learning?"), the learner can explain what happens at each of the three RAG stages and identify why the retrieved passage changes the final generated answer compared to an ungrounded response.</p>
+<p>Canvas layout:
+- Top: a fixed example query displayed as text: "What is Universal Design for Learning?"
+- Middle (350px): a three-stage horizontal step panel (Retrieve / Augment / Generate), with Next and Previous buttons
+- Bottom (150px): a comparison box showing "Without RAG" (a generic, possibly imprecise answer) side by side with "With RAG" (the grounded answer citing the retrieved passage)</p>
+<p>Visual elements:
+- Stage 1 "Retrieve" panel: shows a simulated search over a small three-document knowledge source, highlighting the one passage that matches (Chapter 16's actual UDL definition, three sentences)
+- Stage 2 "Augment" panel: shows the original query and the retrieved passage combined into one augmented prompt block, visually distinguishing the original question (blue) from the inserted context (gold)
+- Stage 3 "Generate" panel: shows the model's final answer, with the phrase drawn directly from the retrieved passage underlined</p>
+<p>Interactive controls:
+- "Next" and "Previous" buttons to move between the three stages
+- Toggle: "Show Without-RAG Comparison" — reveals the bottom comparison box</p>
+<p>Default parameters:
+- Starts at Stage 1 (Retrieve); comparison box hidden until toggled on</p>
+<p>Data Visibility Requirements:
+Stage 1: Show the three-document mini knowledge source and highlight which document/passage the retrieval step selects, with a caption explaining why it was selected (keyword and topic match)
+Stage 2: Show the exact augmented prompt text, with original query and retrieved passage visually distinguished
+Stage 3: Show the generated answer with the grounded phrase underlined, and a caption: "This phrase came directly from the retrieved passage, not from the model's memory"
+Final: With the comparison toggle on, show both answers side by side with a caption naming the specific difference (e.g., the without-RAG answer omits the three-principles structure Chapter 16 defines)</p>
+<p>Instructional Rationale: An Understand-level objective requires the learner to trace a process with concrete data at each stage; a step-through with a fixed worked example and Next/Previous controls makes the transformation from query to grounded answer visible, which continuous animation would obscure.</p>
+<p>Responsive behavior: three-stage panel and comparison box stack vertically on viewports narrower than 700px</p>
+<p>Canvas size: responsive, 100% width, 560px height</p>
+<p>Implementation: p5.js; three pre-scripted stages with fixed example text (no live model call); Next/Previous buttons advance a stage index that swaps which panel is visible</p>
+</details>
+<h2 id="graphrag-retrieval-augmented-by-graph-structure">GraphRAG: Retrieval Augmented by Graph Structure</h2>
+<p>Retrieval-augmented generation, as just defined, retrieves relevant <em>documents</em> or <em>passages</em> — flat pieces of text ranked mainly by keyword or semantic similarity to the query. A variant designed specifically for graph-structured knowledge, such as this book's own learning graph, retrieves along the graph's edges instead of, or in addition to, ranking loose text passages. <strong>GraphRAG</strong> is a retrieval-augmented generation technique that retrieves and reasons over a knowledge graph's nodes and relationships — rather than only flat text passages — so that a generative AI model's response can reflect structural context such as prerequisite chains, taxonomy categories, or multi-hop connections between concepts. GraphRAG depends on both Retrieval-Augmented Generation and Concept Taxonomy in the learning graph — it extends standard RAG's retrieve-then-generate pattern by retrieving structured graph context, using Chapter 4's taxonomy categories as one of its key organizing signals.</p>
+<p>The advantage GraphRAG offers over plain RAG becomes concrete with a specific query this book's own learning graph makes easy to pose: "What do I need to know before I can understand GraphRAG?" A plain RAG system would search for text passages containing words like "GraphRAG" or "prerequisite" and return whatever passages rank highest by similarity — potentially missing a concept that never uses the word "prerequisite" explicitly but is nonetheless a direct dependency. A GraphRAG system, by contrast, can walk the actual dependency edges from the GraphRAG node backward — exactly the traversal Chapter 5's connectivity analysis already performs — and return the precise prerequisite chain: Retrieval-Augmented Generation, Concept Taxonomy, and everything those two in turn depend on.</p>
+<p>The following table summarizes the distinction now that both techniques have been defined precisely.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Retrieval-Augmented Generation</th>
+<th>GraphRAG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What is retrieved</td>
+<td>Text passages or documents</td>
+<td>Nodes, edges, and structural context from a knowledge graph</td>
+</tr>
+<tr>
+<td>Ranking signal</td>
+<td>Keyword or semantic similarity</td>
+<td>Graph relationships (e.g., dependency edges, taxonomy categories) plus similarity</td>
+</tr>
+<tr>
+<td>Well suited for</td>
+<td>"What does this term mean?"</td>
+<td>"What must I understand before this term?" or "How are these two concepts related?"</td>
+</tr>
+<tr>
+<td>Learning graph analogy</td>
+<td>Searching this book's glossary text</td>
+<td>Traversing this book's own dependency edges (Chapter 5)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition mascot-explain">
+<p class="admonition-title">Why This Matters for This Book</p>
+<p><img alt="Axiom explaining" class="mascot-admonition-img" src="../../img/mascot/explain.png" />
+A GraphRAG system built on top of this book's own learning graph JSON could answer "what should I read before Chapter 17?" by traversing dependency edges directly, rather than guessing from chapter text alone. That is precisely the kind of reasoning a learning agent, defined next, needs in order to build a lesson plan a human would find defensible.</p>
+</div>
+<h2 id="learning-agent-every-capability-applied-to-one-learner">Learning Agent: Every Capability Applied to One Learner</h2>
+<p>Every concept this chapter has defined — generative AI, prompt engineering, autonomy, iterative workflow, tool use, multi-agent collaboration, retrieval, and graph-aware retrieval — converges on a single, education-specific application that closes the chapter and fulfills the promise Chapter 16 made at its own close. A <strong>Learning Agent</strong> is an intelligent agent that uses a learning graph together with a student's demonstrated mastery to autonomously assemble hyper-personalized lesson plans, recommend next concepts, or generate instructional content. Learning Agent depends on both Intelligent Agent and Adaptive Learning in the learning graph — it combines this chapter's general agent capabilities with Chapter 16's adaptive, performance-responsive personalization machinery, aimed specifically at one learner's ongoing education.</p>
+<p>A learning agent is best understood as the point where every concept in this chapter and the previous one stops being separate machinery and starts operating as a single system. Tracing one plausible session makes the composition concrete:</p>
+<ul>
+<li>The agent uses <strong>tool use</strong> to query the learning graph and a student's mastery record (this chapter)</li>
+<li>It applies <strong>GraphRAG</strong> to retrieve the prerequisite structure around the student's weakest concept, rather than a loose text search (this chapter)</li>
+<li>It uses <strong>prompt engineering</strong> internally to ask a generative AI model to draft an explanation grounded in the retrieved context (this chapter)</li>
+<li>It runs an <strong>iterative workflow</strong>, checking the draft against Chapter 5's validation standards and refining it if a claim does not hold up (this chapter)</li>
+<li>It applies Chapter 16's <strong>content sequencing algorithm</strong> and <strong>similarity metrics</strong> to select the next concept and matching content format</li>
+<li>It assembles the result into a <strong>hyper-customized lesson plan</strong> (Chapter 16), acting with <strong>agent autonomy</strong> rather than waiting for a human to approve each step</li>
+</ul>
+<p>This is exactly the capstone-level outcome the course description for this book names explicitly: using a validated learning graph to drive an intelligent agent that generates a personalized lesson plan. Every concept from Chapters 1 through 17 exists, in one sense, to make this single capability possible.</p>
+<p>Before the chapter closes, it is worth mapping every concept covered here back to the four-characteristic framework introduced early in the chapter, since that framework is what makes "intelligent agent" a precise term rather than a vague label for "anything involving AI."</p>
+<table>
+<thead>
+<tr>
+<th>Characteristic</th>
+<th>Concepts in This Chapter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Foundation</td>
+<td>Generative AI, Prompt Engineering</td>
+</tr>
+<tr>
+<td>Autonomy and iteration</td>
+<td>Agent Autonomy, Iterative Workflow</td>
+</tr>
+<tr>
+<td>Reaching outside the model</td>
+<td>Tool Use (Agent), Retrieval-Augmented Generation, GraphRAG</td>
+</tr>
+<tr>
+<td>Working with others</td>
+<td>Multi-Agent Collaboration</td>
+</tr>
+<tr>
+<td>Applied interfaces and outcomes</td>
+<td>Chatbot, LLM-Generated Dependency Graph, Learning Agent</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition mascot-encourage">
+<p class="admonition-title">If This Feels Abstract</p>
+<p><img alt="Axiom encouraging" class="mascot-admonition-img" src="../../img/mascot/encouraging.png" />
+Twelve concepts, and several of them sound close enough to blur together — agent, chatbot, learning agent. Notice that each one was defined by naming exactly one thing it adds on top of a concept you had already learned, going all the way back to generative AI at the top of this chapter. That is the dependency structure of this book applied to its own hardest chapter yet.</p>
+</div>
+<h2 id="chapter-summary">Chapter Summary</h2>
+<p>This chapter introduced the systems that read and act on a learning graph autonomously, rather than the human-driven workflows covered in earlier chapters.</p>
+<ol>
+<li><strong>Generative AI</strong> and <strong>Prompt Engineering</strong> established the foundational content-production capability and the discipline of directing it precisely</li>
+<li><strong>LLM-Generated Dependency Graph</strong> showed prompt engineering applied to this book's own core structure, always paired with Chapter 5's validation habit</li>
+<li><strong>Intelligent Agent</strong> introduced the shift from responding to a single prompt to acting toward a goal, defined by four characteristics: <strong>Agent Autonomy</strong>, <strong>Iterative Workflow</strong>, <strong>Tool Use (Agent)</strong>, and <strong>Multi-Agent Collaboration</strong></li>
+<li><strong>Chatbot</strong> named the conversational interface pattern that often combines several agent capabilities behind natural-language interaction</li>
+<li><strong>Retrieval-Augmented Generation</strong> and <strong>GraphRAG</strong> showed how an agent grounds its output in real content — first flat text passages, then graph-structured relationships like this book's own dependency edges</li>
+<li><strong>Learning Agent</strong> closed the chapter by combining every prior concept — this chapter's and Chapter 16's — into a single system capable of assembling a hyper-personalized lesson plan autonomously</li>
+</ol>
+<p>The next chapter turns from the agents themselves to what they produce: MicroSims, generated on demand by exactly this kind of agent, using the learning graph to decide what a learner needs to see next.</p>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Well done!</p>
+<p><img alt="Axiom celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png" />
+Pause and appreciate your progress — you have now connected generative AI's raw content-production capability all the way through to a fully autonomous learning agent capable of building a personalized lesson plan on its own. Let's connect the concepts — this is the chapter where the learning graph stopped being something you read about and became something a machine can act on.</p>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../16-personalization-adaptive-learning-paths/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 16. Personalization and Adaptive Learning Paths">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                16. Personalization and Adaptive Learning Paths
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../18-intelligent-textbooks-microsims-deployment/" class="md-footer__link md-footer__link--next" aria-label="Next: 18. Intelligent Textbooks, MicroSims, and Deployment">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                18. Intelligent Textbooks, MicroSims, and Deployment
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

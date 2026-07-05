@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Content Sequencing Algorithm Simulator</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Title -->
+        <div class="title">Content Sequencing Algorithm Simulator</div>
+
+        <!-- Two-panel body: graph (left) + recommendations/controls (right) -->
+        <div class="panels">
+            <!-- Graph panel -->
+            <div class="graph-panel">
+                <div class="legend">
+                    <div class="legend-item">
+                        <span class="legend-color color-notmastered"></span> Not Mastered
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color color-mastered"></span> Mastered
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color color-due"></span> Due for Review
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-ring"></span> Recommended Next
+                    </div>
+                </div>
+                <div class="graph-hint">Click a node to toggle Mastered on / off</div>
+                <!-- vis-network renders here; overlays are siblings, never children -->
+                <div id="network"></div>
+            </div>
+
+            <!-- Right panel: recommendations + controls -->
+            <div class="right-panel">
+                <div class="rec-panel">
+                    <div class="rec-title">Recommended Next</div>
+                    <ul class="rec-list" id="rec-list"></ul>
+                    <div class="rec-caption" id="rec-caption"></div>
+                </div>
+
+                <div class="controls">
+                    <button class="btn btn-accent" id="time-btn">Simulate Time Passing</button>
+                    <label class="toggle-row">
+                        <input type="checkbox" id="spaced-toggle" />
+                        <span>Weight Spaced Repetition</span>
+                    </label>
+                    <label class="toggle-row">
+                        <input type="checkbox" id="interleave-toggle" />
+                        <span>Prefer Interleaving</span>
+                    </label>
+                    <button class="btn btn-secondary" id="reset-btn">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="content-sequencing-simulator.js"></script>
+</body>
+</html>

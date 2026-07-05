@@ -1,0 +1,289 @@
+/* Dublin Core Metadata Explorer
+ * =============================
+ * Infographic-style flip-card grid of the 15 Dublin Core elements.
+ * The #network element is a required empty background layer; all visible
+ * content is a sibling overlay so vis-network cannot erase it.
+ */
+
+/* ===========================================
+   RESET & BASE
+   =========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: aliceblue;
+}
+
+/* ===========================================
+   CONTAINER & BACKGROUND NETWORK LAYER
+   =========================================== */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+#network {
+    width: 100%;
+    height: 100%;
+    background-color: aliceblue;
+}
+
+/* ===========================================
+   TITLE (Top Center)
+   =========================================== */
+.title {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    font-weight: bold;
+    color: #0d3b66;
+    background-color: aliceblue;
+    padding: 4px 12px;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+/* ===========================================
+   PROGRESS BADGE (Upper Right)
+   =========================================== */
+.progress-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: #0d3b66;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    z-index: 20;
+}
+
+.progress-badge.complete {
+    background-color: #2e7d32;
+}
+
+/* ===========================================
+   CONTENT OVERLAY (scrolls inside the frame)
+   =========================================== */
+.content-overlay {
+    position: absolute;
+    top: 46px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    overflow-y: auto;
+    padding: 8px 16px 16px 16px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 13px;
+    color: #33475b;
+    max-width: 760px;
+    margin: 4px auto 14px auto;
+    line-height: 1.5;
+}
+
+/* ===========================================
+   FLIP-CARD GRID (5 x 3 -> reflows to 3 x 5)
+   =========================================== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Each card is a perspective container so the inner face can rotate in 3D */
+.card {
+    perspective: 900px;
+    height: 118px;
+    cursor: pointer;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow: hidden;
+}
+
+/* FRONT: element name on a blue tile */
+.card-front {
+    background: linear-gradient(160deg, #2f6fb0 0%, #1f5c9e 100%);
+    color: #ffffff;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 2px solid #17456f;
+}
+
+.card-front .element-name {
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 0.3px;
+}
+
+.card-front .element-tap {
+    font-size: 10px;
+    margin-top: 6px;
+    opacity: 0.85;
+}
+
+/* Hover highlight to signal interactivity (only while not yet flipped) */
+.card:not(.flipped):hover .card-front {
+    background: linear-gradient(160deg, #3a80c6 0%, #2a6bb2 100%);
+    border-color: #ffd54f;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.22);
+}
+
+/* Explored/checkmark badge on the front once a card has been opened */
+.card.explored .card-front::after {
+    content: "\2713";
+    position: absolute;
+    top: 5px;
+    right: 7px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #0d3b66;
+    background: #ffd54f;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* BACK: definition + example value */
+.card-back {
+    background-color: #ffffff;
+    color: #1c2b3a;
+    transform: rotateY(180deg);
+    border: 2px solid #2f6fb0;
+    justify-content: flex-start;
+}
+
+.card-back .back-name {
+    font-size: 12px;
+    font-weight: bold;
+    color: #1f5c9e;
+    margin-bottom: 3px;
+}
+
+.card-back .back-def {
+    font-size: 10px;
+    line-height: 1.35;
+    color: #40566b;
+    margin-bottom: 5px;
+}
+
+.card-back .back-example-label {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #8a99a8;
+}
+
+.card-back .back-example {
+    font-size: 10.5px;
+    font-weight: bold;
+    color: #0d3b66;
+    line-height: 1.3;
+    word-break: break-word;
+}
+
+/* ===========================================
+   FOOTER CONTROLS
+   =========================================== */
+.footer-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 18px auto 4px auto;
+    flex-wrap: wrap;
+}
+
+.footer-hint {
+    font-size: 12px;
+    color: #607890;
+}
+
+.btn {
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-secondary {
+    background-color: #607890;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #4d6379;
+}
+
+/* ===========================================
+   RESPONSIVE: reflow to 3 columns on narrow screens
+   =========================================== */
+@media (max-width: 640px) {
+    .title {
+        font-size: 16px;
+    }
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 9px;
+    }
+    .card {
+        height: 108px;
+    }
+    .card-front .element-name {
+        font-size: 14px;
+    }
+    .progress-badge {
+        font-size: 11px;
+        padding: 5px 9px;
+    }
+}
+
+@media (max-width: 380px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

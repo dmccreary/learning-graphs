@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Edge Styling Property Playground</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Network canvas (drawing area). Panel + JSON are SIBLINGS. -->
+        <div id="network"></div>
+
+        <!-- Title at top center -->
+        <div class="title">Edge Styling Property Playground</div>
+
+        <!-- Legend upper left -->
+        <div class="legend">
+            <div class="legend-item">
+                <span class="legend-swatch swatch-styled"></span>
+                <span><strong>Styled edge</strong> &mdash; controlled below</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-swatch swatch-plain"></span>
+                <span>Unstyled edges &mdash; for scale reference</span>
+            </div>
+        </div>
+
+        <!-- Right control panel -->
+        <div class="right-panel">
+            <div class="panel-scroll">
+                <div class="ctl">
+                    <label for="edge-label">Edge Label</label>
+                    <input type="text" id="edge-label" value="requires">
+                </div>
+
+                <div class="ctl-row">
+                    <div class="ctl">
+                        <label for="edge-color">Edge Color</label>
+                        <input type="color" id="edge-color" value="#808080">
+                    </div>
+                    <div class="ctl">
+                        <label for="edge-width">Width <span id="width-val">1</span>px</label>
+                        <input type="range" id="edge-width" min="1" max="10" step="1" value="1">
+                    </div>
+                </div>
+
+                <div class="ctl ctl-check">
+                    <label class="inline-check">
+                        <input type="checkbox" id="edge-dashes">
+                        <span>Dashes</span>
+                    </label>
+                    <div class="dash-pattern" id="dash-pattern-wrap">
+                        <label for="dash-pattern">Pattern</label>
+                        <input type="text" id="dash-pattern" value="8,4" placeholder="e.g. 8,4">
+                    </div>
+                </div>
+
+                <div class="ctl-row">
+                    <div class="ctl">
+                        <label for="edge-smooth">Smoothing</label>
+                        <select id="edge-smooth">
+                            <option value="off">Off</option>
+                            <option value="dynamic" selected>Dynamic</option>
+                            <option value="cubicBezier">Cubic Bezier</option>
+                        </select>
+                    </div>
+                    <div class="ctl" id="roundness-ctl">
+                        <label for="edge-roundness">Roundness <span id="roundness-val">0.50</span></label>
+                        <input type="range" id="edge-roundness" min="0" max="1" step="0.05" value="0.5">
+                    </div>
+                </div>
+
+                <div class="ctl-row">
+                    <div class="ctl">
+                        <label for="arrow-end">Arrow End</label>
+                        <select id="arrow-end">
+                            <option value="to" selected>to</option>
+                            <option value="from">from</option>
+                            <option value="toandfrom">to and from</option>
+                            <option value="middle">middle</option>
+                        </select>
+                    </div>
+                    <div class="ctl">
+                        <label for="arrow-type">Arrow Type</label>
+                        <select id="arrow-type">
+                            <option value="arrow" selected>arrow</option>
+                            <option value="bar">bar</option>
+                            <option value="circle">circle</option>
+                            <option value="vee">vee</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="ctl-row">
+                    <div class="ctl">
+                        <label for="font-color">Font Color</label>
+                        <input type="color" id="font-color" value="#343434">
+                    </div>
+                    <div class="ctl">
+                        <label for="font-size">Font Size <span id="font-size-val">12</span>px</label>
+                        <input type="range" id="font-size" min="8" max="24" step="1" value="12">
+                    </div>
+                </div>
+
+                <div class="ctl">
+                    <label for="font-align">Font Align</label>
+                    <select id="font-align">
+                        <option value="horizontal">horizontal</option>
+                        <option value="top">top</option>
+                        <option value="middle" selected>middle</option>
+                    </select>
+                </div>
+
+                <div class="json-panel">
+                    <div class="json-title">Live edge JSON</div>
+                    <pre id="json-preview">{}</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="edge-styling-property-playground.js"></script>
+</body>
+</html>

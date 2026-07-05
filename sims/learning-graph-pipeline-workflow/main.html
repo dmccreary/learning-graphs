@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>The Pipeline From Course Description to Validated Graph</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            width: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ffffff;
+            color: #212529;
+        }
+        #layout {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding: 10px 14px;
+        }
+        h1 {
+            font-size: 20px;
+            color: #2c2c6c;
+            margin-bottom: 4px;
+        }
+        .subtitle {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 8px;
+        }
+        #legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            font-size: 12.5px;
+            margin-bottom: 8px;
+            padding: 6px 8px;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            background: #fff;
+        }
+        #legend .item { display: flex; align-items: center; gap: 6px; }
+        #legend .dot {
+            width: 14px; height: 14px; border-radius: 3px;
+            border: 1px solid #333; display: inline-block;
+        }
+        #main-area {
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+            align-items: flex-start;
+        }
+        #diagram-wrap {
+            flex: 1 1 60%;
+            background-color: aliceblue;
+            border-radius: 6px;
+            padding: 10px;
+            min-width: 0;
+        }
+        .mermaid { width: 100%; }
+        .mermaid svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        #infobox {
+            flex: 1 1 40%;
+            position: sticky;
+            top: 10px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 14px;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #334155;
+        }
+        #infobox .info-title { font-size: 16px; font-weight: bold; color: #3730a3; margin-bottom: 6px; }
+        #infobox .info-type {
+            display: inline-block; font-size: 12px; font-weight: 600;
+            padding: 2px 8px; border-radius: 10px; margin-bottom: 8px;
+        }
+        #infobox .type-auto { background: #e0e7ff; color: #3730a3; }
+        #infobox .type-human { background: #fef3c7; color: #92400e; }
+        #infobox .type-output { background: #dcfce7; color: #166534; }
+        #infobox .info-diag { margin-top: 8px; font-size: 13px; color: #475569; border-top: 1px dashed #cbd5e1; padding-top: 8px; }
+        #infobox .placeholder { color: #64748b; font-style: italic; }
+        .node { cursor: pointer; }
+        .loop-hot { cursor: pointer; }
+        @media (max-width: 600px) {
+            #main-area { flex-direction: column; }
+            #diagram-wrap, #infobox { flex: none; width: 100%; }
+            #infobox { position: static; }
+        }
+    </style>
+</head>
+<body>
+    <div id="layout">
+        <h1>Course Description to Validated Graph: The Full Pipeline</h1>
+        <div class="subtitle">Click any step &mdash; and the dashed regeneration loop &mdash; to judge which step a quality problem traces back to, and whether the fix is targeted iteration or full regeneration.</div>
+        <div id="legend">
+            <div class="item"><span class="dot" style="background:#4f46e5"></span>&#9881;&#65039; Automated step</div>
+            <div class="item"><span class="dot" style="background:#f5b301"></span>&#128100; Human checkpoint</div>
+            <div class="item"><span class="dot" style="background:#22a06b"></span>&#128196; Output file</div>
+        </div>
+        <div id="main-area">
+            <div id="diagram-wrap">
+                <div class="mermaid" id="theDiagram"></div>
+            </div>
+            <div id="infobox">
+                <div class="placeholder">Click a step to read what it does, whether it is automated or a human checkpoint, and what kind of quality problem points back to it.</div>
+            </div>
+        </div>
+    </div>
+    <script src="learning-graph-pipeline-workflow.js"></script>
+</body>
+</html>

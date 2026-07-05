@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Dependency Analysis Console</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Network canvas (background). Overlays are SIBLINGS, never children. -->
+        <div id="network"></div>
+
+        <!-- Title at top center -->
+        <div class="title">Dependency Analysis Console</div>
+
+        <!-- Legend upper left -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color color-base"></div><span>Concept</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-learned"></div><span>Already learned</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-gold"></div><span>Foundational</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-green"></div><span>Ready to learn</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-red"></div><span>Skill gap</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-purple"></div><span>Hop path</span>
+            </div>
+        </div>
+
+        <!-- Right panel: query selector + parameters + results -->
+        <div class="right-panel">
+            <div class="panel-block">
+                <div class="panel-title">Analysis Query</div>
+                <label class="radio-row"><input type="radio" name="query" value="foundational" checked> Show Foundational Concepts</label>
+                <label class="radio-row"><input type="radio" name="query" value="ready"> Show Ready-to-Learn Set</label>
+                <label class="radio-row"><input type="radio" name="query" value="gap"> Show Skill Gap to Goal</label>
+                <label class="radio-row"><input type="radio" name="query" value="hops"> Show Hop Count Between Two Concepts</label>
+            </div>
+
+            <!-- Query-specific parameter controls -->
+            <div class="panel-block" id="param-gap" style="display:none;">
+                <div class="panel-title">Goal concept</div>
+                <select id="goal-select"></select>
+            </div>
+
+            <div class="panel-block" id="param-hops" style="display:none;">
+                <div class="panel-title">Hop endpoints</div>
+                <label class="param-label">From</label>
+                <select id="hop-from-select"></select>
+                <label class="param-label">To</label>
+                <select id="hop-to-select"></select>
+            </div>
+
+            <!-- Results readout -->
+            <div class="results-panel">
+                <div class="results-title">Result</div>
+                <div class="results-text" id="results-text">Select a query to run it against the graph.</div>
+            </div>
+
+            <!-- Learned-concepts checklist -->
+            <div class="panel-block learned-block">
+                <div class="panel-title">Learned concepts</div>
+                <div class="learned-list" id="learned-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="dependency-analysis-console.js"></script>
+</body>
+</html>

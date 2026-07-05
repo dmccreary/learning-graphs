@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Learning Graph Quality Gate Explorer</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Toggle bar fixed at top -->
+        <div class="toggle-bar">
+            <span class="toggle-title">Quality Gate</span>
+            <div class="seg">
+                <button class="seg-btn active" id="btn-before" data-state="before">Before Validation</button>
+                <button class="seg-btn" id="btn-after" data-state="after">After Validation</button>
+            </div>
+            <div class="legend-inline">
+                <span class="dot dot-good"></span>Good
+                <span class="dot dot-orphan"></span>Orphan
+                <span class="dot dot-cluster"></span>Disconnected
+                <span class="line-key line-cycle"></span>Cycle
+            </div>
+        </div>
+
+        <!-- Network canvas (overlays/infobox are SIBLINGS, never children) -->
+        <div id="network"></div>
+
+        <!-- Fixed-height infobox below the graph -->
+        <div class="infobox" id="infobox">
+            <div class="infobox-title" id="infobox-title">Before Validation &mdash; three problems flagged</div>
+            <div class="infobox-body" id="infobox-body">Click a red or orange node to see what's wrong.</div>
+        </div>
+    </div>
+
+    <script src="learning-graph-quality-gate-explorer.js"></script>
+</body>
+</html>

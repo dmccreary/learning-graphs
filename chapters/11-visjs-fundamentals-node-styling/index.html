@@ -1,0 +1,2731 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Introduces vis.js and the vis-network library for visualizing concept dependency graphs, covering DataSet, network initialization, and the full range of node visual properties.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/learning-graphs/chapters/11-visjs-fundamentals-node-styling/">
+      
+      
+        <link rel="prev" href="../10-assessment-feedback-quizzes/">
+      
+      
+        <link rel="next" href="../12-edge-styling-visual-properties/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Vis.js Fundamentals and Node Styling - Learning Graphs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-Z6JDD2PWQZ"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-Z6JDD2PWQZ",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-Z6JDD2PWQZ",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Vis.js Fundamentals and Node Styling - Learning Graphs" >
+      
+        <meta  property="og:description"  content="Introduces vis.js and the vis-network library for visualizing concept dependency graphs, covering DataSet, network initialization, and the full range of node visual properties." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/learning-graphs/assets/images/social/chapters/11-visjs-fundamentals-node-styling/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/learning-graphs/chapters/11-visjs-fundamentals-node-styling/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Vis.js Fundamentals and Node Styling - Learning Graphs" >
+      
+        <meta  name="twitter:description"  content="Introduces vis.js and the vis-network library for visualizing concept dependency graphs, covering DataSet, network initialization, and the full range of node visual properties." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/learning-graphs/assets/images/social/chapters/11-visjs-fundamentals-node-styling/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#visjs-fundamentals-and-node-styling" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Learning Graphs" class="md-header__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Learning Graphs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Vis.js Fundamentals and Node Styling
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Learning Graphs" class="md-nav__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Learning Graphs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-foundations-of-concept-graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Foundations of Concept Graphs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-concept-labeling-metadata-standards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Concept Labeling and Metadata Standards
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-concept-dependencies-prerequisites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Concept Dependencies and Prerequisites
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-concept-taxonomies-ontologies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Concept Taxonomies and Ontologies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-graph-quality-validation-file-formats/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Learning Graph Quality, Validation, and File Formats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-blooms-taxonomy-learning-objectives/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Bloom's Taxonomy and Learning Objectives
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-learning-theories-instructional-design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Learning Theories and Instructional Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-cognitive-load-knowledge-space-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Cognitive Load and Knowledge Space Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-mastery-metacognition-sequencing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Mastery, Metacognition, and Instructional Sequencing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-assessment-feedback-quizzes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Assessment, Feedback, and Quizzes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    11. Vis.js Fundamentals and Node Styling
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    11. Vis.js Fundamentals and Node Styling
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-visjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is Vis.js?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loading-graph-data-dataset-and-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loading Graph Data: DataSet and JSON
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-network-container-and-network-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Network Container and Network Initialization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-nodes-find-their-positions-the-force-directed-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Nodes Find Their Positions: The Force-Directed Graph
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How Nodes Find Their Positions: The Force-Directed Graph">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-force-directed-layout-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Force-Directed Layout Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-node-property-toolbox-an-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Node Property Toolbox: An Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-shape" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Shape
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-background-color-and-node-font-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Background Color and Node Font Color
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Size
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-border-width-and-node-border-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Border Width and Node Border Color
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-opacity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Opacity
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-icon-and-node-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Icon and Node Image
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-shadow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Shadow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#legend-display" class="md-nav__link">
+    <span class="md-ellipsis">
+      Legend Display
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Legend Display">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-interactive-legend-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Interactive Legend Filter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-canvas-shape" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Canvas Shape
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom Canvas Shape">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-node-styling-property-playground" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Node Styling Property Playground
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-edge-styling-visual-properties/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Edge Styling and Visual Properties
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-physics-simulation-graph-layout/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Physics Simulation and Graph Layout
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-interactive-navigation-visjs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Interactive Navigation in Vis.js
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-graph-clustering-editing-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Graph Clustering and Editing Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-personalization-adaptive-learning-paths/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Personalization and Adaptive Learning Paths
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-intelligent-agents-generative-ai/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Intelligent Agents and Generative AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-intelligent-textbooks-microsims-deployment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Intelligent Textbooks, MicroSims, and Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-skill-generate-learning-graph/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Using a Skill to Generate a Learning Graph
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../case-studies/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Case Studies
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../vis/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Vis.js Tutorial
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Sample Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How We Built This Site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student-volunteers-wanted/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Student Volunteers Wanted
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-visjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is Vis.js?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loading-graph-data-dataset-and-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loading Graph Data: DataSet and JSON
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-network-container-and-network-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Network Container and Network Initialization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-nodes-find-their-positions-the-force-directed-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Nodes Find Their Positions: The Force-Directed Graph
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How Nodes Find Their Positions: The Force-Directed Graph">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-force-directed-layout-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Force-Directed Layout Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-node-property-toolbox-an-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Node Property Toolbox: An Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-shape" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Shape
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-background-color-and-node-font-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Background Color and Node Font Color
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Size
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-border-width-and-node-border-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Border Width and Node Border Color
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-opacity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Opacity
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-icon-and-node-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Icon and Node Image
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-shadow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Shadow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#legend-display" class="md-nav__link">
+    <span class="md-ellipsis">
+      Legend Display
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Legend Display">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-interactive-legend-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Interactive Legend Filter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-canvas-shape" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Canvas Shape
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom Canvas Shape">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-node-styling-property-playground" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Node Styling Property Playground
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/learning-graphs/blob/master/docs/chapters/11-visjs-fundamentals-node-styling/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="visjs-fundamentals-and-node-styling">Vis.js Fundamentals and Node Styling</h1>
+<h2 id="summary">Summary</h2>
+<p>Introduces vis.js and the vis-network library as the primary tool for visualizing concept dependency graphs, covering DataSet, network initialization, and the full range of node visual properties (shape, color, size, icons, images, shadows).</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 19 concepts from the learning graph:</p>
+<ol>
+<li>Vis.js</li>
+<li>Vis-Network Library</li>
+<li>DataSet</li>
+<li>Network Container</li>
+<li>Network Initialization</li>
+<li>JSON Data Format</li>
+<li>Force-Directed Graph</li>
+<li>Legend Display</li>
+<li>Node Shape</li>
+<li>Node Background Color</li>
+<li>Node Size</li>
+<li>Node Font Color</li>
+<li>Node Border Width</li>
+<li>Node Border Color</li>
+<li>Node Opacity</li>
+<li>Node Icon</li>
+<li>Node Image</li>
+<li>Node Shadow</li>
+<li>Custom Canvas Shape</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../10-assessment-feedback-quizzes/">Chapter 10: Assessment, Feedback, and Quizzes</a></li>
+</ul>
+<hr />
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Welcome to Part III!</p>
+<p><img alt="Axiom waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+Let's connect the concepts! Every diagram you have clicked, hovered, and dragged through so far in this book was built with a specific JavaScript library — and starting now, you get to look under the hood. Part III is where the vocabulary of graphs meets actual code you can read, copy, and modify.</p>
+</div>
+<p>Everything up to this point in the book has treated a learning graph as an abstract structure: nodes, edges, dependency direction, validation rules, file formats. That abstraction was necessary, but abstractions do not help a learner <em>see</em> forty concepts and their prerequisite relationships at once. This chapter opens Part III, where the book shifts from theory to hands-on tooling — starting with the JavaScript library that renders every interactive graph diagram you have already clicked through in earlier chapters.</p>
+<h2 id="what-is-visjs">What Is Vis.js?</h2>
+<p><strong>Vis.js</strong> is a browser-based JavaScript visualization library for displaying dynamic, interactive data — networks, timelines, charts, and 3D graphs — directly in a web page with no server-side rendering required. It is not a single tool but a family of related components, each specialized for a different data shape: vis-timeline for chronological events, vis-graph3d for three-dimensional plots, and, most importantly for this book, vis-network for exactly the kind of node-and-edge structure a learning graph is.</p>
+<p>The <strong>Vis-Network Library</strong> is the specific component of vis.js used to draw and interact with graphs made of nodes and edges — the component behind every diagram in this book so far, including the Graph Anatomy Explorer in Chapter 1 and the Orphan and Disconnected Subgraph Explorer in Chapter 5. Vis-network handles the parts of graph rendering that are tedious to build from scratch: physics-based layout, zooming and panning, click and hover event handling, and a large set of visual styling options for both nodes and edges. This chapter and the next several focus entirely on vis-network, because it is the single tool a learning-graph author needs to master in order to visualize, edit, and publish concept dependency graphs.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Helpful Tip</p>
+<p><img alt="Axiom giving a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+You do not need to be a JavaScript expert to use vis-network productively. Most of the work is describing <em>data</em> — which nodes exist, which edges connect them, and what each should look like — in a format vis-network already understands. The library does the hard part: physics, rendering, and interaction.</p>
+</div>
+<h2 id="loading-graph-data-dataset-and-json">Loading Graph Data: DataSet and JSON</h2>
+<p>Before vis-network can draw anything, it needs the node and edge data organized in a structure it can efficiently read, update, and re-render. That structure is called a DataSet.</p>
+<p>A <strong>DataSet</strong> is a vis.js data container that holds a collection of JavaScript objects — nodes or edges — and gives vis-network fast, reactive access to them: when an item in a DataSet changes, any network displaying that DataSet updates automatically, without the developer manually re-drawing the canvas. You will create one DataSet for your nodes and a second DataSet for your edges, then hand both to the network object described in the next section.</p>
+<p>You already know the file format that feeds a DataSet, because Chapter 5 covered it in detail. The <strong>JSON Data Format</strong> is the JavaScript Object Notation structure used to store vis-network's node and edge arrays — each node is a JSON object with at minimum an <code>id</code> and a <code>label</code> field, and each edge is a JSON object with a <code>from</code> field and a <code>to</code> field pointing at two node IDs. This is the same <code>learning-graph.json</code> file structure you have seen throughout this book; vis-network is simply the tool that turns that file into a picture.</p>
+<p>The following short example shows the minimum code needed to load a JSON file and wrap its contents in two DataSets. Read it as three steps: fetch the file, wrap the arrays in <code>vis.DataSet</code>, and hand the pair to the network (covered in the next section). The <code>fetch()</code> call retrieves the JSON file asynchronously; <code>.then(response =&gt; response.json())</code> parses the raw text into a JavaScript object; and <code>new vis.DataSet(data.nodes)</code> wraps the resulting <code>nodes</code> array so vis-network can track it reactively.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Fetch data from the JSON file</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;learning-graph.json&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Wrap the raw arrays in reactive DataSets</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">nodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">DataSet</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">nodes</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">edges</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">DataSet</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">edges</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// network initialization continues below...</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="w">    </span><span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Error loading the network data:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">));</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="the-network-container-and-network-initialization">The Network Container and Network Initialization</h2>
+<p>A DataSet holds data, but data alone is invisible. Vis-network needs a place on the page to draw into, and an explicit instruction to start drawing.</p>
+<p>The <strong>Network Container</strong> is the HTML element — almost always a <code>&lt;div&gt;</code> — that vis-network uses as the drawing surface for a graph. It must exist in the page's HTML before the JavaScript runs, and it must have a defined height (vis-network cannot compute its own height from empty content the way text elements can). A typical container looks like <code>&lt;div id="mynetwork"&gt;&lt;/div&gt;</code>, styled with CSS to a fixed or responsive height.</p>
+<p><strong>Network Initialization</strong> is the act of constructing a <code>new vis.Network(container, data, options)</code> object, which is the single line of code that actually renders the graph — combining the container element, the node/edge DataSets, and a configuration object into a live, interactive visualization. Once this line runs, vis-network takes over: it lays out the nodes, draws the edges, and starts listening for mouse events.</p>
+<p>Building on the fetch example above, the code below completes the pattern by grabbing the container element, bundling the two DataSets into a <code>data</code> object, and calling <code>new vis.Network()</code>. The <code>options</code> object is left empty here (<code>{}</code>) — later sections of this chapter fill it with node styling instructions.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Fetch data from the JSON file</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;learning-graph.json&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">nodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">DataSet</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">nodes</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">edges</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">DataSet</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">edges</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Locate the network container in the page</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;mynetwork&#39;</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">networkData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">nodes</span><span class="o">:</span><span class="w"> </span><span class="nx">nodes</span><span class="p">,</span><span class="w"> </span><span class="nx">edges</span><span class="o">:</span><span class="w"> </span><span class="nx">edges</span><span class="w"> </span><span class="p">};</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
+
+<span class="w">        </span><span class="c1">// Network Initialization: this line draws the graph</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">network</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">Network</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span><span class="w"> </span><span class="nx">networkData</span><span class="p">,</span><span class="w"> </span><span class="nx">options</span><span class="p">);</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="w">    </span><span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Error loading the network data:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">));</span>
+</code></pre></div></td></tr></table></div>
+<p>This four-part pattern — fetch, DataSet, container, initialize — is the skeleton underneath every vis-network visualization in this book. Every remaining topic in this chapter is about what goes <em>inside</em> the <code>options</code> object or <em>inside</em> each node's JSON, not about changing this skeleton.</p>
+<h2 id="how-nodes-find-their-positions-the-force-directed-graph">How Nodes Find Their Positions: The Force-Directed Graph</h2>
+<p>Notice that the JSON data above never specifies where each node should sit on the screen — no x/y coordinates. Vis-network still manages to lay the graph out sensibly, and the reason is its default layout algorithm.</p>
+<p>A <strong>Force-Directed Graph</strong> is a graph layout technique that treats nodes as physical objects: edges act like springs pulling connected nodes together, while all nodes simultaneously repel each other like magnets with the same polarity. The layout "settles" into a stable arrangement where these opposing forces balance out — densely connected nodes cluster near each other, while loosely connected nodes drift toward the edges of the canvas. This is the layout style used by default in vis-network, and it is the reason the Structural Variations Explorer in Chapter 1 could offer a "Cluster View" without any manually assigned coordinates.</p>
+<p>Force-directed layout is popular for concept dependency graphs precisely because it requires no manual positioning: add a new concept and a new edge to the JSON, and the physics simulation re-settles the whole graph to accommodate it. The trade-off, which later chapters in Part III return to, is that force-directed layouts can look chaotic for very large graphs and don't guarantee a clean top-to-bottom prerequisite ordering the way a hierarchical layout does.</p>
+<p>Before you experiment with the MicroSim below, hold onto one more idea: every node in that MicroSim is still using vis-network's default circular shape with no custom styling — the rest of this chapter changes that, one property at a time.</p>
+<h4 id="diagram-force-directed-layout-explorer">Diagram: Force-Directed Layout Explorer</h4>
+<iframe src="../../sims/force-directed-layout-explorer/main.html" width="100%" height="542px" scrolling="no"></iframe>
+
+<details>
+<summary>Force-Directed Layout Explorer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> force-directed-layout-explorer<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>Purpose: Let learners manipulate the physics parameters of a force-directed layout and observe how spring strength and repulsion change the resting shape of a graph.</p>
+<p>Bloom Level: Apply (L3)
+Bloom Verb: demonstrate, experiment</p>
+<p>Learning objective: Given a small graph and adjustable physics sliders, the learner can predict and observe how increasing repulsion spreads nodes apart and how increasing spring (edge) strength pulls connected nodes closer together.</p>
+<p>Canvas layout:
+- Left/top (75% width): drawing area showing a 14-node sample graph drawn from this chapter's own concept list (Vis.js, Vis-Network Library, DataSet, Network Container, Network Initialization, JSON Data Format, Force-Directed Graph, and 7 more)
+- Right/bottom (25% width or below on narrow screens): control panel</p>
+<p>Visual elements:
+- 14 light-blue circular nodes with black text labels
+- Directed gray edges (dependency direction, arrowhead at prerequisite end)
+- A "settling" indicator (small spinner) that appears while physics is still animating and disappears once the layout stabilizes</p>
+<p>Interactive controls:
+- Slider: "Repulsion Strength" (range -20000 to -1000, default -8000) — maps to vis-network's <code>physics.barnesHut.gravitationalConstant</code>
+- Slider: "Spring Length" (range 50 to 300, default 150) — maps to <code>physics.barnesHut.springLength</code>
+- Slider: "Spring Strength" (range 0.01 to 0.5, default 0.08) — maps to <code>physics.barnesHut.springConstant</code>
+- Button: "Re-Settle Graph" — nudges the physics simulation to re-run from the current node positions
+- Button: "Reset to Defaults"</p>
+<p>Default parameters:
+- Repulsion Strength: -8000
+- Spring Length: 150
+- Spring Strength: 0.08</p>
+<p>Behavior: Moving any slider calls <code>network.setOptions()</code> with the updated physics configuration and re-enables the physics simulation briefly so the graph visibly re-settles into its new resting shape. An infobox below the sliders states in one sentence what changed, e.g., "Higher repulsion pushes nodes further apart, spreading the graph out."</p>
+<p>Canvas size: responsive, 100% width, 540px height, must reflow on window resize</p>
+<p>Implementation: vis-network JavaScript library using the <code>physics.barnesHut</code> solver options exposed through <code>network.setOptions()</code>; slider <code>input</code> events trigger option updates</p>
+</details>
+<h2 id="the-node-property-toolbox-an-overview">The Node Property Toolbox: An Overview</h2>
+<p>Every node in a vis-network JSON file can carry an entire set of visual styling properties beyond just an <code>id</code> and a <code>label</code>. Before diving into each property individually, it helps to see them together as a toolbox, because in practice a learning-graph author combines several of these properties at once to make a diagram's visual encoding meaningful — for instance, using color to represent a taxonomy category (as Chapter 4 covered) while using shape to represent a concept's role (foundation, term, or goal).</p>
+<p>The table below organizes the properties this chapter covers. Each row is explained in its own section afterward — treat the table as a map of what's coming, not as your first introduction to any of these terms.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>JSON Key</th>
+<th>What It Controls</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Node Shape</td>
+<td><code>shape</code></td>
+<td>The geometric outline used to draw the node</td>
+</tr>
+<tr>
+<td>Node Background Color</td>
+<td><code>color.background</code></td>
+<td>The fill color inside the node's shape</td>
+</tr>
+<tr>
+<td>Node Size</td>
+<td><code>size</code></td>
+<td>The radius (in pixels) of shapes without an inline label</td>
+</tr>
+<tr>
+<td>Node Font Color</td>
+<td><code>font.color</code></td>
+<td>The color of the node's label text</td>
+</tr>
+<tr>
+<td>Node Border Width</td>
+<td><code>borderWidth</code></td>
+<td>The thickness, in pixels, of the node's outline</td>
+</tr>
+<tr>
+<td>Node Border Color</td>
+<td><code>color.border</code></td>
+<td>The color of the node's outline</td>
+</tr>
+<tr>
+<td>Node Opacity</td>
+<td><code>opacity</code></td>
+<td>How transparent or solid the node appears</td>
+</tr>
+<tr>
+<td>Node Icon</td>
+<td><code>icon</code></td>
+<td>A font-based symbol (e.g., FontAwesome) drawn inside the node</td>
+</tr>
+<tr>
+<td>Node Image</td>
+<td><code>image</code></td>
+<td>A raster or vector image file used as the node's shape</td>
+</tr>
+<tr>
+<td>Node Shadow</td>
+<td><code>shadow</code></td>
+<td>A drop-shadow effect behind the node</td>
+</tr>
+<tr>
+<td>Custom Canvas Shape</td>
+<td><code>shape: "custom"</code></td>
+<td>A developer-defined drawing function replacing all built-in shapes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="node-shape">Node Shape</h2>
+<p>The <strong>Node Shape</strong> property controls the geometric outline vis-network uses to draw a node — the most immediately visible styling choice, and usually the first one a learning-graph author sets. Vis-network ships with a substantial built-in library of shapes, split into two behavioral categories that matter for later properties in this chapter.</p>
+<p>Some shapes draw the label text <em>inside</em> the shape, sizing the shape to fit the text automatically: <code>box</code>, <code>ellipse</code>, <code>circle</code>, and <code>database</code> all behave this way. Other shapes draw the label <em>below</em> a fixed-size icon or outline, and their visual size is controlled entirely by the Node Size property covered next: <code>image</code>, <code>circularImage</code>, <code>diamond</code>, <code>dot</code>, <code>star</code>, <code>triangle</code>, <code>triangleDown</code>, <code>hexagon</code>, <code>square</code>, and <code>icon</code>. Knowing which category a shape falls into matters because setting <code>size</code> on a <code>box</code> node does nothing — the box already sizes itself to the label — while setting <code>size</code> on a <code>dot</code> node is the only way to make it bigger or smaller.</p>
+<ul>
+<li><code>circle</code> — a fixed circular outline with the label inside; label may be clipped if too long</li>
+<li><code>box</code> — a rectangle sized to fit the label, with configurable rounded corners</li>
+<li><code>ellipse</code> — the vis-network default shape; an oval sized to fit the label</li>
+<li><code>diamond</code> — a fixed-size diamond outline, label drawn below</li>
+<li><code>star</code> — a five-point star, label drawn below</li>
+<li><code>triangle</code> / <code>triangleDown</code> — pointing up or down respectively, label drawn below</li>
+<li><code>dot</code> — a simple filled circle, label drawn below</li>
+<li><code>square</code> / <code>hexagon</code> — regular polygons, label drawn below</li>
+<li><code>database</code> — a cylinder shape evoking a data store, label inside</li>
+<li><code>text</code> — no visible outline at all, only the label text</li>
+</ul>
+<p>Setting a node's shape in the JSON is a single key-value pair. The <code>shape</code> field accepts any of the string values listed above:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Node 1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;triangle&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Node 2&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;square&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Node 3&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;circle&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Node 5&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;star&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Node 6&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ellipse&quot;</span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="node-background-color-and-node-font-color">Node Background Color and Node Font Color</h2>
+<p>Shape gives a node its outline; color gives it meaning at a glance. Two related properties control color, and it is worth learning them together because a common mistake — dark background with dark text — only becomes visible once both are set.</p>
+<p><strong>Node Background Color</strong> is the fill color inside a node's shape, set through the <code>color</code> property in the node's JSON. Vis-network accepts either a simple color name string (<code>"color": "red"</code>) or, for finer control, an object that separately specifies the background and border colors (<code>"color": {"background": "red", "border": "black"}</code>). Background color is the single most common visual encoding in a learning graph diagram — Chapter 4 used it to distinguish taxonomy categories, and Chapter 1's diagrams used it to distinguish node states (valid vs. cycle-forming, for example).</p>
+<p><strong>Node Font Color</strong> is the color of the text label drawn on or below a node, set through the nested <code>font.color</code> property (<code>"font": {"color": "white"}</code>). The default font color in vis-network is black, which reads clearly on light backgrounds like gold, orange, or pale blue — but becomes nearly illegible on dark backgrounds like green, purple, or navy. Whenever a background color falls on the darker half of the color spectrum, pair it with an explicit white font color.</p>
+<p>The example below extends the shape example from the previous section, adding background colors to every node and white font color specifically on the two darkest nodes:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Node 1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;triangle&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Node 2&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;orange&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;square&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Node 3&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;yellow&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;circle&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Node 4&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;green&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;box&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;font&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;white&quot;</span><span class="p">}},</span>
+<span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Node 5&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;star&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Node 6&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;purple&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ellipse&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;font&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;white&quot;</span><span class="p">}}</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Watch Out</p>
+<p><img alt="Axiom warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+Purple and green nodes with black text are a genuinely common accessibility mistake in early graph diagrams. If you can't read a label at a glance while zoomed to a normal level, neither can your students — fix the font color before you move on to any other styling.</p>
+</div>
+<h2 id="node-size">Node Size</h2>
+<p>Recall from the Node Shape discussion that some shapes size themselves to their label text, while others — <code>dot</code>, <code>star</code>, <code>diamond</code>, <code>triangle</code>, <code>square</code>, <code>hexagon</code>, <code>icon</code>, <code>image</code>, and <code>circularImage</code> — use a fixed size that must be set explicitly. The <strong>Node Size</strong> property, set through the <code>size</code> key, controls the radius in pixels of exactly this second category of shapes.</p>
+<p>Node size is also a common encoding for a quantitative property of a concept — degree (the number of connections a node has, covered in Chapter 5) is a frequent choice, since a concept many other concepts depend on visually "reads" as more important when drawn larger. The Structural Variations Explorer's hover badge in Chapter 1, which displayed a node's degree on hover, pairs naturally with a diagram that also scales node size to that same degree value.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Node 4&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;green&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;box&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Note that this example sets <code>size</code> on a <code>box</code>-shaped node — which, per the rule above, has no visible effect, since <code>box</code> sizes itself to its label. This is a common early mistake: setting <code>size</code> on a label-sized shape produces no visual change, which can look like a bug when it is really a mismatched shape choice.</p>
+<h2 id="node-border-width-and-node-border-color">Node Border Width and Node Border Color</h2>
+<p>Fill color and font color handle the interior of a node; two more properties control its outline.</p>
+<p><strong>Node Border Width</strong> is the thickness, measured in pixels, of the line drawn around a node's shape, set through the <code>borderWidth</code> key (default <code>1</code>). Increasing border width is a lightweight way to draw attention to a specific node — a selected node, a node currently in violation of a validation rule, or a node representing the current step in a journey map — without changing its size or color.</p>
+<p><strong>Node Border Color</strong> is the color of that outline, set through the nested <code>color.border</code> key when <code>color</code> is expressed as an object rather than a single string (<code>"color": {"background": "lightblue", "border": "darkblue"}</code>). Border color and background color are independent: a node can have a light background with a dark, high-contrast border, which is often more readable than a uniformly dark node with white text.</p>
+<p>Building on Chapter 1's Graph Anatomy Explorer, which used "highlighted gold with a thicker gold border" to mark a selected node, the JSON snippet below shows how that selected-state styling is expressed:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Node&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;background&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gold&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;border&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;goldenrod&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;borderWidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="node-opacity">Node Opacity</h2>
+<p>The <strong>Node Opacity</strong> property controls how transparent or solid a node appears, set through the <code>opacity</code> key as a decimal between <code>0</code> (fully transparent, effectively invisible) and <code>1</code> (fully solid, the default). Opacity is most useful as a <em>state</em> indicator rather than a permanent styling choice — dimming nodes that are not currently relevant while keeping the highlighted subset at full opacity. The Journey Map Builder MicroSim from Chapter 1 used exactly this technique, described as "dimming nodes/edges not on the chosen path," to focus attention on one derived route through a larger graph.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Not Yet Relevant&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;opacity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3</span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Because opacity is usually applied dynamically — in response to a click, a filter, or a lens selection — rather than baked permanently into a JSON file, it is more often set in JavaScript through <code>nodes.update({id: 7, opacity: 0.3})</code> than written directly into the static data file.</p>
+<h2 id="node-icon-and-node-image">Node Icon and Node Image</h2>
+<p>Shapes and colors communicate a lot, but sometimes the clearest way to represent a concept is a small recognizable symbol or picture. Vis-network supports two distinct approaches, and it is worth understanding the difference before choosing between them.</p>
+<p>A <strong>Node Icon</strong> is a font-based symbol — typically drawn from an icon font library such as FontAwesome — rendered inside a node using the <code>shape: "icon"</code> setting together with an <code>icon</code> configuration object specifying the font face, the character code, the size, and the color. Icons are vector-based, so they stay crisp at any zoom level and can be recolored on the fly, which makes them a good fit for representing a small, fixed set of concept types (a book icon for reading material, a gear icon for a tool or process, a lightbulb icon for a key insight).</p>
+<p>A <strong>Node Image</strong> is a raster or vector picture file — PNG, JPG, or SVG — used as the node's entire visual shape, set through <code>shape: "image"</code> (a rectangular image) or <code>shape: "circularImage"</code> (the same image cropped to a circle) together with an <code>image</code> field pointing at the file's URL. Images are the right choice when a concept is best represented by an actual photograph, diagram thumbnail, or custom illustration rather than a symbolic icon — a portrait node for a historical figure in the Stories section of a textbook, for instance, or a screenshot thumbnail representing a specific piece of content.</p>
+<p>The following table summarizes when each is the better fit, now that both have been explained in prose:</p>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Better Choice</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Representing a category (tool, concept, process)</td>
+<td>Node Icon</td>
+<td>Scales cleanly, easy to recolor, small file footprint</td>
+</tr>
+<tr>
+<td>Representing a specific real-world thing (a person, a screenshot)</td>
+<td>Node Image</td>
+<td>Preserves actual visual detail an icon cannot convey</td>
+</tr>
+<tr>
+<td>Diagram will be zoomed in and out frequently</td>
+<td>Node Icon</td>
+<td>Vector icons stay sharp; raster images can blur</td>
+</tr>
+<tr>
+<td>Large graph with hundreds of nodes</td>
+<td>Node Icon</td>
+<td>Icon fonts load faster than hundreds of image files</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Force-Directed Graph&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;icon&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;icon&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;face&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FontAwesome&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#2b7de9&quot;</span><span class="p">}</span>
+<span class="p">},</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Axiom&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;circularImage&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;../../img/mascot/neutral.png&quot;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="node-shadow">Node Shadow</h2>
+<p>The <strong>Node Shadow</strong> property adds a drop-shadow effect behind a node, set through the <code>shadow</code> key — either a simple boolean (<code>"shadow": true</code> for a default gray shadow) or an object specifying the shadow's color, blur radius, and x/y offset (<code>"shadow": {"enabled": true, "color": "rgba(0,0,0,0.5)", "size": 10, "x": 5, "y": 5}</code>). Shadow is a subtle effect compared to shape, color, or size, but it is useful for creating a visual sense of depth — making a currently-selected or currently-hovered node appear to "lift" off the canvas relative to its neighbors.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Selected Node&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;shadow&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="legend-display">Legend Display</h2>
+<p>With eleven different node styling properties available, a diagram with a dozen or more nodes quickly needs a way to explain its own visual encoding to the reader — otherwise color and shape become decoration rather than information. <strong>Legend Display</strong> is the practice of rendering a key alongside a vis-network diagram that maps each visual encoding (a color, a shape, an icon) back to the category or meaning it represents, typically implemented as a small set of extra non-interactive nodes positioned in a fixed corner of the canvas, or as an HTML panel built alongside the network container.</p>
+<p>A well-built legend does three things: it lists every distinct color, shape, or icon actually used in the diagram (not a generic reference list); it labels each with the plain-language category it stands for; and — per this book's interactivity standard — it responds to learner interaction rather than sitting inert. The MicroSim below demonstrates a clickable legend built on top of the taxonomy-colored nodes from Chapter 4, letting a learner toggle entire categories on and off.</p>
+<p>Before exploring the MicroSim, note the key interaction pattern: clicking a legend entry doesn't just highlight it — it filters the DataSet, hiding every node that doesn't match the selected category, which is a different (and more powerful) interaction than a legend that merely displays.</p>
+<h4 id="diagram-interactive-legend-filter">Diagram: Interactive Legend Filter</h4>
+<iframe src="../../sims/interactive-legend-filter/main.html" width="100%" height="562px" scrolling="no"></iframe>
+
+<details>
+<summary>Interactive Legend Filter</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> interactive-legend-filter<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>Purpose: Teach learners that a legend in an intelligent textbook diagram is not a static caption but a functional filter control tied to the underlying DataSet.</p>
+<p>Bloom Level: Apply (L3)
+Bloom Verb: demonstrate, use</p>
+<p>Learning objective: Given a graph with nodes colored by taxonomy category, the learner can use a clickable legend to filter the visible node set and explain how the legend's colors map to the DataSet's category field.</p>
+<p>Canvas layout:
+- Top (80% height): drawing area with a 20-node sample graph, nodes colored by one of four taxonomy categories drawn from Chapter 4 (Foundational Concepts = blue, Graph Theory = green, Visualization = gold, Learning Science = purple)
+- Bottom (20% height) or right sidebar on wide screens: legend panel with four clickable color swatches, each labeled with its category name and a live count of visible nodes in that category</p>
+<p>Visual elements:
+- 20 circular nodes colored by category as listed above
+- Directed gray edges
+- Legend swatches: colored square, category label, node count badge (e.g., "Graph Theory (6)")
+- A "Show All" reset link above the legend</p>
+<p>Interactive controls:
+- Click a legend swatch: toggles that category's visibility; hidden categories show the swatch at reduced opacity and gray out the count badge
+- Multiple categories may be toggled off simultaneously
+- Hover a legend swatch (without clicking): temporarily highlights that category's nodes in the graph with a gold outline, without hiding others
+- "Show All" link: restores all four categories to visible</p>
+<p>Behavior: Clicking a swatch calls <code>nodes.update()</code> to set <code>hidden: true</code> on every node in that category's DataSet subset, then calls <code>network.redraw()</code>. The node count badge recalculates from the live DataSet on every toggle.</p>
+<p>Canvas size: responsive, 100% width, 560px height, must reflow on window resize</p>
+<p>Implementation: vis-network JavaScript library; legend built as an HTML/CSS panel outside the canvas, wired to DataSet filter operations via <code>nodes.getIds({filter: ...})</code></p>
+</details>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Key Insight</p>
+<p><img alt="Axiom thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+A legend that only <em>displays</em> meaning is documentation. A legend that also <em>filters</em> the graph is a study tool — it lets a learner isolate one taxonomy category at a time and ask, "what does just the Graph Theory cluster look like on its own?" That shift, from passive caption to interactive control, is the theme of everything Part III builds toward.</p>
+</div>
+<h2 id="custom-canvas-shape">Custom Canvas Shape</h2>
+<p>Every property covered so far configures one of vis-network's built-in shapes. But sometimes none of them — box, star, diamond, icon, image — is the right fit for what a concept needs to communicate visually. Vis-network provides an escape hatch for exactly this situation.</p>
+<p>A <strong>Custom Canvas Shape</strong> is a node shape defined by the developer's own drawing function rather than selected from vis-network's built-in list, enabled by setting <code>shape: "custom"</code> and supplying a <code>ctxRenderer</code> function that receives the browser's HTML5 Canvas 2D drawing context and draws whatever the developer specifies — an arbitrary polygon, a mini bar chart, a progress ring, or any shape composed from basic drawing primitives (arcs, lines, fills). This is the most powerful and most complex node styling option in vis-network, because it trades the simplicity of a JSON property for full programmatic control.</p>
+<p>Because a custom canvas shape depends on the HTML5 Canvas API rather than a simple property value, it cannot be expressed in a single line of JSON the way <code>shape: "star"</code> can. Instead, the node's JSON sets <code>shape: "custom"</code> and points at a JavaScript function supplied separately in the network options:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Mastery Progress&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;custom&quot;</span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Referenced by the node&#39;s &quot;custom&quot; shape — draws a ring whose</span>
+<span class="c1">// fill proportion represents a student&#39;s mastery percentage</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">nodes</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">ctxRenderer</span><span class="o">:</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">selected</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">style</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">25</span><span class="p">;</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">masteryFraction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.65</span><span class="p">;</span><span class="w"> </span><span class="c1">// 65% mastery, from student data</span>
+<span class="w">      </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
+<span class="w">      </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">arc</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="nx">radius</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">strokeStyle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;#cccccc&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">stroke</span><span class="p">();</span>
+<span class="w">      </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
+<span class="w">      </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">arc</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="nx">radius</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">masteryFraction</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">strokeStyle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;#2b7de9&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">lineWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">6</span><span class="p">;</span>
+<span class="w">      </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">stroke</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>Custom canvas shapes are rare in ordinary concept dependency graph diagrams — most learning-graph visualization needs are met by the built-in shape, color, size, icon, and image properties covered earlier in this chapter. Reach for a custom shape only when the visualization needs to encode information no built-in property can express, such as a live progress ring, a sparkline, or a shape that changes based on real-time data rather than a fixed category.</p>
+<p>The MicroSim below lets you compare every node styling property covered in this chapter side by side, so you can see how shape, color, size, border, opacity, icon, image, and shadow combine on the same underlying data.</p>
+<h4 id="diagram-node-styling-property-playground">Diagram: Node Styling Property Playground</h4>
+<iframe src="../../sims/node-styling-property-playground/main.html" width="100%" height="582px" scrolling="no"></iframe>
+
+<details>
+<summary>Node Styling Property Playground</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> node-styling-property-playground<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>Purpose: Let learners apply each node styling property from this chapter to a single sample node in real time and observe the resulting JSON alongside the rendered result.</p>
+<p>Bloom Level: Apply (L3)
+Bloom Verb: apply, experiment, demonstrate</p>
+<p>Learning objective: Given a control panel exposing every node styling property covered in this chapter, the learner can construct a fully styled node and correctly match each visual change to its corresponding JSON property.</p>
+<p>Canvas layout:
+- Left (55% width): drawing area showing one large sample node plus two unstyled neighbor nodes for visual context
+- Right (45% width): control panel, stacked vertically; on narrow screens, control panel moves below the canvas</p>
+<p>Visual elements:
+- One centered sample node, initial state: default ellipse, light blue, black text, borderWidth 1
+- Two smaller unstyled neighbor nodes connected by edges, for scale reference
+- A read-only JSON preview panel beneath the controls, live-updating to show the exact node JSON the current control settings produce</p>
+<p>Interactive controls:
+- Dropdown: Node Shape (circle, box, ellipse, diamond, star, triangle, dot, square, hexagon, icon, image)
+- Color picker: Background Color
+- Color picker: Font Color
+- Slider: Size (10-80px, only active/visible when shape is in the fixed-size category)
+- Slider: Border Width (0-10px)
+- Color picker: Border Color
+- Slider: Opacity (0.0-1.0)
+- Checkbox: Enable Shadow
+- Dropdown: Icon (FontAwesome sample set of 6 icons, only active when shape is "icon")
+- Text input: Image URL (only active when shape is "image" or "circularImage")</p>
+<p>Default parameters:
+- Shape: ellipse, Background: lightblue, Font: black, Size: 25, Border Width: 1, Border Color: darkblue, Opacity: 1.0, Shadow: off</p>
+<p>Behavior: Every control change calls <code>nodes.update()</code> on the sample node's DataSet entry with the new property value and refreshes the JSON preview panel to show the resulting object. Controls that don't apply to the current shape (e.g., Size for a box shape) are visually disabled with an explanatory tooltip.</p>
+<p>Canvas size: responsive, 100% width, 580px height, must reflow on window resize</p>
+<p>Implementation: vis-network JavaScript library; control panel built with standard HTML form elements; JSON preview generated with <code>JSON.stringify(nodes.get(sampleNodeId), null, 2)</code></p>
+</details>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li><strong>Vis.js</strong> is a family of browser-based visualization libraries; the <strong>Vis-Network Library</strong> is the component used to render node-and-edge graphs like concept dependency graphs.</li>
+<li>A <strong>DataSet</strong> is vis-network's reactive container for nodes and edges, populated from the <strong>JSON Data Format</strong> already familiar from Chapter 5.</li>
+<li>A <strong>Network Container</strong> (an HTML element) plus <strong>Network Initialization</strong> (<code>new vis.Network(container, data, options)</code>) is the minimum code needed to render any graph.</li>
+<li>The default <strong>Force-Directed Graph</strong> layout uses spring-and-repulsion physics to position nodes without manual coordinates.</li>
+<li>Eleven node styling properties — <strong>Shape</strong>, <strong>Background Color</strong>, <strong>Size</strong>, <strong>Font Color</strong>, <strong>Border Width</strong>, <strong>Border Color</strong>, <strong>Opacity</strong>, <strong>Icon</strong>, <strong>Image</strong>, <strong>Shadow</strong>, and <strong>Custom Canvas Shape</strong> — give an author full control over what each node communicates visually.</li>
+<li><strong>Legend Display</strong> turns a styled diagram's color and shape choices into readable, and ideally interactive, meaning for the learner.</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Well Done!</p>
+<p><img alt="Axiom celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png" />
+Pause and appreciate your progress — you just went from reading graph diagrams to understanding exactly how they are built, property by property. Next up: edges get the same treatment, from arrow styles to dashed lines to hover labels. Let's connect the concepts!</p>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../10-assessment-feedback-quizzes/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 10. Assessment, Feedback, and Quizzes">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                10. Assessment, Feedback, and Quizzes
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../12-edge-styling-visual-properties/" class="md-footer__link md-footer__link--next" aria-label="Next: 12. Edge Styling and Visual Properties">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                12. Edge Styling and Visual Properties
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

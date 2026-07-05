@@ -1,0 +1,22 @@
+{
+  "title": "Hyper-Personalization Input Explorer",
+  "description": "Given four togglable personalization inputs, the learner can differentiate which aspects of a simulated lesson recommendation change in response to each input, and explain why combining multiple inputs produces a more individualized result than any single input alone.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "hyper-personalization-input-explorer",
+  "library": "p5.js",
+  "bloomLevel": "Analyze (L4)",
+  "bloomVerb": "differentiate, examine, distinguish, compare",
+  "completion_status": "scaffold",
+  "chapter_number": 16,
+  "chapter_title": "Personalization and Adaptive Learning Paths",
+  "chapter_dir": "16-personalization-adaptive-learning-paths"
+}

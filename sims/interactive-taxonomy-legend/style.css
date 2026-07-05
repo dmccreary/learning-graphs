@@ -1,0 +1,287 @@
+/* Interactive Taxonomy Legend and Filter - vis-network MicroSim
+ * ============================================================
+ * A force-directed concept graph on the left with a fixed 180px legend
+ * panel on the right. The legend is a live taxonomy filter: clicking a row
+ * fades that category's nodes and hides their edges. Under 600px the legend
+ * stacks below the graph.
+ *
+ * The graph wrapper is position:relative so the title can overlay it as a
+ * SIBLING of #network (vis-network erases the canvas innerHTML, so overlays
+ * must never be children of #network). Total height is 520px, matching
+ * CANVAS_HEIGHT in the JS.
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: aliceblue;
+}
+
+/* ===========================================
+   TWO-COLUMN LAYOUT (graph + legend)
+   =========================================== */
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 520px;
+}
+
+.graph-wrap {
+    position: relative;
+    flex: 1 1 auto;
+    height: 100%;
+    min-width: 0;   /* allow the flex child to shrink below content width */
+}
+
+#network {
+    width: 100%;
+    height: 100%;
+    background-color: aliceblue;
+}
+
+/* ===========================================
+   TITLE (Top Center of the graph area)
+   =========================================== */
+.title {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    background-color: rgba(240, 248, 255, 0.85);
+    padding: 2px 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+/* ===========================================
+   LEGEND PANEL (fixed 180px on the right)
+   =========================================== */
+.legend-panel {
+    flex: 0 0 180px;
+    height: 100%;
+    overflow-y: auto;
+    background-color: #ffffff;
+    border-left: 2px solid #cfd8e3;
+    padding: 10px 10px;
+}
+
+.legend-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.legend-heading {
+    font-weight: bold;
+    font-size: 15px;
+    color: #1976d2;
+}
+
+.legend-hint {
+    font-size: 10.5px;
+    color: #666;
+    line-height: 1.4;
+    margin-bottom: 8px;
+}
+
+.legend-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* A single legend row acts as a checkbox-style toggle. */
+.legend-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 6px;
+    border-radius: 6px;
+    border: 1px solid #e3e9f0;
+    background-color: #fafcff;
+    cursor: pointer;
+    transition: background-color 0.15s, opacity 0.15s;
+    user-select: none;
+}
+
+.legend-row:hover {
+    background-color: #f0f6ff;
+}
+
+/* Off state: the whole row dims. */
+.legend-row.off {
+    opacity: 0.5;
+    background-color: #f4f4f4;
+}
+
+/* Checkbox-style box that shows a check when the category is visible. */
+.legend-check {
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+    border: 2px solid #789;
+    background-color: #fff;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.legend-row:not(.off) .legend-check::after {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 0px;
+    width: 4px;
+    height: 8px;
+    border: solid #2e7d32;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.legend-swatch {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;   /* circular, matching the round nodes */
+    flex-shrink: 0;
+    border: 2px solid rgba(0, 0, 0, 0.25);
+}
+
+.legend-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.legend-label {
+    font-size: 11px;
+    font-weight: bold;
+    color: #222;
+    line-height: 1.2;
+    display: block;
+}
+
+.legend-row.off .legend-label {
+    color: #888;
+    font-weight: normal;
+}
+
+.legend-count {
+    font-size: 10px;
+    color: #555;
+}
+
+/* "Only" isolate button per row. */
+.legend-only {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: bold;
+    color: #1976d2;
+    background-color: #e8f1fb;
+    border: 1px solid #bbdefb;
+    border-radius: 4px;
+    padding: 2px 5px;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+.legend-only:hover {
+    background-color: #d3e6fa;
+}
+
+/* ===========================================
+   BUTTONS
+   =========================================== */
+.btn {
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-reset {
+    background-color: #757575;
+    color: white;
+    font-size: 11px;
+    padding: 5px 10px;
+}
+
+.btn-reset:hover {
+    background-color: #616161;
+}
+
+/* ===========================================
+   NATIVE VIS-NETWORK TOOLTIP (label + category)
+   .vis-tooltip is the wrapper vis-network creates; we style the HTML we
+   injected via each node's `title` element.
+   =========================================== */
+div.vis-tooltip {
+    background-color: #ffffff !important;
+    border: 2px solid #607d8b !important;
+    border-radius: 6px !important;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25) !important;
+    padding: 0 !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    white-space: normal !important;
+}
+
+.vn-tip {
+    padding: 7px 10px;
+}
+
+.vn-tip-label {
+    font-weight: bold;
+    font-size: 13px;
+    color: #263238;
+    margin-bottom: 3px;
+}
+
+.vn-tip-cat {
+    font-size: 11px;
+    color: #546e7a;
+}
+
+/* ===========================================
+   RESPONSIVE: stack legend below graph under 600px
+   =========================================== */
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .graph-wrap {
+        height: 420px;
+        flex: 0 0 auto;
+        width: 100%;
+    }
+
+    .legend-panel {
+        flex: 0 0 auto;
+        width: 100%;
+        height: auto;
+        border-left: none;
+        border-top: 2px solid #cfd8e3;
+    }
+
+    /* Two-column legend grid so six rows do not scroll a tall column. */
+    .legend-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+    }
+
+    .title {
+        font-size: 14px;
+    }
+}

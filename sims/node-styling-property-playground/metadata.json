@@ -1,0 +1,22 @@
+{
+  "title": "Node Styling Property Playground",
+  "description": "Given a control panel exposing every node styling property covered in this chapter, the learner can construct a fully styled node and correctly match each visual change to its corresponding JSON property.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "node-styling-property-playground",
+  "library": "vis-network",
+  "bloomLevel": "Apply (L3)",
+  "bloomVerb": "apply, experiment, demonstrate",
+  "completion_status": "scaffold",
+  "chapter_number": 11,
+  "chapter_title": "Vis.js Fundamentals and Node Styling",
+  "chapter_dir": "11-visjs-fundamentals-node-styling"
+}

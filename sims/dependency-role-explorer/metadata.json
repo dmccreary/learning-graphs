@@ -1,0 +1,22 @@
+{
+  "title": "Dependency Role Explorer",
+  "description": "Given a small rendered dependency chain, the learner can correctly label each node's role (dependent, prerequisite, foundational) relative to a selected edge.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "dependency-role-explorer",
+  "library": "vis-network",
+  "bloomLevel": "Understand (L2)",
+  "bloomVerb": "identify, classify",
+  "completion_status": "scaffold",
+  "chapter_number": 3,
+  "chapter_title": "Concept Dependencies and Prerequisites",
+  "chapter_dir": "03-concept-dependencies-prerequisites"
+}

@@ -1,0 +1,22 @@
+{
+  "title": "Ready-to-Learn Frontier Simulator",
+  "description": "Given a small dependency graph and a starting state, the learner can predict and verify which concept(s) become ready-to-learn after marking a specific concept as learned.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "ready-to-learn-frontier-simulator",
+  "library": "vis-network",
+  "bloomLevel": "Apply (L3)",
+  "bloomVerb": "demonstrate, apply",
+  "completion_status": "scaffold",
+  "chapter_number": 3,
+  "chapter_title": "Concept Dependencies and Prerequisites",
+  "chapter_dir": "03-concept-dependencies-prerequisites"
+}

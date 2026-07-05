@@ -1,0 +1,22 @@
+{
+  "title": "SKOS Relationship Map",
+  "description": "SKOS Relationship Map",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "skos-relationship-map",
+  "library": "vis-network",
+  "bloomLevel": "Analyze (L4)",
+  "bloomVerb": "differentiate, compare",
+  "completion_status": "scaffold",
+  "chapter_number": 2,
+  "chapter_title": "Concept Labeling and Metadata Standards",
+  "chapter_dir": "02-concept-labeling-metadata-standards"
+}

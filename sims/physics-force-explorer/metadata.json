@@ -1,0 +1,22 @@
+{
+  "title": "Physics Force Explorer",
+  "description": "Given a fixed 18-node sample graph, the learner can predict and verify how changing gravitational constant, central gravity, and solver selection each independently affects the settled layout's shape and density.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "physics-force-explorer",
+  "library": "vis-network",
+  "bloomLevel": "Analyze (L4)",
+  "bloomVerb": "differentiate, examine, compare",
+  "completion_status": "scaffold",
+  "chapter_number": 13,
+  "chapter_title": "Physics Simulation and Graph Layout",
+  "chapter_dir": "13-physics-simulation-graph-layout"
+}

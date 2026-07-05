@@ -1,0 +1,295 @@
+/* Content Sequencing Algorithm Simulator - vis-network MicroSim
+ * =============================================================
+ * Two-panel layout: graph (left ~480px) + Recommended Next panel & controls
+ * (right ~200px). Panels stack vertically below 700px. The graph panel is a
+ * positioned wrapper whose only vis-network child is #network; the legend and
+ * hint are sibling overlays, never children of #network.
+ */
+
+/* ===========================================
+   RESET & BASE
+   =========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: aliceblue;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===========================================
+   TITLE
+   =========================================== */
+.title {
+    flex: 0 0 auto;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    padding: 8px 12px 4px;
+}
+
+/* ===========================================
+   PANELS
+   =========================================== */
+.panels {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 8px 10px 10px;
+    min-height: 0;
+}
+
+/* ---- Graph panel (left) ---- */
+.graph-panel {
+    position: relative;
+    flex: 1 1 auto;
+    min-width: 0;
+    background-color: #ffffff;
+    border: 1px solid #d5e3f0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#network {
+    width: 100%;
+    height: 100%;
+    background-color: aliceblue;
+}
+
+.legend {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    padding: 6px 8px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin: 3px 0;
+    font-size: 11px;
+    color: #333;
+}
+
+.legend-color {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    margin-right: 6px;
+    border: 2px solid #333;
+    flex-shrink: 0;
+}
+
+.legend-ring {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    margin-right: 6px;
+    background-color: transparent;
+    border: 3px solid #e53935;
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+.color-notmastered { background-color: #c8c8c8; }
+.color-mastered    { background-color: #43a047; }
+.color-due         { background-color: #f5a623; }
+
+.graph-hint {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    color: #555;
+    z-index: 10;
+    white-space: nowrap;
+}
+
+/* ---- Right panel ---- */
+.right-panel {
+    flex: 0 0 210px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+.rec-panel {
+    background-color: #ffffff;
+    border: 2px solid #43a047;
+    border-radius: 10px;
+    padding: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.rec-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #2e7d32;
+    margin-bottom: 8px;
+}
+
+.rec-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex: 1 1 auto;
+}
+
+.rec-list li {
+    padding: 7px 9px;
+    margin-bottom: 6px;
+    background-color: #f1f8f2;
+    border-left: 4px solid #43a047;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #1b3a1f;
+    line-height: 1.3;
+}
+
+.rec-list li .rec-branch {
+    display: block;
+    font-size: 10px;
+    color: #6d8f70;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.rec-list li.rec-due {
+    background-color: #fff6e6;
+    border-left-color: #f5a623;
+    color: #6b4a10;
+}
+
+.rec-list li.rec-due .rec-branch {
+    color: #b98420;
+}
+
+.rec-list li.rec-empty {
+    background-color: #f4f4f4;
+    border-left-color: #bbb;
+    color: #777;
+    font-style: italic;
+}
+
+.rec-caption {
+    margin-top: 8px;
+    font-size: 11px;
+    line-height: 1.45;
+    color: #5d4037;
+    background-color: #fff8e1;
+    border: 1px solid #ffe082;
+    border-radius: 6px;
+    padding: 8px 10px;
+    display: none;
+}
+
+.rec-caption.show {
+    display: block;
+}
+
+/* ---- Controls ---- */
+.controls {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    padding: 10px 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.btn {
+    padding: 9px 12px;
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+}
+
+.btn-accent {
+    background-color: #f5a623;
+    color: #3a2a05;
+}
+
+.btn-accent:hover {
+    background-color: #e2951a;
+}
+
+.btn-secondary {
+    background-color: #757575;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #616161;
+}
+
+.toggle-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #333;
+    cursor: pointer;
+    user-select: none;
+    line-height: 1.3;
+}
+
+.toggle-row input {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+/* ===========================================
+   RESPONSIVE - stack panels vertically below 700px
+   =========================================== */
+@media (max-width: 700px) {
+    .panels {
+        flex-direction: column;
+    }
+
+    .graph-panel {
+        flex: 1 1 auto;
+        min-height: 300px;
+    }
+
+    .right-panel {
+        flex: 0 0 auto;
+    }
+
+    .title {
+        font-size: 15px;
+    }
+}

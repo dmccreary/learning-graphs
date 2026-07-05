@@ -1,0 +1,18 @@
+{
+  "FOUND": "Concept Graph Foundations",
+  "DEPEND": "Concept Dependency & Prerequisites",
+  "TAXON": "Concept Taxonomies & Ontologies",
+  "QUAL": "Graph Quality & Validation",
+  "EDUF": "Educational Theory Foundations",
+  "LSCI": "Education & Learning Sciences",
+  "PERS": "Learning Paths & Personalization",
+  "AI": "Intelligent Agents & Generative AI",
+  "ASSESS": "Assessment & Feedback",
+  "VISCORE": "Vis.js Fundamentals & Styling",
+  "VISLAYOUT": "Graph Layout, Physics & Interactivity",
+  "VISTOOLS": "Graph Clustering & Editing Tools",
+  "DATA": "Data Formats & File Standards",
+  "TEXTBOOK": "Intelligent Textbooks & MicroSims",
+  "LMS": "LMS & Deployment Infrastructure",
+  "SKILL": "Agent Skills for Learning Graph Generation"
+}

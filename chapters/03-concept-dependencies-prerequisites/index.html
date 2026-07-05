@@ -1,0 +1,2489 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="How prerequisite relationships are modeled between concepts — foundational and goal concepts, immediate/intermediate/ultimate learning goals, skill gaps, transitive dependencies, and dependency-chain analysis.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/learning-graphs/chapters/03-concept-dependencies-prerequisites/">
+      
+      
+        <link rel="prev" href="../02-concept-labeling-metadata-standards/">
+      
+      
+        <link rel="next" href="../04-concept-taxonomies-ontologies/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Concept Dependencies and Prerequisites - Learning Graphs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-Z6JDD2PWQZ"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-Z6JDD2PWQZ",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-Z6JDD2PWQZ",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Concept Dependencies and Prerequisites - Learning Graphs" >
+      
+        <meta  property="og:description"  content="How prerequisite relationships are modeled between concepts — foundational and goal concepts, immediate/intermediate/ultimate learning goals, skill gaps, transitive dependencies, and dependency-chain analysis." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/learning-graphs/assets/images/social/chapters/03-concept-dependencies-prerequisites/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/learning-graphs/chapters/03-concept-dependencies-prerequisites/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Concept Dependencies and Prerequisites - Learning Graphs" >
+      
+        <meta  name="twitter:description"  content="How prerequisite relationships are modeled between concepts — foundational and goal concepts, immediate/intermediate/ultimate learning goals, skill gaps, transitive dependencies, and dependency-chain analysis." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/learning-graphs/assets/images/social/chapters/03-concept-dependencies-prerequisites/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#concept-dependencies-and-prerequisites" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Learning Graphs" class="md-header__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Learning Graphs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Concept Dependencies and Prerequisites
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Learning Graphs" class="md-nav__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Learning Graphs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-foundations-of-concept-graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Foundations of Concept Graphs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-concept-labeling-metadata-standards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Concept Labeling and Metadata Standards
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    3. Concept Dependencies and Prerequisites
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    3. Concept Dependencies and Prerequisites
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-dependency-the-atomic-relationship" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concept Dependency: The Atomic Relationship
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concept Dependency: The Atomic Relationship">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-dependency-role-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Dependency Role Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chaining-dependencies-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chaining Dependencies Together
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#naming-the-other-end-goal-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Naming the Other End: Goal Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Naming the Other End: Goal Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-goal-horizon-timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Goal Horizon Timeline
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#are-you-ready-ready-to-learn-and-learned-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Are You Ready? Ready-to-Learn and Learned Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Are You Ready? Ready-to-Learn and Learned Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-ready-to-learn-frontier-simulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Ready-to-Learn Frontier Simulator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#naming-the-gap-skill-gap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Naming the Gap: Skill Gap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beyond-one-hop-transitive-dependency-and-hop-count" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beyond One Hop: Transitive Dependency and Hop Count
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Beyond One Hop: Transitive Dependency and Hop Count">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-transitive-dependency-and-hop-count-finder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Transitive Dependency and Hop Count Finder
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-together-dependency-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Putting It Together: Dependency Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Putting It Together: Dependency Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-dependency-analysis-console" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Dependency Analysis Console
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-concept-taxonomies-ontologies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Concept Taxonomies and Ontologies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-graph-quality-validation-file-formats/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Learning Graph Quality, Validation, and File Formats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-blooms-taxonomy-learning-objectives/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Bloom's Taxonomy and Learning Objectives
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-learning-theories-instructional-design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Learning Theories and Instructional Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-cognitive-load-knowledge-space-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Cognitive Load and Knowledge Space Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-mastery-metacognition-sequencing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Mastery, Metacognition, and Instructional Sequencing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-assessment-feedback-quizzes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Assessment, Feedback, and Quizzes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-visjs-fundamentals-node-styling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Vis.js Fundamentals and Node Styling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-edge-styling-visual-properties/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Edge Styling and Visual Properties
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-physics-simulation-graph-layout/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Physics Simulation and Graph Layout
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-interactive-navigation-visjs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Interactive Navigation in Vis.js
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-graph-clustering-editing-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Graph Clustering and Editing Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-personalization-adaptive-learning-paths/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Personalization and Adaptive Learning Paths
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-intelligent-agents-generative-ai/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Intelligent Agents and Generative AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-intelligent-textbooks-microsims-deployment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Intelligent Textbooks, MicroSims, and Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-skill-generate-learning-graph/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Using a Skill to Generate a Learning Graph
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../case-studies/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Case Studies
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../vis/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Vis.js Tutorial
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Sample Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How We Built This Site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student-volunteers-wanted/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Student Volunteers Wanted
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-dependency-the-atomic-relationship" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concept Dependency: The Atomic Relationship
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concept Dependency: The Atomic Relationship">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-dependency-role-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Dependency Role Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chaining-dependencies-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chaining Dependencies Together
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#naming-the-other-end-goal-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Naming the Other End: Goal Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Naming the Other End: Goal Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-goal-horizon-timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Goal Horizon Timeline
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#are-you-ready-ready-to-learn-and-learned-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Are You Ready? Ready-to-Learn and Learned Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Are You Ready? Ready-to-Learn and Learned Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-ready-to-learn-frontier-simulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Ready-to-Learn Frontier Simulator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#naming-the-gap-skill-gap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Naming the Gap: Skill Gap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beyond-one-hop-transitive-dependency-and-hop-count" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beyond One Hop: Transitive Dependency and Hop Count
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Beyond One Hop: Transitive Dependency and Hop Count">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-transitive-dependency-and-hop-count-finder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Transitive Dependency and Hop Count Finder
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-together-dependency-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Putting It Together: Dependency Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Putting It Together: Dependency Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-dependency-analysis-console" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Dependency Analysis Console
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/learning-graphs/blob/master/docs/chapters/03-concept-dependencies-prerequisites/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="concept-dependencies-and-prerequisites">Concept Dependencies and Prerequisites</h1>
+<h2 id="summary">Summary</h2>
+<p>Explains how prerequisite relationships are modeled between concepts, including foundational concepts, goal concepts, and the different types of learning goals (immediate, intermediate, ultimate). Introduces skill gaps, transitive dependencies, and dependency-chain analysis as tools for reasoning about what a student is ready to learn next.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 16 concepts from the learning graph:</p>
+<ol>
+<li>Concept Dependency</li>
+<li>Prerequisite Relationship</li>
+<li>Prerequisite Chain</li>
+<li>Prerequisite Concept</li>
+<li>Foundational Concept</li>
+<li>Goal Concept</li>
+<li>Immediate Goal</li>
+<li>Intermediate Goal</li>
+<li>Ultimate Goal</li>
+<li>Learning Goal</li>
+<li>Ready-to-Learn Concept</li>
+<li>Learned Concept</li>
+<li>Skill Gap</li>
+<li>Transitive Dependency</li>
+<li>Hop Count</li>
+<li>Dependency Analysis</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../02-concept-labeling-metadata-standards/">Chapter 2: Concept Labeling and Metadata Standards</a></li>
+</ul>
+<hr />
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Welcome back!</p>
+<p><img alt="Axiom waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+Let's connect the concepts! Chapters 1 and 2 gave every node in a learning graph a shape (concept), a home (graph representation), and a proper name (concept label). This chapter finally asks the question the whole book has been circling: what does that arrow between two nodes actually <em>mean</em>, and how do you reason about it at scale — across a graph with hundreds of nodes and thousands of arrows?</p>
+</div>
+<p>An edge in a learning graph is not decoration. It is a claim: <em>you should understand the concept at one end before you can fully understand the concept at the other.</em> Chapters 1 and 2 treated that claim informally. This chapter makes it precise — precise enough that software can walk a graph, tell a learner exactly what they're ready for next, and flag the exact gap between where they are and where they want to be. By the end of this chapter you will be able to name every stage of that reasoning process, from a single dependency edge to a full dependency-chain analysis across an entire book.</p>
+<h2 id="concept-dependency-the-atomic-relationship">Concept Dependency: The Atomic Relationship</h2>
+<p>A <strong>Concept Dependency</strong> is a directed relationship between two concepts stating that one — the <em>dependent</em> concept — cannot be fully understood until the other — the <em>prerequisite</em> concept — has been learned. "Multiplication" has a concept dependency on "Addition." This is the single relationship type that every edge in a learning graph represents, and it is the only edge type a learning graph needs, which is precisely what makes the graph computable: a piece of software never has to guess what an edge means, because in a learning graph it only ever means one thing.</p>
+<p>A <strong>Prerequisite Relationship</strong> is the formal name for that same edge viewed from the other direction — the connection between a prerequisite concept and the dependent concept that requires it. "Concept dependency" and "prerequisite relationship" describe the identical arrow: the sentence <em>"Multiplication depends on Addition"</em> and the sentence <em>"Addition is a prerequisite for Multiplication"</em> state the same fact from opposite ends. You will see both terms used interchangeably in professional practice and in this book.</p>
+<p>Two more roles complete the vocabulary for a single edge. A <strong>Prerequisite Concept</strong> is the concept that must be learned first — the node the arrow points <em>to</em>, using this book's arrow convention from Chapter 1 (arrow points from dependent to prerequisite). A <strong>Foundational Concept</strong> is a special case of prerequisite concept: one that has no prerequisites of its own within the graph, sitting at the very bottom of a dependency chain. Every learning graph needs at least one foundational concept, because without one, nothing would ever be ready-to-learn — a problem that should sound familiar from the cycle-detection discussion in Chapter 1.</p>
+<p>The diagram below lets you click through a small dependency chain and see these three roles — dependent concept, prerequisite concept, and foundational concept — applied to the same set of nodes.</p>
+<h4 id="diagram-dependency-role-explorer">Diagram: Dependency Role Explorer</h4>
+<iframe src="../../sims/dependency-role-explorer/main.html" width="100%" height="502px" scrolling="no"></iframe>
+
+<details>
+<summary>Dependency Role Explorer</summary>
+<p>Type: graph-model
+<strong>sim-id:</strong> dependency-role-explorer<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>Purpose: Let learners click through a four-node dependency chain and see how the same node can be a "dependent concept" relative to one edge and a "prerequisite concept" relative to another, with the bottom node singled out as the foundational concept.</p>
+<p>Bloom Level: Understand (L2)
+Bloom Verb: identify, classify</p>
+<p>Learning objective: Given a small rendered dependency chain, the learner can correctly label each node's role (dependent, prerequisite, foundational) relative to a selected edge.</p>
+<p>Nodes to display (4, vis-network circle shape):
+- "Calculus" (id 1)
+- "Algebra" (id 2)
+- "Arithmetic" (id 3)
+- "Number Sense" (id 4)</p>
+<p>Edges to display (arrow points from dependent to prerequisite):
+- Calculus(1) → Algebra(2)
+- Algebra(2) → Arithmetic(3)
+- Arithmetic(3) → Number Sense(4)</p>
+<p>Layout: Hierarchical top-down, "Number Sense" at the bottom</p>
+<p>Interactive features:
+- Click any edge: the two endpoint nodes are labeled in the infobox as "Dependent Concept: {from label}" and "Prerequisite Concept: {to label}"
+- The bottom-most node ("Number Sense") is permanently badged "Foundational Concept" since it has no outgoing edges
+- Hover a node: tooltip states how many prerequisite concepts it has (its out-degree) and how many dependent concepts rely on it (its in-degree)
+- Toggle button: "Highlight foundational concepts" recolors any node with zero outgoing edges gold</p>
+<p>Visual styling:
+- Standard nodes: light blue circles, black text
+- Foundational concept: gold circle with a small anchor icon badge
+- Selected edge: thickened and highlighted with endpoint labels floating beside each node</p>
+<p>Canvas size: responsive, 100% width, 500px height</p>
+<p>Implementation: vis-network JavaScript library with a DataSet for nodes/edges; out-degree/in-degree computed client-side from the edge list on load</p>
+</details>
+<h2 id="chaining-dependencies-together">Chaining Dependencies Together</h2>
+<p>A single dependency edge rarely tells the whole story. Real concepts sit inside longer sequences, and a learning graph needs a term for that sequence as a whole.</p>
+<p>A <strong>Prerequisite Chain</strong> is a sequence of concepts connected end to end by prerequisite relationships, where each concept in the chain depends on the next, forming an ordered path from an advanced concept down to a foundational one. "Calculus depends on Algebra, which depends on Arithmetic, which depends on Number Sense" describes a four-concept prerequisite chain. A chain is simply a <em>path</em> through the graph — the same graph-theory idea introduced informally in Chapter 1, now given a name specific to learning-graph work.</p>
+<p>Prerequisite chains rarely stand alone in a real graph; most concepts sit inside several overlapping chains at once. The table below shows how the vocabulary introduced so far composes, using the four-concept example from the diagram above.</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Applied to the Calculus → Algebra → Arithmetic → Number Sense example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Concept Dependency</td>
+<td>Each individual arrow, e.g. Calculus → Algebra</td>
+</tr>
+<tr>
+<td>Prerequisite Relationship</td>
+<td>The same arrow, described from the prerequisite's side</td>
+</tr>
+<tr>
+<td>Prerequisite Concept</td>
+<td>Algebra (relative to Calculus); Arithmetic (relative to Algebra)</td>
+</tr>
+<tr>
+<td>Foundational Concept</td>
+<td>Number Sense — no outgoing edges</td>
+</tr>
+<tr>
+<td>Prerequisite Chain</td>
+<td>The full path: Calculus → Algebra → Arithmetic → Number Sense</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Key Insight</p>
+<p><img alt="Axiom thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+A prerequisite chain is not a special data structure — it's just a path you can trace by following edges. The vocabulary exists because humans reason about <em>chains</em> ("what leads up to this?") far more naturally than they reason about a whole graph at once. Software can compute both; people mostly think in chains.</p>
+</div>
+<h2 id="naming-the-other-end-goal-concepts">Naming the Other End: Goal Concepts</h2>
+<p>If a foundational concept sits at the bottom of a chain with nothing beneath it, something has to sit at the top. A <strong>Goal Concept</strong> is a concept that represents a desired learning outcome — the concept a learner, course designer, or lesson-planning agent is ultimately trying to reach, as distinct from the concepts that merely support getting there. Every prerequisite chain in a well-designed course terminates at some goal concept; the chain exists <em>because</em> of the goal, not the other way around.</p>
+<p>Not every goal is the same distance away, though, and conflating "what I'm about to learn next" with "what the whole course is building toward" causes real confusion in lesson planning. This book distinguishes three flavors of goal concept by how far they sit from a learner's current position in the graph:</p>
+<ul>
+<li><strong>Immediate Goal</strong> — the very next concept a learner is ready to tackle; typically one hop from their current mastery frontier</li>
+<li><strong>Intermediate Goal</strong> — a meaningful milestone concept partway through a course, itself a prerequisite for later material but substantial enough to mark real progress</li>
+<li><strong>Ultimate Goal</strong> — the final, terminal concept a course or curriculum is designed to reach — the capstone concept that, once mastered, means the learner has achieved the course's stated purpose</li>
+</ul>
+<p>A <strong>Learning Goal</strong> is the general umbrella term covering all three: any concept explicitly designated as a target for a learner to reach, at any distance. Immediate, intermediate, and ultimate goals are all learning goals; the three-way split just adds distance-from-current-position as a second dimension.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Watch Out</p>
+<p><img alt="Axiom warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+Don't assume a concept is permanently one type of goal. "Algebra" might be an ultimate goal for a remedial arithmetic course and an immediate goal for a student halfway through a calculus sequence. Goal type is relative to a specific learner's position and a specific course's scope — it is never a fixed property stored on the node itself.</p>
+</div>
+<p>The timeline below places all three goal types along a single learner's path toward a capstone concept, so you can see how the same graph structure supports different goal horizons simultaneously.</p>
+<h4 id="diagram-goal-horizon-timeline">Diagram: Goal Horizon Timeline</h4>
+<iframe src="../../sims/goal-horizon-timeline/main.html" width="100%" height="602px" scrolling="no"></iframe>
+
+<details>
+<summary>Goal Horizon Timeline</summary>
+<p>Type: chart
+<strong>sim-id:</strong> goal-horizon-timeline<br/>
+<strong>Library:</strong> vis-timeline<br/>
+<strong>Status:</strong> Specified</p>
+<p>Purpose: Show a single learner's position on a prerequisite chain and let them see which upcoming concept counts as their immediate goal, which counts as an intermediate goal, and which is the ultimate goal of the course.</p>
+<p>Bloom Level: Understand (L2)
+Bloom Verb: classify, distinguish</p>
+<p>Learning objective: Given a learner's current position on a displayed chain, the learner can correctly classify each remaining concept as an immediate, intermediate, or ultimate goal.</p>
+<p>Timeline items (7 concepts in sequence, left to right): "Number Sense" (mastered), "Arithmetic" (mastered), "Algebra" (current frontier), "Functions" , "Derivatives", "Integrals", "Applied Calculus" (course capstone)</p>
+<p>Interactive controls:
+- Draggable "You are here" marker, defaults positioned after "Algebra"
+- As the marker moves, the timeline recolors: mastered concepts (left of marker) gray, the single next concept immediately right of the marker gold and badged "Immediate Goal," concepts further right but before the last item blue and badged "Intermediate Goal," and the rightmost concept ("Applied Calculus") always badged "Ultimate Goal" in purple regardless of marker position</p>
+<p>Visual styling:
+- vis-timeline horizontal axis, one item per concept, connecting line between consecutive items
+- Badges rendered as small pills above each timeline item</p>
+<p>Canvas size: responsive, 100% width, 480px height</p>
+<p>Implementation: vis-timeline JavaScript library; badge assignment recalculated in a "rangechange"/drag event handler based on the marker's item index</p>
+</details>
+<h2 id="are-you-ready-ready-to-learn-and-learned-concepts">Are You Ready? Ready-to-Learn and Learned Concepts</h2>
+<p>Goal concepts describe where a learner is headed. Two more terms describe where a learner actually stands right now, relative to the graph.</p>
+<p>A <strong>Ready-to-Learn Concept</strong> is a concept whose every prerequisite concept has already been mastered — nothing stands between the learner and attempting it. Formally, a concept is ready-to-learn exactly when all of its foundational and prerequisite concepts belong to the learner's set of mastered concepts. This is the concept-graph equivalent of "unlocked" in a game's skill tree: the dependencies are satisfied, so the node is available.</p>
+<p>A <strong>Learned Concept</strong> is a concept a specific learner has already demonstrated mastery of — through assessment, completed exercises, or another form of verified evidence, not merely "read about." The distinction matters because a learning graph by itself says nothing about any individual learner; it only becomes personally useful once a set of learned concepts, tracked per learner, is layered on top of the static graph structure.</p>
+<p>These two terms depend on each other in a specific way worth stating precisely: a concept becomes ready-to-learn <em>because</em> its prerequisites are already learned concepts for that learner. As soon as a ready-to-learn concept is itself mastered, it becomes a learned concept, which in turn may make one or more new concepts ready-to-learn for the first time — a cascading effect that is exactly how a lesson-planning agent decides what to recommend next.</p>
+<h4 id="diagram-ready-to-learn-frontier-simulator">Diagram: Ready-to-Learn Frontier Simulator</h4>
+<iframe src="../../sims/ready-to-learn-frontier-simulator/main.html" width="100%" height="542px" scrolling="no"></iframe>
+
+<details>
+<summary>Ready-to-Learn Frontier Simulator</summary>
+<p>Type: graph-model
+<strong>sim-id:</strong> ready-to-learn-frontier-simulator<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>Purpose: Let learners click concepts to mark them "learned" one at a time and watch which other concepts flip to "ready-to-learn" as a result, making the cascading unlock effect concrete.</p>
+<p>Bloom Level: Apply (L3)
+Bloom Verb: demonstrate, apply</p>
+<p>Learning objective: Given a small dependency graph and a starting state, the learner can predict and verify which concept(s) become ready-to-learn after marking a specific concept as learned.</p>
+<p>Base dataset: 9-node subgraph — "Number Sense," "Arithmetic," "Algebra," "Geometry," "Trigonometry," "Functions," "Derivatives," "Integrals," "Applied Calculus" — with dependency edges forming a typical math-sequence DAG (Algebra and Geometry both depend on Arithmetic; Trigonometry depends on Geometry and Algebra; Functions depends on Algebra; Derivatives depends on Functions and Trigonometry; Integrals depends on Derivatives; Applied Calculus depends on Integrals)</p>
+<p>Interactive features:
+- Click any node currently colored gold (ready-to-learn) to mark it green (learned); clicking recalculates the ready-to-learn set and any newly-unlocked node animates from gray to gold
+- Node color states: gray = "not yet ready" (at least one prerequisite unlearned), gold = "ready-to-learn," green = "learned"
+- Reset button restores the initial state (only "Number Sense" learned, "Arithmetic" ready-to-learn, everything else gray)
+- Infobox lists the current "Ready-to-Learn" set as a bulleted list, updating live</p>
+<p>Visual styling:
+- Gray, gold, and green circular nodes as described above
+- A pulsing animation plays briefly on any node transitioning from gray to gold, to draw attention to the cascade</p>
+<p>Layout: hierarchical top-down, foundational concepts at the bottom</p>
+<p>Canvas size: responsive, 100% width, 540px height</p>
+<p>Implementation: vis-network JavaScript library; on each click, recompute ready-to-learn status for all gray nodes by checking whether every prerequisite (outgoing edge target) is in the learned set</p>
+</details>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Helpful Tip</p>
+<p><img alt="Axiom giving a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+When you're building a lesson-planning agent, the ready-to-learn set is usually the single most useful query you can run against a learning graph. It's the answer to "what should this learner try next?" — and it only requires two inputs: the graph's edges and the learner's set of learned concepts.</p>
+</div>
+<h2 id="naming-the-gap-skill-gap">Naming the Gap: Skill Gap</h2>
+<p>Comparing a learner's learned concepts against a chosen goal concept surfaces one more essential term. A <strong>Skill Gap</strong> is the set of prerequisite concepts lying between a learner's current learned concepts and a stated goal concept that the learner has not yet mastered. If "Applied Calculus" is a learner's ultimate goal and they have only learned "Number Sense" and "Arithmetic," their skill gap is every other concept on every prerequisite chain leading to "Applied Calculus" — Algebra, Geometry, Trigonometry, Functions, Derivatives, and Integrals, in the example graph above.</p>
+<p>A skill gap is not just a count; it's a specific, named list, which is what makes it actionable. "You have a skill gap" is a diagnosis. "Your skill gap is these six concepts, in this order" is a lesson plan waiting to be built. This is the mechanism behind the personalization workflows previewed in the course description — an agent computes the skill gap between a learner's mastery and a chosen goal, then sequences the gap concepts using the prerequisite chains that connect them.</p>
+<h2 id="beyond-one-hop-transitive-dependency-and-hop-count">Beyond One Hop: Transitive Dependency and Hop Count</h2>
+<p>Every example so far has involved short chains you could trace by eye. Real learning graphs are far larger, and two more terms exist specifically to reason about dependency at a distance.</p>
+<p>A <strong>Transitive Dependency</strong> is a prerequisite relationship that holds between two concepts <em>indirectly</em>, through one or more intermediate concepts, rather than through a direct edge. If Calculus depends directly on Algebra, and Algebra depends directly on Arithmetic, then Calculus has a transitive dependency on Arithmetic — there is no direct Calculus → Arithmetic edge in the graph, but the dependency is real and provable by following the chain. Transitive dependencies matter because a learner cannot skip Arithmetic just because no arrow points to it directly from Calculus; the requirement is inherited through the whole chain.</p>
+<p>A <strong>Hop Count</strong> is the number of edges that must be traversed to get from one concept to another along a prerequisite chain — the length of the path. Calculus to Algebra is a hop count of 1 (direct dependency). Calculus to Arithmetic is a hop count of 2 (one transitive step through Algebra). Calculus to Number Sense, in the four-concept chain from earlier in this chapter, is a hop count of 3. Hop count gives transitive dependency a measurable distance, which turns "is this concept required, eventually?" into "how many concepts stand between here and there?" — a far more useful question for sequencing decisions.</p>
+<div class="admonition mascot-encourage">
+<p class="admonition-title">This connects two chapters at once</p>
+<p><img alt="Axiom encouraging" class="mascot-admonition-img" src="../../img/mascot/encouraging.png" />
+If "hop count" reminds you of graph theory you half-remember from school, that instinct is correct — it's the same idea as shortest-path length in any directed graph. You don't need the underlying algorithm memorized yet; later chapters on graph theory formalize how software computes it. For now, just hold onto what it measures: distance, in prerequisite steps, between two concepts.</p>
+</div>
+<p>The explorer below lets you pick any two concepts in a small graph and see both the transitive dependency path and its hop count highlighted together.</p>
+<h4 id="diagram-transitive-dependency-and-hop-count-finder">Diagram: Transitive Dependency and Hop Count Finder</h4>
+<iframe src="../../sims/transitive-dependency-hop-finder/main.html" width="100%" height="522px" scrolling="no"></iframe>
+
+<details>
+<summary>Transitive Dependency and Hop Count Finder</summary>
+<p>Type: graph-model
+<strong>sim-id:</strong> transitive-dependency-hop-finder<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>Purpose: Let learners select a start concept and an end concept in a small graph and see the tool trace the connecting path, distinguishing a direct dependency (hop count 1) from a transitive dependency (hop count 2 or more).</p>
+<p>Bloom Level: Analyze (L4)
+Bloom Verb: examine, differentiate</p>
+<p>Learning objective: Given any two concepts in a displayed dependency graph, the learner can determine whether one has a direct or transitive dependency on the other and state the correct hop count.</p>
+<p>Base dataset: same 9-node math-sequence subgraph used in the Ready-to-Learn Frontier Simulator (Number Sense, Arithmetic, Algebra, Geometry, Trigonometry, Functions, Derivatives, Integrals, Applied Calculus)</p>
+<p>Interactive controls:
+- Two dropdowns: "From concept" and "To concept"
+- Button: "Find Path"</p>
+<p>Behavior:
+- On "Find Path," the tool runs a breadth-first search along outgoing (dependency) edges from the "From" node looking for the "To" node
+- If found, every edge on the shortest path is highlighted gold and the infobox reports: "{From} has a transitive dependency on {To} — Hop Count: {N}" (or "direct dependency, Hop Count: 1" when N = 1)
+- If no path exists in either direction, infobox reports: "No dependency relationship exists between {From} and {To} in this graph."
+- Reset button clears the highlighted path and dropdown selections</p>
+<p>Visual styling:
+- Base graph: light blue circles, black arrows, hierarchical layout
+- Highlighted path: gold nodes and thickened gold edges, with small numbered badges (1, 2, 3...) along the path showing hop order</p>
+<p>Canvas size: responsive, 100% width, 520px height</p>
+<p>Implementation: vis-network JavaScript library; breadth-first search implemented client-side in JavaScript over an adjacency list built from the edge DataSet</p>
+</details>
+<h2 id="putting-it-together-dependency-analysis">Putting It Together: Dependency Analysis</h2>
+<p>Every term introduced in this chapter — dependency, prerequisite chain, foundational and goal concepts, ready-to-learn and learned concepts, skill gap, transitive dependency, hop count — is a building block for one overarching practice. <strong>Dependency Analysis</strong> is the systematic examination of a learning graph's dependency structure to answer practical questions about sequencing, readiness, and gaps: which concepts are foundational, which are bottlenecks that many others depend on, what a specific learner's skill gap is relative to a goal, and how many hops separate any two concepts.</p>
+<p>Dependency analysis is not a single algorithm; it's a category of queries a learning-graph tool needs to support. The table below summarizes the questions this chapter's vocabulary lets you ask, and which term supplies the answer.</p>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Answered Using</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"What must be true before I can start this concept?"</td>
+<td>Prerequisite Concept, Prerequisite Chain</td>
+</tr>
+<tr>
+<td>"Which concepts have no prerequisites at all?"</td>
+<td>Foundational Concept</td>
+</tr>
+<tr>
+<td>"What is this learner or course ultimately working toward?"</td>
+<td>Goal Concept (Immediate / Intermediate / Ultimate)</td>
+</tr>
+<tr>
+<td>"What can this learner attempt right now?"</td>
+<td>Ready-to-Learn Concept</td>
+</tr>
+<tr>
+<td>"What has this learner already mastered?"</td>
+<td>Learned Concept</td>
+</tr>
+<tr>
+<td>"What stands between this learner and their goal?"</td>
+<td>Skill Gap</td>
+</tr>
+<tr>
+<td>"Is Concept A required for Concept B, even indirectly?"</td>
+<td>Transitive Dependency</td>
+</tr>
+<tr>
+<td>"How far apart are two concepts in the prerequisite structure?"</td>
+<td>Hop Count</td>
+</tr>
+</tbody>
+</table>
+<p>Dependency analysis is also where a course designer catches structural problems before they reach a learner — a goal concept with an impossibly long skill gap for its target audience, or a concept nobody's chain ever reaches, both surface through the same kind of systematic pass across the graph. Chapter 5 picks this thread back up under the heading of learning graph validation, applying dependency-analysis techniques specifically to catch broken or malformed graphs.</p>
+<h4 id="diagram-dependency-analysis-console">Diagram: Dependency Analysis Console</h4>
+<iframe src="../../sims/dependency-analysis-console/main.html" width="100%" height="562px" scrolling="no"></iframe>
+
+<details>
+<summary>Dependency Analysis Console</summary>
+<p>Type: infographic
+<strong>sim-id:</strong> dependency-analysis-console<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>Purpose: Give learners a single console-style tool that runs the four most common dependency-analysis queries (foundational concepts, ready-to-learn set, skill gap to a goal, hop count between two concepts) against one shared dataset, reinforcing that these are variations on one underlying analytical practice.</p>
+<p>Bloom Level: Evaluate (L5)
+Bloom Verb: assess, justify</p>
+<p>Learning objective: Given a dependency graph and a specified learner state, the learner can select the correct dependency-analysis query for a given practical question and interpret its result.</p>
+<p>Base dataset: same 9-node math-sequence subgraph used earlier in this chapter, with an adjustable "learned concepts" checklist (defaults: Number Sense, Arithmetic learned)</p>
+<p>Interactive controls (left panel, query selector as radio buttons):
+- "Show Foundational Concepts" — highlights all nodes with zero outgoing edges gold
+- "Show Ready-to-Learn Set" — highlights all nodes whose prerequisites are fully in the learned set
+- "Show Skill Gap to Goal" — adds a goal-concept dropdown; on selection, highlights every unlearned concept on any path from the learner's learned set to the goal
+- "Show Hop Count Between Two Concepts" — adds two concept dropdowns and reuses the shortest-path behavior from the Transitive Dependency and Hop Count Finder diagram earlier in this chapter</p>
+<p>Behavior: selecting a query re-renders the graph highlighting per that query's rule; a results panel on the right states the finding in one sentence, e.g. "Skill Gap to Applied Calculus: Algebra, Geometry, Trigonometry, Functions, Derivatives, Integrals (6 concepts)."</p>
+<p>Visual styling:
+- Base graph: light blue circles, hierarchical layout, black arrows
+- Query-specific highlight color: gold for foundational, green for ready-to-learn, red for skill gap, purple path with numbered hop badges for hop count</p>
+<p>Canvas size: responsive, 100% width, 560px height (graph) with a fixed-width control/results side panel</p>
+<p>Implementation: vis-network JavaScript library with four client-side query functions sharing one adjacency-list representation of the dataset; UI built with plain HTML radio buttons and dropdowns bound to re-render calls</p>
+</details>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li>A <strong>concept dependency</strong> (equivalently, a <strong>prerequisite relationship</strong>) is the one edge type in a learning graph: one concept must be learned before another.</li>
+<li>A <strong>prerequisite concept</strong> sits at the "must learn first" end of an edge; a <strong>foundational concept</strong> is a prerequisite concept with no prerequisites of its own.</li>
+<li>A <strong>prerequisite chain</strong> is a path of concept dependencies strung end to end from an advanced concept down to a foundational one.</li>
+<li>A <strong>goal concept</strong> is a desired learning outcome; <strong>immediate</strong>, <strong>intermediate</strong>, and <strong>ultimate goals</strong> describe how far that outcome sits from a learner's current position, and all three are kinds of <strong>learning goal</strong>.</li>
+<li>A <strong>ready-to-learn concept</strong> has every prerequisite already satisfied; a <strong>learned concept</strong> is one a specific learner has demonstrably mastered — and mastering a ready-to-learn concept can cascade to unlock new ready-to-learn concepts.</li>
+<li>A <strong>skill gap</strong> is the named, ordered set of unlearned concepts standing between a learner and a goal concept.</li>
+<li>A <strong>transitive dependency</strong> is an indirect prerequisite relationship reached through intermediate concepts; <strong>hop count</strong> measures how many edges that indirect path crosses.</li>
+<li><strong>Dependency analysis</strong> is the umbrella practice of running these queries — foundational-concept detection, ready-to-learn computation, skill-gap analysis, hop-count measurement — against a learning graph to support sequencing and personalization.</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Well done!</p>
+<p><img alt="Axiom celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png" />
+Pause and appreciate your progress — you can now trace a full dependency chain from any concept down to its foundations, name every stage of a learner's readiness, and compute the skill gap between where someone is and where they're headed. That's the exact reasoning a personalization engine performs, just done by hand instead of by code. Next, we turn from individual dependencies to organizing whole graphs of concepts into taxonomies. Let's connect the concepts!</p>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../02-concept-labeling-metadata-standards/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 2. Concept Labeling and Metadata Standards">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                2. Concept Labeling and Metadata Standards
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../04-concept-taxonomies-ontologies/" class="md-footer__link md-footer__link--next" aria-label="Next: 4. Concept Taxonomies and Ontologies">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                4. Concept Taxonomies and Ontologies
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

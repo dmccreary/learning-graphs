@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Graph Editor with Live Validation</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Network canvas - background layer -->
+        <div id="network"></div>
+
+        <!-- Title at top center -->
+        <div class="title">Graph Editor with Live Validation</div>
+
+        <!-- Legend in upper left -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color color-foundation"></div><span>Foundation</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-term"></div><span>Concept</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-goal"></div><span>Goal</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-orphan"></div><span>Orphaned</span>
+            </div>
+        </div>
+
+        <!-- Right panel: file controls, validation, property editor -->
+        <div class="right-panel">
+            <div class="file-controls">
+                <button class="btn btn-primary" id="validate-btn">Run Validation Now</button>
+                <div class="file-row">
+                    <button class="btn btn-secondary" id="export-btn">Export JSON</button>
+                    <button class="btn btn-secondary" id="import-btn">Import JSON</button>
+                </div>
+                <button class="btn btn-link" id="sample-btn">Download broken sample JSON</button>
+                <input type="file" id="file-input" accept="application/json,.json" hidden>
+            </div>
+
+            <!-- Validation panel -->
+            <div class="validation-panel">
+                <div class="val-header">
+                    <span class="val-badge" id="val-badge">Checking&hellip;</span>
+                </div>
+
+                <div class="val-section">
+                    <div class="val-section-title">
+                        Import Errors <span class="count-pill" id="error-count">0</span>
+                    </div>
+                    <ul class="val-list" id="error-list">
+                        <li class="val-ok">No import errors.</li>
+                    </ul>
+                </div>
+
+                <div class="val-section">
+                    <div class="val-section-title">
+                        Orphaned Nodes <span class="count-pill" id="orphan-count">0</span>
+                    </div>
+                    <ul class="val-list" id="orphan-list">
+                        <li class="val-ok">No orphaned nodes.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Property editor (shown when editing) -->
+            <div class="prop-editor" id="prop-editor" style="display: none;">
+                <div class="prop-title" id="prop-title">Node Properties</div>
+                <div class="prop-fields" id="prop-fields"></div>
+                <div class="prop-buttons">
+                    <button class="btn btn-primary" id="prop-save">Save</button>
+                    <button class="btn btn-secondary" id="prop-cancel">Cancel</button>
+                </div>
+            </div>
+
+            <!-- Help -->
+            <div class="help-panel" id="help-panel">
+                <div class="help-title">How to use</div>
+                <ul>
+                    <li>Use the toolbar (top-left of canvas) to <strong>Add Node</strong>, <strong>Add Edge</strong>, <strong>Edit</strong>, or <strong>Delete</strong>.</li>
+                    <li>Add a node but leave it unconnected &mdash; it appears under <strong>Orphaned Nodes</strong>.</li>
+                    <li>Delete a node's only edge to orphan it instantly.</li>
+                    <li>Import the broken sample to see <strong>Import Errors</strong> caught before rendering.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="graph-editor-live-validation.js"></script>
+</body>
+</html>

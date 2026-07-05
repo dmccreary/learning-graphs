@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Real-World Deployment Patterns Explorer</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Title at top center -->
+        <div class="title">Real-World Deployment Patterns</div>
+
+        <!-- Three clickable pattern cards -->
+        <div class="cards" id="cards">
+            <button class="card card-corporate" data-pattern="corporate" aria-pressed="false">
+                <span class="card-icon">&#128188;</span>
+                <span class="card-name">Corporate Onboarding</span>
+                <span class="card-hint">Click to explore its dependencies</span>
+            </button>
+            <button class="card card-courseware" data-pattern="courseware" aria-pressed="false">
+                <span class="card-icon">&#127891;</span>
+                <span class="card-name">K-12 / Higher-Ed Courseware</span>
+                <span class="card-hint">Click to explore its dependencies</span>
+            </button>
+            <button class="card card-certification" data-pattern="certification" aria-pressed="false">
+                <span class="card-icon">&#128220;</span>
+                <span class="card-name">Certification Prep</span>
+                <span class="card-hint">Click to explore its dependencies</span>
+            </button>
+        </div>
+
+        <!-- Detail area revealed after a card is selected -->
+        <div class="detail" id="detail" style="display: none;">
+            <!-- Case-study summary -->
+            <div class="summary" id="summary"></div>
+
+            <!-- Mini dependency graph + validation column -->
+            <div class="detail-body">
+                <!-- vis-network mini graph. Overlays are NEVER children of this div. -->
+                <div id="network" class="mini-network"></div>
+
+                <!-- Validation prompt + reveal-on-click answer -->
+                <div class="validate-box">
+                    <div class="validate-q">What would you validate first if you deployed this pattern?</div>
+                    <button class="btn btn-reveal" id="reveal-btn">Reveal Suggested Answer</button>
+                    <div class="validate-a" id="validate-a" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prompt shown before any card is chosen -->
+        <div class="pre-prompt" id="pre-prompt">
+            Select a deployment pattern above to see which chapters and concepts it relies on most,
+            then judge which learning-graph checks matter most for it.
+        </div>
+    </div>
+
+    <script src="real-world-deployment-patterns.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "title": "Transitive Dependency and Hop Count Finder",
+  "description": "Given any two concepts in a displayed dependency graph, the learner can determine whether one has a direct or transitive dependency on the other and state the correct hop count.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "transitive-dependency-hop-finder",
+  "library": "vis-network",
+  "bloomLevel": "Analyze (L4)",
+  "bloomVerb": "examine, differentiate",
+  "completion_status": "scaffold",
+  "chapter_number": 3,
+  "chapter_title": "Concept Dependencies and Prerequisites",
+  "chapter_dir": "03-concept-dependencies-prerequisites"
+}

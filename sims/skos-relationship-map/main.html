@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>SKOS Relationship Map</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Network canvas - full width/height background layer -->
+        <div id="network"></div>
+
+        <!-- Title at top center -->
+        <div class="title">SKOS Relationship Map</div>
+
+        <!-- Legend (upper left) -->
+        <div class="legend">
+            <div class="legend-item">
+                <span class="legend-swatch swatch-concept"></span>
+                <span><strong>Concept</strong> (skos:prefLabel)</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-swatch swatch-chip"></span>
+                <span><strong>Alt label</strong> (skos:altLabel)</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-line line-broader"></span>
+                <span><strong>broader / narrower</strong></span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-line line-related"></span>
+                <span><strong>related</strong> (non-directional)</span>
+            </div>
+        </div>
+
+        <!-- Right panel: controls + SKOS record infobox -->
+        <div class="right-panel">
+            <div class="controls">
+                <button class="btn btn-primary" id="view-toggle-btn">Show as Dependency Graph</button>
+                <button class="btn btn-secondary" id="direction-toggle-btn">Flip: show narrower</button>
+            </div>
+
+            <div class="caption-box" id="caption-box">
+                <div class="caption-title">Classification Hierarchy view</div>
+                <div class="caption-text" id="caption-text">
+                    Edges are <strong>skos:broader</strong> / <strong>skos:narrower</strong> &mdash;
+                    they say one concept is a more-general or more-specific <em>kind</em> of another.
+                </div>
+            </div>
+
+            <div class="infobox" id="infobox">
+                <div class="info-title" id="info-title">SKOS Record</div>
+                <div class="info-content" id="info-content">
+                    <p class="info-placeholder">Click a concept node to see its full SKOS record.</p>
+                </div>
+            </div>
+
+            <div class="status-panel">
+                <div class="status-title">How to use</div>
+                <div class="status-text">
+                    <ul>
+                        <li><strong>Click a node</strong> to read its SKOS record.</li>
+                        <li><strong>Hover an edge</strong> for a plain-language reading.</li>
+                        <li><strong>Toggle the view</strong> to compare SKOS broader/narrower with Chapter&nbsp;1 depends-on edges.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="skos-relationship-map.js"></script>
+</body>
+</html>

@@ -1,0 +1,2728 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Covers grouping related nodes into composite clusters that can expand and collapse, plus the interactive graph editor used to create and modify a learning graph directly, including JSON import/export and data validation on import.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/learning-graphs/chapters/15-graph-clustering-editing-tools/">
+      
+      
+        <link rel="prev" href="../14-interactive-navigation-visjs/">
+      
+      
+        <link rel="next" href="../16-personalization-adaptive-learning-paths/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Graph Clustering and Editing Tools - Learning Graphs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-Z6JDD2PWQZ"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-Z6JDD2PWQZ",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-Z6JDD2PWQZ",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Graph Clustering and Editing Tools - Learning Graphs" >
+      
+        <meta  property="og:description"  content="Covers grouping related nodes into composite clusters that can expand and collapse, plus the interactive graph editor used to create and modify a learning graph directly, including JSON import/export and data validation on import." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/learning-graphs/assets/images/social/chapters/15-graph-clustering-editing-tools/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/learning-graphs/chapters/15-graph-clustering-editing-tools/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Graph Clustering and Editing Tools - Learning Graphs" >
+      
+        <meta  name="twitter:description"  content="Covers grouping related nodes into composite clusters that can expand and collapse, plus the interactive graph editor used to create and modify a learning graph directly, including JSON import/export and data validation on import." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/learning-graphs/assets/images/social/chapters/15-graph-clustering-editing-tools/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#graph-clustering-and-editing-tools" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Learning Graphs" class="md-header__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Learning Graphs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Graph Clustering and Editing Tools
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Learning Graphs" class="md-nav__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Learning Graphs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-foundations-of-concept-graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Foundations of Concept Graphs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-concept-labeling-metadata-standards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Concept Labeling and Metadata Standards
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-concept-dependencies-prerequisites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Concept Dependencies and Prerequisites
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-concept-taxonomies-ontologies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Concept Taxonomies and Ontologies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-graph-quality-validation-file-formats/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Learning Graph Quality, Validation, and File Formats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-blooms-taxonomy-learning-objectives/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Bloom's Taxonomy and Learning Objectives
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-learning-theories-instructional-design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Learning Theories and Instructional Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-cognitive-load-knowledge-space-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Cognitive Load and Knowledge Space Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-mastery-metacognition-sequencing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Mastery, Metacognition, and Instructional Sequencing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-assessment-feedback-quizzes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Assessment, Feedback, and Quizzes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-visjs-fundamentals-node-styling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Vis.js Fundamentals and Node Styling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-edge-styling-visual-properties/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Edge Styling and Visual Properties
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-physics-simulation-graph-layout/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Physics Simulation and Graph Layout
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-interactive-navigation-visjs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Interactive Navigation in Vis.js
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    15. Graph Clustering and Editing Tools
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    15. Graph Clustering and Editing Tools
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#graph-cluster-folding-complexity-into-a-single-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Cluster: Folding Complexity Into a Single Node
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#composite-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Composite Node
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cluster-expandcollapse" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cluster Expand/Collapse
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#domain-attribute-clustering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Domain Attribute (Clustering)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Domain Attribute (Clustering)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-domain-cluster-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Domain Cluster Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#group-visibility-checkbox-and-group-styling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group Visibility Checkbox and Group Styling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introducing-the-graph-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducing the Graph Editor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-property-editor-and-edge-property-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Property Editor and Edge Property Editor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#json-graph-import-and-json-graph-export" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON Graph Import and JSON Graph Export
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-enricher-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Enricher Script
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-validation-on-import" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Validation on Import
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orphaned-node-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Orphaned Node Detection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Orphaned Node Detection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-graph-editor-with-live-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Graph Editor with Live Validation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bringing-clustering-and-editing-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bringing Clustering and Editing Together
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-personalization-adaptive-learning-paths/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Personalization and Adaptive Learning Paths
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-intelligent-agents-generative-ai/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Intelligent Agents and Generative AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-intelligent-textbooks-microsims-deployment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Intelligent Textbooks, MicroSims, and Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-skill-generate-learning-graph/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Using a Skill to Generate a Learning Graph
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../case-studies/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Case Studies
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../vis/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Vis.js Tutorial
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Sample Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How We Built This Site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student-volunteers-wanted/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Student Volunteers Wanted
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#graph-cluster-folding-complexity-into-a-single-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Cluster: Folding Complexity Into a Single Node
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#composite-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Composite Node
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cluster-expandcollapse" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cluster Expand/Collapse
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#domain-attribute-clustering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Domain Attribute (Clustering)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Domain Attribute (Clustering)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-domain-cluster-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Domain Cluster Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#group-visibility-checkbox-and-group-styling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group Visibility Checkbox and Group Styling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introducing-the-graph-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducing the Graph Editor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-property-editor-and-edge-property-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Property Editor and Edge Property Editor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#json-graph-import-and-json-graph-export" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON Graph Import and JSON Graph Export
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-enricher-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Enricher Script
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-validation-on-import" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Validation on Import
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orphaned-node-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Orphaned Node Detection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Orphaned Node Detection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-graph-editor-with-live-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Graph Editor with Live Validation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bringing-clustering-and-editing-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bringing Clustering and Editing Together
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/learning-graphs/blob/master/docs/chapters/15-graph-clustering-editing-tools/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="graph-clustering-and-editing-tools">Graph Clustering and Editing Tools</h1>
+<h2 id="summary">Summary</h2>
+<p>Covers grouping related nodes into composite clusters that can expand and collapse, plus the interactive graph editor used to create and modify a learning graph directly, including JSON import/export and data validation on import.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 14 concepts from the learning graph:</p>
+<ol>
+<li>Graph Cluster</li>
+<li>Composite Node</li>
+<li>Cluster Expand/Collapse</li>
+<li>Group Visibility Checkbox</li>
+<li>Group Styling</li>
+<li>Domain Attribute (Clustering)</li>
+<li>Graph Editor</li>
+<li>Node Property Editor</li>
+<li>Edge Property Editor</li>
+<li>JSON Graph Import</li>
+<li>JSON Graph Export</li>
+<li>Node Enricher Script</li>
+<li>Data Validation on Import</li>
+<li>Orphaned Node Detection</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../14-interactive-navigation-visjs/">Chapter 14: Interactive Navigation in Vis.js</a></li>
+</ul>
+<hr />
+<div class="admonition mascot-welcome">
+<p class="admonition-title">From Exploring to Authoring</p>
+<p><img alt="Axiom waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+Let's connect the concepts! Chapters 11 through 14 turned a learning graph from a static picture into something a learner could hover, click, search, and navigate. This chapter closes out Part III by giving you two new powers: folding a crowded 300-node graph down into a handful of readable groups, and editing the graph's own structure — nodes, edges, and properties — directly in the browser instead of hand-writing JSON.</p>
+</div>
+<p>Every chapter so far has treated the graph's <code>nodes</code> and <code>edges</code> DataSets as something an author prepares in advance and vis-network simply renders. This chapter breaks that assumption in two directions at once. First, you will learn how vis-network can temporarily replace a whole group of nodes with a single stand-in node — collapsing complexity without discarding it. Second, you will meet the <strong>Graph Editor</strong>, a tool this project actually ships, that lets an author build and revise a learning graph's structure interactively, complete with import, export, and the validation checks that keep a graph well-formed. Both threads matter for the same reason: a 300-concept learning graph is too large to read as one flat diagram, and too large to hand-edit as raw JSON without help.</p>
+<h2 id="graph-cluster-folding-complexity-into-a-single-node">Graph Cluster: Folding Complexity Into a Single Node</h2>
+<p>A <strong>Graph Cluster</strong> is a set of nodes that vis-network temporarily combines and renders as one node on the canvas, replacing the individual nodes and their internal edges with a single visual placeholder until the cluster is expanded again. Clustering does not delete or modify the underlying data — every clustered node's full record still exists in the <code>nodes</code> DataSet — it only changes what vis-network draws, which makes it fundamentally a rendering technique rather than a data-editing one.</p>
+<p>Clustering solves a problem force-directed and hierarchical layout, covered in Chapter 13, cannot solve on their own: no layout algorithm makes a 300-node diagram easy to read at a glance, because the problem is not <em>where</em> the nodes sit but <em>how many</em> there are. Clustering reduces that count directly, the same way a folder on a computer's desktop reduces forty loose files down to one icon you can open when you need to.</p>
+<p>Vis-network exposes clustering through the network's <code>cluster()</code> method, which accepts a configuration object describing which nodes belong together and how the resulting stand-in node should look.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">clusterOptionsByData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">joinCondition</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">childNode</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">childNode</span><span class="p">.</span><span class="nx">domain</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;Graph Theory&#39;</span><span class="p">;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nx">clusterNodeProperties</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;cluster:Graph Theory&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Graph Theory (12)&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">shape</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;box&#39;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">network</span><span class="p">.</span><span class="nx">cluster</span><span class="p">(</span><span class="nx">clusterOptionsByData</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>The <code>joinCondition</code> parameter is a function vis-network calls once for every node in the graph, passing each node's full record as <code>childNode</code>; any node for which the function returns <code>true</code> becomes a member of the new cluster. This is the same node-record shape used throughout this book — <code>childNode.domain</code> reads a property directly off a node's JSON object, exactly like <code>node.label</code> or <code>node.title</code> in earlier chapters' click handlers. The <code>clusterNodeProperties</code> object describes the stand-in node itself: its own <code>id</code> (by convention prefixed with <code>cluster:</code> so it cannot collide with a real concept's numeric ID), its <code>label</code>, and any styling properties a normal node would accept.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Key Insight</p>
+<p><img alt="Axiom thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+Notice that clustering is reversible in a way hierarchical layout and physics are not. A hierarchical layout recomputes every node's position; clustering just hides nodes behind a stand-in. That reversibility is exactly what the next section, Composite Node, depends on.</p>
+</div>
+<h2 id="composite-node">Composite Node</h2>
+<p>The stand-in node that <code>clusterNodeProperties</code> describes has a name of its own. A <strong>Composite Node</strong> is the single node vis-network substitutes for an entire cluster's member nodes, carrying a synthetic <code>id</code> and typically a <code>label</code> summarizing the group it represents (such as a count of members or the shared property that grouped them). A composite node behaves like any other node for rendering and interaction purposes — it can be dragged, it participates in physics simulation like a regular node with its own mass, and it can carry a <code>title</code> tooltip — but internally vis-network tracks it as a cluster wrapper, which is what makes the expand step possible.</p>
+<p>Two methods on the network object let an author or a learner check and manipulate that wrapper state directly:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">network</span><span class="p">.</span><span class="nx">isCluster</span><span class="p">(</span><span class="s1">&#39;cluster:Graph Theory&#39;</span><span class="p">);</span><span class="w">  </span><span class="c1">// returns true</span>
+<span class="nx">network</span><span class="p">.</span><span class="nx">getNodesInCluster</span><span class="p">(</span><span class="s1">&#39;cluster:Graph Theory&#39;</span><span class="p">);</span><span class="w">  </span><span class="c1">// returns array of member node IDs</span>
+</code></pre></div></td></tr></table></div>
+<p><code>network.isCluster(nodeId)</code> answers a simple yes/no question — is this particular node ID a composite node or an ordinary concept node — which matters because a click handler often needs to branch on that answer before deciding what a click should do. <code>network.getNodesInCluster(nodeId)</code> returns the array of original node IDs a composite node is standing in for, useful for building a tooltip or side panel that lists cluster membership without forcing a learner to expand the cluster just to see what is inside it.</p>
+<h2 id="cluster-expandcollapse">Cluster Expand/Collapse</h2>
+<p>A composite node that could never be opened again would defeat the purpose of clustering — a learner needs to fold a group away for a clean overview, then reopen it the moment they care about what is inside. <strong>Cluster Expand/Collapse</strong> is the pair of operations that toggle a composite node back into its full set of member nodes and edges, or back into a single collapsed composite node, typically triggered by a double-click, reusing the Double-Click Event pattern from Chapter 14.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">network</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;doubleClick&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">params</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">nodes</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">nodeId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">params</span><span class="p">.</span><span class="nx">nodes</span><span class="p">[</span><span class="mf">0</span><span class="p">];</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">network</span><span class="p">.</span><span class="nx">isCluster</span><span class="p">(</span><span class="nx">nodeId</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">network</span><span class="p">.</span><span class="nx">openCluster</span><span class="p">(</span><span class="nx">nodeId</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<p><code>network.openCluster(nodeId)</code> is the expand half of the pair — it removes the composite node and restores every original member node and edge to the canvas, re-running physics or layout to fit them back into the diagram. The collapse half is simply calling <code>network.cluster()</code> again, since clustering an already-expanded set of nodes re-creates the composite node from scratch. Most learning-graph MicroSims implement a full expand/collapse cycle by pairing <code>openCluster()</code> on double-click with a "Re-cluster" button that reapplies the original <code>clusterOptionsByData</code> configuration, giving a learner a way to return to the folded overview after exploring a group's internals.</p>
+<p>The following list summarizes the full clustering vocabulary now that all three pieces have been defined.</p>
+<ul>
+<li><strong>Graph Cluster</strong> — the operation and the resulting group of nodes rendered as one</li>
+<li><strong>Composite Node</strong> — the single stand-in node representing a cluster, checkable with <code>network.isCluster()</code></li>
+<li><strong>Cluster Expand/Collapse</strong> — <code>network.openCluster()</code> to expand; calling <code>network.cluster()</code> again to re-collapse</li>
+</ul>
+<h2 id="domain-attribute-clustering">Domain Attribute (Clustering)</h2>
+<p>The <code>joinCondition</code> example above checked <code>childNode.domain === 'Graph Theory'</code> — but that raises a question the code alone does not answer: where does a node's <code>domain</code> property come from, and what does it mean? The <strong>Domain Attribute (Clustering)</strong> is a custom property, conventionally named <code>domain</code>, that an author adds to every node's JSON object to record which subject-matter category or taxonomy group that concept belongs to, and which a clustering function reads to decide cluster membership.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Barnes-Hut Solver&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;domain&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Graph Theory&quot;</span><span class="p">}</span>
+<span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">43</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Force-Directed Graph Layout&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;domain&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Graph Theory&quot;</span><span class="p">}</span>
+<span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">44</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Cognitive Load Theory&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;domain&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Learning Science&quot;</span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Like the <code>url</code> property from Chapter 14, <code>domain</code> is not a key vis-network reserves or interprets automatically — it is ordinary custom metadata an author defines, and it becomes meaningful only because a <code>joinCondition</code> function is written to read it. In a learning graph, <code>domain</code> typically matches the taxonomy category assigned during the graph's original design — the same 10-12 balanced categories referenced in this course's learning outcomes — which means clustering by domain produces groups a curriculum reviewer will immediately recognize, rather than an arbitrary technical grouping.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Helpful Tip</p>
+<p><img alt="Axiom giving a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+Domain-based clustering pairs naturally with the taxonomy-based node coloring used in earlier chapters — if two nodes share a <code>domain</code> value, they likely already share a color. Clustering by <code>domain</code> usually just confirms visually what the color scheme already implied, folding a same-colored cluster of dots into one labeled box.</p>
+</div>
+<p>Before seeing domain-based clustering in action, it helps to define one more pair of concepts: how a learner controls which clusters are visible in the first place, and how a composite node should look once it is on screen.</p>
+<h4 id="diagram-domain-cluster-explorer">Diagram: Domain Cluster Explorer</h4>
+<iframe src="../../sims/domain-cluster-explorer/main.html" width="100%" height="582px" scrolling="no"></iframe>
+
+<details>
+<summary>Domain Cluster Explorer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> domain-cluster-explorer<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>Purpose: Let learners toggle between a fully expanded 40-node sample graph and a domain-clustered view of the same graph, so the effect of Graph Cluster, Composite Node, and Cluster Expand/Collapse is directly observable rather than only described.</p>
+<p>Bloom Level: Apply (L3)
+Bloom Verb: demonstrate, apply, use</p>
+<p>Learning objective: Given a 40-node sample learning graph with a <code>domain</code> property on every node spanning 4 domains, the learner can apply domain-based clustering to collapse the graph into 4 composite nodes, then expand any single composite node back to its members by double-clicking it.</p>
+<p>Canvas layout:
+- Left/top (75% width): drawing area showing the sample graph, either fully expanded or domain-clustered depending on current mode
+- Right/bottom (25% width or below on narrow screens): control panel and a live member-count readout per domain</p>
+<p>Visual elements:
+- 40 nodes spanning 4 domains ("Graph Theory," "Learning Science," "Taxonomy Design," "Visualization"), colored by domain per earlier chapters' conventions
+- Composite nodes rendered as larger box-shaped nodes labeled with domain name and member count, e.g. "Graph Theory (11)"
+- A status line reporting current node count on canvas, e.g. "Showing: 4 composite nodes (40 concepts folded)" or "Showing: 40 individual nodes"</p>
+<p>Interactive controls:
+- Button: "Cluster by Domain" (applies <code>clusterOptionsByData</code> for all 4 domains at once)
+- Button: "Expand All" (calls <code>network.openCluster()</code> on every composite node)
+- Instruction text: "Double-click any composite node to expand just that domain"</p>
+<p>Default parameters:
+- Initial state: fully expanded (40 individual nodes)</p>
+<p>Behavior: Clicking "Cluster by Domain" runs a <code>joinCondition</code> function per domain value and calls <code>network.cluster()</code> four times, one per domain, replacing all 40 nodes with 4 composite nodes. Double-clicking any single composite node calls <code>network.openCluster()</code> for that node only, restoring its members while leaving other domains collapsed. "Expand All" restores the fully expanded view. The status line and per-domain member-count readout update after every clustering action.</p>
+<p>Canvas size: responsive, 100% width, 580px height, must reflow on window resize</p>
+<p>Implementation: vis-network JavaScript library; <code>network.cluster()</code> with <code>joinCondition</code> reading each node's <code>domain</code> property; <code>network.openCluster()</code> triggered from a <code>doubleClick</code> listener that checks <code>network.isCluster()</code> first</p>
+</details>
+<h2 id="group-visibility-checkbox-and-group-styling">Group Visibility Checkbox and Group Styling</h2>
+<p>Clustering folds nodes together on the canvas; a separate, complementary mechanism lets a learner hide an entire category of nodes from view without merging them into a composite node at all. A <strong>Group Visibility Checkbox</strong> is a checkbox control, one per taxonomy group or domain, that toggles whether every node belonging to that group is shown or hidden on the canvas — a pattern this project's legend systems use to let a learner declutter a dense diagram by category, such as hiding every "Learning Science" node to focus only on "Graph Theory" concepts.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;checkbox-graph-theory&#39;</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;change&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">isVisible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">checked</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">idsToToggle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nodes</span><span class="p">.</span><span class="nx">get</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">filter</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">domain</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;Graph Theory&#39;</span>
+<span class="w">  </span><span class="p">}).</span><span class="nx">map</span><span class="p">((</span><span class="nx">node</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+
+<span class="w">  </span><span class="nx">nodes</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">idsToToggle</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">id</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">hidden</span><span class="o">:</span><span class="w"> </span><span class="o">!</span><span class="nx">isVisible</span><span class="w"> </span><span class="p">})));</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<p>This handler reuses the <code>filter</code>-based <code>nodes.get()</code> pattern from Chapter 14's search feature to collect every node ID matching a domain, then calls <code>nodes.update()</code> with a <code>hidden</code> property on each one — <code>hidden: true</code> removes a node (and its edges) from the rendered canvas entirely, while leaving its record untouched in the DataSet, which is why it can be reversed instantly by unchecking the box. A group visibility checkbox differs from clustering in one important respect worth naming directly: clustering <em>replaces</em> a group of nodes with a summary; a group visibility checkbox <em>removes</em> a group from view with no replacement at all. Both give a learner a way to manage visual complexity, but they answer different questions — "show me a summary of this group" versus "get this group out of my way entirely."</p>
+<p><strong>Group Styling</strong> is the set of visual properties — color, shape, border, and icon — applied uniformly to every node sharing a common <code>group</code> value, configured once in the network's top-level <code>groups</code> options object rather than repeated on every individual node.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">groups</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">graphTheory</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">background</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#5B9BD5&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">shape</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;dot&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">learningScience</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">background</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#ED7D31&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">shape</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;triangle&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>Setting <code>group: 'graphTheory'</code> on any node automatically applies that group's <code>color</code> and <code>shape</code> without repeating the styling on every node's own JSON object — a node only needs to declare which group it belongs to, and the shared visual definition does the rest. This is the same relationship a CSS class has to a stylesheet: individual elements reference a class name, and the actual styling rules live in one shared place. Group styling and the <code>domain</code> attribute are frequently the same underlying value in a learning graph, but they are configured through two different mechanisms — <code>domain</code> is read by a <code>joinCondition</code> function an author writes, while <code>group</code> is read automatically by vis-network's built-in rendering, requiring no custom function at all.</p>
+<p>The table below distinguishes the three visibility-and-grouping mechanisms covered so far, now that each has been explained individually.</p>
+<table>
+<thead>
+<tr>
+<th>Mechanism</th>
+<th>What It Does</th>
+<th>Reversible?</th>
+<th>Underlying Property</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Graph Cluster</td>
+<td>Replaces a group of nodes with one composite node</td>
+<td>Yes, via <code>openCluster()</code></td>
+<td>Author-defined <code>joinCondition</code> (often reads <code>domain</code>)</td>
+</tr>
+<tr>
+<td>Group Visibility Checkbox</td>
+<td>Hides a group's nodes from the canvas entirely</td>
+<td>Yes, via <code>hidden: false</code></td>
+<td><code>hidden</code> property, filtered by <code>domain</code> or <code>group</code></td>
+</tr>
+<tr>
+<td>Group Styling</td>
+<td>Applies shared color/shape to every node in a group</td>
+<td>N/A (always active)</td>
+<td><code>group</code> property, matched to the <code>groups</code> options object</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Watch Out</p>
+<p><img alt="Axiom warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+It is easy to conflate <code>domain</code> and <code>group</code> because they often carry the same real-world meaning — "which taxonomy category does this concept belong to." Keep them straight by remembering who reads each one: <code>group</code> is read automatically by vis-network's rendering engine for styling; <code>domain</code> is read only by whatever custom <code>joinCondition</code> function an author writes for clustering. A node can have a <code>group</code> and no <code>domain</code>, or vice versa, and vis-network will not complain either way.</p>
+</div>
+<h2 id="introducing-the-graph-editor">Introducing the Graph Editor</h2>
+<p>Everything from Chapter 11 onward has treated a learning graph's JSON file as something that already exists, prepared ahead of time by an author working in a text editor. That assumption breaks down the moment an author needs to add fifteen new concepts, rewire a dozen dependency edges, or fix a typo in a node label — hand-editing a 300-node JSON file by scrolling and searching is slow and error-prone. This project ships a dedicated tool for exactly that problem.</p>
+<p>The <strong>Graph Editor</strong> is an interactive, browser-based tool — found in this project's own codebase under <code>docs/vis/graph-editor/</code> — that lets an author create, modify, and delete nodes and edges directly on a rendered vis-network canvas, without hand-writing JSON, while still producing valid JSON as its output. Where every earlier MicroSim in this book was read-only — a learner could look, hover, click, and search, but never change the underlying graph — the graph editor is the first tool in this book whose entire purpose is mutation: adding, moving, relabeling, connecting, and removing.</p>
+<p>Vis-network supports this directly through a <code>manipulation</code> options block, which turns on a built-in editing toolbar above the canvas.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">manipulation</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">enabled</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">addNode</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">addEdge</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">editNode</span><span class="o">:</span><span class="w"> </span><span class="nx">editNodeCallback</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">editEdge</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">deleteNode</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">deleteEdge</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>Setting <code>enabled: true</code> reveals the manipulation toolbar, and each of the boolean flags — <code>addNode</code>, <code>addEdge</code>, <code>deleteNode</code>, <code>deleteEdge</code> — turns on one specific editing button; setting any of them to <code>false</code> removes that button entirely, which is how an author can build a restricted editor (read-only browsing plus node editing, but no deletion, for example). The <code>editNode</code> and <code>editEdge</code> options accept either <code>true</code>, which uses vis-network's minimal built-in prompt, or a custom callback function — the pattern this project actually uses, since a learning graph's nodes carry far more structured metadata than vis-network's default single-text-box prompt can collect. The manipulation toolbar is not a separate application bolted onto vis-network — it is built from the same <code>nodes</code> and <code>edges</code> DataSets, and the same <code>click</code>/<code>doubleClick</code> events, this book has used since Chapter 11. Adding a node through the toolbar ultimately calls <code>nodes.add()</code>; deleting one calls <code>nodes.remove()</code>.</p>
+<h2 id="node-property-editor-and-edge-property-editor">Node Property Editor and Edge Property Editor</h2>
+<p>The custom <code>editNode</code> callback mentioned above is where the graph editor's real value lives, because a learning-graph node carries far more than a label. A <strong>Node Property Editor</strong> is a form-based panel — opened when an author clicks "Edit Node" in the manipulation toolbar or double-clicks a node in edit mode — that exposes every relevant field on a node's JSON object (label, group, domain, URL, shape, fixed position) as editable form inputs, rather than a single free-text prompt.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">editNodeCallback</span><span class="p">(</span><span class="nx">nodeData</span><span class="p">,</span><span class="w"> </span><span class="nx">callback</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;edit-label&#39;</span><span class="p">).</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nodeData</span><span class="p">.</span><span class="nx">label</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="w">  </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;edit-group&#39;</span><span class="p">).</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nodeData</span><span class="p">.</span><span class="nx">group</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="w">  </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;edit-domain&#39;</span><span class="p">).</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nodeData</span><span class="p">.</span><span class="nx">domain</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="w">  </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;node-editor-panel&#39;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;block&#39;</span><span class="p">;</span>
+
+<span class="w">  </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;save-node-btn&#39;</span><span class="p">).</span><span class="nx">onclick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">nodeData</span><span class="p">.</span><span class="nx">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;edit-label&#39;</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">nodeData</span><span class="p">.</span><span class="nx">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;edit-group&#39;</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">nodeData</span><span class="p">.</span><span class="nx">domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;edit-domain&#39;</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">callback</span><span class="p">(</span><span class="nx">nodeData</span><span class="p">);</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Vis-network calls this function automatically whenever an author triggers "Edit Node," passing in <code>nodeData</code> (the clicked node's current properties) and a <code>callback</code> function the editor must invoke to actually commit the change back into the <code>nodes</code> DataSet — calling <code>callback(nodeData)</code> with the modified object applies the edit, while calling <code>callback(null)</code> cancels it. This is the same read-then-modify-then-commit shape as the node inspector from Chapter 14, but running in reverse: the inspector only <em>reads</em> <code>nodes.get()</code>, while the node property editor reads the same fields and then writes them back.</p>
+<p>An <strong>Edge Property Editor</strong> is the parallel form-based panel for edges, exposing an edge's own editable fields — typically its <code>label</code> (the relationship description shown in Chapter 12's edge styling) and, in some configurations, arrow style or dash pattern — triggered the same way through the <code>editEdge</code> callback when an author selects "Edit Edge" on an existing connection.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">editEdgeCallback</span><span class="p">(</span><span class="nx">edgeData</span><span class="p">,</span><span class="w"> </span><span class="nx">callback</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">newLabel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">prompt</span><span class="p">(</span><span class="s1">&#39;Edit edge label:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">edgeData</span><span class="p">.</span><span class="nx">label</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">newLabel</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">edgeData</span><span class="p">.</span><span class="nx">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">newLabel</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">callback</span><span class="p">(</span><span class="nx">edgeData</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>This shorter edge example uses the browser's built-in <code>prompt()</code> dialog rather than a custom panel, a reasonable simplification because an edge in a learning graph typically carries only one or two editable fields, compared to a node's half-dozen. Both callbacks follow the identical contract vis-network expects: accept the current data, let the author change it, and call <code>callback()</code> exactly once with either the updated object or <code>null</code>.</p>
+<p>The following list distinguishes the two property editors now that both have been explained.</p>
+<ul>
+<li><strong>Node Property Editor</strong> — form-based panel for a node's <code>label</code>, <code>group</code>, <code>domain</code>, <code>url</code>, and positioning fields</li>
+<li><strong>Edge Property Editor</strong> — simpler panel or prompt for an edge's <code>label</code> and styling fields</li>
+<li>Both are wired through vis-network's <code>manipulation.editNode</code> / <code>manipulation.editEdge</code> callbacks, and both must call the provided <code>callback()</code> function to commit or cancel</li>
+</ul>
+<h2 id="json-graph-import-and-json-graph-export">JSON Graph Import and JSON Graph Export</h2>
+<p>Editing nodes and edges interactively only matters if the resulting graph can leave the browser session it was edited in. <strong>JSON Graph Import</strong> is the graph editor's file-loading feature, which reads a <code>.json</code> file containing <code>nodes</code> and <code>edges</code> arrays from the author's computer and populates the <code>nodes</code> and <code>edges</code> DataSets from it, replacing or merging with whatever graph is currently loaded.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;file-input&#39;</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;change&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">files</span><span class="p">[</span><span class="mf">0</span><span class="p">];</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">reader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FileReader</span><span class="p">();</span>
+
+<span class="w">  </span><span class="nx">reader</span><span class="p">.</span><span class="nx">onload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">graphData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">result</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">nodes</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+<span class="w">    </span><span class="nx">edges</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+<span class="w">    </span><span class="nx">nodes</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">graphData</span><span class="p">.</span><span class="nx">nodes</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">edges</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">graphData</span><span class="p">.</span><span class="nx">edges</span><span class="p">);</span>
+<span class="w">  </span><span class="p">};</span>
+
+<span class="w">  </span><span class="nx">reader</span><span class="p">.</span><span class="nx">readAsText</span><span class="p">(</span><span class="nx">file</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<p>This handler attaches to a standard HTML <code>&lt;input type="file"&gt;</code> element's <code>change</code> event, which fires once an author selects a file through the browser's native file picker. The browser's <code>FileReader</code> API reads the selected file's contents asynchronously — <code>reader.onload</code> runs only after the full file has been read into memory as text — at which point <code>JSON.parse()</code> converts that text into a JavaScript object, and <code>nodes.clear()</code> / <code>edges.clear()</code> empty the current DataSets before <code>nodes.add()</code> and <code>edges.add()</code> populate them with the newly loaded graph. <strong>JSON Graph Export</strong> is the reverse operation: reading the current contents of the <code>nodes</code> and <code>edges</code> DataSets and offering them to the author as a downloadable <code>.json</code> file, capturing whatever additions, deletions, and edits were made during the editing session.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">exportGraph</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">graphData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">nodes</span><span class="o">:</span><span class="w"> </span><span class="nx">nodes</span><span class="p">.</span><span class="nx">get</span><span class="p">(),</span>
+<span class="w">    </span><span class="nx">edges</span><span class="o">:</span><span class="w"> </span><span class="nx">edges</span><span class="p">.</span><span class="nx">get</span><span class="p">()</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">blob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Blob</span><span class="p">([</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">graphData</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">)],</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span><span class="w"> </span><span class="p">});</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">URL</span><span class="p">.</span><span class="nx">createObjectURL</span><span class="p">(</span><span class="nx">blob</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">a</span><span class="p">.</span><span class="nx">href</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">url</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">a</span><span class="p">.</span><span class="nx">download</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;learning-graph.json&#39;</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">a</span><span class="p">.</span><span class="nx">click</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Calling <code>nodes.get()</code> and <code>edges.get()</code> with no arguments — the same method used with a <code>filter</code> in Chapter 14's search feature, and with a single ID in the node inspector — returns every record currently in each DataSet as a plain array, which is exactly the shape the original JSON file used. The <code>JSON.stringify(graphData, null, 2)</code> call converts that object back into formatted text (the <code>2</code> argument requests two-space indentation, matching this project's JSON formatting convention), and the remaining lines use a standard browser pattern — a <code>Blob</code>, an object URL, and a synthetically clicked download link — to trigger a file save dialog without requiring a server round-trip at all. Because import and export both round-trip through the same plain JSON shape this book has used since Chapter 1 — <code>{"nodes": [...], "edges": [...]}</code> — a graph edited in the browser is never locked into that browser session. Export early and often: a downloaded <code>.json</code> file is your save point, and re-importing it is exactly how you resume editing later or hand the file to a teammate.</p>
+<h2 id="node-enricher-script">Node Enricher Script</h2>
+<p>Not every edit to a learning graph's JSON needs to happen inside the graph editor's UI at all. A <strong>Node Enricher Script</strong> is a small standalone program, typically written in Python, that reads an exported graph JSON file, adds or modifies a computed property on some or all nodes according to a rule, and writes the result back out as a new JSON file — a batch-editing approach suited to changes too repetitive or rule-based to apply one node at a time by hand.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;learning-graph.json&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;nodes&#39;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">node</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">300</span>  <span class="c1"># pin foundational-group nodes to the left column</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;learning-graph-enriched.json&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>This script follows the same read-modify-write shape as <code>exportGraph()</code> above, just running outside the browser: it loads the JSON file, loops over every entry in the <code>nodes</code> array checking a condition (<code>node.get('group') == 1</code>), adds a computed property (<code>x</code>) when that condition is true, and writes the modified data to a new file that can then be re-imported through JSON Graph Import. A node enricher script is the right tool specifically when a change follows a rule rather than requiring individual judgment — assigning every node in a given <code>group</code> a fixed <code>x</code> position for a hierarchical taxonomy-column layout (the exact pattern from Chapter 13's Fixed Node Position section), computing an <code>indegree</code> count from the edges array and stamping it onto each node, or normalizing every node's <code>domain</code> value to a consistent capitalization. Attempting the same change by hand through the Node Property Editor, one node at a time, across 300 concepts would be both slow and inconsistent; a short enricher script applies the rule uniformly in one pass.</p>
+<p>The table below compares the graph editor's interactive editing against a node enricher script's batch editing, now that both have been explained.</p>
+<table>
+<thead>
+<tr>
+<th>Editing Approach</th>
+<th>Best Suited For</th>
+<th>Tooling</th>
+<th>Applies To</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Graph Editor (Node/Edge Property Editor)</td>
+<td>Individual, judgment-based edits — fixing one label, adding one new concept</td>
+<td>Browser, vis-network manipulation UI</td>
+<td>One node or edge at a time</td>
+</tr>
+<tr>
+<td>Node Enricher Script</td>
+<td>Rule-based, repetitive edits across many nodes at once</td>
+<td>Standalone Python (or similar) script</td>
+<td>Every node matching a condition</td>
+</tr>
+</tbody>
+</table>
+<h2 id="data-validation-on-import">Data Validation on Import</h2>
+<p>Import is also the natural place for a graph editor to catch structural problems before they spread further into a project — and reusing the JSON parsing already required for import is far cheaper than writing a separate validation tool. <strong>Data Validation on Import</strong> is the set of automated checks a graph editor runs immediately after loading a JSON file, before displaying it, flagging structural problems such as duplicate node IDs, edges referencing a node ID that does not exist, or malformed required fields, so an author discovers the problem at load time rather than discovering a broken diagram later.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">validateGraph</span><span class="p">(</span><span class="nx">graphData</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">errors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">nodeIds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Set</span><span class="p">(</span><span class="nx">graphData</span><span class="p">.</span><span class="nx">nodes</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">n</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">n</span><span class="p">.</span><span class="nx">id</span><span class="p">));</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">nodeIds</span><span class="p">.</span><span class="nx">size</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="nx">graphData</span><span class="p">.</span><span class="nx">nodes</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;Duplicate node IDs detected.&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="nx">graphData</span><span class="p">.</span><span class="nx">edges</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">edge</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">nodeIds</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">edge</span><span class="p">.</span><span class="kr">from</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="sb">`Edge references missing node: from=</span><span class="si">${</span><span class="nx">edge</span><span class="p">.</span><span class="kr">from</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">nodeIds</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">edge</span><span class="p">.</span><span class="nx">to</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="sb">`Edge references missing node: to=</span><span class="si">${</span><span class="nx">edge</span><span class="p">.</span><span class="nx">to</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">errors</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>This function builds a JavaScript <code>Set</code> of every node ID present in the file — a <code>Set</code> automatically discards duplicates, so comparing its <code>size</code> against the original array's <code>length</code> is a compact way to detect duplicate IDs in one line. The <code>edges.forEach()</code> loop then checks every edge's <code>from</code> and <code>to</code> fields against that same set of valid IDs, collecting a human-readable error message for any edge that points at a node the file never actually defines — a dangling reference that would otherwise render as an invisible, confusing edge or crash the network entirely. A graph editor that runs this check on every import, and reports the returned <code>errors</code> array to the author before rendering anything, turns a category of bug that used to surface as "the diagram looks wrong" into one that surfaces as "line 47 of your JSON file has a typo," which is a dramatically easier problem to fix.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Watch Out</p>
+<p><img alt="Axiom warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+An edge pointing at a missing node is exactly the kind of error that is invisible in a casual read-through of a 300-node JSON file but obvious the instant a validator checks it programmatically. If you only remember one lesson from this section, make it this: never skip import validation on a hand-edited or AI-generated learning graph file, even when the file "looks fine" at a glance.</p>
+</div>
+<h2 id="orphaned-node-detection">Orphaned Node Detection</h2>
+<p>Duplicate IDs and dangling edge references are not the only structural problems worth catching at import time. A learning graph can be perfectly valid JSON — every ID unique, every edge pointing at a node that exists — and still contain a concept nobody can reach. <strong>Orphaned Node Detection</strong> is a validation check that identifies any node with zero edges connecting it to the rest of the graph, meaning it appears in neither the <code>from</code> nor <code>to</code> field of any edge, and is therefore disconnected from every prerequisite chain in the learning graph.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">findOrphanedNodes</span><span class="p">(</span><span class="nx">graphData</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">connectedIds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Set</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">graphData</span><span class="p">.</span><span class="nx">edges</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">edge</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">connectedIds</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">edge</span><span class="p">.</span><span class="kr">from</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">connectedIds</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">edge</span><span class="p">.</span><span class="nx">to</span><span class="p">);</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">graphData</span><span class="p">.</span><span class="nx">nodes</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">node</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="o">!</span><span class="nx">connectedIds</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">id</span><span class="p">))</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">node</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">label</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>This function builds a <code>Set</code> of every node ID that appears in at least one edge — as either the dependent (<code>from</code>) or the prerequisite (<code>to</code>) side — and then filters the full <code>nodes</code> array down to whichever nodes never appear in that set at all. An orphaned node is not necessarily a mistake in the JSON's syntax — the file is perfectly well-formed — but it is very likely a mistake in the learning graph's <em>design</em>: a concept with no prerequisites and no dependents cannot be reached by following the graph's dependency structure from any other concept, which usually means either the concept was never properly connected during authoring, or it does not actually belong in this learning graph at all.</p>
+<p>Recall from this course's Analyze-level learning outcomes that a learning graph should be checked for orphaned nodes, disconnected subgraphs, and cyclical dependencies as part of ordinary quality review. Data Validation on Import and Orphaned Node Detection are two different layers of that same review, worth distinguishing clearly now that both have been defined.</p>
+<table>
+<thead>
+<tr>
+<th>Validation Check</th>
+<th>Catches</th>
+<th>Timing</th>
+<th>Severity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data Validation on Import</td>
+<td>Duplicate IDs, edges referencing missing nodes</td>
+<td>Immediately on file load</td>
+<td>Blocks a usable render — must be fixed</td>
+</tr>
+<tr>
+<td>Orphaned Node Detection</td>
+<td>Nodes present but disconnected from every edge</td>
+<td>On load or on demand</td>
+<td>Structurally valid but pedagogically suspect — needs author review</td>
+</tr>
+</tbody>
+</table>
+<p>The MicroSim below combines the graph editor's core manipulation features — adding, editing, and deleting nodes and edges — with both validation layers running live, so an author can watch orphaned-node and reference-error detection respond in real time as the graph changes.</p>
+<h4 id="diagram-graph-editor-with-live-validation">Diagram: Graph Editor with Live Validation</h4>
+<iframe src="../../sims/graph-editor-live-validation/main.html" width="100%" height="622px" scrolling="no"></iframe>
+
+<details>
+<summary>Graph Editor with Live Validation</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> graph-editor-live-validation<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>Purpose: Give learners hands-on practice with the graph editor's manipulation toolbar (add/edit/delete nodes and edges) and both validation layers from this chapter, so the abstract description of Data Validation on Import and Orphaned Node Detection becomes something a learner can trigger and observe directly.</p>
+<p>Bloom Level: Evaluate (L5)
+Bloom Verb: assess, validate, justify</p>
+<p>Learning objective: Given a 15-node starter graph with the manipulation toolbar enabled, the learner can add a new node, connect or intentionally leave it disconnected, and assess the resulting validation panel to judge whether the graph is structurally sound and free of orphaned nodes.</p>
+<p>Canvas layout:
+- Left/top (70% width): drawing area showing a 15-node starter graph with the vis-network manipulation toolbar enabled above it
+- Right/bottom (30% width or below on narrow screens): validation panel and node/edge property editor, which appears when editing is triggered</p>
+<p>Visual elements:
+- 15 nodes and 17 edges forming a small learning-graph-like structure with one node deliberately left disconnected at start, so orphaned-node detection has something to find immediately
+- A validation panel listing current issues in two sections: "Import Errors" (duplicate IDs, missing references) and "Orphaned Nodes" (nodes with zero edges), each empty or populated in real time
+- Node Property Editor panel (label, group, domain fields) and a simpler Edge Property Editor prompt for edge labels</p>
+<p>Interactive controls:
+- Manipulation toolbar buttons (vis-network built-in): "Add Node," "Add Edge," "Edit Node," "Edit Edge," "Delete selected"
+- Button: "Export JSON" (downloads current graph state per this chapter's <code>exportGraph()</code> pattern)
+- Button: "Import JSON" (file picker, runs <code>validateGraph()</code> and <code>findOrphanedNodes()</code> immediately on load)
+- Button: "Run Validation Now" (re-runs both checks on demand without a fresh import)</p>
+<p>Default parameters:
+- Starter graph: 15 nodes, 17 edges, 1 pre-existing orphaned node
+- Validation panel: shows "1 orphaned node" on load</p>
+<p>Behavior: Adding a node via the toolbar opens the Node Property Editor; saving without connecting an edge leaves it orphaned, and the validation panel updates to reflect the new count immediately (event-driven off the DataSets' own <code>add</code>/<code>update</code>/<code>remove</code> events, not just on import). Deleting an edge that was a node's only connection immediately adds that node to the "Orphaned Nodes" list. Importing a deliberately broken JSON file (with a duplicate ID or a dangling edge reference, offered as a sample download) demonstrates Data Validation on Import catching the problem before rendering.</p>
+<p>Canvas size: responsive, 100% width, 620px height, must reflow on window resize</p>
+<p>Implementation: vis-network JavaScript library with <code>manipulation</code> options block enabled; custom <code>editNode</code>/<code>editEdge</code> callbacks per this chapter's Node/Edge Property Editor examples; <code>validateGraph()</code> and <code>findOrphanedNodes()</code> functions re-run on every DataSet change event and on file import; export via <code>Blob</code>/object URL download pattern</p>
+</details>
+<h2 id="bringing-clustering-and-editing-together">Bringing Clustering and Editing Together</h2>
+<p>With all fourteen concepts now explained individually, it is worth stepping back and seeing how the two halves of this chapter — folding a graph down for readability, and editing a graph's structure directly — relate to each other and to the four chapters before them.</p>
+<ul>
+<li>Clustering (<strong>Graph Cluster</strong>, <strong>Composite Node</strong>, <strong>Cluster Expand/Collapse</strong>, <strong>Domain Attribute</strong>) is a <em>rendering</em> technique — it changes what a learner sees on screen without touching the underlying <code>nodes</code> and <code>edges</code> DataSets at all.</li>
+<li>Visibility and styling (<strong>Group Visibility Checkbox</strong>, <strong>Group Styling</strong>) sit alongside clustering as complementary complexity-management tools, one hiding nodes outright and the other applying shared visual treatment by category.</li>
+<li>The <strong>Graph Editor</strong> and its <strong>Node Property Editor</strong> / <strong>Edge Property Editor</strong> are <em>data-mutation</em> tools — they change the actual contents of the DataSets, which is why <strong>JSON Graph Import</strong> and <strong>JSON Graph Export</strong> exist as the bridge between an in-browser editing session and a durable file on disk.</li>
+<li>A <strong>Node Enricher Script</strong> handles the same kind of mutation as the property editors, but in bulk and outside the browser, for changes that follow a rule rather than requiring per-node judgment.</li>
+<li><strong>Data Validation on Import</strong> and <strong>Orphaned Node Detection</strong> are the safety net underneath all of it — checks that catch structural mistakes, whether introduced by hand-editing, a buggy enricher script, or a generative AI tool that produced a slightly malformed graph.</li>
+</ul>
+<p>Every mechanism in this chapter exists to solve the same underlying problem from a different angle: a learning graph large enough to be useful is also large enough to become unmanageable, whether the difficulty is visual (too many nodes to read) or structural (too many nodes to safely hand-edit). Clustering and visibility controls solve the visual half; the graph editor, import/export, enricher scripts, and validation checks solve the structural half. Together, they close out this book's third part on vis.js — the next part turns from <em>building and maintaining</em> a learning graph to the learning-science theories that justify why this graph-based approach to sequencing content works in the first place.</p>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li>A <strong>Graph Cluster</strong> replaces a group of nodes with a single <strong>Composite Node</strong>, reversible through <strong>Cluster Expand/Collapse</strong> (<code>network.openCluster()</code>), typically grouped by a custom <strong>Domain Attribute (Clustering)</strong> an author adds to each node's JSON.</li>
+<li>A <strong>Group Visibility Checkbox</strong> hides an entire group's nodes from the canvas via the <code>hidden</code> property; <strong>Group Styling</strong> applies shared color and shape to every node sharing a <code>group</code> value through the network's <code>groups</code> options object.</li>
+<li>The <strong>Graph Editor</strong> turns on vis-network's <code>manipulation</code> options block, exposing a toolbar for adding, editing, and deleting nodes and edges directly on the canvas.</li>
+<li>The <strong>Node Property Editor</strong> and <strong>Edge Property Editor</strong> are custom callback functions wired through <code>manipulation.editNode</code> and <code>manipulation.editEdge</code>, exposing a node's or edge's full set of fields as an editable form rather than a single text prompt.</li>
+<li><strong>JSON Graph Import</strong> loads a <code>.json</code> file into the <code>nodes</code> and <code>edges</code> DataSets; <strong>JSON Graph Export</strong> reads those same DataSets back out and offers them as a downloadable file — the round-trip that lets browser-based edits persist beyond one session.</li>
+<li>A <strong>Node Enricher Script</strong> applies a rule-based, computed change to many nodes at once outside the browser, complementing the graph editor's one-at-a-time interactive edits.</li>
+<li><strong>Data Validation on Import</strong> catches structural errors (duplicate IDs, dangling edge references) at load time; <strong>Orphaned Node Detection</strong> catches nodes with zero edges — together, the safety net that keeps a learning graph well-formed as it grows and changes.</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Well Done!</p>
+<p><img alt="Axiom celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png" />
+Pause and appreciate your progress — you have finished Part III! Your learning graph can now be styled, laid out, navigated, folded into readable clusters, and edited directly, with validation checks standing guard the whole time. Let's connect the concepts, next by turning to the learning-science theories that explain <em>why</em> a graph-based approach to sequencing concepts actually works!</p>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../14-interactive-navigation-visjs/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 14. Interactive Navigation in Vis.js">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                14. Interactive Navigation in Vis.js
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../16-personalization-adaptive-learning-paths/" class="md-footer__link md-footer__link--next" aria-label="Next: 16. Personalization and Adaptive Learning Paths">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                16. Personalization and Adaptive Learning Paths
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

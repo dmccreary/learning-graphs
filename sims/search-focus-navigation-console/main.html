@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Search and Focus Navigation Console</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Top: search bar with live suggestion dropdown + status line -->
+        <div class="search-bar">
+            <div class="search-row">
+                <div class="search-wrap">
+                    <input type="text" id="search-input" class="search-input"
+                           placeholder="Search concepts by name (e.g. grav, node, path)&hellip;"
+                           autocomplete="off" spellcheck="false" />
+                    <!-- Suggestion dropdown (sibling of #network, positioned under the input) -->
+                    <ul class="suggestions" id="suggestions" style="display: none;"></ul>
+                </div>
+                <button class="btn btn-secondary" id="reset-btn">Reset View</button>
+            </div>
+            <div class="status-line" id="status-line">Type to search across 60 concepts.</div>
+        </div>
+
+        <!-- Body: graph (75%) + inspector (25%) -->
+        <div class="body-row">
+            <!-- vis-network draws here. NEVER nest overlays inside this div. -->
+            <div id="network" class="network"></div>
+
+            <!-- Node inspector panel (sibling of #network), hidden until double-click -->
+            <div class="inspector" id="inspector" style="display: none;">
+                <div class="inspector-head">
+                    <span class="inspector-title" id="inspector-title">Node Inspector</span>
+                    <button class="inspector-close" id="inspector-close" aria-label="Close inspector">&times;</button>
+                </div>
+                <div class="inspector-body" id="inspector-body"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="search-focus-navigation-console.js"></script>
+</body>
+</html>

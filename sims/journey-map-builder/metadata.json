@@ -1,0 +1,22 @@
+{
+  "title": "Journey Map Builder",
+  "description": "Given a small learning graph and a chosen goal concept, the learner can construct (via the tool) a valid sequential journey map that respects every dependency edge, and explain why the resulting order is not the only valid one.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "journey-map-builder",
+  "library": "vis-network",
+  "bloomLevel": "Apply (L3)",
+  "bloomVerb": "demonstrate, construct",
+  "completion_status": "scaffold",
+  "chapter_number": 1,
+  "chapter_title": "Foundations of Concept Graphs",
+  "chapter_dir": "01-foundations-of-concept-graphs"
+}

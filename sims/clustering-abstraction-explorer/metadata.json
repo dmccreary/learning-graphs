@@ -1,0 +1,22 @@
+{
+  "title": "Clustering and Abstraction Explorer",
+  "description": "Given an unlabeled concept graph, the learner can distinguish which nodes a clustering algorithm groups together based on connectivity and explain why the proposed abstraction name fits that group.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "clustering-abstraction-explorer",
+  "library": "vis-network",
+  "bloomLevel": "Analyze (L4)",
+  "bloomVerb": "differentiate, organize",
+  "completion_status": "scaffold",
+  "chapter_number": 4,
+  "chapter_title": "Concept Taxonomies and Ontologies",
+  "chapter_dir": "04-concept-taxonomies-ontologies"
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Theory-to-Practice Concept Map</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Network canvas -->
+        <div id="network"></div>
+
+        <!-- Title -->
+        <div class="title">Theory-to-Practice Concept Map</div>
+
+        <!-- Legend -->
+        <div class="legend">
+            <div class="legend-item">
+                <span class="legend-swatch swatch-theory"></span>
+                <span><strong>Learning theory</strong> (circle)</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-swatch swatch-practice"></span>
+                <span><strong>Instructional-design practice</strong> (square)</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-swatch swatch-secondary"></span>
+                <span><strong>Illustrative addition</strong></span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-line line-depends"></span>
+                <span>arrow = <strong>depends on</strong></span>
+            </div>
+        </div>
+
+        <!-- Side panel: full explanation on click -->
+        <div class="side-panel" id="side-panel">
+            <div class="side-title" id="side-title">Explore the map</div>
+            <div class="side-badge" id="side-badge" style="display:none;"></div>
+            <div class="side-body" id="side-body">
+                <p class="side-placeholder">
+                    Hover any node for a one-sentence definition.
+                    <strong>Click a node</strong> to highlight what it connects to and read
+                    the full explanation here. Click the background to reset.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="theory-to-practice-map.js"></script>
+</body>
+</html>

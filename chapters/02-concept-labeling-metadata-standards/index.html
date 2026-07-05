@@ -1,0 +1,2414 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="How individual concepts are named, defined, and standardized using preferred labels, alternate labels, controlled vocabularies, and the metadata standards (SKOS, ISO/IEC 11179, Dublin Core) that keep a learning graph machine-readable.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/learning-graphs/chapters/02-concept-labeling-metadata-standards/">
+      
+      
+        <link rel="prev" href="../01-foundations-of-concept-graphs/">
+      
+      
+        <link rel="next" href="../03-concept-dependencies-prerequisites/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Concept Labeling and Metadata Standards - Learning Graphs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-Z6JDD2PWQZ"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-Z6JDD2PWQZ",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-Z6JDD2PWQZ",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Concept Labeling and Metadata Standards - Learning Graphs" >
+      
+        <meta  property="og:description"  content="How individual concepts are named, defined, and standardized using preferred labels, alternate labels, controlled vocabularies, and the metadata standards (SKOS, ISO/IEC 11179, Dublin Core) that keep a learning graph machine-readable." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/learning-graphs/assets/images/social/chapters/02-concept-labeling-metadata-standards/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/learning-graphs/chapters/02-concept-labeling-metadata-standards/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Concept Labeling and Metadata Standards - Learning Graphs" >
+      
+        <meta  name="twitter:description"  content="How individual concepts are named, defined, and standardized using preferred labels, alternate labels, controlled vocabularies, and the metadata standards (SKOS, ISO/IEC 11179, Dublin Core) that keep a learning graph machine-readable." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/learning-graphs/assets/images/social/chapters/02-concept-labeling-metadata-standards/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#concept-labeling-and-metadata-standards" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Learning Graphs" class="md-header__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Learning Graphs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Concept Labeling and Metadata Standards
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Learning Graphs" class="md-nav__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Learning Graphs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-foundations-of-concept-graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Foundations of Concept Graphs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    2. Concept Labeling and Metadata Standards
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    2. Concept Labeling and Metadata Standards
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-concept-to-concept-label" class="md-nav__link">
+    <span class="md-ellipsis">
+      From Concept to Concept Label
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preferred-labels-and-alternate-labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preferred Labels and Alternate Labels
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Preferred Labels and Alternate Labels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-label-anatomy-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Label Anatomy Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-a-concept-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing a Concept Definition
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skos-a-standard-for-labels-and-vocabularies" class="md-nav__link">
+    <span class="md-ellipsis">
+      SKOS: A Standard for Labels and Vocabularies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SKOS: A Standard for Labels and Vocabularies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-skos-relationship-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: SKOS Relationship Map
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata-standards-beyond-the-concept-isoiec-11179-and-dublin-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata Standards Beyond the Concept: ISO/IEC 11179 and Dublin Core
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metadata Standards Beyond the Concept: ISO/IEC 11179 and Dublin Core">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-dublin-core-metadata-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Dublin Core Metadata Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-concept-label-to-textbook-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      From Concept Label to Textbook Index
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="From Concept Label to Textbook Index">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-from-concept-to-index-entry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: From Concept to Index Entry
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-concept-dependencies-prerequisites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Concept Dependencies and Prerequisites
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-concept-taxonomies-ontologies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Concept Taxonomies and Ontologies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-graph-quality-validation-file-formats/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Learning Graph Quality, Validation, and File Formats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-blooms-taxonomy-learning-objectives/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Bloom's Taxonomy and Learning Objectives
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-learning-theories-instructional-design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Learning Theories and Instructional Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-cognitive-load-knowledge-space-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Cognitive Load and Knowledge Space Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-mastery-metacognition-sequencing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Mastery, Metacognition, and Instructional Sequencing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-assessment-feedback-quizzes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Assessment, Feedback, and Quizzes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-visjs-fundamentals-node-styling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Vis.js Fundamentals and Node Styling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-edge-styling-visual-properties/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Edge Styling and Visual Properties
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-physics-simulation-graph-layout/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Physics Simulation and Graph Layout
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-interactive-navigation-visjs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Interactive Navigation in Vis.js
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-graph-clustering-editing-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Graph Clustering and Editing Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-personalization-adaptive-learning-paths/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Personalization and Adaptive Learning Paths
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-intelligent-agents-generative-ai/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Intelligent Agents and Generative AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-intelligent-textbooks-microsims-deployment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Intelligent Textbooks, MicroSims, and Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-skill-generate-learning-graph/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Using a Skill to Generate a Learning Graph
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../case-studies/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Case Studies
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../vis/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Vis.js Tutorial
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Sample Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How We Built This Site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student-volunteers-wanted/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Student Volunteers Wanted
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-concept-to-concept-label" class="md-nav__link">
+    <span class="md-ellipsis">
+      From Concept to Concept Label
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preferred-labels-and-alternate-labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preferred Labels and Alternate Labels
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Preferred Labels and Alternate Labels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-label-anatomy-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Label Anatomy Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-a-concept-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing a Concept Definition
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skos-a-standard-for-labels-and-vocabularies" class="md-nav__link">
+    <span class="md-ellipsis">
+      SKOS: A Standard for Labels and Vocabularies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SKOS: A Standard for Labels and Vocabularies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-skos-relationship-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: SKOS Relationship Map
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata-standards-beyond-the-concept-isoiec-11179-and-dublin-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata Standards Beyond the Concept: ISO/IEC 11179 and Dublin Core
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metadata Standards Beyond the Concept: ISO/IEC 11179 and Dublin Core">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-dublin-core-metadata-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Dublin Core Metadata Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-concept-label-to-textbook-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      From Concept Label to Textbook Index
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="From Concept Label to Textbook Index">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-from-concept-to-index-entry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: From Concept to Index Entry
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/learning-graphs/blob/master/docs/chapters/02-concept-labeling-metadata-standards/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="concept-labeling-and-metadata-standards">Concept Labeling and Metadata Standards</h1>
+<h2 id="summary">Summary</h2>
+<p>Covers how individual concepts are named, defined, and standardized so a learning graph stays machine-readable and consistent across a large book. Introduces preferred and alternate labels, controlled vocabularies, and the metadata standards (SKOS, ISO/IEC 11179, Dublin Core) used to label concepts in professional practice. Builds directly on the graph vocabulary introduced in Chapter 1.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 10 concepts from the learning graph:</p>
+<ol>
+<li>Concept Label</li>
+<li>Preferred Label</li>
+<li>Alternate Label</li>
+<li>SKOS</li>
+<li>ISO/IEC 11179</li>
+<li>Dublin Core Metadata</li>
+<li>Controlled Vocabulary</li>
+<li>Concept Definition</li>
+<li>Textbook Index</li>
+<li>Named Concept</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-foundations-of-concept-graphs/">Chapter 1: Foundations of Concept Graphs</a></li>
+</ul>
+<hr />
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Welcome back!</p>
+<p><img alt="Axiom waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+Let's connect the concepts! In Chapter 1 you learned that a node in a learning graph represents a <strong>concept</strong>. This chapter answers the question that comes right after: what do you actually put <em>in</em> that node so a machine — and a human reader — can find it, trust it, and never confuse it with a different node that happens to sound similar?</p>
+</div>
+<p>Chapter 1 treated a concept as an abstract circle in a diagram. In a real learning graph, every one of those circles is backed by a text record: a name, a definition, and — in mature systems — a set of standardized fields borrowed from library science and data governance. Get this record wrong, and the consequences compound across an entire book. Two nodes that are secretly the same idea under different names produce duplicate content and broken prerequisite chains. A node with no clear definition leaves both learners and generative AI tools guessing at what "mastery" even means. This chapter works through the naming and metadata practices that professional catalogers and metadata architects have already solved — so you don't have to reinvent them.</p>
+<h2 id="from-concept-to-concept-label">From Concept to Concept Label</h2>
+<p>A <strong>Concept Label</strong> is the specific text string used to name a concept within a learning graph. It is the difference between the <em>idea</em> of a concept (which exists independent of language) and the <em>word or phrase</em> a book, a database, or a search box actually uses to refer to it. "The idea of a graph with no cycles" is a concept; "Directed Acyclic Graph (DAG)" is its concept label.</p>
+<p>Once a concept has been assigned at least one authoritative label, it becomes a <strong>Named Concept</strong> — a concept that can be looked up, cited, and cross-referenced by name rather than described in paraphrase every time it's mentioned. This distinction matters more than it first appears: a course description or brainstorm might gesture at dozens of ideas informally, but none of them can become a graph node until each has been given a stable, citable name. Naming is the act that turns a fuzzy idea into an addressable unit of a learning graph.</p>
+<p>Concept labels used across a large book need a small set of shared properties, or the graph slowly degrades into synonyms and near-duplicates:</p>
+<ul>
+<li><strong>Stable</strong> — the label does not change once learners, quizzes, and other chapters reference it</li>
+<li><strong>Unique within the graph</strong> — no two nodes share the same label</li>
+<li><strong>Human-readable</strong> — a learner recognizes the label as the name of an idea, not a database key</li>
+<li><strong>Short</strong> — typically two to five words, matching the naming convention already established in Chapter 1</li>
+</ul>
+<div class="admonition mascot-explain">
+<p class="admonition-title">A label is not a definition</p>
+<p><img alt="Axiom explaining" class="mascot-admonition-img" src="../../img/mascot/explain.png" />
+Don't confuse a concept label with a concept definition. The label "Photosynthesis" tells you <em>what to call</em> the idea. It says nothing about <em>what the idea means</em>. You need both, and we'll get to definitions shortly.</p>
+</div>
+<h2 id="preferred-labels-and-alternate-labels">Preferred Labels and Alternate Labels</h2>
+<p>Real subject areas are messy with synonyms. Practitioners call the same idea by different names depending on their training, their era, or their sub-field. A learning graph has to pick one name to stand as canonical while still remaining searchable under the names people actually use. Two paired terms handle this split.</p>
+<p>A <strong>Preferred Label</strong> is the single, primary name a learning graph assigns to a concept — the label that appears on the node in every diagram, every cross-reference, and every generated index. A learning graph should have exactly one preferred label per concept, in a given language. An <strong>Alternate Label</strong> is a synonym or variant name that refers to the same concept without becoming the canonical name — it exists so that a learner searching for "Two-Part Graph" still lands on the node officially labeled "Bipartite Graph."</p>
+<p>This preferred/alternate split solves a concrete problem: it lets a graph be simultaneously <em>consistent</em> (one canonical name per idea, so dependency edges never fork across synonyms) and <em>findable</em> (every common synonym still resolves to the right node). Before looking at the diagram below, notice that only the preferred label is drawn as the node itself — alternate labels branch off it as searchable aliases, not as separate concepts.</p>
+<h4 id="diagram-label-anatomy-explorer">Diagram: Label Anatomy Explorer</h4>
+<iframe src="../../sims/label-anatomy-explorer/main.html" width="100%" height="562px" scrolling="no"></iframe>
+
+<details>
+<summary>Label Anatomy Explorer</summary>
+<p>Type: graph-model
+<strong>sim-id:</strong> label-anatomy-explorer<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>Purpose: Let learners see that a single concept node carries one preferred label and zero or more alternate labels, and that alternate labels are aliases, not separate nodes.</p>
+<p>Bloom Level: Understand (L2)
+Bloom Verb: distinguish, classify</p>
+<p>Node types:
+1. Concept node (gold circle, larger radius) — labeled with its preferred label, e.g. "Bipartite Graph"
+2. Alternate label node (light gray rounded rectangle, smaller) — e.g. "Two-Part Graph", "2-Partite Graph"</p>
+<p>Edge types:
+1. <code>hasAlternateLabel</code> (dashed gray line) connecting the concept node to each alternate label node</p>
+<p>Sample data (three small concept clusters shown at once):
+- Concept: "Bipartite Graph" — alternates: "Two-Part Graph", "2-Partite Graph"
+- Concept: "Directed Acyclic Graph (DAG)" — alternates: "DAG", "Dependency Graph" (marked with a caution icon, see note below)
+- Concept: "Preferred Label" — alternates: "Canonical Label"</p>
+<p>Interactive features:
+- Click the gold concept node: infobox shows "Preferred Label: <label>" plus the ISO-style definition of the concept
+- Click a gray alternate-label node: infobox shows "Alternate label for: <preferred label>" plus one sentence on why this synonym exists (e.g., era, sub-field, or shorter colloquial form)
+- Hover any node: highlights only that node's direct edges, dimming the rest of the canvas
+- Layout: force-directed, concept nodes centered with alternate labels orbiting them</p>
+<p>Special note to render as an infobox caveat: "Dependency Graph" is intentionally shown with a caution icon because in this course it is a related-but-distinct concept (see Chapter 1), not a true synonym of DAG — the diagram uses it to illustrate a common labeling mistake, not a valid alternate label.</p>
+<p>Canvas size: responsive, minimum 600x450px, must reflow on window resize</p>
+<p>Implementation: vis-network JavaScript library with a fixed node dataset (no live editing), infobox rendered in a side panel that appears on click</p>
+</details>
+<p>To make this concrete, here is how a handful of concepts from this book split across the two label types:</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Preferred Label</th>
+<th>Example Alternate Labels</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The absence of cycles in a graph</td>
+<td>Directed Acyclic Graph (DAG)</td>
+<td>DAG</td>
+</tr>
+<tr>
+<td>A vocabulary standard for taxonomies</td>
+<td>SKOS</td>
+<td>Simple Knowledge Organization System</td>
+</tr>
+<tr>
+<td>A group of densely connected nodes</td>
+<td>Cluster</td>
+<td>Community</td>
+</tr>
+<tr>
+<td>A learning graph as a whole</td>
+<td>Learning Graph</td>
+<td>Concept Dependency Graph</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Key Insight</p>
+<p><img alt="Axiom thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+Every alternate label is a promise that the graph keeps for the reader: "however you know this idea, we'll get you to the same node." Break that promise — by silently creating a second node for a synonym — and you've fragmented one concept's dependency edges across two nodes, which is one of the most common integrity bugs in a hand-built learning graph.</p>
+</div>
+<h2 id="writing-a-concept-definition">Writing a Concept Definition</h2>
+<p>A label tells a reader what to call a concept; a <strong>Concept Definition</strong> tells them what the concept actually <em>means</em>. Chapter 1's glossary already follows a specific quality standard for this — the same standard professional metadata registries use — so it is worth stating explicitly here rather than leaving it implicit.</p>
+<p>A definition is considered well-formed when it satisfies five criteria:</p>
+<ol>
+<li><strong>Precise</strong> — states exactly what the concept is, with no vague hedging</li>
+<li><strong>Concise</strong> — as short as it can be while remaining complete</li>
+<li><strong>Distinct</strong> — could not be mistaken for the definition of a neighboring concept</li>
+<li><strong>Non-circular</strong> — never uses the term being defined (or a close variant of it) inside its own definition</li>
+<li><strong>Unencumbered with business rules</strong> — describes what the concept <em>is</em>, not how a particular organization happens to use it today</li>
+</ol>
+<p>These five criteria come directly from the standard covered next, ISO/IEC 11179, but they are useful on their own even before you know the standard's name. A quick test: if you can swap two concepts' definitions and neither one reads as obviously wrong, at least one of the two definitions has failed the "distinct" criterion.</p>
+<h2 id="skos-a-standard-for-labels-and-vocabularies">SKOS: A Standard for Labels and Vocabularies</h2>
+<p>Once a graph has hundreds of concepts, each with a preferred label, alternate labels, and a definition, that collection of label data becomes a dataset in its own right — one worth storing in a standard, exchangeable format rather than a project-specific spreadsheet. <strong>SKOS</strong> (Simple Knowledge Organization System) is a W3C standard for representing exactly this kind of structured vocabulary in a machine-readable way, so that taxonomies, thesauri, and controlled vocabularies built by different tools and different teams can be shared and combined.</p>
+<p>SKOS gives every concept a small, standard set of properties: <code>skos:prefLabel</code> for the preferred label, <code>skos:altLabel</code> for each alternate label, and hierarchical relationship properties — <code>skos:broader</code> and <code>skos:narrower</code> — for organizing concepts into general-to-specific hierarchies, plus <code>skos:related</code> for concepts that are associated but not hierarchically nested.</p>
+<p>Before looking at the diagram, hold on to one distinction: <code>skos:broader</code>/<code>skos:narrower</code> describe a <em>classification</em> hierarchy (is this concept a kind of that one?), which is a different relationship from the <em>dependency</em> edges you learned about in Chapter 1 (must this concept be learned before that one?). A concept can be broader than another without being a prerequisite for it at all.</p>
+<h4 id="diagram-skos-relationship-map">Diagram: SKOS Relationship Map</h4>
+<iframe src="../../sims/skos-relationship-map/main.html" width="100%" height="562px" scrolling="no"></iframe>
+
+<details>
+<summary>SKOS Relationship Map</summary>
+<p>Type: graph-model
+<strong>sim-id:</strong> skos-relationship-map<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>Purpose: Show how SKOS represents a small vocabulary using prefLabel, altLabel, broader, narrower, and related properties, and contrast this classification hierarchy with the dependency edges from Chapter 1.</p>
+<p>Bloom Level: Analyze (L4)
+Bloom Verb: differentiate, compare</p>
+<p>Node types:
+1. SKOS concept node (blue circle) — displays its <code>skos:prefLabel</code>
+2. Alternate label chip (small gray tag attached to a node) — displays a <code>skos:altLabel</code></p>
+<p>Edge types:
+1. <code>skos:broader</code> (solid blue arrow, pointing from narrower to broader concept)
+2. <code>skos:narrower</code> (rendered as the reverse view of the same edge, toggle-able)
+3. <code>skos:related</code> (dotted purple line, no direction)</p>
+<p>Sample data:
+- "Graph" (broader) → "Directed Graph" (narrower) → "Directed Acyclic Graph (DAG)" (narrower)
+- "Directed Acyclic Graph (DAG)" — altLabel chip: "DAG"
+- "Learning Graph" — skos:related — "Concept Dependency Graph" (dotted line, both are near-synonyms in this book's usage)</p>
+<p>Interactive features:
+- Click any node: infobox shows its full SKOS record (prefLabel, altLabels, broader concept, narrower concepts, related concepts)
+- Toggle button: "Show as Classification Hierarchy" vs "Show as Dependency Graph" — switching views re-lays-out the same three DAG-related nodes as a Chapter-1-style dependency graph and displays a caption explaining that broader/narrower and depends-on are different relationships that happen to look similar as diagrams
+- Hover an edge: tooltip states the relationship in plain language, e.g. "DAG is a narrower (more specific) kind of Directed Graph"</p>
+<p>Color scheme: blue for concept nodes and broader/narrower edges, purple dotted for related, gray for label chips</p>
+<p>Implementation: vis-network JavaScript library, two saved layout configurations swapped via the toggle button</p>
+</details>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Common Mistake</p>
+<p><img alt="Axiom warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+Don't reach for SKOS to encode "must be learned before." SKOS's <code>broader</code>/<code>narrower</code> properties model classification, not prerequisite order. As the glossary for this book notes, SKOS is ideal for storing taxonomies and controlled vocabularies — the dependency edges that drive learning sequence belong in the concept dependency graph format from Chapter 1, not in a SKOS hierarchy.</p>
+</div>
+<p>A <strong>Controlled Vocabulary</strong> is the broader practice SKOS was built to support: a fixed, curated set of preferred labels and their approved alternates for a domain, maintained so that everyone contributing to a shared graph draws from the same list of names instead of inventing new synonyms independently. Where SKOS is the <em>file format</em>, a controlled vocabulary is the <em>governance discipline</em> — deciding, in advance, which label wins when two contributors propose different names for the same idea.</p>
+<h2 id="metadata-standards-beyond-the-concept-isoiec-11179-and-dublin-core">Metadata Standards Beyond the Concept: ISO/IEC 11179 and Dublin Core</h2>
+<p>SKOS and controlled vocabularies operate at the level of an individual concept and its labels. Two further standards operate one level up: they govern how the <em>fields themselves</em> — the definition, the resource description, the publication data — are structured, regardless of subject matter.</p>
+<p><strong>ISO/IEC 11179</strong> is an international standard for metadata registries — repositories that store precise, reusable definitions of data elements. It is the source of the five-criteria definition test introduced earlier in this chapter (precise, concise, distinct, non-circular, unencumbered with business rules). When a concept definition in this book's glossary follows those five rules, it is following ISO/IEC 11179 practice, whether or not the term itself is ever mentioned to the reader.</p>
+<p><strong>Dublin Core Metadata</strong> operates at a different scope entirely: instead of describing a single concept, it describes an entire <em>resource</em> — a book, a chapter, a video, a dataset — using a standardized set of 15 elements (Title, Creator, Subject, Description, Publisher, Contributor, Date, Type, Format, Identifier, Source, Language, Relation, Coverage, and Rights). A learning graph file itself is a resource, and tagging it with Dublin Core fields makes the graph discoverable and citable the same way a library catalog entry makes a book discoverable.</p>
+<table>
+<thead>
+<tr>
+<th>Standard</th>
+<th>Operates On</th>
+<th>Typical Question It Answers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ISO/IEC 11179</td>
+<td>A single concept's definition</td>
+<td>"Is this definition precise, distinct, and non-circular?"</td>
+</tr>
+<tr>
+<td>Dublin Core Metadata</td>
+<td>An entire resource (book, chapter, dataset)</td>
+<td>"Who created this, when, and what is it about?"</td>
+</tr>
+<tr>
+<td>SKOS</td>
+<td>A vocabulary of concept labels</td>
+<td>"What is this concept's preferred label, and how does it relate to others?"</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-dublin-core-metadata-explorer">Diagram: Dublin Core Metadata Explorer</h4>
+<iframe src="../../sims/dublin-core-metadata-explorer/main.html" width="100%" height="642px" scrolling="no"></iframe>
+
+<details>
+<summary>Dublin Core Metadata Explorer</summary>
+<p>Type: infographic
+<strong>sim-id:</strong> dublin-core-metadata-explorer<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>Purpose: Let learners explore all 15 Dublin Core elements and see a realistic example value for each, using this textbook's own learning graph file as the running example.</p>
+<p>Bloom Level: Remember (L1)
+Bloom Verb: identify, recall</p>
+<p>Layout: 15 tiles arranged in a 5-column by 3-row responsive grid, one tile per Dublin Core element</p>
+<p>Tile labels (element name shown on each tile face):
+Title, Creator, Subject, Description, Publisher, Contributor, Date, Type, Format, Identifier, Source, Language, Relation, Coverage, Rights</p>
+<p>Interactive features:
+- Click a tile: it flips (or expands below the grid) to reveal a one-sentence definition of the element plus an example value drawn from this book's own learning-graph.json record, e.g.:
+  - Title → "Learning Graphs: The Key to Intelligent Textbooks"
+  - Creator → "Dan McCreary"
+  - Subject → "Concept Dependency Graphs, Intelligent Textbooks"
+  - Date → publication date of the current learning graph revision
+  - Format → "application/json"
+- Progress indicator: small counter in the corner ("6 of 15 explored") that increments the first time each tile is flipped, encouraging learners to explore all 15 before moving on
+- Hover a tile before clicking: subtle highlight to show it is interactive</p>
+<p>Color scheme: 15 tiles in a single accent color family (blues), flipped/explored tiles shown with a checkmark badge</p>
+<p>Responsive behavior: grid reflows to 3 columns by 5 rows on narrow viewports</p>
+<p>Implementation: HTML/CSS/JavaScript grid with a flip-card interaction; state (which tiles explored) held in page memory, not persisted</p>
+</details>
+<h2 id="from-concept-label-to-textbook-index">From Concept Label to Textbook Index</h2>
+<p>Everything in this chapter converges on a practical, very old piece of technology: the back-of-book index. A <strong>Textbook Index</strong> is the alphabetized list, typically found at the end of a book, that maps concept names to the page or section numbers where they are discussed — the original human-built retrieval system, centuries older than any database.</p>
+<p>A learning graph turns index generation from manual labor into an automatic byproduct of well-labeled concepts. Because every concept already has a preferred label (the index entry itself), a set of alternate labels (which become "See [preferred label]" cross-references), and a known location in the book (the chapter where it's covered), a complete, cross-referenced index can be generated directly from the graph's label data with no additional authoring.</p>
+<p>The following workflow shows that pipeline end to end, from a single concept's label data to its two entries in the finished index.</p>
+<h4 id="diagram-from-concept-to-index-entry">Diagram: From Concept to Index Entry</h4>
+<iframe src="../../sims/concept-to-index-workflow/main.html" width="100%" height="862px" scrolling="no"></iframe>
+
+<details>
+<summary>From Concept to Index Entry Workflow</summary>
+<p>Type: workflow
+<strong>sim-id:</strong> concept-to-index-workflow<br/>
+<strong>Library:</strong> Mermaid<br/>
+<strong>Status:</strong> Specified</p>
+<p>Purpose: Show learners how a concept's label data (preferred label, alternate labels, chapter location) is mechanically transformed into textbook index entries, with no manual index-writing step.</p>
+<p>Bloom Level: Apply (L3)
+Bloom Verb: demonstrate, execute</p>
+<p>Steps (each is a clickable Mermaid node with a <code>click</code> directive opening an infobox):
+1. Start: "Concept Record" — hover/click text: "A graph node with a preferred label, alternate labels, a definition, and the chapter(s) where it appears — e.g., preferred label 'Bipartite Graph', alternate label 'Two-Part Graph', chapter 4."
+2. Process: "Sort Alphabetically by Preferred Label" — click text: "All preferred labels across the graph are sorted A-to-Z to form the index's primary entries."
+3. Process: "Attach Chapter/Page Numbers" — click text: "Each preferred label entry lists every chapter where the concept is covered or referenced."
+4. Process: "Generate Cross-References" — click text: "Every alternate label becomes its own alphabetized index line reading 'See [preferred label]', so a reader searching under the synonym still finds the concept."
+5. End: "Two-Part Graph, see Bipartite Graph" and "Bipartite Graph .......... 42" — click text: "The finished index contains both the canonical entry and its synonym cross-reference, generated automatically from the same label data."</p>
+<p>Visual style: top-to-bottom Mermaid flowchart, rectangles for process steps, rounded ends for start/end</p>
+<p>Color coding: gold for the source concept record, blue for processing steps, green for the two generated index lines</p>
+<p>Mermaid click directive requirement: every node (Start, three Process nodes, End) must have a <code>click NodeId call showInfo("...")</code>-style directive wired to an infobox so the diagram meets this book's interactivity requirement.</p>
+<p>Implementation: Mermaid flowchart with JavaScript click callbacks rendering definitions in a side infobox</p>
+</details>
+<div class="admonition mascot-encourage">
+<p class="admonition-title">This is easier than it looks</p>
+<p><img alt="Axiom encouraging" class="mascot-admonition-img" src="../../img/mascot/encouraging.png" />
+You've just covered five vocabulary-heavy standards in one chapter — SKOS, ISO/IEC 11179, Dublin Core, controlled vocabularies, and the preferred/alternate label split. Most learners feel the term count pile up faster than the ideas feel like they should. Here's the shortcut: you only ever need to ask "does this describe a single concept's name, a single concept's definition, or a whole resource's publication data?" That one question sorts every term in this chapter into its right bucket.</p>
+</div>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<p>The ten concepts in this chapter split cleanly into three layers, each answering a different question about a concept record.</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Concepts</th>
+<th>Question Answered</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Naming</td>
+<td>Concept Label, Named Concept, Preferred Label, Alternate Label</td>
+<td>What do we call this concept, and are there other names for it?</td>
+</tr>
+<tr>
+<td>Meaning</td>
+<td>Concept Definition, ISO/IEC 11179</td>
+<td>What does this concept actually mean, precisely and without circularity?</td>
+</tr>
+<tr>
+<td>Organization &amp; Discovery</td>
+<td>SKOS, Controlled Vocabulary, Dublin Core Metadata, Textbook Index</td>
+<td>How do we store, share, and let readers find concepts and the resources built around them?</td>
+</tr>
+</tbody>
+</table>
+<p>With every concept in the graph properly named, defined, and cataloged, the next chapter turns from a single node's record to the relationships between nodes — how one concept's prerequisite dependencies on another are modeled, validated, and kept free of contradictions.</p>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Nicely done!</p>
+<p><img alt="Axiom celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png" />
+You can now give any concept in a learning graph a proper name, a rigorous definition, and a place in a standardized vocabulary — the same discipline professional catalogers apply to entire libraries. Pause and appreciate your progress before we move on to dependencies.</p>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../01-foundations-of-concept-graphs/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 1. Foundations of Concept Graphs">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                1. Foundations of Concept Graphs
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../03-concept-dependencies-prerequisites/" class="md-footer__link md-footer__link--next" aria-label="Next: 3. Concept Dependencies and Prerequisites">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                3. Concept Dependencies and Prerequisites
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

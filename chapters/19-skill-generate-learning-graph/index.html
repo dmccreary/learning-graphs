@@ -1,0 +1,2401 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Walks through the actual agent-skill workflow for turning a course description into a validated learning graph — scoring, concept generation and review, dependency CSV creation, automated quality validation, taxonomy assignment, session logging, and iterative regeneration with human-in-the-loop review.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/learning-graphs/chapters/19-skill-generate-learning-graph/">
+      
+      
+        <link rel="prev" href="../18-intelligent-textbooks-microsims-deployment/">
+      
+      
+        <link rel="next" href="../../case-studies/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Using a Skill to Generate a Learning Graph - Learning Graphs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-Z6JDD2PWQZ"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-Z6JDD2PWQZ",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-Z6JDD2PWQZ",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Using a Skill to Generate a Learning Graph - Learning Graphs" >
+      
+        <meta  property="og:description"  content="Walks through the actual agent-skill workflow for turning a course description into a validated learning graph — scoring, concept generation and review, dependency CSV creation, automated quality validation, taxonomy assignment, session logging, and iterative regeneration with human-in-the-loop review." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/learning-graphs/assets/images/social/chapters/19-skill-generate-learning-graph/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/learning-graphs/chapters/19-skill-generate-learning-graph/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Using a Skill to Generate a Learning Graph - Learning Graphs" >
+      
+        <meta  name="twitter:description"  content="Walks through the actual agent-skill workflow for turning a course description into a validated learning graph — scoring, concept generation and review, dependency CSV creation, automated quality validation, taxonomy assignment, session logging, and iterative regeneration with human-in-the-loop review." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/learning-graphs/assets/images/social/chapters/19-skill-generate-learning-graph/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#using-a-skill-to-generate-a-learning-graph" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Learning Graphs" class="md-header__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Learning Graphs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Using a Skill to Generate a Learning Graph
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Learning Graphs" class="md-nav__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Learning Graphs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-foundations-of-concept-graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Foundations of Concept Graphs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-concept-labeling-metadata-standards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Concept Labeling and Metadata Standards
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-concept-dependencies-prerequisites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Concept Dependencies and Prerequisites
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-concept-taxonomies-ontologies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Concept Taxonomies and Ontologies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-graph-quality-validation-file-formats/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Learning Graph Quality, Validation, and File Formats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-blooms-taxonomy-learning-objectives/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Bloom's Taxonomy and Learning Objectives
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-learning-theories-instructional-design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Learning Theories and Instructional Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-cognitive-load-knowledge-space-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Cognitive Load and Knowledge Space Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-mastery-metacognition-sequencing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Mastery, Metacognition, and Instructional Sequencing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-assessment-feedback-quizzes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Assessment, Feedback, and Quizzes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-visjs-fundamentals-node-styling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Vis.js Fundamentals and Node Styling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-edge-styling-visual-properties/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Edge Styling and Visual Properties
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-physics-simulation-graph-layout/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Physics Simulation and Graph Layout
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-interactive-navigation-visjs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Interactive Navigation in Vis.js
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-graph-clustering-editing-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Graph Clustering and Editing Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-personalization-adaptive-learning-paths/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Personalization and Adaptive Learning Paths
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-intelligent-agents-generative-ai/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Intelligent Agents and Generative AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-intelligent-textbooks-microsims-deployment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Intelligent Textbooks, MicroSims, and Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    19. Using a Skill to Generate a Learning Graph
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    19. Using a Skill to Generate a Learning Graph
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent-skill-claude-code-and-skill-invocation-the-machinery-that-runs-the-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agent Skill, Claude Code, and Skill Invocation: The Machinery That Runs the Pipeline
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#course-description-scoring-verifying-the-input-before-spending-tokens-on-the-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Course Description Scoring: Verifying the Input Before Spending Tokens on the Output
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-list-generation-and-concept-list-review-drafting-and-approving-the-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concept List Generation and Concept List Review: Drafting and Approving the Nodes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependency-csv-generation-building-the-edges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dependency CSV Generation: Building the Edges
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automated-quality-validation-catching-structural-problems-before-they-compound" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automated Quality Validation: Catching Structural Problems Before They Compound
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Automated Quality Validation: Catching Structural Problems Before They Compound">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-learning-graph-quality-gate-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Learning Graph Quality Gate Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#taxonomy-generation-step-grouping-the-graph-into-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Taxonomy Generation Step: Grouping the Graph Into Categories
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline-session-log-a-record-of-what-actually-happened" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pipeline Session Log: A Record of What Actually Happened
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iterative-graph-regeneration-the-pipeline-loops-it-does-not-just-run-once" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iterative Graph Regeneration: The Pipeline Loops, It Does Not Just Run Once
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#human-in-the-loop-review-where-judgment-re-enters-the-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Human-in-the-Loop Review: Where Judgment Re-Enters the Pipeline
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Human-in-the-Loop Review: Where Judgment Re-Enters the Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-the-twelve-step-pipeline-from-course-description-to-validated-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: The Twelve-Step Pipeline From Course Description to Validated Graph
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#synthesis-one-pipeline-nineteen-chapters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Synthesis: One Pipeline, Nineteen Chapters
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../case-studies/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Case Studies
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../vis/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Vis.js Tutorial
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Sample Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How We Built This Site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student-volunteers-wanted/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Student Volunteers Wanted
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent-skill-claude-code-and-skill-invocation-the-machinery-that-runs-the-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agent Skill, Claude Code, and Skill Invocation: The Machinery That Runs the Pipeline
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#course-description-scoring-verifying-the-input-before-spending-tokens-on-the-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Course Description Scoring: Verifying the Input Before Spending Tokens on the Output
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-list-generation-and-concept-list-review-drafting-and-approving-the-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concept List Generation and Concept List Review: Drafting and Approving the Nodes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependency-csv-generation-building-the-edges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dependency CSV Generation: Building the Edges
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automated-quality-validation-catching-structural-problems-before-they-compound" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automated Quality Validation: Catching Structural Problems Before They Compound
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Automated Quality Validation: Catching Structural Problems Before They Compound">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-learning-graph-quality-gate-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Learning Graph Quality Gate Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#taxonomy-generation-step-grouping-the-graph-into-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Taxonomy Generation Step: Grouping the Graph Into Categories
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline-session-log-a-record-of-what-actually-happened" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pipeline Session Log: A Record of What Actually Happened
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iterative-graph-regeneration-the-pipeline-loops-it-does-not-just-run-once" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iterative Graph Regeneration: The Pipeline Loops, It Does Not Just Run Once
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#human-in-the-loop-review-where-judgment-re-enters-the-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Human-in-the-Loop Review: Where Judgment Re-Enters the Pipeline
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Human-in-the-Loop Review: Where Judgment Re-Enters the Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-the-twelve-step-pipeline-from-course-description-to-validated-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: The Twelve-Step Pipeline From Course Description to Validated Graph
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#synthesis-one-pipeline-nineteen-chapters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Synthesis: One Pipeline, Nineteen Chapters
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/learning-graphs/blob/master/docs/chapters/19-skill-generate-learning-graph/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="using-a-skill-to-generate-a-learning-graph">Using a Skill to Generate a Learning Graph</h1>
+<h2 id="summary">Summary</h2>
+<p>Walks through the actual agent-skill workflow (as implemented in the learning-graph-generator Claude Code skill) for turning a course description into a validated learning graph — scoring the course description, generating and reviewing a concept list, producing a dependency CSV, running automated quality validation, assigning taxonomy, and iterating with human-in-the-loop review before moving on to chapter design. This capstone chapter ties every prior chapter's concepts into one repeatable, automatable pipeline.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 12 concepts from the learning graph:</p>
+<ol>
+<li>Agent Skill</li>
+<li>Claude Code</li>
+<li>Skill Invocation</li>
+<li>Course Description Scoring</li>
+<li>Concept List Generation</li>
+<li>Concept List Review</li>
+<li>Dependency CSV Generation</li>
+<li>Automated Quality Validation</li>
+<li>Taxonomy Generation Step</li>
+<li>Pipeline Session Log</li>
+<li>Iterative Graph Regeneration</li>
+<li>Human-in-the-Loop Review</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../18-intelligent-textbooks-microsims-deployment/">Chapter 18: Intelligent Textbooks, MicroSims, and Deployment</a></li>
+</ul>
+<hr />
+<div class="admonition mascot-welcome">
+<p class="admonition-title">The Whole Book, Run in Reverse</p>
+<p><img alt="Axiom waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+Let's connect the concepts! Every chapter so far has handed you a finished piece — a validated graph, a taxonomy, a vis.js diagram, a deployed MicroSim — and explained what it is. This last chapter hands you the machine that builds all of them, in order, from nothing but a course description. Eighteen chapters described the parts. This one starts the engine.</p>
+</div>
+<p>Every technique this book has taught — dependencies from Chapters 1–5, learning science from Chapters 6–10, vis.js from Chapters 11–15, personalization and agents from Chapters 16–17, deployment from Chapter 18 — describes a <em>destination</em>. This chapter describes the <em>vehicle</em>. A Claude Code agent skill named <code>learning-graph-generator</code> runs a fixed sequence of steps that takes a course description as input and produces a validated <code>learning-graph.json</code> file as output — the same file format that has anchored every diagram spec in this book. This is not a hypothetical workflow: the graph underneath the chapter you are reading was produced by exactly this skill, on this project, earlier today, and this chapter cites its own session log as a worked example throughout.</p>
+<h2 id="agent-skill-claude-code-and-skill-invocation-the-machinery-that-runs-the-pipeline">Agent Skill, Claude Code, and Skill Invocation: The Machinery That Runs the Pipeline</h2>
+<p>Chapter 17 introduced the intelligent agent — a system that perceives a goal, plans steps, and takes action using tools rather than simply answering a single prompt. An agent capable of taking action still needs a defined <em>procedure</em> to follow when the action is complex and multi-step, rather than reinventing that procedure from scratch every time. An <strong>Agent Skill</strong> is a named, reusable set of instructions — typically written as a structured markdown file — that tells an AI agent exactly what steps to follow, what files to read and write, and what quality checks to apply when performing a specific, well-defined task. Agent Skill depends on Intelligent Agent and Tool Use (Agent) in the learning graph — a skill is only meaningful for a system that can already act autonomously and manipulate files, not for a chat interface that only returns text. The skill this chapter documents, <code>learning-graph-generator</code>, is exactly this kind of file: its own description reads "Generates a comprehensive learning graph from a course description, including 200 concepts with dependencies, taxonomy categorization, and quality validation reports." That one sentence is the skill's entire public contract.</p>
+<p>An agent skill file is inert on its own — it needs a runtime that can read it and execute file reads, writes, and shell commands on a real project. <strong>Claude Code</strong> is Anthropic's command-line coding agent that can read and write files, run shell commands, and follow the instructions in an agent skill file to complete multi-step development and content-generation tasks inside a real project directory. Claude Code depends directly on Agent Skill in the learning graph — it is the <em>host</em> capable of loading and executing a skill file; without a host like it, a skill file is just documentation nobody runs. Two capabilities make it suited to this job: direct filesystem access (reading <code>docs/course-description.md</code>, writing <code>docs/learning-graph/concept-list.md</code>, running the skill's bundled Python scripts, all in one working directory) and long-running, multi-step execution (a single run touches ten or more files across thirteen steps in one continuous session).</p>
+<p>A skill file sitting in a project's skills directory does nothing until something triggers it. <strong>Skill Invocation</strong> is the act of a user or agent explicitly triggering a named agent skill — typically by referencing its name or describing a matching task — causing Claude Code to load that skill's instructions and begin executing its steps in order. Skill Invocation depends directly on Claude Code in the learning graph — invocation is meaningless without a host runtime capable of loading and running the skill's instructions.</p>
+<p>Invocation happens two ways in practice, and the distinction matters for how predictably a skill runs:</p>
+<table>
+<thead>
+<tr>
+<th>Invocation Method</th>
+<th>How It Works</th>
+<th>Predictability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Explicit slash-style trigger</td>
+<td>User names the skill directly</td>
+<td>High — the exact skill file loads, no ambiguity</td>
+</tr>
+<tr>
+<td>Description matching</td>
+<td>Claude Code matches a described task against skill descriptions</td>
+<td>Moderate — depends on how distinct the description is from other skills</td>
+</tr>
+</tbody>
+</table>
+<p>Once invoked, the skill does not immediately start generating 200 concepts. Its first step is quieter and easier to skip — which is exactly why the skill makes it mandatory.</p>
+<h2 id="course-description-scoring-verifying-the-input-before-spending-tokens-on-the-output">Course Description Scoring: Verifying the Input Before Spending Tokens on the Output</h2>
+<p>Chapter 1 opened this entire book with a warning about AI "slop" — content covering random concepts with no logic governing what is included or excluded. The learning-graph-generator skill takes that warning seriously enough to build a checkpoint into its very first content-generating step, rather than trusting that any course description is good enough to build 200 concepts from. <strong>Course Description Scoring</strong> is the skill's first content step, in which the agent evaluates a course description against a 100-point rubric — covering title, audience, prerequisites, topics covered and excluded, and Bloom's Taxonomy-aligned learning outcomes at all six levels — before generating a single concept. Course Description Scoring depends on Skill Invocation and Bloom's Taxonomy in the learning graph — it is literally the skill's Step 1, and it grades the outcomes section against the six Bloom levels Chapter 6 introduced.</p>
+<p>The skill requires at least three specific, actionable outcomes at each Bloom level to award full credit for that row:</p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Points</th>
+<th>What It Verifies</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Title, Audience, Prerequisites</td>
+<td>5 each</td>
+<td>Present and specific, not vague</td>
+</tr>
+<tr>
+<td>Main Topics Covered / Excluded</td>
+<td>10 / 5</td>
+<td>Comprehensive topic list with clear boundaries</td>
+</tr>
+<tr>
+<td>Remember / Understand / Apply / Analyze / Evaluate / Create</td>
+<td>10 each (60 total)</td>
+<td>At least three specific outcomes per Bloom level</td>
+</tr>
+<tr>
+<td>Descriptive Context</td>
+<td>5</td>
+<td>Additional framing on why the course matters</td>
+</tr>
+</tbody>
+</table>
+<p>A score of 85 or higher lets the skill skip re-scoring entirely on a later run — the reason this book's own pipeline skipped this step on its most recent run. This project's <code>course-description.md</code> carries <code>quality_score: 96</code> in its YAML frontmatter from an earlier pass, so when the skill ran again today it read that metadata and moved straight to concept generation, saving the tokens a full re-assessment would have cost. Below 85, the skill reports the gap and recommends revision before any concepts are generated, on the reasoning that a weak course description cannot support 200 well-formed concepts no matter how good the concept-generation step is.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">A Score Below 70 Is a Stop Sign, Not a Suggestion</p>
+<p><img alt="Axiom with a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+The skill recommends the user not proceed unless the score is 70 or above. That threshold exists because every later step compounds the course description's weaknesses — a vague topics list becomes a vague concept list, then an arbitrary dependency structure, then a taxonomy with no natural boundaries. Fixing the course description costs a few minutes. Fixing 200 concepts built on a bad foundation costs an entire regeneration.</p>
+</div>
+<h2 id="concept-list-generation-and-concept-list-review-drafting-and-approving-the-nodes">Concept List Generation and Concept List Review: Drafting and Approving the Nodes</h2>
+<p>With a course description scored high enough to proceed, the skill's next step produces the raw material every later step depends on. <strong>Concept List Generation</strong> is the skill step in which the agent reads the scored course description and produces a flat, numbered list of concept labels — each in Title Case, capped at 32 characters, phrased as a named entity rather than a question — covering the full breadth of the course material. Concept List Generation depends on Concept Label, Course Description Scoring, and Generative AI in the learning graph — it applies Chapter 2's labeling-convention rules using the generative capability Chapter 17 defined, gated on the scoring checkpoint above. The 32-character cap exists because these labels become node text inside a vis-network graph, and Chapters 11 through 15 already showed what happens to readability when node labels run long. The "entity, not a question" rule exists because a concept is a <em>thing that can be understood or not understood</em> (Chapter 1's own definition), so the label should simply be "Git," not "What Is Git?" The skill's own guidance targets roughly 200 concepts as a baseline, scaling up to 500 for complex technical subjects — this project's own most recent run landed on 254, comfortably inside that range.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">A Label Is Not a Definition</p>
+<p><img alt="Axiom thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+Notice that concept list generation produces only labels — no definitions attached yet. That separation is deliberate: the glossary-generator skill writes ISO/IEC 11179-style definitions in a later, separate pass, once the label set is stable. Combining the two steps would mean re-writing definitions every time a label gets renamed during the review step covered next.</p>
+</div>
+<p>A freshly generated concept list is a draft, not a finished artifact, and the skill treats it that way explicitly. <strong>Concept List Review</strong> is a mandatory human-in-the-loop step, immediately following concept list generation, in which the skill instructs the user to manually read the entire concept list and add, remove, or rename concepts before any dependency or taxonomy work begins. Concept List Review depends directly on Concept List Generation in the learning graph — there is nothing to review until generation has produced a draft. This step is not decorative: changing concept labels <em>later</em> in the pipeline costs far more tokens than fixing them now, because a label change after dependency mapping means re-checking every edge that referenced it, and a change after taxonomy assignment means re-checking category boundaries too. Concept List Review is the cheapest point in the pipeline to catch a problem — the same principle Chapter 5 applied to validating structure before building on top of it.</p>
+<ul>
+<li>Duplicate or near-duplicate labels should be removed</li>
+<li>Labels phrased as questions, or longer than 32 characters, should be renamed</li>
+<li>Gaps in coverage — a course-description topic with no corresponding concept — should be filled in</li>
+<li>Unclear abbreviations deserve special attention, since they propagate into every diagram that later renders that node</li>
+</ul>
+<h2 id="dependency-csv-generation-building-the-edges">Dependency CSV Generation: Building the Edges</h2>
+<p>A reviewed concept list is a set of nodes with no relationships between them yet — the equivalent of a pile of index cards with no arrows drawn. <strong>Dependency CSV Generation</strong> is the skill step that produces a structured CSV file — with columns ConceptID, ConceptLabel, and a pipe-delimited Dependencies column — encoding which concepts each concept depends on, following the strict rule that the dependency direction must point from a dependent concept toward its prerequisite. Dependency CSV Generation depends on Concept Dependency and Concept List Review in the learning graph — it cannot begin until the concept list has passed human review, and it directly implements Chapter 3's concept-dependency relationship in a machine-readable file format.</p>
+<p>Restating the edge-direction rule from Chapter 3 in its CSV form matters here, because getting it backward causes the exact inverted-graph consequence Chapter 5 warned about for the JSON format: a row for "Multiplication" with <code>Dependencies</code> value <code>"7|12"</code> means "Multiplication depends on concept 7 and concept 12," not the reverse. The skill's rules for this step are direct about the stakes:</p>
+<ul>
+<li>Foundational concepts have an empty Dependencies field — nothing precedes them</li>
+<li>Every other concept must list at least one dependency — no concept floats free</li>
+<li>No concept may depend on itself, and the completed graph must be a Directed Acyclic Graph — no cycle anywhere</li>
+<li>Dependencies should form meaningful pathways, not one linear chain from concept 1 to concept 254</li>
+</ul>
+<p>That last rule matters because a purely linear chain is a common failure mode when a course description's topics happen to already read in a plausible order. Too many single-parent chains lose the branching structure that lets Chapter 9's mastery learning and Chapter 16's personalized learning paths offer more than one route through the material.</p>
+<h2 id="automated-quality-validation-catching-structural-problems-before-they-compound">Automated Quality Validation: Catching Structural Problems Before They Compound</h2>
+<p>A dependency CSV, freshly authored, is not guaranteed to be a well-formed DAG — hundreds of hand-authored dependency relationships can easily contain a cycle, an orphaned node, or a disconnected cluster nobody noticed. <strong>Automated Quality Validation</strong> is the skill step that runs a Python analysis script against the dependency CSV to check for cycles, self-dependencies, orphaned nodes, disconnected subgraphs, and overly linear chains, producing a quality-metrics report and an overall score from 1 to 100. Automated Quality Validation depends on Graph Quality Metric and Dependency CSV Generation in the learning graph — it applies Chapter 5's validation checks as a scripted, repeatable process rather than a manual inspection.</p>
+<p>This check ran on this exact project earlier today, and its first pass caught a real problem. Recall two terms from Chapter 5: an <em>orphaned node</em> has zero edges connecting it to anything, while a <em>disconnected subgraph</em> is a cluster connected to itself but not to the graph's main body. Neither is a cycle — but both mean a learner following prerequisite chains from the foundational concepts could never reach that node.</p>
+<table>
+<thead>
+<tr>
+<th>Validation Pass</th>
+<th>Orphaned Nodes</th>
+<th>Disconnected Components</th>
+<th>Cycles</th>
+<th>Quality Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>First run</td>
+<td>4 (YAML, Behaviorism, Connectivism, Andragogy)</td>
+<td>7</td>
+<td>0</td>
+<td>Flagged for repair</td>
+</tr>
+<tr>
+<td>After 6 edge patches</td>
+<td>0</td>
+<td>1 (fully connected)</td>
+<td>0</td>
+<td>~88/100</td>
+</tr>
+</tbody>
+</table>
+<p>The fix in that second row was not a wholesale rewrite — it was six targeted edges, each connecting one isolated cluster back into the graph's main body (for example, linking "MkDocs" to "YAML" and "Markdown," and linking "Instructional Design" to "Behaviorism"). This is precisely the kind of small, surgical repair Automated Quality Validation exists to make cheap to find and cheap to fix, rather than a large restructuring discovered late in the process.</p>
+<h4 id="diagram-learning-graph-quality-gate-explorer">Diagram: Learning Graph Quality Gate Explorer</h4>
+<iframe src="../../sims/learning-graph-quality-gate-explorer/main.html" width="100%" height="542px" scrolling="no"></iframe>
+
+<details>
+<summary>Learning Graph Quality Gate Explorer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> learning-graph-quality-gate-explorer<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>Purpose: Let learners toggle a small sample graph between a "before validation" state (containing an orphaned node, a disconnected cluster, and a cycle) and an "after validation" state (fully connected, acyclic) so they can see exactly what Automated Quality Validation catches and fixes.</p>
+<p>Bloom Level: Analyze (L4)
+Bloom Verb: examine, differentiate, detect</p>
+<p>Learning objective: Given a 14-node sample dependency graph containing one orphaned node, one disconnected two-node cluster, and one three-node cycle, the learner can use the toggle and click controls to identify each structural problem and explain why it would block safe chapter sequencing.</p>
+<p>Canvas layout: full-width vis-network graph panel (420px tall); a fixed-height infobox panel (100px) below it; a "Before Validation" / "After Validation" toggle at the top</p>
+<p>Visual elements: 14 nodes using the circle/color conventions from Chapters 11-15. "Before" state: one red dashed-outline node (orphaned, zero edges), two orange nodes in a visibly separated cluster (disconnected component), three nodes joined in a closed loop with red edges (cycle). "After" state: same 14 nodes, all three problems repaired — the orphan gains one edge to a foundational node, the cluster gains one bridging edge, the cycle is broken by reversing one edge</p>
+<p>Interactive controls: toggle swaps the dataset and redraws; clicking any flagged node in "Before" opens an infobox naming the check that catches it (orphan detection, connectivity analysis, or cycle detection) and why it matters; hovering any node shows its label and indegree/outdegree</p>
+<p>Default parameters: initial view is "Before Validation," no node selected, infobox reads "Click a red or orange node to see what's wrong"</p>
+<p>Data Visibility Requirements:
+Stage 1: Show the "Before" graph with all three problems flagged simultaneously
+Stage 2: On click, show the check name and a one-sentence consequence for chapter sequencing
+Stage 3: On toggling to "After," show all edges forming one connected, acyclic component, with the three repaired edges highlighted gold for three seconds</p>
+<p>Instructional Rationale: An Analyze-level objective requires learners to differentiate three failure modes that look superficially similar but require different fixes — a static diagram cannot support that comparison, but a before/after toggle with click-to-explain nodes can.</p>
+<p>Responsive behavior: graph panel and infobox stack vertically below 650px; toggle stays fixed at top</p>
+<p>Canvas size: responsive, 100% width, 540px height</p>
+<p>Implementation: vis-network with two pre-built 14-node/edge datasets swapped via the toggle; click handler maps node ID to pre-written explanation text; hover uses vis-network's built-in tooltip API</p>
+</details>
+<h2 id="taxonomy-generation-step-grouping-the-graph-into-categories">Taxonomy Generation Step: Grouping the Graph Into Categories</h2>
+<p>A validated, acyclic, fully connected graph of 200-plus concepts is structurally sound but still difficult for a human to scan — 254 unlabeled circles convey little at a glance. The next step gives that structure a legend. The <strong>Taxonomy Generation Step</strong> is the skill stage in which the agent designs roughly ten to twelve categories, assigns every concept to exactly one category, and encodes each category as a short uppercase abbreviation (a TaxonomyID) added as a new column in the dependency CSV. Taxonomy Generation Step depends on Concept Taxonomy and Automated Quality Validation in the learning graph — it applies Chapter 4's taxonomy-design principles as a scripted pipeline stage, and it only runs after structure has already passed validation, so category design is not wasted on a graph that still needs repair.</p>
+<p>The skill enforces one balance constraint worth naming, since it is the same imbalance problem Chapter 4 warned about: no single category should hold more than 30% of all concepts, since an over-large category is really several categories not yet separated. This project's own most recent taxonomy run produced 15 categories rather than the target 10–12 — within the skill's documented "+/- 2 to 3" tolerance — because the vis.js implementation content was broad enough to split into three balanced sub-buckets rather than one oversized category. The largest resulting category, Education and Learning Sciences, still landed at 13.0% — comfortably under the 30% ceiling.</p>
+<p>Two files come out of this step together, and the distinction matters for anyone debugging a graph viewer's legend later:</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Contents</th>
+<th>Consumed By</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>concept-taxonomy.md</code></td>
+<td>Human-readable category names, TaxonomyID abbreviations, and descriptions</td>
+<td>Reviewers reading the taxonomy design by eye</td>
+</tr>
+<tr>
+<td><code>taxonomy-names.json</code></td>
+<td>A machine-readable mapping from each TaxonomyID to its display name</td>
+<td>The JSON-generation script, so the vis.js legend shows "Foundation Concepts" instead of the cryptic code "FOUND"</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Skip the Names File and the Legend Breaks</p>
+<p><img alt="Axiom warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+The skill flags <code>taxonomy-names.json</code> as critical because omitting it is a common, easy-to-miss mistake: without it, the graph-generation script falls back to the raw TaxonomyID abbreviation as the display name, and a Chapter 11–15 vis.js legend shows "EDA1" and "SKILL" instead of "Exploratory Data Analysis I" and "Skill-Based Concepts." The fix costs one file. The bug it prevents is visible on every graph viewer page in the finished book.</p>
+</div>
+<h2 id="pipeline-session-log-a-record-of-what-actually-happened">Pipeline Session Log: A Record of What Actually Happened</h2>
+<p>Every step so far produces a content artifact — a concept list, a CSV, a taxonomy file. One more artifact records something different: not the content, but the <em>process</em> that produced it. A <strong>Pipeline Session Log</strong> is a markdown file, written at the end of a skill run, that records which steps executed, which Python program versions were used, what problems were found and how they were fixed, and what the resulting graph's final metrics were. Pipeline Session Log depends directly on Taxonomy Generation Step in the learning graph — logging happens after the substantive pipeline work is complete, as a final record of it.</p>
+<p>This is not a hypothetical file format — the session log for this project's own most recent run exists at <code>logs/learning-graph-generator-v0.05-2026-07-03.md</code>. It opens with a table of which Python program version ran at each step (<code>csv-to-json.py</code> v0.04, for instance), then narrates each numbered step in turn — noting that Step 1 (Course Description Scoring) was skipped because the existing score already exceeded 85, and that Step 4 (Automated Quality Validation) ran twice, once before and once after the six edge patches described above. It closes with a "Next Steps" section recommending the reviewer check the concept list, taxonomy, and CSV before the token-expensive chapter-generation skill runs next. A session log earns its place for a reason distinct from any single step's output: when a graph needs regenerating weeks later, or a second course reuses the skill, the log is the only artifact explaining <em>why</em> the pipeline made the choices it made.</p>
+<h2 id="iterative-graph-regeneration-the-pipeline-loops-it-does-not-just-run-once">Iterative Graph Regeneration: The Pipeline Loops, It Does Not Just Run Once</h2>
+<p>The steps described so far read as a single pass from course description to validated graph, but the skill's design assumes that single pass will not always be the last one. <strong>Iterative Graph Regeneration</strong> is the pattern of re-running one or more pipeline steps — most often concept list generation, dependency mapping, or taxonomy assignment — after reviewing a session log's findings, in order to fix a specific problem without re-running the entire pipeline from scratch. Iterative Graph Regeneration depends on Pipeline Session Log and Quality Metrics Report in the learning graph — a regeneration decision is well-informed only when grounded in specific findings the log and quality report already surfaced, not a vague sense that "something looks off."</p>
+<p>This project's own session log supplies a concrete instance: the first Automated Quality Validation pass found 4 orphaned nodes and 7 disconnected components, and rather than discarding the concept list or CSV and starting over, the pipeline made six targeted edge patches and re-ran the same validation script — a scoped, evidence-driven repair, not a full regeneration. The table below distinguishes the two responses a session log's findings can trigger:</p>
+<table>
+<thead>
+<tr>
+<th>Response</th>
+<th>When It Applies</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Targeted iteration (patch and re-validate)</td>
+<td>A small number of specific, named problems (a handful of orphaned nodes, one cycle)</td>
+<td>Low — a few edge or label edits, then one re-run of the validation script</td>
+</tr>
+<tr>
+<td>Full regeneration (restart from an earlier step)</td>
+<td>The course description itself was scored too low, or the concept list's category structure is fundamentally wrong</td>
+<td>High — every downstream file must be rebuilt</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition mascot-encourage">
+<p class="admonition-title">A Quality Score Below 100 Is Not a Failure</p>
+<p><img alt="Axiom encouraging" class="mascot-admonition-img" src="../../img/mascot/encouraging.png" />
+This project's own graph scored roughly 88 out of 100 after its repair pass — not a perfect 100. That is normal: a score above 70 is safe to proceed on, and the gap to 100 usually represents soft recommendations rather than blocking defects. Chasing a perfect score past the point of diminishing returns spends tokens a real project rarely has to spare.</p>
+</div>
+<h2 id="human-in-the-loop-review-where-judgment-re-enters-the-pipeline">Human-in-the-Loop Review: Where Judgment Re-Enters the Pipeline</h2>
+<p>Automated Quality Validation catches structural problems — cycles, orphans, disconnected clusters — but structure is not the same as pedagogical soundness, and no script can judge whether "Multiplication depends on Addition" reflects genuine domain expertise or a plausible-sounding guess. <strong>Human-in-the-Loop Review</strong> is the set of mandatory checkpoints, built into the skill at specific steps (most explicitly Course Description Scoring and Concept List Review), where the pipeline pauses and asks a human reviewer to approve, edit, or reject the agent's output before the next step consumes it. Human-in-the-Loop Review depends on Iterative Graph Regeneration and Concept List Review in the learning graph — it is the general pattern that Concept List Review, introduced earlier as one specific instance, exemplifies at every checkpoint across the pipeline.</p>
+<p>This closes a loop worth stating explicitly: automation handles what a script can verify objectively (does a cycle exist? does every category stay under 30%?), which frees the reviewer's limited attention for what requires domain judgment — is this concept list complete? does this dependency reflect real prerequisite knowledge, or just alphabetical proximity? The skill's closing instructions make this priority explicit: before running the next skill (<code>book-chapter-generator</code>), the user is told to review the concept list, taxonomy, and graph first, because chapter generation is token-expensive and a mistake caught here is far cheaper than the same mistake discovered nineteen chapters later.</p>
+<h4 id="diagram-the-twelve-step-pipeline-from-course-description-to-validated-graph">Diagram: The Twelve-Step Pipeline From Course Description to Validated Graph</h4>
+<iframe src="../../sims/learning-graph-pipeline-workflow/main.html" width="100%" height="902px" scrolling="no"></iframe>
+
+<details>
+<summary>The Twelve-Step Pipeline From Course Description to Validated Graph</summary>
+<p>Type: workflow
+<strong>sim-id:</strong> learning-graph-pipeline-workflow<br/>
+<strong>Library:</strong> Mermaid<br/>
+<strong>Status:</strong> Specified</p>
+<p>Purpose: Let learners click through every step of the learning-graph-generator pipeline in order, seeing which steps are automated, which are human-in-the-loop checkpoints, and where iteration loops back to an earlier step — synthesizing every concept in this chapter into one end-to-end map.</p>
+<p>Bloom Level: Evaluate (L5)
+Bloom Verb: judge, assess, justify</p>
+<p>Learning objective: Given the full pipeline as a flowchart with automated steps, human checkpoints, and a regeneration loop visually distinguished, the learner can judge which step a specific quality problem (an orphaned node, a vague course description, a mislabeled category) traces back to, and justify whether the correct response is targeted iteration or full regeneration.</p>
+<p>Visual style: Mermaid top-to-bottom flowchart with color-coded node types (automated step, human checkpoint, output file) and one dashed feedback loop arrow from Quality Validation back to Concept List Review</p>
+<p>Steps (each a Mermaid node with a click directive): (1) Skill Invocation, automated — reveals "The user or agent triggers the skill by name, and Claude Code loads its instructions." (2) Course Description Scoring, human checkpoint — reveals "Scored against a 100-point rubric; below 85 the user revises before continuing." (3) Concept List Generation, automated — reveals "Drafts a flat, numbered list of Title Case labels covering the course's full breadth." (4) Concept List Review, human checkpoint — reveals "The user reads the full list and adds, removes, or renames entries before dependency work begins." (5) Dependency CSV Generation, automated — reveals "Encodes prerequisites as a CSV, edges pointing from each dependent concept to its prerequisites." (6) Automated Quality Validation, automated — reveals "A script checks cycles, orphans, disconnected subgraphs, and linear chains, producing a numeric score." (7) Taxonomy Generation Step, automated — reveals "Designs 10-12 balanced categories and assigns every concept to one, adding a TaxonomyID column." (8) Generate learning-graph.json, automated — reveals "Combines the taxonomy-enriched CSV, metadata, and taxonomy names into the graph JSON used by every vis.js diagram in this book." (9) Pipeline Session Log, automated — reveals "Records every step executed, problems found, and fixes applied, for future debugging." (10) Human-in-the-Loop Review, human checkpoint — reveals "The user reviews the concept list, taxonomy, and graph JSON before the token-expensive chapter-generation skill runs."</p>
+<p>Feedback loop: a dashed arrow labeled "Iterative Graph Regeneration" connects Automated Quality Validation back to Concept List Review / Dependency CSV Generation, clickable to reveal: "When validation finds a scoped, specific problem, the pipeline patches the affected concepts or edges and re-validates, rather than restarting from Step 1."</p>
+<p>Interactive features: every node has a click directive opening an infobox below the diagram; human-checkpoint nodes use a person icon and gold fill; automated-step nodes use a gear icon and indigo fill; output-file nodes use a document icon and green fill; the feedback loop arrow is dashed gray and clickable</p>
+<p>Color scheme: gold for human checkpoints, indigo for automated steps, green for output files, dashed gray for the feedback loop</p>
+<p>Responsive behavior: flowchart scales to container width and reflows to single-column below 600px; infobox appears below the diagram</p>
+<p>Canvas size: responsive, 100% width, 560px height</p>
+<p>Implementation: Mermaid.js flowchart with click bindings wired to a JavaScript showInfo() function populating a div below the diagram; node styling via Mermaid classDef for the three node-type categories</p>
+</details>
+<h2 id="synthesis-one-pipeline-nineteen-chapters">Synthesis: One Pipeline, Nineteen Chapters</h2>
+<p>Every concept in this chapter names one piece of machinery. Put together, they answer the question this book has been building toward since its first page: how does a learning graph actually get made, in practice, by a real team on a deadline?</p>
+<ul>
+<li><strong>Chapters 1–5</strong> defined a concept, a dependency, a taxonomy, and a validated DAG — vocabulary that Concept List Generation, Dependency CSV Generation, and the Taxonomy Generation Step apply mechanically, at scale</li>
+<li><strong>Chapters 6–10</strong> justified graph-based sequencing with learning science — Bloom's Taxonomy, referenced directly in Course Description Scoring's rubric, and mastery learning, echoed in this chapter's insistence that structural problems be fixed before content is built on top of them</li>
+<li><strong>Chapters 11–15</strong> gave the graph a visual, explorable form with vis.js — the same JSON format that Automated Quality Validation checks and <code>taxonomy-names.json</code> feeds into, so a finished legend reads "Foundation Concepts" rather than "FOUND"</li>
+<li><strong>Chapter 16</strong> introduced learning paths, which depend entirely on this pipeline's graph being trustworthy — a mis-sequenced dependency here becomes a wrong recommendation there</li>
+<li><strong>Chapter 17</strong> introduced the intelligent agent capable of running this kind of multi-step procedure, culminating in the Agent Skill and Claude Code concepts that opened this chapter</li>
+<li><strong>Chapter 18</strong> showed what happens after the graph is validated — MicroSims, MkDocs, and GitHub Pages turning it into the book you are reading, via a Book Build Workflow that begins where this chapter's pipeline ends</li>
+</ul>
+<p>The loop closes precisely here. The <code>learning-graph.json</code> file this chapter's diagram specs reference is the same file the learning-graph-generator skill produced for this project, following the same twelve steps just diagrammed. Course Description Scoring read this book's own <code>course-description.md</code> and found a score of 96. Concept List Generation and Review produced the 254 concepts spread across nineteen chapters, this one included. Dependency CSV Generation encoded the very edge — Agent Skill depends on Intelligent Agent — that opened this chapter. Automated Quality Validation found four orphaned nodes on its first pass and zero on its second. The Taxonomy Generation Step placed this chapter's twelve concepts into a category named "SKILL." And the Pipeline Session Log recording all of it sits, right now, in this project's <code>logs/</code> directory, dated the same day you are reading this sentence.</p>
+<p>A reader who has followed this book from Chapter 1 to here now holds something more useful than a description of a good textbook: a repeatable procedure — course description scored, concepts generated and reviewed, dependencies mapped and validated, taxonomy assigned and balanced, every step logged, every result eligible for targeted iteration, every checkpoint gated by human judgment — for building one of their own.</p>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">You've Reached the Last Page — and the First Step</p>
+<p><img alt="Axiom celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png" />
+Pause and appreciate your progress — really pause, because this is the last time I get to say it in this book. Nineteen chapters ago I told you I had exactly eight jobs, and the sixth one was to sit with you when the vocabulary piled up faster than the concepts felt like they should. It piled up plenty. You stayed with it anyway. Let's connect the concepts one final time: you now know what a concept, a dependency, and a DAG are; why Bloom's Taxonomy and mastery learning justify sequencing knowledge this way; how vis.js turns a graph into something explorable; how personalization and intelligent agents put that graph to work for one specific learner; how the whole thing deploys as a real, published textbook; and now, in this chapter, the exact skill that builds all of it from a single course description — the same skill that built the very words in front of you. That is not a metaphor. It is a receipt. Somewhere in this project's <code>docs/learning-graph/</code> directory sits a <code>learning-graph.json</code> file with your name on it waiting to happen, for whatever course or curriculum you carry this forward into. Go build it. Thank you for reading all the way to the end — it has been the privilege of every chapter to have you here. Let's connect the concepts, one more time, on your own graph now.</p>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../18-intelligent-textbooks-microsims-deployment/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 18. Intelligent Textbooks, MicroSims, and Deployment">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                18. Intelligent Textbooks, MicroSims, and Deployment
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../case-studies/" class="md-footer__link md-footer__link--next" aria-label="Next: Introduction">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Introduction
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

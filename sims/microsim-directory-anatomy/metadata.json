@@ -1,0 +1,22 @@
+{
+  "title": "MicroSim Directory Anatomy",
+  "description": "Given a labeled directory tree for a MicroSim, the learner can identify the role of each file (main.html, sketch.js, index.md) and explain why the iframe embed pattern used throughout this book points at main.html specifically.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "microsim-directory-anatomy",
+  "library": "p5.js",
+  "bloomLevel": "Understand (L2)",
+  "bloomVerb": "explain, identify, describe",
+  "completion_status": "scaffold",
+  "chapter_number": 18,
+  "chapter_title": "Intelligent Textbooks, MicroSims, and Deployment",
+  "chapter_dir": "18-intelligent-textbooks-microsims-deployment"
+}

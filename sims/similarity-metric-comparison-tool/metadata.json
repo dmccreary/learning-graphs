@@ -1,0 +1,22 @@
+{
+  "title": "Similarity Metric Comparison Tool",
+  "description": "Given two feature vectors representing either two concepts, two students, or two content items, the learner can apply the cosine similarity formula by adjusting vector values with sliders and observing how the resulting similarity score changes, and can demonstrate why increasing shared feature values raises the score while divergent values lower it.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "similarity-metric-comparison-tool",
+  "library": "p5.js",
+  "bloomLevel": "Apply (L3)",
+  "bloomVerb": "apply, calculate, demonstrate, use",
+  "completion_status": "scaffold",
+  "chapter_number": 16,
+  "chapter_title": "Personalization and Adaptive Learning Paths",
+  "chapter_dir": "16-personalization-adaptive-learning-paths"
+}

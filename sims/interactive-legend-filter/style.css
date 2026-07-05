@@ -1,0 +1,202 @@
+/* Interactive Legend Filter - vis-network MicroSim
+ * ================================================
+ * Full-width network canvas with an absolute-positioned, clickable legend
+ * panel on the right. The legend is a FUNCTIONAL filter, not a caption:
+ * clicking a row hides that taxonomy category in the DataSet.
+ * Overlays are siblings of #network because vis-network erases the canvas
+ * innerHTML. Total height is 560px, matching CANVAS_HEIGHT in the JS.
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: aliceblue;
+}
+
+/* ===========================================
+   CONTAINER & NETWORK CANVAS
+   =========================================== */
+.container {
+    position: relative;
+    width: 100%;
+    height: 560px;
+}
+
+#network {
+    width: 100%;
+    height: 100%;
+    background-color: aliceblue;
+}
+
+/* ===========================================
+   TITLE (Top Center)
+   =========================================== */
+.title {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    background-color: rgba(240, 248, 255, 0.85);
+    padding: 2px 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+/* ===========================================
+   LEGEND PANEL (Right sidebar, clickable filter)
+   =========================================== */
+.legend-panel {
+    position: absolute;
+    top: 44px;
+    right: 8px;
+    width: 240px;
+    background-color: rgba(255, 255, 255, 0.97);
+    border: 2px solid #90caf9;
+    border-radius: 8px;
+    padding: 10px 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+.legend-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.legend-heading {
+    font-weight: bold;
+    font-size: 14px;
+    color: #1976d2;
+}
+
+.show-all {
+    font-size: 12px;
+    font-weight: bold;
+    color: #2196f3;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.show-all:hover {
+    text-decoration: underline;
+}
+
+.legend-hint {
+    font-size: 11px;
+    color: #666;
+    line-height: 1.4;
+    margin-bottom: 8px;
+}
+
+.legend-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* A single clickable legend row. */
+.legend-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: background-color 0.15s, border-color 0.15s;
+    user-select: none;
+}
+
+.legend-row:hover {
+    background-color: #f0f6ff;
+    border-color: #bbdefb;
+}
+
+/* When a category is toggled OFF, dim the whole row. */
+.legend-row.off {
+    opacity: 0.55;
+}
+
+.legend-swatch {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    border: 2px solid rgba(0, 0, 0, 0.25);
+}
+
+/* Off state: swatch shown at reduced opacity per spec. */
+.legend-row.off .legend-swatch {
+    opacity: 0.35;
+}
+
+.legend-label {
+    flex: 1;
+    font-size: 12px;
+    font-weight: bold;
+    color: #222;
+}
+
+.legend-row.off .legend-label {
+    color: #888;
+    font-weight: normal;
+}
+
+/* Live count badge, e.g. "Graph Theory (6)". */
+.legend-count {
+    font-size: 11px;
+    font-weight: bold;
+    color: #333;
+    background-color: #e8eef5;
+    border-radius: 10px;
+    padding: 2px 8px;
+    min-width: 26px;
+    text-align: center;
+}
+
+/* Off state: gray out the count badge per spec. */
+.legend-row.off .legend-count {
+    color: #aaa;
+    background-color: #eee;
+}
+
+.legend-total {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid #e0e0e0;
+    font-size: 11px;
+    font-weight: bold;
+    color: #555;
+    text-align: center;
+}
+
+/* ===========================================
+   RESPONSIVE STYLES
+   =========================================== */
+@media (max-width: 640px) {
+    .title {
+        font-size: 14px;
+        top: 6px;
+    }
+
+    .legend-panel {
+        top: 72px;
+        width: 200px;
+        padding: 8px 10px;
+    }
+
+    .legend-label {
+        font-size: 11px;
+    }
+}

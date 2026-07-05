@@ -1,0 +1,22 @@
+{
+  "title": "Edge Smoothing and Curve Type Explorer",
+  "description": "Given a graph with several overlapping edge paths, the learner can differentiate straight edges from smoothed edges and explain when cubic Bezier smoothing with a forced direction improves readability over the default dynamic curve.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "edge-smoothing-curve-explorer",
+  "library": "vis-network",
+  "bloomLevel": "Analyze (L4)",
+  "bloomVerb": "differentiate, compare, examine",
+  "completion_status": "scaffold",
+  "chapter_number": 12,
+  "chapter_title": "Edge Styling and Visual Properties",
+  "chapter_dir": "12-edge-styling-visual-properties"
+}

@@ -1,0 +1,22 @@
+{
+  "title": "Theory-to-Practice Concept Map",
+  "description": "Given a two-tier network of theories and practices, the learner can correctly classify each of the nine chapter concepts as either a \"theory\" or a \"practice,\" and correctly trace which theories inform which practices via the graph's edges.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "theory-to-practice-map",
+  "library": "vis-network",
+  "bloomLevel": "Understand (L2)",
+  "bloomVerb": "summarize, classify, interpret",
+  "completion_status": "scaffold",
+  "chapter_number": 7,
+  "chapter_title": "Learning Theories and Instructional Design",
+  "chapter_dir": "07-learning-theories-instructional-design"
+}

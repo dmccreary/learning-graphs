@@ -1,0 +1,14 @@
+{
+  "sim_id": "skos-relationship-map",
+  "diagram_name": "SKOS Relationship Map",
+  "chapter_number": 2,
+  "chapter_title": "Concept Labeling and Metadata Standards",
+  "chapter_dir": "02-concept-labeling-metadata-standards",
+  "library": "vis-network",
+  "bloom_level": "Analyze (L4)",
+  "bloom_verb": "differentiate, compare",
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-07-03",
+  "specification": "Type: graph-model\n**sim-id:** skos-relationship-map<br/>\n**Library:** vis-network<br/>\n**Status:** Specified\n\nPurpose: Show how SKOS represents a small vocabulary using prefLabel, altLabel, broader, narrower, and related properties, and contrast this classification hierarchy with the dependency edges from Chapter 1.\n\nBloom Level: Analyze (L4)\nBloom Verb: differentiate, compare\n\nNode types:\n1. SKOS concept node (blue circle) — displays its `skos:prefLabel`\n2. Alternate label chip (small gray tag attached to a node) — displays a `skos:altLabel`\n\nEdge types:\n1. `skos:broader` (solid blue arrow, pointing from narrower to broader concept)\n2. `skos:narrower` (rendered as the reverse view of the same edge, toggle-able)\n3. `skos:related` (dotted purple line, no direction)\n\nSample data:\n- \"Graph\" (broader) → \"Directed Graph\" (narrower) → \"Directed Acyclic Graph (DAG)\" (narrower)\n- \"Directed Acyclic Graph (DAG)\" — altLabel chip: \"DAG\"\n- \"Learning Graph\" — skos:related — \"Concept Dependency Graph\" (dotted line, both are near-synonyms in this book's usage)\n\nInteractive features:\n- Click any node: infobox shows its full SKOS record (prefLabel, altLabels, broader concept, narrower concepts, related concepts)\n- Toggle button: \"Show as Classification Hierarchy\" vs \"Show as Dependency Graph\" — switching views re-lays-out the same three DAG-related nodes as a Chapter-1-style dependency graph and displays a caption explaining that broader/narrower and depends-on are different relationships that happen to look similar as diagrams\n- Hover an edge: tooltip states the relationship in plain language, e.g. \"DAG is a narrower (more specific) kind of Directed Graph\"\n\nColor scheme: blue for concept nodes and broader/narrower edges, purple dotted for related, gray for label chips\n\nImplementation: vis-network JavaScript library, two saved layout configurations swapped via the toggle button"
+}

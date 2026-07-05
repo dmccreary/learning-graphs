@@ -1,0 +1,284 @@
+/* SKOS Relationship Map - vis-network MicroSim
+ * ============================================
+ * Full-height network canvas with absolute-positioned overlays.
+ * Overlays are SIBLINGS of #network (vis-network erases #network innerHTML).
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: aliceblue;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+#network {
+    width: 100%;
+    height: 100%;
+    background-color: aliceblue;
+}
+
+/* ---------- Title ---------- */
+.title {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: bold;
+    color: #1a3a6c;
+    background-color: aliceblue;
+    padding: 4px 12px;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+/* ---------- Legend ---------- */
+.legend {
+    position: absolute;
+    top: 46px;
+    left: 10px;
+    padding: 8px 10px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+    z-index: 10;
+    max-width: 230px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin: 4px 0;
+    font-size: 11px;
+    line-height: 1.3;
+}
+
+.legend-swatch {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    flex-shrink: 0;
+    border: 2px solid #333;
+}
+
+.swatch-concept {
+    background-color: #97c2fc;
+    border-color: #2b7ce9;
+    border-radius: 50%;
+}
+
+.swatch-chip {
+    background-color: #e0e0e0;
+    border-color: #9e9e9e;
+    border-radius: 3px;
+}
+
+.legend-line {
+    width: 22px;
+    height: 0;
+    margin-right: 6px;
+    flex-shrink: 0;
+}
+
+.line-broader {
+    border-top: 3px solid #2b7ce9;
+}
+
+.line-related {
+    border-top: 3px dotted #9c27b0;
+}
+
+/* ---------- Right panel ---------- */
+.right-panel {
+    position: absolute;
+    top: 46px;
+    right: 10px;
+    width: 290px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 10;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 10px 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.btn {
+    padding: 9px 14px;
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+}
+
+.btn-primary {
+    background-color: #2196f3;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #1976d2;
+}
+
+.btn-secondary {
+    background-color: #757575;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #616161;
+}
+
+.btn-secondary:disabled {
+    background-color: #bdbdbd;
+    cursor: not-allowed;
+}
+
+/* ---------- Caption box ---------- */
+.caption-box {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    padding: 10px 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+    border-left: 5px solid #2196f3;
+}
+
+.caption-box.dependency {
+    border-left-color: #ff9800;
+}
+
+.caption-title {
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: #1976d2;
+}
+
+.caption-box.dependency .caption-title {
+    color: #e65100;
+}
+
+.caption-text {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* ---------- Infobox (SKOS record) ---------- */
+.infobox {
+    background-color: rgba(255, 255, 255, 0.97);
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+    border: 2px solid #2b7ce9;
+}
+
+.info-title {
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 13px;
+    color: #1a3a6c;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 4px;
+}
+
+.info-content {
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+.info-content .rec-row {
+    margin: 4px 0;
+}
+
+.info-content .rec-key {
+    font-weight: bold;
+    color: #2b7ce9;
+}
+
+.info-content .rec-val {
+    color: #333;
+}
+
+.info-content code {
+    background: #eef4ff;
+    border-radius: 3px;
+    padding: 0 3px;
+    font-size: 11px;
+}
+
+.info-placeholder {
+    color: #888;
+    font-style: italic;
+    font-size: 12px;
+}
+
+/* ---------- Status / help ---------- */
+.status-panel {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    padding: 10px 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.status-title {
+    font-weight: bold;
+    margin-bottom: 4px;
+    font-size: 12px;
+    color: #333;
+}
+
+.status-text {
+    font-size: 11px;
+    line-height: 1.45;
+    color: #444;
+}
+
+.status-text ul {
+    margin-left: 16px;
+    margin-top: 4px;
+}
+
+.status-text li {
+    margin-bottom: 3px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+    .right-panel {
+        width: 200px;
+    }
+    .legend {
+        max-width: 170px;
+    }
+    .legend-item {
+        font-size: 10px;
+    }
+    .btn {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+    .title {
+        font-size: 15px;
+    }
+}

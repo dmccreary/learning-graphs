@@ -1,0 +1,186 @@
+/* Knowledge Space Explorer - vis-network MicroSim
+   Hierarchical lattice of valid knowledge states, empty at top, full at bottom. */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: aliceblue;
+    color: #212529;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Full-canvas network; overlays are absolute siblings (never children). */
+#network {
+    width: 100%;
+    height: 100%;
+    background-color: aliceblue;
+}
+
+/* ===== Title ===== */
+.title {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    font-weight: bold;
+    color: #1a3a6c;
+    background-color: rgba(240, 248, 255, 0.85);
+    padding: 2px 12px;
+    border-radius: 6px;
+    z-index: 10;
+}
+
+/* ===== Legend ===== */
+.legend {
+    position: absolute;
+    top: 44px;
+    left: 10px;
+    padding: 8px 10px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    max-width: 200px;
+}
+
+.legend-row {
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.legend-row-sub {
+    font-size: 11px;
+    color: #555;
+    margin-top: 6px;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 4px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin: 2px 0;
+    font-size: 11px;
+}
+
+.swatch {
+    width: 15px;
+    height: 15px;
+    border-radius: 4px;
+    margin-right: 6px;
+    border: 1px solid #666;
+    flex: 0 0 auto;
+}
+
+/* Blue gradient by depth (must match JS DEPTH_COLORS). */
+.d0 { background-color: #eceff1; }
+.d1 { background-color: #bbdefb; }
+.d2 { background-color: #64b5f6; }
+.d3 { background-color: #2196f3; }
+.d4 { background-color: #1565c0; }
+.d4.gold { border: 2px solid #f9a825; }
+.invalid { background-color: #cfd8dc; border: 1px dashed #d32f2f; }
+
+/* ===== Right panel ===== */
+.right-panel {
+    position: absolute;
+    top: 44px;
+    right: 10px;
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 10;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgba(255, 255, 255, 0.97);
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-primary { background-color: #2196f3; color: white; }
+.btn-primary:hover { background-color: #1976d2; }
+.btn-primary:disabled { background-color: #90caf9; cursor: not-allowed; }
+
+.toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.toggle input { width: 16px; height: 16px; cursor: pointer; }
+
+.infobox {
+    background-color: rgba(255, 255, 255, 0.97);
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #2196f3;
+}
+
+.infobox.invalid-note { border-left-color: #d32f2f; }
+.infobox.edge-note { border-left-color: #f9a825; }
+
+.infobox-title {
+    font-weight: bold;
+    font-size: 13px;
+    margin-bottom: 6px;
+    color: #1a3a6c;
+}
+
+.infobox-content {
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* ===== Responsive: controls wrap below the network under 600px ===== */
+@media (max-width: 600px) {
+    .title { font-size: 16px; }
+    .right-panel {
+        position: absolute;
+        top: auto;
+        bottom: 6px;
+        left: 6px;
+        right: 6px;
+        width: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .controls {
+        flex: 1 1 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .infobox { flex: 1 1 100%; }
+    .legend { max-width: 150px; font-size: 10px; }
+}

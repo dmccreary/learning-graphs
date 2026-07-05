@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Topological Sort Step-Through</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Network canvas - siblings only, never nest overlays inside #network -->
+        <div id="network"></div>
+
+        <!-- Title at top center -->
+        <div class="title">Topological Sort Step-Through</div>
+
+        <!-- Legend in upper left -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color color-gray"></div>
+                <span><strong>Not yet placed</strong></span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-gold"></div>
+                <span><strong>Eligible now</strong></span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-green"></div>
+                <span><strong>Placed in order</strong></span>
+            </div>
+        </div>
+
+        <!-- Right panel: controls, output-order list, eligible list, explanation -->
+        <div class="right-panel">
+            <div class="controls">
+                <div class="step-counter" id="step-counter">Step 0 / 7</div>
+                <button class="btn btn-primary" id="next-btn">Next Step</button>
+                <button class="btn btn-secondary" id="reset-btn">Reset</button>
+            </div>
+
+            <div class="list-panel">
+                <div class="list-title">Output Order</div>
+                <ol class="output-list" id="output-list">
+                    <li class="empty-note">Empty &mdash; click &ldquo;Next Step&rdquo;</li>
+                </ol>
+            </div>
+
+            <div class="list-panel">
+                <div class="list-title">Eligible Now</div>
+                <ul class="eligible-list" id="eligible-list"></ul>
+            </div>
+
+            <div class="status-info">
+                <div class="status-title">What just happened</div>
+                <div class="status-text" id="status-text">
+                    Two foundational concepts, Arithmetic and Number Sense, have no prerequisites, so they are eligible to be placed first. Click &ldquo;Next Step&rdquo; to begin.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="topological-sort-stepper.js"></script>
+</body>
+</html>

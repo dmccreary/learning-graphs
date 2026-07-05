@@ -1,0 +1,22 @@
+{
+  "title": "Layout Algorithm Comparison Lab",
+  "description": "Given a 30-node sample learning graph with a clear prerequisite structure and two visible clusters, the learner can justify a layout choice (force-directed vs. hierarchical, and if hierarchical, which direction) for a stated audience and purpose.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "layout-algorithm-comparison-lab",
+  "library": "vis-network",
+  "bloomLevel": "Evaluate (L5)",
+  "bloomVerb": "justify, assess, recommend",
+  "completion_status": "scaffold",
+  "chapter_number": 13,
+  "chapter_title": "Physics Simulation and Graph Layout",
+  "chapter_dir": "13-physics-simulation-graph-layout"
+}

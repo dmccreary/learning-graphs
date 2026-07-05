@@ -1,0 +1,22 @@
+{
+  "title": "Knowledge Space Explorer",
+  "description": "Given the full knowledge-state lattice for a small four-concept domain, the learner can identify which knowledge states are valid (consistent with the domain's partial order) versus invalid, and can trace at least two distinct valid learning paths from the empty state to full mastery.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "knowledge-space-explorer",
+  "library": "vis-network",
+  "bloomLevel": "Analyze (L4)",
+  "bloomVerb": "examine, distinguish, differentiate",
+  "completion_status": "scaffold",
+  "chapter_number": 8,
+  "chapter_title": "Cognitive Load and Knowledge Space Theory",
+  "chapter_dir": "08-cognitive-load-knowledge-space-theory"
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Dependency Role Explorer</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Network canvas (background layer). Overlays are SIBLINGS, never children. -->
+        <div id="network"></div>
+
+        <!-- Title at top center -->
+        <div class="title">Dependency Role Explorer</div>
+
+        <!-- Legend in upper left -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color color-node"></div>
+                <span><strong>Concept</strong></span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-gold"></div>
+                <span><strong>Foundational</strong> (no prerequisites)</span>
+            </div>
+        </div>
+
+        <!-- Right panel with controls and infobox -->
+        <div class="right-panel">
+            <div class="controls">
+                <button class="btn btn-primary" id="highlight-btn">Highlight Foundational Concepts</button>
+                <button class="btn btn-secondary" id="reset-btn">Clear Selection</button>
+            </div>
+
+            <div class="info-panel">
+                <div class="info-title">Selected Edge Roles</div>
+                <div class="info-content" id="info-content">
+                    <span class="info-placeholder">Click any edge (arrow) to see how one
+                    concept can be a <em>dependent</em> of the concept below it and a
+                    <em>prerequisite</em> for the concept above it.</span>
+                </div>
+            </div>
+
+            <div class="status-panel">
+                <div class="status-title">How to explore</div>
+                <div class="status-text">
+                    <ul>
+                        <li>Arrows point <strong>from a dependent concept to the prerequisite it needs</strong>.</li>
+                        <li><strong>Click an edge</strong> to label its two endpoints.</li>
+                        <li><strong>Hover a node</strong> to see its prerequisite and dependent counts.</li>
+                        <li>The bottom node is <strong>foundational</strong> - nothing comes before it.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="dependency-role-explorer.js"></script>
+</body>
+</html>

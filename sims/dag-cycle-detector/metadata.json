@@ -1,0 +1,22 @@
+{
+  "title": "DAG Cycle Detector",
+  "description": "Given a small directed graph, the learner can determine whether it is a valid DAG and explain, in terms of \"where would a learner start,\" why a cycle breaks the ability to sequence concepts.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "dag-cycle-detector",
+  "library": "vis-network",
+  "bloomLevel": "Analyze (L4)",
+  "bloomVerb": "differentiate, examine",
+  "completion_status": "scaffold",
+  "chapter_number": 1,
+  "chapter_title": "Foundations of Concept Graphs",
+  "chapter_dir": "01-foundations-of-concept-graphs"
+}

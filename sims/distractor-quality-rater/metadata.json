@@ -1,0 +1,22 @@
+{
+  "title": "Distractor Quality Rater",
+  "description": "Given a multiple-choice question stem, its correct key, and one candidate distractor, the learner can assess whether the distractor is weak or strong against three stated criteria and justify that judgment by identifying the specific misconception (if any) the distractor targets.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "distractor-quality-rater",
+  "library": "p5.js",
+  "bloomLevel": "Evaluate (L5)",
+  "bloomVerb": "judge, critique, assess, justify",
+  "completion_status": "scaffold",
+  "chapter_number": 10,
+  "chapter_title": "Assessment, Feedback, and Quizzes",
+  "chapter_dir": "10-assessment-feedback-quizzes"
+}

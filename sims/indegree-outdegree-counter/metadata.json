@@ -1,0 +1,22 @@
+{
+  "title": "Indegree and Out-Degree Counter",
+  "description": "Given any node in a sample dependency graph, the learner can correctly state its indegree, out-degree, and node degree by tracing and counting its edges.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "indegree-outdegree-counter",
+  "library": "vis-network",
+  "bloomLevel": "Understand (L2)",
+  "bloomVerb": "interpret, explain",
+  "completion_status": "scaffold",
+  "chapter_number": 5,
+  "chapter_title": "Learning Graph Quality, Validation, and File Formats",
+  "chapter_dir": "05-graph-quality-validation-file-formats"
+}

@@ -2,402 +2,758 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/about/</loc>
-         <lastmod>2026-06-04</lastmod>
-    </url>
-    <url>
-         <loc>https://dmccreary.github.io/learning-graphs/checklist/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/contact/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/course-description/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/glossary/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/how-we-built-this-site/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/license/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/references/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/student-volunteers-wanted/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/case-studies/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/case-studies/agents/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/case-studies/beginning-electronics/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/case-studies/circuits/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/case-studies/clocks-and-watches/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/case-studies/data-science/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/case-studies/geometry/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/case-studies/graph-algorithms/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/case-studies/intelligent-textbooks/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/case-studies/micropython/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/case-studies/microsims/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/case-studies/personal-finance/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/case-studies/python/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/case-studies/signal-processing/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/case-studies/spectrum-analyzer/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/case-studies/stem-robots/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/case-studies/systems-thinking/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/chapters/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/learning-graphs/chapters/01-learning-graphs/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters/01-foundations-of-concept-graphs/</loc>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/learning-graphs/chapters/02-blooms-taxonomy/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters/02-concept-labeling-metadata-standards/</loc>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/learning-graphs/chapters/02-concepts/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters/03-concept-dependencies-prerequisites/</loc>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/learning-graphs/chapters/02-rhizomatic-learning/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters/04-concept-taxonomies-ontologies/</loc>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/learning-graphs/chapters/03-concept-dependency/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters/05-graph-quality-validation-file-formats/</loc>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/learning-graphs/chapters/04-concept-taxonomies/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters/06-blooms-taxonomy-learning-objectives/</loc>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/learning-graphs/chapters/05-displaying-graphs/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters/07-learning-theories-instructional-design/</loc>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/learning-graphs/chapters/06-vis-js/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters/08-cognitive-load-knowledge-space-theory/</loc>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/learning-graphs/chapters/15-dependency-analysis/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters/09-mastery-metacognition-sequencing/</loc>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/learning-graphs/chapters/16-customizing-lesson-plans/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters/10-assessment-feedback-quizzes/</loc>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/learning-graphs/chapters/17-lms-integration/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters/11-visjs-fundamentals-node-styling/</loc>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/learning-graphs/chapters/18-agents/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters/12-edge-styling-visual-properties/</loc>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/learning-graphs/chapters/19-validating/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters/13-physics-simulation-graph-layout/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters/14-interactive-navigation-visjs/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters/15-graph-clustering-editing-tools/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters/16-personalization-adaptive-learning-paths/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters/17-intelligent-agents-generative-ai/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters/18-intelligent-textbooks-microsims-deployment/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters/19-skill-generate-learning-graph/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters-v1/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters-v1/01-learning-graphs/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters-v1/02-blooms-taxonomy/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters-v1/02-concepts/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters-v1/02-rhizomatic-learning/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters-v1/03-concept-dependency/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters-v1/04-concept-taxonomies/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters-v1/05-displaying-graphs/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters-v1/06-vis-js/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters-v1/15-dependency-analysis/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters-v1/16-customizing-lesson-plans/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters-v1/17-lms-integration/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters-v1/18-agents/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/chapters-v1/19-validating/</loc>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/concepts/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/concepts/50-concepts/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/concepts/taxonomy/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/img/cover-image-prompt/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/img/mascot/character-sheet/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/img/mascot/image-prompts/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/learning-graph/</loc>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/learning-graph/book-metrics/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/learning-graph/chapter-metrics/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/learning-graph/checklist/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/learning-graph/concept-list-v1/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/learning-graph/concept-list/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/learning-graph/concept-taxonomy/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/learning-graph/course-description-assessment/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/learning-graph/feature-checklist/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/learning-graph/index-template/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/learning-graph/mascot-test/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/learning-graph/quality-metrics/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/learning-graph/taxonomy-distribution/</loc>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/prompts/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/prompts/01-course-description/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/prompts/02-concept-enumeration/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/prompts/03-concept-dependencies/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/prompts/04-taxonomies/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/prompts/04b-classifier/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/prompts/05-concept-viewer/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/prompts/06-quiz/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/prompts/10-vis-editor/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/prompts/11-word-cloud/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/prompts/12-book-build-workflow/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/prompts/20-degree-histogram/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/prompts/30-graph-editor/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/prompts/35-linear-vs-non-linear/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/prompts/40-create-skill/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/sims/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/adaptive-learning-loop-explorer/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/agent-capability-explorer/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/blocked-vs-interleaved-simulator/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/blooms-pyramid-explorer/</loc>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/sims/blooms-taxonomy/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/sims/book-build-workflow/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/book-build-workflow-pipeline/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/book-chapter-metrics-dashboard/</loc>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/sims/book-gen-workflow/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/sims/book-gen-workflow/TODO/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/clustering-abstraction-explorer/</loc>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/sims/concept-to-content-viewer/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/sims/concept-to-content-viewer/TODO/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/concept-to-index-workflow/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/content-sequencing-simulator/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/dag-cycle-detector/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/dependency-analysis-console/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/dependency-role-explorer/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/distractor-quality-rater/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/domain-cluster-explorer/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/dublin-core-metadata-explorer/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/edge-smoothing-curve-explorer/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/edge-styling-property-playground/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/feedback-loop-explorer/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/force-directed-layout-explorer/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/genai-learning-graph-pipeline/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/goal-horizon-timeline/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/graph-anatomy-explorer/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/graph-editor-live-validation/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/graph-family-lens-explorer/</loc>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/sims/graph-viewer/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/hover-tooltip-explorer/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/hyper-personalization-input-explorer/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/indegree-outdegree-counter/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/interactive-legend-filter/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/interactive-taxonomy-legend/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/journey-map-builder/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/knowledge-space-explorer/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/label-anatomy-explorer/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/layout-algorithm-comparison-lab/</loc>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/sims/learning-graph/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/sims/learning-graph/TODO/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/learning-graph-pipeline-workflow/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/learning-graph-quality-gate-explorer/</loc>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/sims/learning-is-nonlinear/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/learning-objective-builder/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/microsim-directory-anatomy/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/nine-events-explorer/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/node-styling-property-playground/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/orphan-disconnected-explorer/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/physics-force-explorer/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/quiz-format-comparison-chart/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/rag-step-through/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/ready-to-learn-frontier-simulator/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/real-world-deployment-patterns/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/rhizombic-path-explorer/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/scaffolding-fade-simulator/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/search-focus-navigation-console/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/similarity-metric-comparison-tool/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/skos-relationship-map/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/structural-variations-explorer/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/taxonomy-classifier-workbench/</loc>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/sims/template/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/theory-to-practice-map/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/topological-sort-stepper/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/transitive-dependency-hop-finder/</loc>
+         <lastmod>2026-07-05</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/working-memory-load-simulator/</loc>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/concept-dependency-graph/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/lab-01/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/lab-02/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/lab-03/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/lab-04/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/lab-05/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/clusters/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/combined-viewer/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/csv-reader/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/double-click/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/edit-nodes/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/fix-x-positions/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/graph-editor/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/graph-viewer/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/groups/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/hover-text/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/learn-python/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/legend-checkboxes/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/legends/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/network-properties/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/node-enricher/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/open-url/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/physics-params/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/search/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/templates/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/vis/trace/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-07-05</lastmod>
     </url>
 </urlset>

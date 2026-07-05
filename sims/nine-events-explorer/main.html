@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Nine Events of Instruction Explorer</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ffffff;
+            color: #212529;
+        }
+        #wrap {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 10px 12px 12px 12px;
+        }
+        h1 {
+            font-size: 18px;
+            color: #0f5257;
+            margin-bottom: 2px;
+        }
+        .subtitle {
+            font-size: 13px;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+        /* Layout: diagram beside infobox on wide screens, stacked under 600px */
+        #layout {
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+            flex: 1 1 auto;
+            min-height: 0;
+        }
+        #diagram-panel {
+            flex: 1 1 62%;
+            min-width: 0;
+            min-height: 0;
+            background: #f2fbfb;
+            border: 1px solid #d5ecec;
+            border-radius: 6px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 8px;
+            overflow: hidden;
+        }
+        /* Shrink-to-fit so the nine-node stack scales down to the panel,
+           keeping every node visible inside the fixed-height iframe. */
+        .mermaid {
+            max-width: 100%;
+            max-height: 100%;
+            line-height: normal;
+            display: flex;
+            justify-content: center;
+        }
+        .mermaid svg {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            display: block;
+        }
+        #infobox {
+            flex: 1 1 38%;
+            min-width: 0;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            padding: 12px 14px;
+            font-size: 14px;
+            color: #334155;
+            overflow-y: auto;
+        }
+        .infobox-hint {
+            color: #64748b;
+            font-style: italic;
+            font-size: 13px;
+        }
+        .infobox-step {
+            display: inline-block;
+            background: #0f5257;
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-bottom: 8px;
+        }
+        .infobox-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #0f5257;
+            margin-bottom: 6px;
+        }
+        .infobox-desc {
+            font-size: 14px;
+            line-height: 1.45;
+            margin-bottom: 10px;
+        }
+        .infobox-concept {
+            font-size: 13px;
+            line-height: 1.4;
+            background: #fff8e1;
+            border-left: 3px solid #d4a017;
+            padding: 6px 10px;
+            border-radius: 3px;
+            color: #4a3b00;
+        }
+        .infobox-concept-original {
+            background: #f1f5f9;
+            border-left-color: #94a3b8;
+            color: #475569;
+            font-style: italic;
+        }
+        .infobox-concept-label {
+            font-weight: 700;
+        }
+        /* Tooltip preview shown on hover before a click */
+        #tooltip {
+            position: fixed;
+            background: #263238;
+            color: #ffffff;
+            padding: 6px 10px;
+            border-radius: 5px;
+            font-size: 13px;
+            max-width: 240px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.15s;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        #tooltip.visible { opacity: 1; }
+
+        /* Clickable affordance + gold highlight for the last-clicked node */
+        .mermaid .node.clickable-node { cursor: pointer; }
+        .mermaid .node.clickable-node:hover rect { filter: brightness(1.08); }
+        .mermaid .node.selected rect {
+            fill: #f2c94c !important;
+            stroke: #c99700 !important;
+            stroke-width: 3px !important;
+        }
+
+        /* Stack the infobox below the diagram on narrow viewports */
+        @media (max-width: 600px) {
+            #layout { flex-direction: column; }
+            #diagram-panel { flex: 0 0 auto; }
+            #infobox { flex: 0 0 auto; max-height: 180px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <h1>Gagne's Nine Events of Instruction</h1>
+        <div class="subtitle">Click any step to see its purpose and the earlier concept it operationalizes.</div>
+        <div id="layout">
+            <div id="diagram-panel">
+                <div class="mermaid">
+flowchart TD
+    E1["1. Gain Attention"]:::step
+    E2["2. Inform Objectives"]:::step
+    E3["3. Stimulate Recall of Prior Knowledge"]:::step
+    E4["4. Present Content"]:::step
+    E5["5. Provide Learning Guidance"]:::step
+    E6["6. Elicit Performance"]:::step
+    E7["7. Provide Feedback"]:::step
+    E8["8. Assess Performance"]:::step
+    E9["9. Enhance Retention and Transfer"]:::step
+
+    E1 --> E2 --> E3 --> E4 --> E5 --> E6 --> E7 --> E8 --> E9
+
+    click E1 call showInfo("1")
+    click E2 call showInfo("2")
+    click E3 call showInfo("3")
+    click E4 call showInfo("4")
+    click E5 call showInfo("5")
+    click E6 call showInfo("6")
+    click E7 call showInfo("7")
+    click E8 call showInfo("8")
+    click E9 call showInfo("9")
+
+    classDef step fill:#17a2a2,stroke:#0f5257,stroke-width:2px,color:#ffffff,font-size:15px
+
+    linkStyle default stroke:#7fb7b7,stroke-width:2px
+                </div>
+            </div>
+            <div id="infobox">
+                <span class="infobox-hint">Click a step in the flowchart to read what it does and which chapter's concept it puts into practice.</span>
+            </div>
+        </div>
+    </div>
+    <div id="tooltip"></div>
+
+    <!-- Define window.showInfo and hover wiring BEFORE mermaid runs the click bindings -->
+    <script src="nine-events-explorer.js"></script>
+    <!-- Mermaid UMD build (global `mermaid`) -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        // securityLevel:'loose' is required for `click ... call showInfo()` to fire.
+        mermaid.initialize({
+            startOnLoad: false,
+            securityLevel: 'loose',
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: false,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+        mermaid.run();
+    </script>
+</body>
+</html>

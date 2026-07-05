@@ -1,0 +1,14 @@
+{
+  "sim_id": "concept-to-index-workflow",
+  "diagram_name": "From Concept to Index Entry",
+  "chapter_number": 2,
+  "chapter_title": "Concept Labeling and Metadata Standards",
+  "chapter_dir": "02-concept-labeling-metadata-standards",
+  "library": "Mermaid",
+  "bloom_level": "Apply (L3)",
+  "bloom_verb": "demonstrate, execute",
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-07-03",
+  "specification": "Type: workflow\n**sim-id:** concept-to-index-workflow<br/>\n**Library:** Mermaid<br/>\n**Status:** Specified\n\nPurpose: Show learners how a concept's label data (preferred label, alternate labels, chapter location) is mechanically transformed into textbook index entries, with no manual index-writing step.\n\nBloom Level: Apply (L3)\nBloom Verb: demonstrate, execute\n\nSteps (each is a clickable Mermaid node with a `click` directive opening an infobox):\n1. Start: \"Concept Record\" — hover/click text: \"A graph node with a preferred label, alternate labels, a definition, and the chapter(s) where it appears — e.g., preferred label 'Bipartite Graph', alternate label 'Two-Part Graph', chapter 4.\"\n2. Process: \"Sort Alphabetically by Preferred Label\" — click text: \"All preferred labels across the graph are sorted A-to-Z to form the index's primary entries.\"\n3. Process: \"Attach Chapter/Page Numbers\" — click text: \"Each preferred label entry lists every chapter where the concept is covered or referenced.\"\n4. Process: \"Generate Cross-References\" — click text: \"Every alternate label becomes its own alphabetized index line reading 'See [preferred label]', so a reader searching under the synonym still finds the concept.\"\n5. End: \"Two-Part Graph, see Bipartite Graph\" and \"Bipartite Graph .......... 42\" — click text: \"The finished index contains both the canonical entry and its synonym cross-reference, generated automatically from the same label data.\"\n\nVisual style: top-to-bottom Mermaid flowchart, rectangles for process steps, rounded ends for start/end\n\nColor coding: gold for the source concept record, blue for processing steps, green for the two generated index lines\n\nMermaid click directive requirement: every node (Start, three Process nodes, End) must have a `click NodeId call showInfo(\"...\")`-style directive wired to an infobox so the diagram meets this book's interactivity requirement.\n\nImplementation: Mermaid flowchart with JavaScript click callbacks rendering definitions in a side infobox"
+}

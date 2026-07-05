@@ -1,0 +1,22 @@
+{
+  "title": "Search and Focus Navigation Console",
+  "description": "Given a 60-node sample learning graph and a search box, the learner can use type-ahead filtering to locate a specific concept by partial label match and trigger focus node navigation to center it, then double-click it to open the node inspector and read its full properties.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "search-focus-navigation-console",
+  "library": "vis-network",
+  "bloomLevel": "Apply (L3)",
+  "bloomVerb": "use, demonstrate, apply",
+  "completion_status": "scaffold",
+  "chapter_number": 14,
+  "chapter_title": "Interactive Navigation in Vis.js",
+  "chapter_dir": "14-interactive-navigation-visjs"
+}

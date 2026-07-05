@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Force-Directed Layout Explorer</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Network canvas - background layer -->
+        <div id="network"></div>
+
+        <!-- Title at top center -->
+        <div class="title">Force-Directed Layout Explorer</div>
+
+        <!-- Legend in upper left -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color color-node"></div>
+                <span><strong>Concept node</strong></span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-line"></div>
+                <span><strong>Dependency edge</strong> (arrow &rarr; prerequisite)</span>
+            </div>
+        </div>
+
+        <!-- Settling indicator -->
+        <div class="settling-indicator" id="settling-indicator">
+            <div class="spinner"></div>
+            <span>Settling&hellip;</span>
+        </div>
+
+        <!-- Right control panel -->
+        <div class="right-panel">
+            <div class="control-block">
+                <div class="control-row">
+                    <label for="repulsion">Repulsion Strength</label>
+                    <span class="value-badge" id="repulsion-val">-8000</span>
+                </div>
+                <input type="range" id="repulsion" min="-20000" max="-1000" step="100" value="-8000">
+
+                <div class="control-row">
+                    <label for="springLength">Spring Length</label>
+                    <span class="value-badge" id="springLength-val">150</span>
+                </div>
+                <input type="range" id="springLength" min="50" max="300" step="5" value="150">
+
+                <div class="control-row">
+                    <label for="springStrength">Spring Strength</label>
+                    <span class="value-badge" id="springStrength-val">0.08</span>
+                </div>
+                <input type="range" id="springStrength" min="0.01" max="0.5" step="0.01" value="0.08">
+
+                <div class="button-row">
+                    <button class="btn btn-primary" id="resettle-btn">Re-Settle Graph</button>
+                    <button class="btn btn-secondary" id="reset-btn">Reset to Defaults</button>
+                </div>
+            </div>
+
+            <div class="infobox" id="infobox">
+                <div class="infobox-title">What changed</div>
+                <div class="infobox-text" id="infobox-text">
+                    Drag a slider to change the physics forces, then watch the graph re-settle into a new resting shape.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="force-directed-layout-explorer.js"></script>
+</body>
+</html>

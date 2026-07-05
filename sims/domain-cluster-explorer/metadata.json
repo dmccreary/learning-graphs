@@ -1,0 +1,22 @@
+{
+  "title": "Domain Cluster Explorer",
+  "description": "Given a 40-node sample learning graph with a `domain` property on every node spanning 4 domains, the learner can apply domain-based clustering to collapse the graph into 4 composite nodes, then expand any single composite node back to its members by double-clicking it.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "domain-cluster-explorer",
+  "library": "vis-network",
+  "bloomLevel": "Apply (L3)",
+  "bloomVerb": "demonstrate, apply, use",
+  "completion_status": "scaffold",
+  "chapter_number": 15,
+  "chapter_title": "Graph Clustering and Editing Tools",
+  "chapter_dir": "15-graph-clustering-editing-tools"
+}

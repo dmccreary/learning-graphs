@@ -1,0 +1,22 @@
+{
+  "title": "Interactive Legend Filter",
+  "description": "Given a graph with nodes colored by taxonomy category, the learner can use a clickable legend to filter the visible node set and explain how the legend's colors map to the DataSet's category field.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "interactive-legend-filter",
+  "library": "vis-network",
+  "bloomLevel": "Apply (L3)",
+  "bloomVerb": "demonstrate, use",
+  "completion_status": "scaffold",
+  "chapter_number": 11,
+  "chapter_title": "Vis.js Fundamentals and Node Styling",
+  "chapter_dir": "11-visjs-fundamentals-node-styling"
+}

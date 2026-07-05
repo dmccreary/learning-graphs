@@ -1,0 +1,22 @@
+{
+  "title": "Graph Editor with Live Validation",
+  "description": "Given a 15-node starter graph with the manipulation toolbar enabled, the learner can add a new node, connect or intentionally leave it disconnected, and assess the resulting validation panel to judge whether the graph is structurally sound and free of orphaned nodes.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "graph-editor-live-validation",
+  "library": "vis-network",
+  "bloomLevel": "Evaluate (L5)",
+  "bloomVerb": "assess, validate, justify",
+  "completion_status": "scaffold",
+  "chapter_number": 15,
+  "chapter_title": "Graph Clustering and Editing Tools",
+  "chapter_dir": "15-graph-clustering-editing-tools"
+}

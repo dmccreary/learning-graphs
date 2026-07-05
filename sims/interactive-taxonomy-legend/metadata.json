@@ -1,0 +1,22 @@
+{
+  "title": "Interactive Taxonomy Legend and Filter",
+  "description": "Given a color-coded concept graph and its legend, the learner can correctly identify which taxonomy category any node belongs to and predict which nodes will disappear when a given legend entry is toggled off.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "interactive-taxonomy-legend",
+  "library": "vis-network",
+  "bloomLevel": "Understand (L2)",
+  "bloomVerb": "interpret, classify",
+  "completion_status": "scaffold",
+  "chapter_number": 4,
+  "chapter_title": "Concept Taxonomies and Ontologies",
+  "chapter_dir": "04-concept-taxonomies-ontologies"
+}

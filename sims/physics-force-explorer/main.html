@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Physics Force Explorer</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Network canvas - full width/height background layer -->
+        <div id="network"></div>
+
+        <!-- Title at top center -->
+        <div class="title">Physics Force Explorer</div>
+
+        <!-- Legend in upper left -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color color-hub"></div>
+                <span><strong>Hub</strong> &ndash; high degree</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-mid"></div>
+                <span><strong>Connector</strong> &ndash; medium degree</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-leaf"></div>
+                <span><strong>Leaf</strong> &ndash; degree 1</span>
+            </div>
+        </div>
+
+        <!-- Right panel with physics controls -->
+        <div class="right-panel">
+            <!-- Settled indicator -->
+            <div class="settled-box" id="settled-box">
+                <span class="settled-dot" id="settled-dot"></span>
+                <span id="settled-text">Settling&hellip;</span>
+            </div>
+
+            <!-- Physics controls -->
+            <div class="control-group">
+                <label class="control-label" for="solver-select">Solver</label>
+                <select id="solver-select">
+                    <option value="barnesHut">Barnes-Hut</option>
+                    <option value="forceAtlas2Based">ForceAtlas2</option>
+                    <option value="repulsion">Repulsion</option>
+                </select>
+
+                <label class="control-label" for="gravity-slider">
+                    <span id="gravity-name">Gravitational Constant</span>:
+                    <span class="control-value" id="gravity-value">-2000</span>
+                </label>
+                <input type="range" id="gravity-slider" min="-10000" max="-100" value="-2000" step="100">
+
+                <label class="control-label" for="central-slider">
+                    Central Gravity:
+                    <span class="control-value" id="central-value">0.30</span>
+                </label>
+                <input type="range" id="central-slider" min="0" max="1" value="0.3" step="0.01">
+            </div>
+
+            <!-- Buttons -->
+            <div class="button-row">
+                <button class="btn btn-primary" id="scatter-btn">Scatter Nodes</button>
+                <button class="btn btn-secondary" id="reset-btn">Reset to Defaults</button>
+            </div>
+
+            <!-- Help -->
+            <div class="status-panel">
+                <div class="status-title">Try This:</div>
+                <div class="status-text">
+                    <ul>
+                        <li>Raise <strong>repulsion</strong> to spread nodes apart</li>
+                        <li>Raise <strong>central gravity</strong> to pull the graph tighter</li>
+                        <li>Switch <strong>solvers</strong> to compare layouts on identical data</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="physics-force-explorer.js"></script>
+</body>
+</html>

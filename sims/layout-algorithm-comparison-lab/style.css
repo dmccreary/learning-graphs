@@ -1,0 +1,257 @@
+/* Layout Algorithm Comparison Lab - vis-network MicroSim
+   ====================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: aliceblue;
+}
+
+/* Container + network canvas ------------------------------------------ */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+#network {
+    width: 100%;
+    height: 100%;
+    background-color: aliceblue;
+}
+
+/* Title -------------------------------------------------------------- */
+.title {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: bold;
+    color: #1a3a6c;
+    background-color: rgba(240, 248, 255, 0.85);
+    padding: 3px 12px;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+/* Legend ------------------------------------------------------------- */
+.legend {
+    position: absolute;
+    top: 44px;
+    left: 10px;
+    padding: 6px 8px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin: 3px 0;
+    font-size: 11px;
+}
+
+.legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin-right: 6px;
+    border: 2px solid #333;
+    flex-shrink: 0;
+}
+
+.color-cluster-a { background-color: #4c8bf5; }
+.color-cluster-b { background-color: #34a853; }
+.color-bridge    { background-color: #fbbc04; }
+.color-pinned    { background-color: #ffffff; border-color: #d93025; }
+.pin-glyph { font-size: 11px; }
+
+/* Right panel -------------------------------------------------------- */
+.right-panel {
+    position: absolute;
+    top: 44px;
+    right: 10px;
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 10;
+}
+
+.panel-card {
+    background-color: rgba(255, 255, 255, 0.97);
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+}
+
+.panel-title {
+    font-weight: bold;
+    font-size: 13px;
+    color: #1a3a6c;
+    margin-bottom: 8px;
+}
+
+/* Toggle (Layout Mode) ---------------------------------------------- */
+.toggle-row {
+    display: flex;
+    gap: 0;
+    margin-bottom: 10px;
+    border: 2px solid #4c8bf5;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.toggle-btn {
+    flex: 1;
+    padding: 8px 6px;
+    font-size: 12px;
+    font-weight: bold;
+    border: none;
+    background-color: #ffffff;
+    color: #4c8bf5;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.toggle-btn.active {
+    background-color: #4c8bf5;
+    color: #ffffff;
+}
+
+.toggle-btn:not(.active):hover {
+    background-color: #e8f0fe;
+}
+
+/* Labelled selects --------------------------------------------------- */
+.ctl-label {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.ctl-label select {
+    display: block;
+    width: 100%;
+    margin-top: 4px;
+    padding: 6px;
+    font-size: 12px;
+    font-weight: normal;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.ctl-label.disabled {
+    color: #aaa;
+}
+
+.ctl-label select:disabled {
+    background-color: #f0f0f0;
+    color: #aaa;
+    cursor: not-allowed;
+}
+
+/* Buttons ------------------------------------------------------------ */
+.btn-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.btn {
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.btn-primary {
+    background-color: #4c8bf5;
+    color: white;
+}
+
+.btn-primary:hover { background-color: #3b78e7; }
+
+.btn-primary.active {
+    background-color: #d93025;
+}
+
+.btn-primary.active:hover { background-color: #c5221f; }
+
+.btn-secondary {
+    background-color: #757575;
+    color: white;
+}
+
+.btn-secondary:hover { background-color: #616161; }
+
+.status-line {
+    margin-top: 8px;
+    font-size: 11px;
+    color: #555;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Scenario card ------------------------------------------------------ */
+.scenario-card {
+    border-left: 4px solid #fbbc04;
+}
+
+.scenario-text {
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: #222;
+    min-height: 54px;
+    margin-bottom: 8px;
+}
+
+.btn-scenario {
+    width: 100%;
+    background-color: #fbbc04;
+    color: #333;
+}
+
+.btn-scenario:hover { background-color: #f0b400; }
+
+.scenario-hint {
+    margin-top: 8px;
+    font-size: 11px;
+    color: #777;
+    line-height: 1.4;
+}
+
+/* Responsive: stack the panel below the graph on narrow screens ------ */
+@media (max-width: 720px) {
+    .right-panel {
+        position: static;
+        width: auto;
+        margin: 8px;
+        top: auto;
+        right: auto;
+    }
+    .container {
+        height: auto;
+    }
+    #network {
+        height: 62vh;
+        min-height: 380px;
+    }
+    .title { font-size: 15px; }
+    .legend { font-size: 10px; }
+}

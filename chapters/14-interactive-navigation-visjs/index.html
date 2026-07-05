@@ -1,0 +1,2560 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Covers the interaction patterns that let a learner explore a rendered graph — tooltips, hover states, click and double-click events, a node inspector, and type-ahead search with focus navigation.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/learning-graphs/chapters/14-interactive-navigation-visjs/">
+      
+      
+        <link rel="prev" href="../13-physics-simulation-graph-layout/">
+      
+      
+        <link rel="next" href="../15-graph-clustering-editing-tools/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Interactive Navigation in Vis.js - Learning Graphs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-Z6JDD2PWQZ"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-Z6JDD2PWQZ",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-Z6JDD2PWQZ",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Interactive Navigation in Vis.js - Learning Graphs" >
+      
+        <meta  property="og:description"  content="Covers the interaction patterns that let a learner explore a rendered graph — tooltips, hover states, click and double-click events, a node inspector, and type-ahead search with focus navigation." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/learning-graphs/assets/images/social/chapters/14-interactive-navigation-visjs/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/learning-graphs/chapters/14-interactive-navigation-visjs/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Interactive Navigation in Vis.js - Learning Graphs" >
+      
+        <meta  name="twitter:description"  content="Covers the interaction patterns that let a learner explore a rendered graph — tooltips, hover states, click and double-click events, a node inspector, and type-ahead search with focus navigation." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/learning-graphs/assets/images/social/chapters/14-interactive-navigation-visjs/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#interactive-navigation-in-visjs" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Learning Graphs" class="md-header__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Learning Graphs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Interactive Navigation in Vis.js
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Learning Graphs" class="md-nav__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Learning Graphs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-foundations-of-concept-graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Foundations of Concept Graphs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-concept-labeling-metadata-standards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Concept Labeling and Metadata Standards
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-concept-dependencies-prerequisites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Concept Dependencies and Prerequisites
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-concept-taxonomies-ontologies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Concept Taxonomies and Ontologies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-graph-quality-validation-file-formats/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Learning Graph Quality, Validation, and File Formats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-blooms-taxonomy-learning-objectives/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Bloom's Taxonomy and Learning Objectives
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-learning-theories-instructional-design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Learning Theories and Instructional Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-cognitive-load-knowledge-space-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Cognitive Load and Knowledge Space Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-mastery-metacognition-sequencing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Mastery, Metacognition, and Instructional Sequencing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-assessment-feedback-quizzes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Assessment, Feedback, and Quizzes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-visjs-fundamentals-node-styling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Vis.js Fundamentals and Node Styling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-edge-styling-visual-properties/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Edge Styling and Visual Properties
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-physics-simulation-graph-layout/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Physics Simulation and Graph Layout
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    14. Interactive Navigation in Vis.js
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    14. Interactive Navigation in Vis.js
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hover-state-the-foundation-of-every-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hover State: The Foundation of Every Interaction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-tooltip-and-edge-tooltip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Tooltip and Edge Tooltip
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Node Tooltip and Edge Tooltip">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-hover-tooltip-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Hover Tooltip Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#click-event-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Click Event Handling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#double-click-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Double-Click Event
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-inspector" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Inspector
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-url-property-and-clickable-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node URL Property and Clickable Node
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search-feature-graph-finding-a-needle-in-a-large-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search Feature (Graph): Finding a Needle in a Large Graph
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-ahead-filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Type-Ahead Filtering
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#focus-node-navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Focus Node Navigation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Focus Node Navigation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-search-and-focus-navigation-console" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Search and Focus Navigation Console
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bringing-the-interaction-layer-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bringing the Interaction Layer Together
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-graph-clustering-editing-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Graph Clustering and Editing Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-personalization-adaptive-learning-paths/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Personalization and Adaptive Learning Paths
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-intelligent-agents-generative-ai/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Intelligent Agents and Generative AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-intelligent-textbooks-microsims-deployment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Intelligent Textbooks, MicroSims, and Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-skill-generate-learning-graph/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Using a Skill to Generate a Learning Graph
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../case-studies/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Case Studies
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../vis/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Vis.js Tutorial
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Sample Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How We Built This Site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student-volunteers-wanted/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Student Volunteers Wanted
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hover-state-the-foundation-of-every-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hover State: The Foundation of Every Interaction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-tooltip-and-edge-tooltip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Tooltip and Edge Tooltip
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Node Tooltip and Edge Tooltip">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-hover-tooltip-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Hover Tooltip Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#click-event-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Click Event Handling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#double-click-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Double-Click Event
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-inspector" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Inspector
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-url-property-and-clickable-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node URL Property and Clickable Node
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search-feature-graph-finding-a-needle-in-a-large-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search Feature (Graph): Finding a Needle in a Large Graph
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-ahead-filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Type-Ahead Filtering
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#focus-node-navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Focus Node Navigation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Focus Node Navigation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-search-and-focus-navigation-console" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Search and Focus Navigation Console
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bringing-the-interaction-layer-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bringing the Interaction Layer Together
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/learning-graphs/blob/master/docs/chapters/14-interactive-navigation-visjs/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="interactive-navigation-in-visjs">Interactive Navigation in Vis.js</h1>
+<h2 id="summary">Summary</h2>
+<p>Covers the interaction patterns that let a learner explore a rendered graph — tooltips, hover states, click and double-click events, a node inspector, and type-ahead search with focus navigation.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 11 concepts from the learning graph:</p>
+<ol>
+<li>Hover State</li>
+<li>Node Tooltip</li>
+<li>Edge Tooltip</li>
+<li>Click Event Handling</li>
+<li>Double-Click Event</li>
+<li>Node Inspector</li>
+<li>Node URL Property</li>
+<li>Clickable Node</li>
+<li>Search Feature (Graph)</li>
+<li>Type-Ahead Filtering</li>
+<li>Focus Node Navigation</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../13-physics-simulation-graph-layout/">Chapter 13: Physics Simulation and Graph Layout</a></li>
+</ul>
+<hr />
+<div class="admonition mascot-welcome">
+<p class="admonition-title">From Looking to Exploring</p>
+<p><img alt="Axiom waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+Let's connect the concepts! Chapters 11 through 13 taught you how a learning graph looks and how it settles into place. But a diagram a learner cannot touch is just a picture. This chapter turns your rendered graph into something a person can actually explore — hovering for definitions, clicking to drill in, and searching by name to jump straight to the concept they care about.</p>
+</div>
+<p>Every learning graph in this book is, structurally, the same object: a <code>DataSet</code> of nodes, a <code>DataSet</code> of edges, and a <code>physics</code>-and-<code>layout</code>-configured <code>vis.Network</code> binding them to a canvas. What has been missing until now is the layer that makes that object <em>interactive navigation</em> rather than a static rendering — the events vis-network fires when a learner moves the mouse, presses it down, or releases it, and the code an author writes to respond to those events. This chapter works through that event layer end to end, starting with the simplest possible interaction (the mouse resting over a node) and building toward a full search-and-focus system that lets a learner type a concept name and jump straight to it in a 300-node graph.</p>
+<h2 id="hover-state-the-foundation-of-every-interaction">Hover State: The Foundation of Every Interaction</h2>
+<p>The <strong>Hover State</strong> is the condition vis-network enters when a learner's mouse pointer is positioned over a node or edge without clicking, and it is the foundation every other interaction in this chapter builds on — before a learner can click something, double-click it, or search for it, they first need a way to discover <em>what it is</em> without committing to an action. Vis-network tracks hover state automatically and exposes it through two events: <code>hoverNode</code>, which fires when the pointer enters a node's boundary, and <code>blurNode</code>, which fires when the pointer leaves it. Edges have parallel <code>hoverEdge</code> and <code>blurEdge</code> events.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">network</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;hoverNode&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">params</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Hovering over node:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">params</span><span class="p">.</span><span class="nx">node</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">network</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;blurNode&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">params</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Left node:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">params</span><span class="p">.</span><span class="nx">node</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<p>The <code>params.node</code> value passed to the <code>hoverNode</code> callback is the ID of the node currently under the pointer — the same ID used throughout this book's node JSON objects (<code>{"id": 5, "label": "Ecology"}</code>). By itself, tracking hover state does nothing visible; it is a signal an author listens for and then decides what to do with. The single most common thing to do with it is show a tooltip, which is the very next concept.</p>
+<h2 id="node-tooltip-and-edge-tooltip">Node Tooltip and Edge Tooltip</h2>
+<p>A <strong>Node Tooltip</strong> is a small popup box that appears near a node while it is in hover state, displaying additional information about that node — typically a definition, a description, or metadata that would clutter the diagram if shown permanently as part of the node's label. Vis-network provides a built-in tooltip mechanism through the <code>title</code> property on a node's JSON object, which requires no manual <code>hoverNode</code> event handling at all: set <code>title</code> to a plain string or an HTML string, and vis-network automatically shows it near the cursor whenever that node enters hover state.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Barnes-Hut Solver&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Approximates repulsion forces by clustering distant nodes, reducing per-frame calculation from O(n²) to O(n log n).&quot;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Because <code>title</code> accepts HTML, a learning-graph author can format a tooltip with the same rigor as a glossary entry — bold the term, add a line break, even include a short "see also" link — rather than being limited to a single line of plain text.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Barnes-Hut Solver&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;b&gt;Barnes-Hut Solver&lt;/b&gt;&lt;br&gt;Vis-network&#39;s default physics solver. Approximates repulsion forces for O(n log n) performance.&quot;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>An <strong>Edge Tooltip</strong> works identically, but on an edge's <code>title</code> property instead of a node's, appearing when the mouse hovers over the edge's line rather than a node's shape. Edge tooltips are the natural place to explain <em>why</em> a dependency exists — something a bare arrowhead cannot communicate on its own.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">173</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">175</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Double-click handling requires a working click event listener to build on.&quot;</span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The following table summarizes the two tooltip types now that both have been explained in prose.</p>
+<table>
+<thead>
+<tr>
+<th>Tooltip Type</th>
+<th>JSON Property</th>
+<th>Appears On Hover Over</th>
+<th>Typical Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Node Tooltip</td>
+<td><code>title</code> (on a node object)</td>
+<td>A node's shape</td>
+<td>Concept definition, glossary text</td>
+</tr>
+<tr>
+<td>Edge Tooltip</td>
+<td><code>title</code> (on an edge object)</td>
+<td>An edge's line</td>
+<td>Explanation of the dependency relationship</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Helpful Tip</p>
+<p><img alt="Axiom giving a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+Because <code>title</code> accepts HTML, you can pull the exact wording from <code>docs/glossary.md</code> and paste it into a node's tooltip verbatim. That keeps your diagram's on-hover definitions and your written glossary from silently drifting apart as one gets edited and the other does not.</p>
+</div>
+<p>Before moving from hovering to clicking, it helps to see both together on one small graph — hovering to preview a definition, and, in the next section, clicking to commit to an action.</p>
+<h4 id="diagram-hover-tooltip-explorer">Diagram: Hover Tooltip Explorer</h4>
+<iframe src="../../sims/hover-tooltip-explorer/main.html" width="100%" height="522px" scrolling="no"></iframe>
+
+<details>
+<summary>Hover Tooltip Explorer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> hover-tooltip-explorer<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>Purpose: Let learners experience the difference between a node with no tooltip and a node with a well-formatted HTML tooltip, on a small sample graph, so hover state and tooltip content are directly observable rather than only described.</p>
+<p>Bloom Level: Understand (L2)
+Bloom Verb: explain, summarize, interpret</p>
+<p>Learning objective: Given a 10-node sample graph where half the nodes have <code>title</code> tooltips and half do not, the learner can explain what a Hover State is and interpret which nodes provide additional information on hover versus which do not.</p>
+<p>Canvas layout:
+- Left/top (70% width): drawing area showing a 10-node sample graph
+- Right/bottom (30% width or below on narrow screens): a status panel and a toggle control panel</p>
+<p>Visual elements:
+- 10 nodes styled per Chapter 11 conventions; 5 nodes have a small dotted outline indicating "has tooltip," 5 do not
+- A status readout that echoes the current hover state in plain text, e.g. "Hovering: Barnes-Hut Solver (tooltip available)" or "Hovering: nothing"
+- The built-in vis-network tooltip box itself, rendered natively near the cursor</p>
+<p>Interactive controls:
+- Checkbox: "Show which nodes have tooltips" (toggles the dotted-outline indicator)
+- Button: "Reset View"</p>
+<p>Default parameters:
+- Show-indicator checkbox: checked</p>
+<p>Behavior: Hovering any node fires <code>hoverNode</code>; the status panel updates via the event's <code>params.node</code> value. Nodes with a <code>title</code> property show vis-network's built-in tooltip automatically; nodes without one show nothing, making the contrast concrete. Leaving a node fires <code>blurNode</code> and clears the status panel back to "Hovering: nothing."</p>
+<p>Canvas size: responsive, 100% width, 520px height, must reflow on window resize</p>
+<p>Implementation: vis-network JavaScript library; <code>hoverNode</code>/<code>blurNode</code> event listeners update a plain HTML status panel; tooltips rendered via each node's <code>title</code> property</p>
+</details>
+<h2 id="click-event-handling">Click Event Handling</h2>
+<p>Hovering previews information without commitment. <strong>Click Event Handling</strong> is the mechanism by which vis-network detects a learner pressing and releasing the mouse button on a node, edge, or empty canvas area, and reports that action through the <code>click</code> event, which fires on every single click regardless of what — if anything — was clicked.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">network</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">params</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">nodes</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">nodeId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">params</span><span class="p">.</span><span class="nx">nodes</span><span class="p">[</span><span class="mf">0</span><span class="p">];</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Clicked node:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">nodeId</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">edges</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Clicked edge:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">params</span><span class="p">.</span><span class="nx">edges</span><span class="p">[</span><span class="mf">0</span><span class="p">]);</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Clicked empty canvas&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<p>The <code>params</code> object passed to a <code>click</code> handler carries two arrays worth understanding closely: <code>params.nodes</code> is an array of node IDs under the click location (empty if the click missed every node), and <code>params.edges</code> is the parallel array for edges. Checking <code>params.nodes.length &gt; 0</code> first, before falling back to <code>params.edges</code>, reflects the fact that a click can register on a node and the edges beneath it simultaneously in a dense layout — a pattern also visible in the <code>dragEnd</code> handler Chapter 13 used for node pinning, which reads <code>params.nodes</code> the same way.</p>
+<p>Click event handling is the single most important interaction pattern in this chapter, because every subsequent concept — double-click, the node inspector, and clickable nodes with URLs — is built directly on top of it. A learning-graph author rarely uses the raw <code>click</code> event alone in a finished MicroSim; instead, it becomes the entry point that decides which of several richer behaviors to trigger next.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Key Insight</p>
+<p><img alt="Axiom thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+Notice that <code>click</code> fires even when nothing was clicked — an empty-canvas click still triggers the event with both arrays empty. That third branch matters in practice: it is the natural place to write "clicking empty space clears the current selection," a small piece of interaction hygiene that keeps a diagram from feeling stuck on whatever was last selected.</p>
+</div>
+<h2 id="double-click-event">Double-Click Event</h2>
+<p>A <strong>Double-Click Event</strong> is a distinct vis-network event, fired through <code>doubleClick</code>, that reports two rapid clicks on the same location rather than one — and, critically, it is not simply two <code>click</code> events happening close together. Vis-network debounces click detection internally: a <code>click</code> event still fires on the first click of a double-click, but a fast second click within the platform's double-click interval upgrades the interaction to a separate <code>doubleClick</code> event with its own listener.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">network</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;doubleClick&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">params</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">nodes</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">nodeId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">params</span><span class="p">.</span><span class="nx">nodes</span><span class="p">[</span><span class="mf">0</span><span class="p">];</span>
+<span class="w">    </span><span class="nx">openNodeInspector</span><span class="p">(</span><span class="nx">nodeId</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<p>The convention this book follows — and the one most learning-graph diagrams follow generally — is to reserve single-click for lightweight actions like selection or highlighting a node's neighborhood, and reserve double-click for a heavier action that opens more detail. That heavier action, in the code example above, is a call to <code>openNodeInspector()</code>, a function this chapter defines next.</p>
+<h2 id="node-inspector">Node Inspector</h2>
+<p>The <strong>Node Inspector</strong> is a UI panel, typically a sidebar or modal, that displays a node's complete set of properties and metadata when a learner double-clicks it, going well beyond what a tooltip can show. Where a Node Tooltip is designed for a quick, transient glance — a sentence or two, visible only while hovering — a node inspector is designed for sustained reading: full definitions, a list of prerequisite and dependent concepts, taxonomy category, and any other metadata a learning graph's node JSON carries.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">openNodeInspector</span><span class="p">(</span><span class="nx">nodeId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nodes</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">nodeId</span><span class="p">);</span>
+<span class="w">  </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;inspector-title&#39;</span><span class="p">).</span><span class="nx">innerText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">label</span><span class="p">;</span>
+<span class="w">  </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;inspector-body&#39;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">title</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;No description available.&#39;</span><span class="p">;</span>
+<span class="w">  </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;inspector-panel&#39;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;block&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>This function reads the clicked node's full record out of the <code>nodes</code> DataSet using <code>nodes.get(nodeId)</code> — the same <code>DataSet.get()</code> method used for lookups throughout earlier chapters — and writes its <code>label</code> and <code>title</code> fields into a panel that was hidden until this moment. Unlike a tooltip, which vis-network renders and positions automatically, a node inspector is ordinary HTML/CSS/JavaScript that an author builds and controls directly, which is exactly what makes it suitable for richer content: a scrollable list of prerequisites, a taxonomy badge, or a link to the concept's full glossary entry.</p>
+<p>The following list distinguishes the three "learn more about this node" mechanisms covered so far, now that all three have been explained.</p>
+<ul>
+<li><strong>Node Tooltip</strong> — automatic, vis-network-rendered, appears on hover, holds a sentence or two</li>
+<li><strong>Node Inspector</strong> — author-built panel, appears on double-click, holds a full record of properties</li>
+<li><strong>Console logging</strong> (seen in the <code>click</code> example above) — developer-facing only, not a learner-facing UI element at all</li>
+</ul>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Watch Out</p>
+<p><img alt="Axiom warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+A node inspector that opens on single-click instead of double-click will fight with every other single-click interaction you build later in this chapter — selection highlighting, focus navigation, and search results all expect a plain click to mean "select," not "open a full panel." Reserve double-click for the inspector and your interaction model stays predictable as you add more features.</p>
+</div>
+<h2 id="node-url-property-and-clickable-node">Node URL Property and Clickable Node</h2>
+<p>Not every "learn more" action should stay inside the diagram. Sometimes the right destination for a click is an entirely different page — a full chapter, an external reference, or a glossary entry with its own URL.</p>
+<p>The <strong>Node URL Property</strong> is a custom field an author adds to a node's JSON object — commonly named <code>url</code>, though vis-network does not reserve this key itself — that stores a link to more information about the concept the node represents, such as its chapter section or glossary entry.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">174</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Node Inspector&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A UI panel showing a node&#39;s full properties on double-click.&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;../14-interactive-navigation-visjs/index.md#node-inspector&quot;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Because <code>url</code> is not a property vis-network interprets automatically the way it interprets <code>title</code>, an author must write a click handler that reads it and acts on it — which is exactly what makes a <strong>Clickable Node</strong> possible. A Clickable Node is a node whose click handler checks for a <code>url</code> property and, when present, navigates the browser to that address, turning the graph itself into a navigational index for the surrounding textbook.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">network</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">params</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">nodes</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nodes</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">nodes</span><span class="p">[</span><span class="mf">0</span><span class="p">]);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">url</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">url</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<p>This handler extends the plain <code>click</code> event pattern from earlier in the chapter: instead of only logging the clicked node's ID, it fetches the node's full record with <code>nodes.get()</code> and checks whether a <code>url</code> field exists before navigating. Nodes without a <code>url</code> property simply do nothing extra on click — they fall through safely, which means an author can add <code>url</code> to only the nodes that need it (typically the ones with a corresponding chapter section) without breaking the rest of the graph.</p>
+<table>
+<thead>
+<tr>
+<th>Interaction Layer</th>
+<th>Trigger</th>
+<th>Destination</th>
+<th>Property Used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Node Tooltip</td>
+<td>Hover</td>
+<td>Popup box, stays on page</td>
+<td><code>title</code></td>
+</tr>
+<tr>
+<td>Node Inspector</td>
+<td>Double-click</td>
+<td>Author-built panel, stays on page</td>
+<td><code>title</code> (and other node fields)</td>
+</tr>
+<tr>
+<td>Clickable Node</td>
+<td>Single click</td>
+<td>Navigates to a new page or anchor</td>
+<td><code>url</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition mascot-encourage">
+<p class="admonition-title">You Have Got This</p>
+<p><img alt="Axiom encouraging" class="mascot-admonition-img" src="../../img/mascot/encouraging.png" />
+If it feels odd that vis-network lets you invent a property like <code>url</code> out of thin air, remember that a node's JSON object is just a plain JavaScript object underneath — vis-network only reads the keys it specifically documents (<code>id</code>, <code>label</code>, <code>title</code>, <code>color</code>, and so on), and quietly ignores everything else. That is exactly what makes it safe to attach your own custom metadata for a click handler to read later.</p>
+</div>
+<h2 id="search-feature-graph-finding-a-needle-in-a-large-graph">Search Feature (Graph): Finding a Needle in a Large Graph</h2>
+<p>Hovering, clicking, and double-clicking all assume a learner has already found the node they care about on screen — a reasonable assumption for the 10 to 30-node sample graphs used throughout this book's MicroSims, but not for a full 300-concept learning graph rendered on one canvas. The remaining three concepts in this chapter solve that discovery problem.</p>
+<p>A <strong>Search Feature (Graph)</strong> is a text input, positioned above or beside the canvas, that lets a learner type part of a concept's label and see matching nodes identified within the full graph, rather than visually scanning the entire diagram by eye. A basic search feature needs only two ingredients already familiar from earlier chapters: the <code>nodes</code> DataSet to search against, and its <code>get()</code> method, extended here with a filter function instead of a single ID.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">searchNodes</span><span class="p">(</span><span class="nx">query</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">lowerQuery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">query</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">();</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">nodes</span><span class="p">.</span><span class="nx">get</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">filter</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">label</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">().</span><span class="nx">includes</span><span class="p">(</span><span class="nx">lowerQuery</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Passing a <code>filter</code> function to <code>DataSet.get()</code> — rather than a specific ID — returns every node whose <code>label</code> contains the search text, case-insensitively. That returned array is the raw material for everything a search feature needs to display: a dropdown of matches, a highlighted subset of nodes on the canvas, or, as the next section covers, a jump directly to a single selected result.</p>
+<h2 id="type-ahead-filtering">Type-Ahead Filtering</h2>
+<p><strong>Type-Ahead Filtering</strong> is the refinement of a basic search feature that re-runs the search on every keystroke rather than waiting for a learner to press Enter or click a search button, producing a live-updating list of matches as the query is typed — the same interaction pattern used by nearly every modern search box, from a phone's contacts app to a code editor's "go to file" command.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;search-box&#39;</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">matches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">searchNodes</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">updateSuggestionList</span><span class="p">(</span><span class="nx">matches</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<p>This listener attaches to the search input's <code>input</code> event, which fires on every keystroke — as opposed to <code>change</code>, which would only fire once the input loses focus. Each keystroke re-runs the <code>searchNodes()</code> function defined above and passes the results to <code>updateSuggestionList()</code>, an author-written function that renders the matches as a dropdown list beneath the search box. Type-ahead filtering earns its value precisely because a learner searching a 300-node graph rarely knows the exact spelling of a concept label; seeing live-narrowing results as they type — "Barn" narrowing to "Barnes-Hut Solver" — is far more forgiving than requiring an exact match before showing any feedback at all.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Helpful Tip</p>
+<p><img alt="Axiom giving a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+On a large learning graph, running <code>searchNodes()</code> on every keystroke is cheap — a single pass through a DataSet's <code>filter</code> is fast even at a few hundred nodes — so you rarely need to add debouncing or throttling the way you might for a network request. Type-ahead search against an in-memory DataSet is one of the few places in this book where the simplest possible implementation is also the right one.</p>
+</div>
+<h2 id="focus-node-navigation">Focus Node Navigation</h2>
+<p>A list of matching nodes is only useful if selecting one actually moves the learner's attention there. <strong>Focus Node Navigation</strong> is the action of programmatically panning and zooming the canvas so a specific node becomes centered and clearly visible, triggered after a learner selects a result from type-ahead search (or, just as usefully, after any other event that names a specific node of interest — a link from an external page, or a "jump to prerequisite" button inside a node inspector).</p>
+<p>Vis-network provides this capability through the <code>network.focus()</code> method, which accepts a node ID and a configuration object controlling how the camera moves.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">focusOnNode</span><span class="p">(</span><span class="nx">nodeId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">network</span><span class="p">.</span><span class="nx">focus</span><span class="p">(</span><span class="nx">nodeId</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">scale</span><span class="o">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">animation</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">duration</span><span class="o">:</span><span class="w"> </span><span class="mf">500</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">easingFunction</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;easeInOutQuad&#39;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="w">  </span><span class="nx">network</span><span class="p">.</span><span class="nx">selectNodes</span><span class="p">([</span><span class="nx">nodeId</span><span class="p">]);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The <code>scale</code> parameter sets the zoom level the canvas settles at once focused — <code>1.0</code> is the network's default zoom, while a smaller value like <code>0.5</code> would zoom out to also show more of the surrounding graph context around the focused node. The <code>animation</code> object, with its <code>duration</code> (in milliseconds) and <code>easingFunction</code>, controls whether the camera jumps instantly to the new position or glides there smoothly; a smooth animated pan is almost always the better choice for a search result, because an instant jump can disorient a learner who loses track of where in the graph they landed. The final line, <code>network.selectNodes([nodeId])</code>, visually marks the focused node as selected using vis-network's built-in selection highlighting, giving the learner a second visual confirmation — beyond simply being centered on screen — of exactly which node their search found.</p>
+<p>Type-ahead filtering and focus node navigation combine into the complete search experience this chapter has been building toward: type a few letters, see live-narrowing suggestions, click one, and watch the camera glide to that exact concept. The MicroSim below implements that full pipeline on a larger sample graph, so the payoff of everything in this chapter is something you can try directly.</p>
+<h4 id="diagram-search-and-focus-navigation-console">Diagram: Search and Focus Navigation Console</h4>
+<iframe src="../../sims/search-focus-navigation-console/main.html" width="100%" height="602px" scrolling="no"></iframe>
+
+<details>
+<summary>Search and Focus Navigation Console</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> search-focus-navigation-console<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>Purpose: Give learners hands-on practice with the full navigation pipeline covered in this chapter — hover tooltips, click selection, double-click inspector, and type-ahead search with focus navigation — on a single graph large enough (60 nodes) that search is genuinely useful rather than a novelty.</p>
+<p>Bloom Level: Apply (L3)
+Bloom Verb: use, demonstrate, apply</p>
+<p>Learning objective: Given a 60-node sample learning graph and a search box, the learner can use type-ahead filtering to locate a specific concept by partial label match and trigger focus node navigation to center it, then double-click it to open the node inspector and read its full properties.</p>
+<p>Canvas layout:
+- Top: search input box with a live-updating suggestion dropdown beneath it
+- Left/center (75% width): drawing area showing the 60-node sample graph, styled per Chapter 11 conventions with taxonomy-based node coloring
+- Right (25% width; moves below canvas on narrow screens): node inspector panel, hidden until a node is double-clicked</p>
+<p>Visual elements:
+- 60 nodes and roughly 75 edges forming a graph with realistic learning-graph structure (a few hub nodes, several prerequisite chains, some leaf concepts)
+- Every node has a <code>title</code> tooltip and a <code>url</code> placeholder property
+- A status line beneath the search box confirming the current hover/selection state, e.g. "3 matches for 'grav'" or "Focused: Central Gravity"</p>
+<p>Interactive controls:
+- Text input: search box with type-ahead filtering (updates on every keystroke)
+- Dropdown/list: clickable suggestion results appearing beneath the search box as the learner types
+- Node inspector panel: opens on double-click, closes via an "X" button
+- Button: "Reset View" (clears search, closes inspector, re-fits the full graph)</p>
+<p>Default parameters:
+- Search box: empty
+- Node inspector: hidden</p>
+<p>Behavior: Typing in the search box calls a <code>filter</code>-based <code>nodes.get()</code> search on every <code>input</code> event and renders matches in the suggestion dropdown. Clicking a suggestion calls <code>network.focus()</code> with a 500ms animated pan/zoom and <code>network.selectNodes()</code> to highlight it, per this chapter's <code>focusOnNode()</code> example. Hovering any node shows its built-in tooltip. Double-clicking any node opens the node inspector panel showing its label, title text, and any prerequisite/dependent relationships found by scanning the edges DataSet. Single-clicking empty canvas closes the inspector and clears selection.</p>
+<p>Canvas size: responsive, 100% width, 600px height, must reflow on window resize</p>
+<p>Implementation: vis-network JavaScript library; DataSet <code>filter</code>-based search; <code>network.focus()</code> and <code>network.selectNodes()</code> for navigation; <code>hoverNode</code>, <code>click</code>, and <code>doubleClick</code> event listeners; node inspector built with standard HTML/CSS panel toggled via <code>style.display</code></p>
+</details>
+<h2 id="bringing-the-interaction-layer-together">Bringing the Interaction Layer Together</h2>
+<p>With all eleven concepts now explained individually, it helps to see how they lay on top of one another as a single stack, from the lightest-weight interaction to the heaviest.</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Event</th>
+<th>Learner Action</th>
+<th>What Happens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>hoverNode</code> / <code>hoverEdge</code></td>
+<td>Rest pointer over element</td>
+<td>Hover State begins; Node Tooltip or Edge Tooltip appears</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>click</code></td>
+<td>Single click</td>
+<td>Selection, or navigation if a Node URL Property is present (Clickable Node)</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>doubleClick</code></td>
+<td>Two rapid clicks</td>
+<td>Node Inspector opens with full properties</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>input</code> on search box</td>
+<td>Typing</td>
+<td>Type-Ahead Filtering narrows a Search Feature's results live</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Selecting a search result</td>
+<td>Click a suggestion</td>
+<td>Focus Node Navigation pans and zooms to center that node</td>
+</tr>
+</tbody>
+</table>
+<p>Reading the table top to bottom traces exactly the order this chapter presented these concepts in, and that order is not arbitrary — each layer depends on the one above it. Type-ahead filtering would have nothing to filter without the underlying <code>nodes</code> DataSet search from earlier chapters; focus navigation would have no purpose without a search feature to produce a specific node ID to focus on; and the node inspector would have no data to display without click event handling delivering a node ID in the first place. What began, back in Chapter 11, as a static rendering of nodes and edges has become, over these last four chapters, a fully navigable, explorable interface — which is exactly the foundation the next chapter builds on when it turns individual graph views into complete, publishable learning-graph pages.</p>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li><strong>Hover State</strong> is the mouse-resting condition vis-network tracks via <code>hoverNode</code>/<code>blurNode</code>, and it underlies both the <strong>Node Tooltip</strong> and <strong>Edge Tooltip</strong>, which use a node's or edge's <code>title</code> property to show information automatically on hover.</li>
+<li><strong>Click Event Handling</strong> reads <code>params.nodes</code> and <code>params.edges</code> from the <code>click</code> event to determine what, if anything, was clicked — the foundation every richer interaction in this chapter is built on.</li>
+<li>A <strong>Double-Click Event</strong>, fired through <code>doubleClick</code>, is distinct from two rapid single clicks and is the conventional trigger for opening a <strong>Node Inspector</strong> — an author-built panel showing a node's complete properties.</li>
+<li>A <strong>Node URL Property</strong> (commonly <code>url</code>) is a custom JSON field that, combined with a click handler, turns a node into a <strong>Clickable Node</strong> that navigates to another page or anchor.</li>
+<li>A <strong>Search Feature (Graph)</strong> filters the <code>nodes</code> DataSet by label text; <strong>Type-Ahead Filtering</strong> re-runs that search on every keystroke for live-narrowing results.</li>
+<li><strong>Focus Node Navigation</strong>, implemented through <code>network.focus()</code>, pans and zooms the canvas to center a specific node — the payoff step that makes search actually useful on a large graph.</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Well Done!</p>
+<p><img alt="Axiom celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png" />
+Pause and appreciate your progress — your learning graph can now be hovered, clicked, double-clicked, searched, and navigated, not just admired from a distance. Let's connect the concepts, next by turning everything you have built across Chapters 11 through 14 into complete, shareable graph views!</p>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../13-physics-simulation-graph-layout/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 13. Physics Simulation and Graph Layout">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                13. Physics Simulation and Graph Layout
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../15-graph-clustering-editing-tools/" class="md-footer__link md-footer__link--next" aria-label="Next: 15. Graph Clustering and Editing Tools">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                15. Graph Clustering and Editing Tools
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

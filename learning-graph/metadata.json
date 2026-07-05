@@ -1,0 +1,10 @@
+{
+  "title": "Learning Graphs: The Key to Intelligent Textbooks",
+  "description": "A learning graph covering the data structures, standards, and workflows used to design, validate, visualize, and generate interactive intelligent textbooks — concept dependency graphs (CDGs), taxonomies, generative-AI concept enumeration, vis.js visualization, and the learning-science foundations that justify DAG-based instructional sequencing.",
+  "creator": "Dan McCreary",
+  "date": "2026-07-03",
+  "version": "1.0",
+  "format": "Learning Graph JSON v1.0",
+  "schema": "https://raw.githubusercontent.com/dmccreary/learning-graphs/refs/heads/main/src/schema/learning-graph-schema.json",
+  "license": "CC BY-NC-SA 4.0 DEED"
+}

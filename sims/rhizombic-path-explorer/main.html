@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Linear Path vs. Rhizombic Exploration</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Title at top center -->
+        <div class="title">Linear Path vs. Rhizombic Exploration</div>
+
+        <!-- Two side-by-side panels -->
+        <div class="panels">
+            <!-- LEFT: Linear Path panel -->
+            <div class="panel">
+                <div class="panel-header panel-header-linear">Linear Path</div>
+                <div id="network-linear" class="network"></div>
+            </div>
+
+            <!-- RIGHT: Rhizombic Exploration panel -->
+            <div class="panel">
+                <div class="panel-header panel-header-rhizo">Rhizombic Exploration</div>
+                <div id="network-rhizo" class="network"></div>
+            </div>
+        </div>
+
+        <!-- Bottom control + caption bar (sibling of the network divs) -->
+        <div class="control-bar">
+            <button class="btn btn-primary" id="simulate-btn">Simulate a Curious Learner</button>
+            <button class="btn btn-secondary" id="reset-btn">Reset Highlights</button>
+            <div class="caption" id="caption">
+                Click a node on either side to trace its route(s). Hover any node for a definition.
+            </div>
+        </div>
+    </div>
+
+    <script src="rhizombic-path-explorer.js"></script>
+</body>
+</html>

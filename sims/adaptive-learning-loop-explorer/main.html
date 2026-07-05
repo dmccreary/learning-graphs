@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Adaptive Learning Loop Explorer</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            width: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ffffff;
+            color: #212529;
+            overflow-x: hidden;
+        }
+        #wrap {
+            width: 100%;
+            padding: 8px 12px 12px 12px;
+        }
+        h1 {
+            font-size: 20px;
+            color: #303f9f;
+            margin-bottom: 4px;
+        }
+        .subtitle {
+            font-size: 13px;
+            color: #6c757d;
+            margin-bottom: 8px;
+        }
+        #diagram {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background: aliceblue;
+            border-radius: 6px;
+            padding: 10px 6px;
+        }
+        #diagram .mermaid { width: 100%; }
+        #diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+
+        /* Selected-node highlight in gold (applied by JS) */
+        .node.selected > rect,
+        .node.selected > polygon,
+        .node.selected > circle {
+            fill: #ffc107 !important;
+            stroke: #b8860b !important;
+            stroke-width: 3px !important;
+        }
+        .node.selected text { fill: #212529 !important; }
+        .node { cursor: pointer; }
+
+        /* Animated "never terminates" loop arrow (edge from Repeat back to Present) */
+        .loop-edge path {
+            stroke-dasharray: 8 6;
+            animation: loopFlow 1s linear infinite;
+        }
+        @keyframes loopFlow { to { stroke-dashoffset: -14; } }
+
+        #infobox {
+            margin-top: 10px;
+            border: 1px solid #c5cae9;
+            border-left: 6px solid #3f51b5;
+            border-radius: 6px;
+            background: #f5f6ff;
+            padding: 12px 14px;
+            min-height: 84px;
+        }
+        #infobox .step-label {
+            font-size: 15px;
+            font-weight: bold;
+            color: #303f9f;
+            margin-bottom: 6px;
+        }
+        #infobox .step-text {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #333;
+        }
+        #infobox .hint { color: #6c757d; font-style: italic; }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <h1>Adaptive Learning Loop</h1>
+        <div class="subtitle">Click each stage to see what happens and which earlier-chapter mechanism powers it. The loop never ends.</div>
+        <div id="diagram">
+            <div class="mermaid" id="mermaid-graph"></div>
+        </div>
+        <div id="infobox">
+            <div class="step-label">The Adaptive Loop</div>
+            <div class="step-text hint">Click any stage in the cycle above. Adaptive learning repeats these four steps on every interaction &mdash; it is a continuous loop, not a one-time decision.</div>
+        </div>
+    </div>
+    <script src="adaptive-learning-loop-explorer.js"></script>
+</body>
+</html>

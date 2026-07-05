@@ -1,0 +1,14 @@
+{
+  "sim_id": "interactive-legend-filter",
+  "diagram_name": "Interactive Legend Filter",
+  "chapter_number": 11,
+  "chapter_title": "Vis.js Fundamentals and Node Styling",
+  "chapter_dir": "11-visjs-fundamentals-node-styling",
+  "library": "vis-network",
+  "bloom_level": "Apply (L3)",
+  "bloom_verb": "demonstrate, use",
+  "learning_objective": "Given a graph with nodes colored by taxonomy category, the learner can use a clickable legend to filter the visible node set and explain how the legend's colors map to the DataSet's category field.",
+  "completion_status": "specified",
+  "extracted_date": "2026-07-03",
+  "specification": "Type: microsim\n**sim-id:** interactive-legend-filter<br/>\n**Library:** vis-network<br/>\n**Status:** Specified\n\nPurpose: Teach learners that a legend in an intelligent textbook diagram is not a static caption but a functional filter control tied to the underlying DataSet.\n\nBloom Level: Apply (L3)\nBloom Verb: demonstrate, use\n\nLearning objective: Given a graph with nodes colored by taxonomy category, the learner can use a clickable legend to filter the visible node set and explain how the legend's colors map to the DataSet's category field.\n\nCanvas layout:\n- Top (80% height): drawing area with a 20-node sample graph, nodes colored by one of four taxonomy categories drawn from Chapter 4 (Foundational Concepts = blue, Graph Theory = green, Visualization = gold, Learning Science = purple)\n- Bottom (20% height) or right sidebar on wide screens: legend panel with four clickable color swatches, each labeled with its category name and a live count of visible nodes in that category\n\nVisual elements:\n- 20 circular nodes colored by category as listed above\n- Directed gray edges\n- Legend swatches: colored square, category label, node count badge (e.g., \"Graph Theory (6)\")\n- A \"Show All\" reset link above the legend\n\nInteractive controls:\n- Click a legend swatch: toggles that category's visibility; hidden categories show the swatch at reduced opacity and gray out the count badge\n- Multiple categories may be toggled off simultaneously\n- Hover a legend swatch (without clicking): temporarily highlights that category's nodes in the graph with a gold outline, without hiding others\n- \"Show All\" link: restores all four categories to visible\n\nBehavior: Clicking a swatch calls `nodes.update()` to set `hidden: true` on every node in that category's DataSet subset, then calls `network.redraw()`. The node count badge recalculates from the live DataSet on every toggle.\n\nCanvas size: responsive, 100% width, 560px height, must reflow on window resize\n\nImplementation: vis-network JavaScript library; legend built as an HTML/CSS panel outside the canvas, wired to DataSet filter operations via `nodes.getIds({filter: ...})`"
+}

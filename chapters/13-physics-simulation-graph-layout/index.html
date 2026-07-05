@@ -1,0 +1,2635 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Covers the physics solvers (Barnes-Hut, ForceAtlas2, repulsion, central gravity, damping) and layout algorithms (force-directed, hierarchical) that determine how a large graph arranges itself on screen, plus fixed node positions and stabilization.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/learning-graphs/chapters/13-physics-simulation-graph-layout/">
+      
+      
+        <link rel="prev" href="../12-edge-styling-visual-properties/">
+      
+      
+        <link rel="next" href="../14-interactive-navigation-visjs/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Physics Simulation and Graph Layout - Learning Graphs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-Z6JDD2PWQZ"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-Z6JDD2PWQZ",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-Z6JDD2PWQZ",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Physics Simulation and Graph Layout - Learning Graphs" >
+      
+        <meta  property="og:description"  content="Covers the physics solvers (Barnes-Hut, ForceAtlas2, repulsion, central gravity, damping) and layout algorithms (force-directed, hierarchical) that determine how a large graph arranges itself on screen, plus fixed node positions and stabilization." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/learning-graphs/assets/images/social/chapters/13-physics-simulation-graph-layout/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/learning-graphs/chapters/13-physics-simulation-graph-layout/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Physics Simulation and Graph Layout - Learning Graphs" >
+      
+        <meta  name="twitter:description"  content="Covers the physics solvers (Barnes-Hut, ForceAtlas2, repulsion, central gravity, damping) and layout algorithms (force-directed, hierarchical) that determine how a large graph arranges itself on screen, plus fixed node positions and stabilization." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/learning-graphs/assets/images/social/chapters/13-physics-simulation-graph-layout/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#physics-simulation-and-graph-layout" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Learning Graphs" class="md-header__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Learning Graphs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Physics Simulation and Graph Layout
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Learning Graphs" class="md-nav__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Learning Graphs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-foundations-of-concept-graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Foundations of Concept Graphs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-concept-labeling-metadata-standards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Concept Labeling and Metadata Standards
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-concept-dependencies-prerequisites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Concept Dependencies and Prerequisites
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-concept-taxonomies-ontologies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Concept Taxonomies and Ontologies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-graph-quality-validation-file-formats/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Learning Graph Quality, Validation, and File Formats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-blooms-taxonomy-learning-objectives/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Bloom's Taxonomy and Learning Objectives
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-learning-theories-instructional-design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Learning Theories and Instructional Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-cognitive-load-knowledge-space-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Cognitive Load and Knowledge Space Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-mastery-metacognition-sequencing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Mastery, Metacognition, and Instructional Sequencing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-assessment-feedback-quizzes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Assessment, Feedback, and Quizzes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-visjs-fundamentals-node-styling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Vis.js Fundamentals and Node Styling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-edge-styling-visual-properties/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Edge Styling and Visual Properties
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    13. Physics Simulation and Graph Layout
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    13. Physics Simulation and Graph Layout
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#physics-simulation-the-engine-behind-every-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Physics Simulation: The Engine Behind Every Layout
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#force-directed-graph-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Force-Directed Graph Layout
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-solvers-computing-repulsion-efficiently" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Solvers: Computing Repulsion Efficiently
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Solvers: Computing Repulsion Efficiently">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-barnes-hut-solver" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Barnes-Hut Solver
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forceatlas2-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      ForceAtlas2 Layout
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repulsion-solver-and-central-gravity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repulsion Solver and Central Gravity
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Repulsion Solver and Central Gravity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-physics-force-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Physics Force Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#damping-and-spring-length-parameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Damping and Spring Length Parameter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stabilization-settling-before-the-first-frame" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stabilization: Settling Before the First Frame
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hierarchical-layout-an-alternative-to-physics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hierarchical Layout: An Alternative to Physics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hierarchical Layout: An Alternative to Physics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layout-direction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layout Direction
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fixed-node-position-and-node-pinning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed Node Position and Node Pinning
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparing-force-directed-and-hierarchical-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparing Force-Directed and Hierarchical Layout
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#graph-layout-algorithm-the-general-category" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Layout Algorithm: The General Category
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Graph Layout Algorithm: The General Category">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-layout-algorithm-comparison-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Layout Algorithm Comparison Lab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-interactive-navigation-visjs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Interactive Navigation in Vis.js
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-graph-clustering-editing-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Graph Clustering and Editing Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-personalization-adaptive-learning-paths/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Personalization and Adaptive Learning Paths
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-intelligent-agents-generative-ai/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Intelligent Agents and Generative AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-intelligent-textbooks-microsims-deployment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Intelligent Textbooks, MicroSims, and Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-skill-generate-learning-graph/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Using a Skill to Generate a Learning Graph
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../case-studies/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Case Studies
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../vis/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Vis.js Tutorial
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Sample Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How We Built This Site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student-volunteers-wanted/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Student Volunteers Wanted
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#physics-simulation-the-engine-behind-every-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Physics Simulation: The Engine Behind Every Layout
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#force-directed-graph-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Force-Directed Graph Layout
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-solvers-computing-repulsion-efficiently" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Solvers: Computing Repulsion Efficiently
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Solvers: Computing Repulsion Efficiently">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-barnes-hut-solver" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Barnes-Hut Solver
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forceatlas2-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      ForceAtlas2 Layout
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repulsion-solver-and-central-gravity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repulsion Solver and Central Gravity
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Repulsion Solver and Central Gravity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-physics-force-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Physics Force Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#damping-and-spring-length-parameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Damping and Spring Length Parameter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stabilization-settling-before-the-first-frame" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stabilization: Settling Before the First Frame
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hierarchical-layout-an-alternative-to-physics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hierarchical Layout: An Alternative to Physics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hierarchical Layout: An Alternative to Physics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layout-direction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layout Direction
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fixed-node-position-and-node-pinning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed Node Position and Node Pinning
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparing-force-directed-and-hierarchical-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparing Force-Directed and Hierarchical Layout
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#graph-layout-algorithm-the-general-category" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Layout Algorithm: The General Category
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Graph Layout Algorithm: The General Category">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-layout-algorithm-comparison-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Layout Algorithm Comparison Lab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/learning-graphs/blob/master/docs/chapters/13-physics-simulation-graph-layout/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="physics-simulation-and-graph-layout">Physics Simulation and Graph Layout</h1>
+<h2 id="summary">Summary</h2>
+<p>Covers the physics solvers (Barnes-Hut, ForceAtlas2, repulsion, central gravity, damping) and layout algorithms (force-directed, hierarchical) that determine how a large graph arranges itself on screen, plus fixed node positions and stabilization.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 14 concepts from the learning graph:</p>
+<ol>
+<li>Physics Simulation</li>
+<li>Force-Directed Graph Layout</li>
+<li>Barnes-Hut Solver</li>
+<li>ForceAtlas2 Layout</li>
+<li>Repulsion Solver</li>
+<li>Central Gravity</li>
+<li>Damping</li>
+<li>Hierarchical Layout</li>
+<li>Layout Direction</li>
+<li>Fixed Node Position</li>
+<li>Node Pinning</li>
+<li>Spring Length Parameter</li>
+<li>Stabilization</li>
+<li>Graph Layout Algorithm</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../12-edge-styling-visual-properties/">Chapter 12: Edge Styling and Visual Properties</a></li>
+</ul>
+<hr />
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Why Does the Graph Arrange Itself?</p>
+<p><img alt="Axiom waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+Let's connect the concepts! You have now styled every node and every edge in a learning graph down to the last pixel. But none of that styling explains something you have watched happen in every MicroSim so far — nodes drifting into position, settling, and coming to rest without you dragging a single one of them. That motion is not decoration. It is a physics simulation, and this chapter is where you learn to control it.</p>
+</div>
+<p>Open any vis-network diagram in this book and watch the first half-second after it loads. Nodes that started stacked on top of each other, or scattered at random coordinates, spread apart, jostle briefly, and settle into a stable arrangement. Chapter 11 already introduced the term <strong>force-directed graph</strong> at a conceptual level — the idea that a layout can emerge from simulated forces rather than being drawn by hand. This chapter goes underneath that concept to the actual physics engine vis-network runs to make it happen: which forces it simulates, which solver algorithms compute those forces efficiently, and which settings an author controls to get a layout that is legible instead of chaotic.</p>
+<h2 id="physics-simulation-the-engine-behind-every-layout">Physics Simulation: The Engine Behind Every Layout</h2>
+<p><strong>Physics Simulation</strong> is vis-network's default layout mechanism, in which every node is treated as a small charged particle that repels every other node, every edge is treated as a spring that pulls its two connected nodes together, and the network's rendering loop repeatedly recalculates each node's position based on the combined effect of those forces until the layout stops changing. This is not a metaphor loosely borrowed from physics — vis-network's <code>physics</code> option block genuinely runs a numerical simulation, frame by frame, using the same kind of force-and-motion equations a game engine or particle simulator would use.</p>
+<p>The simulation is controlled through the <code>physics</code> key in a network's options object, which can be toggled entirely on or off, or fine-tuned solver by solver:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">physics</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">enabled</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">solver</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;barnesHut&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">stabilization</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">iterations</span><span class="o">:</span><span class="w"> </span><span class="mf">200</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>The <code>enabled</code> parameter is the master switch — set it to <code>false</code> and every node stays exactly where its JSON specifies (an idea this chapter returns to under Fixed Node Position). The <code>solver</code> parameter selects which algorithm computes the repulsion forces between nodes, a choice significant enough that vis-network offers several distinct solvers with different performance and layout characteristics, covered later in this chapter. The <code>stabilization</code> block controls how many simulation steps run silently before the graph is first drawn, so a learner never sees the chaotic early frames of nodes flying apart from an initial random position.</p>
+<p>Three simulated forces combine to produce a resting layout, and understanding each one separately makes every later section of this chapter easier to reason about:</p>
+<ul>
+<li><strong>Repulsion</strong> — every node pushes every other node away, like same-charge particles, preventing nodes from overlapping</li>
+<li><strong>Spring attraction</strong> — every edge pulls its two connected nodes together, like a spring, preventing the graph from flying apart into disconnected fragments</li>
+<li><strong>Central gravity</strong> — a weak pull toward the canvas center, keeping the whole graph from drifting off-screen</li>
+</ul>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Key Insight</p>
+<p><img alt="Axiom thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+A physics-simulated layout has no "correct" final answer the way a hierarchical layout does — it settles into whichever stable arrangement the forces happen to reach first. Two runs of the exact same graph, from two different random starting positions, can settle into two different (but equally valid) layouts. That is a feature, not a bug: it is what lets the same 40-node learning graph render sensibly whether it starts from a blank canvas or from a previous session's saved positions.</p>
+</div>
+<h2 id="force-directed-graph-layout">Force-Directed Graph Layout</h2>
+<p><strong>Force-Directed Graph Layout</strong> is the general category of algorithm that positions nodes by simulating physical forces rather than computing coordinates through fixed rules — the technique the Physics Simulation section just described in vis-network's specific implementation. Force-directed layout is not unique to vis-network; it is a family of algorithms used across nearly every network visualization tool, because it solves a genuinely hard problem elegantly: given a graph of arbitrary shape, with no prior knowledge of which nodes are "important" or how the graph should be organized, produce a layout where connected nodes end up near each other and unconnected nodes end up spread apart.</p>
+<p>That last property is what makes force-directed layout so well suited to learning graphs specifically. A concept dependency graph with a long prerequisite chain naturally strings those chained nodes out in the rendered layout, because each edge's spring force pulls dependent and prerequisite together, while the repulsion force keeps unrelated concept clusters from overlapping. The result is a layout that visually clusters related concepts without an author ever specifying cluster membership by hand — the taxonomy-based clustering from earlier chapters emerges from structure, not manual placement.</p>
+<p>Force-directed layout is one of two broad layout strategies covered in this chapter; the other, hierarchical layout, computes node positions from explicit rules about dependency depth rather than simulated forces. The table below previews the comparison this chapter builds toward once both approaches have been explained in full.</p>
+<table>
+<thead>
+<tr>
+<th>Layout Strategy</th>
+<th>How Positions Are Determined</th>
+<th>Best Suited For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Force-directed</td>
+<td>Simulated repulsion, spring, and gravity forces reach equilibrium</td>
+<td>Graphs where clustering and relationship structure matter more than strict ordering</td>
+</tr>
+<tr>
+<td>Hierarchical</td>
+<td>Explicit rules place each node at a level based on its dependency depth</td>
+<td>Graphs where prerequisite <em>order</em> is the primary thing a learner needs to read</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-solvers-computing-repulsion-efficiently">The Solvers: Computing Repulsion Efficiently</h2>
+<p>Simulating "every node repels every other node" sounds simple, but it hides a performance problem. A graph with ( n ) nodes has ( n(n-1)/2 ) possible node pairs, so a naive simulation that recalculates every pairwise repulsion force on every animation frame does ( O(n^2) ) work per frame. For a small graph of 20 nodes that is 190 pairwise calculations — trivial. For a 400-concept learning graph, it is nearly 80,000 pairwise calculations, repeated dozens of times per second, which is where naive physics simulation starts to visibly stutter. Vis-network solves this performance problem with <strong>solvers</strong> — selectable algorithms that approximate or restructure the repulsion calculation to keep large graphs responsive.</p>
+<h3 id="the-barnes-hut-solver">The Barnes-Hut Solver</h3>
+<p>The <strong>Barnes-Hut Solver</strong> is vis-network's default physics solver, which approximates long-range repulsion forces by grouping distant nodes into clusters and treating each cluster as a single combined force source, reducing the per-frame calculation from ( O(n^2) ) to approximately ( O(n \log n) ). The algorithm originated in astrophysics, where researchers faced the identical problem simulating gravitational attraction between thousands of stars: a star's gravitational pull is felt by every other star, but a distant cluster of stars can be treated as one large mass at its center of gravity without meaningfully changing the simulation's accuracy. Vis-network borrows the same trick for node repulsion — a nearby node's exact position matters, but a cluster of far-away nodes can be approximated as one repulsion source.</p>
+<p>Barnes-Hut is configured through the <code>barnesHut</code> sub-object of the <code>physics</code> options:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">physics</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">solver</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;barnesHut&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">barnesHut</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">gravitationalConstant</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">2000</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">springLength</span><span class="o">:</span><span class="w"> </span><span class="mf">95</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">springConstant</span><span class="o">:</span><span class="w"> </span><span class="mf">0.04</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">damping</span><span class="o">:</span><span class="w"> </span><span class="mf">0.09</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The <code>gravitationalConstant</code> parameter controls the strength of node-to-node repulsion — despite the name evoking attraction, in vis-network this value is negative and larger in magnitude means <em>stronger repulsion</em>, pushing nodes further apart. <code>springLength</code> and <code>springConstant</code> govern the spring-attraction force along edges (springLength is covered in its own section below), and <code>damping</code> controls how quickly the simulation loses energy and settles, also covered in its own section shortly.</p>
+<h3 id="forceatlas2-layout">ForceAtlas2 Layout</h3>
+<p>The <strong>ForceAtlas2 Layout</strong> is an alternative physics solver, selected with <code>solver: 'forceAtlas2Based'</code>, originally designed for the Gephi network-visualization tool and adapted into vis-network, which tends to produce more evenly distributed layouts with less node overlap than Barnes-Hut on graphs with highly uneven degree distributions — the kind of graph a learning graph often is, since a handful of foundational concepts (recall the low-indegree "hub" concepts from earlier chapters) connect to dozens of dependents while most concepts connect to only two or three neighbors.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">physics</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">solver</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;forceAtlas2Based&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">forceAtlas2Based</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">gravitationalConstant</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">50</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">centralGravity</span><span class="o">:</span><span class="w"> </span><span class="mf">0.01</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">springLength</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">springConstant</span><span class="o">:</span><span class="w"> </span><span class="mf">0.08</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">damping</span><span class="o">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">avoidOverlap</span><span class="o">:</span><span class="w"> </span><span class="mf">0.5</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>ForceAtlas2's <code>gravitationalConstant</code> plays the same repulsion role as Barnes-Hut's, but the two solvers use different underlying mathematics, so a value tuned for one solver rarely produces the same visual density when copied to the other. The <code>avoidOverlap</code> parameter, unique to ForceAtlas2, is a value between 0 and 1 that adds an explicit node-overlap penalty on top of the physics forces — useful in a learning graph diagram where a densely connected cluster of intermediate concepts might otherwise stack nodes close enough to visually merge.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Helpful Tip</p>
+<p><img alt="Axiom giving a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+Barnes-Hut is the right starting point for almost every learning graph — it is vis-network's default for a reason, and it performs well up to several hundred nodes. Reach for ForceAtlas2 specifically when you notice a small number of hub concepts crowding their many dependents into an unreadable clump; ForceAtlas2's overlap avoidance often untangles exactly that pattern.</p>
+</div>
+<p>Before comparing every solver side by side, one more force needs a name, because it appears as a parameter in both solvers above and deserves its own explanation.</p>
+<h2 id="repulsion-solver-and-central-gravity">Repulsion Solver and Central Gravity</h2>
+<p>The <strong>Repulsion Solver</strong> is a third, simpler physics solver option, selected with <code>solver: 'repulsion'</code>, that calculates node-to-node repulsion directly for every pair without the Barnes-Hut clustering approximation — trading the performance benefit of Barnes-Hut for a more literal, predictable repulsion calculation. It is the right choice mainly for small graphs (well under 100 nodes) where ( O(n^2) ) performance is a non-issue and an author wants repulsion behavior that is simple to reason about, or for debugging a layout problem by temporarily ruling out Barnes-Hut's approximation as the cause.</p>
+<p><strong>Central Gravity</strong> is the weak, constant force pulling every node toward the center of the canvas, set through the <code>centralGravity</code> parameter present in every solver's options object (typically a small positive value like <code>0.3</code> for Barnes-Hut or <code>0.01</code> for ForceAtlas2). Without central gravity, a graph's repulsion forces alone would push nodes outward indefinitely, since nothing counteracts repulsion once nodes are already spread far apart — the layout would keep expanding, drifting nodes off the visible canvas entirely. Central gravity is what keeps a "settled" layout centered and bounded rather than sprawling.</p>
+<p>A useful way to see how these forces interact is to increase or decrease each one independently and watch the resulting layout change shape. The MicroSim below does exactly that: it exposes gravitational constant, central gravity, and solver choice as live sliders on the same sample graph, so the abstract description above becomes something you can watch and adjust.</p>
+<h4 id="diagram-physics-force-explorer">Diagram: Physics Force Explorer</h4>
+<iframe src="../../sims/physics-force-explorer/main.html" width="100%" height="582px" scrolling="no"></iframe>
+
+<details>
+<summary>Physics Force Explorer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> physics-force-explorer<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>Purpose: Let learners manipulate the individual forces that make up vis-network's physics simulation — repulsion strength, central gravity, and solver choice — on the same sample graph, so the effect of each parameter is directly observable rather than only described in prose.</p>
+<p>Bloom Level: Analyze (L4)
+Bloom Verb: differentiate, examine, compare</p>
+<p>Learning objective: Given a fixed 18-node sample graph, the learner can predict and verify how changing gravitational constant, central gravity, and solver selection each independently affects the settled layout's shape and density.</p>
+<p>Canvas layout:
+- Left/top (70% width): drawing area showing an 18-node sample graph with a mix of hub nodes (high degree) and leaf nodes (degree 1), styled per Chapter 11 conventions
+- Right/bottom (30% width or below on narrow screens): control panel</p>
+<p>Visual elements:
+- 18 nodes and roughly 22 edges forming a small learning-graph-like structure with two visible hub nodes
+- A live "settled" indicator showing whether the simulation has stabilized or is still moving
+- A readout of current force parameter values</p>
+<p>Interactive controls:
+- Dropdown: Solver ("Barnes-Hut", "ForceAtlas2", "Repulsion")
+- Slider: Gravitational Constant / Repulsion Strength (range and scale adapt to selected solver, e.g. -100 to -10000 for Barnes-Hut)
+- Slider: Central Gravity (0.0 to 1.0)
+- Button: "Scatter Nodes" (randomizes starting positions and re-runs stabilization)
+- Button: "Reset to Defaults"</p>
+<p>Default parameters:
+- Solver: Barnes-Hut
+- Gravitational Constant: -2000
+- Central Gravity: 0.3</p>
+<p>Behavior: Every slider change calls <code>network.setOptions({physics: {...}})</code> with the updated solver configuration and triggers a fresh stabilization pass. Increasing repulsion strength visibly spreads nodes further apart; increasing central gravity visibly pulls the whole graph tighter toward the canvas center; switching solvers re-lays the same graph using the new algorithm so learners can compare Barnes-Hut's clustering against ForceAtlas2's more even spacing on identical data.</p>
+<p>Canvas size: responsive, 100% width, 580px height, must reflow on window resize</p>
+<p>Implementation: vis-network JavaScript library using the <code>physics</code> options object exposed through <code>network.setOptions()</code>; dropdown and slider <code>input</code>/<code>change</code> events trigger option updates and call <code>network.stabilize()</code></p>
+</details>
+<h2 id="damping-and-spring-length-parameter">Damping and Spring Length Parameter</h2>
+<p>Two more parameters appeared in the solver code examples above without full explanation — both control how the simulation behaves as it runs, rather than which forces exist in the first place.</p>
+<p><strong>Damping</strong> is the physics parameter that controls how quickly the simulation loses kinetic energy on each step, set through the <code>damping</code> key (typical values range from <code>0.05</code> to <code>0.4</code>, depending on solver). Without damping, a physics simulation would oscillate forever — nodes overshooting their resting position, bouncing back, overshooting again — the same way a real spring with no friction never actually stops moving. A low damping value produces a layout that visibly "settles" through several bounces before coming to rest, which can look lively but takes longer to stabilize; a high damping value produces a layout that reaches its resting position quickly with little or no visible oscillation, at the cost of looking slightly abrupt.</p>
+<p>The <strong>Spring Length Parameter</strong> is the resting length, in pixels, that vis-network's simulated edge-springs try to reach, set through the <code>springLength</code> key (default <code>95</code> for Barnes-Hut). Every edge behaves like a spring pulling its two connected nodes toward this ideal separation distance — shorter than <code>springLength</code> and the spring pushes the nodes apart; longer than <code>springLength</code> and the spring pulls them together. Increasing <code>springLength</code> produces a more spread-out layout with more breathing room between connected concepts; decreasing it produces a more compact layout, useful when a graph has many nodes and screen space is limited.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">physics</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">barnesHut</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">springLength</span><span class="o">:</span><span class="w"> </span><span class="mf">150</span><span class="p">,</span><span class="w">   </span><span class="c1">// more breathing room between connected nodes</span>
+<span class="w">    </span><span class="nx">springConstant</span><span class="o">:</span><span class="w"> </span><span class="mf">0.04</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">damping</span><span class="o">:</span><span class="w"> </span><span class="mf">0.15</span><span class="w">         </span><span class="c1">// settles with minimal oscillation</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The <code>springConstant</code> alongside <code>springLength</code> sets how <em>strongly</em> the spring pulls toward that resting length — a higher spring constant makes edges behave like stiff springs that snap quickly toward <code>springLength</code>, while a lower value makes edges behave like loose springs that tolerate more deviation from the ideal distance.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Watch Out</p>
+<p><img alt="Axiom warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+Damping too low on a large learning graph can produce a layout that visibly jitters for several seconds before settling, which reads to a student as a bug rather than a feature. If a graph feels "shaky" on load, raising damping is usually a faster fix than adjusting any other physics parameter.</p>
+</div>
+<h2 id="stabilization-settling-before-the-first-frame">Stabilization: Settling Before the First Frame</h2>
+<p>Every physics parameter covered so far describes forces that act continuously — but a learner should never actually watch several hundred raw simulation frames of nodes flying apart from random starting coordinates. That is the job of stabilization.</p>
+<p><strong>Stabilization</strong> is the process by which vis-network runs the physics simulation silently, without rendering intermediate frames, for a set number of iterations (or until node movement drops below a threshold) before displaying the graph for the first time, set through the <code>stabilization</code> sub-object of the <code>physics</code> options. Instead of a learner watching a chaotic tangle of nodes gradually untangle in real time, stabilization computes that entire process behind the scenes and reveals only the final, settled layout — or, with <code>stabilization.updateInterval</code> set, periodic snapshots that make the settling process visible as a smooth animation rather than a jarring one.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">physics</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">stabilization</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">enabled</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">iterations</span><span class="o">:</span><span class="w"> </span><span class="mf">1000</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">updateInterval</span><span class="o">:</span><span class="w"> </span><span class="mf">25</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">onlyDynamicEdges</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">fit</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The <code>iterations</code> parameter caps how many simulation steps stabilization will run before giving up even if the layout has not fully settled — a safety valve against pathological graphs that never converge. The <code>updateInterval</code> parameter controls how often (in iterations) vis-network redraws the canvas during stabilization, letting an author choose between a single instant "jump to final layout" (<code>updateInterval</code> equal to <code>iterations</code>) or a visible settling animation (a small <code>updateInterval</code>). The <code>fit</code> parameter, when <code>true</code>, automatically zooms and pans the canvas once stabilization finishes so the entire settled graph is visible without a learner needing to scroll or zoom manually.</p>
+<p>Vis-network also exposes a <code>stabilizationIterationsDone</code> event, which fires exactly once when stabilization completes — a natural hook for an author to disable a loading spinner, enable interaction controls, or log an analytics event marking the graph as ready.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">network</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;stabilizationIterationsDone&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">network</span><span class="p">.</span><span class="nx">setOptions</span><span class="p">({</span><span class="w"> </span><span class="nx">physics</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">});</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Layout stabilized and physics disabled&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<p>That last line is a common and important pattern: once stabilization finishes, many learning-graph authors disable physics entirely (<code>physics: false</code>) so that a learner's later click-and-drag interactions do not trigger the whole layout to keep re-simulating. The graph reaches a good resting position once, and then holds still until a person deliberately moves something.</p>
+<h2 id="hierarchical-layout-an-alternative-to-physics">Hierarchical Layout: An Alternative to Physics</h2>
+<p>Force-directed layout, tuned through the solvers and parameters above, is excellent at revealing clustering and overall graph shape — but it does not guarantee that a prerequisite chain reads top-to-bottom or left-to-right. For a learning graph specifically, where the entire point of the diagram is often to show <em>order</em> — which concepts must come before which — a second layout strategy exists that trades physics-based emergence for explicit, rule-based positioning.</p>
+<p><strong>Hierarchical Layout</strong> is a vis-network layout mode that positions every node at a discrete level based on its distance from root nodes in the graph's dependency structure, rather than letting position emerge from simulated forces, enabled through the <code>layout.hierarchical</code> options block.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">layout</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">hierarchical</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">enabled</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">direction</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;UD&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">sortMethod</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;directed&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">levelSeparation</span><span class="o">:</span><span class="w"> </span><span class="mf">150</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">nodeSpacing</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nx">physics</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">hierarchicalRepulsion</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">nodeDistance</span><span class="o">:</span><span class="w"> </span><span class="mf">120</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>The <code>sortMethod</code> parameter tells vis-network how to determine each node's level: <code>'directed'</code> uses edge direction to compute depth (a node's level is determined by how many prerequisite edges separate it from a root), which is exactly the dependency-direction convention this entire book has used since Chapter 1 — a concept with zero prerequisites sits at the topmost level, and every dependent concept sits one or more levels below whatever it depends on. The <code>levelSeparation</code> and <code>nodeSpacing</code> parameters control, respectively, the pixel distance between levels and the pixel distance between nodes within the same level, playing a role visually similar to <code>springLength</code> in the force-directed layouts covered earlier in this chapter.</p>
+<p>Hierarchical layout does not eliminate physics entirely — notice the <code>hierarchicalRepulsion</code> solver in the example above. Vis-network still runs a lightweight simulation <em>within</em> each level to prevent same-level nodes from overlapping, but that simulation cannot move a node between levels; the level itself is fixed by graph structure, not by force.</p>
+<h3 id="layout-direction">Layout Direction</h3>
+<p>The <strong>Layout Direction</strong> parameter controls which way a hierarchical layout flows across the canvas, set through the <code>direction</code> key with four possible values: <code>'UD'</code> (up-to-down), <code>'DU'</code> (down-to-up), <code>'LR'</code> (left-to-right), and <code>'RL'</code> (right-to-left).</p>
+<table>
+<thead>
+<tr>
+<th>Direction Value</th>
+<th>Flow</th>
+<th>Typical Use in a Learning Graph</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>UD</code></td>
+<td>Top to bottom</td>
+<td>Default and most intuitive for "prerequisites above, advanced concepts below"</td>
+</tr>
+<tr>
+<td><code>DU</code></td>
+<td>Bottom to top</td>
+<td>Rare; sometimes used when foundational concepts should anchor the bottom of a printed page</td>
+</tr>
+<tr>
+<td><code>LR</code></td>
+<td>Left to right</td>
+<td>Well suited to wide-screen displays or timeline-like prerequisite chains</td>
+</tr>
+<tr>
+<td><code>RL</code></td>
+<td>Right to left</td>
+<td>Rare; occasionally used for right-to-left language localization</td>
+</tr>
+</tbody>
+</table>
+<p><code>UD</code> is by far the most common choice for a learning graph, because it matches the reading convention most learners already associate with hierarchy diagrams and org charts — "up" reads as foundational, "down" reads as building on what came before.</p>
+<p>Before looking at hierarchical and force-directed layout side by side, it is worth defining one more concept both layout modes rely on: what happens when a node's position should not move at all, regardless of physics or hierarchy rules.</p>
+<h2 id="fixed-node-position-and-node-pinning">Fixed Node Position and Node Pinning</h2>
+<p><strong>Fixed Node Position</strong> is a per-node setting that locks a node's <code>x</code> and <code>y</code> coordinates so that neither physics simulation nor hierarchical layout is allowed to move it, set through the <code>fixed</code> key in a node's JSON object, which accepts either a boolean (<code>"fixed": true</code>, locking both axes) or an object specifying each axis independently (<code>"fixed": {"x": true, "y": false}</code>).</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Ecology&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-600</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;fixed&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}}</span>
+</code></pre></div></td></tr></table></div>
+<p>That example — <code>x</code> fixed, <code>y</code> free — is the exact pattern this project's own architecture notes describe for hierarchical layouts organized by domain column: a node's horizontal position is manually pinned to place it in the correct taxonomy column, while its vertical position is still free to be adjusted by physics or by the learner dragging it, spreading nodes within that column to avoid overlap.</p>
+<p><strong>Node Pinning</strong> is the related but distinct action of a learner manually dragging a node and dropping it in place during an interactive session, after which vis-network treats that node as fixed at its new position until physics is explicitly re-enabled or the page reloads. Node pinning is what makes an interactive learning-graph diagram feel trustworthy to explore: a learner can drag a cluttered node out of the way to read a label underneath it, and that node stays put — it does not spring back to its physics-determined position the instant the mouse releases.</p>
+<p>The distinction matters because the two mechanisms serve different authors at different times. Fixed Node Position is something a learning-graph <em>author</em> sets in the JSON file ahead of time, usually to enforce a specific structural convention like the taxonomy-column layout above. Node pinning is something a <em>learner</em> does interactively, in the moment, usually just to declutter a view temporarily. Both use the same underlying <code>fixed</code> property, but one is authored and persistent; the other is a runtime side effect of dragging.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">network</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;dragEnd&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">params</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">nodes</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">nodeId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">params</span><span class="p">.</span><span class="nx">nodes</span><span class="p">[</span><span class="mf">0</span><span class="p">];</span>
+<span class="w">    </span><span class="nx">nodes</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">nodeId</span><span class="p">,</span><span class="w"> </span><span class="nx">fixed</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">});</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<p>This event handler listens for vis-network's <code>dragEnd</code> event, which fires when a learner releases a node after dragging it. <code>params.nodes</code> is an array of node IDs involved in the drag — checking its length confirms a node (not empty canvas) was dragged — and <code>nodes.update()</code> writes a <code>fixed: {x: true, y: true}</code> property back onto that node's DataSet entry, pinning it at its new dropped position.</p>
+<div class="admonition mascot-encourage">
+<p class="admonition-title">You Have Got This</p>
+<p><img alt="Axiom encouraging" class="mascot-admonition-img" src="../../img/mascot/encouraging.png" />
+If the difference between "fixed by the author in JSON" and "pinned by a learner while dragging" feels like a subtle distinction right now, that is completely normal — most learning-graph authors don't need to think about it until the first time a student reports "I moved a node and now it looks wrong on reload." Once you see that bug once, the distinction clicks permanently.</p>
+</div>
+<h2 id="comparing-force-directed-and-hierarchical-layout">Comparing Force-Directed and Hierarchical Layout</h2>
+<p>With both major layout strategies and their supporting mechanics now explained, it is worth stepping back and comparing them directly — this is exactly the trade-off the course description's Analyze-level learning outcomes ask you to be able to reason through for a given dataset size and audience.</p>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Force-Directed Layout</th>
+<th>Hierarchical Layout</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Position determined by</td>
+<td>Simulated forces reaching equilibrium</td>
+<td>Explicit level rules based on dependency depth</td>
+</tr>
+<tr>
+<td>Best reveals</td>
+<td>Clustering, community structure, hub concepts</td>
+<td>Prerequisite order, depth, chain length</td>
+</tr>
+<tr>
+<td>Performance on large graphs</td>
+<td>Depends on solver (Barnes-Hut scales well)</td>
+<td>Generally fast; no iterative force calculation needed within levels</td>
+</tr>
+<tr>
+<td>Predictability</td>
+<td>Same graph can settle differently between runs</td>
+<td>Deterministic — same graph always produces the same level assignment</td>
+</tr>
+<tr>
+<td>Weakness</td>
+<td>Order is not visually guaranteed</td>
+<td>Clustering and community structure are not visually apparent</td>
+</tr>
+</tbody>
+</table>
+<p>Neither strategy is universally "better" — the right choice depends on what question the diagram needs to answer for its audience. A curriculum reviewer auditing whether a 200-concept learning graph has any accidentally-orphaned clusters benefits from force-directed layout's tendency to visually separate disconnected components. A student trying to understand "what do I need to learn before I can tackle this advanced topic" benefits far more from hierarchical layout's guaranteed top-to-bottom prerequisite ordering.</p>
+<h2 id="graph-layout-algorithm-the-general-category">Graph Layout Algorithm: The General Category</h2>
+<p>Having worked through both specific strategies in detail, it is useful to name the general category they both belong to. A <strong>Graph Layout Algorithm</strong> is any algorithm that computes 2D or 3D screen positions for the nodes of a graph so that the resulting drawing is readable — force-directed and hierarchical layout are the two graph layout algorithms vis-network implements, but the term itself is broader and includes other approaches used across the wider field of graph visualization, such as circular layouts (nodes arranged evenly around a circle) and grid layouts (nodes snapped to a fixed grid), neither of which vis-network implements natively but which appear in other visualization libraries.</p>
+<p>Every graph layout algorithm, regardless of family, is solving the same underlying readability problem: minimize edge crossings, avoid node overlap, keep related nodes near each other, and do it fast enough to remain interactive. Force-directed and hierarchical layout are simply two different, well-tested strategies for solving that problem, each making different trade-offs between predictability, performance, and what structural property of the graph gets emphasized visually.</p>
+<p>The interactive diagram below lets you toggle between hierarchical and force-directed layout on the same 30-node sample graph, adjust layout direction, and watch fixed and pinned nodes behave differently under each mode — bringing every concept from this chapter together in one place.</p>
+<h4 id="diagram-layout-algorithm-comparison-lab">Diagram: Layout Algorithm Comparison Lab</h4>
+<iframe src="../../sims/layout-algorithm-comparison-lab/main.html" width="100%" height="602px" scrolling="no"></iframe>
+
+<details>
+<summary>Layout Algorithm Comparison Lab</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> layout-algorithm-comparison-lab<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>Purpose: Let learners directly compare force-directed and hierarchical layout on the same sample graph, explore layout direction options, and observe how fixed/pinned nodes behave differently under each layout mode.</p>
+<p>Bloom Level: Evaluate (L5)
+Bloom Verb: justify, assess, recommend</p>
+<p>Learning objective: Given a 30-node sample learning graph with a clear prerequisite structure and two visible clusters, the learner can justify a layout choice (force-directed vs. hierarchical, and if hierarchical, which direction) for a stated audience and purpose.</p>
+<p>Canvas layout:
+- Left/top (70% width): drawing area showing a 30-node sample graph modeled loosely on a small learning graph (two topic clusters, one connecting "bridge" concept, and a clear prerequisite chain of at least 5 levels)
+- Right/bottom (30% width or below on narrow screens): control panel and scenario prompt panel</p>
+<p>Visual elements:
+- 30 nodes styled per Chapter 11 conventions, colored by cluster/taxonomy
+- Two nodes pre-marked as author-fixed (small pin icon overlay) to demonstrate Fixed Node Position
+- A scenario prompt box that rotates between short framings, e.g. "You are showing this graph to a curriculum reviewer checking for orphaned clusters" or "You are showing this graph to a student asking what they need to learn first"</p>
+<p>Interactive controls:
+- Toggle: Layout Mode ("Force-Directed", "Hierarchical")
+- Dropdown: Layout Direction ("UD", "DU", "LR", "RL") — enabled only when Hierarchical is selected
+- Dropdown: Solver ("Barnes-Hut", "ForceAtlas2") — enabled only when Force-Directed is selected
+- Button: "Drag to Pin a Node" mode toggle, demonstrating Node Pinning behavior
+- Button: "Reset Layout"</p>
+<p>Default parameters:
+- Layout Mode: Force-Directed
+- Solver: Barnes-Hut
+- Layout Direction: UD (pre-selected but inactive until Hierarchical is chosen)</p>
+<p>Behavior: Switching Layout Mode calls <code>network.setOptions()</code> with the corresponding <code>layout.hierarchical.enabled</code> and <code>physics</code> configuration and triggers <code>network.stabilize()</code>. Under Hierarchical mode, changing Layout Direction re-flows the same graph instantly. When a learner drags and drops a node, that node becomes pinned (fixed: {x:true, y:true}) and displays a small pin icon; a "Reset Layout" button clears all pins except the two author-fixed nodes and re-stabilizes.</p>
+<p>Canvas size: responsive, 100% width, 600px height, must reflow on window resize</p>
+<p>Implementation: vis-network JavaScript library using <code>layout.hierarchical</code> and <code>physics</code> options exposed through <code>network.setOptions()</code>; <code>dragEnd</code> event handler implements node pinning as shown in this chapter's code example</p>
+</details>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li><strong>Physics Simulation</strong> treats nodes as repelling particles and edges as springs, recalculating positions frame by frame until the layout reaches equilibrium — the mechanism behind every <strong>Force-Directed Graph Layout</strong>.</li>
+<li>The <strong>Barnes-Hut Solver</strong> approximates distant-node repulsion for ( O(n \log n) ) performance and is vis-network's default; <strong>ForceAtlas2 Layout</strong> handles uneven-degree graphs more evenly; the <strong>Repulsion Solver</strong> computes exact pairwise forces for small graphs.</li>
+<li><strong>Central Gravity</strong> keeps a settled layout centered instead of drifting outward; <strong>Damping</strong> controls how quickly oscillation dies out; the <strong>Spring Length Parameter</strong> sets each edge's ideal resting distance.</li>
+<li><strong>Stabilization</strong> runs the simulation silently before the first render, so learners see a settled graph rather than a chaotic startup animation.</li>
+<li><strong>Hierarchical Layout</strong> replaces physics-based emergence with explicit level rules based on dependency depth, with <strong>Layout Direction</strong> (<code>UD</code>, <code>DU</code>, <code>LR</code>, <code>RL</code>) controlling which way the hierarchy flows.</li>
+<li><strong>Fixed Node Position</strong> is an author-set JSON property that locks coordinates; <strong>Node Pinning</strong> is the same mechanism triggered at runtime when a learner drags and drops a node.</li>
+<li>Both force-directed and hierarchical layout are specific instances of the general category <strong>Graph Layout Algorithm</strong> — algorithms that compute readable node positions, each trading off predictability, performance, and which structural property of the graph is emphasized.</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Well Done!</p>
+<p><img alt="Axiom celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png" />
+Pause and appreciate your progress — you now understand not just how a learning graph looks, but <em>why</em> it arranges itself that way, frame by frame, before you ever touch it. Let's connect the concepts, next by putting layout, styling, and interaction together into complete, publishable graph views!</p>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../12-edge-styling-visual-properties/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 12. Edge Styling and Visual Properties">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                12. Edge Styling and Visual Properties
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../14-interactive-navigation-visjs/" class="md-footer__link md-footer__link--next" aria-label="Next: 14. Interactive Navigation in Vis.js">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                14. Interactive Navigation in Vis.js
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

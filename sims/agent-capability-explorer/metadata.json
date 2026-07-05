@@ -1,0 +1,22 @@
+{
+  "title": "Agent Capability Explorer",
+  "description": "Given four togglable agent capabilities, the learner can differentiate which behaviors each capability enables and explain why a system with all four toggles off is equivalent to generative AI responding to a single prompt.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "agent-capability-explorer",
+  "library": "p5.js",
+  "bloomLevel": "Analyze (L4)",
+  "bloomVerb": "differentiate, examine, distinguish",
+  "completion_status": "scaffold",
+  "chapter_number": 17,
+  "chapter_title": "Intelligent Agents and Generative AI",
+  "chapter_dir": "17-intelligent-agents-generative-ai"
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Edge Smoothing and Curve Type Explorer</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Network canvas (drawing area). Overlays below are SIBLINGS. -->
+        <div id="network"></div>
+
+        <!-- Title at top center -->
+        <div class="title">Edge Smoothing &amp; Curve Type Explorer</div>
+
+        <!-- Legend upper left -->
+        <div class="legend">
+            <div class="legend-item">
+                <span class="legend-swatch swatch-node"></span>
+                <span>Concept node</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-swatch swatch-normal"></span>
+                <span>Prerequisite edge</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-swatch swatch-problem"></span>
+                <span><strong>Problem edge</strong> &mdash; cuts through a node when straight</span>
+            </div>
+        </div>
+
+        <!-- Right control panel -->
+        <div class="right-panel">
+            <div class="control-group">
+                <div class="control-label">Smoothing Mode</div>
+                <label class="radio-row">
+                    <input type="radio" name="smoothMode" value="off" checked>
+                    <span>Off (straight)</span>
+                </label>
+                <label class="radio-row">
+                    <input type="radio" name="smoothMode" value="dynamic">
+                    <span>Dynamic (default)</span>
+                </label>
+                <label class="radio-row">
+                    <input type="radio" name="smoothMode" value="cubicBezier">
+                    <span>Cubic Bezier</span>
+                </label>
+            </div>
+
+            <div class="control-group" id="roundness-group">
+                <div class="control-label">
+                    Roundness <span class="value-badge" id="roundness-value">0.50</span>
+                </div>
+                <input type="range" id="roundness-slider" min="0" max="1" step="0.05" value="0.5">
+                <div class="control-hint">Maps to <code>smooth.roundness</code></div>
+            </div>
+
+            <div class="control-group" id="force-group">
+                <div class="control-label">Force Direction</div>
+                <select id="force-select">
+                    <option value="none" selected>none</option>
+                    <option value="horizontal">horizontal</option>
+                    <option value="vertical">vertical</option>
+                </select>
+                <div class="control-hint">Only for Cubic Bezier &mdash; maps to <code>smooth.forceDirection</code></div>
+            </div>
+        </div>
+
+        <!-- Caption below the canvas -->
+        <div class="caption" id="caption"></div>
+    </div>
+
+    <script src="edge-smoothing-curve-explorer.js"></script>
+</body>
+</html>

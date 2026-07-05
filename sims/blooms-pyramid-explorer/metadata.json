@@ -1,0 +1,22 @@
+{
+  "title": "Bloom's Taxonomy Pyramid Explorer",
+  "description": "Given the six-level pyramid, the learner can click each level and correctly recall its name, its position in the hierarchy, and at least two associated action verbs.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "blooms-pyramid-explorer",
+  "library": "p5.js",
+  "bloomLevel": "Remember (L1)",
+  "bloomVerb": "identify, recall, name",
+  "completion_status": "scaffold",
+  "chapter_number": 6,
+  "chapter_title": "Bloom's Taxonomy and Learning Objectives",
+  "chapter_dir": "06-blooms-taxonomy-learning-objectives"
+}

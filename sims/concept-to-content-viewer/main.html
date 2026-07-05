@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Concept-to-Content Viewer</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Title bar -->
+        <div class="title">Concept-to-Content Viewer</div>
+
+        <!-- Search bar (fixed at top, below title) -->
+        <div class="search-bar">
+            <label for="concept-search" class="search-label">Find a concept:</label>
+            <div class="search-wrap">
+                <input type="text" id="concept-search" list="concept-options"
+                       placeholder="Type or pick a concept name..."
+                       autocomplete="off" />
+                <datalist id="concept-options"></datalist>
+            </div>
+            <label class="toggle-inline">
+                <input type="checkbox" id="show-dependents" />
+                Show Prerequisites and Dependents
+            </label>
+        </div>
+
+        <!-- Two-panel body: graph (left) + content card (right) -->
+        <div class="panels">
+            <!-- Graph panel -->
+            <div class="graph-panel">
+                <div class="legend">
+                    <div class="legend-item">
+                        <span class="legend-color color-selected"></span> Selected concept
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color color-prereq"></span> Prerequisite
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color color-dependent"></span> Dependent
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color color-neutral"></span> Other concept
+                    </div>
+                </div>
+                <!-- vis-network renders here; overlays are siblings, never children -->
+                <div id="network"></div>
+            </div>
+
+            <!-- Content card panel -->
+            <div class="card-panel">
+                <div class="content-card" id="content-card">
+                    <div class="card-eyebrow" id="card-eyebrow">Content Card</div>
+                    <div class="card-body" id="card-body">
+                        <p class="card-placeholder" id="card-placeholder">
+                            Search or click a concept to begin.
+                        </p>
+                        <div class="card-detail" id="card-detail" style="display:none;">
+                            <div class="card-concept" id="card-concept"></div>
+                            <div class="card-row">
+                                <span class="card-key">Chapter</span>
+                                <span class="card-val" id="card-chapter"></span>
+                            </div>
+                            <div class="card-row">
+                                <span class="card-key">Section</span>
+                                <span class="card-val" id="card-section"></span>
+                            </div>
+                            <div class="card-row card-prereq-row" id="card-prereq-row">
+                                <span class="card-key">Prerequisites</span>
+                                <span class="card-val" id="card-prereqs"></span>
+                            </div>
+                            <button class="btn btn-jump" id="jump-btn">Jump to Chapter</button>
+                            <div class="jump-note">(placeholder &mdash; navigation is disabled in this MicroSim)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-caption" id="card-caption" style="display:none;">
+                    This lookup works because every concept has a node ID connecting it
+                    to both the graph and the chapter text &mdash; not because of a
+                    keyword match.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="concept-to-content-viewer.js"></script>
+</body>
+</html>

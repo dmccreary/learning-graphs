@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Layout Algorithm Comparison Lab</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Network canvas (siblings only below this line - never nest overlays inside) -->
+        <div id="network"></div>
+
+        <!-- Title at top center -->
+        <div class="title">Layout Algorithm Comparison Lab</div>
+
+        <!-- Legend in upper left -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color color-cluster-a"></div>
+                <span><strong>Cluster A</strong> - Data Modeling</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-cluster-b"></div>
+                <span><strong>Cluster B</strong> - Visualization</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-bridge"></div>
+                <span><strong>Bridge</strong> - Connects clusters</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-pinned"></div>
+                <span><span class="pin-glyph">&#128204;</span> <strong>Pinned</strong> - Fixed position</span>
+            </div>
+        </div>
+
+        <!-- Right panel: controls + scenario prompt -->
+        <div class="right-panel">
+            <div class="panel-card">
+                <div class="panel-title">Layout Mode</div>
+                <div class="toggle-row">
+                    <button class="toggle-btn active" id="mode-force" data-mode="force">Force-Directed</button>
+                    <button class="toggle-btn" id="mode-hier" data-mode="hier">Hierarchical</button>
+                </div>
+
+                <label class="ctl-label" id="direction-label">Layout Direction
+                    <select id="direction-select" disabled>
+                        <option value="UD">UD &mdash; top&rarr;bottom</option>
+                        <option value="DU">DU &mdash; bottom&rarr;top</option>
+                        <option value="LR">LR &mdash; left&rarr;right</option>
+                        <option value="RL">RL &mdash; right&rarr;left</option>
+                    </select>
+                </label>
+
+                <label class="ctl-label" id="solver-label">Solver
+                    <select id="solver-select">
+                        <option value="barnesHut">Barnes-Hut</option>
+                        <option value="forceAtlas2Based">ForceAtlas2</option>
+                    </select>
+                </label>
+
+                <div class="btn-row">
+                    <button class="btn btn-primary" id="pin-mode-btn">Drag to Pin a Node</button>
+                    <button class="btn btn-secondary" id="reset-btn">Reset Layout</button>
+                </div>
+                <div class="status-line" id="status-line">Force-Directed &middot; Barnes-Hut</div>
+            </div>
+
+            <div class="panel-card scenario-card">
+                <div class="panel-title">Scenario Prompt</div>
+                <div class="scenario-text" id="scenario-text">&mdash;</div>
+                <button class="btn btn-scenario" id="scenario-btn">Next Scenario &#8594;</button>
+                <div class="scenario-hint">Which layout best answers this question? Justify your pick.</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="layout-algorithm-comparison-lab.js"></script>
+</body>
+</html>

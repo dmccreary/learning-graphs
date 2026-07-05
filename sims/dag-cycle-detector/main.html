@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>DAG Cycle Detector</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- IMPORTANT: overlays (title, legend, right-panel) are SIBLINGS of #network,
+         never children. vis-network erases the innerHTML of #network on init. -->
+    <div class="container">
+        <!-- Network canvas - full width/height background layer -->
+        <div id="network"></div>
+
+        <!-- Title at top center -->
+        <div class="title">DAG Cycle Detector</div>
+
+        <!-- Legend in upper left -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color color-green"></div>
+                <span><strong>Valid</strong> - part of a DAG</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-red"></div>
+                <span><strong>In a cycle</strong> - no start point</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-swatch dashed-swatch"></div>
+                <span><strong>Dashed</strong> - transitive edge</span>
+            </div>
+        </div>
+
+        <!-- Right panel: controls + status infobox -->
+        <div class="right-panel">
+            <div class="controls">
+                <button class="btn btn-primary" id="add-btn">Add cycle-forming edge</button>
+                <button class="btn btn-danger" id="remove-btn" disabled>Remove cycle-forming edge</button>
+            </div>
+
+            <div class="info-panel" id="info-panel">
+                <div class="badge badge-valid" id="status-badge">Valid DAG</div>
+                <div class="info-title">Graph status</div>
+                <div class="info-content" id="status-text">
+                    This is a valid DAG. Follow the arrows backward to find where
+                    a learner can start: Counting has no prerequisites.
+                </div>
+            </div>
+
+            <div class="status-panel">
+                <div class="status-title">How to use</div>
+                <div class="status-text">
+                    <ul>
+                        <li>Arrows point from a concept to what it <strong>depends on</strong>.</li>
+                        <li>Click <strong>Add cycle-forming edge</strong> to break the DAG.</li>
+                        <li>Watch which nodes turn red and read why sequencing fails.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="dag-cycle-detector.js"></script>
+</body>
+</html>

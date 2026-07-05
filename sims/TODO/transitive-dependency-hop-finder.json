@@ -1,0 +1,14 @@
+{
+  "sim_id": "transitive-dependency-hop-finder",
+  "diagram_name": "Transitive Dependency and Hop Count Finder",
+  "chapter_number": 3,
+  "chapter_title": "Concept Dependencies and Prerequisites",
+  "chapter_dir": "03-concept-dependencies-prerequisites",
+  "library": "vis-network",
+  "bloom_level": "Analyze (L4)",
+  "bloom_verb": "examine, differentiate",
+  "learning_objective": "Given any two concepts in a displayed dependency graph, the learner can determine whether one has a direct or transitive dependency on the other and state the correct hop count.",
+  "completion_status": "specified",
+  "extracted_date": "2026-07-03",
+  "specification": "Type: graph-model\n**sim-id:** transitive-dependency-hop-finder<br/>\n**Library:** vis-network<br/>\n**Status:** Specified\n\nPurpose: Let learners select a start concept and an end concept in a small graph and see the tool trace the connecting path, distinguishing a direct dependency (hop count 1) from a transitive dependency (hop count 2 or more).\n\nBloom Level: Analyze (L4)\nBloom Verb: examine, differentiate\n\nLearning objective: Given any two concepts in a displayed dependency graph, the learner can determine whether one has a direct or transitive dependency on the other and state the correct hop count.\n\nBase dataset: same 9-node math-sequence subgraph used in the Ready-to-Learn Frontier Simulator (Number Sense, Arithmetic, Algebra, Geometry, Trigonometry, Functions, Derivatives, Integrals, Applied Calculus)\n\nInteractive controls:\n- Two dropdowns: \"From concept\" and \"To concept\"\n- Button: \"Find Path\"\n\nBehavior:\n- On \"Find Path,\" the tool runs a breadth-first search along outgoing (dependency) edges from the \"From\" node looking for the \"To\" node\n- If found, every edge on the shortest path is highlighted gold and the infobox reports: \"{From} has a transitive dependency on {To} — Hop Count: {N}\" (or \"direct dependency, Hop Count: 1\" when N = 1)\n- If no path exists in either direction, infobox reports: \"No dependency relationship exists between {From} and {To} in this graph.\"\n- Reset button clears the highlighted path and dropdown selections\n\nVisual styling:\n- Base graph: light blue circles, black arrows, hierarchical layout\n- Highlighted path: gold nodes and thickened gold edges, with small numbered badges (1, 2, 3...) along the path showing hop order\n\nCanvas size: responsive, 100% width, 520px height\n\nImplementation: vis-network JavaScript library; breadth-first search implemented client-side in JavaScript over an adjacency list built from the edge DataSet"
+}

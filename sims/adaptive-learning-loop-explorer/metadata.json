@@ -1,0 +1,22 @@
+{
+  "title": "Adaptive Learning Loop Explorer",
+  "description": "Given the four-stage adaptive learning loop rendered as a cyclic flowchart, the learner can explain what happens at each stage and classify which earlier-chapter mechanism (ready-to-learn rule, mastery gate, content sequencing algorithm) performs it.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "adaptive-learning-loop-explorer",
+  "library": "Mermaid",
+  "bloomLevel": "Understand (L2)",
+  "bloomVerb": "explain, summarize, classify",
+  "completion_status": "scaffold",
+  "chapter_number": 16,
+  "chapter_title": "Personalization and Adaptive Learning Paths",
+  "chapter_dir": "16-personalization-adaptive-learning-paths"
+}
