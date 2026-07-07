@@ -1,0 +1,284 @@
+/* Physics Force Explorer
+ * ======================
+ * Layout: full-height physics-driven network with an overlay control panel.
+ * Overlays are ABSOLUTE-positioned siblings of #network (never children),
+ * because vis-network erases the innerHTML of its container div.
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: aliceblue;
+}
+
+/* ===========================================
+   MAIN CONTAINER & NETWORK CANVAS
+   =========================================== */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+#network {
+    width: 100%;
+    height: 100vh;
+    background-color: aliceblue;
+}
+
+/* ===========================================
+   TITLE (Top Center)
+   =========================================== */
+.title {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    background-color: rgba(240, 248, 255, 0.85);
+    padding: 4px 12px;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+/* ===========================================
+   LEGEND (Upper Left)
+   =========================================== */
+.legend {
+    position: absolute;
+    top: 44px;
+    left: 10px;
+    padding: 6px 8px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 10;
+    max-width: 190px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin: 3px 0;
+    font-size: 11px;
+}
+
+.legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin-right: 6px;
+    border: 2px solid black;
+    flex-shrink: 0;
+}
+
+.color-hub  { background-color: #1565c0; }
+.color-mid  { background-color: #42a5f5; }
+.color-leaf { background-color: #bbdefb; }
+
+/* ===========================================
+   RIGHT PANEL (Controls)
+   =========================================== */
+.right-panel {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 10;
+}
+
+/* ===========================================
+   SETTLED INDICATOR
+   =========================================== */
+.settled-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 8px 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.settled-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ffb300;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 3px rgba(255, 179, 0, 0.25);
+}
+
+.settled-box.is-settled .settled-dot {
+    background-color: #43a047;
+    box-shadow: 0 0 0 3px rgba(67, 160, 71, 0.25);
+}
+
+.settled-box.is-moving .settled-dot {
+    background-color: #ffb300;
+    animation: pulseDot 0.9s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+    0%, 100% { box-shadow: 0 0 0 2px rgba(255, 179, 0, 0.25); }
+    50%      { box-shadow: 0 0 0 6px rgba(255, 179, 0, 0.10); }
+}
+
+/* ===========================================
+   CONTROL GROUP (dropdown + sliders)
+   =========================================== */
+.control-group {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.control-label {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0 4px;
+}
+
+.control-label:first-child {
+    margin-top: 0;
+}
+
+.control-value {
+    font-weight: bold;
+    color: #1565c0;
+    font-variant-numeric: tabular-nums;
+}
+
+.control-group select,
+.control-group input[type="range"] {
+    width: 100%;
+}
+
+.control-group select {
+    padding: 6px 8px;
+    font-size: 13px;
+    border: 1px solid #b0bec5;
+    border-radius: 6px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.control-group input[type="range"] {
+    margin-top: 2px;
+    cursor: pointer;
+    accent-color: #1565c0;
+}
+
+/* ===========================================
+   BUTTONS
+   =========================================== */
+.button-row {
+    display: flex;
+    gap: 8px;
+}
+
+.btn {
+    padding: 8px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex: 1;
+}
+
+.btn-primary {
+    background-color: #1565c0;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0d47a1;
+}
+
+.btn-secondary {
+    background-color: #757575;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #616161;
+}
+
+/* ===========================================
+   STATUS / HELP PANEL
+   =========================================== */
+.status-panel {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.status-title {
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 13px;
+}
+
+.status-text {
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.status-text ul {
+    margin-left: 16px;
+    margin-top: 4px;
+}
+
+.status-text li {
+    margin-bottom: 4px;
+}
+
+/* ===========================================
+   RESPONSIVE STYLES
+   =========================================== */
+@media (max-width: 600px) {
+    .title {
+        font-size: 14px;
+        padding: 4px 8px;
+    }
+
+    .legend {
+        max-width: 150px;
+    }
+
+    .legend-item {
+        font-size: 9px;
+    }
+
+    .legend-color {
+        width: 12px;
+        height: 12px;
+    }
+
+    .right-panel {
+        width: 200px;
+    }
+
+    .btn {
+        padding: 7px 8px;
+        font-size: 11px;
+    }
+}

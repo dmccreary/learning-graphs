@@ -1,0 +1,93 @@
+{
+  "project_path": "/Users/dan/Documents/ws/learning-graphs",
+  "scan_date": "2026-07-05T17:56:28.718214",
+  "mkdocs_yml_found": true,
+  "docs_dir_found": true,
+  "site_name": "Learning Graphs",
+  "site_description": "A microsite for teaching how to create and maintain learning graphs (concept dependency graphs) for education.",
+  "site_author": "Dan McCreary",
+  "chapter_count": 19,
+  "microsim_count": 65,
+  "glossary_term_count": 47,
+  "faq_question_count": 0,
+  "quiz_file_count": 0,
+  "basic": {
+    "navigation_sidebar": true,
+    "search_functionality": true,
+    "table_of_contents": true,
+    "site_title": true,
+    "site_author": true,
+    "github_repo": true,
+    "custom_logo": true,
+    "custom_favicon": true,
+    "color_theme": true,
+    "footer_navigation": true,
+    "navigation_expand": true,
+    "back_to_top": true,
+    "breadcrumbs": true,
+    "section_index": true,
+    "license_page": true,
+    "contact_page": true,
+    "about_page": true,
+    "how_we_built": true,
+    "copyright_footer": false
+  },
+  "content_enhancement": {
+    "glightbox": false,
+    "katex": false,
+    "mathjax": false,
+    "admonitions": true,
+    "code_copy_button": true,
+    "syntax_highlighting": true,
+    "tabbed_content": true,
+    "task_lists": false,
+    "mark_highlight": false,
+    "strikethrough": false,
+    "magic_links": false,
+    "snippets": false,
+    "emoji": true,
+    "collapsible_details": true,
+    "mermaid": true
+  },
+  "site_resources": {
+    "glossary": true,
+    "faq": false,
+    "references": true,
+    "per_chapter_references": false,
+    "per_chapter_references_count": 0,
+    "custom_css": true,
+    "custom_js": true,
+    "google_analytics": true,
+    "document_status": false
+  },
+  "publishing": {
+    "social_media_cards": true,
+    "edit_page_button": true
+  },
+  "interactive_learning": {
+    "microsims": true,
+    "microsim_index": true,
+    "per_chapter_quizzes": false
+  },
+  "learning_graph": {
+    "course_description": true,
+    "learning_graph_csv": true,
+    "learning_graph_json": true,
+    "graph_viewer": true,
+    "concept_taxonomy": true,
+    "concept_list": true,
+    "quality_metrics": true,
+    "book_metrics": true,
+    "chapter_metrics": true,
+    "glossary_quality_report": false,
+    "faq_quality_report": false,
+    "faq_coverage_gaps": false,
+    "quiz_generation_report": false,
+    "reading_level_analysis": false
+  },
+  "content_generation": {
+    "chapters": true,
+    "pedagogical_agent": true,
+    "prompts_collection": true
+  }
+}

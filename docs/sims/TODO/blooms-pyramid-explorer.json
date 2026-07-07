@@ -1,0 +1,14 @@
+{
+  "sim_id": "blooms-pyramid-explorer",
+  "diagram_name": "Bloom's Taxonomy Pyramid Explorer",
+  "chapter_number": 6,
+  "chapter_title": "Bloom's Taxonomy and Learning Objectives",
+  "chapter_dir": "06-blooms-taxonomy-learning-objectives",
+  "library": "p5.js",
+  "bloom_level": "Remember (L1)",
+  "bloom_verb": "identify, recall, name",
+  "learning_objective": "Given the six-level pyramid, the learner can click each level and correctly recall its name, its position in the hierarchy, and at least two associated action verbs.",
+  "completion_status": "specified",
+  "extracted_date": "2026-07-03",
+  "specification": "Type: infographic\n**sim-id:** blooms-pyramid-explorer<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nPurpose: Give learners a persistent, clickable reference for the six cognitive-domain levels, their defining verbs, and one worked example per level drawn from this book's own concept list, before the chapter defines each level in prose.\n\nBloom Level: Remember (L1)\nBloom Verb: identify, recall, name\n\nLearning objective: Given the six-level pyramid, the learner can click each level and correctly recall its name, its position in the hierarchy, and at least two associated action verbs.\n\nVisual elements:\n- A six-tier pyramid, widest at the bottom, drawn with p5.js `beginShape()`/`vertex()` trapezoids\n- Bottom to top: Remembering, Understanding, Applying, Analyzing, Evaluating, Creating\n- Each tier shaded a different color along a single blue-to-gold gradient (blue at the base, gold at the peak) to visually reinforce \"increasing complexity\" without implying one level is more \"correct\" than another\n- Each tier labeled with its level name and level number (L1–L6) in bold\n\nInteractive controls:\n- Click any tier: an infobox to the right of the pyramid displays the level's full definition, its list of Bloom Verbs (e.g., Understanding shows \"explain, summarize, interpret, classify, compare, contrast, exemplify, infer\"), and one example objective written against a concept from this book (e.g., Analyzing shows \"Differentiate a structural check from a coverage check\")\n- Hover any tier: tier highlights with a lighter shade and a tooltip shows just the level name and number\n- Button: \"Reset View\" — clears the selected infobox\n\nDefault state: no tier selected, infobox shows prompt text \"Click a level to see its verbs and an example\"\n\nResponsive behavior: canvas and pyramid redraw proportionally on window resize using p5.js `windowResized()`; infobox panel stacks below the pyramid on narrow viewports rather than beside it\n\nCanvas size: responsive, 100% width, 560px height, minimum 600px internal drawing width before infobox reflows below\n\nImplementation: p5.js for pyramid rendering and click hit-testing against tier boundaries; infobox rendered as an HTML div positioned via CSS flexbox next to the canvas"
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Hover Tooltip Explorer</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Network canvas: overlays MUST be siblings, never children. -->
+        <div id="network"></div>
+
+        <!-- Title at top center -->
+        <div class="title">Hover Tooltip Explorer</div>
+
+        <!-- Legend in upper left -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color has-tip-swatch"></div>
+                <span><strong>Has tooltip</strong> &mdash; hover to see more</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color no-tip-swatch"></div>
+                <span><strong>No tooltip</strong> &mdash; nothing on hover</span>
+            </div>
+        </div>
+
+        <!-- Right panel: controls + live hover status. Siblings of #network. -->
+        <div class="right-panel">
+            <div class="controls">
+                <label class="check-row">
+                    <input type="checkbox" id="show-indicator" checked>
+                    <span>Show which nodes have tooltips</span>
+                </label>
+                <button class="btn btn-secondary" id="reset-btn">Reset View</button>
+            </div>
+
+            <div class="status-panel">
+                <div class="status-title">Hover State</div>
+                <div class="status-readout" id="status-readout">Hovering: nothing</div>
+                <div class="status-help" id="status-help">
+                    Move your pointer over a node. Five of the ten nodes have a
+                    <strong>title</strong> tooltip and will pop up a box near your
+                    cursor. The other five show nothing.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="hover-tooltip-explorer.js"></script>
+</body>
+</html>

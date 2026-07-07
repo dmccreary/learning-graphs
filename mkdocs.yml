@@ -10,15 +10,7 @@ nav:
   - Home: index.md
   - About: about.md
   - Course Description: course-description.md
-  - Learning Graph:
-    - Introduction: learning-graph/index.md
-    - Course Description Assessment: learning-graph/course-description-assessment.md
-    - Concept List v1: learning-graph/concept-list-v1.md
-    - Concept List: learning-graph/concept-list.md
-    - Concept Taxonomy: learning-graph/concept-taxonomy.md
-    - Taxonomy Distribution Report: learning-graph/taxonomy-distribution.md
-    - Graph Quality Metrics: learning-graph/quality-metrics.md
-    - Mascot Style Guide: learning-graph/mascot-test.md
+
   - Chapters:
     - Table of Contents: chapters/index.md
     - 1. Foundations of Concept Graphs: chapters/01-foundations-of-concept-graphs/index.md
@@ -40,11 +32,6 @@ nav:
     - 17. Intelligent Agents and Generative AI: chapters/17-intelligent-agents-generative-ai/index.md
     - 18. Intelligent Textbooks, MicroSims, and Deployment: chapters/18-intelligent-textbooks-microsims-deployment/index.md
     - 19. Using a Skill to Generate a Learning Graph: chapters/19-skill-generate-learning-graph/index.md
-
-  - Concepts:
-    - Introduction: concepts/index.md
-    - concepts/50-concepts.md
-    - concepts/taxonomy.md
   
   - Case Studies:
     - Introduction: case-studies/index.md
@@ -96,6 +83,17 @@ nav:
     - Graph Editor: vis/graph-editor/index.md
     - Edit Nodes: vis/edit-nodes/index.md
   
+  - Learning Graph:
+    - Introduction: learning-graph/index.md
+    - Course Description Assessment: learning-graph/course-description-assessment.md
+    - Concept List v1: learning-graph/concept-list-v1.md
+    - Concept List: learning-graph/concept-list.md
+    - Concept Taxonomy: learning-graph/concept-taxonomy.md
+    - Taxonomy Distribution Report: learning-graph/taxonomy-distribution.md
+    - Graph Quality Metrics: learning-graph/quality-metrics.md
+    - Mascot Style Guide: learning-graph/mascot-test.md
+    - Checklist: learning-graph/checklist.md
+
   - Sample Prompts:
     - Introduction: prompts/index.md
     - Course Description: prompts/01-course-description.md
@@ -113,19 +111,77 @@ nav:
     - Quiz: prompts/06-quiz.md
   
   - MicroSims:
-    - Intro: sims/index.md
-    - Learning is Nonlinear: sims/learning-is-nonlinear/index.md
-    - Learning Graph: sims/learning-graph/index.md
+    - List of MicroSims: sims/index.md
+    - Adaptive Learning Loop Explorer: sims/adaptive-learning-loop-explorer/index.md
+    - Agent Capability Explorer: sims/agent-capability-explorer/index.md
+    - Assessment Feedback Loop Explorer: sims/feedback-loop-explorer/index.md
+    - Blocked vs. Interleaved Practice Simulator: sims/blocked-vs-interleaved-simulator/index.md
+    - Bloom's Taxonomy Pyramid Explorer: sims/blooms-pyramid-explorer/index.md
+    - Book and Chapter Metrics Dashboard: sims/book-chapter-metrics-dashboard/index.md
     - Book Build Workflow: sims/book-build-workflow/index.md
-    - Book Generation Workflow: sims/book-gen-workflow/index.md
+    - Book Build Workflow: sims/book-gen-workflow/index.md
+    - Book Build Workflow Pipeline: sims/book-build-workflow-pipeline/index.md
+    - Clustering and Abstraction Explorer: sims/clustering-abstraction-explorer/index.md
     - Concept to Content Viewer: sims/concept-to-content-viewer/index.md
-    - Bloom's Taxonomy: sims/blooms-taxonomy/index.md
-    - MicroSim Template: sims/template/index.md
+    - Content Sequencing Algorithm Simulator: sims/content-sequencing-simulator/index.md
+    - DAG Cycle Detector: sims/dag-cycle-detector/index.md
+    - Dependency Analysis Console: sims/dependency-analysis-console/index.md
+    - Dependency Role Explorer: sims/dependency-role-explorer/index.md
+    - Distractor Quality Rater: sims/distractor-quality-rater/index.md
+    - Domain Cluster Explorer: sims/domain-cluster-explorer/index.md
+    - Dublin Core Metadata Explorer: sims/dublin-core-metadata-explorer/index.md
+    - Edge Smoothing and Curve Type Explorer: sims/edge-smoothing-curve-explorer/index.md
+    - Edge Styling Property Playground: sims/edge-styling-property-playground/index.md
+    - Force-Directed Layout Explorer: sims/force-directed-layout-explorer/index.md
+    - From Concept to Index Entry: sims/concept-to-index-workflow/index.md
+    - Generative AI to Learning Graph Pipeline: sims/genai-learning-graph-pipeline/index.md
+    - Goal Horizon Timeline: sims/goal-horizon-timeline/index.md
+    - Graph Anatomy Explorer: sims/graph-anatomy-explorer/index.md
+    - Graph Editor with Live Validation: sims/graph-editor-live-validation/index.md
+    - Graph Family Lens Explorer: sims/graph-family-lens-explorer/index.md
+    - Graph Viewer: sims/learning-graph/index.md
+    - Hover Tooltip Explorer: sims/hover-tooltip-explorer/index.md
+    - Hyper-Personalization Input Explorer: sims/hyper-personalization-input-explorer/index.md
+    - Indegree and Out-Degree Counter: sims/indegree-outdegree-counter/index.md
+    - Interactive Legend Filter: sims/interactive-legend-filter/index.md
+    - Interactive Taxonomy Legend and Filter: sims/interactive-taxonomy-legend/index.md
+    - Journey Map Builder: sims/journey-map-builder/index.md
+    - Knowledge Space Explorer: sims/knowledge-space-explorer/index.md
+    - Label Anatomy Explorer: sims/label-anatomy-explorer/index.md
+    - Layout Algorithm Comparison Lab: sims/layout-algorithm-comparison-lab/index.md
+    - Learning Graph Quality Gate Explorer: sims/learning-graph-quality-gate-explorer/index.md
+    - Learning Graph Viewer: sims/graph-viewer/index.md
+    - Learning is Nonlinear: sims/learning-is-nonlinear/index.md
+    - Learning Objective Builder: sims/learning-objective-builder/index.md
+    - Linear Path vs. Rhizombic Exploration: sims/rhizombic-path-explorer/index.md
+    - MicroSim Directory Anatomy: sims/microsim-directory-anatomy/index.md
+    - MicroSim Folder index.md Template: sims/blooms-taxonomy/index.md
+    - MicroSim Folder index.md Template: sims/template/index.md
+    - Multiple-Choice vs. True/False Comparison Chart: sims/quiz-format-comparison-chart/index.md
+    - Nine Events of Instruction Explorer: sims/nine-events-explorer/index.md
+    - Node Styling Property Playground: sims/node-styling-property-playground/index.md
+    - Orphan and Disconnected Subgraph Explorer: sims/orphan-disconnected-explorer/index.md
+    - Physics Force Explorer: sims/physics-force-explorer/index.md
+    - Ready-to-Learn Frontier Simulator: sims/ready-to-learn-frontier-simulator/index.md
+    - Real-World Deployment Patterns Explorer: sims/real-world-deployment-patterns/index.md
+    - Retrieval-Augmented Generation Step-Through: sims/rag-step-through/index.md
+    - Scaffolding Fade Simulator: sims/scaffolding-fade-simulator/index.md
+    - Search and Focus Navigation Console: sims/search-focus-navigation-console/index.md
+    - Similarity Metric Comparison Tool: sims/similarity-metric-comparison-tool/index.md
+    - SKOS Relationship Map: sims/skos-relationship-map/index.md
+    - Structural Variations Explorer: sims/structural-variations-explorer/index.md
+    - Taxonomy Classifier Workbench: sims/taxonomy-classifier-workbench/index.md
+    - The Twelve-Step Pipeline From Course Description to Validated Graph: sims/learning-graph-pipeline-workflow/index.md
+    - Theory-to-Practice Concept Map: sims/theory-to-practice-map/index.md
+    - Topological Sort Step-Through: sims/topological-sort-stepper/index.md
+    - Transitive Dependency and Hop Count Finder: sims/transitive-dependency-hop-finder/index.md
+    - Working Memory Load Simulator: sims/working-memory-load-simulator/index.md
+
+
   
   - Glossary: glossary.md
   - How We Built This Site: how-we-built-this-site.md
   - References: references.md
-  - Checklist: checklist.md
   - License: license.md
   - Student Volunteers Wanted: student-volunteers-wanted.md
   - Contact: contact.md
@@ -166,6 +222,9 @@ markdown_extensions:
       linenums: true
   - markdown.extensions.extra
   - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 extra_css:
   - css/extra.css
   - css/mascot.css

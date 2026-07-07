@@ -96,7 +96,7 @@ With those three terms defined, the diagram below contrasts a traditional linear
 
 #### Diagram: Linear Path vs. Rhizombic Exploration
 
-<iframe src="../../sims/rhizombic-path-explorer/main.html" width="100%" height="560px" scrolling="no"></iframe>
+<iframe src="../../sims/rhizombic-path-explorer/main.html" width="100%" height="562px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Linear Path vs. Rhizombic Exploration</summary>
@@ -234,7 +234,7 @@ The diagram below makes the fading pattern concrete: it shows how the *amount* o
 
 #### Diagram: Scaffolding Fade Simulator
 
-<iframe src="../../sims/scaffolding-fade-simulator/main.html" width="100%" height="520px" scrolling="no"></iframe>
+<iframe src="../../sims/scaffolding-fade-simulator/main.html" width="100%" height="522px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Scaffolding Fade Simulator</summary>
@@ -322,7 +322,7 @@ The infographic below lets you explore how the five learning theories from this 
 
 #### Diagram: Theory-to-Practice Concept Map
 
-<iframe src="../../sims/theory-to-practice-map/main.html" width="100%" height="560px" scrolling="no"></iframe>
+<iframe src="../../sims/theory-to-practice-map/main.html" width="100%" height="562px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Theory-to-Practice Concept Map</summary>

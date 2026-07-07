@@ -1,0 +1,22 @@
+{
+  "title": "Linear Path vs. Rhizombic Exploration",
+  "description": "Given the same eight concept nodes rendered in two side-by-side network views, the learner can compare the fixed, single-order traversal of a linear path against the many valid entry points and connection patterns of a rhizomatic exploration, and articulate at least one advantage and one risk of each.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "rhizombic-path-explorer",
+  "library": "vis-network",
+  "bloomLevel": "Analyze (L4)",
+  "bloomVerb": "compare, contrast, examine, distinguish",
+  "completion_status": "scaffold",
+  "chapter_number": 7,
+  "chapter_title": "Learning Theories and Instructional Design",
+  "chapter_dir": "07-learning-theories-instructional-design"
+}

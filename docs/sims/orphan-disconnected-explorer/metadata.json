@@ -1,0 +1,22 @@
+{
+  "title": "Orphan and Disconnected Subgraph Explorer",
+  "description": "Given a rendered learning graph containing a healthy main component, one orphaned node, and one disconnected subgraph, the learner can correctly click-select each isolated element and state which failure mode it represents.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "orphan-disconnected-explorer",
+  "library": "vis-network",
+  "bloomLevel": "Analyze (L4)",
+  "bloomVerb": "differentiate, examine",
+  "completion_status": "scaffold",
+  "chapter_number": 5,
+  "chapter_title": "Learning Graph Quality, Validation, and File Formats",
+  "chapter_dir": "05-graph-quality-validation-file-formats"
+}

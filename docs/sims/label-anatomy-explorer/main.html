@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Label Anatomy Explorer</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Network canvas (overlays are siblings; vis-network clears innerHTML) -->
+        <div id="network"></div>
+
+        <!-- Title -->
+        <div class="title">Label Anatomy Explorer</div>
+
+        <!-- Legend (upper left) -->
+        <div class="legend">
+            <div class="legend-item">
+                <span class="swatch concept"></span>Concept (preferred label)
+            </div>
+            <div class="legend-item">
+                <span class="swatch alt"></span>Alternate label (alias)
+            </div>
+            <div class="legend-item">
+                <span class="swatch-line"></span>hasAlternateLabel
+            </div>
+            <div class="legend-item">
+                <span class="caution">&#9888;</span>Common labeling mistake
+            </div>
+        </div>
+
+        <!-- Right side panel: infobox appears on click -->
+        <div class="right-panel">
+            <div class="infobox" id="infobox">
+                <div class="infobox-title" id="infobox-title">Preferred vs. Alternate Labels</div>
+                <div class="infobox-content" id="infobox-content">
+                    Each <strong>gold</strong> node is a concept with one
+                    <strong>preferred label</strong>. The gray nodes around it are
+                    <strong>alternate labels</strong> — aliases for the same concept,
+                    not separate concepts.
+                    <br><br>
+                    <em>Click any node to inspect it. Hover to spotlight its links.</em>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="label-anatomy-explorer.js"></script>
+</body>
+</html>

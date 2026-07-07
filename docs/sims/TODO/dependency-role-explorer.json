@@ -1,0 +1,14 @@
+{
+  "sim_id": "dependency-role-explorer",
+  "diagram_name": "Dependency Role Explorer",
+  "chapter_number": 3,
+  "chapter_title": "Concept Dependencies and Prerequisites",
+  "chapter_dir": "03-concept-dependencies-prerequisites",
+  "library": "vis-network",
+  "bloom_level": "Understand (L2)",
+  "bloom_verb": "identify, classify",
+  "learning_objective": "Given a small rendered dependency chain, the learner can correctly label each node's role (dependent, prerequisite, foundational) relative to a selected edge.",
+  "completion_status": "specified",
+  "extracted_date": "2026-07-03",
+  "specification": "Type: graph-model\n**sim-id:** dependency-role-explorer<br/>\n**Library:** vis-network<br/>\n**Status:** Specified\n\nPurpose: Let learners click through a four-node dependency chain and see how the same node can be a \"dependent concept\" relative to one edge and a \"prerequisite concept\" relative to another, with the bottom node singled out as the foundational concept.\n\nBloom Level: Understand (L2)\nBloom Verb: identify, classify\n\nLearning objective: Given a small rendered dependency chain, the learner can correctly label each node's role (dependent, prerequisite, foundational) relative to a selected edge.\n\nNodes to display (4, vis-network circle shape):\n- \"Calculus\" (id 1)\n- \"Algebra\" (id 2)\n- \"Arithmetic\" (id 3)\n- \"Number Sense\" (id 4)\n\nEdges to display (arrow points from dependent to prerequisite):\n- Calculus(1) → Algebra(2)\n- Algebra(2) → Arithmetic(3)\n- Arithmetic(3) → Number Sense(4)\n\nLayout: Hierarchical top-down, \"Number Sense\" at the bottom\n\nInteractive features:\n- Click any edge: the two endpoint nodes are labeled in the infobox as \"Dependent Concept: {from label}\" and \"Prerequisite Concept: {to label}\"\n- The bottom-most node (\"Number Sense\") is permanently badged \"Foundational Concept\" since it has no outgoing edges\n- Hover a node: tooltip states how many prerequisite concepts it has (its out-degree) and how many dependent concepts rely on it (its in-degree)\n- Toggle button: \"Highlight foundational concepts\" recolors any node with zero outgoing edges gold\n\nVisual styling:\n- Standard nodes: light blue circles, black text\n- Foundational concept: gold circle with a small anchor icon badge\n- Selected edge: thickened and highlighted with endpoint labels floating beside each node\n\nCanvas size: responsive, 100% width, 500px height\n\nImplementation: vis-network JavaScript library with a DataSet for nodes/edges; out-degree/in-degree computed client-side from the edge list on load"
+}

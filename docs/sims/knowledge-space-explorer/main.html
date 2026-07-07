@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Knowledge Space Explorer</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Network canvas (sibling-only overlays; vis-network clears innerHTML) -->
+        <div id="network"></div>
+
+        <!-- Title -->
+        <div class="title">Knowledge Space Explorer</div>
+
+        <!-- Legend (upper left) -->
+        <div class="legend">
+            <div class="legend-row"><strong>Node shade</strong> = concepts mastered</div>
+            <div class="legend-item"><span class="swatch d0"></span>0 concepts (empty)</div>
+            <div class="legend-item"><span class="swatch d1"></span>1 concept</div>
+            <div class="legend-item"><span class="swatch d2"></span>2 concepts</div>
+            <div class="legend-item"><span class="swatch d3"></span>3 concepts</div>
+            <div class="legend-item"><span class="swatch d4 gold"></span>4 = full mastery</div>
+            <div class="legend-item"><span class="swatch invalid"></span>Invalid state</div>
+            <div class="legend-row-sub">Edge label = concept learned that step</div>
+        </div>
+
+        <!-- Right panel: controls + infobox -->
+        <div class="right-panel">
+            <div class="controls">
+                <button class="btn btn-primary" id="path-btn">Highlight a Learning Path</button>
+                <label class="toggle">
+                    <input type="checkbox" id="invalid-toggle">
+                    <span>Show Invalid States</span>
+                </label>
+            </div>
+
+            <div class="infobox" id="infobox">
+                <div class="infobox-title" id="infobox-title">Explore the Knowledge Space</div>
+                <div class="infobox-content" id="infobox-content">
+                    Each node is a <strong>knowledge state</strong> — the set of concepts a
+                    learner has mastered so far. Hover a node to see its exact set.
+                    Click an edge to see which concept is learned at that step.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="knowledge-space-explorer.js"></script>
+</body>
+</html>

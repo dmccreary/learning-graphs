@@ -81,7 +81,7 @@ Before the diagram below, it helps to name the four stages explicitly, since the
 
 #### Diagram: Assessment Feedback Loop Explorer
 
-<iframe src="../../sims/feedback-loop-explorer/main.html" width="100%" height="480px" scrolling="no"></iframe>
+<iframe src="../../sims/feedback-loop-explorer/main.html" width="100%" height="522px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Assessment Feedback Loop Explorer</summary>
@@ -219,7 +219,7 @@ Before the interactive builder below, it helps to be explicit about the design g
 
 #### Diagram: Distractor Quality Rater
 
-<iframe src="../../sims/distractor-quality-rater/main.html" width="100%" height="560px" scrolling="no"></iframe>
+<iframe src="../../sims/distractor-quality-rater/main.html" width="100%" height="562px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Distractor Quality Rater</summary>
@@ -287,7 +287,7 @@ Before comparing the two quiz formats side by side, it is worth stating plainly 
 
 #### Diagram: Multiple-Choice vs. True/False Comparison Chart
 
-<iframe src="../../sims/quiz-format-comparison-chart/main.html" width="100%" height="480px" scrolling="no"></iframe>
+<iframe src="../../sims/quiz-format-comparison-chart/main.html" width="100%" height="622px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Multiple-Choice vs. True/False Comparison Chart</summary>

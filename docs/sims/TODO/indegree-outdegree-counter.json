@@ -1,0 +1,14 @@
+{
+  "sim_id": "indegree-outdegree-counter",
+  "diagram_name": "Indegree and Out-Degree Counter",
+  "chapter_number": 5,
+  "chapter_title": "Learning Graph Quality, Validation, and File Formats",
+  "chapter_dir": "05-graph-quality-validation-file-formats",
+  "library": "vis-network",
+  "bloom_level": "Understand (L2)",
+  "bloom_verb": "interpret, explain",
+  "learning_objective": "Given any node in a sample dependency graph, the learner can correctly state its indegree, out-degree, and node degree by tracing and counting its edges.",
+  "completion_status": "specified",
+  "extracted_date": "2026-07-03",
+  "specification": "Type: microsim\n**sim-id:** indegree-outdegree-counter<br/>\n**Library:** vis-network<br/>\n**Status:** Specified\n\nPurpose: Make indegree and out-degree concrete by letting learners click a node and watch each incoming and outgoing edge get highlighted and counted in real time, rather than presenting degree as an abstract number.\n\nBloom Level: Understand (L2)\nBloom Verb: interpret, explain\n\nLearning objective: Given any node in a sample dependency graph, the learner can correctly state its indegree, out-degree, and node degree by tracing and counting its edges.\n\nBase dataset: 12-node sample dependency graph (directed edges, arrows pointing from dependent to prerequisite) drawn from this book's own concept list, including one clear foundational node (indegree 5, out-degree 0) and one clear goal node (indegree 0, out-degree 4)\n\nData Visibility Requirements:\n  Stage 1: Show the full graph in neutral gray with no node selected\n  Stage 2: On node click, show every incoming edge highlighted in green with an animated count-up: \"Indegree: 0 → 1 → 2 → 3\"\n  Stage 3: Show every outgoing edge highlighted in orange with a separate animated count-up: \"Out-Degree: 0 → 1 → 2\"\n  Stage 4: Show the final summary panel: \"Indegree: 3, Out-Degree: 2, Node Degree: 5\"\n\nInteractive controls:\n- Click any node to select it and trigger the counting sequence\n- \"Clear Selection\" button to return to neutral state\n- Toggle: \"Show only incoming\" / \"Show only outgoing\" / \"Show both\" to isolate each direction\n\nInstructional Rationale: Step-through counting with concrete highlighted edges is appropriate because the Understand-level objective requires learners to trace individual edges and see how directionality changes what gets counted. A single static number would not reveal the difference between counting incoming versus outgoing edges.\n\nCanvas size: responsive, 100% width, 520px height\n\nImplementation: vis-network JavaScript library; edge highlighting and count animation driven by the `selectNode` event, iterating the DataSet's edges filtered by `from`/`to` matching the selected node ID"
+}

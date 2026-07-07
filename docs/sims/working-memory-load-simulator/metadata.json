@@ -1,0 +1,22 @@
+{
+  "title": "Working Memory Load Simulator",
+  "description": "Given a set of 12 raw information items, the learner can apply chunking to group them into fewer meaningful units and observe, through a live load meter, how grouping and prior-knowledge activation reduce effective working memory load below the four-to-seven item constraint.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "working-memory-load-simulator",
+  "library": "p5.js",
+  "bloomLevel": "Apply (L3)",
+  "bloomVerb": "demonstrate, apply, practice",
+  "completion_status": "scaffold",
+  "chapter_number": 8,
+  "chapter_title": "Cognitive Load and Knowledge Space Theory",
+  "chapter_dir": "08-cognitive-load-knowledge-space-theory"
+}

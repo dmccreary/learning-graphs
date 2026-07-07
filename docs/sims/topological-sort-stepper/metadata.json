@@ -1,0 +1,22 @@
+{
+  "title": "Topological Sort Step-Through",
+  "description": "Given a seven-node sample dependency graph (matching the Arithmetic/Number Sense/Algebra/Applied Calculus example plus three additional nodes), the learner can explain, step by step, why a node becomes eligible for the output order only once all of its prerequisite nodes have already been placed.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "topological-sort-stepper",
+  "library": "vis-network",
+  "bloomLevel": "Understand (L2)",
+  "bloomVerb": "explain, summarize, interpret",
+  "completion_status": "scaffold",
+  "chapter_number": 8,
+  "chapter_title": "Cognitive Load and Knowledge Space Theory",
+  "chapter_dir": "08-cognitive-load-knowledge-space-theory"
+}

@@ -1,0 +1,298 @@
+/* Search and Focus Navigation Console
+ * ===================================
+ * Top search bar + live suggestion dropdown + status line.
+ * Body: 60-node graph (75%) beside a node inspector panel (25%).
+ * Inspector reflows below the graph on narrow screens.
+ * All overlays are siblings of #network, never children.
+ */
+
+/* ===========================================
+   RESET & BASE
+   =========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: aliceblue;
+    color: #212529;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    gap: 8px;
+}
+
+/* ===========================================
+   SEARCH BAR
+   =========================================== */
+.search-bar {
+    flex: 0 0 auto;
+    background-color: rgba(255,255,255,0.97);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 10px 12px;
+    z-index: 30;
+}
+
+.search-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.search-wrap {
+    position: relative;
+    flex: 1 1 auto;
+}
+
+.search-input {
+    width: 100%;
+    padding: 9px 12px;
+    font-size: 14px;
+    font-family: inherit;
+    border: 2px solid #cbd5e0;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.15s;
+}
+
+.search-input:focus {
+    border-color: #2196f3;
+}
+
+/* Live suggestion dropdown */
+.suggestions {
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 0;
+    right: 0;
+    list-style: none;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+    max-height: 240px;
+    overflow-y: auto;
+    z-index: 40;
+}
+
+.suggestion-item {
+    padding: 8px 12px;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.suggestion-item:hover,
+.suggestion-item.active {
+    background-color: #ebf8ff;
+}
+
+.suggestion-swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex: 0 0 auto;
+    border: 1px solid rgba(0,0,0,0.25);
+}
+
+.suggestion-item .match {
+    font-weight: bold;
+    color: #c05621;
+}
+
+.suggestion-empty {
+    padding: 8px 12px;
+    font-size: 13px;
+    color: #718096;
+    font-style: italic;
+}
+
+/* Status line */
+.status-line {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #4a5568;
+    line-height: 1.4;
+}
+
+.status-line.active {
+    color: #2b6cb0;
+    font-weight: bold;
+}
+
+/* ===========================================
+   BODY ROW (graph + inspector)
+   =========================================== */
+.body-row {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    min-height: 0;   /* allow flex child to shrink so canvas sizes correctly */
+}
+
+.network {
+    flex: 1 1 75%;
+    min-width: 0;
+    background-color: #fbfdff;
+    border: 1px solid #cfd8e3;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+/* ===========================================
+   NODE INSPECTOR
+   =========================================== */
+.inspector {
+    flex: 0 0 25%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255,255,255,0.98);
+    border: 2px solid #2196f3;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    overflow: hidden;
+}
+
+.inspector-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    background-color: #2196f3;
+    color: white;
+}
+
+.inspector-title {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.inspector-close {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 4px;
+    border-radius: 4px;
+}
+
+.inspector-close:hover {
+    background-color: rgba(255,255,255,0.25);
+}
+
+.inspector-body {
+    padding: 12px;
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-y: auto;
+}
+
+.insp-field {
+    margin-bottom: 10px;
+}
+
+.insp-label {
+    font-weight: bold;
+    color: #2b6cb0;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.insp-value {
+    color: #1a202c;
+    word-break: break-word;
+}
+
+.insp-value.url {
+    color: #3182ce;
+}
+
+.insp-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.insp-list li {
+    padding: 2px 0 2px 14px;
+    position: relative;
+}
+
+.insp-list li::before {
+    content: "\2192";
+    position: absolute;
+    left: 0;
+    color: #718096;
+}
+
+.insp-none {
+    color: #a0aec0;
+    font-style: italic;
+}
+
+/* ===========================================
+   BUTTONS
+   =========================================== */
+.btn {
+    padding: 9px 16px;
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.btn-secondary {
+    background-color: #757575;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #616161;
+}
+
+/* ===========================================
+   RESPONSIVE: inspector below graph < 700px
+   =========================================== */
+@media (max-width: 700px) {
+    .body-row {
+        flex-direction: column;
+    }
+
+    .network {
+        flex: 1 1 auto;
+        min-height: 320px;
+    }
+
+    .inspector {
+        flex: 0 0 auto;
+        max-width: none;
+        max-height: 240px;
+    }
+}

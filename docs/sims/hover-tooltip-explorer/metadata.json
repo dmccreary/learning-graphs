@@ -1,0 +1,22 @@
+{
+  "title": "Hover Tooltip Explorer",
+  "description": "Given a 10-node sample graph where half the nodes have `title` tooltips and half do not, the learner can explain what a Hover State is and interpret which nodes provide additional information on hover versus which do not.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "hover-tooltip-explorer",
+  "library": "vis-network",
+  "bloomLevel": "Understand (L2)",
+  "bloomVerb": "explain, summarize, interpret",
+  "completion_status": "scaffold",
+  "chapter_number": 14,
+  "chapter_title": "Interactive Navigation in Vis.js",
+  "chapter_dir": "14-interactive-navigation-visjs"
+}

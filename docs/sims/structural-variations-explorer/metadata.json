@@ -1,0 +1,22 @@
+{
+  "title": "Structural Variations Explorer",
+  "description": "Given the same 12-node dependency dataset shown under three structural layouts, the learner can judge which layout is most useful for a specified task (e.g., \"showing an individual learner's next step\" vs. \"showing an instructor the subject's overall shape\") and justify the choice.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "structural-variations-explorer",
+  "library": "vis-network",
+  "bloomLevel": "Evaluate (L5)",
+  "bloomVerb": "assess, justify",
+  "completion_status": "scaffold",
+  "chapter_number": 1,
+  "chapter_title": "Foundations of Concept Graphs",
+  "chapter_dir": "01-foundations-of-concept-graphs"
+}

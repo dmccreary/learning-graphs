@@ -1,0 +1,22 @@
+{
+  "title": "Taxonomy Classifier Workbench",
+  "description": "Given a concept label and definition, the learner can select the single most appropriate taxonomy category from a fixed set of options and explain why competing categories are a worse fit.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "taxonomy-classifier-workbench",
+  "library": "p5.js",
+  "bloomLevel": "Apply (L3)",
+  "bloomVerb": "classify, apply",
+  "completion_status": "scaffold",
+  "chapter_number": 4,
+  "chapter_title": "Concept Taxonomies and Ontologies",
+  "chapter_dir": "04-concept-taxonomies-ontologies"
+}

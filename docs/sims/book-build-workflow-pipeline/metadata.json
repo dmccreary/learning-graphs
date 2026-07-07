@@ -1,0 +1,22 @@
+{
+  "title": "Book Build Workflow Pipeline",
+  "description": "Given the seven-stage pipeline rendered as a flowchart, the learner can examine each stage's inputs and outputs and differentiate the two stages (quality validation and local preview) that exist specifically to catch problems before public deployment.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "book-build-workflow-pipeline",
+  "library": "Mermaid",
+  "bloomLevel": "Analyze (L4)",
+  "bloomVerb": "examine, differentiate, sequence",
+  "completion_status": "scaffold",
+  "chapter_number": 18,
+  "chapter_title": "Intelligent Textbooks, MicroSims, and Deployment",
+  "chapter_dir": "18-intelligent-textbooks-microsims-deployment"
+}

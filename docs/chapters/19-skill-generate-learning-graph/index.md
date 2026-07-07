@@ -122,7 +122,7 @@ The fix in that second row was not a wholesale rewrite — it was six targeted e
 
 #### Diagram: Learning Graph Quality Gate Explorer
 
-<iframe src="../../sims/learning-graph-quality-gate-explorer/main.html" width="100%" height="540px" scrolling="no"></iframe>
+<iframe src="../../sims/learning-graph-quality-gate-explorer/main.html" width="100%" height="542px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Learning Graph Quality Gate Explorer</summary>
@@ -206,7 +206,7 @@ This closes a loop worth stating explicitly: automation handles what a script ca
 
 #### Diagram: The Twelve-Step Pipeline From Course Description to Validated Graph
 
-<iframe src="../../sims/learning-graph-pipeline-workflow/main.html" width="100%" height="560px" scrolling="no"></iframe>
+<iframe src="../../sims/learning-graph-pipeline-workflow/main.html" width="100%" height="902px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>The Twelve-Step Pipeline From Course Description to Validated Graph</summary>

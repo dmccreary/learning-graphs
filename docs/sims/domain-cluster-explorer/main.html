@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Domain Cluster Explorer</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Network canvas (background). Overlays are SIBLINGS, never children. -->
+        <div id="network"></div>
+
+        <!-- Title at top center -->
+        <div class="title">Domain Cluster Explorer</div>
+
+        <!-- Legend upper left: one color per domain -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background:#4e79a7;"></div><span>Graph Theory</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background:#59a14f;"></div><span>Learning Science</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background:#e15759;"></div><span>Taxonomy Design</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background:#b07aa1;"></div><span>Visualization</span>
+            </div>
+        </div>
+
+        <!-- Right panel: controls + status + per-domain readout -->
+        <div class="right-panel">
+            <div class="controls">
+                <button class="btn btn-primary" id="cluster-btn">Cluster by Domain</button>
+                <button class="btn btn-secondary" id="expand-btn">Expand All</button>
+                <div class="instruction">Double-click any composite node to expand just that domain.</div>
+            </div>
+
+            <div class="status-panel">
+                <div class="status-title">Status</div>
+                <div class="status-text" id="status-text">Showing: 40 individual nodes</div>
+            </div>
+
+            <div class="counts-panel">
+                <div class="status-title">Members per domain</div>
+                <div class="count-row"><span class="dot" style="background:#4e79a7;"></span><span id="count-graph">Graph Theory: 0</span></div>
+                <div class="count-row"><span class="dot" style="background:#59a14f;"></span><span id="count-learn">Learning Science: 0</span></div>
+                <div class="count-row"><span class="dot" style="background:#e15759;"></span><span id="count-tax">Taxonomy Design: 0</span></div>
+                <div class="count-row"><span class="dot" style="background:#b07aa1;"></span><span id="count-vis">Visualization: 0</span></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="domain-cluster-explorer.js"></script>
+</body>
+</html>

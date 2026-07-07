@@ -1,5 +1,9 @@
 # References for Learning Graphs
 
+## Justin Skycak Post X about Graphs in Education
+
+[Knowledge Graph is Our Secret Sauce](https://x.com/justinskycak/status/2074331548342538696?s=46)
+
 ## Academic Papers
 
 ### Sample Prompt for Curriculum Design

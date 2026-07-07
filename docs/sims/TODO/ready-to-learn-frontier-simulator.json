@@ -1,0 +1,14 @@
+{
+  "sim_id": "ready-to-learn-frontier-simulator",
+  "diagram_name": "Ready-to-Learn Frontier Simulator",
+  "chapter_number": 3,
+  "chapter_title": "Concept Dependencies and Prerequisites",
+  "chapter_dir": "03-concept-dependencies-prerequisites",
+  "library": "vis-network",
+  "bloom_level": "Apply (L3)",
+  "bloom_verb": "demonstrate, apply",
+  "learning_objective": "Given a small dependency graph and a starting state, the learner can predict and verify which concept(s) become ready-to-learn after marking a specific concept as learned.",
+  "completion_status": "specified",
+  "extracted_date": "2026-07-03",
+  "specification": "Type: graph-model\n**sim-id:** ready-to-learn-frontier-simulator<br/>\n**Library:** vis-network<br/>\n**Status:** Specified\n\nPurpose: Let learners click concepts to mark them \"learned\" one at a time and watch which other concepts flip to \"ready-to-learn\" as a result, making the cascading unlock effect concrete.\n\nBloom Level: Apply (L3)\nBloom Verb: demonstrate, apply\n\nLearning objective: Given a small dependency graph and a starting state, the learner can predict and verify which concept(s) become ready-to-learn after marking a specific concept as learned.\n\nBase dataset: 9-node subgraph — \"Number Sense,\" \"Arithmetic,\" \"Algebra,\" \"Geometry,\" \"Trigonometry,\" \"Functions,\" \"Derivatives,\" \"Integrals,\" \"Applied Calculus\" — with dependency edges forming a typical math-sequence DAG (Algebra and Geometry both depend on Arithmetic; Trigonometry depends on Geometry and Algebra; Functions depends on Algebra; Derivatives depends on Functions and Trigonometry; Integrals depends on Derivatives; Applied Calculus depends on Integrals)\n\nInteractive features:\n- Click any node currently colored gold (ready-to-learn) to mark it green (learned); clicking recalculates the ready-to-learn set and any newly-unlocked node animates from gray to gold\n- Node color states: gray = \"not yet ready\" (at least one prerequisite unlearned), gold = \"ready-to-learn,\" green = \"learned\"\n- Reset button restores the initial state (only \"Number Sense\" learned, \"Arithmetic\" ready-to-learn, everything else gray)\n- Infobox lists the current \"Ready-to-Learn\" set as a bulleted list, updating live\n\nVisual styling:\n- Gray, gold, and green circular nodes as described above\n- A pulsing animation plays briefly on any node transitioning from gray to gold, to draw attention to the cascade\n\nLayout: hierarchical top-down, foundational concepts at the bottom\n\nCanvas size: responsive, 100% width, 540px height\n\nImplementation: vis-network JavaScript library; on each click, recompute ready-to-learn status for all gray nodes by checking whether every prerequisite (outgoing edge target) is in the learned set"
+}

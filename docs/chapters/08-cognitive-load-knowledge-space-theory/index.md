@@ -104,7 +104,7 @@ Before looking at the diagram below, it helps to have all five cognitive-load co
 
 #### Diagram: Working Memory Load Simulator
 
-<iframe src="../../sims/working-memory-load-simulator/main.html" width="100%" height="540px" scrolling="no"></iframe>
+<iframe src="../../sims/working-memory-load-simulator/main.html" width="100%" height="542px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Working Memory Load Simulator</summary>
@@ -209,7 +209,7 @@ A small worked example makes the mechanism concrete before the diagram below let
 
 #### Diagram: Topological Sort Step-Through
 
-<iframe src="../../sims/topological-sort-stepper/main.html" width="100%" height="540px" scrolling="no"></iframe>
+<iframe src="../../sims/topological-sort-stepper/main.html" width="100%" height="542px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Topological Sort Step-Through</summary>
@@ -310,7 +310,7 @@ Before the diagram below, it is worth being explicit about why knowledge space t
 
 #### Diagram: Knowledge Space Explorer
 
-<iframe src="../../sims/knowledge-space-explorer/main.html" width="100%" height="580px" scrolling="no"></iframe>
+<iframe src="../../sims/knowledge-space-explorer/main.html" width="100%" height="622px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Knowledge Space Explorer</summary>

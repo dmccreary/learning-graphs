@@ -1,0 +1,22 @@
+{
+  "title": "Force-Directed Layout Explorer",
+  "description": "Given a small graph and adjustable physics sliders, the learner can predict and observe how increasing repulsion spreads nodes apart and how increasing spring (edge) strength pulls connected nodes closer together.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "force-directed-layout-explorer",
+  "library": "vis-network",
+  "bloomLevel": "Apply (L3)",
+  "bloomVerb": "demonstrate, experiment",
+  "completion_status": "scaffold",
+  "chapter_number": 11,
+  "chapter_title": "Vis.js Fundamentals and Node Styling",
+  "chapter_dir": "11-visjs-fundamentals-node-styling"
+}

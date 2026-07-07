@@ -1,9 +1,9 @@
 ---
 title: Learning Graphs
 description: A textbook on learning graphs that guide the creation of intelligent textbooks using LLMs. 
-image: /img/cover-banner-image.png
-og:image: /img/cover-banner-image.png
-twitter:image: /img/cover-banner-image.png
+image: /img/cover.png
+og:image: /img/cover.png
+twitter:image: /img/cover.png
 social:
    cards: false
 hide:
@@ -14,7 +14,7 @@ hide:
 </style>
 # Learning Graphs
 
-![](./img/cover-banner-image.png)
+![](./img/cover.png)
 
 Welcome to the website for Learning Graphs.  Learning
 Graphs are [concept dependency graphs](glossary.md/#concept-dependency-graph) that are used to:

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Clustering and Abstraction Explorer</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Network canvas - full width/height background layer -->
+        <div id="network"></div>
+
+        <!-- Title at top center -->
+        <div class="title">Clustering and Abstraction Explorer</div>
+
+        <!-- Legend in upper left -->
+        <div class="legend" id="legend">
+            <div class="legend-item">
+                <div class="legend-color color-gray"></div>
+                <span><strong>Unclustered</strong> concept</span>
+            </div>
+            <div class="legend-item legend-cluster" style="display:none;">
+                <div class="legend-color color-blue"></div>
+                <span id="legend-a-label"><strong>Group A</strong></span>
+            </div>
+            <div class="legend-item legend-cluster" style="display:none;">
+                <div class="legend-color color-gold"></div>
+                <span id="legend-b-label"><strong>Group B</strong></span>
+            </div>
+            <div class="legend-item legend-cluster" style="display:none;">
+                <div class="legend-color color-purple"></div>
+                <span id="legend-c-label"><strong>Group C</strong></span>
+            </div>
+        </div>
+
+        <!-- Right panel with controls and status -->
+        <div class="right-panel">
+            <div class="controls">
+                <button class="btn btn-primary" id="cluster-btn">Run Clustering</button>
+                <button class="btn btn-primary" id="abstract-btn" disabled>Run Abstraction</button>
+                <button class="btn btn-secondary" id="reset-btn">Reset</button>
+            </div>
+
+            <div class="status-panel">
+                <div class="status-title">What is happening</div>
+                <div class="status-text" id="status-text">
+                    All 18 concepts start gray. Physics has already pulled three
+                    dense groups apart. Press <strong>Run Clustering</strong> to
+                    color the groups a computer would detect from the edges alone.
+                </div>
+            </div>
+
+            <div class="status-panel">
+                <div class="status-title">How to use</div>
+                <div class="status-text">
+                    <ul>
+                        <li><strong>Run Clustering</strong> groups nodes by their connections and colors each group.</li>
+                        <li><strong>Run Abstraction</strong> proposes a taxonomy name for each colored group.</li>
+                        <li>Hover any node to read its concept label.</li>
+                        <li><strong>Reset</strong> returns every node to gray.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="clustering-abstraction-explorer.js"></script>
+</body>
+</html>

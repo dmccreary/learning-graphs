@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Goal Horizon Timeline</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-timeline@7.7.3/standalone/umd/vis-timeline-graph2d.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vis-timeline@7.7.3/styles/vis-timeline-graph2d.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+        }
+        #container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 16px;
+            background: white;
+        }
+        h1 {
+            font-size: 20px;
+            margin-bottom: 4px;
+            color: #1a3a6c;
+        }
+        .subtitle {
+            font-size: 13px;
+            color: #6c757d;
+            margin-bottom: 12px;
+        }
+
+        /* Controls row */
+        #controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            padding: 10px 12px;
+            background: #eef3f9;
+            border: 1px solid #d6e0ec;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+        #controls label { font-size: 13px; color: #334155; font-weight: 600; }
+        #controls .hint { font-size: 12px; color: #64748b; }
+        button.ctrl-btn {
+            padding: 6px 14px;
+            border: 1px solid #94a3b8;
+            border-radius: 6px;
+            background: white;
+            color: #334155;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        button.ctrl-btn:hover { background: #f1f5f9; border-color: #3b82f6; color: #1e40af; }
+
+        /* Timeline area */
+        #timeline {
+            padding: 8px 60px 0 60px;
+            background: white;
+            min-height: 220px;
+        }
+        .vis-timeline { border: none !important; overflow: visible !important; }
+        .vis-panel.vis-center { overflow: visible !important; }
+        .vis-item .vis-item-overflow { overflow: visible !important; }
+
+        /* Concept boxes */
+        .vis-item {
+            border-radius: 8px !important;
+            font-size: 12px !important;
+            border-width: 2px !important;
+        }
+        .vis-item .vis-item-content { white-space: nowrap !important; padding: 2px 6px !important; }
+        .vis-item.vis-box { min-width: fit-content !important; }
+
+        .concept-box { text-align: center; line-height: 1.25; }
+        .concept-name { font-weight: 700; font-size: 13px; display: block; }
+        /* Badge pill rendered above the concept name */
+        .badge-pill {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            padding: 1px 7px;
+            border-radius: 10px;
+            margin-bottom: 3px;
+            text-transform: uppercase;
+            color: white;
+        }
+        .badge-mastered      { background: #6b7280; }
+        .badge-immediate     { background: #d4a017; color: #3a2c00; }
+        .badge-intermediate  { background: #2563eb; }
+        .badge-ultimate      { background: #7c3aed; }
+
+        /* Color families for the boxes themselves (bg + border) */
+        .vis-item.state-mastered     { background: #e5e7eb !important; border-color: #9ca3af !important; color: #374151 !important; }
+        .vis-item.state-immediate    { background: #fdf0c8 !important; border-color: #d4a017 !important; color: #3a2c00 !important; }
+        .vis-item.state-intermediate { background: #dbeafe !important; border-color: #2563eb !important; color: #1e3a8a !important; }
+        .vis-item.state-ultimate     { background: #ede4fd !important; border-color: #7c3aed !important; color: #4c1d95 !important; }
+
+        /* Draggable "You are here" marker (base + tagged styling both red) */
+        .vis-custom-time,
+        .vis-custom-time.here {
+            background-color: #dc2626;
+            width: 3px;
+            cursor: ew-resize;
+        }
+        .vis-custom-time > .vis-custom-time-marker,
+        .vis-custom-time.here > .vis-custom-time-marker {
+            background-color: #dc2626 !important;
+            color: white !important;
+            font-size: 11px !important;
+            font-weight: 700 !important;
+            border-radius: 4px !important;
+            padding: 2px 8px !important;
+            white-space: nowrap !important;
+        }
+
+        .vis-time-axis .vis-text { color: #475569 !important; font-size: 11px !important; }
+        .vis-time-axis .vis-grid.vis-minor { border-color: #eef2f7 !important; }
+
+        /* Legend */
+        #legend {
+            display: flex; flex-wrap: wrap; gap: 14px;
+            padding: 10px 12px; margin-top: 10px;
+            background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;
+            font-size: 12px; color: #475569;
+        }
+        #legend .lg { display: flex; align-items: center; gap: 6px; }
+        #legend .sw { width: 14px; height: 14px; border-radius: 4px; border: 2px solid; }
+        .sw.state-mastered     { background: #e5e7eb; border-color: #9ca3af; }
+        .sw.state-immediate    { background: #fdf0c8; border-color: #d4a017; }
+        .sw.state-intermediate { background: #dbeafe; border-color: #2563eb; }
+        .sw.state-ultimate     { background: #ede4fd; border-color: #7c3aed; }
+
+        /* Infobox */
+        #infobox {
+            margin-top: 12px;
+            padding: 14px 16px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-left: 6px solid #94a3b8;
+            border-radius: 8px;
+        }
+        #infobox h3 { font-size: 15px; margin-bottom: 6px; color: #1e293b; }
+        #infobox .classification { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+        #infobox p { font-size: 13px; line-height: 1.5; color: #475569; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Goal Horizon Timeline</h1>
+        <p class="subtitle">Drag the red <strong>&ldquo;You are here&rdquo;</strong> marker along the prerequisite chain. Watch how each remaining concept is classified as an immediate, intermediate, or ultimate goal.</p>
+
+        <div id="controls">
+            <label>You are here:</label>
+            <span class="hint">drag the red marker, or use the buttons</span>
+            <button class="ctrl-btn" onclick="stepMarker(-1)">&#9664; Back</button>
+            <button class="ctrl-btn" onclick="stepMarker(1)">Forward &#9654;</button>
+            <button class="ctrl-btn" onclick="resetMarker()">Reset</button>
+        </div>
+
+        <div id="timeline"></div>
+
+        <div id="legend">
+            <div class="lg"><span class="sw state-mastered"></span> Mastered</div>
+            <div class="lg"><span class="sw state-immediate"></span> Immediate Goal (next concept)</div>
+            <div class="lg"><span class="sw state-intermediate"></span> Intermediate Goal</div>
+            <div class="lg"><span class="sw state-ultimate"></span> Ultimate Goal (course capstone)</div>
+        </div>
+
+        <div id="infobox">
+            <h3 id="ib-title">Select or drag the marker</h3>
+            <div class="classification" id="ib-class"></div>
+            <p id="ib-text">Click a concept box, or drag the red marker, to see how that concept is classified from where you currently stand.</p>
+        </div>
+    </div>
+
+    <script src="goal-horizon-timeline.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "sim_id": "dublin-core-metadata-explorer",
+  "diagram_name": "Dublin Core Metadata Explorer",
+  "chapter_number": 2,
+  "chapter_title": "Concept Labeling and Metadata Standards",
+  "chapter_dir": "02-concept-labeling-metadata-standards",
+  "library": "vis-network",
+  "bloom_level": "Remember (L1)",
+  "bloom_verb": "identify, recall",
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-07-03",
+  "specification": "Type: infographic\n**sim-id:** dublin-core-metadata-explorer<br/>\n**Library:** vis-network<br/>\n**Status:** Specified\n\nPurpose: Let learners explore all 15 Dublin Core elements and see a realistic example value for each, using this textbook's own learning graph file as the running example.\n\nBloom Level: Remember (L1)\nBloom Verb: identify, recall\n\nLayout: 15 tiles arranged in a 5-column by 3-row responsive grid, one tile per Dublin Core element\n\nTile labels (element name shown on each tile face):\nTitle, Creator, Subject, Description, Publisher, Contributor, Date, Type, Format, Identifier, Source, Language, Relation, Coverage, Rights\n\nInteractive features:\n- Click a tile: it flips (or expands below the grid) to reveal a one-sentence definition of the element plus an example value drawn from this book's own learning-graph.json record, e.g.:\n  - Title → \"Learning Graphs: The Key to Intelligent Textbooks\"\n  - Creator → \"Dan McCreary\"\n  - Subject → \"Concept Dependency Graphs, Intelligent Textbooks\"\n  - Date → publication date of the current learning graph revision\n  - Format → \"application/json\"\n- Progress indicator: small counter in the corner (\"6 of 15 explored\") that increments the first time each tile is flipped, encouraging learners to explore all 15 before moving on\n- Hover a tile before clicking: subtle highlight to show it is interactive\n\nColor scheme: 15 tiles in a single accent color family (blues), flipped/explored tiles shown with a checkmark badge\n\nResponsive behavior: grid reflows to 3 columns by 5 rows on narrow viewports\n\nImplementation: HTML/CSS/JavaScript grid with a flip-card interaction; state (which tiles explored) held in page memory, not persisted"
+}

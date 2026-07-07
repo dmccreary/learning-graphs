@@ -1,0 +1,22 @@
+{
+  "title": "Assessment Feedback Loop Explorer",
+  "description": "Given a four-stage feedback loop rendered as a circular flowchart, the learner can explain the purpose of each stage and classify a given classroom or intelligent-textbook scenario according to which stage it represents.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "feedback-loop-explorer",
+  "library": "Mermaid",
+  "bloomLevel": "Understand (L2)",
+  "bloomVerb": "explain, summarize, classify",
+  "completion_status": "scaffold",
+  "chapter_number": 10,
+  "chapter_title": "Assessment, Feedback, and Quizzes",
+  "chapter_dir": "10-assessment-feedback-quizzes"
+}

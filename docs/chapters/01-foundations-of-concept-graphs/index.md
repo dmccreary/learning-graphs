@@ -85,7 +85,7 @@ Before you look at the diagram below, hold onto three terms: a **node** is a con
 
 #### Diagram: Graph Anatomy Explorer
 
-<iframe src="../../sims/graph-anatomy-explorer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/graph-anatomy-explorer/main.html" width="100%" height="502px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Graph Anatomy Explorer</summary>
@@ -157,7 +157,7 @@ Before the diagram below, hold onto one more term: a **cycle** is a closed loop 
 
 #### Diagram: DAG Cycle Detector
 
-<iframe src="../../sims/dag-cycle-detector/main.html" width="100%" height="520px" scrolling="no"></iframe>
+<iframe src="../../sims/dag-cycle-detector/main.html" width="100%" height="602px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>DAG Cycle Detector</summary>
@@ -230,7 +230,7 @@ Because these five terms are easy to blur together in practice, the interactive 
 
 #### Diagram: Graph Family Lens Explorer
 
-<iframe src="../../sims/graph-family-lens-explorer/main.html" width="100%" height="540px" scrolling="no"></iframe>
+<iframe src="../../sims/graph-family-lens-explorer/main.html" width="100%" height="542px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Graph Family Lens Explorer</summary>
@@ -297,7 +297,7 @@ The explorer below renders one 12-node subset of concepts under all three struct
 
 #### Diagram: Structural Variations Explorer
 
-<iframe src="../../sims/structural-variations-explorer/main.html" width="100%" height="520px" scrolling="no"></iframe>
+<iframe src="../../sims/structural-variations-explorer/main.html" width="100%" height="522px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Structural Variations Explorer</summary>
@@ -344,7 +344,7 @@ The relationship between the two is worth stating precisely, because it previews
 
 #### Diagram: Journey Map Builder
 
-<iframe src="../../sims/journey-map-builder/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/journey-map-builder/main.html" width="100%" height="702px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Journey Map Builder</summary>

@@ -126,7 +126,7 @@ Before you experiment with the MicroSim below, hold onto one more idea: every no
 
 #### Diagram: Force-Directed Layout Explorer
 
-<iframe src="../../sims/force-directed-layout-explorer/main.html" width="100%" height="540px" scrolling="no"></iframe>
+<iframe src="../../sims/force-directed-layout-explorer/main.html" width="100%" height="542px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Force-Directed Layout Explorer</summary>
@@ -331,7 +331,7 @@ Before exploring the MicroSim, note the key interaction pattern: clicking a lege
 
 #### Diagram: Interactive Legend Filter
 
-<iframe src="../../sims/interactive-legend-filter/main.html" width="100%" height="560px" scrolling="no"></iframe>
+<iframe src="../../sims/interactive-legend-filter/main.html" width="100%" height="562px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Interactive Legend Filter</summary>
@@ -414,7 +414,7 @@ The MicroSim below lets you compare every node styling property covered in this 
 
 #### Diagram: Node Styling Property Playground
 
-<iframe src="../../sims/node-styling-property-playground/main.html" width="100%" height="580px" scrolling="no"></iframe>
+<iframe src="../../sims/node-styling-property-playground/main.html" width="100%" height="582px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Node Styling Property Playground</summary>

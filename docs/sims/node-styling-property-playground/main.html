@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Node Styling Property Playground</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Network canvas on the left (overlays/panel are SIBLINGS) -->
+        <div id="network"></div>
+
+        <!-- Title top center -->
+        <div class="title">Node Styling Property Playground</div>
+
+        <!-- Control panel on the right -->
+        <div class="control-panel">
+            <div class="panel-heading">Node Properties</div>
+
+            <label class="ctl">Shape
+                <select id="ctl-shape">
+                    <option value="ellipse">ellipse</option>
+                    <option value="circle">circle</option>
+                    <option value="box">box</option>
+                    <option value="diamond">diamond</option>
+                    <option value="star">star</option>
+                    <option value="triangle">triangle</option>
+                    <option value="dot">dot</option>
+                    <option value="square">square</option>
+                    <option value="hexagon">hexagon</option>
+                    <option value="icon">icon</option>
+                    <option value="image">image</option>
+                </select>
+            </label>
+
+            <label class="ctl">Background Color
+                <input type="color" id="ctl-bg" value="#add8e6">
+            </label>
+
+            <label class="ctl">Font Color
+                <input type="color" id="ctl-font" value="#000000">
+            </label>
+
+            <label class="ctl" id="wrap-size">Size (fixed-size shapes)
+                <span class="range-wrap"><input type="range" id="ctl-size" min="10" max="80" value="25" step="1"><span class="range-val" id="val-size">25</span></span>
+            </label>
+
+            <label class="ctl">Border Width
+                <span class="range-wrap"><input type="range" id="ctl-bw" min="0" max="10" value="1" step="1"><span class="range-val" id="val-bw">1</span></span>
+            </label>
+
+            <label class="ctl">Border Color
+                <input type="color" id="ctl-bc" value="#00008b">
+            </label>
+
+            <label class="ctl">Opacity
+                <span class="range-wrap"><input type="range" id="ctl-op" min="0" max="1" value="1" step="0.05"><span class="range-val" id="val-op">1.0</span></span>
+            </label>
+
+            <label class="ctl ctl-check">
+                <input type="checkbox" id="ctl-shadow"> Enable Shadow
+            </label>
+
+            <label class="ctl" id="wrap-icon">Icon (icon shape only)
+                <select id="ctl-icon">
+                    <option value="f015">home (\f015)</option>
+                    <option value="f19d">graduation-cap (\f19d)</option>
+                    <option value="f02d">book (\f02d)</option>
+                    <option value="f0eb">lightbulb (\f0eb)</option>
+                    <option value="f0c0">users (\f0c0)</option>
+                    <option value="f542">project-diagram (\f542)</option>
+                </select>
+            </label>
+
+            <label class="ctl" id="wrap-image">Image URL (image shape only)
+                <input type="text" id="ctl-image" placeholder="https://…/picture.png">
+            </label>
+
+            <!-- Live JSON preview beneath the controls -->
+            <div class="json-heading">Live Node JSON</div>
+            <pre class="json-preview" id="json-preview"></pre>
+        </div>
+    </div>
+
+    <script src="node-styling-property-playground.js"></script>
+</body>
+</html>

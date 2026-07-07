@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Graph Anatomy Explorer</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Network canvas: overlays MUST be siblings, never children. -->
+        <div id="network"></div>
+
+        <!-- Title at top center -->
+        <div class="title">Graph Anatomy Explorer</div>
+
+        <!-- Legend in upper left -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color node-swatch"></div>
+                <span><strong>Node</strong> &mdash; a concept</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color edge-swatch">&#8594;</div>
+                <span><strong>Edge</strong> &mdash; a dependency</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color select-swatch"></div>
+                <span><strong>Selected</strong> element</span>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button class="btn btn-primary" id="toggle-btn">Show as undirected</button>
+            <button class="btn btn-secondary" id="reset-btn">Reset</button>
+        </div>
+
+        <!-- Side infobox: sibling of #network, opens on node/edge click -->
+        <div class="infobox">
+            <div class="stats" id="stats">Nodes: 5 | Edges: 5 (directed)</div>
+            <div class="infobox-title" id="infobox-title">Explore the Graph</div>
+            <div class="infobox-content" id="infobox-content"></div>
+        </div>
+    </div>
+
+    <script src="graph-anatomy-explorer.js"></script>
+</body>
+</html>

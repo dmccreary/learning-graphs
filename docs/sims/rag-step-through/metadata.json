@@ -1,0 +1,22 @@
+{
+  "title": "Retrieval-Augmented Generation Step-Through",
+  "description": "Given a worked example question (\"What is Universal Design for Learning?\"), the learner can explain what happens at each of the three RAG stages and identify why the retrieved passage changes the final generated answer compared to an ungrounded response.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "rag-step-through",
+  "library": "p5.js",
+  "bloomLevel": "Understand (L2)",
+  "bloomVerb": "explain, summarize, sequence",
+  "completion_status": "scaffold",
+  "chapter_number": 17,
+  "chapter_title": "Intelligent Agents and Generative AI",
+  "chapter_dir": "17-intelligent-agents-generative-ai"
+}

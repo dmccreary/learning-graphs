@@ -1,5 +1,7 @@
 # About the Learning Graphs Website
 
+A learning graph is the foundational data structure behind coherent educational content.
+
 The goal of this website is to enable teaching the concepts around [Learning Graphs](glossary.md#learning-graph).  It was inspired by the 1988 cyberpunk science fiction novel [The Diamond Age: Or, A Young Lady's Illustrated Primer](https://en.wikipedia.org/wiki/The_Diamond_Age) by Neal Stephenson.  In this novel, a child uses a tablet-like device called "The Primer" that generates customized stories in real-time to meet the needs of the child.  The stories get more sophisticated as the needs of the child mature.
 
 This form of highly-customized learning is our goal.  We believe that learning graphs are the core data structure that these intelligent learning agents will be built on.
@@ -14,7 +16,9 @@ be used to describe the general topic of using concept graphs
 to empower intelligent agents to generate customized content.
 
 We will use the term **Learning Graph** to describe a JSON file
-that conforms to our proposed Leaning Graph standard.
+that conforms to our proposed Leaning Graph standard.  We can
+also use a file called a "validation schema" to validate the structure
+of a Learning Graph.
 
 We will also use the term **Concept Dependency Graph** or CDG
 to describe the general graph structure of these systems.

@@ -1,0 +1,22 @@
+{
+  "title": "Concept-to-Content Viewer Explorer",
+  "description": "Given a small 10-node sample learning graph with chapter tags, the learner can use the search box to jump to a concept's content location and identify its prerequisite concepts using the graph view.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "concept-to-content-viewer",
+  "library": "vis-network",
+  "bloomLevel": "Apply (L3)",
+  "bloomVerb": "use, demonstrate, apply",
+  "completion_status": "scaffold",
+  "chapter_number": 18,
+  "chapter_title": "Intelligent Textbooks, MicroSims, and Deployment",
+  "chapter_dir": "18-intelligent-textbooks-microsims-deployment"
+}

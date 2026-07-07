@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>From Concept to Index Entry</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            width: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ffffff;
+            color: #212529;
+            overflow-x: hidden;
+        }
+        #wrap { width: 100%; padding: 8px 12px 12px 12px; }
+        h1 { font-size: 20px; color: #303f9f; margin-bottom: 4px; }
+        .subtitle { font-size: 13px; color: #6c757d; margin-bottom: 8px; }
+        #diagram {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background: aliceblue;
+            border-radius: 6px;
+            padding: 10px 6px;
+        }
+        #diagram .mermaid { width: 100%; }
+        #diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+
+        .node { cursor: pointer; }
+        .node.selected > rect,
+        .node.selected > polygon {
+            stroke: #d84315 !important;
+            stroke-width: 4px !important;
+        }
+
+        #infobox {
+            margin-top: 10px;
+            border: 1px solid #cfd8dc;
+            border-left: 6px solid #1976d2;
+            border-radius: 6px;
+            background: #f4f8fd;
+            padding: 12px 14px;
+            min-height: 96px;
+        }
+        #infobox.source { border-left-color: #b8860b; background: #fff9e6; }
+        #infobox.output { border-left-color: #2e7d32; background: #edf7ed; }
+        #infobox .step-label { font-size: 15px; font-weight: bold; color: #1565c0; margin-bottom: 6px; }
+        #infobox.source .step-label { color: #b8860b; }
+        #infobox.output .step-label { color: #2e7d32; }
+        #infobox .step-text { font-size: 14px; line-height: 1.5; color: #333; }
+        #infobox .hint { color: #6c757d; font-style: italic; }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <h1>From Concept to Index Entry</h1>
+        <div class="subtitle">Click each step to demonstrate how a concept's label data becomes finished index lines &mdash; with no manual index-writing.</div>
+        <div id="diagram">
+            <div class="mermaid" id="mermaid-graph"></div>
+        </div>
+        <div id="infobox">
+            <div class="step-label">Automatic Index Generation</div>
+            <div class="step-text hint">Click the gold concept record, then walk down through each blue processing step to the two green index lines it produces.</div>
+        </div>
+    </div>
+    <script src="concept-to-index-workflow.js"></script>
+</body>
+</html>

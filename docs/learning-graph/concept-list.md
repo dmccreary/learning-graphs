@@ -1,6 +1,6 @@
 # Learning Graphs — Concept List
 
-Working concept list for the learning-graph-generator pipeline, derived directly from concept-list-v1.md (254 concepts, Title Case, all ≤ 32 characters), plus 12 concepts added for Chapter 19 (Using a Skill to Generate a Learning Graph).
+Working concept list for the learning-graph-generator v0.05 pipeline, generated from the approved course description. The list contains 400 distinct, concise concepts spanning graph foundations, metadata, dependency modeling, taxonomy design, validation, learning science, visualization, personalization, intelligent agents, publishing, and pipeline automation.
 
 ---
 
@@ -270,3 +270,137 @@ Working concept list for the learning-graph-generator pipeline, derived directly
 264. Pipeline Session Log
 265. Iterative Graph Regeneration
 266. Human-in-the-Loop Review
+267. Directed Edge
+268. Incoming Edge
+269. Outgoing Edge
+270. Graph Path
+271. Path Length
+272. Reachability
+273. Ancestor Concept
+274. Descendant Concept
+275. Source Node
+276. Sink Node
+277. Terminal Concept
+278. Root Concept
+279. Weak Connectivity
+280. Strong Connectivity
+281. Connected Component
+282. Adjacency List
+283. Adjacency Matrix
+284. Graph Traversal
+285. Depth-First Search
+286. Breadth-First Search
+287. Graph Density
+288. Transitive Closure
+289. Transitive Reduction
+290. Redundant Dependency
+291. Bottleneck Concept
+292. Critical Path
+293. Maximum Path Length
+294. Dependency Depth
+295. Concept Centrality
+296. Betweenness Centrality
+297. Degree Distribution
+298. Graph Diameter
+299. Graph Schema
+300. Edge Direction
+301. Unique Concept Identifier
+302. Concept Granularity
+303. Atomic Concept
+304. Composite Concept
+305. Label Ambiguity
+306. Label Normalization
+307. Synonym Management
+308. Homonym Disambiguation
+309. Naming Convention
+310. Metadata Field
+311. Dublin Core Title
+312. Dublin Core Description
+313. SKOS Preferred Label
+314. SKOS Alternate Label
+315. SKOS Broader Relation
+316. SKOS Narrower Relation
+317. SKOS Related Relation
+318. Semantic Relationship
+319. Machine-Readable Metadata
+320. Concept Provenance
+321. Metadata Validation
+322. Vocabulary Governance
+323. Dependency Assertion
+324. Direct Dependency
+325. Indirect Dependency
+326. Necessary Prerequisite
+327. Recommended Prerequisite
+328. Dependency Rationale
+329. Dependency Confidence
+330. Edge Provenance
+331. Dependency Review
+332. Dependency Gap
+333. Overconstraint
+334. Underconstraint
+335. False Prerequisite
+336. Learning Sequence
+337. Parallel Learning Paths
+338. Alternative Prerequisite
+339. Co-Prerequisite
+340. Prerequisite Frontier
+341. Mastery Prerequisite
+342. Dependency Inference
+343. Human Dependency Review
+344. Classification Scheme
+345. Polyhierarchy
+346. Exclusive Category
+347. Category Boundary
+348. Category Balance
+349. Category Coverage
+350. Category Overlap
+351. Category Assignment
+352. Taxonomy Depth
+353. Taxonomy Breadth
+354. Taxonomy Drift
+355. Ontology Class
+356. Ontology Property
+357. Semantic Type
+358. Hierarchical Relation
+359. Associative Relation
+360. Taxonomy Validation
+361. Schema Validation
+362. Referential Integrity
+363. Duplicate Concept Detection
+364. Missing Dependency
+365. Invalid Dependency ID
+366. Graph Completeness
+367. Pedagogical Coherence
+368. Dependency Plausibility
+369. Graph Quality Score
+370. Validation Threshold
+371. Automated Validator
+372. Validation Warning
+373. Validation Error
+374. Data Pipeline
+375. CSV Header
+376. Pipe-Delimited Field
+377. Node Record
+378. Edge Record
+379. Group Record
+380. Metadata Record
+381. Schema Conformance
+382. Version Metadata
+383. License Metadata
+384. Taxonomy Name Mapping
+385. Color Configuration
+386. JSON Serialization
+387. Data Transformation
+388. Reproducible Generation
+389. Learner Model
+390. Mastery State
+391. Mastery Threshold
+392. Knowledge State
+393. Knowledge Component
+394. Learning Evidence
+395. Diagnostic Assessment
+396. Summative Assessment
+397. Competency Model
+398. Learning Path Constraint
+399. Readiness Estimation
+400. Personalized Sequencing

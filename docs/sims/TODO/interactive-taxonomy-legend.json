@@ -1,0 +1,14 @@
+{
+  "sim_id": "interactive-taxonomy-legend",
+  "diagram_name": "Interactive Taxonomy Legend and Filter",
+  "chapter_number": 4,
+  "chapter_title": "Concept Taxonomies and Ontologies",
+  "chapter_dir": "04-concept-taxonomies-ontologies",
+  "library": "vis-network",
+  "bloom_level": "Understand (L2)",
+  "bloom_verb": "interpret, classify",
+  "learning_objective": "Given a color-coded concept graph and its legend, the learner can correctly identify which taxonomy category any node belongs to and predict which nodes will disappear when a given legend entry is toggled off.",
+  "completion_status": "specified",
+  "extracted_date": "2026-07-03",
+  "specification": "Type: graph-model\n**sim-id:** interactive-taxonomy-legend<br/>\n**Library:** vis-network<br/>\n**Status:** Specified\n\nPurpose: Show learners how a taxonomy legend both explains a color scheme and acts as a live filter over a rendered concept graph, reinforcing that a legend is a functional taxonomy tool, not decoration.\n\nBloom Level: Understand (L2)\nBloom Verb: interpret, classify\n\nLearning objective: Given a color-coded concept graph and its legend, the learner can correctly identify which taxonomy category any node belongs to and predict which nodes will disappear when a given legend entry is toggled off.\n\nBase dataset: 24-node sample concept graph drawn from this book's own learning graph, pre-assigned to 6 taxonomy categories: Graph Theory (blue), Metadata Standards (teal), Visualization Tools (gold), Learning Science (purple), Personalization (pink), Governance & Validation (gray)\n\nLayout: force-directed, categories loosely clustered by mutual attraction\n\nLegend panel (right side, fixed width):\n- 6 rows, each showing a color swatch, the Taxonomy Category name, and a live count of visible nodes in that category\n- Each row is a clickable checkbox-style toggle, checked by default\n\nInteractive features:\n- Click a legend row: all nodes in that category fade to 15% opacity and their edges hide; click again to restore full opacity\n- Hover any node: tooltip shows the concept label and its Taxonomy Category name\n- \"Isolate\" button per legend row: hides every other category at once, showing only that one node group\n- \"Reset\" button: restores all categories to visible\n\nVisual styling:\n- Node color matches its taxonomy category exactly as listed above\n- Node shape: circle for all concepts (shape is reserved for other purposes elsewhere in the book)\n- Edge color: light gray, low opacity, so category color dominates the visual read\n\nCanvas size: responsive, 100% width, 520px height, legend panel fixed at 180px on desktop and stacking below the graph under 600px viewport width\n\nImplementation: vis-network JavaScript library; legend built as an HTML overlay bound to the DataSet's `updateOnly` API for toggling node/edge visibility without a full re-render"
+}

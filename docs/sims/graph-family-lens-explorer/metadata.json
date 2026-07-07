@@ -1,0 +1,22 @@
+{
+  "title": "Graph Family Lens Explorer",
+  "description": "Given a fixed set of entities, the learner can identify which edge relationships are appropriate under each of the five graph-type lenses and explain what changes between lenses.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "graph-family-lens-explorer",
+  "library": "vis-network",
+  "bloomLevel": "Analyze (L4)",
+  "bloomVerb": "differentiate, compare, contrast",
+  "completion_status": "scaffold",
+  "chapter_number": 1,
+  "chapter_title": "Foundations of Concept Graphs",
+  "chapter_dir": "01-foundations-of-concept-graphs"
+}

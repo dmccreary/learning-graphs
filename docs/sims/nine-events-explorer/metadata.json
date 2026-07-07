@@ -1,0 +1,22 @@
+{
+  "title": "Nine Events of Instruction Explorer",
+  "description": "Given Gagné's nine-step framework rendered as a flowchart, the learner can explain what instructional purpose each step serves and classify which earlier chapter's concept each step operationalizes.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "nine-events-explorer",
+  "library": "Mermaid",
+  "bloomLevel": "Understand (L2)",
+  "bloomVerb": "explain, summarize, classify",
+  "completion_status": "scaffold",
+  "chapter_number": 9,
+  "chapter_title": "Mastery, Metacognition, and Instructional Sequencing",
+  "chapter_dir": "09-mastery-metacognition-sequencing"
+}

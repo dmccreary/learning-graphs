@@ -97,7 +97,7 @@ Before comparing the two directly, it helps to be explicit that both patterns ar
 
 #### Diagram: Blocked vs. Interleaved Practice Simulator
 
-<iframe src="../../sims/blocked-vs-interleaved-simulator/main.html" width="100%" height="540px" scrolling="no"></iframe>
+<iframe src="../../sims/blocked-vs-interleaved-simulator/main.html" width="100%" height="542px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Blocked vs. Interleaved Practice Simulator</summary>
@@ -228,7 +228,7 @@ Before the diagram below, it helps to know that each of the nine numbered steps 
 
 #### Diagram: Nine Events of Instruction Explorer
 
-<iframe src="../../sims/nine-events-explorer/main.html" width="100%" height="520px" scrolling="no"></iframe>
+<iframe src="../../sims/nine-events-explorer/main.html" width="100%" height="922px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Nine Events of Instruction Explorer</summary>
@@ -302,7 +302,7 @@ A simple version of the algorithm reuses machinery this book has already built i
 
 #### Diagram: Content Sequencing Algorithm Simulator
 
-<iframe src="../../sims/content-sequencing-simulator/main.html" width="100%" height="580px" scrolling="no"></iframe>
+<iframe src="../../sims/content-sequencing-simulator/main.html" width="100%" height="582px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Content Sequencing Algorithm Simulator</summary>

@@ -91,7 +91,7 @@ The diagram below lets you run a small taxonomy classifier yourself: pick a conc
 
 #### Diagram: Taxonomy Classifier Workbench
 
-<iframe src="../../sims/taxonomy-classifier-workbench/main.html" width="100%" height="520px" scrolling="no"></iframe>
+<iframe src="../../sims/taxonomy-classifier-workbench/main.html" width="100%" height="572px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Taxonomy Classifier Workbench</summary>
@@ -176,7 +176,7 @@ Every diagram in this book that color-codes concepts by subject area depends on 
 
 #### Diagram: Interactive Taxonomy Legend and Filter
 
-<iframe src="../../sims/interactive-taxonomy-legend/main.html" width="100%" height="520px" scrolling="no"></iframe>
+<iframe src="../../sims/interactive-taxonomy-legend/main.html" width="100%" height="522px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Interactive Taxonomy Legend and Filter</summary>
@@ -274,7 +274,7 @@ The MicroSim below lets you run a simplified clustering pass over a small concep
 
 #### Diagram: Clustering and Abstraction Explorer
 
-<iframe src="../../sims/clustering-abstraction-explorer/main.html" width="100%" height="560px" scrolling="no"></iframe>
+<iframe src="../../sims/clustering-abstraction-explorer/main.html" width="100%" height="562px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Clustering and Abstraction Explorer</summary>

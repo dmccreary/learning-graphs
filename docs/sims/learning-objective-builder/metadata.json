@@ -1,0 +1,22 @@
+{
+  "title": "Learning Objective Builder",
+  "description": "Given a dropdown of Bloom levels, a dropdown of matching Bloom Verbs, and a text field for a target concept, the learner can construct a grammatically complete, appropriately leveled learning objective and receive feedback identifying which Bloom level their sentence actually reflects.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "learning-objective-builder",
+  "library": "p5.js",
+  "bloomLevel": "Apply (L3)",
+  "bloomVerb": "construct, compose, formulate",
+  "completion_status": "scaffold",
+  "chapter_number": 6,
+  "chapter_title": "Bloom's Taxonomy and Learning Objectives",
+  "chapter_dir": "06-blooms-taxonomy-learning-objectives"
+}

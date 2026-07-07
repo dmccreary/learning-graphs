@@ -101,7 +101,7 @@ Before moving from hovering to clicking, it helps to see both together on one sm
 
 #### Diagram: Hover Tooltip Explorer
 
-<iframe src="../../sims/hover-tooltip-explorer/main.html" width="100%" height="520px" scrolling="no"></iframe>
+<iframe src="../../sims/hover-tooltip-explorer/main.html" width="100%" height="522px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Hover Tooltip Explorer</summary>
@@ -306,7 +306,7 @@ Type-ahead filtering and focus node navigation combine into the complete search 
 
 #### Diagram: Search and Focus Navigation Console
 
-<iframe src="../../sims/search-focus-navigation-console/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/search-focus-navigation-console/main.html" width="100%" height="602px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Search and Focus Navigation Console</summary>

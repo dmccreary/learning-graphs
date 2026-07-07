@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Book Metrics vs. Chapter Metrics</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            font-family: Helvetica, Arial, sans-serif;
+            background: #ffffff;
+            color: #212529;
+        }
+        .container {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 10px 12px 14px 12px;
+        }
+        h1 {
+            font-size: 20px;
+            color: #1a237e;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+        .toggle-group {
+            display: inline-flex;
+            border: 1px solid #3f51b5;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .view-button {
+            font-family: inherit;
+            font-size: 14px;
+            padding: 7px 16px;
+            border: none;
+            background: #ffffff;
+            color: #3f51b5;
+            cursor: pointer;
+            transition: background 0.15s ease, color 0.15s ease;
+        }
+        .view-button + .view-button {
+            border-left: 1px solid #3f51b5;
+        }
+        .view-button:hover {
+            background: #e8eaf6;
+        }
+        .view-button.active {
+            background: #3f51b5;
+            color: #ffffff;
+        }
+        #view-hint {
+            font-size: 12px;
+            color: #6c757d;
+            text-align: center;
+            min-height: 30px;
+            margin: 2px auto 6px auto;
+            max-width: 640px;
+            line-height: 1.35;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 420px;
+        }
+        #infobox {
+            display: none;
+            margin: 8px auto 0 auto;
+            max-width: 640px;
+            padding: 10px 14px;
+            border-left: 4px solid #ffc107;
+            background: #fff8e1;
+            border-radius: 4px;
+            font-size: 13px;
+            line-height: 1.4;
+            color: #333;
+        }
+        #infobox .ib-metric {
+            display: inline-block;
+            margin-top: 4px;
+            color: #555;
+        }
+        #infobox .above { color: #2e7d32; font-weight: 600; }
+        #infobox .below { color: #c62828; font-weight: 600; }
+
+        /* Narrow viewports: stack controls above chart, keep everything readable */
+        @media (max-width: 500px) {
+            h1 { font-size: 17px; }
+            .controls { flex-direction: column; }
+            .chart-container { height: 360px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Book Metrics vs. Chapter Metrics</h1>
+
+        <div class="controls">
+            <div class="toggle-group" role="group" aria-label="Metrics view toggle">
+                <button class="view-button active" data-view="book">Book Metrics</button>
+                <button class="view-button" data-view="chapter">Chapter Metrics</button>
+            </div>
+        </div>
+
+        <p id="view-hint"></p>
+
+        <div class="chart-container">
+            <canvas id="metricsChart"></canvas>
+        </div>
+
+        <div id="infobox"></div>
+    </div>
+
+    <script src="book-chapter-metrics-dashboard.js"></script>
+</body>
+</html>

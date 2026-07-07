@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Structural Variations Explorer</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Cluster/band background shading layer (sibling of #network) -->
+        <div id="band-shading"></div>
+
+        <!-- Network canvas -->
+        <div id="network"></div>
+
+        <!-- Title -->
+        <div class="title">Structural Variations Explorer</div>
+
+        <!-- Legend -->
+        <div class="legend">
+            <div class="legend-item">
+                <span class="legend-swatch swatch-node"></span>
+                <span>Same 12 concepts &mdash; only the layout changes</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-line line-primary"></span>
+                <span>primary depends-on</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-line line-secondary"></span>
+                <span>also depends on (secondary)</span>
+            </div>
+        </div>
+
+        <!-- Right panel: view buttons + trade-off infobox -->
+        <div class="right-panel">
+            <div class="controls">
+                <button class="btn view-btn active" id="btn-hierarchy" data-view="hierarchy">Hierarchy View</button>
+                <button class="btn view-btn" id="btn-cluster" data-view="cluster">Cluster View</button>
+                <button class="btn view-btn" id="btn-hybrid" data-view="hybrid">Hybrid View</button>
+            </div>
+
+            <div class="infobox" id="infobox">
+                <div class="info-title" id="info-title">Hierarchy View</div>
+                <div class="info-tradeoff" id="info-tradeoff"></div>
+            </div>
+
+            <div class="status-panel">
+                <div class="status-title">Try this</div>
+                <div class="status-text">
+                    <ul>
+                        <li><strong>Switch views</strong> and watch the same data re-arrange.</li>
+                        <li><strong>Hover a node</strong> to see its degree (number of connections).</li>
+                        <li>Ask: which view best answers <em>"what do I learn next?"</em> vs. <em>"what is this subject's shape?"</em></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="structural-variations-explorer.js"></script>
+</body>
+</html>

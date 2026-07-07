@@ -1,0 +1,22 @@
+{
+  "title": "Book and Chapter Metrics Dashboard",
+  "description": "Given a toggle between book-wide and per-chapter metrics views, the learner can compare aggregate totals against individual chapter contributions and identify which chapters are under- or over-represented relative to the book's average.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "book-chapter-metrics-dashboard",
+  "library": "Chart.js",
+  "bloomLevel": "Analyze (L4)",
+  "bloomVerb": "compare, examine, differentiate",
+  "completion_status": "scaffold",
+  "chapter_number": 18,
+  "chapter_title": "Intelligent Textbooks, MicroSims, and Deployment",
+  "chapter_dir": "18-intelligent-textbooks-microsims-deployment"
+}

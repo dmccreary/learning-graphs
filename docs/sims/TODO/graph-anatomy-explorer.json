@@ -1,0 +1,14 @@
+{
+  "sim_id": "graph-anatomy-explorer",
+  "diagram_name": "Graph Anatomy Explorer",
+  "chapter_number": 1,
+  "chapter_title": "Foundations of Concept Graphs",
+  "chapter_dir": "01-foundations-of-concept-graphs",
+  "library": "vis-network",
+  "bloom_level": "Understand (L2)",
+  "bloom_verb": "identify, classify",
+  "learning_objective": "Given a rendered graph, the learner can correctly label which visual elements are nodes and which are edges, and state what each represents.",
+  "completion_status": "specified",
+  "extracted_date": "2026-07-03",
+  "specification": "Type: graph-model\n**sim-id:** graph-anatomy-explorer<br/>\n**Library:** vis-network<br/>\n**Status:** Specified\n\nPurpose: Let learners identify the anatomy of a graph — nodes, edges, and the direction of an edge — using a small five-node example drawn from this chapter's own concept list.\n\nBloom Level: Understand (L2)\nBloom Verb: identify, classify\n\nLearning objective: Given a rendered graph, the learner can correctly label which visual elements are nodes and which are edges, and state what each represents.\n\nNodes to display (5, using vis-network circle shape):\n- \"Concept\" (id 1)\n- \"Node\" (id 2)\n- \"Edge\" (id 3)\n- \"Graph Representation\" (id 4)\n- \"Directed Graph\" (id 5)\n\nEdges to display (dependency direction, arrow points from dependent to prerequisite):\n- Node(2) → Concept(1)\n- Edge(3) → Concept(1)\n- Graph Representation(4) → Node(2)\n- Graph Representation(4) → Edge(3)\n- Directed Graph(5) → Graph Representation(4)\n\nLayout: Hierarchical top-down, \"Concept\" at the bottom as the root prerequisite\n\nVisual styling:\n- Nodes: light blue circles, 40px diameter, black text labels\n- Edges: solid black arrows, arrowhead at the \"to\" end\n- Selected node: highlighted gold with a thicker gold border\n- Selected edge: highlighted gold and thickened\n\nInteractive features:\n- Hover a node: tooltip shows \"Node: represents the concept '{label}'\"\n- Click a node: side infobox opens with the concept's one-sentence glossary definition\n- Hover an edge: tooltip shows \"Edge: '{from label}' depends on '{to label}'\"\n- Click an edge: side infobox explains \"This arrow means you should understand '{to label}' before '{from label}'\"\n- Toggle button: \"Show as undirected\" removes all arrowheads and relabels the callout text to explain that undirected edges only show connection, not order — reinforcing why direction matters\n- Reset button restores default state\n\nCanvas size: responsive, 100% width, 500px height, must reflow on window resize\n\nImplementation: vis-network JavaScript library with a DataSet for nodes and edges, click and hover event handlers bound to an infobox `<div>` beside the canvas"
+}

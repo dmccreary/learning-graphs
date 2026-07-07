@@ -1,0 +1,22 @@
+{
+  "title": "Generative AI to Learning Graph Pipeline",
+  "description": "Given the five-stage pipeline rendered as a flowchart, the learner can explain what happens at each stage and identify which stage is responsible for catching an invalid (cyclic or orphaned) LLM proposal.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "genai-learning-graph-pipeline",
+  "library": "Mermaid",
+  "bloomLevel": "Understand (L2)",
+  "bloomVerb": "explain, summarize, sequence",
+  "completion_status": "scaffold",
+  "chapter_number": 17,
+  "chapter_title": "Intelligent Agents and Generative AI",
+  "chapter_dir": "17-intelligent-agents-generative-ai"
+}

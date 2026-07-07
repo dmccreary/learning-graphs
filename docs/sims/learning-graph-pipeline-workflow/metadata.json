@@ -1,0 +1,22 @@
+{
+  "title": "The Twelve-Step Pipeline From Course Description to Validated Graph",
+  "description": "Given the full pipeline as a flowchart with automated steps, human checkpoints, and a regeneration loop visually distinguished, the learner can judge which step a specific quality problem (an orphaned node, a vague course description, a mislabeled category) traces back to, and justify whether the correct response is targeted iteration or full regeneration.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "learning-graph-pipeline-workflow",
+  "library": "Mermaid",
+  "bloomLevel": "Evaluate (L5)",
+  "bloomVerb": "judge, assess, justify",
+  "completion_status": "scaffold",
+  "chapter_number": 19,
+  "chapter_title": "Using a Skill to Generate a Learning Graph",
+  "chapter_dir": "19-skill-generate-learning-graph"
+}

@@ -1,0 +1,22 @@
+{
+  "title": "Graph Anatomy Explorer",
+  "description": "Given a rendered graph, the learner can correctly label which visual elements are nodes and which are edges, and state what each represents.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "graph-anatomy-explorer",
+  "library": "vis-network",
+  "bloomLevel": "Understand (L2)",
+  "bloomVerb": "identify, classify",
+  "completion_status": "scaffold",
+  "chapter_number": 1,
+  "chapter_title": "Foundations of Concept Graphs",
+  "chapter_dir": "01-foundations-of-concept-graphs"
+}

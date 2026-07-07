@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Journey Map Builder</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Network canvas (siblings only; vis-network erases this div's innerHTML) -->
+        <div id="network"></div>
+
+        <!-- Title at top center -->
+        <div class="title">Journey Map Builder</div>
+
+        <!-- Legend in upper left -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color color-default"></div>
+                <span>Concept in the graph</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-path"></div>
+                <span>On your journey path</span>
+            </div>
+        </div>
+
+        <!-- Right panel: controls + infobox -->
+        <div class="right-panel">
+            <div class="controls">
+                <label class="control-label" for="goal-select">Choose your goal concept</label>
+                <select id="goal-select"></select>
+                <button class="btn btn-primary" id="build-btn">Build My Journey</button>
+                <button class="btn btn-secondary" id="reset-btn">Reset</button>
+            </div>
+
+            <div class="infobox" id="infobox">
+                <div class="infobox-title" id="infobox-title">Getting Started</div>
+                <div class="infobox-content" id="infobox-content">
+                    Pick a goal concept, then press <strong>Build My Journey</strong>.
+                    The tool finds every concept you must learn first and puts them
+                    in a valid study order.
+                </div>
+            </div>
+        </div>
+
+        <!-- Step-sequence strip below the graph -->
+        <div class="journey-strip" id="journey-strip">
+            <div class="journey-hint" id="journey-hint">Your journey map will appear here.</div>
+            <div class="journey-steps" id="journey-steps"></div>
+        </div>
+    </div>
+
+    <script src="journey-map-builder.js"></script>
+</body>
+</html>

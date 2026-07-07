@@ -1,0 +1,22 @@
+{
+  "title": "Blocked vs. Interleaved Practice Simulator",
+  "description": "Given the same 12-problem practice set, the learner can differentiate blocked and interleaved scheduling by observing simulated in-practice accuracy versus simulated one-week-delayed accuracy for each schedule, and explain why the two accuracy patterns diverge.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "blocked-vs-interleaved-simulator",
+  "library": "p5.js",
+  "bloomLevel": "Analyze (L4)",
+  "bloomVerb": "differentiate, compare, contrast, examine",
+  "completion_status": "scaffold",
+  "chapter_number": 9,
+  "chapter_title": "Mastery, Metacognition, and Instructional Sequencing",
+  "chapter_dir": "09-mastery-metacognition-sequencing"
+}

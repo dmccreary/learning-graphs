@@ -1,0 +1,221 @@
+/* Graph Family Lens Explorer
+ * ==========================
+ * Full-height network canvas showing one fixed node set under five
+ * different graph-type "lenses". Overlay title, legend, lens selector,
+ * infobox, and a persistent caption pinned to the bottom.
+ */
+
+/* ===========================================
+   RESET & BASE
+   =========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: aliceblue;
+}
+
+/* ===========================================
+   CONTAINER & NETWORK CANVAS
+   =========================================== */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+#network {
+    width: 100%;
+    height: 100%;
+    background-color: aliceblue;
+}
+
+/* ===========================================
+   TITLE (Top Center)
+   =========================================== */
+.title {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    background-color: rgba(240, 248, 255, 0.85);
+    padding: 4px 12px;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+/* ===========================================
+   LEGEND (Upper Left)
+   =========================================== */
+.legend {
+    position: absolute;
+    top: 44px;
+    left: 10px;
+    padding: 6px 8px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin: 4px 0;
+    font-size: 11px;
+}
+
+.legend-shape {
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+    flex-shrink: 0;
+}
+
+.shape-circle {
+    background-color: #97c2fc;
+    border: 2px solid #2b7ce9;
+    border-radius: 50%;
+}
+
+.shape-rect {
+    background-color: #a5d6a7;
+    border: 2px solid #43a047;
+    border-radius: 5px;
+}
+
+/* CSS hexagon approximation for the legend swatch */
+.shape-hex {
+    background-color: #cfd8dc;
+    border: 2px solid #78909c;
+    clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+}
+
+/* ===========================================
+   RIGHT PANEL (Lens selector + infobox)
+   =========================================== */
+.right-panel {
+    position: absolute;
+    top: 44px;
+    right: 10px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 10;
+}
+
+.lens-control {
+    background-color: rgba(255, 255, 255, 0.97);
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.lens-control label {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+#lens-select {
+    width: 100%;
+    padding: 8px;
+    font-size: 13px;
+    font-weight: bold;
+    border: 1px solid #2196f3;
+    border-radius: 6px;
+    background-color: #f5faff;
+    color: #1565c0;
+    cursor: pointer;
+}
+
+.dag-badge {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+    color: white;
+    background-color: #43a047;
+    padding: 6px;
+    border-radius: 6px;
+}
+
+.dag-badge::before {
+    content: "\2713  ";
+}
+
+/* ===========================================
+   INFOBOX
+   =========================================== */
+.infobox {
+    background-color: rgba(255, 255, 255, 0.97);
+    border-left: 4px solid #2196f3;
+    border-radius: 6px;
+    padding: 10px 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.infobox-title {
+    font-weight: bold;
+    font-size: 13px;
+    color: #1976d2;
+    margin-bottom: 4px;
+}
+
+.infobox-text {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* ===========================================
+   CAPTION (pinned bottom, full width)
+   =========================================== */
+.caption {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 90%;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.4;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 8px 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+    z-index: 10;
+}
+
+/* ===========================================
+   RESPONSIVE
+   =========================================== */
+@media (max-width: 640px) {
+    .title {
+        font-size: 15px;
+    }
+
+    .right-panel {
+        width: 190px;
+    }
+
+    .legend {
+        max-width: 150px;
+    }
+
+    .caption {
+        font-size: 11px;
+        max-width: 96%;
+    }
+}

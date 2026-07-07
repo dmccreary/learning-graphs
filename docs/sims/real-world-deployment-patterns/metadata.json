@@ -1,0 +1,22 @@
+{
+  "title": "Real-World Deployment Patterns Explorer",
+  "description": "Given three deployment pattern summaries, the learner can assess which chapters' concepts each pattern depends on most and justify a recommended learning-graph-driven approach for a deployment scenario of their own choosing.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "real-world-deployment-patterns",
+  "library": "vis-network",
+  "bloomLevel": "Evaluate (L5)",
+  "bloomVerb": "assess, justify, recommend",
+  "completion_status": "scaffold",
+  "chapter_number": 18,
+  "chapter_title": "Intelligent Textbooks, MicroSims, and Deployment",
+  "chapter_dir": "18-intelligent-textbooks-microsims-deployment"
+}

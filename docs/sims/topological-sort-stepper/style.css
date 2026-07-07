@@ -1,0 +1,279 @@
+/* Topological Sort Step-Through - vis-network MicroSim
+ * =====================================================
+ * Full-height network canvas with absolute-positioned overlays.
+ * Overlays are SIBLINGS of #network (vis-network erases #network innerHTML).
+ */
+
+/* ===========================================
+   RESET & BASE
+   =========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: aliceblue;
+}
+
+/* ===========================================
+   CONTAINER & NETWORK CANVAS
+   =========================================== */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+#network {
+    width: 100%;
+    height: 100%;
+    background-color: aliceblue;
+}
+
+/* ===========================================
+   TITLE (Top Center)
+   =========================================== */
+.title {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    background-color: rgba(240, 248, 255, 0.85);
+    padding: 4px 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+/* ===========================================
+   LEGEND (Upper Left)
+   =========================================== */
+.legend {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 6px 8px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin: 3px 0;
+    font-size: 11px;
+}
+
+.legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    margin-right: 6px;
+    border: 2px solid #333;
+}
+
+.color-gray { background-color: #d9d9d9; }
+.color-gold { background-color: #ffca28; }
+.color-green { background-color: #66bb6a; }
+
+/* ===========================================
+   RIGHT PANEL (Controls, Lists, Status)
+   =========================================== */
+.right-panel {
+    position: absolute;
+    top: 46px;
+    right: 10px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 10;
+    max-height: calc(100vh - 56px);
+    overflow-y: auto;
+}
+
+.controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: rgba(255, 255, 255, 0.97);
+    padding: 10px 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.step-counter {
+    font-size: 13px;
+    font-weight: bold;
+    color: #555;
+    width: 100%;
+    margin-bottom: 2px;
+}
+
+.btn {
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background-color: #2196f3;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #1976d2;
+}
+
+.btn-primary:disabled {
+    background-color: #bbdefb;
+    color: #eee;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    background-color: #757575;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #616161;
+}
+
+/* ===========================================
+   LIST PANELS (Output Order + Eligible Now)
+   =========================================== */
+.list-panel {
+    background-color: rgba(255, 255, 255, 0.97);
+    border-radius: 8px;
+    padding: 10px 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.list-title {
+    font-weight: bold;
+    font-size: 13px;
+    color: #333;
+    margin-bottom: 6px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 4px;
+}
+
+.output-list {
+    list-style-position: inside;
+    font-size: 12px;
+    line-height: 1.7;
+    color: #2e7d32;
+}
+
+.output-list li {
+    font-weight: bold;
+}
+
+.output-list li.empty-note {
+    color: #999;
+    font-weight: normal;
+    font-style: italic;
+    list-style: none;
+}
+
+.eligible-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    min-height: 22px;
+}
+
+.eligible-list li {
+    background-color: #ffca28;
+    color: #5d4037;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 10px;
+    border: 1px solid #f5a623;
+}
+
+.eligible-list li.none-note {
+    background: none;
+    border: none;
+    color: #999;
+    font-weight: normal;
+    font-style: italic;
+    padding: 3px 0;
+}
+
+/* ===========================================
+   STATUS / EXPLANATION
+   =========================================== */
+.status-info {
+    background-color: rgba(255, 255, 255, 0.97);
+    border-radius: 8px;
+    padding: 10px 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #2196f3;
+}
+
+.status-title {
+    font-weight: bold;
+    font-size: 12px;
+    color: #1976d2;
+    margin-bottom: 5px;
+}
+
+.status-text {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.status-text .caption {
+    display: block;
+    margin-top: 6px;
+    font-style: italic;
+    color: #666;
+}
+
+/* ===========================================
+   RESPONSIVE (stack below 700px)
+   =========================================== */
+@media (max-width: 700px) {
+    .container {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    #network {
+        height: 320px;
+    }
+
+    .right-panel {
+        position: static;
+        width: auto;
+        max-height: none;
+        margin: 8px;
+        overflow-y: visible;
+    }
+
+    .title {
+        font-size: 15px;
+    }
+
+    .legend {
+        font-size: 10px;
+    }
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Dublin Core Metadata Explorer</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Required #network element. This infographic keeps it as an empty
+             background layer; the flip-card grid below is a SIBLING overlay so
+             vis-network never erases it. -->
+        <div id="network"></div>
+
+        <!-- Title at top center -->
+        <div class="title">Dublin Core Metadata Explorer</div>
+
+        <!-- Progress counter (upper right corner) -->
+        <div class="progress-badge" id="progress-badge">0 of 15 explored</div>
+
+        <!-- Scrollable content overlay: instructions + grid + reset -->
+        <div class="content-overlay">
+            <div class="subtitle">
+                Click each tile to flip it and reveal the element's definition plus a real
+                example value taken from this book's own learning-graph record.
+            </div>
+
+            <!-- 15-element flip-card grid (populated by JS) -->
+            <div class="grid" id="grid"></div>
+
+            <div class="footer-controls">
+                <button class="btn btn-secondary" id="reset-btn">Reset</button>
+                <span class="footer-hint">All 15 Dublin Core elements &mdash; explore them all.</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="dublin-core-metadata-explorer.js"></script>
+</body>
+</html>

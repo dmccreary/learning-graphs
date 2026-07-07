@@ -81,7 +81,7 @@ Before comparing MicroSims to the two broader categories they belong to, it help
 
 #### Diagram: MicroSim Directory Anatomy
 
-<iframe src="../../sims/microsim-directory-anatomy/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/microsim-directory-anatomy/main.html" width="100%" height="502px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>MicroSim Directory Anatomy</summary>
@@ -194,7 +194,7 @@ A concept-to-content viewer differs from a standard search box in one important 
 
 #### Diagram: Concept-to-Content Viewer Explorer
 
-<iframe src="../../sims/concept-to-content-viewer/main.html" width="100%" height="560px" scrolling="no"></iframe>
+<iframe src="../../sims/concept-to-content-viewer/main.html" width="100%" height="562px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Concept-to-Content Viewer Explorer</summary>
@@ -264,7 +264,7 @@ Before the workflow diagram below, it is worth naming the stages in plain langua
 
 #### Diagram: Book Build Workflow Pipeline
 
-<iframe src="../../sims/book-build-workflow-pipeline/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/book-build-workflow-pipeline/main.html" width="100%" height="1182px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Book Build Workflow Pipeline</summary>
@@ -346,7 +346,7 @@ Chapter-level metrics use the same idea at finer granularity — this chapter's 
 
 #### Diagram: Book and Chapter Metrics Dashboard
 
-<iframe src="../../sims/book-chapter-metrics-dashboard/main.html" width="100%" height="520px" scrolling="no"></iframe>
+<iframe src="../../sims/book-chapter-metrics-dashboard/main.html" width="100%" height="602px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Book and Chapter Metrics Dashboard</summary>
@@ -407,7 +407,7 @@ Before the closing infographic, one caution is worth stating plainly: a case stu
 
 #### Diagram: Real-World Deployment Patterns Explorer
 
-<iframe src="../../sims/real-world-deployment-patterns/main.html" width="100%" height="520px" scrolling="no"></iframe>
+<iframe src="../../sims/real-world-deployment-patterns/main.html" width="100%" height="522px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Real-World Deployment Patterns Explorer</summary>

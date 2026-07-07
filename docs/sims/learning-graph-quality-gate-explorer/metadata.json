@@ -1,0 +1,22 @@
+{
+  "title": "Learning Graph Quality Gate Explorer",
+  "description": "Given a 14-node sample dependency graph containing one orphaned node, one disconnected two-node cluster, and one three-node cycle, the learner can use the toggle and click controls to identify each structural problem and explain why it would block safe chapter sequencing.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "learning-graph-quality-gate-explorer",
+  "library": "vis-network",
+  "bloomLevel": "Analyze (L4)",
+  "bloomVerb": "examine, differentiate, detect",
+  "completion_status": "scaffold",
+  "chapter_number": 19,
+  "chapter_title": "Using a Skill to Generate a Learning Graph",
+  "chapter_dir": "19-skill-generate-learning-graph"
+}

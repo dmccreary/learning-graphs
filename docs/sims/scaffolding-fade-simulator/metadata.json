@@ -1,0 +1,22 @@
+{
+  "title": "Scaffolding Fade Simulator",
+  "description": "Given a slider controlling \"fade rate\" and a simulated learner whose mastery grows in response to practice attempts, the learner can adjust the fade rate to keep the simulated learner's task difficulty within their Zone of Proximal Development, avoiding both frustration (support removed too fast) and stagnation (support never removed).",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "scaffolding-fade-simulator",
+  "library": "p5.js",
+  "bloomLevel": "Apply (L3)",
+  "bloomVerb": "demonstrate, apply, practice",
+  "completion_status": "scaffold",
+  "chapter_number": 7,
+  "chapter_title": "Learning Theories and Instructional Design",
+  "chapter_dir": "07-learning-theories-instructional-design"
+}

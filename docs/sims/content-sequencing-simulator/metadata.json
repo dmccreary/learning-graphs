@@ -1,0 +1,22 @@
+{
+  "title": "Content Sequencing Algorithm Simulator",
+  "description": "Given a ten-node sample dependency graph and a togglable mastery state for each node, the learner can apply the ready-to-learn rule to correctly identify which nodes the algorithm should recommend next, and can explain how enabling a spaced-repetition weighting changes that recommendation.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "content-sequencing-simulator",
+  "library": "vis-network",
+  "bloomLevel": "Apply (L3)",
+  "bloomVerb": "apply, demonstrate, use, practice",
+  "completion_status": "scaffold",
+  "chapter_number": 9,
+  "chapter_title": "Mastery, Metacognition, and Instructional Sequencing",
+  "chapter_dir": "09-mastery-metacognition-sequencing"
+}

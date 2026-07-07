@@ -1,0 +1,22 @@
+{
+  "title": "Dependency Analysis Console",
+  "description": "Given a dependency graph and a specified learner state, the learner can select the correct dependency-analysis query for a given practical question and interpret its result.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "dependency-analysis-console",
+  "library": "vis-network",
+  "bloomLevel": "Evaluate (L5)",
+  "bloomVerb": "assess, justify",
+  "completion_status": "scaffold",
+  "chapter_number": 3,
+  "chapter_title": "Concept Dependencies and Prerequisites",
+  "chapter_dir": "03-concept-dependencies-prerequisites"
+}

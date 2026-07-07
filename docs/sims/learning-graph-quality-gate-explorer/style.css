@@ -1,0 +1,156 @@
+/* Learning Graph Quality Gate Explorer - vis-network MicroSim
+   =========================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: aliceblue;
+}
+
+/* Container stacks: toggle bar (top) + graph + infobox (bottom) ------- */
+.container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Toggle bar (fixed at top) ------------------------------------------ */
+.toggle-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 8px 12px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #d6e0ea;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    z-index: 10;
+}
+
+.toggle-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #1a3a6c;
+}
+
+.seg {
+    display: flex;
+    border: 2px solid #4c8bf5;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.seg-btn {
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+    background-color: #ffffff;
+    color: #4c8bf5;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.seg-btn.active {
+    background-color: #4c8bf5;
+    color: #ffffff;
+}
+
+.seg-btn:not(.active):hover {
+    background-color: #e8f0fe;
+}
+
+/* Inline legend ------------------------------------------------------ */
+.legend-inline {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #555;
+    margin-left: auto;
+}
+
+.dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-left: 8px;
+    border: 2px solid #333;
+    flex-shrink: 0;
+}
+
+.dot-good    { background-color: #4c8bf5; }
+.dot-orphan  { background-color: #ffffff; border-color: #d93025; border-style: dashed; }
+.dot-cluster { background-color: #ff9800; border-color: #b26a00; }
+
+.line-key {
+    display: inline-block;
+    width: 18px;
+    height: 0;
+    border-top: 3px solid #d93025;
+    margin-left: 8px;
+    flex-shrink: 0;
+}
+
+/* Network canvas ----------------------------------------------------- */
+#network {
+    width: 100%;
+    height: 420px;
+    background-color: aliceblue;
+}
+
+/* Infobox (fixed height below the graph) ----------------------------- */
+.infobox {
+    height: 100px;
+    padding: 10px 14px;
+    background-color: #ffffff;
+    border-top: 1px solid #d6e0ea;
+    overflow-y: auto;
+}
+
+.infobox-title {
+    font-size: 13px;
+    font-weight: bold;
+    color: #1a3a6c;
+    margin-bottom: 4px;
+}
+
+.infobox-body {
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: #222;
+}
+
+.infobox-body .check-name {
+    font-weight: bold;
+    color: #d93025;
+}
+
+.infobox-body .consequence {
+    display: block;
+    margin-top: 4px;
+    color: #444;
+}
+
+/* Responsive: stack graph + infobox below 650px --------------------- */
+@media (max-width: 650px) {
+    .legend-inline {
+        margin-left: 0;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    #network {
+        height: 340px;
+    }
+    .infobox {
+        height: auto;
+        min-height: 100px;
+    }
+}

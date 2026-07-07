@@ -1,0 +1,14 @@
+{
+  "sim_id": "orphan-disconnected-explorer",
+  "diagram_name": "Orphan and Disconnected Subgraph Explorer",
+  "chapter_number": 5,
+  "chapter_title": "Learning Graph Quality, Validation, and File Formats",
+  "chapter_dir": "05-graph-quality-validation-file-formats",
+  "library": "vis-network",
+  "bloom_level": "Analyze (L4)",
+  "bloom_verb": "differentiate, examine",
+  "learning_objective": "Given a rendered learning graph containing a healthy main component, one orphaned node, and one disconnected subgraph, the learner can correctly click-select each isolated element and state which failure mode it represents.",
+  "completion_status": "specified",
+  "extracted_date": "2026-07-03",
+  "specification": "Type: graph-model\n**sim-id:** orphan-disconnected-explorer<br/>\n**Library:** vis-network<br/>\n**Status:** Specified\n\nPurpose: Let learners visually distinguish an orphaned node from a disconnected subgraph, and practice identifying both failure modes in a small sample learning graph.\n\nBloom Level: Analyze (L4)\nBloom Verb: differentiate, examine\n\nLearning objective: Given a rendered learning graph containing a healthy main component, one orphaned node, and one disconnected subgraph, the learner can correctly click-select each isolated element and state which failure mode it represents.\n\nBase dataset: 22-node sample graph — 17 nodes forming a single connected main body (force-directed layout, blue), 1 completely isolated node with zero edges (red, positioned apart from the main body), and 4 nodes forming a small interconnected cluster with edges only among themselves (orange, positioned apart from the main body)\n\nLayout: force-directed; the isolated node and the disconnected cluster naturally drift away from the main body since they share no edges pulling them inward\n\nInteractive controls:\n- Click any node: side panel reveals its label, its edge count, and a plain-language diagnosis (\"Part of the main graph\", \"Orphaned node — zero edges\", or \"Disconnected subgraph — connected internally but isolated from the main graph\")\n- Button: \"Highlight Problems\" — flashes the red node and orange cluster three times while dimming the healthy blue body\n- Button: \"Reset View\" — restores full-color, non-flashing state\n- Hover any edge: tooltip shows \"Dependency: {concept} depends on {concept}\"\n\nVisual styling:\n- Main body: blue circles\n- Orphaned node: red circle, larger stroke width to draw attention\n- Disconnected subgraph: orange circles with a translucent bounding region\n- Edges: gray, directional arrows pointing from dependent to prerequisite\n\nCanvas size: responsive, 100% width, 540px height\n\nImplementation: vis-network JavaScript library; node/edge dataset pre-computed as a static sample; side panel implemented as an HTML overlay updated on vis-network's `selectNode` event"
+}

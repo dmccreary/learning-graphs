@@ -1,0 +1,22 @@
+{
+  "title": "Multiple-Choice vs. True/False Comparison Chart",
+  "description": "Given a radar chart comparing the two quiz formats across four dimensions, the learner can differentiate the formats and recommend which one is appropriate for a stated assessment goal (e.g., \"quickly check recall of ten facts\" versus \"diagnose a specific misconception\").",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-03",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "quiz-format-comparison-chart",
+  "library": "Chart.js",
+  "bloomLevel": "Analyze (L4)",
+  "bloomVerb": "differentiate, compare, contrast, examine",
+  "completion_status": "scaffold",
+  "chapter_number": 10,
+  "chapter_title": "Assessment, Feedback, and Quizzes",
+  "chapter_dir": "10-assessment-feedback-quizzes"
+}

@@ -94,6 +94,10 @@ Before looking at how adaptive learning behaves over an entire session, it helps
 
 #### Diagram: Adaptive Learning Loop Explorer
 
+
+<iframe src="../../sims/adaptive-learning-loop-explorer/main.html" width="100%" height="562px" scrolling="no"></iframe>
+[Run Adaptive Learning Loop Explorer Fullscreen](../../sims/adaptive-learning-loop-explorer/main.html)
+
 <details markdown="1">
 <summary>Adaptive Learning Loop Explorer</summary>
 Type: workflow
@@ -199,7 +203,7 @@ Before the diagram below, it helps to note explicitly which earlier concepts fee
 
 #### Diagram: Hyper-Personalization Input Explorer
 
-<iframe src="../../sims/hyper-personalization-input-explorer/main.html" width="100%" height="560px" scrolling="no"></iframe>
+<iframe src="../../sims/hyper-personalization-input-explorer/main.html" width="100%" height="562px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Hyper-Personalization Input Explorer</summary>
@@ -332,7 +336,7 @@ Before the interactive comparison below, it is worth being explicit about why a 
 
 #### Diagram: Similarity Metric Comparison Tool
 
-<iframe src="../../sims/similarity-metric-comparison-tool/main.html" width="100%" height="600px" scrolling="no"></iframe>
+<iframe src="../../sims/similarity-metric-comparison-tool/main.html" width="100%" height="602px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Similarity Metric Comparison Tool</summary>

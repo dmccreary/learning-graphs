@@ -86,7 +86,7 @@ Before looking at the diagram below, note what each colored region represents: t
 
 #### Diagram: Orphan and Disconnected Subgraph Explorer
 
-<iframe src="../../sims/orphan-disconnected-explorer/main.html" width="100%" height="540px" scrolling="no"></iframe>
+<iframe src="../../sims/orphan-disconnected-explorer/main.html" width="100%" height="542px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Orphan and Disconnected Subgraph Explorer</summary>
@@ -180,7 +180,7 @@ The MicroSim below lets you click any node in a small sample graph and watch its
 
 #### Diagram: Indegree and Out-Degree Counter
 
-<iframe src="../../sims/indegree-outdegree-counter/main.html" width="100%" height="520px" scrolling="no"></iframe>
+<iframe src="../../sims/indegree-outdegree-counter/main.html" width="100%" height="522px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Indegree and Out-Degree Counter</summary>
