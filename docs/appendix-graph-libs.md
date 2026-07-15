@@ -10,18 +10,11 @@ Choosing the optimal frontend library to render network diagrams is a foundation
 
 ## Library Comparison Matrix
 
-The table below summarizes the key architectural traits and performance envelopes of the leading graph visualization libraries.
+The interactive directory below summarizes the key architectural traits and performance envelopes of the leading graph visualization libraries. You can search, filter, and sort the data dynamically.
 
-| Library | Primary Target | Rendering Tech | License | Bundle Size (Min/Gzip) | React Native Integration | Built-in Physics | Max Scale (Nodes) |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **vis-network** | Rapid interactive exploration | HTML5 Canvas | MIT / Apache 2.0 | ~75 KB | Third-party wrappers | Yes (Rigid-body, Barnes-Hut) | 1,000 |
-| **D3.js** (d3-force) | Custom data storytelling | SVG or Canvas | ISC | ~75 KB (all) / ~15 KB (force) | Imperative integration | Yes (Verlet integration) | 2,000 (Canvas) |
-| **React Flow** | Node-based workflow editors | DOM (HTML/SVG) | MIT | ~40 KB | Native React | No (Requires external engine) | 500 (DOM limited) |
-| **Cytoscape.js** | Formal graph analysis | HTML5 Canvas | MIT | ~90 KB | Third-party wrappers | Yes (CoSE, Cola plugins) | 5,000 |
-| **Sigma.js** | Large-scale static networks | WebGL | MIT | ~30 KB (+ Graphology) | Native React component | No (Uses pre-computed layouts) | 100,000+ |
-| **force-graph** | Fast Canvas/3D networks | Canvas / WebGL | MIT | ~60 KB | React wrappers (`react-force-graph`) | Yes (d3-force based) | 5,000 (Canvas) / 50k (3D) |
-| **G6** (AntV) | Enterprise graph tooling | Canvas / SVG | MIT | ~150 KB | React wrappers (`@ant-design/charts`) | Yes (Built-in force/layout) | 10,000 |
-| **GoJS** | Commercial diagramming | HTML5 Canvas | Proprietary | ~180 KB | Official React component | Yes (ForceDirectedLayout) | 3,000 |
+<iframe src="../sims/graph-js-library-comparison/main.html" height="532px" width="100%" scrolling="no"></iframe>
+
+[Run the Graph JS Library Comparison MicroSim Fullscreen](sims/graph-js-library-comparison/main.html){ .md-button .md-button--primary }
 
 ---
 

@@ -1,0 +1,56 @@
+{
+  "title": "Graph JS Library Comparison",
+  "creator": "Dan McCreary",
+  "subject": "Educational Technology",
+  "description": "Interactive comparison table comparing popular JavaScript graph visualization libraries.",
+  "date": "2026-07-15",
+  "educational": {
+    "gradeLevel": [
+      "12",
+      "13",
+      "14"
+    ],
+    "subjectArea": "Software Engineering",
+    "topic": "Graph Drawing Libraries",
+    "learningObjectives": [
+      "Analyze the tradeoffs between SVG, Canvas, WebGL, and DOM-based graph drawing libraries.",
+      "Select the appropriate library based on performance, licensing, and framework needs."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "duration": "10-15 minutes",
+    "prerequisites": [
+      "Basic JavaScript knowledge",
+      "Directed graph concepts"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "Custom",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 530
+    },
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration",
+    "keyQuestions": [
+      "What rendering technology scales past 5,000 nodes?",
+      "How does React native integration affect layout styling?"
+    ],
+    "commonMisconceptions": [
+      "A larger bundle size always means faster execution.",
+      "SVG is more performant than WebGL for massive datasets."
+    ],
+    "assessmentOpportunities": [
+      "Formulate a recommendation write-up choosing a library for a 10,000-node concept database."
+    ]
+  },
+  "chapter": ""
+}

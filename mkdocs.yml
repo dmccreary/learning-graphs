@@ -209,6 +209,7 @@ nav:
     - Graph Anatomy Explorer: sims/graph-anatomy-explorer/index.md
     - Graph Editor with Live Validation: sims/graph-editor-live-validation/index.md
     - Graph Family Lens Explorer: sims/graph-family-lens-explorer/index.md
+    - Graph JS Library Comparison: sims/graph-js-library-comparison/index.md
     - Graph Viewer: sims/learning-graph/index.md
     - Hover Tooltip Explorer: sims/hover-tooltip-explorer/index.md
     - Hyper-Personalization Input Explorer: sims/hyper-personalization-input-explorer/index.md
@@ -248,7 +249,6 @@ nav:
     - Working Memory Load Simulator: sims/working-memory-load-simulator/index.md
 
 
-  # Supplementary Content From Here Down
   - Glossary: glossary.md
   - FAQ: faq.md
   - "Appendix: Graph Visualization Libraries": appendix-graph-libs.md
@@ -293,7 +293,11 @@ markdown_extensions:
   - pymdownx.highlight:
       linenums: true
   - markdown.extensions.extra
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
