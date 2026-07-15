@@ -144,7 +144,8 @@ The diagram above used arrows, not plain lines, to connect nodes. That choice is
 
 Direction is what allows a graph to express asymmetric relationships. "Multiplication depends on addition" is true; "addition depends on multiplication" is not. An undirected graph — plain lines with no arrowheads — cannot represent that asymmetry at all; it can only say the two concepts are *related*, not which one comes first. Every learning graph in this book is a directed graph for exactly this reason.
 
-!!! info "A Convention Worth Fixing Early"
+!!! mascot-warning "A Convention Worth Fixing Early"
+    ![Axiom warning](../../img/mascot/warning.png){ class="mascot-admonition-img" }
     Throughout this book, an edge points **from the dependent concept to its prerequisite**. An edge from "Multiplication" to "Addition" reads "Multiplication depends on Addition," not the reverse. Chapter 3 covers this convention — and the mirror-image "enablement" convention some tools use instead — in full detail. For now, just remember: the arrowhead points at the concept you need to learn *first*.
 
 ## From Directed to Acyclic: The Dependency Graph and the DAG
@@ -245,12 +246,12 @@ Type: graph-model
 **Library:** vis-network<br/>
 **Status:** Specified
 
-Purpose: Show the same five nodes rendered under five different "lenses" (concept graph, content graph, knowledge graph, dependency graph, learning graph) so learners can see how the edge set — not the node set — is what changes between graph types.
+Purpose: Show the same five nodes rendered under six different "lenses" (concept graph, content graph, knowledge graph, dependency graph, enablement graph, learning graph) so learners can see how the edge set — not the node set — is what changes between graph types.
 
 Bloom Level: Analyze (L4)
 Bloom Verb: differentiate, compare, contrast
 
-Learning objective: Given a fixed set of entities, the learner can identify which edge relationships are appropriate under each of the five graph-type lenses and explain what changes between lenses.
+Learning objective: Given a fixed set of entities, the learner can identify which edge relationships are appropriate under each of the six graph-type lenses and explain what changes between lenses.
 
 Base node set (shown in every lens, styling changes per lens):
 - "Fractions" (concept)
@@ -259,13 +260,14 @@ Base node set (shown in every lens, styling changes per lens):
 - "Quiz: Fractions Basics" (content item)
 - "Khan Academy" (external entity, used only in Knowledge Graph lens)
 
-Lens control: Dropdown selector with five options — "Concept Graph," "Content Graph," "Knowledge Graph," "Dependency Graph," "Learning Graph"
+Lens control: Dropdown selector with six options — "Concept Graph," "Content Graph," "Knowledge Graph," "Dependency Graph," "Enablement Graph," "Learning Graph"
 
 Lens behavior:
 - Concept Graph lens: shows only "Fractions" and "Decimals" nodes, with an undirected "related-to" edge labeled "related to"
 - Content Graph lens: shows only the two content-item nodes, with a directed edge "Video: Intro to Fractions" → "Quiz: Fractions Basics" labeled "precedes"
 - Knowledge Graph lens: shows all five nodes with mixed, typed edges: "Video: Intro to Fractions" —[created by]→ "Khan Academy", "Quiz: Fractions Basics" —[tests]→ "Fractions"
-- Dependency Graph lens: shows only "Fractions" and "Decimals" with a directed edge "Decimals" → "Fractions" labeled "depends on"
+- Dependency Graph lens: shows only "Fractions" and "Decimals" with a directed edge "Decimals" → "Fractions" labeled "DEPENDS_ON"
+- Enablement Graph lens: same two nodes as the Dependency Graph lens, but the arrow is reversed — a directed edge "Fractions" → "Decimals" labeled "ENABLES LEARNING"
 - Learning Graph lens: identical edge to the Dependency Graph lens, but the infobox additionally notes the DAG requirement and shows a green "Valid DAG" badge
 
 Interactive features:
@@ -282,7 +284,7 @@ Visual styling:
 
 Canvas size: responsive, 100% width, 540px height
 
-Implementation: vis-network JavaScript library with five predefined edge-set configurations swapped in on a dropdown "change" event; use `network.setData()` to redraw
+Implementation: vis-network JavaScript library with six predefined edge-set configurations swapped in on a dropdown "change" event; use `network.setData()` to redraw
 </details>
 
 !!! mascot-warning "Watch Out"

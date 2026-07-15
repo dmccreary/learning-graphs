@@ -1,6 +1,6 @@
 ---
 title: Graph Family Lens Explorer
-description: Given a fixed set of entities, the learner can identify which edge relationships are appropriate under each of the five graph-type lenses and explain what changes between lenses.
+description: Given a fixed set of entities, the learner can identify which edge relationships are appropriate under each of the six graph-type lenses and explain what changes between lenses.
 status: scaffold
 library: vis-network
 bloom_level: Analyze (L4)
@@ -25,12 +25,12 @@ Type: graph-model
 **Library:** vis-network<br/>
 **Status:** Specified
 
-Purpose: Show the same five nodes rendered under five different "lenses" (concept graph, content graph, knowledge graph, dependency graph, learning graph) so learners can see how the edge set — not the node set — is what changes between graph types.
+Purpose: Show the same five nodes rendered under six different "lenses" (concept graph, content graph, knowledge graph, dependency graph, enablement graph, learning graph) so learners can see how the edge set — not the node set — is what changes between graph types.
 
 Bloom Level: Analyze (L4)
 Bloom Verb: differentiate, compare, contrast
 
-Learning objective: Given a fixed set of entities, the learner can identify which edge relationships are appropriate under each of the five graph-type lenses and explain what changes between lenses.
+Learning objective: Given a fixed set of entities, the learner can identify which edge relationships are appropriate under each of the six graph-type lenses and explain what changes between lenses.
 
 Base node set (shown in every lens, styling changes per lens):
 - "Fractions" (concept)
@@ -39,13 +39,14 @@ Base node set (shown in every lens, styling changes per lens):
 - "Quiz: Fractions Basics" (content item)
 - "Khan Academy" (external entity, used only in Knowledge Graph lens)
 
-Lens control: Dropdown selector with five options — "Concept Graph," "Content Graph," "Knowledge Graph," "Dependency Graph," "Learning Graph"
+Lens control: Dropdown selector with six options — "Concept Graph," "Content Graph," "Knowledge Graph," "Dependency Graph," "Enablement Graph," "Learning Graph"
 
 Lens behavior:
 - Concept Graph lens: shows only "Fractions" and "Decimals" nodes, with an undirected "related-to" edge labeled "related to"
 - Content Graph lens: shows only the two content-item nodes, with a directed edge "Video: Intro to Fractions" → "Quiz: Fractions Basics" labeled "precedes"
 - Knowledge Graph lens: shows all five nodes with mixed, typed edges: "Video: Intro to Fractions" —[created by]→ "Khan Academy", "Quiz: Fractions Basics" —[tests]→ "Fractions"
-- Dependency Graph lens: shows only "Fractions" and "Decimals" with a directed edge "Decimals" → "Fractions" labeled "depends on"
+- Dependency Graph lens: shows only "Fractions" and "Decimals" with a directed edge "Decimals" → "Fractions" labeled "DEPENDS_ON"
+- Enablement Graph lens: same two nodes as the Dependency Graph lens, but the arrow is reversed — a directed edge "Fractions" → "Decimals" labeled "ENABLES LEARNING"
 - Learning Graph lens: identical edge to the Dependency Graph lens, but the infobox additionally notes the DAG requirement and shows a green "Valid DAG" badge
 
 Interactive features:
@@ -62,7 +63,7 @@ Visual styling:
 
 Canvas size: responsive, 100% width, 540px height
 
-Implementation: vis-network JavaScript library with five predefined edge-set configurations swapped in on a dropdown "change" event; use `network.setData()` to redraw
+Implementation: vis-network JavaScript library with six predefined edge-set configurations swapped in on a dropdown "change" event; use `network.setData()` to redraw
 ```
 
 ## Related Resources

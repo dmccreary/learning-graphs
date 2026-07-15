@@ -162,13 +162,42 @@ function initializeNetwork() {
 
     network.on('click', handleClick);
 
-    // After the hierarchical layout renders, fit it into view.
+    // After the hierarchical layout renders, fit it into view, then nudge it
+    // left so the infobox (fixed to the right edge) doesn't sit on top of it.
     network.once('afterDrawing', function () {
         network.fit({ animation: false });
+        panLeftOfCenter();
     });
 
     updateStats();
     resetInfobox();
+}
+
+// ===========================================
+// VIEW PANNING
+// ===========================================
+// vis-network's moveTo(position) sets the CANVAS point that lands in the
+// middle of the viewport. Counter-intuitively, to make the drawn graph
+// appear to shift LEFT on screen, you must move that focal point to the
+// RIGHT (a larger x) - the graph content to the right of the old focal
+// point is what slides into the newly-centered spot. So "shift the
+// content left" = "increase position.x", not decrease it.
+function panLeftOfCenter() {
+    const infobox = document.querySelector('.infobox');
+    if (!infobox || !network) {
+        return;
+    }
+    // Reserve roughly half the infobox's on-screen footprint so the graph
+    // centers itself in the space to the left of the infobox rather than
+    // in the full canvas width.
+    const shiftScreenPx = (infobox.offsetWidth + 16) / 2;
+    const scale = network.getScale();
+    const view = network.getViewPosition();
+    network.moveTo({
+        position: { x: view.x + (shiftScreenPx / scale), y: view.y },
+        scale: scale,
+        animation: false
+    });
 }
 
 // ===========================================
@@ -354,6 +383,7 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('resize', function () {
         if (network) {
             network.fit({ animation: false });
+            panLeftOfCenter();
         }
     });
 });

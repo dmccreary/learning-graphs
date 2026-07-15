@@ -361,10 +361,16 @@ function initializeNetwork() {
     network = new vis.Network(container, { nodes: nodes, edges: edges }, hierarchyOptions());
 
     // When any physics layout finishes, disable physics, fit, and draw bands.
+    // A second, un-animated fit() after the animation completes guards against
+    // residual node drift between the stabilization event and the final frame,
+    // which otherwise leaves the outermost nodes clipped outside the canvas.
     network.on('stabilizationIterationsDone', function () {
         network.setOptions({ physics: { enabled: false } });
         network.fit({ animation: { duration: 500, easingFunction: 'easeInOutQuad' } });
-        setTimeout(updateBandShading, 520);
+        setTimeout(function () {
+            network.fit({ animation: false });
+            updateBandShading();
+        }, 520);
     });
 
     // Keep band strips aligned if the view is dragged/zoomed (standalone) or animates.

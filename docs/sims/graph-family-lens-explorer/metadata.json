@@ -1,6 +1,6 @@
 {
   "title": "Graph Family Lens Explorer",
-  "description": "Given a fixed set of entities, the learner can identify which edge relationships are appropriate under each of the five graph-type lenses and explain what changes between lenses.",
+  "description": "Given a fixed set of entities, the learner can identify which edge relationships are appropriate under each of the six graph-type lenses and explain what changes between lenses.",
   "creator": "Learning Graphs",
   "author": "Dan McCreary",
   "date": "2026-07-03",
