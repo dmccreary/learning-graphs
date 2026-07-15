@@ -1,0 +1,426 @@
+/* Category Balance and Overlap Auditor - Chart.js MicroSim Stylesheet
+ * ==================================================================
+ * Rows: title / controls / main-row (chart + overlap panel) / fixed infobox.
+ * The overlap panel sits beside the chart on wide screens and stacks below it
+ * on narrow ones.
+ */
+
+/* Must stay in sync with CANVAS_HEIGHT in category-balance-overlap-auditor.js */
+:root {
+    --sim-height: 560px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: aliceblue;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: var(--sim-height);
+    padding: 6px 8px 8px 8px;
+    gap: 6px;
+}
+
+/* ===========================================
+   TITLE
+   =========================================== */
+.title {
+    flex: 0 0 auto;
+    text-align: center;
+    font-size: 17px;
+    font-weight: bold;
+    color: black;
+    line-height: 1.2;
+}
+
+/* ===========================================
+   CONTROLS
+   =========================================== */
+.controls {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    padding: 6px 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hint {
+    font-size: 12px;
+    color: #546e7a;
+}
+
+/* Key for the bar colours. Chart.js's own legend is off: with one dataset it
+   would just say "Concepts", while the meaning is carried by per-bar colour. */
+.key {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    min-width: 0;
+}
+
+.key-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: #546e7a;
+    white-space: nowrap;
+}
+
+.sw {
+    width: 15px;
+    height: 10px;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.sw-over    { background-color: #e53935; border: 1px solid #b71c1c; }
+.sw-overlap { background-color: #cfd8dc; border: 2px solid #ffa000; }
+.sw-normal  { background-color: #b0bec5; border: 1px solid #90a4ae; }
+
+.ctl-buttons {
+    display: flex;
+    gap: 6px;
+}
+
+.btn {
+    padding: 6px 12px;
+    font-size: 12.5px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+
+.btn-gold {
+    background-color: #f9a825;
+    color: #3e2723;
+}
+
+.btn-gold:hover:not(:disabled) { background-color: #f57f17; }
+
+.btn-primary {
+    background-color: #1e88e5;
+    color: white;
+}
+
+.btn-primary:hover:not(:disabled) { background-color: #1565c0; }
+
+.btn-secondary {
+    background-color: #757575;
+    color: white;
+}
+
+.btn-secondary:hover:not(:disabled) { background-color: #616161; }
+
+/* ===========================================
+   MAIN ROW: chart + overlap panel
+   =========================================== */
+.main-row {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    gap: 6px;
+}
+
+.chart-panel {
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 0;
+    position: relative;
+    background-color: white;
+    border-radius: 8px;
+    padding: 6px 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ===========================================
+   OVERLAP PANEL
+   =========================================== */
+/* `display: flex` below would otherwise beat the UA stylesheet's rule for the
+   HTML hidden attribute, leaving the panel on screen at load. */
+.overlap-panel[hidden] {
+    display: none;
+}
+
+.overlap-panel {
+    flex: 0 0 330px;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: #fffdf5;
+    border: 2px solid #ffa000;
+    border-radius: 8px;
+    padding: 7px 9px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+}
+
+.op-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+}
+
+.op-title {
+    font-size: 12.5px;
+    font-weight: bold;
+    color: #e65100;
+}
+
+.op-close {
+    border: none;
+    background: transparent;
+    font-size: 19px;
+    line-height: 1;
+    color: #90a4ae;
+    cursor: pointer;
+    padding: 0 3px;
+}
+
+.op-close:hover { color: #37474f; }
+
+.op-cats {
+    display: flex;
+    gap: 5px;
+}
+
+.op-cat {
+    flex: 1 1 0;
+    min-width: 0;
+    background-color: white;
+    border: 1px solid #ffcc80;
+    border-radius: 5px;
+    padding: 4px 6px;
+}
+
+.op-cat-name {
+    font-size: 11px;
+    font-weight: bold;
+    color: #37474f;
+    margin-bottom: 2px;
+}
+
+.op-cat-rule {
+    font-size: 10px;
+    line-height: 1.35;
+    color: #607d8b;
+}
+
+.op-label {
+    display: block;
+    font-size: 9.5px;
+    font-weight: bold;
+    color: #607d8b;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-bottom: 2px;
+}
+
+.op-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.op-list li {
+    font-size: 11px;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-left: 3px solid #ffa000;
+    border-radius: 3px;
+    padding: 2px 6px;
+    color: #263238;
+}
+
+.op-list li b {
+    color: #e65100;
+}
+
+.op-prompt {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+#criterion {
+    width: 100%;
+    font-family: inherit;
+    font-size: 11px;
+    line-height: 1.35;
+    padding: 4px 6px;
+    border: 1px solid #b0bec5;
+    border-radius: 4px;
+    resize: none;
+}
+
+#criterion:focus {
+    outline: 2px solid #ffa000;
+    outline-offset: -1px;
+}
+
+/* Progressive disclosure. The panel cannot hold everything at once, and adding a
+   scrollbar inside an iframe would fight the page's own scrolling. So once the
+   model answer is on screen, collapse what the learner has finished with:
+   the two boundary rules, the per-concept arguments, and the submit button.
+   What stays is what they still need to compare — the three concept names,
+   their own criterion, and the model answer. */
+.overlap-panel.model-shown .op-cat-rule {
+    display: none;
+}
+
+/* concepts collapse to a row of name chips; the arguments have served their purpose */
+.overlap-panel.model-shown .op-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3px;
+}
+
+.overlap-panel.model-shown .op-list .reason {
+    display: none;
+}
+
+.overlap-panel.model-shown .op-list li {
+    font-size: 10px;
+    padding: 1px 5px;
+}
+
+.overlap-panel.model-shown #btn-submit {
+    display: none;
+}
+
+.overlap-panel.model-shown #criterion {
+    rows: 1;
+}
+
+.op-model[hidden] {
+    display: none;
+}
+
+.op-model {
+    background-color: white;
+    border: 1px solid #a5d6a7;
+    border-left: 3px solid #43a047;
+    border-radius: 4px;
+    padding: 4px 6px;
+    font-size: 10.5px;
+    line-height: 1.4;
+    color: #263238;
+    overflow-y: auto;
+}
+
+.op-model .model-head {
+    font-weight: bold;
+    color: #2e7d32;
+    display: block;
+    margin-bottom: 1px;
+}
+
+.op-model .echo {
+    display: block;
+    margin-top: 3px;
+    padding-top: 3px;
+    border-top: 1px dashed #cfd8dc;
+    color: #546e7a;
+    font-style: italic;
+}
+
+/* ===========================================
+   INFOBOX
+   =========================================== */
+.infobox {
+    flex: 0 0 auto;
+    height: 78px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.97);
+    border-radius: 8px;
+    border: 2px solid transparent;
+    padding: 6px 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 12px;
+    line-height: 1.45;
+    color: #263238;
+    overflow: hidden;
+}
+
+.infobox.violation {
+    border-color: #e53935;
+    background-color: #fff8f7;
+}
+
+.infobox.info {
+    border-color: #ffa000;
+    background-color: #fffdf5;
+}
+
+.info-idle {
+    width: 100%;
+    text-align: center;
+    color: #78909c;
+    font-size: 12.5px;
+}
+
+.info-head {
+    font-weight: bold;
+    font-size: 12.5px;
+    margin-bottom: 2px;
+}
+
+.info-head.violation { color: #c62828; }
+.info-head.info { color: #e65100; }
+
+.info-body {
+    font-size: 11.5px;
+    line-height: 1.45;
+}
+
+/* ===========================================
+   RESPONSIVE
+   =========================================== */
+@media (max-width: 500px) {
+    .title { font-size: 14px; }
+
+    .hint { display: none; }
+
+    .btn { padding: 5px 9px; font-size: 11px; }
+
+    /* spec: comparison panel stacks below the chart on narrow screens */
+    .main-row {
+        flex-direction: column;
+    }
+
+    .overlap-panel {
+        flex: 1 1 auto;
+    }
+
+    /* the chart yields its space to the panel when the panel is open */
+    .main-row.overlap-open .chart-panel {
+        display: none;
+    }
+
+    .infobox {
+        height: 84px;
+        font-size: 11px;
+    }
+}

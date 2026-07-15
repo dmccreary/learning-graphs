@@ -1,0 +1,81 @@
+{
+  "title": "Betweenness Centrality Heatmap Explorer",
+  "description": "Given a 25-node sample learning graph rendered with node color mapped to betweenness centrality, the learner can identify the top three bottleneck concepts by color alone and, after clicking each, correctly state which pairs of other concepts lose their only connecting path if that node were removed.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-15",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "https://dmccreary.github.io/learning-graphs/sims/betweenness-centrality-heatmap-explorer/",
+  "library": "vis-network",
+  "bloomLevel": "Analyze (L4)",
+  "bloomVerb": "identify, examine, differentiate",
+  "completion_status": "implemented",
+  "chapter_number": 21,
+  "chapter_title": "Graph Metrics and Path Analysis",
+  "chapter_dir": "21-graph-metrics-path-analysis",
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Betweenness Centrality, Bottleneck Concepts, Critical Path",
+    "learningObjectives": [
+      "Identify the highest-centrality concepts in a rendered graph from color alone",
+      "State which concept pairs route their only connecting path through a given node",
+      "Distinguish pairs that disconnect on removal from pairs that merely take a longer route",
+      "Explain why a high betweenness score does not by itself make a concept essential"
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "duration": "10-15 minutes",
+    "prerequisites": [
+      "Graph Path",
+      "Shortest Path",
+      "Reachability",
+      "Graph Density"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "vis-network",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 620
+    },
+    "canvasHeight": 620,
+    "responsive": true,
+    "dependencies": [
+      "vis-network@9.1.9"
+    ],
+    "accessibility": {
+      "hasAltText": false,
+      "keyboardNavigable": false
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Heatmap exploration with click-to-reveal and counterfactual removal",
+    "keyQuestions": [
+      "Which three concepts are the darkest, and what do they have in common structurally?",
+      "Graph ranks 1st and removing it disconnects 57 pairs. Path ranks 5th and removing it disconnects none. Why?",
+      "What does a node with high betweenness but zero removal impact tell you about the graph around it?",
+      "If you had to protect one concept in this graph from being cut, which would it be, and on what evidence?"
+    ],
+    "commonMisconceptions": [
+      "That high betweenness centrality means a concept is essential — Path ranks 5 of 25 yet is fully redundant, because equally short alternative routes exist",
+      "That centrality is about how many edges a node has — that is degree, not betweenness",
+      "That removing a high-centrality node always disconnects the graph — it may only lengthen paths, or change nothing at all"
+    ],
+    "assessmentOpportunities": [
+      "Ask learners to rank the top three bottlenecks from the heatmap before clicking anything, then verify by hover",
+      "Ask learners to predict, before toggling Simulate Removal, whether DAG's removal will disconnect more or fewer pairs than Learning Graph's",
+      "Ask learners to find a node with high centrality whose removal breaks nothing, and explain the structure that makes it redundant"
+    ]
+  }
+}

@@ -1,0 +1,3803 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Audit a 12-category taxonomy for a balance violation you can see in the bar chart, and a boundary overlap you cannot — then propose the criterion that resolves it.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/learning-graphs/sims/category-balance-overlap-auditor/">
+      
+      
+        <link rel="prev" href="../book-build-workflow-pipeline/">
+      
+      
+        <link rel="next" href="../clustering-abstraction-explorer/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Category Balance and Overlap Auditor - Learning Graphs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-Z6JDD2PWQZ"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-Z6JDD2PWQZ",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-Z6JDD2PWQZ",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Category Balance and Overlap Auditor - Learning Graphs" >
+      
+        <meta  property="og:description"  content="Audit a 12-category taxonomy for a balance violation you can see in the bar chart, and a boundary overlap you cannot — then propose the criterion that resolves it." >
+      
+        <meta property="og:image" content="https://dmccreary.github.io/learning-graphs/sims/category-balance-overlap-auditor/category-balance-overlap-auditor.png">
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/learning-graphs/sims/category-balance-overlap-auditor/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Category Balance and Overlap Auditor - Learning Graphs" >
+      
+        <meta  name="twitter:description"  content="Audit a 12-category taxonomy for a balance violation you can see in the bar chart, and a boundary overlap you cannot — then propose the criterion that resolves it." >
+      
+        <meta name="twitter:image" content="https://dmccreary.github.io/learning-graphs/sims/category-balance-overlap-auditor/category-balance-overlap-auditor.png">
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#category-balance-and-overlap-auditor" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Learning Graphs" class="md-header__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/mascot/neutral.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Learning Graphs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Category Balance and Overlap Auditor
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Learning Graphs" class="md-nav__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/mascot/neutral.png" alt="logo">
+
+    </a>
+    Learning Graphs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../chapters/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../case-studies/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Case Studies
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../vis/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Vis.js Tutorial
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Sample Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            MicroSims
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adaptive-learning-loop-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adaptive Learning Loop Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agent-capability-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agent Capability Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../feedback-loop-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assessment Feedback Loop Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../automated-validator-report-reader/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automated Validator Report Reader
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--implemented"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../betweenness-centrality-heatmap-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Betweenness Centrality Heatmap Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--implemented"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blocked-vs-interleaved-simulator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blocked vs. Interleaved Practice Simulator
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blooms-pyramid-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bloom's Taxonomy Pyramid Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../book-chapter-metrics-dashboard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Book and Chapter Metrics Dashboard
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../book-build-workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Book Build Workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../book-gen-workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Book Build Workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../book-build-workflow-pipeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Book Build Workflow Pipeline
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Category Balance and Overlap Auditor
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--implemented"></span>
+  
+
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Category Balance and Overlap Auditor
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--implemented"></span>
+  
+
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-this-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      About This MicroSim
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Use
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iframe-embed-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iframe Embed Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lesson Plan
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lesson Plan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#audience" class="md-nav__link">
+    <span class="md-ellipsis">
+      Audience
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Duration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Activities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assessment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related Concepts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../clustering-abstraction-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Clustering and Abstraction Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concept-to-content-viewer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concept to Content Viewer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../content-sequencing-simulator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Content Sequencing Algorithm Simulator
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../csv-to-json-record-mapper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSV-to-JSON Record Mapper
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--implemented"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dag-cycle-detector/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DAG Cycle Detector
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependency-analysis-console/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dependency Analysis Console
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependency-review-console/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dependency Review Console
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--implemented"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependency-role-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dependency Role Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distractor-quality-rater/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Distractor Quality Rater
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../domain-cluster-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Domain Cluster Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dublin-core-metadata-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dublin Core Metadata Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../edge-smoothing-curve-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Edge Smoothing and Curve Type Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../edge-styling-property-playground/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Edge Styling Property Playground
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../force-directed-layout-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Force-Directed Layout Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concept-to-index-workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    From Concept to Index Entry
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../genai-learning-graph-pipeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generative AI to Learning Graph Pipeline
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../goal-horizon-timeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Goal Horizon Timeline
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-anatomy-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graph Anatomy Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-editor-live-validation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graph Editor with Live Validation
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-family-lens-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graph Family Lens Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-js-library-comparison/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graph JS Library Comparison
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-traversal-step-through/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graph Traversal Step-Through — DFS vs. BFS
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--implemented"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learning-graph/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graph Viewer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hover-tooltip-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hover Tooltip Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hyper-personalization-input-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hyper-Personalization Input Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../indegree-outdegree-counter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Indegree and Out-Degree Counter
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interactive-legend-filter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interactive Legend Filter
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interactive-taxonomy-legend/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interactive Taxonomy Legend and Filter
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../journey-map-builder/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Journey Map Builder
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../knowledge-space-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Knowledge Space Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../label-anatomy-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Label Anatomy Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../layout-algorithm-comparison-lab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Layout Algorithm Comparison Lab
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learning-graph-quality-gate-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Learning Graph Quality Gate Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-viewer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learning-is-nonlinear/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Learning is Nonlinear
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learning-objective-builder/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Learning Objective Builder
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rhizombic-path-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linear Path vs. Rhizombic Exploration
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microsim-directory-anatomy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MicroSim Directory Anatomy
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blooms-taxonomy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MicroSim Folder index.md Template
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MicroSim Folder index.md Template
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quiz-format-comparison-chart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multiple-Choice vs. True/False Comparison Chart
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nine-events-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nine Events of Instruction Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../node-styling-property-playground/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Node Styling Property Playground
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../orphan-disconnected-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Orphan and Disconnected Subgraph Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../physics-force-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Physics Force Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../readiness-mastery-dashboard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Readiness and Mastery Dashboard
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--implemented"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ready-to-learn-frontier-simulator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ready-to-Learn Frontier Simulator
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../real-world-deployment-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Real-World Deployment Patterns Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rag-step-through/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Retrieval-Augmented Generation Step-Through
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scaffolding-fade-simulator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scaffolding Fade Simulator
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../search-focus-navigation-console/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Search and Focus Navigation Console
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../similarity-metric-comparison-tool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Similarity Metric Comparison Tool
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skos-relation-triple-builder/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SKOS Relation Triple Builder
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--implemented"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skos-relationship-map/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SKOS Relationship Map
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structural-variations-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structural Variations Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../taxonomy-classifier-workbench/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taxonomy Classifier Workbench
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learning-graph-pipeline-workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Twelve-Step Pipeline From Course Description to Validated Graph
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../theory-to-practice-map/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Theory-to-Practice Concept Map
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topological-sort-stepper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Topological Sort Step-Through
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transitive-dependency-hop-finder/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transitive Dependency and Hop Count Finder
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../working-memory-load-simulator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Working Memory Load Simulator
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix-graph-libs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix: Graph Visualization Libraries
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How We Built This Site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student-volunteers-wanted/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Student Volunteers Wanted
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-this-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      About This MicroSim
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Use
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iframe-embed-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iframe Embed Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lesson Plan
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lesson Plan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#audience" class="md-nav__link">
+    <span class="md-ellipsis">
+      Audience
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Duration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Activities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assessment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related Concepts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/learning-graphs/blob/master/docs/sims/category-balance-overlap-auditor/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="category-balance-and-overlap-auditor">Category Balance and Overlap Auditor</h1>
+<iframe src="main.html" height="562px" width="100%" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="main.html">Run the Category Balance and Overlap Auditor MicroSim Fullscreen</a></p>
+<h2 id="about-this-microsim">About This MicroSim</h2>
+<p>This is a sample taxonomy: 200 concepts sorted into 12 categories. It has two defects, and they
+are different <em>kinds</em> of defect — which is the whole point of pairing them in one tool.</p>
+<p><strong>Defect one is a balance violation, and the chart shows it to you.</strong> <em>Graph Theory &amp; Structure</em>
+holds 76 of 200 concepts — 38%, well past the 30% ceiling marked by the dashed red line. You
+can spot this from across the room.</p>
+<p><strong>Defect two is a boundary overlap, and the chart is useless for it.</strong> <em>Metadata &amp; Standards</em>
+(8%) and <em>Taxonomy &amp; Classification</em> (7%) are both comfortably balanced. Nothing in their bars
+looks wrong. But three concepts have a genuine argument for landing in either one:</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Argument for Metadata &amp; Standards</th>
+<th>Argument for Taxonomy &amp; Classification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SKOS</td>
+<td>It is a published W3C specification</td>
+<td>Its whole purpose is expressing taxonomies</td>
+</tr>
+<tr>
+<td>Concept Label</td>
+<td>It is a field defined by ISO 11179</td>
+<td>Labels are what a taxonomy classifies</td>
+</tr>
+<tr>
+<td>Dublin Core Subject Field</td>
+<td>It is one named field in a standard</td>
+<td>The subject field <em>is</em> a classification</td>
+</tr>
+</tbody>
+</table>
+<p>Balance is a <strong>counting</strong> problem, and counting is what a chart is for. Overlap is a
+<strong>definitional</strong> problem, and no amount of charting will surface it — you have to open the two
+categories and read their stated boundaries against real concepts. Both are taxonomy defects;
+neither is caught by Chapter 5's structural validators, which would pass this graph without
+complaint.</p>
+<h2 id="how-to-use">How to Use</h2>
+<ol>
+<li><strong>Read the chart.</strong> Find the category over the 30% ceiling. Click its red bar for an
+   explanation of why concentration is a problem rather than just a number.</li>
+<li><strong>Hover any bar</strong> for its exact count and percentage.</li>
+<li><strong>Click either gold-outlined bar</strong>, or the <strong>Inspect Overlap</strong> button, to open the two
+   flagged categories side by side with their stated boundaries.</li>
+<li><strong>Read the three ambiguous concepts</strong> and the argument for each category.</li>
+<li><strong>Propose a criterion</strong> that decides all three, and click <strong>Compare with model answer</strong>.</li>
+</ol>
+<p>On that last step: your criterion is not machine-graded — free text cannot be honestly scored.
+What the sim does is reveal the model answer and tell you one checkable thing, namely whether
+your criterion even mentions the axis the model turns on. The real test is the one stated in the
+prompt: does your criterion place <em>all three</em> concepts, or only two?</p>
+<h2 id="iframe-embed-code">Iframe Embed Code</h2>
+<p>You can add this MicroSim to any web page by adding this to your HTML:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://dmccreary.github.io/learning-graphs/sims/category-balance-overlap-auditor/main.html&quot;</span>
+        <span class="na">height</span><span class="o">=</span><span class="s">&quot;562px&quot;</span>
+        <span class="na">width</span><span class="o">=</span><span class="s">&quot;100%&quot;</span>
+        <span class="na">scrolling</span><span class="o">=</span><span class="s">&quot;no&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="lesson-plan">Lesson Plan</h2>
+<h3 id="audience">Audience</h3>
+<p>Instructional designers, curriculum developers, and educational technologists working with
+concept dependency graphs.</p>
+<h3 id="duration">Duration</h3>
+<p>15–20 minutes</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>Learners need <strong>Category Balance</strong>, <strong>Category Overlap</strong>, and <strong>Taxonomy Validation</strong> from
+<a href="../../chapters/24-taxonomy-design-deep-dive/">Chapter 24</a>, plus the 30% balance ceiling
+introduced in <a href="../../chapters/04-concept-taxonomies-ontologies/">Chapter 4</a>.</p>
+<h3 id="activities">Activities</h3>
+<ol>
+<li><strong>Spot the obvious one</strong> (3 min): Learners identify the balance violation from the chart
+   alone and explain why the fix is to <em>split</em> the category rather than move concepts out to
+   make the number look better.</li>
+<li><strong>The invisible defect</strong> (7 min): Ask the class whether <em>Metadata &amp; Standards</em> and <em>Taxonomy
+   &amp; Classification</em> have any problem, judging from the chart. The honest answer is "no
+   evidence." Then open the overlap panel. Discuss what it means that a chart can give a clean
+   bill of health to a broken taxonomy.</li>
+<li><strong>Propose and defend</strong> (8 min): Each learner writes a criterion, then tests it aloud against
+   all three concepts. Most first attempts ("is it about classifying?") decide two and split the
+   third. Compare with the model answer and discuss why a criterion that leaves any concept
+   arguable has not resolved the overlap.</li>
+</ol>
+<h3 id="assessment">Assessment</h3>
+<p>Learners can:</p>
+<ul>
+<li>Identify a balance violation from a distribution chart and state the threshold it crosses.</li>
+<li>Explain why a balanced pair of categories can still be defective.</li>
+<li>Propose a disambiguating criterion and test it against every ambiguous concept, not just one.</li>
+<li>Explain why structural validation catches neither defect.</li>
+</ul>
+<h2 id="related-concepts">Related Concepts</h2>
+<ul>
+<li><strong>Category Balance</strong> — the counting property the bar chart measures</li>
+<li><strong>Category Overlap</strong> — the definitional property it cannot</li>
+<li><strong>Taxonomy Validation</strong> — the review this MicroSim simulates</li>
+<li><strong>Miscellaneous Bucket</strong> — the other classic balance smell, not shown here</li>
+<li><strong>ISO 11179</strong> — the standard behind the Concept Label boundary argument</li>
+</ul>
+<h2 id="references">References</h2>
+<ol>
+<li><a href="../../chapters/24-taxonomy-design-deep-dive/">Chapter 24: Taxonomy Design Deep Dive</a> - The chapter this MicroSim supports.</li>
+<li><a href="../../chapters/04-concept-taxonomies-ontologies/">Chapter 4: Concept Taxonomies and Ontologies</a> - Where the 30% category-balance ceiling is introduced.</li>
+<li><a href="https://en.wikipedia.org/wiki/Taxonomy">Taxonomy</a> - General principles of classification, including mutual exclusivity.</li>
+<li><a href="https://en.wikipedia.org/wiki/MECE_principle">Mutually Exclusive and Collectively Exhaustive</a> - The MECE principle, which the overlap defect violates.</li>
+<li><a href="https://www.chartjs.org/docs/latest/">Chart.js Documentation</a> - The charting library used to build this MicroSim.</li>
+</ol>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../book-build-workflow-pipeline/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Book Build Workflow Pipeline">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Book Build Workflow Pipeline
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../clustering-abstraction-explorer/" class="md-footer__link md-footer__link--next" aria-label="Next: Clustering and Abstraction Explorer">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Clustering and Abstraction Explorer
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,82 @@
+{
+  "title": "Automated Validator Report Reader",
+  "description": "Given a simulated validator report listing six findings (three warnings, three errors) against a 15-node sample graph, the learner can correctly classify each finding's severity, identify the specific node or edge it affects on the rendered graph, and correctly determine whether the graph is safe to publish given the findings present.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-15",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "https://dmccreary.github.io/learning-graphs/sims/automated-validator-report-reader/",
+  "library": "vis-network",
+  "bloomLevel": "Analyze (L4)",
+  "bloomVerb": "classify, triage, examine",
+  "completion_status": "implemented",
+  "chapter_number": 25,
+  "chapter_title": "Graph Validation and Quality Assurance",
+  "chapter_dir": "25-graph-validation-quality-assurance",
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Automated Validation, Finding Severity, Publish Readiness",
+    "learningObjectives": [
+      "Locate each validator finding's affected node or edge on the rendered graph",
+      "Classify findings by severity and determine which ones block publication",
+      "Explain why three reported errors can produce only two blockers",
+      "Justify a publish/no-publish decision by naming the specific unresolved errors"
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "duration": "10-15 minutes",
+    "prerequisites": [
+      "Automated Validator",
+      "Finding Severity",
+      "Validation Threshold",
+      "Quality Metrics Report"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "vis-network",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 560
+    },
+    "canvasHeight": 560,
+    "responsive": true,
+    "dependencies": [
+      "vis-network@9.1.9"
+    ],
+    "accessibility": {
+      "hasAltText": false,
+      "keyboardNavigable": true
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Click-to-locate report triage with a publish-readiness judgment check",
+    "keyQuestions": [
+      "Three errors are reported. How many actually block publication, and why?",
+      "Why does the report still list DUP-003 if it has already been fixed?",
+      "BAL-002 flags a category at 33%. Against only 15 concepts, is that worth acting on?",
+      "Which finding would you fix first, and what makes it more urgent than the others?"
+    ],
+    "commonMisconceptions": [
+      "That every error blocks publication — DUP-003 is an error and is already resolved",
+      "That warnings can be ignored — they are judgment calls that still need a reader",
+      "That severity alone decides publish readiness, without reading what each finding says",
+      "That a threshold like 30% means the same thing on a 15-concept graph as on a 200-concept one"
+    ],
+    "assessmentOpportunities": [
+      "Ask learners to name each finding's affected element before reading its explanation",
+      "Ask the class to count blockers after sorting by severity, then surface the resolved error",
+      "Ask learners to justify their publish decision by naming specific finding IDs"
+    ]
+  }
+}

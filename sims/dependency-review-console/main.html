@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Dependency Review Console</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title">Dependency Review Console</div>
+
+        <div class="progress-row">
+            <span class="progress-text" id="progress-text">Edge 1 of 8</span>
+            <span class="dots" id="dots"></span>
+            <span class="score" id="score">Accuracy: 0 / 0</span>
+        </div>
+
+        <!-- Edge card: two concept boxes joined by an arrow, plus the asserted
+             rationale and the asserter's confidence -->
+        <div class="card" id="card">
+            <div class="edge-row">
+                <div class="concept" id="concept-from">Concept A</div>
+                <div class="arrow">
+                    <span class="arrow-label">depends on</span>
+                    <span class="arrow-line"></span>
+                </div>
+                <div class="concept" id="concept-to">Concept B</div>
+            </div>
+
+            <div class="meta-row">
+                <span class="badge" id="confidence-badge">medium confidence</span>
+                <span class="provenance" id="provenance">asserted by: generative-AI pass</span>
+            </div>
+
+            <div class="rationale">
+                <span class="rationale-label">Stated rationale</span>
+                <span class="rationale-text" id="rationale-text">&nbsp;</span>
+            </div>
+        </div>
+
+        <div class="verdict" id="verdict">
+            <div class="v-idle" id="v-idle">
+                Judge this edge. Is it sound, or does it over- or under-constrain the learner —
+                or should it not be here at all?
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="class-buttons">
+                <button class="btn btn-class" data-cls="sound">Sound</button>
+                <button class="btn btn-class" data-cls="overconstrained">Overconstrained</button>
+                <button class="btn btn-class" data-cls="underconstrained">Underconstrained</button>
+                <button class="btn btn-class" data-cls="false">False Prerequisite</button>
+            </div>
+            <div class="nav-buttons">
+                <button class="btn btn-primary" id="btn-next" disabled>Next Edge</button>
+                <button class="btn btn-secondary" id="btn-reset">Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="dependency-review-console.js"></script>
+</body>
+</html>

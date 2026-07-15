@@ -669,6 +669,14 @@
          <lastmod>2026-07-15</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/automated-validator-report-reader/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/betweenness-centrality-heatmap-explorer/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/learning-graphs/sims/blocked-vs-interleaved-simulator/</loc>
          <lastmod>2026-07-15</lastmod>
     </url>
@@ -701,6 +709,10 @@
          <lastmod>2026-07-15</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/category-balance-overlap-auditor/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/learning-graphs/sims/clustering-abstraction-explorer/</loc>
          <lastmod>2026-07-15</lastmod>
     </url>
@@ -721,11 +733,19 @@
          <lastmod>2026-07-15</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/csv-to-json-record-mapper/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/learning-graphs/sims/dag-cycle-detector/</loc>
          <lastmod>2026-07-15</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/sims/dependency-analysis-console/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/dependency-review-console/</loc>
          <lastmod>2026-07-15</lastmod>
     </url>
     <url>
@@ -782,6 +802,10 @@
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/sims/graph-js-library-comparison/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/graph-traversal-step-through/</loc>
          <lastmod>2026-07-15</lastmod>
     </url>
     <url>
@@ -877,6 +901,10 @@
          <lastmod>2026-07-15</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/readiness-mastery-dashboard/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/learning-graphs/sims/ready-to-learn-frontier-simulator/</loc>
          <lastmod>2026-07-15</lastmod>
     </url>
@@ -898,6 +926,10 @@
     </url>
     <url>
          <loc>https://dmccreary.github.io/learning-graphs/sims/similarity-metric-comparison-tool/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/learning-graphs/sims/skos-relation-triple-builder/</loc>
          <lastmod>2026-07-15</lastmod>
     </url>
     <url>

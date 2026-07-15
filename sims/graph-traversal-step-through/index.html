@@ -1,0 +1,3795 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Step a depth-first and a breadth-first traversal through the same 10-node directed graph one click at a time, and see exactly where the two visit orders diverge.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/learning-graphs/sims/graph-traversal-step-through/">
+      
+      
+        <link rel="prev" href="../graph-js-library-comparison/">
+      
+      
+        <link rel="next" href="../learning-graph/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Graph Traversal Step-Through — DFS vs. BFS - Learning Graphs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-Z6JDD2PWQZ"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-Z6JDD2PWQZ",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-Z6JDD2PWQZ",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Graph Traversal Step-Through — DFS vs. BFS - Learning Graphs" >
+      
+        <meta  property="og:description"  content="Step a depth-first and a breadth-first traversal through the same 10-node directed graph one click at a time, and see exactly where the two visit orders diverge." >
+      
+        <meta property="og:image" content="https://dmccreary.github.io/learning-graphs/sims/graph-traversal-step-through/graph-traversal-step-through.png">
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/learning-graphs/sims/graph-traversal-step-through/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Graph Traversal Step-Through — DFS vs. BFS - Learning Graphs" >
+      
+        <meta  name="twitter:description"  content="Step a depth-first and a breadth-first traversal through the same 10-node directed graph one click at a time, and see exactly where the two visit orders diverge." >
+      
+        <meta name="twitter:image" content="https://dmccreary.github.io/learning-graphs/sims/graph-traversal-step-through/graph-traversal-step-through.png">
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#graph-traversal-step-through-dfs-vs-bfs" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Learning Graphs" class="md-header__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/mascot/neutral.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Learning Graphs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Graph Traversal Step-Through — DFS vs. BFS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Learning Graphs" class="md-nav__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/mascot/neutral.png" alt="logo">
+
+    </a>
+    Learning Graphs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../chapters/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../case-studies/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Case Studies
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../vis/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Vis.js Tutorial
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Sample Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            MicroSims
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adaptive-learning-loop-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adaptive Learning Loop Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agent-capability-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agent Capability Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../feedback-loop-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assessment Feedback Loop Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../automated-validator-report-reader/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automated Validator Report Reader
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--implemented"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../betweenness-centrality-heatmap-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Betweenness Centrality Heatmap Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--implemented"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blocked-vs-interleaved-simulator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blocked vs. Interleaved Practice Simulator
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blooms-pyramid-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bloom's Taxonomy Pyramid Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../book-chapter-metrics-dashboard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Book and Chapter Metrics Dashboard
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../book-build-workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Book Build Workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../book-gen-workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Book Build Workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../book-build-workflow-pipeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Book Build Workflow Pipeline
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../category-balance-overlap-auditor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Category Balance and Overlap Auditor
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--implemented"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../clustering-abstraction-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Clustering and Abstraction Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concept-to-content-viewer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concept to Content Viewer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../content-sequencing-simulator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Content Sequencing Algorithm Simulator
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../csv-to-json-record-mapper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSV-to-JSON Record Mapper
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--implemented"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dag-cycle-detector/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DAG Cycle Detector
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependency-analysis-console/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dependency Analysis Console
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependency-review-console/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dependency Review Console
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--implemented"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependency-role-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dependency Role Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distractor-quality-rater/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Distractor Quality Rater
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../domain-cluster-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Domain Cluster Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dublin-core-metadata-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dublin Core Metadata Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../edge-smoothing-curve-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Edge Smoothing and Curve Type Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../edge-styling-property-playground/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Edge Styling Property Playground
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../force-directed-layout-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Force-Directed Layout Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concept-to-index-workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    From Concept to Index Entry
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../genai-learning-graph-pipeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generative AI to Learning Graph Pipeline
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../goal-horizon-timeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Goal Horizon Timeline
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-anatomy-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graph Anatomy Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-editor-live-validation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graph Editor with Live Validation
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-family-lens-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graph Family Lens Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-js-library-comparison/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graph JS Library Comparison
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Graph Traversal Step-Through — DFS vs. BFS
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--implemented"></span>
+  
+
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Graph Traversal Step-Through — DFS vs. BFS
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--implemented"></span>
+  
+
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-this-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      About This MicroSim
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Use
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iframe-embed-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iframe Embed Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lesson Plan
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lesson Plan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#audience" class="md-nav__link">
+    <span class="md-ellipsis">
+      Audience
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Duration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Activities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assessment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related Concepts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learning-graph/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graph Viewer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hover-tooltip-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hover Tooltip Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hyper-personalization-input-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hyper-Personalization Input Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../indegree-outdegree-counter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Indegree and Out-Degree Counter
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interactive-legend-filter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interactive Legend Filter
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interactive-taxonomy-legend/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interactive Taxonomy Legend and Filter
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../journey-map-builder/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Journey Map Builder
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../knowledge-space-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Knowledge Space Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../label-anatomy-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Label Anatomy Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../layout-algorithm-comparison-lab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Layout Algorithm Comparison Lab
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learning-graph-quality-gate-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Learning Graph Quality Gate Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-viewer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learning-is-nonlinear/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Learning is Nonlinear
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learning-objective-builder/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Learning Objective Builder
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rhizombic-path-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linear Path vs. Rhizombic Exploration
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microsim-directory-anatomy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MicroSim Directory Anatomy
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blooms-taxonomy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MicroSim Folder index.md Template
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MicroSim Folder index.md Template
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quiz-format-comparison-chart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multiple-Choice vs. True/False Comparison Chart
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nine-events-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nine Events of Instruction Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../node-styling-property-playground/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Node Styling Property Playground
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../orphan-disconnected-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Orphan and Disconnected Subgraph Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../physics-force-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Physics Force Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../readiness-mastery-dashboard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Readiness and Mastery Dashboard
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--implemented"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ready-to-learn-frontier-simulator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ready-to-Learn Frontier Simulator
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../real-world-deployment-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Real-World Deployment Patterns Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rag-step-through/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Retrieval-Augmented Generation Step-Through
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scaffolding-fade-simulator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scaffolding Fade Simulator
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../search-focus-navigation-console/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Search and Focus Navigation Console
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../similarity-metric-comparison-tool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Similarity Metric Comparison Tool
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skos-relation-triple-builder/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SKOS Relation Triple Builder
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--implemented"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skos-relationship-map/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SKOS Relationship Map
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structural-variations-explorer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structural Variations Explorer
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../taxonomy-classifier-workbench/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Taxonomy Classifier Workbench
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learning-graph-pipeline-workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Twelve-Step Pipeline From Course Description to Validated Graph
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../theory-to-practice-map/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Theory-to-Practice Concept Map
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topological-sort-stepper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Topological Sort Step-Through
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transitive-dependency-hop-finder/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transitive Dependency and Hop Count Finder
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../working-memory-load-simulator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Working Memory Load Simulator
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--scaffold"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix-graph-libs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix: Graph Visualization Libraries
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How We Built This Site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student-volunteers-wanted/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Student Volunteers Wanted
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-this-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      About This MicroSim
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Use
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iframe-embed-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iframe Embed Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lesson Plan
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lesson Plan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#audience" class="md-nav__link">
+    <span class="md-ellipsis">
+      Audience
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Duration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Activities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assessment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related Concepts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/learning-graphs/blob/master/docs/sims/graph-traversal-step-through/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="graph-traversal-step-through-dfs-vs-bfs">Graph Traversal Step-Through — DFS vs. BFS</h1>
+<iframe src="main.html" height="542px" width="100%" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="main.html">Run the Graph Traversal Step-Through MicroSim Fullscreen</a></p>
+<h2 id="about-this-microsim">About This MicroSim</h2>
+<p>Depth-First Search and Breadth-First Search visit <strong>exactly the same set of reachable nodes</strong>.
+They differ in one decision only: which unvisited node to expand next. DFS pulls from a stack
+and commits to a branch; BFS pulls from a queue and finishes each ring before going deeper.</p>
+<p>That single difference is hard to see when you trace one algorithm at a time. This MicroSim
+renders the same 10-node, 12-edge directed graph twice and advances both traversals in
+lockstep, one visit per click, so the divergence is something you watch happen rather than
+something you take on faith.</p>
+<p>The sample graph has a single source node (A) whose three children make it the first
+branching node. Both traversals visit A first and B second. They split at step 3:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Visit order from A</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Depth-First Search</td>
+<td>A B <strong>E</strong> J F C G D H I</td>
+</tr>
+<tr>
+<td>Breadth-First Search</td>
+<td>A B <strong>C</strong> D E F G H I J</td>
+</tr>
+</tbody>
+</table>
+<p>Node J is a useful one to watch. DFS reaches it 4th, because J sits at the bottom of the
+first branch DFS commits to. BFS reaches it 10th — last — because J is the only node three
+hops from the start. Same node, same graph, same start; the order reflects what each
+algorithm optimizes for.</p>
+<h2 id="how-to-use">How to Use</h2>
+<ol>
+<li><strong>Step Forward</strong> advances <em>both</em> traversals by exactly one visit. Before each click, try to
+   predict which node each panel will take next. This prediction step is the point of the sim.</li>
+<li>Watch for the <strong>dashed orange connector</strong> between the panels. It appears whenever the two
+   traversals are sitting on different nodes, and it labels the mismatch (<code>E ≠ C</code>).</li>
+<li><strong>Hover any node</strong> to see its adjacency list — the outgoing edges each algorithm chooses from.</li>
+<li>Look for the <strong>dashed border</strong> in the DFS panel. Those are the nodes just popped off the
+   stack: DFS had to backtrack through them to reach its next node. The BFS panel never shows
+   one, because a queue never backtracks.</li>
+<li>Use the <strong>Start node</strong> dropdown to traverse from somewhere other than A. Starting at B or D
+   reaches only 4 of the 10 nodes — a direct demonstration that reachability in a <em>directed</em>
+   graph is not symmetric.</li>
+<li><strong>Run to Completion</strong> animates both traversals at 600ms per step; click again to pause.</li>
+</ol>
+<p>Colors: gray = unvisited, gold = the node being visited right now, blue = visited, with a
+circled badge showing its position in that panel's visit order.</p>
+<h2 id="iframe-embed-code">Iframe Embed Code</h2>
+<p>You can add this MicroSim to any web page by adding this to your HTML:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://dmccreary.github.io/learning-graphs/sims/graph-traversal-step-through/main.html&quot;</span>
+        <span class="na">height</span><span class="o">=</span><span class="s">&quot;542px&quot;</span>
+        <span class="na">width</span><span class="o">=</span><span class="s">&quot;100%&quot;</span>
+        <span class="na">scrolling</span><span class="o">=</span><span class="s">&quot;no&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="lesson-plan">Lesson Plan</h2>
+<h3 id="audience">Audience</h3>
+<p>Instructional designers, curriculum developers, and educational technologists working with
+concept dependency graphs.</p>
+<h3 id="duration">Duration</h3>
+<p>10–15 minutes</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>Learners should already be comfortable with <strong>Directed Edge</strong>, <strong>Graph Path</strong>, and
+<strong>Adjacency List</strong> from <a href="../../chapters/20-graph-theory-paths-traversal-connectivity/">Chapter 20</a>.</p>
+<h3 id="activities">Activities</h3>
+<ol>
+<li><strong>Predict and check</strong> (5 min): Reset to node A. Before each <strong>Step Forward</strong> click, have
+   learners write down which node each panel will visit next. Stop at the first miss and ask
+   what rule they applied that the algorithm didn't.</li>
+<li><strong>Locate the divergence</strong> (5 min): Ask learners to identify the exact step where the orders
+   split, then explain <em>why</em> it is step 3 rather than step 2 — both algorithms still agree on B,
+   because both take A's first neighbor. The branching at A is the cause; the divergence
+   surfaces one step later.</li>
+<li><strong>Reachability</strong> (5 min): Set the start node to D. Only 4 of 10 nodes are reachable. Ask
+   which nodes are unreachable and why following arrows backward is not allowed.</li>
+</ol>
+<h3 id="assessment">Assessment</h3>
+<p>Learners can:</p>
+<ul>
+<li>State that both traversals visit the same set of nodes and differ only in order.</li>
+<li>Identify step 3 as the first divergence and attribute it to the branching at node A.</li>
+<li>Explain why DFS visits J 4th while BFS visits J 10th.</li>
+<li>Predict the visit order for a start node they have not yet tried.</li>
+</ul>
+<h2 id="related-concepts">Related Concepts</h2>
+<ul>
+<li><strong>Graph Traversal</strong> — the general process this MicroSim makes concrete</li>
+<li><strong>Depth-First Search</strong> — follows one path fully, then backtracks</li>
+<li><strong>Breadth-First Search</strong> — visits all neighbors before going deeper</li>
+<li><strong>Adjacency List</strong> — the representation each algorithm reads from (shown on hover)</li>
+<li><strong>Reachability</strong> — what the Start node dropdown lets you probe</li>
+</ul>
+<h2 id="references">References</h2>
+<ol>
+<li><a href="../../chapters/20-graph-theory-paths-traversal-connectivity/">Chapter 20: Graph Theory — Paths, Traversal, and Connectivity</a> - The chapter this MicroSim supports.</li>
+<li><a href="https://en.wikipedia.org/wiki/Depth-first_search">Depth-First Search</a> - Wikipedia's treatment of DFS, including the stack-based and recursive formulations.</li>
+<li><a href="https://en.wikipedia.org/wiki/Breadth-first_search">Breadth-First Search</a> - Wikipedia's treatment of BFS and its shortest-path property on unweighted graphs.</li>
+<li><a href="https://en.wikipedia.org/wiki/Graph_traversal">Graph Traversal</a> - Overview of traversal strategies and the role of the visited-set.</li>
+<li><a href="https://visjs.github.io/vis-network/docs/network/">vis-network Documentation</a> - The graph rendering library used to build this MicroSim.</li>
+</ol>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../graph-js-library-comparison/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Graph JS Library Comparison">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Graph JS Library Comparison
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../learning-graph/" class="md-footer__link md-footer__link--next" aria-label="Next: Graph Viewer">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Graph Viewer
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>CSV-to-JSON Record Mapper</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title">CSV-to-JSON Record Mapper</div>
+
+        <div class="controls">
+            <span class="step-counter" id="step-counter">Step 0 of 4</span>
+            <span class="step-name" id="step-name">Nothing transformed yet</span>
+            <div class="ctl-buttons">
+                <button class="btn btn-primary" id="btn-next">Next Step</button>
+                <button class="btn btn-secondary" id="btn-reset">Reset</button>
+            </div>
+        </div>
+
+        <div class="main-row" id="main-row">
+            <!-- Left: the raw CSV row, one span per field -->
+            <div class="panel csv-panel">
+                <div class="panel-head">learning-graph.csv</div>
+                <div class="panel-body">
+                    <div class="csv-header" id="csv-header">
+                        ConceptID,ConceptLabel,Dependencies,TaxonomyID
+                    </div>
+                    <div class="csv-row" id="csv-row"></div>
+                    <div class="csv-note" id="csv-note">
+                        One row. Four comma-separated fields, one of which is a list.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: the JSON records, built up one step at a time -->
+            <div class="panel json-panel">
+                <div class="panel-head">learning-graph.json</div>
+                <div class="panel-body">
+                    <div class="json-empty" id="json-empty">Nothing generated yet.</div>
+                    <div class="json-block" id="json-node" hidden>
+                        <div class="json-label">Node Record</div>
+                        <pre class="json-code" id="node-code"></pre>
+                    </div>
+                    <div class="json-block" id="json-edges" hidden>
+                        <div class="json-label">
+                            Edge Records
+                            <span class="split-note" id="split-note"></span>
+                        </div>
+                        <pre class="json-code" id="edge-code"></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Connectors from each CSV field to the JSON key it becomes -->
+            <svg class="map-overlay" id="map-overlay"></svg>
+        </div>
+
+        <div class="try-row">
+            <label class="try-label" for="try-input">Try your own row</label>
+            <input type="text" id="try-input" spellcheck="false"
+                   placeholder="6,Learning Graph,5|4,FOUND">
+            <button class="btn btn-gold" id="btn-transform">Transform</button>
+            <span class="try-error" id="try-error" hidden></span>
+        </div>
+    </div>
+
+    <script src="csv-to-json-record-mapper.js"></script>
+</body>
+</html>

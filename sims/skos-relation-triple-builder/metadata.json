@@ -1,0 +1,80 @@
+{
+  "title": "SKOS Relation Triple Builder",
+  "description": "Given six unlabeled concept-pair prompts drawn from this book's own vocabulary, the learner can correctly select and orient the SKOS relation type (broader, narrower, or related) for each pair and receive immediate correct/incorrect feedback.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-15",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "https://dmccreary.github.io/learning-graphs/sims/skos-relation-triple-builder/",
+  "library": "vis-network",
+  "bloomLevel": "Apply (L3)",
+  "bloomVerb": "construct, classify, apply",
+  "completion_status": "implemented",
+  "chapter_number": 22,
+  "chapter_title": "Concept Metadata and Semantic Labeling",
+  "chapter_dir": "22-concept-metadata-semantic-labeling",
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "SKOS, Semantic Relations, Concept Metadata",
+    "learningObjectives": [
+      "Select the correct SKOS relation type for an unseen concept pair",
+      "Orient a broader/narrower relation in the correct direction",
+      "Explain why broader and narrower are inverses while related is symmetric",
+      "Distinguish a hierarchical relation from an associative one"
+    ],
+    "bloomsTaxonomy": "Apply",
+    "duration": "10-15 minutes",
+    "prerequisites": [
+      "SKOS",
+      "Concept Label",
+      "Concept Taxonomy"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "vis-network",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 490
+    },
+    "canvasHeight": 490,
+    "responsive": true,
+    "dependencies": [
+      "vis-network@9.1.9"
+    ],
+    "accessibility": {
+      "hasAltText": false,
+      "keyboardNavigable": true
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Build-and-check practice with immediate feedback and first-try scoring",
+    "keyQuestions": [
+      "If two learners answer the same pair with different relations but opposite arrow directions, can both be right?",
+      "What does swapping the arrow do to a broader relation? To a related relation?",
+      "Is skos:broader a property of a pair of concepts, or of an ordered pair?",
+      "Why would a validator accept a backward triple even though it asserts the opposite of what you meant?"
+    ],
+    "commonMisconceptions": [
+      "That picking the right relation type is the whole answer — a correct type on a backward arrow is still wrong",
+      "That broader and narrower are different relations rather than the same hierarchy read from opposite ends",
+      "That any two concepts in the same subject area can be linked with broader/narrower — sibling concepts like two graph metrics need related instead"
+    ],
+    "assessmentOpportunities": [
+      "Record each learner's first-try score across the six pairs",
+      "Have half the class answer pair 2 as drawn and half swap first, then compare answers",
+      "Ask learners to write a seventh pair with its correct relation and justify the direction"
+    ]
+  }
+}

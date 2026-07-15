@@ -1,0 +1,359 @@
+/* Betweenness Centrality Heatmap Explorer - vis-network MicroSim Stylesheet
+ * ========================================================================
+ * Rows: title / color-scale legend / graph panel (flex) / fixed infobox.
+ * The container height is fixed (not 100vh) so the infobox stays pinned at a
+ * known offset — screenshot tooling renders tall and crops to CANVAS_HEIGHT.
+ */
+
+/* Must stay in sync with CANVAS_HEIGHT in
+   betweenness-centrality-heatmap-explorer.js */
+:root {
+    --sim-height: 620px;
+    /* Scale stops shared with the JS colorFor() interpolation */
+    --c0: #fffde7;
+    --c1: #ffe082;
+    --c2: #ffb300;
+    --c3: #f4511e;
+    --c4: #b71c1c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: aliceblue;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: var(--sim-height);
+    padding: 6px 8px 8px 8px;
+    gap: 6px;
+}
+
+/* ===========================================
+   TITLE
+   =========================================== */
+.title {
+    flex: 0 0 auto;
+    text-align: center;
+    font-size: 17px;
+    font-weight: bold;
+    color: black;
+    line-height: 1.2;
+}
+
+/* ===========================================
+   COLOR SCALE LEGEND + ACTIONS
+   =========================================== */
+.scale-row {
+    flex: 0 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    padding: 6px 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.scale-legend {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    min-width: 0;
+}
+
+.scale-cap {
+    font-size: 12px;
+    font-weight: bold;
+    color: #37474f;
+    white-space: nowrap;
+}
+
+.scale-end {
+    font-size: 11px;
+    color: #607d8b;
+}
+
+.scale-bar {
+    width: 190px;
+    height: 13px;
+    border-radius: 3px;
+    border: 1px solid #b0bec5;
+    background: linear-gradient(to right,
+        var(--c0) 0%, var(--c1) 35%, var(--c2) 60%, var(--c3) 80%, var(--c4) 100%);
+}
+
+.scale-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.toggle {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #37474f;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.toggle input {
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+}
+
+/* a disabled toggle should look disabled */
+.toggle.disabled {
+    color: #b0bec5;
+    cursor: not-allowed;
+}
+
+.toggle.disabled input {
+    cursor: not-allowed;
+}
+
+.btn {
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-secondary {
+    background-color: #757575;
+    color: white;
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background-color: #616161;
+}
+
+.btn-secondary:disabled {
+    background-color: #cfd8dc;
+    color: #90a4ae;
+    cursor: not-allowed;
+}
+
+/* ===========================================
+   GRAPH PANEL
+   =========================================== */
+.graph-panel {
+    flex: 1 1 auto;
+    min-height: 0;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+#network {
+    width: 100%;
+    height: 100%;
+    background-color: aliceblue;
+}
+
+/* ===========================================
+   INFOBOX (fixed height per spec)
+   =========================================== */
+.infobox {
+    flex: 0 0 auto;
+    height: 112px;
+    background-color: rgba(255, 255, 255, 0.97);
+    border-radius: 8px;
+    padding: 7px 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+    border: 2px solid transparent;
+    font-size: 12px;
+    line-height: 1.45;
+    color: #263238;
+    overflow: hidden;
+}
+
+.infobox.selected {
+    border-color: #ffa000;
+}
+
+.infobox.removal {
+    border-color: #e53935;
+    background-color: #fff8f7;
+}
+
+/* removal that broke nothing — don't dress a clean result as an alarm */
+.infobox.removal.safe {
+    border-color: #43a047;
+    background-color: #f7fbf7;
+}
+
+.info-prompt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 13px;
+    color: #78909c;
+    font-style: italic;
+    text-align: center;
+}
+
+.info-head {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 3px;
+}
+
+.info-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #212121;
+}
+
+.info-metric {
+    font-size: 11.5px;
+    color: #546e7a;
+}
+
+.info-rank {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: bold;
+    color: white;
+    background-color: #546e7a;
+    border-radius: 999px;
+    padding: 1px 8px;
+}
+
+.info-body {
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* wrapped pair chips — a scrolling list inside an iframe would fight the
+   page's own scroll, so overflow is summarized with a "+N more" chip instead */
+.pair-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    margin-top: 3px;
+    max-height: 44px;
+    overflow: hidden;
+}
+
+.pair {
+    font-size: 10.5px;
+    font-family: "Courier New", Courier, monospace;
+    background-color: #eceff1;
+    border: 1px solid #cfd8dc;
+    border-radius: 3px;
+    padding: 0 4px;
+    white-space: nowrap;
+    color: #37474f;
+}
+
+.pair.broken {
+    background-color: #ffebee;
+    border-color: #ef9a9a;
+    color: #b71c1c;
+    font-weight: bold;
+}
+
+.pair.more {
+    background-color: transparent;
+    border-color: transparent;
+    color: #78909c;
+    font-style: italic;
+}
+
+/* removal impact counters */
+.impact {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 2px;
+}
+
+.impact-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11.5px;
+}
+
+.impact-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1.5px solid #616161;
+    flex-shrink: 0;
+}
+
+.dot-broken { background-color: #e53935; border-color: #b71c1c; }
+.dot-longer { background-color: #ffb300; border-color: #ef6c00; }
+.dot-same   { background-color: #cfd8dc; border-color: #90a4ae; }
+
+.impact-num {
+    font-weight: bold;
+}
+
+.verdict {
+    margin-top: 3px;
+    font-size: 11.5px;
+    line-height: 1.4;
+    color: #b71c1c;
+}
+
+.verdict.safe {
+    color: #2e7d32;
+}
+
+/* ===========================================
+   RESPONSIVE
+   =========================================== */
+@media (max-width: 650px) {
+    .title {
+        font-size: 14px;
+    }
+
+    /* spec: legend and graph stack vertically; infobox stays below both */
+    .scale-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        padding: 5px 8px;
+    }
+
+    .scale-bar {
+        width: 120px;
+    }
+
+    .scale-cap {
+        font-size: 11px;
+    }
+
+    .infobox {
+        height: 120px;
+        font-size: 11px;
+    }
+
+    .info-name {
+        font-size: 12.5px;
+    }
+}

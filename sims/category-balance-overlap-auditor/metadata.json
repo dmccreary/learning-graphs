@@ -1,0 +1,82 @@
+{
+  "title": "Category Balance and Overlap Auditor",
+  "description": "Given a sample 12-category taxonomy with one deliberately over-represented category (38%) and two categories with an ambiguous shared boundary, the learner can identify the balance violation from the bar chart alone and, after inspecting the flagged category pair, propose which single criterion would resolve the overlap.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-15",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "https://dmccreary.github.io/learning-graphs/sims/category-balance-overlap-auditor/",
+  "library": "Chart.js",
+  "bloomLevel": "Evaluate (L5)",
+  "bloomVerb": "assess, critique, justify",
+  "completion_status": "implemented",
+  "chapter_number": 24,
+  "chapter_title": "Taxonomy Design Deep Dive",
+  "chapter_dir": "24-taxonomy-design-deep-dive",
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Category Balance, Category Overlap, Taxonomy Validation",
+    "learningObjectives": [
+      "Identify a category-balance violation from a distribution chart and name the threshold it crosses",
+      "Explain why a category past roughly 30% should be split rather than trimmed",
+      "Recognize that two well-balanced categories can still have a defective boundary",
+      "Propose a disambiguating criterion and test it against every ambiguous concept"
+    ],
+    "bloomsTaxonomy": "Evaluate",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "Concept Taxonomy",
+      "Category Balance",
+      "Category Overlap",
+      "Taxonomy Validation"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "Chart.js",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 560
+    },
+    "canvasHeight": 560,
+    "responsive": true,
+    "dependencies": [
+      "chart.js@4.4.4"
+    ],
+    "accessibility": {
+      "hasAltText": false,
+      "keyboardNavigable": true
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Chart-based critique paired with a propose-and-compare boundary exercise",
+    "keyQuestions": [
+      "Which category is over the ceiling, and why is splitting it a better fix than moving concepts out?",
+      "Metadata & Standards and Taxonomy & Classification are both well under 30%. What tells you they have a problem?",
+      "Does your criterion decide all three ambiguous concepts, or only two?",
+      "Why does 'is it about classifying things?' fail as a disambiguating criterion?"
+    ],
+    "commonMisconceptions": [
+      "That a balanced taxonomy is a correct taxonomy — the two overlap categories are balanced and still defective",
+      "That an over-represented category should be fixed by moving concepts elsewhere rather than by splitting it",
+      "That structural graph validation catches taxonomy problems — it catches neither balance nor overlap",
+      "That a criterion which resolves one ambiguous concept has resolved the overlap"
+    ],
+    "assessmentOpportunities": [
+      "Ask learners to name the balance violation and its threshold from the chart alone",
+      "Ask whether the two gold categories have a problem, judging from the chart only, before opening the panel",
+      "Have learners test their proposed criterion aloud against all three ambiguous concepts"
+    ]
+  }
+}

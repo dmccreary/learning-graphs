@@ -2478,6 +2478,38 @@
           
         
       
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
     
     
     
@@ -2922,6 +2954,8 @@ Chapter 19 already warned about this exact failure mode from the skill-authoring
 <p>With every record type and configuration file in place, one mechanical step turns Python data structures into the actual bytes written to disk. <strong>JSON Serialization</strong> is the process of converting an in-memory data structure — the node, edge, group, and metadata records this chapter has named — into the textual JSON format that gets written to a file. JSON Serialization depends directly on JSON in the learning graph. This project's own <code>csv-to-json.py</code> performs this step at its very last line, calling Python's <code>json.dump()</code> to write the assembled dictionary out as <code>learning-graph.json</code>.</p>
 <p>Serialization is the last step of a broader process worth naming on its own. <strong>Data Transformation</strong> is the general process of converting data from one structure or format into another — parsing CSV rows into Python dictionaries, splitting pipe-delimited fields into lists, and assembling those into the node/edge/group/metadata records this chapter has described are all data transformation steps. Data Transformation depends on CSV to JSON Conversion and JSON Serialization in the learning graph.</p>
 <h4 id="diagram-csv-to-json-record-mapper">Diagram: CSV-to-JSON Record Mapper</h4>
+<iframe src="../../sims/csv-to-json-record-mapper/main.html" width="100%" height="482px" scrolling="no"></iframe>
+<p><a href="../../sims/csv-to-json-record-mapper/main.html">Run CSV-to-JSON Record Mapper Fullscreen</a></p>
 <details>
 <summary>CSV-to-JSON Record Mapper</summary>
 <p>Type: microsim

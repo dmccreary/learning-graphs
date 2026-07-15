@@ -1,0 +1,81 @@
+{
+  "title": "Graph Traversal Step-Through — DFS vs. BFS",
+  "description": "Given the same 10-node directed graph rendered twice, the learner can step both a depth-first and a breadth-first traversal from the same start node one click at a time and correctly predict which node is visited next at each step, explaining why the two orders diverge at the first branching node.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-15",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "https://dmccreary.github.io/learning-graphs/sims/graph-traversal-step-through/",
+  "library": "vis-network",
+  "bloomLevel": "Analyze (L4)",
+  "bloomVerb": "compare, trace, differentiate",
+  "completion_status": "implemented",
+  "chapter_number": 20,
+  "chapter_title": "Graph Theory: Paths, Traversal, and Connectivity",
+  "chapter_dir": "20-graph-theory-paths-traversal-connectivity",
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Graph Traversal, Depth-First Search, Breadth-First Search",
+    "learningObjectives": [
+      "Step a depth-first and a breadth-first traversal through the same directed graph one visit at a time",
+      "Predict which node each algorithm will visit next before revealing it",
+      "Explain why the two visit orders diverge immediately after the first branching node",
+      "Describe what backtracking looks like in DFS and why BFS never backtracks"
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "duration": "10-15 minutes",
+    "prerequisites": [
+      "Directed Edge",
+      "Graph Path",
+      "Adjacency List",
+      "Graph Traversal"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "vis-network",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 540
+    },
+    "canvasHeight": 540,
+    "responsive": true,
+    "dependencies": [
+      "vis-network@9.1.9"
+    ],
+    "accessibility": {
+      "hasAltText": false,
+      "keyboardNavigable": true
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Synchronized side-by-side step-through comparison",
+    "keyQuestions": [
+      "Both traversals start at A and both visit B second — so why do they disagree at step 3?",
+      "Which algorithm reaches the shared sink node J first, and what does that tell you about what each one optimizes for?",
+      "If you wanted to find the deepest prerequisite chain under a concept, which traversal would you reach for?",
+      "If you wanted the concepts closest to what a learner already knows, which traversal answers that?"
+    ],
+    "commonMisconceptions": [
+      "That DFS and BFS visit different sets of nodes — they visit exactly the same reachable set, only in a different order",
+      "That the traversals diverge at the branching node itself — both still visit B second; the divergence shows up on the step after",
+      "That a node can be visited twice if two paths lead to it — the visited-set is what prevents this and what keeps traversal terminating"
+    ],
+    "assessmentOpportunities": [
+      "Before each click, ask learners to write down which node each panel will visit next",
+      "Ask learners to predict the visit order from a start node other than A, then verify with the dropdown",
+      "Ask learners to explain why node J is visited 4th by DFS but 10th by BFS"
+    ]
+  }
+}

@@ -1,0 +1,403 @@
+/* Graph Traversal Step-Through — DFS vs. BFS
+ * =========================================
+ * Layout: fixed-height rows (title / controls / panels / summary) so the sim
+ * fills the iframe exactly. The two network panels sit side by side and share
+ * one flex row; the divergence connector is an SVG overlay on that row.
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Must stay in sync with CANVAS_HEIGHT in graph-traversal-step-through.js.
+   A fixed height (rather than 100vh) keeps the layout identical at any viewport:
+   the bottom rows are pinned to a known offset, so screenshot tooling that
+   renders tall and crops to CANVAS_HEIGHT captures the whole sim. */
+:root {
+    --sim-height: 540px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: aliceblue;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: var(--sim-height);
+    padding: 6px 8px 8px 8px;
+    gap: 6px;
+}
+
+/* ===========================================
+   TITLE
+   =========================================== */
+.title {
+    flex: 0 0 auto;
+    text-align: center;
+    font-size: 17px;
+    font-weight: bold;
+    color: black;
+    line-height: 1.2;
+}
+
+/* ===========================================
+   CONTROLS
+   =========================================== */
+.controls {
+    flex: 0 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 7px 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ctl-label {
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+}
+
+#start-select {
+    font-family: inherit;
+    font-size: 13px;
+    padding: 5px 6px;
+    border: 1px solid #90a4ae;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.btn {
+    padding: 7px 12px;
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-primary {
+    background-color: #2196f3;
+    color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: #1976d2;
+}
+
+.btn-primary:disabled {
+    background-color: #b0bec5;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    background-color: #757575;
+    color: white;
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background-color: #616161;
+}
+
+.btn-secondary:disabled {
+    background-color: #cfd8dc;
+    cursor: not-allowed;
+}
+
+.step-counter {
+    font-size: 13px;
+    font-weight: bold;
+    color: #37474f;
+    white-space: nowrap;
+}
+
+/* ===========================================
+   PANELS ROW (two networks side by side)
+   =========================================== */
+.panels {
+    position: relative;
+    flex: 1 1 auto;
+    display: flex;
+    gap: 8px;
+    min-height: 0;
+}
+
+.panel {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.panel-head {
+    flex: 0 0 auto;
+    font-size: 12.5px;
+    font-weight: bold;
+    color: #263238;
+    text-align: center;
+    padding: 4px 4px 3px 4px;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #eceff1;
+}
+
+.frontier-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: bold;
+    color: #546e7a;
+    background-color: #cfd8dc;
+    border-radius: 999px;
+    padding: 1px 7px;
+    margin-left: 3px;
+    vertical-align: 1px;
+}
+
+/* vis-network canvas host — flex child, so it needs min-height:0 to shrink */
+.net {
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+    background-color: aliceblue;
+}
+
+/* ===========================================
+   VISIT-ORDER LIST (below each panel)
+   =========================================== */
+.order-list {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 6px;
+    border-top: 1px solid #e0e0e0;
+    background-color: #fafafa;
+    min-height: 32px;
+}
+
+.order-label {
+    font-size: 10px;
+    font-weight: bold;
+    color: #607d8b;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    flex-shrink: 0;
+}
+
+.order-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    align-items: center;
+}
+
+.order-chips .empty {
+    font-size: 11px;
+    color: #b0bec5;
+    font-style: italic;
+}
+
+.chip {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    color: white;
+    background-color: #1e88e5;
+    border-radius: 4px;
+    padding: 1px 5px;
+    line-height: 1.5;
+}
+
+/* the newest chip, matching the gold "current node" on the canvas */
+.chip.chip-current {
+    background-color: #ffa000;
+    color: #212121;
+}
+
+/* first step where the two orders disagree */
+.chip.chip-diverge {
+    outline: 2px solid #ff6f00;
+    outline-offset: 1px;
+}
+
+/* ===========================================
+   DIVERGENCE CONNECTOR OVERLAY
+   =========================================== */
+.link-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.diverge-line {
+    stroke: #ff6f00;
+    stroke-width: 2.5;
+    stroke-dasharray: 6 4;
+    fill: none;
+    animation: flash 0.9s ease-out 2;
+}
+
+.diverge-dot {
+    fill: #ff6f00;
+}
+
+.diverge-tag {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    fill: #e65100;
+    text-anchor: middle;
+    paint-order: stroke;
+    stroke: rgba(255, 255, 255, 0.95);
+    stroke-width: 3;
+}
+
+@keyframes flash {
+    0%   { opacity: 0.15; }
+    50%  { opacity: 1; }
+    100% { opacity: 0.55; }
+}
+
+/* ===========================================
+   SUMMARY / LEGEND STRIP
+   =========================================== */
+.summary {
+    flex: 0 0 auto;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    padding: 5px 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 11.5px;
+    line-height: 1.45;
+    color: #263238;
+    text-align: center;
+}
+
+.summary.done {
+    border: 2px solid #ffa000;
+    background-color: #fffdf5;
+}
+
+.summary-hint .sw {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    vertical-align: -1px;
+    border: 2px solid #616161;
+}
+
+.sw-unvisited { background-color: #e0e0e0; }
+.sw-current   { background-color: #ffd54f; border-color: #ffa000; }
+.sw-visited   { background-color: #64b5f6; border-color: #1565c0; }
+.sw-backtrack { background-color: #e0e0e0; border-style: dashed; }
+
+/* completion read-out: both final orders stacked for direct comparison */
+.final-row {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    justify-content: center;
+    margin: 1px 0;
+}
+
+.final-key {
+    font-size: 10px;
+    font-weight: bold;
+    color: #607d8b;
+    width: 34px;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.final-seq {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #263238;
+}
+
+.final-seq .dv {
+    background-color: #ffe082;
+    outline: 2px solid #ff6f00;
+    border-radius: 2px;
+    padding: 0 1px;
+}
+
+.final-note {
+    font-size: 11px;
+    color: #424242;
+    margin-top: 2px;
+}
+
+/* ===========================================
+   RESPONSIVE
+   ===========================================
+   The panels stay side by side at every width: the whole point of the sim is
+   comparing two traversals of the same graph at the same step, and stacking
+   them both breaks that comparison and overflows the fixed iframe height.
+   Narrow screens shrink each panel instead; vis-network re-fits the graph.
+*/
+@media (max-width: 700px) {
+    .title {
+        font-size: 14px;
+    }
+
+    .controls {
+        gap: 5px;
+        padding: 5px 6px;
+    }
+
+    .btn {
+        padding: 6px 8px;
+        font-size: 11px;
+    }
+
+    .ctl-label,
+    .step-counter {
+        font-size: 11px;
+    }
+
+    .panels {
+        gap: 4px;
+    }
+
+    .panel-head {
+        font-size: 10.5px;
+    }
+
+    .frontier-tag {
+        display: none;
+    }
+
+    .order-label {
+        display: none;
+    }
+
+    .summary {
+        font-size: 10.5px;
+    }
+}
