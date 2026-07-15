@@ -99,7 +99,39 @@ nav:
       - Content: chapters/19-skill-generate-learning-graph/index.md
       - Quiz: chapters/19-skill-generate-learning-graph/quiz.md
       - Annotated References: chapters/19-skill-generate-learning-graph/references.md
-  
+    - 20. Graph Theory II - Paths, Traversal, and Connectivity:
+      - Content: chapters/20-graph-theory-paths-traversal-connectivity/index.md
+      - Quiz: chapters/20-graph-theory-paths-traversal-connectivity/quiz.md
+      - Annotated References: chapters/20-graph-theory-paths-traversal-connectivity/references.md
+    - 21. Graph Metrics and Path Analysis:
+      - Content: chapters/21-graph-metrics-path-analysis/index.md
+      - Quiz: chapters/21-graph-metrics-path-analysis/quiz.md
+      - Annotated References: chapters/21-graph-metrics-path-analysis/references.md
+    - 22. Concept Metadata and Semantic Labeling Standards:
+      - Content: chapters/22-concept-metadata-semantic-labeling/index.md
+      - Quiz: chapters/22-concept-metadata-semantic-labeling/quiz.md
+      - Annotated References: chapters/22-concept-metadata-semantic-labeling/references.md
+    - 23. Advanced Dependency Modeling:
+      - Content: chapters/23-advanced-dependency-modeling/index.md
+      - Quiz: chapters/23-advanced-dependency-modeling/quiz.md
+      - Annotated References: chapters/23-advanced-dependency-modeling/references.md
+    - 24. Taxonomy Design Deep Dive:
+      - Content: chapters/24-taxonomy-design-deep-dive/index.md
+      - Quiz: chapters/24-taxonomy-design-deep-dive/quiz.md
+      - Annotated References: chapters/24-taxonomy-design-deep-dive/references.md
+    - 25. Graph Validation and Quality Assurance:
+      - Content: chapters/25-graph-validation-quality-assurance/index.md
+      - Quiz: chapters/25-graph-validation-quality-assurance/quiz.md
+      - Annotated References: chapters/25-graph-validation-quality-assurance/references.md
+    - 26. Data Pipeline Internals:
+      - Content: chapters/26-data-pipeline-internals/index.md
+      - Quiz: chapters/26-data-pipeline-internals/quiz.md
+      - Annotated References: chapters/26-data-pipeline-internals/references.md
+    - 27. Learner Modeling and Advanced Assessment:
+      - Content: chapters/27-learner-modeling-advanced-assessment/index.md
+      - Quiz: chapters/27-learner-modeling-advanced-assessment/quiz.md
+      - Annotated References: chapters/27-learner-modeling-advanced-assessment/references.md
+
   - Case Studies:
     - Introduction: case-studies/index.md
     # - Low-Latency: case-studies/low-latency.md

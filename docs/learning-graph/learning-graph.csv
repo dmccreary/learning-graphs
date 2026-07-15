@@ -265,3 +265,137 @@ ConceptID,ConceptLabel,Dependencies,TaxonomyID
 264,Pipeline Session Log,263,SKILL
 265,Iterative Graph Regeneration,67|264,SKILL
 266,Human-in-the-Loop Review,260|265,SKILL
+267,Directed Edge,10|7,FOUND
+268,Incoming Edge,267,FOUND
+269,Outgoing Edge,267,FOUND
+270,Graph Path,12|267,FOUND
+271,Path Length,270,FOUND
+272,Reachability,270,FOUND
+273,Ancestor Concept,272|26,DEPEND
+274,Descendant Concept,272|26,DEPEND
+275,Source Node,268|269,FOUND
+276,Sink Node,268|269,FOUND
+277,Terminal Concept,276|26,DEPEND
+278,Root Concept,275|30,DEPEND
+279,Weak Connectivity,66,QUAL
+280,Strong Connectivity,279,QUAL
+281,Connected Component,279,QUAL
+282,Adjacency List,12,FOUND
+283,Adjacency Matrix,12,FOUND
+284,Graph Traversal,270,FOUND
+285,Depth-First Search,284,FOUND
+286,Breadth-First Search,284,FOUND
+287,Graph Density,63,QUAL
+288,Transitive Closure,39,DEPEND
+289,Transitive Reduction,288,DEPEND
+290,Redundant Dependency,289,DEPEND
+291,Bottleneck Concept,61|62,QUAL
+292,Critical Path,28|271,QUAL
+293,Maximum Path Length,271,QUAL
+294,Dependency Depth,271|26,QUAL
+295,Concept Centrality,61|62,QUAL
+296,Betweenness Centrality,295,QUAL
+297,Degree Distribution,63,QUAL
+298,Graph Diameter,271,QUAL
+299,Graph Schema,12,FOUND
+300,Edge Direction,267,FOUND
+301,Unique Concept Identifier,16,FOUND
+302,Concept Granularity,1,FOUND
+303,Atomic Concept,302,FOUND
+304,Composite Concept,302,FOUND
+305,Label Ambiguity,16,FOUND
+306,Label Normalization,305,FOUND
+307,Synonym Management,18,FOUND
+308,Homonym Disambiguation,305,FOUND
+309,Naming Convention,16,FOUND
+310,Metadata Field,21,FOUND
+311,Dublin Core Title,310|21,FOUND
+312,Dublin Core Description,310|21,FOUND
+313,SKOS Preferred Label,19|17,FOUND
+314,SKOS Alternate Label,19|18,FOUND
+315,SKOS Broader Relation,19,FOUND
+316,SKOS Narrower Relation,19,FOUND
+317,SKOS Related Relation,19,FOUND
+318,Semantic Relationship,315|316|317,FOUND
+319,Machine-Readable Metadata,310,FOUND
+320,Concept Provenance,16,FOUND
+321,Metadata Validation,310|55,QUAL
+322,Vocabulary Governance,22,FOUND
+323,Dependency Assertion,26,DEPEND
+324,Direct Dependency,26,DEPEND
+325,Indirect Dependency,39,DEPEND
+326,Necessary Prerequisite,27,DEPEND
+327,Recommended Prerequisite,27,DEPEND
+328,Dependency Rationale,323,DEPEND
+329,Dependency Confidence,328,DEPEND
+330,Edge Provenance,10|320,DEPEND
+331,Dependency Review,26,DEPEND
+332,Dependency Gap,331,DEPEND
+333,Overconstraint,326|331,DEPEND
+334,Underconstraint,326|331,DEPEND
+335,False Prerequisite,331,DEPEND
+336,Learning Sequence,28,DEPEND
+337,Parallel Learning Paths,336,DEPEND
+338,Alternative Prerequisite,327,DEPEND
+339,Co-Prerequisite,27,DEPEND
+340,Prerequisite Frontier,36,DEPEND
+341,Mastery Prerequisite,326,DEPEND
+342,Dependency Inference,110|331,DEPEND
+343,Human Dependency Review,331,DEPEND
+344,Classification Scheme,42,TAXON
+345,Polyhierarchy,344,TAXON
+346,Exclusive Category,46,TAXON
+347,Category Boundary,46,TAXON
+348,Category Balance,51,TAXON
+349,Category Coverage,348,TAXON
+350,Category Overlap,347,TAXON
+351,Category Assignment,50,TAXON
+352,Taxonomy Depth,42,TAXON
+353,Taxonomy Breadth,42,TAXON
+354,Taxonomy Drift,42,TAXON
+355,Ontology Class,43,TAXON
+356,Ontology Property,43,TAXON
+357,Semantic Type,355,TAXON
+358,Hierarchical Relation,43,TAXON
+359,Associative Relation,43,TAXON
+360,Taxonomy Validation,42|55,TAXON
+361,Schema Validation,196|55,QUAL
+362,Referential Integrity,55,QUAL
+363,Duplicate Concept Detection,55,QUAL
+364,Missing Dependency,58,QUAL
+365,Invalid Dependency ID,55,QUAL
+366,Graph Completeness,64,QUAL
+367,Pedagogical Coherence,55|232,QUAL
+368,Dependency Plausibility,331|367,QUAL
+369,Graph Quality Score,67,QUAL
+370,Validation Threshold,369,QUAL
+371,Automated Validator,361|369,QUAL
+372,Validation Warning,371,QUAL
+373,Validation Error,371,QUAL
+374,Data Pipeline,195|197,DATA
+375,CSV Header,197,DATA
+376,Pipe-Delimited Field,197,DATA
+377,Node Record,375,DATA
+378,Edge Record,375,DATA
+379,Group Record,375,DATA
+380,Metadata Record,375,DATA
+381,Schema Conformance,196,DATA
+382,Version Metadata,310,DATA
+383,License Metadata,310,DATA
+384,Taxonomy Name Mapping,44|46,DATA
+385,Color Configuration,49,DATA
+386,JSON Serialization,195,DATA
+387,Data Transformation,200,DATA
+388,Reproducible Generation,374|387,DATA
+389,Learner Model,90|92,PERS
+390,Mastery State,389,PERS
+391,Mastery Threshold,390|88,PERS
+392,Knowledge State,389,PERS
+393,Knowledge Component,392,PERS
+394,Learning Evidence,116,ASSESS
+395,Diagnostic Assessment,116,ASSESS
+396,Summative Assessment,116,ASSESS
+397,Competency Model,393|240,PERS
+398,Learning Path Constraint,90|397,PERS
+399,Readiness Estimation,392|36,PERS
+400,Personalized Sequencing,91|399,PERS

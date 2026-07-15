@@ -2,50 +2,50 @@
 
 ## Overview
 
-- **Total Concepts**: 266
+- **Total Concepts**: 400
 - **Number of Taxonomies**: 16
-- **Average Concepts per Taxonomy**: 16.6
+- **Average Concepts per Taxonomy**: 25.0
 
 ## Distribution Summary
 
 | Category | TaxonomyID | Count | Percentage | Status |
 |----------|-----------|-------|------------|--------|
-| LSCI | LSCI | 33 | 12.4% | ✅ |
-| VISCORE | VISCORE | 28 | 10.5% | ✅ |
-| Foundation Concepts - Prerequisites | FOUND | 25 | 9.4% | ✅ |
-| VISLAYOUT | VISLAYOUT | 24 | 9.0% | ✅ |
-| EDUF | EDUF | 21 | 7.9% | ✅ |
-| DEPEND | DEPEND | 16 | 6.0% | ✅ |
-| QUAL | QUAL | 14 | 5.3% | ✅ |
-| PERS | PERS | 14 | 5.3% | ✅ |
-| VISTOOLS | VISTOOLS | 14 | 5.3% | ✅ |
-| TAXON | TAXON | 13 | 4.9% | ✅ |
-| ASSESS | ASSESS | 13 | 4.9% | ✅ |
-| TEXTBOOK | TEXTBOOK | 13 | 4.9% | ✅ |
-| AI | AI | 12 | 4.5% | ✅ |
-| SKILL | SKILL | 12 | 4.5% | ✅ |
-| DATA | DATA | 7 | 2.6% | ℹ️ Under |
-| LMS | LMS | 7 | 2.6% | ℹ️ Under |
+| Concept Graph Foundations | FOUND | 61 | 15.2% | ✅ |
+| Concept Dependency & Prerequisites | DEPEND | 44 | 11.0% | ✅ |
+| Graph Quality & Validation | QUAL | 40 | 10.0% | ✅ |
+| Education & Learning Sciences | LSCI | 33 | 8.2% | ✅ |
+| Concept Taxonomies & Ontologies | TAXON | 30 | 7.5% | ✅ |
+| Vis.js Fundamentals & Styling | VISCORE | 28 | 7.0% | ✅ |
+| Graph Layout, Physics & Interactivity | VISLAYOUT | 24 | 6.0% | ✅ |
+| Learning Paths & Personalization | PERS | 23 | 5.8% | ✅ |
+| Data Formats & File Standards | DATA | 22 | 5.5% | ✅ |
+| Educational Theory Foundations | EDUF | 21 | 5.2% | ✅ |
+| Assessment & Feedback | ASSESS | 16 | 4.0% | ✅ |
+| Graph Clustering & Editing Tools | VISTOOLS | 14 | 3.5% | ✅ |
+| Intelligent Textbooks & MicroSims | TEXTBOOK | 13 | 3.2% | ✅ |
+| Intelligent Agents & Generative AI | AI | 12 | 3.0% | ✅ |
+| Agent Skills for Learning Graph Generation | SKILL | 12 | 3.0% | ✅ |
+| LMS & Deployment Infrastructure | LMS | 7 | 1.8% | ℹ️ Under |
 
 ## Visual Distribution
 
 ```
-LSCI                      ██████  33 ( 12.4%)
-VISCORE                   █████  28 ( 10.5%)
-Foundation Concepts - Pre ████  25 (  9.4%)
-VISLAYOUT                 ████  24 (  9.0%)
-EDUF                      ███  21 (  7.9%)
-DEPEND                    ███  16 (  6.0%)
-QUAL                      ██  14 (  5.3%)
-PERS                      ██  14 (  5.3%)
-VISTOOLS                  ██  14 (  5.3%)
-TAXON                     ██  13 (  4.9%)
-ASSESS                    ██  13 (  4.9%)
-TEXTBOOK                  ██  13 (  4.9%)
-AI                        ██  12 (  4.5%)
-SKILL                     ██  12 (  4.5%)
-DATA                      █   7 (  2.6%)
-LMS                       █   7 (  2.6%)
+Concept Graph Foundations ███████  61 ( 15.2%)
+Concept Dependency & Prer █████  44 ( 11.0%)
+Graph Quality & Validatio █████  40 ( 10.0%)
+Education & Learning Scie ████  33 (  8.2%)
+Concept Taxonomies & Onto ███  30 (  7.5%)
+Vis.js Fundamentals & Sty ███  28 (  7.0%)
+Graph Layout, Physics & I ███  24 (  6.0%)
+Learning Paths & Personal ██  23 (  5.8%)
+Data Formats & File Stand ██  22 (  5.5%)
+Educational Theory Founda ██  21 (  5.2%)
+Assessment & Feedback     ██  16 (  4.0%)
+Graph Clustering & Editin █  14 (  3.5%)
+Intelligent Textbooks & M █  13 (  3.2%)
+Intelligent Agents & Gene █  12 (  3.0%)
+Agent Skills for Learning █  12 (  3.0%)
+LMS & Deployment Infrastr    7 (  1.8%)
 ```
 
 ## Balance Analysis
@@ -56,16 +56,83 @@ All categories are under the 30% threshold. Good balance!
 
 ### ℹ️ Under-Represented Categories (<3%)
 
-- **DATA** (DATA): 7 concepts (2.6%)
-  - *Note*: Small categories are acceptable for specialized topics
-- **LMS** (LMS): 7 concepts (2.6%)
+- **LMS & Deployment Infrastructure** (LMS): 7 concepts (1.8%)
   - *Note*: Small categories are acceptable for specialized topics
 
 ## Category Details
 
-### LSCI (LSCI)
+### Concept Graph Foundations (FOUND)
 
-**Count**: 33 concepts (12.4%)
+**Count**: 61 concepts (15.2%)
+
+**Concepts**:
+
+- 1. Concept
+- 2. Concept Graph
+- 3. Content Graph
+- 4. Knowledge Graph
+- 5. Dependency Graph
+- 6. Learning Graph
+- 7. Directed Graph
+- 8. Directed Acyclic Graph (DAG)
+- 9. Node
+- 10. Edge
+- 11. Hierarchy
+- 12. Graph Representation
+- 13. Cluster (Graph)
+- 14. Journey Map
+- 15. Hybrid Graph
+- *...and 46 more*
+
+### Concept Dependency & Prerequisites (DEPEND)
+
+**Count**: 44 concepts (11.0%)
+
+**Concepts**:
+
+- 26. Concept Dependency
+- 27. Prerequisite Relationship
+- 28. Prerequisite Chain
+- 29. Prerequisite Concept
+- 30. Foundational Concept
+- 31. Goal Concept
+- 32. Immediate Goal
+- 33. Intermediate Goal
+- 34. Ultimate Goal
+- 35. Learning Goal
+- 36. Ready-to-Learn Concept
+- 37. Learned Concept
+- 38. Skill Gap
+- 39. Transitive Dependency
+- 40. Hop Count
+- *...and 29 more*
+
+### Graph Quality & Validation (QUAL)
+
+**Count**: 40 concepts (10.0%)
+
+**Concepts**:
+
+- 55. Learning Graph Validation
+- 56. Graph Quality Metric
+- 57. Orphaned Node
+- 58. Disconnected Subgraph
+- 59. Cycle Detection
+- 60. Self-Dependency Prevention
+- 61. Indegree
+- 62. Out-Degree
+- 63. Node Degree
+- 64. Full Coverage Check
+- 65. Structural Check
+- 66. Graph Connectivity
+- 67. Quality Metrics Report
+- 68. Third-Party Certification
+- 279. Weak Connectivity
+- *...and 25 more*
+
+### Education & Learning Sciences (LSCI)
+
+**Count**: 33 concepts (8.2%)
 
 **Concepts**:
 
@@ -86,9 +153,32 @@ All categories are under the 30% threshold. Good balance!
 - 236. Topological Sort
 - *...and 18 more*
 
-### VISCORE (VISCORE)
+### Concept Taxonomies & Ontologies (TAXON)
 
-**Count**: 28 concepts (10.5%)
+**Count**: 30 concepts (7.5%)
+
+**Concepts**:
+
+- 42. Concept Taxonomy
+- 43. Ontology
+- 44. TaxonomyID
+- 45. Taxonomy Classifier
+- 46. Taxonomy Category
+- 47. Taxonomy Distribution Report
+- 48. Taxonomy Legend
+- 49. Node Group
+- 50. Concept-to-Taxonomy Mapping
+- 51. Balanced Taxonomy
+- 52. Miscellaneous Category
+- 53. Abstraction (Graph)
+- 54. Clustering (Graph)
+- 344. Classification Scheme
+- 345. Polyhierarchy
+- *...and 15 more*
+
+### Vis.js Fundamentals & Styling (VISCORE)
+
+**Count**: 28 concepts (7.0%)
 
 **Concepts**:
 
@@ -109,32 +199,9 @@ All categories are under the 30% threshold. Good balance!
 - 143. Node Border Color
 - *...and 13 more*
 
-### Foundation Concepts - Prerequisites (FOUND)
+### Graph Layout, Physics & Interactivity (VISLAYOUT)
 
-**Count**: 25 concepts (9.4%)
-
-**Concepts**:
-
-- 1. Concept
-- 2. Concept Graph
-- 3. Content Graph
-- 4. Knowledge Graph
-- 5. Dependency Graph
-- 6. Learning Graph
-- 7. Directed Graph
-- 8. Directed Acyclic Graph (DAG)
-- 9. Node
-- 10. Edge
-- 11. Hierarchy
-- 12. Graph Representation
-- 13. Cluster (Graph)
-- 14. Journey Map
-- 15. Hybrid Graph
-- *...and 10 more*
-
-### VISLAYOUT (VISLAYOUT)
-
-**Count**: 24 concepts (9.0%)
+**Count**: 24 concepts (6.0%)
 
 **Concepts**:
 
@@ -155,9 +222,55 @@ All categories are under the 30% threshold. Good balance!
 - 171. Edge Tooltip
 - *...and 9 more*
 
-### EDUF (EDUF)
+### Learning Paths & Personalization (PERS)
 
-**Count**: 21 concepts (7.9%)
+**Count**: 23 concepts (5.8%)
+
+**Concepts**:
+
+- 90. Learning Path
+- 91. Personalized Learning Path
+- 92. Adaptive Learning
+- 93. Adaptive Learning Path
+- 94. Adaptive Algorithm
+- 95. Hyper-Personalization
+- 96. Hyper-Customized Lesson Plan
+- 97. Custom Learning Plan
+- 98. Content Recommendation Engine
+- 99. Recommendation Engine
+- 100. Concept Similarity
+- 101. Student Similarity
+- 102. Content Similarity
+- 103. Similarity Metric
+- 389. Learner Model
+- *...and 8 more*
+
+### Data Formats & File Standards (DATA)
+
+**Count**: 22 concepts (5.5%)
+
+**Concepts**:
+
+- 195. JSON
+- 196. JSON Schema
+- 197. CSV
+- 198. YAML
+- 199. Markdown
+- 200. CSV to JSON Conversion
+- 201. groups.json
+- 374. Data Pipeline
+- 375. CSV Header
+- 376. Pipe-Delimited Field
+- 377. Node Record
+- 378. Edge Record
+- 379. Group Record
+- 380. Metadata Record
+- 381. Schema Conformance
+- *...and 7 more*
+
+### Educational Theory Foundations (EDUF)
+
+**Count**: 21 concepts (5.2%)
 
 **Concepts**:
 
@@ -178,74 +291,32 @@ All categories are under the 30% threshold. Good balance!
 - 83. Zone of Proximal Development
 - *...and 6 more*
 
-### DEPEND (DEPEND)
+### Assessment & Feedback (ASSESS)
 
-**Count**: 16 concepts (6.0%)
+**Count**: 16 concepts (4.0%)
 
 **Concepts**:
 
-- 26. Concept Dependency
-- 27. Prerequisite Relationship
-- 28. Prerequisite Chain
-- 29. Prerequisite Concept
-- 30. Foundational Concept
-- 31. Goal Concept
-- 32. Immediate Goal
-- 33. Intermediate Goal
-- 34. Ultimate Goal
-- 35. Learning Goal
-- 36. Ready-to-Learn Concept
-- 37. Learned Concept
-- 38. Skill Gap
-- 39. Transitive Dependency
-- 40. Hop Count
+- 116. Assessment
+- 117. Formative Feedback
+- 118. Personalized Feedback Loop
+- 119. Feedback Loop
+- 120. Feedback Log
+- 121. Feedback Analysis
+- 122. Course Evaluation
+- 123. Learning Touchpoint
+- 124. Frequently Asked Question
+- 125. Quiz
+- 126. Multiple-Choice Question
+- 127. Quiz Distractor
+- 128. True/False Question
+- 394. Learning Evidence
+- 395. Diagnostic Assessment
 - *...and 1 more*
 
-### QUAL (QUAL)
+### Graph Clustering & Editing Tools (VISTOOLS)
 
-**Count**: 14 concepts (5.3%)
-
-**Concepts**:
-
-- 55. Learning Graph Validation
-- 56. Graph Quality Metric
-- 57. Orphaned Node
-- 58. Disconnected Subgraph
-- 59. Cycle Detection
-- 60. Self-Dependency Prevention
-- 61. Indegree
-- 62. Out-Degree
-- 63. Node Degree
-- 64. Full Coverage Check
-- 65. Structural Check
-- 66. Graph Connectivity
-- 67. Quality Metrics Report
-- 68. Third-Party Certification
-
-### PERS (PERS)
-
-**Count**: 14 concepts (5.3%)
-
-**Concepts**:
-
-- 90. Learning Path
-- 91. Personalized Learning Path
-- 92. Adaptive Learning
-- 93. Adaptive Learning Path
-- 94. Adaptive Algorithm
-- 95. Hyper-Personalization
-- 96. Hyper-Customized Lesson Plan
-- 97. Custom Learning Plan
-- 98. Content Recommendation Engine
-- 99. Recommendation Engine
-- 100. Concept Similarity
-- 101. Student Similarity
-- 102. Content Similarity
-- 103. Similarity Metric
-
-### VISTOOLS (VISTOOLS)
-
-**Count**: 14 concepts (5.3%)
+**Count**: 14 concepts (3.5%)
 
 **Concepts**:
 
@@ -264,49 +335,9 @@ All categories are under the 30% threshold. Good balance!
 - 193. Data Validation on Import
 - 194. Orphaned Node Detection
 
-### TAXON (TAXON)
+### Intelligent Textbooks & MicroSims (TEXTBOOK)
 
-**Count**: 13 concepts (4.9%)
-
-**Concepts**:
-
-- 42. Concept Taxonomy
-- 43. Ontology
-- 44. TaxonomyID
-- 45. Taxonomy Classifier
-- 46. Taxonomy Category
-- 47. Taxonomy Distribution Report
-- 48. Taxonomy Legend
-- 49. Node Group
-- 50. Concept-to-Taxonomy Mapping
-- 51. Balanced Taxonomy
-- 52. Miscellaneous Category
-- 53. Abstraction (Graph)
-- 54. Clustering (Graph)
-
-### ASSESS (ASSESS)
-
-**Count**: 13 concepts (4.9%)
-
-**Concepts**:
-
-- 116. Assessment
-- 117. Formative Feedback
-- 118. Personalized Feedback Loop
-- 119. Feedback Loop
-- 120. Feedback Log
-- 121. Feedback Analysis
-- 122. Course Evaluation
-- 123. Learning Touchpoint
-- 124. Frequently Asked Question
-- 125. Quiz
-- 126. Multiple-Choice Question
-- 127. Quiz Distractor
-- 128. True/False Question
-
-### TEXTBOOK (TEXTBOOK)
-
-**Count**: 13 concepts (4.9%)
+**Count**: 13 concepts (3.2%)
 
 **Concepts**:
 
@@ -324,9 +355,9 @@ All categories are under the 30% threshold. Good balance!
 - 213. Concept-to-Content Viewer
 - 214. Learning Path Recommendation
 
-### AI (AI)
+### Intelligent Agents & Generative AI (AI)
 
-**Count**: 12 concepts (4.5%)
+**Count**: 12 concepts (3.0%)
 
 **Concepts**:
 
@@ -343,9 +374,9 @@ All categories are under the 30% threshold. Good balance!
 - 114. GraphRAG
 - 115. Learning Agent
 
-### SKILL (SKILL)
+### Agent Skills for Learning Graph Generation (SKILL)
 
-**Count**: 12 concepts (4.5%)
+**Count**: 12 concepts (3.0%)
 
 **Concepts**:
 
@@ -362,23 +393,9 @@ All categories are under the 30% threshold. Good balance!
 - 265. Iterative Graph Regeneration
 - 266. Human-in-the-Loop Review
 
-### DATA (DATA)
+### LMS & Deployment Infrastructure (LMS)
 
-**Count**: 7 concepts (2.6%)
-
-**Concepts**:
-
-- 195. JSON
-- 196. JSON Schema
-- 197. CSV
-- 198. YAML
-- 199. Markdown
-- 200. CSV to JSON Conversion
-- 201. groups.json
-
-### LMS (LMS)
-
-**Count**: 7 concepts (2.6%)
+**Count**: 7 concepts (1.8%)
 
 **Concepts**:
 
@@ -392,7 +409,7 @@ All categories are under the 30% threshold. Good balance!
 
 ## Recommendations
 
-- ✅ **Excellent balance**: Categories are evenly distributed (spread: 9.8%)
+- ✅ **Excellent balance**: Categories are evenly distributed (spread: 13.5%)
 - ✅ **MISC category minimal**: Good categorization specificity
 
 ### Educational Use Recommendations

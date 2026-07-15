@@ -2,12 +2,12 @@
 
 ## Overview
 
-- **Total Concepts**: 266
+- **Total Concepts**: 400
 - **Foundational Concepts** (no prerequisites, other concepts depend on them): 18
-- **Terminal Nodes** (nothing depends on them, but have prerequisites): 122
+- **Terminal Nodes** (nothing depends on them, but have prerequisites): 201
 - **Orphaned Nodes** (completely disconnected, no edges): 0
-- **Concepts with Dependencies**: 248
-- **Average Dependencies per Concept**: 1.29
+- **Concepts with Dependencies**: 382
+- **Average Dependencies per Concept**: 1.28
 
 ## Graph Structure Validation
 
@@ -64,7 +64,7 @@ These concepts have no prerequisites:
 
 Terminal nodes are concepts that nothing else depends on but have prerequisites. They represent natural endpoints of learning paths — culminating or specialized concepts.
 
-- **Total Terminal Nodes**: 122 (45.9% of all concepts)
+- **Total Terminal Nodes**: 201 (50.2% of all concepts)
 - **Healthy Range**: 5-40% of total concepts
 
 Concepts at the end of learning paths:
@@ -73,8 +73,6 @@ Concepts at the end of learning paths:
 - **14**: Journey Map
 - **15**: Hybrid Graph
 - **20**: ISO/IEC 11179
-- **21**: Dublin Core Metadata
-- **22**: Controlled Vocabulary
 - **23**: Concept Definition
 - **24**: Textbook Index
 - **32**: Immediate Goal
@@ -83,14 +81,16 @@ Concepts at the end of learning paths:
 - **35**: Learning Goal
 - **38**: Skill Gap
 - **41**: Dependency Analysis
-- **43**: Ontology
 - **45**: Taxonomy Classifier
 - **48**: Taxonomy Legend
-- **50**: Concept-to-Taxonomy Mapping
-- **51**: Balanced Taxonomy
 - **52**: Miscellaneous Category
+- **53**: Abstraction (Graph)
+- **54**: Clustering (Graph)
+- **60**: Self-Dependency Prevention
+- **65**: Structural Check
+- **68**: Third-Party Certification
 
-*...and 102 more*
+*...and 181 more*
 
 ## Orphaned Nodes Analysis
 
@@ -112,30 +112,30 @@ Top 10 concepts that are prerequisites for the most other concepts:
 
 | Rank | Concept ID | Concept Label | Indegree |
 |------|-----------|---------------|----------|
-| 1 | 131 | DataSet | 21 |
-| 2 | 26 | Concept Dependency | 16 |
-| 3 | 16 | Concept Label | 8 |
-| 4 | 42 | Concept Taxonomy | 8 |
-| 5 | 157 | Physics Simulation | 8 |
-| 6 | 46 | Taxonomy Category | 7 |
-| 7 | 104 | Generative AI | 7 |
-| 8 | 105 | Intelligent Agent | 7 |
-| 9 | 2 | Concept Graph | 6 |
-| 10 | 70 | Cognitive Domain | 6 |
+| 1 | 26 | Concept Dependency | 23 |
+| 2 | 131 | DataSet | 21 |
+| 3 | 42 | Concept Taxonomy | 13 |
+| 4 | 16 | Concept Label | 12 |
+| 5 | 46 | Taxonomy Category | 10 |
+| 6 | 55 | Learning Graph Validation | 10 |
+| 7 | 90 | Learning Path | 8 |
+| 8 | 157 | Physics Simulation | 8 |
+| 9 | 195 | JSON | 8 |
+| 10 | 92 | Adaptive Learning | 7 |
 
 ## Outdegree Distribution
 
 | Dependencies | Number of Concepts |
 |--------------|--------------------|
 | 0 | 18 |
-| 1 | 186 |
-| 2 | 55 |
-| 3 | 5 |
+| 1 | 284 |
+| 2 | 90 |
+| 3 | 6 |
 | 4 | 2 |
 
 ## Recommendations
 
-- ℹ️ **High terminal node percentage** (45.9%): Consider if some terminal concepts should be prerequisites for advanced concepts
+- ℹ️ **High terminal node percentage** (50.2%): Consider if some terminal concepts should be prerequisites for advanced concepts
 - ✅ **DAG structure verified**: Graph supports valid learning progressions
 - ℹ️ **Consider adding cross-dependencies**: More connections could create richer learning pathways
 

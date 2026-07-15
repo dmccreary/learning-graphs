@@ -1,6 +1,9 @@
 # Chapters
 
-This textbook is organized into 19 chapters covering 266 concepts.
+This textbook is organized into 27 chapters covering 400 concepts. Chapters 1-19 form the
+core course; Chapters 20-27 are an advanced-topics extension covering graph theory, metadata,
+dependency modeling, taxonomy design, validation, data-pipeline internals, and learner modeling
+in greater depth.
 
 ## Chapter Overview
 
@@ -23,10 +26,18 @@ This textbook is organized into 19 chapters covering 266 concepts.
 17. [Intelligent Agents and Generative AI](17-intelligent-agents-generative-ai/index.md) - Covers how generative AI and intelligent agents use a learning graph -- prompt engineering, tool use, multi-agent collaboration, retrieval-augmented generation, and GraphRAG -- to enumerate concepts, infer dependencies, and act as learning agents..
 18. [Intelligent Textbooks, MicroSims, and Deployment](18-intelligent-textbooks-microsims-deployment/index.md) - Covers how a validated learning graph drives the generation of an intelligent textbook itself -- MicroSims, interactive visualizations and simulations, the book-build workflow, and publishing through MkDocs, Git, and GitHub Pages, closing with case studies and real-world applications..
 19. [Using a Skill to Generate a Learning Graph](19-skill-generate-learning-graph/index.md) - Walks through the actual agent-skill workflow (as implemented in the learning-graph-generator Claude Code skill) for turning a course description into a validated learning graph -- scoring the course description, generating and reviewing a concept list, producing a dependency CSV, running automated quality validation, assigning taxonomy, and iterating with human-in-the-loop review before moving on to chapter design.
+20. [Graph Theory II: Paths, Traversal, and Connectivity](20-graph-theory-paths-traversal-connectivity/index.md) - Extends Chapter 1's graph vocabulary with directed-edge orientation, paths, reachability, adjacency representations, and the traversal algorithms (depth-first and breadth-first search) that walk a learning graph systematically.
+21. [Graph Metrics and Path Analysis](21-graph-metrics-path-analysis/index.md) - Covers the quantitative metrics -- centrality, betweenness, diameter, density, degree distribution -- and structural concepts -- ancestors, descendants, critical paths, transitive closure -- used to analyze a learning graph's shape and identify bottleneck concepts.
+22. [Concept Metadata and Semantic Labeling Standards](22-concept-metadata-semantic-labeling/index.md) - Extends Chapter 2's labeling conventions into full SKOS and Dublin Core metadata fields, concept granularity, and the governance practices that keep thousands of concept labels unambiguous and machine-readable.
+23. [Advanced Dependency Modeling](23-advanced-dependency-modeling/index.md) - Goes beyond a simple prerequisite edge to cover dependency strength, rationale, confidence, review workflows, and the more flexible prerequisite patterns -- co-prerequisites, alternative prerequisites, parallel paths -- real learning graphs need.
+24. [Taxonomy Design Deep Dive](24-taxonomy-design-deep-dive/index.md) - Extends Chapter 4's taxonomy basics into classification-scheme design, category-balance metrics, polyhierarchy, and the ontology vocabulary (classes, properties, semantic types) that gives a taxonomy formal rigor.
+25. [Graph Validation and Quality Assurance](25-graph-validation-quality-assurance/index.md) - Extends Chapter 5's validation checks into a full automated-validator toolkit -- schema validation, referential integrity, duplicate detection, and a composite graph quality score -- for catching structural and pedagogical problems before they compound.
+26. [Data Pipeline Internals](26-data-pipeline-internals/index.md) - Opens up the CSV and JSON file formats from Chapter 5 to show the actual record structures, header conventions, and configuration files a generation pipeline reads and writes at each step.
+27. [Learner Modeling and Advanced Assessment](27-learner-modeling-advanced-assessment/index.md) - Extends Chapter 16's personalization concepts with a formal learner model -- mastery state, knowledge components, readiness estimation -- and the assessment types that measure it.
 
 ## How to Use This Textbook
 
-Chapters are ordered so that every concept appears after all of its prerequisites -- work through them in sequence for the smoothest path. Readers with prior background in a given area (graph theory, learning science, or vis.js) can jump ahead, but should skim the chapter's concept list first to check for any unfamiliar prerequisite terms.
+Chapters are ordered so that every concept appears after all of its prerequisites -- work through them in sequence for the smoothest path. Readers with prior background in a given area (graph theory, learning science, or vis.js) can jump ahead, but should skim the chapter's concept list first to check for any unfamiliar prerequisite terms. Chapters 20-27 form an advanced-topics extension: each assumes the corresponding core chapter (noted in its Prerequisites section) but not the other extension chapters, so they can be read in any order once their single core prerequisite is complete.
 
 ---
 
