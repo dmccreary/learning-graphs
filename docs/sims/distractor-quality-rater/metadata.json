@@ -11,7 +11,7 @@
   "format": "text/html",
   "language": "en",
   "rights": "All rights reserved",
-  "identifier": "distractor-quality-rater",
+  "identifier": "https://dmccreary.github.io/learning-graphs/sims/distractor-quality-rater/",
   "library": "p5.js",
   "bloomLevel": "Evaluate (L5)",
   "bloomVerb": "judge, critique, assess, justify",

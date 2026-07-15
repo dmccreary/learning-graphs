@@ -11,7 +11,7 @@
   "format": "text/html",
   "language": "en",
   "rights": "All rights reserved",
-  "identifier": "content-sequencing-simulator",
+  "identifier": "https://dmccreary.github.io/learning-graphs/sims/content-sequencing-simulator/",
   "library": "vis-network",
   "bloomLevel": "Apply (L3)",
   "bloomVerb": "apply, demonstrate, use, practice",

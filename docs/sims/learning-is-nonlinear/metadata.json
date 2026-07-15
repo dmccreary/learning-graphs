@@ -6,7 +6,7 @@
   "date": "2025-11-22",
   "type": "Interactive Educational Simulation",
   "format": "HTML5, JavaScript, vis-network.js",
-  "identifier": "learning-is-nonlinear-v1",
+  "identifier": "https://dmccreary.github.io/learning-graphs/sims/learning-is-nonlinear/",
   "language": "en-US",
   "audience": "Undergraduate students, Educators, Instructional Designers",
   "educationLevel": "Undergraduate (College Calculus I-II)",

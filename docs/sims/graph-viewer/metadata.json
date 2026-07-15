@@ -44,10 +44,10 @@
     "network"
   ],
   "learningObjectives": [
-    "Understand the mathematical concept of learning graph viewer",
-    "Apply learning graph viewer to solve problems",
-    "Visualize and interpret learning graph viewer relationships",
-    "Experiment with parameters to observe their effects on learning graph viewer"
+    "Explain how a learning graph encodes concepts as nodes and prerequisite dependencies as directed edges",
+    "Identify orphan concepts using the live node, edge, and orphan statistics as an indicator of an incomplete graph",
+    "Use the taxonomy legend checkboxes to filter node categories and observe how visible edge counts change",
+    "Locate a specific concept with type-ahead search and inspect its dependencies within the visible subgraph"
   ],
   "pedagogical": {
     "pattern": "reference",

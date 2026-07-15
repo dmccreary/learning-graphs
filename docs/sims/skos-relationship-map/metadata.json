@@ -11,7 +11,7 @@
   "format": "text/html",
   "language": "en",
   "rights": "All rights reserved",
-  "identifier": "skos-relationship-map",
+  "identifier": "https://dmccreary.github.io/learning-graphs/sims/skos-relationship-map/",
   "library": "vis-network",
   "bloomLevel": "Analyze (L4)",
   "bloomVerb": "differentiate, compare",

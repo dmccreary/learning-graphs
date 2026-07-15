@@ -11,7 +11,7 @@
   "format": "text/html",
   "language": "en",
   "rights": "All rights reserved",
-  "identifier": "dag-cycle-detector",
+  "identifier": "https://dmccreary.github.io/learning-graphs/sims/dag-cycle-detector/",
   "library": "vis-network",
   "bloomLevel": "Analyze (L4)",
   "bloomVerb": "differentiate, examine",

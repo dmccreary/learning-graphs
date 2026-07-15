@@ -11,7 +11,7 @@
   "format": "text/html",
   "language": "en",
   "rights": "All rights reserved",
-  "identifier": "layout-algorithm-comparison-lab",
+  "identifier": "https://dmccreary.github.io/learning-graphs/sims/layout-algorithm-comparison-lab/",
   "library": "vis-network",
   "bloomLevel": "Evaluate (L5)",
   "bloomVerb": "justify, assess, recommend",

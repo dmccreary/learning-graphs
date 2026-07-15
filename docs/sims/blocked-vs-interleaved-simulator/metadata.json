@@ -11,7 +11,7 @@
   "format": "text/html",
   "language": "en",
   "rights": "All rights reserved",
-  "identifier": "blocked-vs-interleaved-simulator",
+  "identifier": "https://dmccreary.github.io/learning-graphs/sims/blocked-vs-interleaved-simulator/",
   "library": "p5.js",
   "bloomLevel": "Analyze (L4)",
   "bloomVerb": "differentiate, compare, contrast, examine",

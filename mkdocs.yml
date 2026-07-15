@@ -6,6 +6,16 @@ site_url: 'https://dmccreary.github.io/learning-graphs/'
 repo_url: 'https://github.com/dmccreary/learning-graphs'
 edit_uri: 'blob/master/docs'
 
+# Hooks — runs local Python before/after page processing.
+# `plugins/social_override.py` overrides og:image and twitter:image on any
+# page that declares an `image:` in its frontmatter (e.g. docs/index.md ->
+# img/cover.png), making that image the social-media preview card. Pages
+# with no `image:` are left untouched, so Material's defaults (and the
+# `social` plugin's auto-generated cards, if enabled) pass through.
+# NOTE: `hooks:` MUST be a top-level key, not nested under `plugins:`.
+hooks:
+  - plugins/social_override.py
+
 nav:
   - Home: index.md
   - About: about.md
@@ -13,25 +23,63 @@ nav:
 
   - Chapters:
     - Table of Contents: chapters/index.md
-    - 1. Foundations of Concept Graphs: chapters/01-foundations-of-concept-graphs/index.md
-    - 2. Concept Labeling and Metadata Standards: chapters/02-concept-labeling-metadata-standards/index.md
-    - 3. Concept Dependencies and Prerequisites: chapters/03-concept-dependencies-prerequisites/index.md
-    - 4. Concept Taxonomies and Ontologies: chapters/04-concept-taxonomies-ontologies/index.md
-    - 5. Learning Graph Quality, Validation, and File Formats: chapters/05-graph-quality-validation-file-formats/index.md
-    - 6. Bloom's Taxonomy and Learning Objectives: chapters/06-blooms-taxonomy-learning-objectives/index.md
-    - 7. Learning Theories and Instructional Design: chapters/07-learning-theories-instructional-design/index.md
-    - 8. Cognitive Load and Knowledge Space Theory: chapters/08-cognitive-load-knowledge-space-theory/index.md
-    - 9. Mastery, Metacognition, and Instructional Sequencing: chapters/09-mastery-metacognition-sequencing/index.md
-    - 10. Assessment, Feedback, and Quizzes: chapters/10-assessment-feedback-quizzes/index.md
-    - 11. Vis.js Fundamentals and Node Styling: chapters/11-visjs-fundamentals-node-styling/index.md
-    - 12. Edge Styling and Visual Properties: chapters/12-edge-styling-visual-properties/index.md
-    - 13. Physics Simulation and Graph Layout: chapters/13-physics-simulation-graph-layout/index.md
-    - 14. Interactive Navigation in Vis.js: chapters/14-interactive-navigation-visjs/index.md
-    - 15. Graph Clustering and Editing Tools: chapters/15-graph-clustering-editing-tools/index.md
-    - 16. Personalization and Adaptive Learning Paths: chapters/16-personalization-adaptive-learning-paths/index.md
-    - 17. Intelligent Agents and Generative AI: chapters/17-intelligent-agents-generative-ai/index.md
-    - 18. Intelligent Textbooks, MicroSims, and Deployment: chapters/18-intelligent-textbooks-microsims-deployment/index.md
-    - 19. Using a Skill to Generate a Learning Graph: chapters/19-skill-generate-learning-graph/index.md
+    - 1. Foundations of Concept Graphs:
+      - Content: chapters/01-foundations-of-concept-graphs/index.md
+      - Quiz: chapters/01-foundations-of-concept-graphs/quiz.md
+    - 2. Concept Labeling and Metadata Standards:
+      - Content: chapters/02-concept-labeling-metadata-standards/index.md
+      - Quiz: chapters/02-concept-labeling-metadata-standards/quiz.md
+    - 3. Concept Dependencies and Prerequisites:
+      - Content: chapters/03-concept-dependencies-prerequisites/index.md
+      - Quiz: chapters/03-concept-dependencies-prerequisites/quiz.md
+    - 4. Concept Taxonomies and Ontologies:
+      - Content: chapters/04-concept-taxonomies-ontologies/index.md
+      - Quiz: chapters/04-concept-taxonomies-ontologies/quiz.md
+    - 5. Learning Graph Quality, Validation, and File Formats:
+      - Content: chapters/05-graph-quality-validation-file-formats/index.md
+      - Quiz: chapters/05-graph-quality-validation-file-formats/quiz.md
+    - 6. Bloom's Taxonomy and Learning Objectives:
+      - Content: chapters/06-blooms-taxonomy-learning-objectives/index.md
+      - Quiz: chapters/06-blooms-taxonomy-learning-objectives/quiz.md
+    - 7. Learning Theories and Instructional Design:
+      - Content: chapters/07-learning-theories-instructional-design/index.md
+      - Quiz: chapters/07-learning-theories-instructional-design/quiz.md
+    - 8. Cognitive Load and Knowledge Space Theory:
+      - Content: chapters/08-cognitive-load-knowledge-space-theory/index.md
+      - Quiz: chapters/08-cognitive-load-knowledge-space-theory/quiz.md
+    - 9. Mastery, Metacognition, and Instructional Sequencing:
+      - Content: chapters/09-mastery-metacognition-sequencing/index.md
+      - Quiz: chapters/09-mastery-metacognition-sequencing/quiz.md
+    - 10. Assessment, Feedback, and Quizzes:
+      - Content: chapters/10-assessment-feedback-quizzes/index.md
+      - Quiz: chapters/10-assessment-feedback-quizzes/quiz.md
+    - 11. Vis.js Fundamentals and Node Styling:
+      - Content: chapters/11-visjs-fundamentals-node-styling/index.md
+      - Quiz: chapters/11-visjs-fundamentals-node-styling/quiz.md
+    - 12. Edge Styling and Visual Properties:
+      - Content: chapters/12-edge-styling-visual-properties/index.md
+      - Quiz: chapters/12-edge-styling-visual-properties/quiz.md
+    - 13. Physics Simulation and Graph Layout:
+      - Content: chapters/13-physics-simulation-graph-layout/index.md
+      - Quiz: chapters/13-physics-simulation-graph-layout/quiz.md
+    - 14. Interactive Navigation in Vis.js:
+      - Content: chapters/14-interactive-navigation-visjs/index.md
+      - Quiz: chapters/14-interactive-navigation-visjs/quiz.md
+    - 15. Graph Clustering and Editing Tools:
+      - Content: chapters/15-graph-clustering-editing-tools/index.md
+      - Quiz: chapters/15-graph-clustering-editing-tools/quiz.md
+    - 16. Personalization and Adaptive Learning Paths:
+      - Content: chapters/16-personalization-adaptive-learning-paths/index.md
+      - Quiz: chapters/16-personalization-adaptive-learning-paths/quiz.md
+    - 17. Intelligent Agents and Generative AI:
+      - Content: chapters/17-intelligent-agents-generative-ai/index.md
+      - Quiz: chapters/17-intelligent-agents-generative-ai/quiz.md
+    - 18. Intelligent Textbooks, MicroSims, and Deployment:
+      - Content: chapters/18-intelligent-textbooks-microsims-deployment/index.md
+      - Quiz: chapters/18-intelligent-textbooks-microsims-deployment/quiz.md
+    - 19. Using a Skill to Generate a Learning Graph:
+      - Content: chapters/19-skill-generate-learning-graph/index.md
+      - Quiz: chapters/19-skill-generate-learning-graph/quiz.md
   
   - Case Studies:
     - Introduction: case-studies/index.md
@@ -91,6 +139,9 @@ nav:
     - Concept Taxonomy: learning-graph/concept-taxonomy.md
     - Taxonomy Distribution Report: learning-graph/taxonomy-distribution.md
     - Graph Quality Metrics: learning-graph/quality-metrics.md
+    - FAQ Quality Report: learning-graph/faq-quality-report.md
+    - FAQ Coverage Gaps: learning-graph/faq-coverage-gaps.md
+    - Quiz Generation Report: learning-graph/quiz-generation-report.md
     - Mascot Style Guide: learning-graph/mascot-test.md
     - Checklist: learning-graph/checklist.md
 
@@ -178,8 +229,9 @@ nav:
     - Working Memory Load Simulator: sims/working-memory-load-simulator/index.md
 
 
-  
+  # Supplementary Content From Here Down
   - Glossary: glossary.md
+  - FAQ: faq.md
   - How We Built This Site: how-we-built-this-site.md
   - References: references.md
   - License: license.md
@@ -190,7 +242,7 @@ nav:
 
 theme:
   name: material
-  logo: img/logo.png
+  logo: img/mascot/neutral.png
   favicon: img/favicon.ico
   palette:
     primary: 'orange'

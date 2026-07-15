@@ -54,10 +54,10 @@
     "timeline"
   ],
   "learningObjectives": [
-    "Understand the key concepts of book build workflow",
-    "Explore book build workflow through interactive visualization",
-    "Apply knowledge of book build workflow to solve problems",
-    "Experiment with parameters to observe their effects on book build workflow"
+    "Trace the intelligent textbook build from course description through learning graph, chapter structure, chapters, and the Content Complete milestone",
+    "Distinguish the sequential foundation steps from the chapter development steps that can run in parallel",
+    "Explain why Content Complete acts as a quality gate before glossary, FAQ, quizzes, and references are generated",
+    "Identify which supporting materials belong to the educational resources track versus the quality assurance track"
   ],
   "bloomsTaxonomy": [
     "Remember",

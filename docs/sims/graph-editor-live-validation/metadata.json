@@ -11,7 +11,7 @@
   "format": "text/html",
   "language": "en",
   "rights": "All rights reserved",
-  "identifier": "graph-editor-live-validation",
+  "identifier": "https://dmccreary.github.io/learning-graphs/sims/graph-editor-live-validation/",
   "library": "vis-network",
   "bloomLevel": "Evaluate (L5)",
   "bloomVerb": "assess, validate, justify",

@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git pull:*)",
+      "Bash(git fetch:*)",
+      "Bash(git merge:*)",
+      "Bash(git push:*)",
+      "Bash(git branch:*)",
+      "Bash(git checkout:*)",
+      "Bash(mkdir:*)",
+      "Bash(mkdocs build:*)",
+      "Bash(python3:*)",
+      "Bash(chmod:*)",
+      "Bash(./src/schema/validate-learning-graph.sh:*)",
+      "Bash(pip3 install jsonschema)",
+      "Bash(./validate-learning-graph.sh:*)",
+      "Bash(/dev/null)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

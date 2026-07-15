@@ -11,7 +11,7 @@
   "format": "text/html",
   "language": "en",
   "rights": "All rights reserved",
-  "identifier": "similarity-metric-comparison-tool",
+  "identifier": "https://dmccreary.github.io/learning-graphs/sims/similarity-metric-comparison-tool/",
   "library": "p5.js",
   "bloomLevel": "Apply (L3)",
   "bloomVerb": "apply, calculate, demonstrate, use",
