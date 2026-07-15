@@ -132,6 +132,8 @@ Before seeing domain-based clustering in action, it helps to define one more pai
 
 <iframe src="../../sims/domain-cluster-explorer/main.html" width="100%" height="582px" scrolling="no"></iframe>
 
+[View Domain Cluster Explorer Fullscreen](../../sims/domain-cluster-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Domain Cluster Explorer</summary>
 Type: microsim
@@ -411,6 +413,8 @@ The MicroSim below combines the graph editor's core manipulation features — ad
 #### Diagram: Graph Editor with Live Validation
 
 <iframe src="../../sims/graph-editor-live-validation/main.html" width="100%" height="622px" scrolling="no"></iframe>
+
+[View Graph Editor with Live Validation Fullscreen](../../sims/graph-editor-live-validation/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Graph Editor with Live Validation</summary>

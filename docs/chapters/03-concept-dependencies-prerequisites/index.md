@@ -61,6 +61,8 @@ The diagram below lets you click through a small dependency chain and see these 
 
 <iframe src="../../sims/dependency-role-explorer/main.html" width="100%" height="502px" scrolling="no"></iframe>
 
+[View Dependency Role Explorer Fullscreen](../../sims/dependency-role-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Dependency Role Explorer</summary>
 Type: graph-model
@@ -146,6 +148,8 @@ The timeline below places all three goal types along a single learner's path tow
 
 <iframe src="../../sims/goal-horizon-timeline/main.html" width="100%" height="602px" scrolling="no"></iframe>
 
+[View Goal Horizon Timeline Fullscreen](../../sims/goal-horizon-timeline/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Goal Horizon Timeline</summary>
 Type: chart
@@ -188,6 +192,8 @@ These two terms depend on each other in a specific way worth stating precisely: 
 #### Diagram: Ready-to-Learn Frontier Simulator
 
 <iframe src="../../sims/ready-to-learn-frontier-simulator/main.html" width="100%" height="542px" scrolling="no"></iframe>
+
+[View Ready-to-Learn Frontier Simulator Fullscreen](../../sims/ready-to-learn-frontier-simulator/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Ready-to-Learn Frontier Simulator</summary>
@@ -250,6 +256,8 @@ The explorer below lets you pick any two concepts in a small graph and see both 
 
 <iframe src="../../sims/transitive-dependency-hop-finder/main.html" width="100%" height="522px" scrolling="no"></iframe>
 
+[View Transitive Dependency and Hop Count Finder Fullscreen](../../sims/transitive-dependency-hop-finder/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Transitive Dependency and Hop Count Finder</summary>
 Type: graph-model
@@ -307,6 +315,8 @@ Dependency analysis is also where a course designer catches structural problems 
 #### Diagram: Dependency Analysis Console
 
 <iframe src="../../sims/dependency-analysis-console/main.html" width="100%" height="562px" scrolling="no"></iframe>
+
+[View Dependency Analysis Console Fullscreen](../../sims/dependency-analysis-console/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Dependency Analysis Console</summary>

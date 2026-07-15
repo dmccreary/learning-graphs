@@ -128,6 +128,8 @@ Before you experiment with the MicroSim below, hold onto one more idea: every no
 
 <iframe src="../../sims/force-directed-layout-explorer/main.html" width="100%" height="542px" scrolling="no"></iframe>
 
+[View Force-Directed Layout Explorer Fullscreen](../../sims/force-directed-layout-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Force-Directed Layout Explorer</summary>
 Type: microsim
@@ -333,6 +335,8 @@ Before exploring the MicroSim, note the key interaction pattern: clicking a lege
 
 <iframe src="../../sims/interactive-legend-filter/main.html" width="100%" height="562px" scrolling="no"></iframe>
 
+[View Interactive Legend Filter Fullscreen](../../sims/interactive-legend-filter/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Interactive Legend Filter</summary>
 Type: microsim
@@ -415,6 +419,8 @@ The MicroSim below lets you compare every node styling property covered in this 
 #### Diagram: Node Styling Property Playground
 
 <iframe src="../../sims/node-styling-property-playground/main.html" width="100%" height="582px" scrolling="no"></iframe>
+
+[View Node Styling Property Playground Fullscreen](../../sims/node-styling-property-playground/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Node Styling Property Playground</summary>

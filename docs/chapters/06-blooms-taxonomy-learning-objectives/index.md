@@ -84,6 +84,8 @@ Before examining the pyramid, it is worth stating the hierarchy's core claim pla
 
 <iframe src="../../sims/blooms-pyramid-explorer/main.html" width="100%" height="602px" scrolling="no"></iframe>
 
+[View Bloom's Taxonomy Pyramid Explorer Fullscreen](../../sims/blooms-pyramid-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Bloom's Taxonomy Pyramid Explorer</summary>
 Type: infographic
@@ -188,6 +190,8 @@ The interactive builder below lets you practice constructing a well-formed learn
 #### Diagram: Learning Objective Builder
 
 <iframe src="../../sims/learning-objective-builder/main.html" width="100%" height="542px" scrolling="no"></iframe>
+
+[View Learning Objective Builder Fullscreen](../../sims/learning-objective-builder/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Learning Objective Builder</summary>

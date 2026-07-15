@@ -1,5 +1,9 @@
 # Learning Graph for Learning Graphs: The Key to Intelligent Textbooks
 
+<iframe src="../sims/graph-viewer/main.html" height="500px" width="100%" scrolling="no"></iframe>
+
+[View Learning Graph Fullscreen](../sims/graph-viewer/main.html){ .md-button .md-button--primary }
+
 This section contains the learning graph for this textbook.  A learning graph is
 a graph of concepts used in this textbook.  Each concept is represented by a
 node in a network graph.  Concepts are connected by directed edges that indicate

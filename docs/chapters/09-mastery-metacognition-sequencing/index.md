@@ -99,6 +99,8 @@ Before comparing the two directly, it helps to be explicit that both patterns ar
 
 <iframe src="../../sims/blocked-vs-interleaved-simulator/main.html" width="100%" height="542px" scrolling="no"></iframe>
 
+[View Blocked vs. Interleaved Practice Simulator Fullscreen](../../sims/blocked-vs-interleaved-simulator/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Blocked vs. Interleaved Practice Simulator</summary>
 Type: microsim
@@ -230,6 +232,8 @@ Before the diagram below, it helps to know that each of the nine numbered steps 
 
 <iframe src="../../sims/nine-events-explorer/main.html" width="100%" height="922px" scrolling="no"></iframe>
 
+[View Nine Events of Instruction Explorer Fullscreen](../../sims/nine-events-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Nine Events of Instruction Explorer</summary>
 Type: workflow
@@ -303,6 +307,8 @@ A simple version of the algorithm reuses machinery this book has already built i
 #### Diagram: Content Sequencing Algorithm Simulator
 
 <iframe src="../../sims/content-sequencing-simulator/main.html" width="100%" height="582px" scrolling="no"></iframe>
+
+[View Content Sequencing Algorithm Simulator Fullscreen](../../sims/content-sequencing-simulator/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Content Sequencing Algorithm Simulator</summary>

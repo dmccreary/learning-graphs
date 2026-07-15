@@ -70,6 +70,8 @@ This preferred/alternate split solves a concrete problem: it lets a graph be sim
 
 <iframe src="../../sims/label-anatomy-explorer/main.html" width="100%" height="562px" scrolling="no"></iframe>
 
+[View Label Anatomy Explorer Fullscreen](../../sims/label-anatomy-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Label Anatomy Explorer</summary>
 Type: graph-model
@@ -146,6 +148,8 @@ Before looking at the diagram, hold on to one distinction: `skos:broader`/`skos:
 
 <iframe src="../../sims/skos-relationship-map/main.html" width="100%" height="562px" scrolling="no"></iframe>
 
+[View SKOS Relationship Map Fullscreen](../../sims/skos-relationship-map/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>SKOS Relationship Map</summary>
 Type: graph-model
@@ -206,6 +210,8 @@ SKOS and controlled vocabularies operate at the level of an individual concept a
 
 <iframe src="../../sims/dublin-core-metadata-explorer/main.html" width="100%" height="642px" scrolling="no"></iframe>
 
+[View Dublin Core Metadata Explorer Fullscreen](../../sims/dublin-core-metadata-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Dublin Core Metadata Explorer</summary>
 Type: infographic
@@ -251,6 +257,8 @@ The following workflow shows that pipeline end to end, from a single concept's l
 #### Diagram: From Concept to Index Entry
 
 <iframe src="../../sims/concept-to-index-workflow/main.html" width="100%" height="862px" scrolling="no"></iframe>
+
+[View From Concept to Index Entry Fullscreen](../../sims/concept-to-index-workflow/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>From Concept to Index Entry Workflow</summary>

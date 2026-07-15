@@ -88,6 +88,8 @@ Before comparing this workflow to how a chatbot handles a single question, it he
 
 <iframe src="../../sims/genai-learning-graph-pipeline/main.html" width="100%" height="522px" scrolling="no"></iframe>
 
+[View Generative AI to Learning Graph Pipeline Fullscreen](../../sims/genai-learning-graph-pipeline/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Generative AI to Learning Graph Pipeline</summary>
 Type: workflow
@@ -201,6 +203,8 @@ Before the interactive comparison below, it is worth being explicit about why th
 
 <iframe src="../../sims/agent-capability-explorer/main.html" width="100%" height="542px" scrolling="no"></iframe>
 
+[View Agent Capability Explorer Fullscreen](../../sims/agent-capability-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Agent Capability Explorer</summary>
 Type: microsim
@@ -276,6 +280,8 @@ Before the interactive tool below, it is useful to be explicit about the trade-o
 #### Diagram: Retrieval-Augmented Generation Step-Through
 
 <iframe src="../../sims/rag-step-through/main.html" width="100%" height="562px" scrolling="no"></iframe>
+
+[View Retrieval-Augmented Generation Step-Through Fullscreen](../../sims/rag-step-through/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Retrieval-Augmented Generation Step-Through</summary>

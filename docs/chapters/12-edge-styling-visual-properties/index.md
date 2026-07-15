@@ -134,6 +134,8 @@ The MicroSim below lets you toggle smoothing on and off and switch between curve
 
 <iframe src="../../sims/edge-smoothing-curve-explorer/main.html" width="100%" height="562px" scrolling="no"></iframe>
 
+[View Edge Smoothing and Curve Type Explorer Fullscreen](../../sims/edge-smoothing-curve-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Edge Smoothing and Curve Type Explorer</summary>
 Type: microsim
@@ -244,6 +246,8 @@ The MicroSim below turns that same set of choices into a live control panel, app
 #### Diagram: Edge Styling Property Playground
 
 <iframe src="../../sims/edge-styling-property-playground/main.html" width="100%" height="582px" scrolling="no"></iframe>
+
+[View Edge Styling Property Playground Fullscreen](../../sims/edge-styling-property-playground/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Edge Styling Property Playground</summary>

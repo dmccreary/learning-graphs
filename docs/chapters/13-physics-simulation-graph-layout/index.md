@@ -148,6 +148,8 @@ A useful way to see how these forces interact is to increase or decrease each on
 
 <iframe src="../../sims/physics-force-explorer/main.html" width="100%" height="582px" scrolling="no"></iframe>
 
+[View Physics Force Explorer Fullscreen](../../sims/physics-force-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Physics Force Explorer</summary>
 Type: microsim
@@ -341,6 +343,8 @@ The interactive diagram below lets you toggle between hierarchical and force-dir
 #### Diagram: Layout Algorithm Comparison Lab
 
 <iframe src="../../sims/layout-algorithm-comparison-lab/main.html" width="100%" height="602px" scrolling="no"></iframe>
+
+[View Layout Algorithm Comparison Lab Fullscreen](../../sims/layout-algorithm-comparison-lab/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Layout Algorithm Comparison Lab</summary>
