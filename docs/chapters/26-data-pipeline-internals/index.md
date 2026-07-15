@@ -96,6 +96,10 @@ Serialization is the last step of a broader process worth naming on its own. **D
 
 #### Diagram: CSV-to-JSON Record Mapper
 
+
+<iframe src="../../sims/csv-to-json-record-mapper/main.html" width="100%" height="482px" scrolling="no"></iframe>
+[Run CSV-to-JSON Record Mapper Fullscreen](../../sims/csv-to-json-record-mapper/main.html)
+
 <details markdown="1">
 <summary>CSV-to-JSON Record Mapper</summary>
 Type: microsim

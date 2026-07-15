@@ -1,0 +1,468 @@
+/* Dependency Review Console - MicroSim Stylesheet
+ * ==============================================
+ * Plain HTML/CSS (no vis-network): the card is two concept boxes joined by an
+ * arrow, and the rationale text is the real content. CSS lays out prose better
+ * than a canvas does.
+ *
+ * Rows: title / progress / edge card (flex) / fixed verdict / controls.
+ * The verdict row is a fixed height so revealing a model answer never shifts the
+ * classification buttons under the learner's cursor.
+ */
+
+/* Must stay in sync with CANVAS_HEIGHT in dependency-review-console.js */
+:root {
+    --sim-height: 480px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: aliceblue;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: var(--sim-height);
+    padding: 6px 8px 8px 8px;
+    gap: 6px;
+}
+
+/* ===========================================
+   TITLE
+   =========================================== */
+.title {
+    flex: 0 0 auto;
+    text-align: center;
+    font-size: 17px;
+    font-weight: bold;
+    color: black;
+    line-height: 1.2;
+}
+
+/* ===========================================
+   PROGRESS ROW
+   =========================================== */
+.progress-row {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    padding: 5px 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress-text {
+    font-size: 13px;
+    font-weight: bold;
+    color: #37474f;
+    white-space: nowrap;
+}
+
+.dots {
+    display: flex;
+    gap: 4px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    border: 1.5px solid #b0bec5;
+}
+
+.dot.correct { background-color: #4caf50; border-color: #2e7d32; }
+.dot.wrong   { background-color: #e53935; border-color: #b71c1c; }
+.dot.active  { border-color: #1565c0; border-width: 2.5px; }
+
+.score {
+    font-size: 12px;
+    font-weight: bold;
+    color: #546e7a;
+    white-space: nowrap;
+}
+
+/* ===========================================
+   EDGE CARD
+   =========================================== */
+.card {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    background-color: white;
+    border: 3px solid #cfd8dc;
+    border-radius: 10px;
+    padding: 10px 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.25s, background-color 0.25s;
+}
+
+.card.correct {
+    border-color: #4caf50;
+    background-color: #f7fcf7;
+}
+
+.card.wrong {
+    border-color: #e53935;
+    background-color: #fffaf9;
+}
+
+/* two concept boxes joined by an arrow, styled like a graph edge */
+.edge-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    flex-wrap: nowrap;
+}
+
+.concept {
+    flex: 0 1 auto;
+    min-width: 0;
+    background-color: #eceff1;
+    border: 2px solid #90a4ae;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #212121;
+    text-align: center;
+    line-height: 1.25;
+}
+
+.arrow {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+    padding: 0 2px;
+    min-width: 84px;
+}
+
+.arrow-label {
+    font-size: 10px;
+    font-weight: bold;
+    color: #607d8b;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+}
+
+/* CSS-drawn arrow: a line with a triangular head */
+.arrow-line {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background-color: #607d8b;
+}
+
+.arrow-line::after {
+    content: '';
+    position: absolute;
+    right: -1px;
+    top: -4px;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 9px solid #607d8b;
+}
+
+/* ===========================================
+   CARD META (confidence + provenance)
+   =========================================== */
+.meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 999px;
+    font-size: 11.5px;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+}
+
+.badge.high   { background-color: #43a047; }
+.badge.medium { background-color: #f9a825; color: #3e2723; }
+.badge.low    { background-color: #90a4ae; }
+
+.provenance {
+    font-size: 11px;
+    color: #78909c;
+    font-style: italic;
+}
+
+/* ===========================================
+   RATIONALE
+   =========================================== */
+.rationale {
+    background-color: #f5f7f8;
+    border-left: 3px solid #b0bec5;
+    border-radius: 4px;
+    padding: 6px 9px;
+}
+
+.rationale-label {
+    display: block;
+    font-size: 9.5px;
+    font-weight: bold;
+    color: #607d8b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+
+.rationale-text {
+    display: block;
+    font-size: 12.5px;
+    line-height: 1.45;
+    color: #263238;
+    font-style: italic;
+}
+
+/* ===========================================
+   VERDICT (fixed height, no layout shift)
+   =========================================== */
+.verdict {
+    flex: 0 0 auto;
+    height: 88px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.97);
+    border-radius: 8px;
+    border: 2px solid transparent;
+    padding: 6px 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 12px;
+    line-height: 1.45;
+    color: #263238;
+    overflow: hidden;
+}
+
+.verdict.correct { border-color: #4caf50; background-color: #f5fbf5; }
+.verdict.wrong   { border-color: #e53935; background-color: #fff8f7; }
+.verdict.done    { border-color: #ffa000; background-color: #fffdf5; }
+
+/* Summary stage: the single edge card has served its purpose, so retire it and
+   give the eight-row comparison table the whole panel. Left in the fixed 88px
+   verdict box, the table clipped after row six. */
+.container.summary-mode .card {
+    display: none;
+}
+
+.container.summary-mode .verdict {
+    flex: 1 1 auto;
+    height: auto;
+    min-height: 0;
+    align-items: flex-start;
+    padding: 10px 14px;
+}
+
+.container.summary-mode .summary-table {
+    font-size: 12px;
+}
+
+.container.summary-mode .summary-table td {
+    padding: 2px 6px;
+    line-height: 1.6;
+}
+
+.container.summary-mode .summary-head {
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.v-idle {
+    width: 100%;
+    text-align: center;
+    color: #78909c;
+    font-size: 12.5px;
+}
+
+.v-head {
+    font-weight: bold;
+    font-size: 12.5px;
+    margin-bottom: 2px;
+}
+
+.v-head.correct { color: #2e7d32; }
+.v-head.wrong   { color: #c62828; }
+
+.v-body {
+    font-size: 11.5px;
+    line-height: 1.45;
+}
+
+.tag {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: bold;
+    border-radius: 3px;
+    padding: 0 5px;
+    background-color: #eceff1;
+    color: #37474f;
+    white-space: nowrap;
+}
+
+/* ===========================================
+   SUMMARY TABLE (after all eight edges)
+   =========================================== */
+.summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10px;
+}
+
+.summary-table td {
+    padding: 0 4px;
+    line-height: 1.35;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.summary-table .mark { width: 12px; font-weight: bold; }
+.summary-table .mark.ok { color: #2e7d32; }
+.summary-table .mark.no { color: #c62828; }
+.summary-table .edge-cell { max-width: 210px; color: #37474f; }
+.summary-table .ans-cell { color: #607d8b; }
+
+.summary-head {
+    font-weight: bold;
+    font-size: 12px;
+    color: #e65100;
+    margin-bottom: 2px;
+}
+
+/* ===========================================
+   CONTROLS
+   =========================================== */
+.controls {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    padding: 7px 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.class-buttons,
+.nav-buttons {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 8px 12px;
+    font-size: 12.5px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+
+.btn-class {
+    background-color: #1e88e5;
+    color: white;
+}
+
+.btn-class:hover:not(:disabled) { background-color: #1565c0; }
+
+.btn-class:disabled {
+    background-color: #cfd8dc;
+    color: #90a4ae;
+    cursor: not-allowed;
+}
+
+/* the model answer, once revealed */
+.btn-class.is-answer:disabled {
+    background-color: #43a047;
+    color: white;
+}
+
+/* what the learner picked, when it was wrong */
+.btn-class.is-chosen-wrong:disabled {
+    background-color: #e53935;
+    color: white;
+}
+
+.btn-primary {
+    background-color: #43a047;
+    color: white;
+}
+
+.btn-primary:hover:not(:disabled) { background-color: #2e7d32; }
+
+.btn-primary:disabled {
+    background-color: #cfd8dc;
+    color: #90a4ae;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    background-color: #757575;
+    color: white;
+}
+
+.btn-secondary:hover:not(:disabled) { background-color: #616161; }
+
+/* ===========================================
+   RESPONSIVE
+   =========================================== */
+@media (max-width: 480px) {
+    .title { font-size: 14px; }
+
+    /* spec: classification buttons stack to two rows below 480px */
+    .controls {
+        justify-content: center;
+        gap: 5px;
+        padding: 5px 6px;
+    }
+
+    .class-buttons,
+    .nav-buttons {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .btn {
+        padding: 6px 8px;
+        font-size: 11px;
+    }
+
+    .concept { font-size: 11.5px; padding: 6px 8px; }
+    .arrow { min-width: 52px; }
+    .arrow-label { font-size: 8.5px; }
+    .rationale-text { font-size: 11px; }
+    .score { display: none; }
+    .provenance { display: none; }
+    .verdict { height: 92px; }
+}

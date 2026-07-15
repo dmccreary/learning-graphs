@@ -1,0 +1,394 @@
+/* Automated Validator Report Reader - vis-network MicroSim Stylesheet
+ * ==================================================================
+ * Rows: title / controls / main-row (findings list + graph) / publish prompt.
+ */
+
+/* Must stay in sync with CANVAS_HEIGHT in automated-validator-report-reader.js */
+:root {
+    --sim-height: 560px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: aliceblue;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: var(--sim-height);
+    padding: 6px 8px 8px 8px;
+    gap: 6px;
+}
+
+/* ===========================================
+   TITLE
+   =========================================== */
+.title {
+    flex: 0 0 auto;
+    text-align: center;
+    font-size: 17px;
+    font-weight: bold;
+    color: black;
+    line-height: 1.2;
+}
+
+/* ===========================================
+   CONTROLS
+   =========================================== */
+.controls {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    padding: 5px 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.report-name {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 11.5px;
+    color: #546e7a;
+}
+
+.ctl-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.toggle {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #37474f;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.toggle input {
+    cursor: pointer;
+    width: 14px;
+    height: 14px;
+}
+
+.btn {
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+
+.btn-secondary { background-color: #757575; color: white; }
+.btn-secondary:hover:not(:disabled) { background-color: #616161; }
+
+.btn-yes { background-color: #43a047; color: white; }
+.btn-yes:hover:not(:disabled) { background-color: #2e7d32; }
+
+.btn-no { background-color: #e53935; color: white; }
+.btn-no:hover:not(:disabled) { background-color: #c62828; }
+
+.btn-yes:disabled,
+.btn-no:disabled {
+    background-color: #cfd8dc;
+    color: #90a4ae;
+    cursor: not-allowed;
+}
+
+/* ===========================================
+   MAIN ROW
+   =========================================== */
+.main-row {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    gap: 6px;
+}
+
+/* ===========================================
+   FINDINGS PANEL
+   =========================================== */
+.findings-panel {
+    flex: 0 0 300px;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.findings-head {
+    flex: 0 0 auto;
+    font-size: 11px;
+    font-weight: bold;
+    color: #546e7a;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    padding: 5px 8px;
+    background-color: #eceff1;
+    border-bottom: 1px solid #cfd8dc;
+}
+
+/* All six collapsed findings fit without scrolling; the scrollbar only appears
+   once an explanation expands. Scrolling a findings list is what a real report
+   reader does, and it is confined to this panel — the graph never takes wheel
+   events, so the surrounding page keeps its own scroll. */
+.findings-list {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    list-style: none;
+    padding: 3px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.finding {
+    border: 1px solid #e0e0e0;
+    border-left: 4px solid #b0bec5;
+    border-radius: 4px;
+    padding: 3px 6px;
+    cursor: pointer;
+    transition: background-color 0.15s, border-color 0.15s;
+}
+
+.finding:hover {
+    background-color: #f5f7f8;
+}
+
+.finding.error   { border-left-color: #e53935; }
+.finding.warning { border-left-color: #ffa000; }
+
+.finding.resolved {
+    border-left-color: #43a047;
+    opacity: 0.72;
+}
+
+.finding.selected {
+    background-color: #e3f2fd;
+    border-color: #1e88e5;
+}
+
+.finding.reviewed .f-sev::after {
+    content: ' ✓';
+    color: #43a047;
+    font-weight: bold;
+}
+
+.f-top {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.f-sev {
+    font-size: 8.5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    border-radius: 3px;
+    padding: 1px 5px;
+    color: white;
+    flex-shrink: 0;
+}
+
+.f-sev.error   { background-color: #e53935; }
+.f-sev.warning { background-color: #ffa000; color: #3e2723; }
+
+.finding.resolved .f-sev {
+    background-color: #43a047;
+}
+
+.f-id {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 9.5px;
+    color: #90a4ae;
+}
+
+.f-msg {
+    font-size: 11px;
+    line-height: 1.35;
+    color: #263238;
+    margin-top: 2px;
+}
+
+/* one-sentence explanation, revealed on click */
+.f-why {
+    font-size: 10.5px;
+    line-height: 1.4;
+    color: #546e7a;
+    margin-top: 3px;
+    padding-top: 3px;
+    border-top: 1px dashed #cfd8dc;
+    font-style: italic;
+}
+
+.f-why[hidden] {
+    display: none;
+}
+
+/* ===========================================
+   GRAPH PANEL
+   =========================================== */
+.graph-panel {
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 0;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+#network {
+    width: 100%;
+    height: 100%;
+    background-color: aliceblue;
+}
+
+/* ===========================================
+   PUBLISH PROMPT
+   =========================================== */
+.publish-row {
+    flex: 0 0 auto;
+    height: 96px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background-color: rgba(255, 255, 255, 0.97);
+    border-radius: 8px;
+    border: 2px solid transparent;
+    padding: 6px 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.publish-row.correct { border-color: #4caf50; background-color: #f5fbf5; }
+.publish-row.wrong   { border-color: #e53935; background-color: #fff8f7; }
+
+.pub-prompt {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex-wrap: wrap;
+}
+
+.pub-q {
+    font-size: 13px;
+    font-weight: bold;
+    color: #37474f;
+    white-space: nowrap;
+}
+
+#justification {
+    flex: 1 1 180px;
+    min-width: 120px;
+    font-family: inherit;
+    font-size: 11.5px;
+    padding: 4px 7px;
+    border: 1px solid #b0bec5;
+    border-radius: 5px;
+}
+
+#justification:disabled {
+    background-color: #f5f5f5;
+    color: #b0bec5;
+}
+
+.pub-gate {
+    font-size: 11px;
+    color: #b0bec5;
+    font-style: italic;
+    white-space: nowrap;
+}
+
+.pub-gate[hidden] {
+    display: none;
+}
+
+.pub-feedback[hidden] {
+    display: none;
+}
+
+.pub-feedback {
+    font-size: 11.5px;
+    line-height: 1.4;
+    color: #263238;
+}
+
+.pub-head {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.pub-head.correct { color: #2e7d32; }
+.pub-head.wrong   { color: #c62828; }
+
+.blockers {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    margin-top: 2px;
+}
+
+.blocker {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 10px;
+    font-weight: bold;
+    background-color: #ffebee;
+    border: 1px solid #ef9a9a;
+    color: #b71c1c;
+    border-radius: 3px;
+    padding: 0 5px;
+    white-space: nowrap;
+}
+
+/* ===========================================
+   RESPONSIVE
+   =========================================== */
+@media (max-width: 700px) {
+    .title { font-size: 14px; }
+
+    .report-name { display: none; }
+
+    /* spec: findings list moves above the graph panel below 700px */
+    .main-row {
+        flex-direction: column;
+    }
+
+    .findings-panel {
+        flex: 0 0 46%;
+    }
+
+    .graph-panel {
+        flex: 1 1 auto;
+    }
+
+    .f-msg { font-size: 10px; }
+
+    .pub-q { font-size: 11.5px; }
+
+    #justification { font-size: 10.5px; }
+
+    .publish-row { height: 90px; }
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Graph Traversal Step-Through — DFS vs. BFS</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- IMPORTANT: overlays are SIBLINGS of the network divs, never children.
+         vis-network erases the innerHTML of its container on init. -->
+    <div class="container">
+        <div class="title">Graph Traversal Step-Through — DFS vs. BFS</div>
+
+        <div class="controls">
+            <label class="ctl-label" for="start-select">Start node</label>
+            <select id="start-select"></select>
+            <button class="btn btn-primary" id="step-btn">Step Forward</button>
+            <button class="btn btn-secondary" id="run-btn">Run to Completion</button>
+            <button class="btn btn-secondary" id="reset-btn">Reset</button>
+            <span class="step-counter" id="step-counter">Step 0 of 10</span>
+        </div>
+
+        <div class="panels" id="panels">
+            <div class="panel">
+                <div class="panel-head">Depth-First Search <span class="frontier-tag">stack</span></div>
+                <div class="net" id="net-dfs"></div>
+                <div class="order-list">
+                    <span class="order-label">Visit order</span>
+                    <span class="order-chips" id="order-dfs"><span class="empty">not started</span></span>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-head">Breadth-First Search <span class="frontier-tag">queue</span></div>
+                <div class="net" id="net-bfs"></div>
+                <div class="order-list">
+                    <span class="order-label">Visit order</span>
+                    <span class="order-chips" id="order-bfs"><span class="empty">not started</span></span>
+                </div>
+            </div>
+
+            <!-- Divergence connector: spans both panels, never intercepts clicks -->
+            <svg class="link-overlay" id="link-overlay"></svg>
+        </div>
+
+        <div class="summary" id="summary">
+            <span class="summary-hint" id="summary-hint">Unvisited <span class="sw sw-unvisited"></span>
+                &nbsp;&nbsp;Current <span class="sw sw-current"></span>
+                &nbsp;&nbsp;Visited <span class="sw sw-visited"></span>
+                &nbsp;&nbsp;Backtracked from <span class="sw sw-backtrack"></span>
+                &nbsp;&nbsp;— hover any node to see its adjacency list.</span>
+        </div>
+    </div>
+
+    <script src="graph-traversal-step-through.js"></script>
+</body>
+</html>

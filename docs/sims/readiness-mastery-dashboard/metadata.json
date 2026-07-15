@@ -1,0 +1,84 @@
+{
+  "title": "Readiness and Mastery Dashboard",
+  "description": "Given an eight-node sample dependency graph and a slider-controlled mastery state for each node, the learner can predict and verify which nodes become part of the readiness frontier as mastery thresholds are crossed, and observe how a learning path constraint reorders the final personalized sequence.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-15",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "https://dmccreary.github.io/learning-graphs/sims/readiness-mastery-dashboard/",
+  "library": "vis-network",
+  "bloomLevel": "Apply (L3)",
+  "bloomVerb": "predict, construct, apply",
+  "completion_status": "implemented",
+  "chapter_number": 27,
+  "chapter_title": "Learner Modeling and Advanced Assessment",
+  "chapter_dir": "27-learner-modeling-advanced-assessment",
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Learner Modeling, Readiness Estimation, Personalized Sequencing",
+    "learningObjectives": [
+      "Predict which knowledge components enter the readiness frontier as mastery values cross the threshold",
+      "Explain why the readiness frontier is non-empty at zero mastery",
+      "Explain why raising the mastery threshold can remove a component from 'mastered'",
+      "Explain why a learning path constraint can reorder some pairs but never violate a prerequisite"
+    ],
+    "bloomsTaxonomy": "Apply",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "Learner Model",
+      "Knowledge Component",
+      "Mastery Threshold",
+      "Readiness Estimation",
+      "Personalized Learning Path",
+      "Personalized Sequencing"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "vis-network",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 620
+    },
+    "canvasHeight": 620,
+    "responsive": true,
+    "dependencies": [
+      "vis-network@9.1.9"
+    ],
+    "accessibility": {
+      "hasAltText": false,
+      "keyboardNavigable": true
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Live slider-driven simulation with predict-then-verify and a constraint toggle",
+    "keyQuestions": [
+      "Why is the readiness frontier non-empty when every mastery value is 0%?",
+      "Master Graph alone: which components become ready? Now master Directed Edge too. Why did the answer change?",
+      "If every component sits at 75%, what happens when the threshold moves from 70% to 80%? What does that say about reporting 'mastery' without a threshold?",
+      "Could any constraint ever place Prerequisite before DAG? Why not?"
+    ],
+    "commonMisconceptions": [
+      "That the readiness frontier is empty until the learner masters something — root concepts are vacuously ready",
+      "That mastery is a property of the learner rather than a claim relative to a threshold",
+      "That a learning path constraint can override a prerequisite — it can only choose among orderings the graph already permits",
+      "That the recommended sequence is fixed — it is recomputed from the learner model on every change"
+    ],
+    "assessmentOpportunities": [
+      "Have learners predict the frontier before dragging each slider, then verify",
+      "Set all components to 75% and move the threshold across 75% to show mastery being revoked",
+      "Ask learners to identify which pairs the constraint could legitimately reorder and which it could not"
+    ]
+  }
+}

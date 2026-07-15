@@ -96,6 +96,10 @@ Individual findings eventually need to roll up into a single go/no-go decision, 
 
 #### Diagram: Automated Validator Report Reader
 
+
+<iframe src="../../sims/automated-validator-report-reader/main.html" width="100%" height="562px" scrolling="no"></iframe>
+[Run Automated Validator Report Reader Fullscreen](../../sims/automated-validator-report-reader/main.html)
+
 <details markdown="1">
 <summary>Automated Validator Report Reader</summary>
 Type: microsim

@@ -1,0 +1,416 @@
+/* Readiness and Mastery Dashboard - vis-network MicroSim Stylesheet
+ * ================================================================
+ * Rows: title / controls / main-row (sliders + graph) / recommended sequence.
+ */
+
+/* Must stay in sync with CANVAS_HEIGHT in readiness-mastery-dashboard.js */
+:root {
+    --sim-height: 620px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: aliceblue;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: var(--sim-height);
+    padding: 6px 8px 8px 8px;
+    gap: 6px;
+}
+
+/* ===========================================
+   TITLE
+   =========================================== */
+.title {
+    flex: 0 0 auto;
+    text-align: center;
+    font-size: 17px;
+    font-weight: bold;
+    color: black;
+    line-height: 1.2;
+}
+
+/* ===========================================
+   CONTROLS
+   =========================================== */
+.controls {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    padding: 6px 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.threshold-ctl {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    min-width: 0;
+}
+
+.ctl-label {
+    font-size: 12px;
+    font-weight: bold;
+    color: #37474f;
+    white-space: nowrap;
+}
+
+#threshold {
+    width: 150px;
+    cursor: pointer;
+    accent-color: #43a047;
+}
+
+.ctl-value {
+    font-size: 12.5px;
+    font-weight: bold;
+    color: #2e7d32;
+    min-width: 36px;
+}
+
+.ctl-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.toggle {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #37474f;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.toggle input {
+    cursor: pointer;
+    width: 14px;
+    height: 14px;
+    accent-color: #7e57c2;
+}
+
+.btn {
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+
+.btn-secondary { background-color: #757575; color: white; }
+.btn-secondary:hover:not(:disabled) { background-color: #616161; }
+
+/* ===========================================
+   MAIN ROW
+   =========================================== */
+.main-row {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    gap: 6px;
+}
+
+.sliders-panel {
+    flex: 0 0 280px;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.panel-head {
+    flex: 0 0 auto;
+    font-size: 10px;
+    font-weight: bold;
+    color: #546e7a;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    padding: 5px 8px;
+    background-color: #eceff1;
+    border-bottom: 1px solid #cfd8dc;
+    line-height: 1.3;
+}
+
+.sliders {
+    flex: 1 1 auto;
+    min-height: 0;
+    padding: 4px 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.slider-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.slider-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 4px;
+}
+
+.slider-name {
+    font-size: 11px;
+    font-weight: bold;
+    color: #37474f;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.slider-val {
+    font-size: 10.5px;
+    font-weight: bold;
+    color: #90a4ae;
+    flex-shrink: 0;
+}
+
+.slider-val.mastered { color: #2e7d32; }
+.slider-val.developing { color: #ef6c00; }
+
+/* a component whose prerequisites are all met but which is not yet mastered */
+.slider-row.frontier .slider-name::after {
+    content: ' ● ready';
+    color: #1e88e5;
+    font-size: 9px;
+}
+
+.slider-row input[type="range"] {
+    width: 100%;
+    cursor: pointer;
+    height: 14px;
+    accent-color: #90a4ae;
+}
+
+.slider-row.developing input[type="range"] { accent-color: #ffa000; }
+.slider-row.mastered input[type="range"]   { accent-color: #43a047; }
+
+/* ===========================================
+   GRAPH PANEL
+   =========================================== */
+.graph-panel {
+    position: relative;
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 0;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+#network {
+    width: 100%;
+    height: 100%;
+    background-color: aliceblue;
+}
+
+/* legend floats over the canvas; it is a SIBLING of #network, never a child */
+.legend {
+    position: absolute;
+    top: 6px;
+    left: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background-color: rgba(255, 255, 255, 0.92);
+    border-radius: 6px;
+    padding: 4px 7px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    z-index: 10;
+}
+
+.lg {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 9.5px;
+    color: #546e7a;
+    white-space: nowrap;
+}
+
+.sw {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1.5px solid #90a4ae;
+    flex-shrink: 0;
+}
+
+.sw-none  { background-color: #e0e0e0; }
+.sw-dev   { background-color: #ffd54f; border-color: #ffa000; }
+.sw-mast  { background-color: #66bb6a; border-color: #2e7d32; }
+.sw-front { background-color: #e0e0e0; border-color: #1e88e5; border-width: 2.5px; }
+
+/* ===========================================
+   RECOMMENDED SEQUENCE
+   =========================================== */
+.sequence-row {
+    flex: 0 0 auto;
+    height: 92px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    background-color: rgba(255, 255, 255, 0.97);
+    border-radius: 8px;
+    border: 2px solid transparent;
+    padding: 6px 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: border-color 0.25s;
+}
+
+.sequence-row.constrained {
+    border-color: #7e57c2;
+    background-color: #faf8fd;
+}
+
+.seq-head {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.seq-title {
+    font-size: 11px;
+    font-weight: bold;
+    color: #546e7a;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+}
+
+.seq-note {
+    font-size: 11px;
+    line-height: 1.35;
+    color: #607d8b;
+}
+
+.seq-note b { color: #5e35b1; }
+
+.seq-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    align-items: center;
+}
+
+.seq-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 2px 7px;
+    background-color: #eceff1;
+    color: #37474f;
+    border: 1px solid #cfd8dc;
+    white-space: nowrap;
+}
+
+.seq-item .n {
+    font-size: 9px;
+    color: #90a4ae;
+}
+
+/* already above threshold — not part of what to study next */
+.seq-item.done {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border-color: #a5d6a7;
+    opacity: 0.75;
+}
+
+/* the next thing to study */
+.seq-item.next {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+    border-color: #1e88e5;
+    border-width: 2px;
+}
+
+/* moved by the active constraint */
+.seq-item.moved {
+    background-color: #ede7f6;
+    color: #4527a0;
+    border-color: #7e57c2;
+    border-width: 2px;
+}
+
+.seq-empty {
+    font-size: 11.5px;
+    color: #b0bec5;
+    font-style: italic;
+}
+
+/* ===========================================
+   RESPONSIVE
+   =========================================== */
+@media (max-width: 700px) {
+    .title { font-size: 14px; }
+
+    .ctl-label { font-size: 11px; }
+
+    #threshold { width: 96px; }
+
+    .btn { padding: 5px 9px; font-size: 11px; }
+
+    /* spec: mastery-slider panel moves above the graph panel below 700px */
+    .main-row {
+        flex-direction: column;
+    }
+
+    .sliders-panel {
+        flex: 0 0 52%;
+    }
+
+    .sliders {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2px 10px;
+        align-content: space-around;
+    }
+
+    .graph-panel {
+        flex: 1 1 auto;
+    }
+
+    .legend {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .sequence-row { height: 96px; }
+}

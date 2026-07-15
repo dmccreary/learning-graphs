@@ -102,6 +102,10 @@ These three relation types are specific instances of a more general idea this ch
 
 #### Diagram: SKOS Relation Triple Builder
 
+
+<iframe src="../../sims/skos-relation-triple-builder/main.html" width="100%" height="492px" scrolling="no"></iframe>
+[Run SKOS Relation Triple Builder Fullscreen](../../sims/skos-relation-triple-builder/main.html)
+
 <details markdown="1">
 <summary>SKOS Relation Triple Builder</summary>
 Type: microsim

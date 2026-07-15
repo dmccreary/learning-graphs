@@ -1,6 +1,6 @@
 # Learning is Nonlinear
 
-<iframe src="main.html" width="100%" height="800px" scrolling="no"></iframe>
+<iframe src="main.html" width="100%" height="530" scrolling="no"></iframe>
 [Fullscreen](./main.html)
 ## About This MicroSim
 

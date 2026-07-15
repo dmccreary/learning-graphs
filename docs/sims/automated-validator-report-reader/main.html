@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Automated Validator Report Reader</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- IMPORTANT: overlays are SIBLINGS of #network. vis-network erases the
+         innerHTML of its container on init. -->
+    <div class="container">
+        <div class="title">Automated Validator Report Reader</div>
+
+        <div class="controls">
+            <span class="report-name">validate-learning-graph.sh &mdash; 6 findings on 15 concepts</span>
+            <div class="ctl-right">
+                <label class="toggle">
+                    <input type="checkbox" id="sort-toggle">
+                    <span>Sort by severity</span>
+                </label>
+                <button class="btn btn-secondary" id="btn-reset">Reset</button>
+            </div>
+        </div>
+
+        <div class="main-row">
+            <div class="findings-panel">
+                <div class="findings-head" id="findings-head">Findings</div>
+                <ul class="findings-list" id="findings-list"></ul>
+            </div>
+
+            <div class="graph-panel">
+                <div id="network"></div>
+            </div>
+        </div>
+
+        <div class="publish-row" id="publish-row">
+            <div class="pub-prompt">
+                <span class="pub-q">Ready to publish?</span>
+                <button class="btn btn-yes" id="btn-yes" disabled>Yes</button>
+                <button class="btn btn-no" id="btn-no" disabled>No</button>
+                <input type="text" id="justification" placeholder="Because…" disabled>
+                <span class="pub-gate" id="pub-gate">Review at least one finding first</span>
+            </div>
+            <div class="pub-feedback" id="pub-feedback" hidden></div>
+        </div>
+    </div>
+
+    <script src="automated-validator-report-reader.js"></script>
+</body>
+</html>

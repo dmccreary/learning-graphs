@@ -90,6 +90,10 @@ Every concept in this chapter, and in this book's entire advanced-topics extensi
 
 #### Diagram: Readiness and Mastery Dashboard
 
+
+<iframe src="../../sims/readiness-mastery-dashboard/main.html" width="100%" height="622px" scrolling="no"></iframe>
+[Run Readiness and Mastery Dashboard Fullscreen](../../sims/readiness-mastery-dashboard/main.html)
+
 <details markdown="1">
 <summary>Readiness and Mastery Dashboard</summary>
 Type: microsim

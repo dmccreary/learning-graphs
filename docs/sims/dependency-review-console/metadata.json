@@ -1,0 +1,81 @@
+{
+  "title": "Dependency Review Console",
+  "description": "Given eight pre-written dependency edges, each with a one-sentence rationale and a confidence label, the learner can classify each edge as sound, overconstrained, underconstrained, or a false prerequisite, and justify the classification against a model answer.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-15",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "https://dmccreary.github.io/learning-graphs/sims/dependency-review-console/",
+  "library": "HTML/CSS/JavaScript",
+  "bloomLevel": "Evaluate (L5)",
+  "bloomVerb": "judge, critique, justify",
+  "completion_status": "implemented",
+  "chapter_number": 23,
+  "chapter_title": "Advanced Dependency Modeling",
+  "chapter_dir": "23-advanced-dependency-modeling",
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Dependency Review, Overconstraint, Underconstraint, False Prerequisites",
+    "learningObjectives": [
+      "Classify a dependency edge as sound, overconstrained, underconstrained, or a false prerequisite",
+      "Justify a classification from the edge's stated rationale rather than its confidence badge",
+      "Recognize 'makes it easier' language as the signature of a recommended prerequisite",
+      "Recognize topical proximity and teaching order as false-prerequisite signals"
+    ],
+    "bloomsTaxonomy": "Evaluate",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "Dependency Rationale",
+      "Dependency Confidence",
+      "Necessary Prerequisite",
+      "Recommended Prerequisite",
+      "Dependency Review"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "HTML/CSS/JavaScript",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 480
+    },
+    "canvasHeight": 480,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": false,
+      "keyboardNavigable": true
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Classify-and-justify review against a curated model answer set",
+    "keyQuestions": [
+      "Edge 5 is medium confidence and sound; edge 6 is high confidence and overconstrained. What does that tell you about what a confidence field is for?",
+      "What language in a rationale marks a recommended prerequisite that has been encoded as a necessary one?",
+      "Why can no automated validator catch overconstraint or underconstraint?",
+      "Edge 7's rationale says centrality 'is usually taught first.' Why is that not a dependency?"
+    ],
+    "commonMisconceptions": [
+      "That a high-confidence edge from a human expert is more likely correct — edge 6 is exactly that, and it is overconstrained",
+      "That a low-confidence edge is probably wrong — confidence measures the asserter's certainty, not the edge's truth",
+      "That structural validation catches bad dependencies — an overconstrained graph is still a perfectly valid DAG",
+      "That teaching order or topical similarity implies a prerequisite relationship"
+    ],
+    "assessmentOpportunities": [
+      "Record each learner's accuracy across the eight edges from the summary table",
+      "Compare class answers on edges 2 and 6, both overconstrained but with opposite confidence signals",
+      "Ask learners to rewrite edge 2's rationale so it would justify a sound edge"
+    ]
+  }
+}

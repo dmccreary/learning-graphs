@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Category Balance and Overlap Auditor</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title">Category Balance and Overlap Auditor</div>
+
+        <div class="controls">
+            <!-- Key for the two colour encodings the bars carry -->
+            <div class="key">
+                <span class="key-item"><span class="sw sw-over"></span>over the 30% ceiling</span>
+                <span class="key-item"><span class="sw sw-overlap"></span>overlap flagged</span>
+                <span class="key-item"><span class="sw sw-normal"></span>balanced</span>
+                <span class="hint" id="hint">— 200 concepts, 12 categories</span>
+            </div>
+            <div class="ctl-buttons">
+                <button class="btn btn-gold" id="btn-overlap">Inspect Overlap</button>
+                <button class="btn btn-secondary" id="btn-reset">Reset</button>
+            </div>
+        </div>
+
+        <div class="main-row">
+            <div class="chart-panel">
+                <canvas id="balance-chart"></canvas>
+            </div>
+
+            <!-- Overlap comparison panel: hidden until "Inspect Overlap" -->
+            <div class="overlap-panel" id="overlap-panel" hidden>
+                <div class="op-head">
+                    <span class="op-title">Where does each of these belong?</span>
+                    <button class="op-close" id="op-close" title="Back to the chart">&times;</button>
+                </div>
+
+                <div class="op-cats">
+                    <div class="op-cat">
+                        <div class="op-cat-name" id="cat-a-name">Category A</div>
+                        <div class="op-cat-rule" id="cat-a-rule">boundary</div>
+                    </div>
+                    <div class="op-cat">
+                        <div class="op-cat-name" id="cat-b-name">Category B</div>
+                        <div class="op-cat-rule" id="cat-b-rule">boundary</div>
+                    </div>
+                </div>
+
+                <div class="op-ambig">
+                    <span class="op-label">Concepts that plausibly fit either</span>
+                    <ul class="op-list" id="op-list"></ul>
+                </div>
+
+                <div class="op-prompt">
+                    <label class="op-label" for="criterion">
+                        Propose one criterion that decides all three
+                    </label>
+                    <textarea id="criterion" rows="2"
+                        placeholder="e.g. assign by whether the concept is..."></textarea>
+                    <button class="btn btn-primary" id="btn-submit">Compare with model answer</button>
+                </div>
+
+                <div class="op-model" id="op-model" hidden></div>
+            </div>
+        </div>
+
+        <div class="infobox" id="infobox">
+            <div class="info-idle" id="info-idle">
+                One category is over the 30% balance threshold, and two have a boundary problem
+                the chart cannot show you. Click the red bar to start.
+            </div>
+        </div>
+    </div>
+
+    <script src="category-balance-overlap-auditor.js"></script>
+</body>
+</html>

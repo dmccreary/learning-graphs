@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Readiness and Mastery Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- IMPORTANT: overlays are SIBLINGS of #network. vis-network erases the
+         innerHTML of its container on init. -->
+    <div class="container">
+        <div class="title">Readiness and Mastery Dashboard</div>
+
+        <div class="controls">
+            <div class="threshold-ctl">
+                <label class="ctl-label" for="threshold">Mastery threshold</label>
+                <input type="range" id="threshold" min="0" max="100" step="5" value="70">
+                <span class="ctl-value" id="threshold-value">70%</span>
+            </div>
+            <div class="ctl-right">
+                <label class="toggle">
+                    <input type="checkbox" id="constraint-toggle">
+                    <span>Add constraint</span>
+                </label>
+                <button class="btn btn-secondary" id="btn-reset">Reset</button>
+            </div>
+        </div>
+
+        <div class="main-row">
+            <div class="sliders-panel">
+                <div class="panel-head">Learner model — mastery per knowledge component</div>
+                <div class="sliders" id="sliders"></div>
+            </div>
+
+            <div class="graph-panel">
+                <div id="network"></div>
+                <div class="legend">
+                    <span class="lg"><span class="sw sw-none"></span>not started</span>
+                    <span class="lg"><span class="sw sw-dev"></span>developing</span>
+                    <span class="lg"><span class="sw sw-mast"></span>mastered</span>
+                    <span class="lg"><span class="sw sw-front"></span>ready to learn</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sequence-row">
+            <div class="seq-head">
+                <span class="seq-title">Recommended sequence</span>
+                <span class="seq-note" id="seq-note"></span>
+            </div>
+            <ol class="seq-list" id="seq-list"></ol>
+        </div>
+    </div>
+
+    <script src="readiness-mastery-dashboard.js"></script>
+</body>
+</html>

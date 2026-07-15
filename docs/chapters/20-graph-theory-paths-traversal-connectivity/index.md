@@ -118,6 +118,10 @@ Before we look at how these two strategies diverge on the same graph, let's defi
 
 #### Diagram: Graph Traversal Step-Through — DFS vs. BFS
 
+
+<iframe src="../../sims/graph-traversal-step-through/main.html" width="100%" height="542px" scrolling="no"></iframe>
+[Run Graph Traversal Step-Through — DFS vs. BFS Fullscreen](../../sims/graph-traversal-step-through/main.html)
+
 <details markdown="1">
 <summary>Graph Traversal Step-Through — DFS vs. BFS</summary>
 Type: microsim

@@ -1,0 +1,82 @@
+{
+  "title": "CSV-to-JSON Record Mapper",
+  "description": "Given the sample CSV row 6,Learning Graph,5|4,FOUND, the learner can trace, one click at a time, how each field maps into the generated JSON node record and the two generated edge records, and correctly predict the JSON output for a new, unseen CSV row.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-15",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "https://dmccreary.github.io/learning-graphs/sims/csv-to-json-record-mapper/",
+  "library": "HTML/CSS/JavaScript",
+  "bloomLevel": "Understand (L2)",
+  "bloomVerb": "illustrate, summarize, exemplify",
+  "completion_status": "implemented",
+  "chapter_number": 26,
+  "chapter_title": "Data Pipeline Internals",
+  "chapter_dir": "26-data-pipeline-internals",
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "CSV to JSON Conversion, Node Records, Edge Records, Data Transformation",
+    "learningObjectives": [
+      "Name which JSON key each CSV field becomes",
+      "Predict the complete JSON output for an unseen CSV row, including the correct edge count",
+      "Explain why one row produces exactly one node record but zero or more edge records",
+      "Explain what the pipe character carries that CSV itself cannot"
+    ],
+    "bloomsTaxonomy": "Understand",
+    "duration": "10-15 minutes",
+    "prerequisites": [
+      "CSV",
+      "CSV Header",
+      "Pipe-Delimited Field",
+      "JSON Data Format",
+      "Node Record",
+      "Edge Record"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "HTML/CSS/JavaScript",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 480
+    },
+    "canvasHeight": 480,
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": false,
+      "keyboardNavigable": true
+    }
+  },
+  "pedagogical": {
+    "teachingStrategy": "Step-through worked example with a try-your-own-input check",
+    "keyQuestions": [
+      "Three fields map to one JSON key each. Why does Dependencies map to something else entirely?",
+      "How many edge records does 1,Concept,,FOUND produce, and why?",
+      "Why can one row never produce two node records?",
+      "Where does the Group Record come from, if not from this row?"
+    ],
+    "commonMisconceptions": [
+      "That each CSV row maps to exactly one JSON record — a row with two dependencies yields three records",
+      "That an empty Dependencies cell produces an edge with an empty 'to' value — it produces no edge at all",
+      "That the pipe is part of the ConceptID value rather than a delimiter inside the cell",
+      "That the group record is generated per row — it is generated once per distinct TaxonomyID across the whole file"
+    ],
+    "assessmentOpportunities": [
+      "Ask learners to name the target JSON key before each Next Step click",
+      "Give an unseen row on paper and have learners write the full JSON before checking with Transform",
+      "Ask what 1,Concept,,FOUND produces and why the edge cardinality is 'zero or more'"
+    ]
+  }
+}

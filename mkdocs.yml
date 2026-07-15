@@ -190,6 +190,8 @@ nav:
     - Concept Taxonomy: learning-graph/concept-taxonomy.md
     - Taxonomy Distribution Report: learning-graph/taxonomy-distribution.md
     - Graph Quality Metrics: learning-graph/quality-metrics.md
+    - Book Metrics: learning-graph/book-metrics.md
+    - Chapter Metrics: learning-graph/chapter-metrics.md
     - FAQ Quality Report: learning-graph/faq-quality-report.md
     - FAQ Coverage Gaps: learning-graph/faq-coverage-gaps.md
     - Quiz Generation Report: learning-graph/quiz-generation-report.md
@@ -217,17 +219,22 @@ nav:
     - Adaptive Learning Loop Explorer: sims/adaptive-learning-loop-explorer/index.md
     - Agent Capability Explorer: sims/agent-capability-explorer/index.md
     - Assessment Feedback Loop Explorer: sims/feedback-loop-explorer/index.md
+    - Automated Validator Report Reader: sims/automated-validator-report-reader/index.md
+    - Betweenness Centrality Heatmap Explorer: sims/betweenness-centrality-heatmap-explorer/index.md
     - Blocked vs. Interleaved Practice Simulator: sims/blocked-vs-interleaved-simulator/index.md
     - Bloom's Taxonomy Pyramid Explorer: sims/blooms-pyramid-explorer/index.md
     - Book and Chapter Metrics Dashboard: sims/book-chapter-metrics-dashboard/index.md
     - Book Build Workflow: sims/book-build-workflow/index.md
     - Book Build Workflow: sims/book-gen-workflow/index.md
     - Book Build Workflow Pipeline: sims/book-build-workflow-pipeline/index.md
+    - Category Balance and Overlap Auditor: sims/category-balance-overlap-auditor/index.md
     - Clustering and Abstraction Explorer: sims/clustering-abstraction-explorer/index.md
     - Concept to Content Viewer: sims/concept-to-content-viewer/index.md
     - Content Sequencing Algorithm Simulator: sims/content-sequencing-simulator/index.md
+    - CSV-to-JSON Record Mapper: sims/csv-to-json-record-mapper/index.md
     - DAG Cycle Detector: sims/dag-cycle-detector/index.md
     - Dependency Analysis Console: sims/dependency-analysis-console/index.md
+    - Dependency Review Console: sims/dependency-review-console/index.md
     - Dependency Role Explorer: sims/dependency-role-explorer/index.md
     - Distractor Quality Rater: sims/distractor-quality-rater/index.md
     - Domain Cluster Explorer: sims/domain-cluster-explorer/index.md
@@ -242,6 +249,7 @@ nav:
     - Graph Editor with Live Validation: sims/graph-editor-live-validation/index.md
     - Graph Family Lens Explorer: sims/graph-family-lens-explorer/index.md
     - Graph JS Library Comparison: sims/graph-js-library-comparison/index.md
+    - Graph Traversal Step-Through — DFS vs. BFS: sims/graph-traversal-step-through/index.md
     - Graph Viewer: sims/learning-graph/index.md
     - Hover Tooltip Explorer: sims/hover-tooltip-explorer/index.md
     - Hyper-Personalization Input Explorer: sims/hyper-personalization-input-explorer/index.md
@@ -265,12 +273,14 @@ nav:
     - Node Styling Property Playground: sims/node-styling-property-playground/index.md
     - Orphan and Disconnected Subgraph Explorer: sims/orphan-disconnected-explorer/index.md
     - Physics Force Explorer: sims/physics-force-explorer/index.md
+    - Readiness and Mastery Dashboard: sims/readiness-mastery-dashboard/index.md
     - Ready-to-Learn Frontier Simulator: sims/ready-to-learn-frontier-simulator/index.md
     - Real-World Deployment Patterns Explorer: sims/real-world-deployment-patterns/index.md
     - Retrieval-Augmented Generation Step-Through: sims/rag-step-through/index.md
     - Scaffolding Fade Simulator: sims/scaffolding-fade-simulator/index.md
     - Search and Focus Navigation Console: sims/search-focus-navigation-console/index.md
     - Similarity Metric Comparison Tool: sims/similarity-metric-comparison-tool/index.md
+    - SKOS Relation Triple Builder: sims/skos-relation-triple-builder/index.md
     - SKOS Relationship Map: sims/skos-relationship-map/index.md
     - Structural Variations Explorer: sims/structural-variations-explorer/index.md
     - Taxonomy Classifier Workbench: sims/taxonomy-classifier-workbench/index.md
@@ -279,6 +289,8 @@ nav:
     - Topological Sort Step-Through: sims/topological-sort-stepper/index.md
     - Transitive Dependency and Hop Count Finder: sims/transitive-dependency-hop-finder/index.md
     - Working Memory Load Simulator: sims/working-memory-load-simulator/index.md
+
+
 
 
   - Glossary: glossary.md

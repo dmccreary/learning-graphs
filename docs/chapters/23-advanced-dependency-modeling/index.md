@@ -107,6 +107,10 @@ One more pattern names a specific, high-stakes kind of prerequisite. A **Mastery
 
 #### Diagram: Dependency Review Console
 
+
+<iframe src="../../sims/dependency-review-console/main.html" width="100%" height="482px" scrolling="no"></iframe>
+[Run Dependency Review Console Fullscreen](../../sims/dependency-review-console/main.html)
+
 <details markdown="1">
 <summary>Dependency Review Console</summary>
 Type: microsim

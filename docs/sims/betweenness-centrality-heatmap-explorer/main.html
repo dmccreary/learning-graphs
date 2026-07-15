@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Betweenness Centrality Heatmap Explorer</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- IMPORTANT: every overlay is a SIBLING of #network. vis-network erases
+         the innerHTML of its container on init. -->
+    <div class="container">
+        <div class="title">Betweenness Centrality Heatmap Explorer</div>
+
+        <!-- Color scale legend, above the graph per spec -->
+        <div class="scale-row">
+            <div class="scale-legend">
+                <span class="scale-cap">Betweenness centrality</span>
+                <span class="scale-end">low</span>
+                <div class="scale-bar"></div>
+                <span class="scale-end">high</span>
+            </div>
+            <div class="scale-actions">
+                <label class="toggle" id="removal-label">
+                    <input type="checkbox" id="removal-toggle" disabled>
+                    <span>Simulate Removal</span>
+                </label>
+                <button class="btn btn-secondary" id="clear-btn" disabled>Clear</button>
+            </div>
+        </div>
+
+        <div class="graph-panel">
+            <div id="network"></div>
+        </div>
+
+        <div class="infobox" id="infobox">
+            <div class="info-prompt" id="info-prompt">
+                Click a red or orange node to see which paths depend on it.
+            </div>
+        </div>
+    </div>
+
+    <script src="betweenness-centrality-heatmap-explorer.js"></script>
+</body>
+</html>

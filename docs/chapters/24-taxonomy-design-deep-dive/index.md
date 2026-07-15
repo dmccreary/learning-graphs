@@ -109,6 +109,10 @@ Chapter 5 gave a dependency graph a full suite of structural checks. This chapte
 
 #### Diagram: Category Balance and Overlap Auditor
 
+
+<iframe src="../../sims/category-balance-overlap-auditor/main.html" width="100%" height="562px" scrolling="no"></iframe>
+[Run Category Balance and Overlap Auditor Fullscreen](../../sims/category-balance-overlap-auditor/main.html)
+
 <details markdown="1">
 <summary>Category Balance and Overlap Auditor</summary>
 Type: microsim

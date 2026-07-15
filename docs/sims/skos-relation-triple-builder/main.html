@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>SKOS Relation Triple Builder</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vis-network/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- IMPORTANT: overlays are SIBLINGS of #network. vis-network erases the
+         innerHTML of its container on init. -->
+    <div class="container">
+        <div class="title">SKOS Relation Triple Builder</div>
+
+        <div class="progress-row">
+            <span class="progress-text" id="progress-text">Pair 1 of 6</span>
+            <span class="dots" id="dots"></span>
+            <span class="score" id="score">First-try score: 0 / 0</span>
+        </div>
+
+        <div class="graph-panel">
+            <div id="network"></div>
+        </div>
+
+        <div class="feedback" id="feedback">
+            <div class="fb-idle" id="fb-idle">
+                Which SKOS relation belongs on this arrow? Use <b>Swap</b> if the arrow points
+                the wrong way.
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="relation-buttons">
+                <button class="btn btn-rel" id="btn-broader" data-rel="broader">Broader</button>
+                <button class="btn btn-rel" id="btn-narrower" data-rel="narrower">Narrower</button>
+                <button class="btn btn-rel" id="btn-related" data-rel="related">Related</button>
+            </div>
+            <div class="nav-buttons">
+                <button class="btn btn-swap" id="btn-swap" title="Flip which concept the arrow starts from">&#8646; Swap</button>
+                <button class="btn btn-primary" id="btn-next" disabled>Next Pair</button>
+                <button class="btn btn-secondary" id="btn-reset">Reset Progress</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="skos-relation-triple-builder.js"></script>
+</body>
+</html>

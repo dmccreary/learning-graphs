@@ -118,6 +118,10 @@ Every metric so far has measured a graph's own dependency structure directly. On
 
 #### Diagram: Betweenness Centrality Heatmap Explorer
 
+
+<iframe src="../../sims/betweenness-centrality-heatmap-explorer/main.html" width="100%" height="622px" scrolling="no"></iframe>
+[Run Betweenness Centrality Heatmap Explorer Fullscreen](../../sims/betweenness-centrality-heatmap-explorer/main.html)
+
 <details markdown="1">
 <summary>Betweenness Centrality Heatmap Explorer</summary>
 Type: microsim
