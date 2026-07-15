@@ -371,3 +371,5 @@ This chapter moved from the static, one-time sequencing of Chapter 8 into the dy
 !!! mascot-celebration "Well done!"
     ![Axiom celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     Pause and appreciate your progress — you now understand not only how to build and validate a learning graph, but how an intelligent textbook can use that graph, together with real evidence from the learning sciences, to decide what any individual learner should study next. Let's connect the concepts — you have now covered the full learning-science foundation this book set out to teach, from Chapter 1's first Directed Acyclic Graph all the way to a working content sequencing algorithm.
+
+[See Annotated References](./references.md)

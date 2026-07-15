@@ -330,3 +330,5 @@ Chapter 5 picks up directly from the distribution report and the miscellaneous-c
 !!! mascot-celebration "Well done!"
     ![Axiom celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     Pause and appreciate your progress — you can now explain the difference between a dependency graph and a taxonomy, walk through the full classify-report-rebalance workflow, and describe how clustering and abstraction can propose a first-draft category scheme straight from graph structure. That's a genuinely professional skill: most course designers never learn to audit a taxonomy this rigorously. Next, we put dependency graphs and taxonomies both under the microscope for quality validation. Let's connect the concepts!
+
+[See Annotated References](./references.md)

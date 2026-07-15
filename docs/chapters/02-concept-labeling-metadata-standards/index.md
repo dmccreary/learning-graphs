@@ -299,3 +299,5 @@ With every concept in the graph properly named, defined, and cataloged, the next
 !!! mascot-celebration "Nicely done!"
     ![Axiom celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     You can now give any concept in a learning graph a proper name, a rigorous definition, and a place in a standardized vocabulary — the same discipline professional catalogers apply to entire libraries. Pause and appreciate your progress before we move on to dependencies.
+
+[See Annotated References](./references.md)

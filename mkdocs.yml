@@ -26,60 +26,79 @@ nav:
     - 1. Foundations of Concept Graphs:
       - Content: chapters/01-foundations-of-concept-graphs/index.md
       - Quiz: chapters/01-foundations-of-concept-graphs/quiz.md
+      - Annotated References: chapters/01-foundations-of-concept-graphs/references.md
     - 2. Concept Labeling and Metadata Standards:
       - Content: chapters/02-concept-labeling-metadata-standards/index.md
       - Quiz: chapters/02-concept-labeling-metadata-standards/quiz.md
+      - Annotated References: chapters/02-concept-labeling-metadata-standards/references.md
     - 3. Concept Dependencies and Prerequisites:
       - Content: chapters/03-concept-dependencies-prerequisites/index.md
       - Quiz: chapters/03-concept-dependencies-prerequisites/quiz.md
+      - Annotated References: chapters/03-concept-dependencies-prerequisites/references.md
     - 4. Concept Taxonomies and Ontologies:
       - Content: chapters/04-concept-taxonomies-ontologies/index.md
       - Quiz: chapters/04-concept-taxonomies-ontologies/quiz.md
+      - Annotated References: chapters/04-concept-taxonomies-ontologies/references.md
     - 5. Learning Graph Quality, Validation, and File Formats:
       - Content: chapters/05-graph-quality-validation-file-formats/index.md
       - Quiz: chapters/05-graph-quality-validation-file-formats/quiz.md
+      - Annotated References: chapters/05-graph-quality-validation-file-formats/references.md
     - 6. Bloom's Taxonomy and Learning Objectives:
       - Content: chapters/06-blooms-taxonomy-learning-objectives/index.md
       - Quiz: chapters/06-blooms-taxonomy-learning-objectives/quiz.md
+      - Annotated References: chapters/06-blooms-taxonomy-learning-objectives/references.md
     - 7. Learning Theories and Instructional Design:
       - Content: chapters/07-learning-theories-instructional-design/index.md
       - Quiz: chapters/07-learning-theories-instructional-design/quiz.md
+      - Annotated References: chapters/07-learning-theories-instructional-design/references.md
     - 8. Cognitive Load and Knowledge Space Theory:
       - Content: chapters/08-cognitive-load-knowledge-space-theory/index.md
       - Quiz: chapters/08-cognitive-load-knowledge-space-theory/quiz.md
+      - Annotated References: chapters/08-cognitive-load-knowledge-space-theory/references.md
     - 9. Mastery, Metacognition, and Instructional Sequencing:
       - Content: chapters/09-mastery-metacognition-sequencing/index.md
       - Quiz: chapters/09-mastery-metacognition-sequencing/quiz.md
+      - Annotated References: chapters/09-mastery-metacognition-sequencing/references.md
     - 10. Assessment, Feedback, and Quizzes:
       - Content: chapters/10-assessment-feedback-quizzes/index.md
       - Quiz: chapters/10-assessment-feedback-quizzes/quiz.md
+      - Annotated References: chapters/10-assessment-feedback-quizzes/references.md
     - 11. Vis.js Fundamentals and Node Styling:
       - Content: chapters/11-visjs-fundamentals-node-styling/index.md
       - Quiz: chapters/11-visjs-fundamentals-node-styling/quiz.md
+      - Annotated References: chapters/11-visjs-fundamentals-node-styling/references.md
     - 12. Edge Styling and Visual Properties:
       - Content: chapters/12-edge-styling-visual-properties/index.md
       - Quiz: chapters/12-edge-styling-visual-properties/quiz.md
+      - Annotated References: chapters/12-edge-styling-visual-properties/references.md
     - 13. Physics Simulation and Graph Layout:
       - Content: chapters/13-physics-simulation-graph-layout/index.md
       - Quiz: chapters/13-physics-simulation-graph-layout/quiz.md
+      - Annotated References: chapters/13-physics-simulation-graph-layout/references.md
     - 14. Interactive Navigation in Vis.js:
       - Content: chapters/14-interactive-navigation-visjs/index.md
       - Quiz: chapters/14-interactive-navigation-visjs/quiz.md
+      - Annotated References: chapters/14-interactive-navigation-visjs/references.md
     - 15. Graph Clustering and Editing Tools:
       - Content: chapters/15-graph-clustering-editing-tools/index.md
       - Quiz: chapters/15-graph-clustering-editing-tools/quiz.md
+      - Annotated References: chapters/15-graph-clustering-editing-tools/references.md
     - 16. Personalization and Adaptive Learning Paths:
       - Content: chapters/16-personalization-adaptive-learning-paths/index.md
       - Quiz: chapters/16-personalization-adaptive-learning-paths/quiz.md
+      - Annotated References: chapters/16-personalization-adaptive-learning-paths/references.md
     - 17. Intelligent Agents and Generative AI:
       - Content: chapters/17-intelligent-agents-generative-ai/index.md
       - Quiz: chapters/17-intelligent-agents-generative-ai/quiz.md
+      - Annotated References: chapters/17-intelligent-agents-generative-ai/references.md
     - 18. Intelligent Textbooks, MicroSims, and Deployment:
       - Content: chapters/18-intelligent-textbooks-microsims-deployment/index.md
       - Quiz: chapters/18-intelligent-textbooks-microsims-deployment/quiz.md
+      - Annotated References: chapters/18-intelligent-textbooks-microsims-deployment/references.md
     - 19. Using a Skill to Generate a Learning Graph:
       - Content: chapters/19-skill-generate-learning-graph/index.md
       - Quiz: chapters/19-skill-generate-learning-graph/quiz.md
+      - Annotated References: chapters/19-skill-generate-learning-graph/references.md
   
   - Case Studies:
     - Introduction: case-studies/index.md
@@ -232,6 +251,7 @@ nav:
   # Supplementary Content From Here Down
   - Glossary: glossary.md
   - FAQ: faq.md
+  - "Appendix: Graph Visualization Libraries": appendix-graph-libs.md
   - How We Built This Site: how-we-built-this-site.md
   - References: references.md
   - License: license.md

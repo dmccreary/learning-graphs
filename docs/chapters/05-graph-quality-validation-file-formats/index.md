@@ -415,3 +415,5 @@ That is the complete path from a raw spreadsheet of concept labels to a certifie
 !!! mascot-celebration "Well done!"
     ![Axiom celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     Pause and appreciate your progress — you can now read a quality metrics report the way a course designer does, explain the difference between a structural check and a coverage check, and trace a concept all the way from a CSV row through JSON conversion to a certified, published graph. That is exactly the rigor an intelligent textbook needs before anyone trusts it with real learners. Next, we go back under the hood of the graph itself for the algorithms — traversal, search, dependency analysis — that make every check in this chapter possible. Let's connect the concepts!
+
+[See Annotated References](./references.md)

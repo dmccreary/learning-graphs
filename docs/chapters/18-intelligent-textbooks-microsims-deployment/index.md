@@ -466,3 +466,5 @@ The next chapter turns from watching this pipeline work to running it yourself �
 !!! mascot-celebration "Well done!"
     ![Axiom celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     Pause and appreciate your progress — you have now traced the full journey from a raw concept dependency graph to a published, interactive intelligent textbook, and you did it by reading a chapter of exactly that textbook. Let's connect the concepts: every mascot admonition, every diagram spec, every table in this chapter was produced by the Book Build Workflow you just learned to name. That is not a coincidence — it is the point.
+
+[See Annotated References](./references.md)

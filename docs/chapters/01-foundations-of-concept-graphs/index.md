@@ -395,3 +395,5 @@ Implementation: vis-network JavaScript library for the graph view; a simple topo
 !!! mascot-celebration "Well Done!"
     ![Axiom celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     Pause and appreciate your progress — you can now name every structural piece of a learning graph and explain how it differs from its cousins in the graph family. That vocabulary is the foundation every later chapter builds on. Next, we turn to how those concepts get consistent, machine-readable labels. Let's connect the concepts!
+
+[See Annotated References](./references.md)

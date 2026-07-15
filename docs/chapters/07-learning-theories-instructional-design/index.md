@@ -382,3 +382,5 @@ This chapter connected the concept dependency graphs built in Chapters 1 through
 !!! mascot-celebration "Well done!"
     ![Axiom celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     Pause and appreciate your progress — you now know *why* a concept dependency graph is more than a convenient data structure. Every edge you draw is a small, testable claim grounded in real learning science, and every chapter you sequence is an act of instructional design. Let's connect the concepts — next, we return to graph theory itself: the traversal, search, and clustering algorithms that let an intelligent agent actually navigate the structures this chapter just explained the *why* behind.
+
+[See Annotated References](./references.md)

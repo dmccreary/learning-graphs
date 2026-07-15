@@ -387,3 +387,5 @@ The next chapter turns from the agents themselves to what they produce: MicroSim
 !!! mascot-celebration "Well done!"
     ![Axiom celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     Pause and appreciate your progress — you have now connected generative AI's raw content-production capability all the way through to a fully autonomous learning agent capable of building a personalized lesson plan on its own. Let's connect the concepts — this is the chapter where the learning graph stopped being something you read about and became something a machine can act on.
+
+[See Annotated References](./references.md)

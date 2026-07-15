@@ -303,3 +303,5 @@ Implementation: vis-network JavaScript library; control panel built with standar
 !!! mascot-celebration "Well Done!"
     ![Axiom celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     Pause and appreciate your progress — nodes and edges together now hold no styling secrets from you. You can take any concept dependency graph and make its shape, its color, and its direction all say exactly what you mean. Let's connect the concepts, next with layout and navigation!
+
+[See Annotated References](./references.md)

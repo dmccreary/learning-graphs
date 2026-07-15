@@ -477,3 +477,5 @@ Every mechanism in this chapter exists to solve the same underlying problem from
 !!! mascot-celebration "Well Done!"
     ![Axiom celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     Pause and appreciate your progress — you have finished Part III! Your learning graph can now be styled, laid out, navigated, folded into readable clusters, and edited directly, with validation checks standing guard the whole time. Let's connect the concepts, next by turning to the learning-science theories that explain *why* a graph-based approach to sequencing concepts actually works!
+
+[See Annotated References](./references.md)

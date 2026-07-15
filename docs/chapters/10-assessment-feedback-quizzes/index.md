@@ -354,3 +354,5 @@ This chapter traced a single thread from the general idea of assessment down to 
 !!! mascot-celebration "Well done!"
     ![Axiom celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     Pause and appreciate your progress — you now understand how an intelligent textbook actually finds out what a learner knows, from the first raw assessment signal all the way down to a carefully crafted quiz distractor. Let's connect the concepts — every mastery record Chapter 9's content sequencing algorithm reads is built entirely out of the feedback-log entries this chapter just showed you how to generate.
+
+[See Annotated References](./references.md)

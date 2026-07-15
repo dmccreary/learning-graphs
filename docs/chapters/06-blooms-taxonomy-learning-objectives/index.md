@@ -260,3 +260,5 @@ This chapter connected the concept dependency graphs built in Chapters 1 through
 !!! mascot-celebration "Well done!"
     ![Axiom celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     Pause and appreciate your progress — you now have the vocabulary to look at any concept in a learning graph and ask a sharper question than "is this covered?": *at what level* is it covered, and is that the right level for where this concept sits in the course? That question is exactly what turns a validated graph into a genuinely well-designed course. Let's connect the concepts — next, we return to the graph theory underneath everything you've learned so far: traversal, search, and dependency analysis, the algorithms that make every check and every objective in this book possible.
+
+[See Annotated References](./references.md)

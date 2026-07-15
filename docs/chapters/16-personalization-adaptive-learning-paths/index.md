@@ -423,3 +423,5 @@ The next chapter carries this forward into the agents themselves: how an intelli
 !!! mascot-celebration "Well done!"
     ![Axiom celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     Pause and appreciate your progress — you have now connected the entire personalization pipeline, from a single walkable learning path all the way to the similarity metric that powers a recommendation engine's every suggestion. Let's connect the concepts — everything you learned about validating and visualizing a learning graph in Parts I through III was building toward exactly this: a graph that can now adapt itself to the one learner reading it.
+
+[See Annotated References](./references.md)

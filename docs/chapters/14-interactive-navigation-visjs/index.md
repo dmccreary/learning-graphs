@@ -375,3 +375,5 @@ Reading the table top to bottom traces exactly the order this chapter presented 
 !!! mascot-celebration "Well Done!"
     ![Axiom celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     Pause and appreciate your progress — your learning graph can now be hovered, clicked, double-clicked, searched, and navigated, not just admired from a distance. Let's connect the concepts, next by turning everything you have built across Chapters 11 through 14 into complete, shareable graph views!
+
+[See Annotated References](./references.md)

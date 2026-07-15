@@ -397,3 +397,5 @@ Implementation: vis-network JavaScript library using `layout.hierarchical` and `
 !!! mascot-celebration "Well Done!"
     ![Axiom celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     Pause and appreciate your progress — you now understand not just how a learning graph looks, but *why* it arranges itself that way, frame by frame, before you ever touch it. Let's connect the concepts, next by putting layout, styling, and interaction together into complete, publishable graph views!
+
+[See Annotated References](./references.md)

@@ -355,3 +355,5 @@ Implementation: vis-network JavaScript library with four client-side query funct
 !!! mascot-celebration "Well done!"
     ![Axiom celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     Pause and appreciate your progress — you can now trace a full dependency chain from any concept down to its foundations, name every stage of a learner's readiness, and compute the skill gap between where someone is and where they're headed. That's the exact reasoning a personalization engine performs, just done by hand instead of by code. Next, we turn from individual dependencies to organizing whole graphs of concepts into taxonomies. Let's connect the concepts!
+
+[See Annotated References](./references.md)

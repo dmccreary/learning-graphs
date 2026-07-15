@@ -375,3 +375,5 @@ This chapter connected two threads that, on the surface, look unrelated but turn
 !!! mascot-celebration "Well done!"
     ![Axiom celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     Pause and appreciate your progress — you now have the vocabulary to explain not just *that* a learning graph should be sequenced carefully, but precisely *why*: working memory has a measurable limit, and the graph's own partial order guarantees at least one — usually many — teaching sequences that respect it. Let's connect the concepts — next, Chapter 9 builds directly on this chapter's knowledge-state vocabulary, turning it toward mastery tracking and metacognition: how a learner, and an intelligent textbook, can actually know when a concept has been learned well enough to move to the next one.
+
+[See Annotated References](./references.md)

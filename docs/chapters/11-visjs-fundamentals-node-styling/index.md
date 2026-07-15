@@ -473,3 +473,5 @@ Implementation: vis-network JavaScript library; control panel built with standar
 !!! mascot-celebration "Well Done!"
     ![Axiom celebrating](../../img/mascot/celebration.png){ class="mascot-admonition-img" }
     Pause and appreciate your progress — you just went from reading graph diagrams to understanding exactly how they are built, property by property. Next up: edges get the same treatment, from arrow styles to dashed lines to hover labels. Let's connect the concepts!
+
+[See Annotated References](./references.md)
