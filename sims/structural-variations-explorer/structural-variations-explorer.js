@@ -93,6 +93,7 @@ const tradeoffs = {
 let nodes, edges, network;
 let currentView = 'hierarchy';
 let degreeMap = {};
+let stabilizeFallbackTimer = null;
 
 // ===========================================
 // DERIVED: node degree (total connections)
@@ -293,16 +294,36 @@ function applyView(view) {
 
     // For fixed (physics-off) hierarchy, fit immediately + draw bands.
     if (view === 'hierarchy') {
+        clearTimeout(stabilizeFallbackTimer);
         network.stabilize();
         network.fit({ animation: { duration: 600, easingFunction: 'easeInOutQuad' } });
         setTimeout(updateBandShading, 650);
     } else {
-        // Physics views: bands/fit handled by stabilizationIterationsDone.
+        // Physics views: bands/fit normally handled by finalizePhysicsView(),
+        // triggered by the 'stabilizationIterationsDone' event. That event is
+        // not reliably emitted for every hierarchical+physics combination, so
+        // a fallback timer guarantees the view still gets fit to the settled
+        // layout even if the event never fires.
         updateBandShading(); // clear immediately
+        clearTimeout(stabilizeFallbackTimer);
+        stabilizeFallbackTimer = setTimeout(finalizePhysicsView, 900);
     }
 
     updateButtons();
     updateInfobox();
+}
+
+// Disable physics and snap the view to the now-settled layout. Called from
+// 'stabilizationIterationsDone' when that event fires, and from a fallback
+// timer (see applyView) when it doesn't.
+function finalizePhysicsView() {
+    clearTimeout(stabilizeFallbackTimer);
+    network.setOptions({ physics: { enabled: false } });
+    network.fit({ animation: { duration: 400, easingFunction: 'easeInOutQuad' } });
+    setTimeout(function () {
+        network.fit({ animation: false });
+        updateBandShading();
+    }, 420);
 }
 
 function interactionOptions() {
@@ -360,12 +381,9 @@ function initializeNetwork() {
     const container = document.getElementById('network');
     network = new vis.Network(container, { nodes: nodes, edges: edges }, hierarchyOptions());
 
-    // When any physics layout finishes, disable physics, fit, and draw bands.
-    network.on('stabilizationIterationsDone', function () {
-        network.setOptions({ physics: { enabled: false } });
-        network.fit({ animation: { duration: 500, easingFunction: 'easeInOutQuad' } });
-        setTimeout(updateBandShading, 520);
-    });
+    // When any physics layout finishes, disable physics, fit, and draw bands
+    // (falls back to a timer in applyView() if this event never fires).
+    network.on('stabilizationIterationsDone', finalizePhysicsView);
 
     // Keep band strips aligned if the view is dragged/zoomed (standalone) or animates.
     network.on('afterDrawing', function () {

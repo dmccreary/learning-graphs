@@ -11,7 +11,7 @@
   "format": "text/html",
   "language": "en",
   "rights": "All rights reserved",
-  "identifier": "agent-capability-explorer",
+  "identifier": "https://dmccreary.github.io/learning-graphs/sims/agent-capability-explorer/",
   "library": "p5.js",
   "bloomLevel": "Analyze (L4)",
   "bloomVerb": "differentiate, examine, distinguish",

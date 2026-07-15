@@ -1,0 +1,2923 @@
+{
+  "terms": [
+    {
+      "term": "Abstraction (Graph)",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Adaptive Algorithm",
+      "related_terms": [
+        "Adaptive Learning",
+        "Learner Model",
+        "Personalized Learning Path"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Adaptive Learning",
+      "related_terms": [
+        "Learner Model",
+        "Personalized Learning Path"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Adaptive Learning Path",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Adjacency List",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Adjacency Matrix",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Affective Domain",
+      "related_terms": [
+        "Instructional Design",
+        "Learning Objective",
+        "Mastery Learning"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Agent Autonomy",
+      "related_terms": [
+        "Generative AI",
+        "Intelligent Agent",
+        "Prompt Engineering"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Agent Skill",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Alternate Label",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Alternative Prerequisite",
+      "related_terms": [
+        "Concept Dependency",
+        "Prerequisite Relationship",
+        "Dependency Analysis"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Analyzing",
+      "related_terms": [
+        "Applying",
+        "Evaluating",
+        "Learning Graph"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Ancestor Concept",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Andragogy",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Applying",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Assessment",
+      "related_terms": [
+        "Formative Feedback",
+        "Quiz"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Associative Relation",
+      "related_terms": [
+        "Concept Taxonomy",
+        "Taxonomy Category",
+        "Ontology"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Atomic Concept",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Automated Quality Validation",
+      "related_terms": [
+        "Learning Graph Validation",
+        "Graph Quality Metric",
+        "Quality Gate"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Automated Validator",
+      "related_terms": [
+        "Learning Graph Validation",
+        "Graph Quality Metric",
+        "Quality Gate"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Backward Design",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Balanced Taxonomy",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Barnes-Hut Solver",
+      "related_terms": [
+        "Vis.js",
+        "Interactive Visualization",
+        "Graph Layout Algorithm"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Behaviorism",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Betweenness Centrality",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Bloom's Taxonomy",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Book Build Workflow",
+      "related_terms": [
+        "Generative AI",
+        "Intelligent Agent",
+        "Prompt Engineering"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Book Metrics",
+      "related_terms": [
+        "Intelligent Textbook",
+        "MkDocs",
+        "GitHub Pages"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Bottleneck Concept",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Breadth-First Search",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Case Study",
+      "related_terms": [
+        "Intelligent Textbook",
+        "MkDocs",
+        "GitHub Pages"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Category Assignment",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Category Balance",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Category Boundary",
+      "related_terms": [
+        "Concept Taxonomy",
+        "Taxonomy Category",
+        "Ontology"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Category Coverage",
+      "related_terms": [
+        "Concept Taxonomy",
+        "Taxonomy Category",
+        "Ontology"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Category Overlap",
+      "related_terms": [
+        "Concept Taxonomy",
+        "Taxonomy Category",
+        "Ontology"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Central Gravity",
+      "related_terms": [
+        "Vis.js",
+        "Interactive Visualization",
+        "Graph Layout Algorithm"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Chapter Metrics",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Chatbot",
+      "related_terms": [
+        "Generative AI",
+        "Intelligent Agent",
+        "Prompt Engineering"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Chunking (Cognitive Load)",
+      "related_terms": [
+        "Instructional Design",
+        "Learning Objective",
+        "Mastery Learning"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Classification Scheme",
+      "related_terms": [
+        "Concept Taxonomy",
+        "Taxonomy Category",
+        "Ontology"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Claude Code",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Click Event Handling",
+      "related_terms": [
+        "Vis.js",
+        "Interactive Visualization",
+        "Graph Layout Algorithm"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Clickable Node",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Cluster (Graph)",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Cluster Expand/Collapse",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Clustering (Graph)",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Co-Prerequisite",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Cognitive Domain",
+      "related_terms": [
+        "Instructional Design",
+        "Learning Objective",
+        "Mastery Learning"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Cognitive Load Theory",
+      "related_terms": [
+        "Instructional Design",
+        "Learning Objective",
+        "Mastery Learning"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Cognitivism",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Color Configuration",
+      "related_terms": [
+        "Vis.js",
+        "Interactive Visualization",
+        "Graph Layout Algorithm"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Competency Model",
+      "related_terms": [
+        "Instructional Design",
+        "Learning Objective",
+        "Mastery Learning"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Competency-Based Education",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Composite Concept",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Composite Node",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Concept",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Concept Centrality",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Concept Definition",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Concept Dependency",
+      "related_terms": [
+        "Prerequisite Relationship",
+        "Dependency Analysis"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Concept Granularity",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Concept Graph",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Concept Label",
+      "related_terms": [
+        "Metadata Field",
+        "Controlled Vocabulary"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Concept List Generation",
+      "related_terms": [
+        "Generative AI",
+        "Intelligent Agent",
+        "Prompt Engineering"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Concept List Review",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Concept Provenance",
+      "related_terms": [
+        "Concept Label",
+        "Metadata Field",
+        "Controlled Vocabulary"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Concept Similarity",
+      "related_terms": [
+        "Adaptive Learning",
+        "Learner Model",
+        "Personalized Learning Path"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Concept Taxonomy",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Concept-to-Content Viewer",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Concept-to-Taxonomy Mapping",
+      "related_terms": [
+        "Concept Taxonomy",
+        "Taxonomy Category",
+        "Ontology"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Connected Component",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Connectivism",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Constructive Alignment",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Constructivism",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Content Generation Pipeline",
+      "related_terms": [
+        "Generative AI",
+        "Intelligent Agent",
+        "Prompt Engineering"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Content Graph",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Content Recommendation Engine",
+      "related_terms": [
+        "Adaptive Learning",
+        "Learner Model",
+        "Personalized Learning Path"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Content Sequencing Algorithm",
+      "related_terms": [
+        "Instructional Design",
+        "Learning Objective",
+        "Mastery Learning"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Content Similarity",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Controlled Vocabulary",
+      "related_terms": [
+        "Concept Label",
+        "Metadata Field"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Course Description Scoring",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Course Evaluation",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Creating",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Critical Path",
+      "related_terms": [
+        "Concept Dependency",
+        "Prerequisite Relationship",
+        "Dependency Analysis"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "CSV",
+      "related_terms": [
+        "JSON",
+        "CSV Header",
+        "Data Pipeline"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "CSV Header",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "CSV to JSON Conversion",
+      "related_terms": [
+        "JSON",
+        "CSV",
+        "Data Pipeline"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Cubic Bezier Curve",
+      "related_terms": [
+        "Vis.js",
+        "Interactive Visualization",
+        "Graph Layout Algorithm"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Curriculum Alignment",
+      "related_terms": [
+        "Instructional Design",
+        "Learning Objective",
+        "Mastery Learning"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Curriculum Design",
+      "related_terms": [
+        "Instructional Design",
+        "Learning Objective",
+        "Mastery Learning"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Custom Canvas Shape",
+      "related_terms": [
+        "Vis.js",
+        "Interactive Visualization",
+        "Graph Layout Algorithm"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Custom Learning Plan",
+      "related_terms": [
+        "Instructional Design",
+        "Learning Objective",
+        "Mastery Learning"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Cycle Detection",
+      "related_terms": [
+        "Learning Graph Validation",
+        "Graph Quality Metric",
+        "Quality Gate"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Damping",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Data Pipeline",
+      "related_terms": [
+        "Generative AI",
+        "Intelligent Agent",
+        "Prompt Engineering"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Data Transformation",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Data Validation on Import",
+      "related_terms": [
+        "Vis.js",
+        "Interactive Visualization",
+        "Graph Layout Algorithm"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "DataSet",
+      "related_terms": [
+        "Vis.js",
+        "Interactive Visualization",
+        "Graph Layout Algorithm"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Degree Distribution",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Dependency Analysis",
+      "related_terms": [
+        "Concept Dependency",
+        "Prerequisite Relationship"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Dependency Assertion",
+      "related_terms": [
+        "Concept Dependency",
+        "Prerequisite Relationship",
+        "Dependency Analysis"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Dependency Confidence",
+      "related_terms": [
+        "Concept Dependency",
+        "Prerequisite Relationship",
+        "Dependency Analysis"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Dependency CSV Generation",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Dependency Depth",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Dependency Gap",
+      "related_terms": [
+        "Concept Dependency",
+        "Prerequisite Relationship",
+        "Dependency Analysis"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Dependency Graph",
+      "related_terms": [
+        "Concept Dependency",
+        "Prerequisite Relationship",
+        "Dependency Analysis"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Dependency Inference",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Dependency Plausibility",
+      "related_terms": [
+        "Learning Graph Validation",
+        "Graph Quality Metric",
+        "Quality Gate"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Dependency Rationale",
+      "related_terms": [
+        "Concept Dependency",
+        "Prerequisite Relationship",
+        "Dependency Analysis"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Dependency Review",
+      "related_terms": [
+        "Concept Dependency",
+        "Prerequisite Relationship",
+        "Dependency Analysis"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Depth-First Search",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Descendant Concept",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Desirable Difficulty",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Diagnostic Assessment",
+      "related_terms": [
+        "Assessment",
+        "Formative Feedback",
+        "Quiz"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Differentiated Instruction",
+      "related_terms": [
+        "Instructional Design",
+        "Learning Objective",
+        "Mastery Learning"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Direct Dependency",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Directed Acyclic Graph (DAG)",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Directed Edge",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Directed Graph",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Disconnected Subgraph",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Domain Attribute (Clustering)",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Double-Click Event",
+      "related_terms": [
+        "Vis.js",
+        "Interactive Visualization",
+        "Graph Layout Algorithm"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Dublin Core Description",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Dublin Core Metadata",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Dublin Core Title",
+      "related_terms": [
+        "Concept Label",
+        "Metadata Field",
+        "Controlled Vocabulary"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Duplicate Concept Detection",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Edge",
+      "related_terms": [
+        "Learning Graph",
+        "Node"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Edge Arrows",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Edge Color",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Edge Dashes",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Edge Direction",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Edge Font",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Edge Label",
+      "related_terms": [
+        "Concept Label",
+        "Metadata Field",
+        "Controlled Vocabulary"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Edge Property Editor",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Edge Provenance",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Edge Record",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Edge Smoothing",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Edge Tooltip",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Edge Width",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Emergent Knowledge Structure",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Evaluating",
+      "related_terms": [
+        "Analyzing",
+        "Creating",
+        "Learning Graph"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Exclusive Category",
+      "related_terms": [
+        "Concept Taxonomy",
+        "Taxonomy Category",
+        "Ontology"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "False Prerequisite",
+      "related_terms": [
+        "Concept Dependency",
+        "Prerequisite Relationship",
+        "Dependency Analysis"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Feedback Analysis",
+      "related_terms": [
+        "Assessment",
+        "Formative Feedback",
+        "Quiz"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Feedback Log",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Feedback Loop",
+      "related_terms": [
+        "Assessment",
+        "Formative Feedback",
+        "Quiz"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Fixed Node Position",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Focus Node Navigation",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Force-Directed Graph",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Force-Directed Graph Layout",
+      "related_terms": [
+        "Vis.js",
+        "Interactive Visualization",
+        "Graph Layout Algorithm"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "ForceAtlas2 Layout",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Formative Feedback",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Foundational Concept",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Frequently Asked Question",
+      "related_terms": [
+        "Assessment",
+        "Formative Feedback",
+        "Quiz"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Full Coverage Check",
+      "related_terms": [
+        "Learning Graph Validation",
+        "Graph Quality Metric",
+        "Quality Gate"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Generative AI",
+      "related_terms": [
+        "Intelligent Agent",
+        "Prompt Engineering"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Git",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "GitHub Pages",
+      "related_terms": [
+        "Intelligent Textbook",
+        "MkDocs"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Goal Concept",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Graph Cluster",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Graph Completeness",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Graph Connectivity",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Graph Density",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Graph Diameter",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Graph Editor",
+      "related_terms": [
+        "Vis.js",
+        "Interactive Visualization",
+        "Graph Layout Algorithm"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Graph Layout Algorithm",
+      "related_terms": [
+        "Vis.js",
+        "Interactive Visualization"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Graph Path",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Graph Quality Metric",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Graph Quality Score",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Graph Representation",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Graph Schema",
+      "related_terms": [
+        "Concept Label",
+        "Metadata Field",
+        "Controlled Vocabulary"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Graph Traversal",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "GraphRAG",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Group Record",
+      "related_terms": [
+        "Concept Label",
+        "Metadata Field",
+        "Controlled Vocabulary"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Group Styling",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Group Visibility Checkbox",
+      "related_terms": [
+        "Vis.js",
+        "Interactive Visualization",
+        "Graph Layout Algorithm"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "groups.json",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Growth Mindset",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Hierarchical Layout",
+      "related_terms": [
+        "Vis.js",
+        "Interactive Visualization",
+        "Graph Layout Algorithm"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Hierarchical Relation",
+      "related_terms": [
+        "Concept Taxonomy",
+        "Taxonomy Category",
+        "Ontology"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Hierarchy",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Homonym Disambiguation",
+      "related_terms": [
+        "Concept Label",
+        "Metadata Field",
+        "Controlled Vocabulary"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Hop Count",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Hover State",
+      "related_terms": [
+        "Vis.js",
+        "Interactive Visualization",
+        "Graph Layout Algorithm"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Human Dependency Review",
+      "related_terms": [
+        "Concept Dependency",
+        "Prerequisite Relationship",
+        "Dependency Analysis"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Human-in-the-Loop Review",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Hybrid Graph",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Hyper-Customized Lesson Plan",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Hyper-Personalization",
+      "related_terms": [
+        "Adaptive Learning",
+        "Learner Model",
+        "Personalized Learning Path"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Immediate Goal",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Incoming Edge",
+      "related_terms": [
+        "Outgoing Edge",
+        "Directed Edge",
+        "Learning Graph"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Indegree",
+      "related_terms": [
+        "Out-Degree",
+        "Node Degree",
+        "Learning Graph"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Indirect Dependency",
+      "related_terms": [
+        "Direct Dependency",
+        "Transitive Dependency",
+        "Concept Dependency"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Instructional Design",
+      "related_terms": [
+        "Learning Objective",
+        "Mastery Learning"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Intelligent Agent",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Intelligent Textbook",
+      "related_terms": [
+        "MkDocs",
+        "GitHub Pages"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Interactive Simulation",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Interactive Visualization",
+      "related_terms": [
+        "Vis.js",
+        "Graph Layout Algorithm"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Interleaved Practice",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Intermediate Goal",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Invalid Dependency ID",
+      "related_terms": [
+        "Learning Graph Validation",
+        "Graph Quality Metric",
+        "Quality Gate"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "ISO/IEC 11179",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Iterative Graph Regeneration",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Iterative Workflow",
+      "related_terms": [
+        "Generative AI",
+        "Intelligent Agent",
+        "Prompt Engineering"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "JavaScript",
+      "related_terms": [
+        "Intelligent Textbook",
+        "MkDocs",
+        "GitHub Pages"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Journey Map",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "JSON",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "JSON Data Format",
+      "related_terms": [
+        "JSON",
+        "CSV",
+        "Data Pipeline"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "JSON Graph Export",
+      "related_terms": [
+        "Vis.js",
+        "Interactive Visualization",
+        "Graph Layout Algorithm"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "JSON Graph Import",
+      "related_terms": [
+        "Vis.js",
+        "Interactive Visualization",
+        "Graph Layout Algorithm"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "JSON Schema",
+      "related_terms": [
+        "Concept Label",
+        "Metadata Field",
+        "Controlled Vocabulary"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "JSON Serialization",
+      "related_terms": [
+        "JSON",
+        "CSV",
+        "Data Pipeline"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Just-in-Time Learning",
+      "related_terms": [
+        "Instructional Design",
+        "Learning Objective",
+        "Mastery Learning"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Knowledge Component",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Knowledge Graph",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Knowledge Space Theory",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Knowledge State",
+      "related_terms": [
+        "Adaptive Learning",
+        "Learner Model",
+        "Personalized Learning Path"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Label Ambiguity",
+      "related_terms": [
+        "Concept Label",
+        "Metadata Field",
+        "Controlled Vocabulary"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Label Normalization",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Layout Direction",
+      "related_terms": [
+        "Vis.js",
+        "Interactive Visualization",
+        "Graph Layout Algorithm"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Learned Concept",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Learner Model",
+      "related_terms": [
+        "Adaptive Learning",
+        "Personalized Learning Path"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Learning Agent",
+      "related_terms": [
+        "Generative AI",
+        "Intelligent Agent",
+        "Prompt Engineering"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Learning Evidence",
+      "related_terms": [
+        "Assessment",
+        "Formative Feedback",
+        "Quiz"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Learning Goal",
+      "related_terms": [
+        "Instructional Design",
+        "Learning Objective",
+        "Mastery Learning"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Learning Graph",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Learning Graph Validation",
+      "related_terms": [
+        "Graph Quality Metric",
+        "Quality Gate"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Learning Management System (LMS)",
+      "related_terms": [
+        "Instructional Design",
+        "Learning Objective",
+        "Mastery Learning"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Learning Objective",
+      "related_terms": [
+        "Instructional Design",
+        "Mastery Learning"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Learning Path",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Learning Path Constraint",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Learning Path Recommendation",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Learning Progression",
+      "related_terms": [
+        "Instructional Design",
+        "Learning Objective",
+        "Mastery Learning"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Learning Sequence",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Learning Touchpoint",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Learning Trajectory",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Legend Display",
+      "related_terms": [
+        "Vis.js",
+        "Interactive Visualization",
+        "Graph Layout Algorithm"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "License Metadata",
+      "related_terms": [
+        "Concept Label",
+        "Metadata Field",
+        "Controlled Vocabulary"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "LLM-Generated Dependency Graph",
+      "related_terms": [
+        "Generative AI",
+        "Intelligent Agent",
+        "Prompt Engineering"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "LMS Integration",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Machine-Readable Metadata",
+      "related_terms": [
+        "Concept Label",
+        "Metadata Field",
+        "Controlled Vocabulary"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Markdown",
+      "related_terms": [
+        "JSON",
+        "CSV",
+        "Data Pipeline"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Mastery Learning",
+      "related_terms": [
+        "Adaptive Learning",
+        "Learner Model",
+        "Personalized Learning Path"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Mastery Prerequisite",
+      "related_terms": [
+        "Concept Dependency",
+        "Prerequisite Relationship",
+        "Dependency Analysis"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Mastery State",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Mastery Threshold",
+      "related_terms": [
+        "Learning Graph Validation",
+        "Graph Quality Metric",
+        "Quality Gate"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Maximum Path Length",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Metacognition",
+      "related_terms": [
+        "Instructional Design",
+        "Learning Objective",
+        "Mastery Learning"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Metadata Field",
+      "related_terms": [
+        "Concept Label",
+        "Controlled Vocabulary"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Metadata Record",
+      "related_terms": [
+        "Concept Label",
+        "Metadata Field",
+        "Controlled Vocabulary"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Metadata Validation",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "MicroSim",
+      "related_terms": [
+        "Intelligent Textbook",
+        "MkDocs",
+        "GitHub Pages"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Miscellaneous Category",
+      "related_terms": [
+        "Concept Taxonomy",
+        "Taxonomy Category",
+        "Ontology"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Missing Dependency",
+      "related_terms": [
+        "Learning Graph Validation",
+        "Graph Quality Metric",
+        "Quality Gate"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "MkDocs",
+      "related_terms": [
+        "Intelligent Textbook",
+        "GitHub Pages"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Multi-Agent Collaboration",
+      "related_terms": [
+        "Generative AI",
+        "Intelligent Agent",
+        "Prompt Engineering"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Multiple-Choice Question",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Named Concept",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Naming Convention",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Necessary Prerequisite",
+      "related_terms": [
+        "Concept Dependency",
+        "Prerequisite Relationship",
+        "Dependency Analysis"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Network Container",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Network Initialization",
+      "related_terms": [
+        "Vis.js",
+        "Interactive Visualization",
+        "Graph Layout Algorithm"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Nine Events of Instruction",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Node",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Node Background Color",
+      "related_terms": [
+        "Vis.js",
+        "Interactive Visualization",
+        "Graph Layout Algorithm"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Node Border Color",
+      "related_terms": [
+        "Vis.js",
+        "Interactive Visualization",
+        "Graph Layout Algorithm"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Node Border Width",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Node Degree",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Node Enricher Script",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Node Font Color",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Node Group",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Node Icon",
+      "related_terms": [
+        "Vis.js",
+        "Interactive Visualization",
+        "Graph Layout Algorithm"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Node Image",
+      "related_terms": [
+        "Vis.js",
+        "Interactive Visualization",
+        "Graph Layout Algorithm"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Node Inspector",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Node Opacity",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Node Pinning",
+      "related_terms": [
+        "Vis.js",
+        "Interactive Visualization",
+        "Graph Layout Algorithm"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Node Property Editor",
+      "related_terms": [
+        "Vis.js",
+        "Interactive Visualization",
+        "Graph Layout Algorithm"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Node Record",
+      "related_terms": [
+        "Concept Label",
+        "Metadata Field",
+        "Controlled Vocabulary"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Node Shadow",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Node Shape",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Node Size",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Node Tooltip",
+      "related_terms": [
+        "Vis.js",
+        "Interactive Visualization",
+        "Graph Layout Algorithm"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Node URL Property",
+      "related_terms": [
+        "Concept Taxonomy",
+        "Taxonomy Category",
+        "Ontology"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Non-Linear Learning Path",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Ontology",
+      "related_terms": [
+        "Concept Taxonomy",
+        "Taxonomy Category"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Ontology Class",
+      "related_terms": [
+        "Concept Taxonomy",
+        "Taxonomy Category",
+        "Ontology"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Ontology Property",
+      "related_terms": [
+        "Concept Taxonomy",
+        "Taxonomy Category",
+        "Ontology"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Orphaned Node",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Orphaned Node Detection",
+      "related_terms": [
+        "Learning Graph Validation",
+        "Graph Quality Metric",
+        "Quality Gate"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Out-Degree",
+      "related_terms": [
+        "Indegree",
+        "Node Degree",
+        "Learning Graph"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Outgoing Edge",
+      "related_terms": [
+        "Incoming Edge",
+        "Directed Edge",
+        "Learning Graph"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Overconstraint",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "p5.js",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Parallel Learning Paths",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Partial Order",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Path Length",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Pedagogical Coherence",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Personalized Feedback Loop",
+      "related_terms": [
+        "Assessment",
+        "Formative Feedback",
+        "Quiz"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Personalized Learning Path",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Personalized Sequencing",
+      "related_terms": [
+        "Adaptive Learning",
+        "Learner Model",
+        "Personalized Learning Path"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Physics Simulation",
+      "related_terms": [
+        "Vis.js",
+        "Interactive Visualization",
+        "Graph Layout Algorithm"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Pipe-Delimited Field",
+      "related_terms": [
+        "Concept Label",
+        "Metadata Field",
+        "Controlled Vocabulary"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Pipeline Session Log",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Polyhierarchy",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Preferred Label",
+      "related_terms": [
+        "Concept Label",
+        "Metadata Field",
+        "Controlled Vocabulary"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Prerequisite Chain",
+      "related_terms": [
+        "Concept Dependency",
+        "Prerequisite Relationship",
+        "Dependency Analysis"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Prerequisite Concept",
+      "related_terms": [
+        "Concept Dependency",
+        "Prerequisite Relationship",
+        "Dependency Analysis"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Prerequisite Frontier",
+      "related_terms": [
+        "Concept Dependency",
+        "Prerequisite Relationship",
+        "Dependency Analysis"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Prerequisite Relationship",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Prerequisite-Based Sequencing",
+      "related_terms": [
+        "Concept Dependency",
+        "Prerequisite Relationship",
+        "Dependency Analysis"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Prior Knowledge Activation",
+      "related_terms": [
+        "Instructional Design",
+        "Learning Objective",
+        "Mastery Learning"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Prompt Engineering",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Psychomotor Domain",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Quality Gate",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Quality Metrics Report",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Quiz",
+      "related_terms": [
+        "Assessment",
+        "Formative Feedback"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Quiz Distractor",
+      "related_terms": [
+        "Assessment",
+        "Formative Feedback",
+        "Quiz"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Reachability",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Readiness Estimation",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Ready-to-Learn Concept",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Real-World Application",
+      "related_terms": [
+        "Intelligent Textbook",
+        "MkDocs",
+        "GitHub Pages"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Recommendation Engine",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Recommended Prerequisite",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Redundant Dependency",
+      "related_terms": [
+        "Concept Dependency",
+        "Prerequisite Relationship",
+        "Dependency Analysis"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Referential Integrity",
+      "related_terms": [
+        "Learning Graph Validation",
+        "Graph Quality Metric",
+        "Quality Gate"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Remembering",
+      "related_terms": [
+        "Understanding",
+        "Bloom's Taxonomy",
+        "Learning Graph"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Reproducible Generation",
+      "related_terms": [
+        "Generative AI",
+        "Intelligent Agent",
+        "Prompt Engineering"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Repulsion Solver",
+      "related_terms": [
+        "Vis.js",
+        "Interactive Visualization",
+        "Graph Layout Algorithm"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Retrieval Practice",
+      "related_terms": [
+        "Instructional Design",
+        "Learning Objective",
+        "Mastery Learning"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Retrieval-Augmented Generation",
+      "related_terms": [
+        "Generative AI",
+        "Intelligent Agent",
+        "Prompt Engineering"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Rhizombic Learning",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Root Concept",
+      "related_terms": [
+        "Terminal Concept",
+        "Source Node",
+        "Learning Graph"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Scaffolding",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Schema Conformance",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Schema Theory",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Schema Validation",
+      "related_terms": [
+        "Concept Label",
+        "Metadata Field",
+        "Controlled Vocabulary"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Search Feature (Graph)",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Self-Dependency Prevention",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Self-Directed Exploration",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Self-Regulated Learning",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Semantic Relationship",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Semantic Type",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Similarity Metric",
+      "related_terms": [
+        "Adaptive Learning",
+        "Learner Model",
+        "Personalized Learning Path"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Sink Node",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Skill Gap",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Skill Invocation",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "SKOS",
+      "related_terms": [
+        "Concept Label",
+        "Metadata Field",
+        "Controlled Vocabulary"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "SKOS Alternate Label",
+      "related_terms": [
+        "Concept Label",
+        "Metadata Field",
+        "Controlled Vocabulary"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "SKOS Broader Relation",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "SKOS Narrower Relation",
+      "related_terms": [
+        "Concept Label",
+        "Metadata Field",
+        "Controlled Vocabulary"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "SKOS Preferred Label",
+      "related_terms": [
+        "Concept Label",
+        "Metadata Field",
+        "Controlled Vocabulary"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "SKOS Related Relation",
+      "related_terms": [
+        "Concept Label",
+        "Metadata Field",
+        "Controlled Vocabulary"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Source Node",
+      "related_terms": [
+        "Sink Node",
+        "Root Concept",
+        "Learning Graph"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Spaced Repetition",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Spiral Curriculum",
+      "related_terms": [
+        "Instructional Design",
+        "Learning Objective",
+        "Mastery Learning"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Spring Length Parameter",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Stabilization",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Strong Connectivity",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Structural Check",
+      "related_terms": [
+        "Learning Graph Validation",
+        "Graph Quality Metric",
+        "Quality Gate"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Student Similarity",
+      "related_terms": [
+        "Adaptive Learning",
+        "Learner Model",
+        "Personalized Learning Path"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Summative Assessment",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Synonym Management",
+      "related_terms": [
+        "Concept Label",
+        "Metadata Field",
+        "Controlled Vocabulary"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Taxonomy Breadth",
+      "related_terms": [
+        "Concept Taxonomy",
+        "Taxonomy Category",
+        "Ontology"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Taxonomy Category",
+      "related_terms": [
+        "Concept Taxonomy",
+        "Ontology"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Taxonomy Classifier",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Taxonomy Depth",
+      "related_terms": [
+        "Concept Taxonomy",
+        "Taxonomy Category",
+        "Ontology"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Taxonomy Distribution Report",
+      "related_terms": [
+        "Concept Taxonomy",
+        "Taxonomy Category",
+        "Ontology"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Taxonomy Drift",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Taxonomy Generation Step",
+      "related_terms": [
+        "Concept Taxonomy",
+        "Taxonomy Category",
+        "Ontology"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Taxonomy Legend",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Taxonomy Name Mapping",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Taxonomy Validation",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "TaxonomyID",
+      "related_terms": [
+        "Concept Taxonomy",
+        "Taxonomy Category",
+        "Ontology"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Terminal Concept",
+      "related_terms": [
+        "Root Concept",
+        "Goal Concept",
+        "Learning Graph"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Textbook Index",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Third-Party Certification",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Tool Use (Agent)",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Topological Sort",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Transitive Closure",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Transitive Dependency",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Transitive Reduction",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "True/False Question",
+      "related_terms": [
+        "Assessment",
+        "Formative Feedback",
+        "Quiz"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Type-Ahead Filtering",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Ultimate Goal",
+      "related_terms": [
+        "Learning Graph",
+        "Node",
+        "Edge"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Underconstraint",
+      "related_terms": [
+        "Overconstraint",
+        "Dependency Gap",
+        "Concept Dependency"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Understanding",
+      "related_terms": [
+        "Remembering",
+        "Applying",
+        "Learning Graph"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Unique Concept Identifier",
+      "related_terms": [
+        "Concept Label",
+        "Metadata Field",
+        "Controlled Vocabulary"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Universal Design for Learning",
+      "related_terms": [
+        "Instructional Design",
+        "Learning Objective",
+        "Mastery Learning"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Validation Error",
+      "related_terms": [
+        "Validation Warning",
+        "Automated Validator",
+        "Learning Graph Validation"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Validation Threshold",
+      "related_terms": [
+        "Learning Graph Validation",
+        "Graph Quality Metric",
+        "Quality Gate"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Validation Warning",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Version Metadata",
+      "related_terms": [
+        "Concept Label",
+        "Metadata Field",
+        "Controlled Vocabulary"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Vis-Network Library",
+      "related_terms": [
+        "Vis.js",
+        "Interactive Visualization",
+        "Graph Layout Algorithm"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Vis.js",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Vocabulary Governance",
+      "related_terms": [
+        "Concept Label",
+        "Metadata Field",
+        "Controlled Vocabulary"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "Vygotsky's Social Theory",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Weak Connectivity",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Working Memory Constraint",
+      "related_terms": [
+        "Instructional Design",
+        "Learning Objective",
+        "Mastery Learning"
+      ],
+      "contrasts_with": []
+    },
+    {
+      "term": "YAML",
+      "related_terms": [],
+      "contrasts_with": []
+    },
+    {
+      "term": "Zone of Proximal Development",
+      "related_terms": [],
+      "contrasts_with": []
+    }
+  ]
+}

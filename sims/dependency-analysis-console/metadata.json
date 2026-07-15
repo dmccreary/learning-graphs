@@ -11,7 +11,7 @@
   "format": "text/html",
   "language": "en",
   "rights": "All rights reserved",
-  "identifier": "dependency-analysis-console",
+  "identifier": "https://dmccreary.github.io/learning-graphs/sims/dependency-analysis-console/",
   "library": "vis-network",
   "bloomLevel": "Evaluate (L5)",
   "bloomVerb": "assess, justify",

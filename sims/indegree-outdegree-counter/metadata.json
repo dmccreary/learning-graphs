@@ -11,7 +11,7 @@
   "format": "text/html",
   "language": "en",
   "rights": "All rights reserved",
-  "identifier": "indegree-outdegree-counter",
+  "identifier": "https://dmccreary.github.io/learning-graphs/sims/indegree-outdegree-counter/",
   "library": "vis-network",
   "bloomLevel": "Understand (L2)",
   "bloomVerb": "interpret, explain",

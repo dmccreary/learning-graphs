@@ -11,7 +11,7 @@
   "format": "text/html",
   "language": "en",
   "rights": "All rights reserved",
-  "identifier": "transitive-dependency-hop-finder",
+  "identifier": "https://dmccreary.github.io/learning-graphs/sims/transitive-dependency-hop-finder/",
   "library": "vis-network",
   "bloomLevel": "Analyze (L4)",
   "bloomVerb": "examine, differentiate",

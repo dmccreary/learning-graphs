@@ -1,6 +1,6 @@
 {
   "title": "Nine Events of Instruction Explorer",
-  "description": "Given Gagné's nine-step framework rendered as a flowchart, the learner can explain what instructional purpose each step serves and classify which earlier chapter's concept each step operationalizes.",
+  "description": "Given Gagn\u00e9's nine-step framework rendered as a flowchart, the learner can explain what instructional purpose each step serves and classify which earlier chapter's concept each step operationalizes.",
   "creator": "Learning Graphs",
   "author": "Dan McCreary",
   "date": "2026-07-03",
@@ -11,7 +11,7 @@
   "format": "text/html",
   "language": "en",
   "rights": "All rights reserved",
-  "identifier": "nine-events-explorer",
+  "identifier": "https://dmccreary.github.io/learning-graphs/sims/nine-events-explorer/",
   "library": "Mermaid",
   "bloomLevel": "Understand (L2)",
   "bloomVerb": "explain, summarize, classify",

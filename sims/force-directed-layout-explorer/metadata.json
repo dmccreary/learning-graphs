@@ -11,7 +11,7 @@
   "format": "text/html",
   "language": "en",
   "rights": "All rights reserved",
-  "identifier": "force-directed-layout-explorer",
+  "identifier": "https://dmccreary.github.io/learning-graphs/sims/force-directed-layout-explorer/",
   "library": "vis-network",
   "bloomLevel": "Apply (L3)",
   "bloomVerb": "demonstrate, experiment",

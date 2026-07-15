@@ -11,7 +11,7 @@
   "format": "text/html",
   "language": "en",
   "rights": "All rights reserved",
-  "identifier": "physics-force-explorer",
+  "identifier": "https://dmccreary.github.io/learning-graphs/sims/physics-force-explorer/",
   "library": "vis-network",
   "bloomLevel": "Analyze (L4)",
   "bloomVerb": "differentiate, examine, compare",

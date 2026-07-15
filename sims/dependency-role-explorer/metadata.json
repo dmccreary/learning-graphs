@@ -11,7 +11,7 @@
   "format": "text/html",
   "language": "en",
   "rights": "All rights reserved",
-  "identifier": "dependency-role-explorer",
+  "identifier": "https://dmccreary.github.io/learning-graphs/sims/dependency-role-explorer/",
   "library": "vis-network",
   "bloomLevel": "Understand (L2)",
   "bloomVerb": "identify, classify",

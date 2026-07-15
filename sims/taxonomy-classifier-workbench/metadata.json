@@ -11,7 +11,7 @@
   "format": "text/html",
   "language": "en",
   "rights": "All rights reserved",
-  "identifier": "taxonomy-classifier-workbench",
+  "identifier": "https://dmccreary.github.io/learning-graphs/sims/taxonomy-classifier-workbench/",
   "library": "p5.js",
   "bloomLevel": "Apply (L3)",
   "bloomVerb": "classify, apply",

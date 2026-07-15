@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Given a fixed set of entities, the learner can identify which edge relationships are appropriate under each of the five graph-type lenses and explain what changes between lenses.">
+        <meta name="description" content="Given a fixed set of entities, the learner can identify which edge relationships are appropriate under each of the six graph-type lenses and explain what changes between lenses.">
       
       
         <meta name="author" content="Dan McCreary">
@@ -18,7 +18,7 @@
         <link rel="prev" href="../graph-editor-live-validation/">
       
       
-        <link rel="next" href="../learning-graph/">
+        <link rel="next" href="../graph-js-library-comparison/">
       
       
       <link rel="icon" href="../../img/favicon.ico">
@@ -77,7 +77,7 @@
       
         <meta  property="og:title"  content="Graph Family Lens Explorer - Learning Graphs" >
       
-        <meta  property="og:description"  content="Given a fixed set of entities, the learner can identify which edge relationships are appropriate under each of the five graph-type lenses and explain what changes between lenses." >
+        <meta  property="og:description"  content="Given a fixed set of entities, the learner can identify which edge relationships are appropriate under each of the six graph-type lenses and explain what changes between lenses." >
       
         <meta  property="og:image"  content="https://dmccreary.github.io/learning-graphs/assets/images/social/sims/graph-family-lens-explorer/index.png" >
       
@@ -93,7 +93,7 @@
       
         <meta  name="twitter:title"  content="Graph Family Lens Explorer - Learning Graphs" >
       
-        <meta  name="twitter:description"  content="Given a fixed set of entities, the learner can identify which edge relationships are appropriate under each of the five graph-type lenses and explain what changes between lenses." >
+        <meta  name="twitter:description"  content="Given a fixed set of entities, the learner can identify which edge relationships are appropriate under each of the six graph-type lenses and explain what changes between lenses." >
       
         <meta  name="twitter:image"  content="https://dmccreary.github.io/learning-graphs/assets/images/social/sims/graph-family-lens-explorer/index.png" >
       
@@ -134,7 +134,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Learning Graphs" class="md-header__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
       
-  <img src="../../img/logo.png" alt="logo">
+  <img src="../../img/mascot/neutral.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -240,7 +240,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Learning Graphs" class="md-nav__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
       
-  <img src="../../img/logo.png" alt="logo">
+  <img src="../../img/mascot/neutral.png" alt="logo">
 
     </a>
     Learning Graphs
@@ -334,79 +334,41 @@
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
+      
         
       
         
-          
-        
       
         
-          
-        
       
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
         
       
     
@@ -688,6 +650,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
     
@@ -801,6 +769,10 @@
   
     
     
+      
+        
+          
+        
       
         
           
@@ -1909,6 +1881,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../graph-js-library-comparison/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graph JS Library Comparison
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../learning-graph/" class="md-nav__link">
         
   
@@ -2937,6 +2930,46 @@
   
   
     <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix-graph-libs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix: Graph Visualization Libraries
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../how-we-built-this-site/" class="md-nav__link">
         
   
@@ -3146,17 +3179,18 @@
 <span class="normal">40</span>
 <span class="normal">41</span>
 <span class="normal">42</span>
-<span class="normal">43</span></pre></div></td><td class="code"><div><pre><span></span><code>Type: graph-model
+<span class="normal">43</span>
+<span class="normal">44</span></pre></div></td><td class="code"><div><pre><span></span><code>Type: graph-model
 **sim-id:** graph-family-lens-explorer&lt;br/&gt;
 **Library:** vis-network&lt;br/&gt;
 **Status:** Specified
 
-Purpose: Show the same five nodes rendered under five different &quot;lenses&quot; (concept graph, content graph, knowledge graph, dependency graph, learning graph) so learners can see how the edge set — not the node set — is what changes between graph types.
+Purpose: Show the same five nodes rendered under six different &quot;lenses&quot; (concept graph, content graph, knowledge graph, dependency graph, enablement graph, learning graph) so learners can see how the edge set — not the node set — is what changes between graph types.
 
 Bloom Level: Analyze (L4)
 Bloom Verb: differentiate, compare, contrast
 
-Learning objective: Given a fixed set of entities, the learner can identify which edge relationships are appropriate under each of the five graph-type lenses and explain what changes between lenses.
+Learning objective: Given a fixed set of entities, the learner can identify which edge relationships are appropriate under each of the six graph-type lenses and explain what changes between lenses.
 
 Base node set (shown in every lens, styling changes per lens):
 - &quot;Fractions&quot; (concept)
@@ -3165,13 +3199,14 @@ Base node set (shown in every lens, styling changes per lens):
 - &quot;Quiz: Fractions Basics&quot; (content item)
 - &quot;Khan Academy&quot; (external entity, used only in Knowledge Graph lens)
 
-Lens control: Dropdown selector with five options — &quot;Concept Graph,&quot; &quot;Content Graph,&quot; &quot;Knowledge Graph,&quot; &quot;Dependency Graph,&quot; &quot;Learning Graph&quot;
+Lens control: Dropdown selector with six options — &quot;Concept Graph,&quot; &quot;Content Graph,&quot; &quot;Knowledge Graph,&quot; &quot;Dependency Graph,&quot; &quot;Enablement Graph,&quot; &quot;Learning Graph&quot;
 
 Lens behavior:
 - Concept Graph lens: shows only &quot;Fractions&quot; and &quot;Decimals&quot; nodes, with an undirected &quot;related-to&quot; edge labeled &quot;related to&quot;
 - Content Graph lens: shows only the two content-item nodes, with a directed edge &quot;Video: Intro to Fractions&quot; → &quot;Quiz: Fractions Basics&quot; labeled &quot;precedes&quot;
 - Knowledge Graph lens: shows all five nodes with mixed, typed edges: &quot;Video: Intro to Fractions&quot; —[created by]→ &quot;Khan Academy&quot;, &quot;Quiz: Fractions Basics&quot; —[tests]→ &quot;Fractions&quot;
-- Dependency Graph lens: shows only &quot;Fractions&quot; and &quot;Decimals&quot; with a directed edge &quot;Decimals&quot; → &quot;Fractions&quot; labeled &quot;depends on&quot;
+- Dependency Graph lens: shows only &quot;Fractions&quot; and &quot;Decimals&quot; with a directed edge &quot;Decimals&quot; → &quot;Fractions&quot; labeled &quot;DEPENDS_ON&quot;
+- Enablement Graph lens: same two nodes as the Dependency Graph lens, but the arrow is reversed — a directed edge &quot;Fractions&quot; → &quot;Decimals&quot; labeled &quot;ENABLES LEARNING&quot;
 - Learning Graph lens: identical edge to the Dependency Graph lens, but the infobox additionally notes the DAG requirement and shows a green &quot;Valid DAG&quot; badge
 
 Interactive features:
@@ -3188,7 +3223,7 @@ Visual styling:
 
 Canvas size: responsive, 100% width, 540px height
 
-Implementation: vis-network JavaScript library with five predefined edge-set configurations swapped in on a dropdown &quot;change&quot; event; use `network.setData()` to redraw
+Implementation: vis-network JavaScript library with six predefined edge-set configurations swapped in on a dropdown &quot;change&quot; event; use `network.setData()` to redraw
 </code></pre></div></td></tr></table></div>
 <h2 id="related-resources">Related Resources</h2>
 <ul>
@@ -3251,13 +3286,13 @@ Implementation: vis-network JavaScript library with five predefined edge-set con
         
         
           
-          <a href="../learning-graph/" class="md-footer__link md-footer__link--next" aria-label="Next: Graph Viewer">
+          <a href="../graph-js-library-comparison/" class="md-footer__link md-footer__link--next" aria-label="Next: Graph JS Library Comparison">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Graph Viewer
+                Graph JS Library Comparison
               </div>
             </div>
             <div class="md-footer__button md-icon">

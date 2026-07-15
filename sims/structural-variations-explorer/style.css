@@ -21,9 +21,16 @@ body {
     height: 100vh;
 }
 
+/* #network is inset from the top (clears the title bar) and from the
+   right (clears the fixed-width right panel) so the graph never renders
+   underneath either overlay. #band-shading mirrors the same box so the
+   band strips (positioned from network.canvasToDOM coordinates) line up. */
 #network {
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    top: 54px;
+    left: 0;
+    width: calc(100% - 300px);
+    height: calc(100% - 54px);
     background-color: aliceblue;
 }
 
@@ -31,10 +38,10 @@ body {
    Individual band strips are injected by JS as .band divs. */
 #band-shading {
     position: absolute;
-    top: 0;
+    top: 54px;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: calc(100% - 300px);
+    height: calc(100% - 54px);
     pointer-events: none;
     z-index: 1;
 }
@@ -234,6 +241,10 @@ body {
 @media (max-width: 640px) {
     .right-panel {
         width: 190px;
+    }
+    #network,
+    #band-shading {
+        width: calc(100% - 210px);
     }
     .legend {
         max-width: 160px;

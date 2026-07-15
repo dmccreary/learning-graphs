@@ -11,7 +11,7 @@
   "format": "text/html",
   "language": "en",
   "rights": "All rights reserved",
-  "identifier": "blooms-pyramid-explorer",
+  "identifier": "https://dmccreary.github.io/learning-graphs/sims/blooms-pyramid-explorer/",
   "library": "p5.js",
   "bloomLevel": "Remember (L1)",
   "bloomVerb": "identify, recall, name",

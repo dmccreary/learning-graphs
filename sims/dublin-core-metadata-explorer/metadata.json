@@ -11,7 +11,7 @@
   "format": "text/html",
   "language": "en",
   "rights": "All rights reserved",
-  "identifier": "dublin-core-metadata-explorer",
+  "identifier": "https://dmccreary.github.io/learning-graphs/sims/dublin-core-metadata-explorer/",
   "library": "vis-network",
   "bloomLevel": "Remember (L1)",
   "bloomVerb": "identify, recall",

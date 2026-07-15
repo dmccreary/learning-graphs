@@ -110,17 +110,27 @@ const LENSES = {
         name: 'Dependency Graph',
         nodeKeys: ['fractions', 'decimals'],
         edges: [
-            { from: 'decimals', to: 'fractions', label: 'depends on', title: 'depends on' }
+            { from: 'decimals', to: 'fractions', label: 'DEPENDS_ON', title: 'DEPENDS_ON' }
         ],
-        info: 'A dependency graph shows what must be learned first. Decimals "depends on" Fractions -- a directed prerequisite edge. Same two nodes as the concept lens, but the edge now has direction and meaning.',
-        caption: 'Switched to the <strong>Dependency Graph</strong> lens: the same two concepts, but the edge is now the directed prerequisite &ldquo;Decimals depends on Fractions&rdquo;.',
+        info: 'A dependency graph shows what must be learned first. Decimals "DEPENDS_ON" Fractions -- a directed prerequisite edge. Same two nodes as the concept lens, but the edge now has direction and meaning.',
+        caption: 'Switched to the <strong>Dependency Graph</strong> lens: the same two concepts, but the edge is now the directed prerequisite &ldquo;Decimals DEPENDS_ON Fractions&rdquo;.',
+        dag: false
+    },
+    enablement: {
+        name: 'Enablement Graph',
+        nodeKeys: ['fractions', 'decimals'],
+        edges: [
+            { from: 'fractions', to: 'decimals', label: 'ENABLES LEARNING', title: 'ENABLES LEARNING' }
+        ],
+        info: 'An enablement graph is the mirror image of a dependency graph: the arrow points from the prerequisite toward what it unlocks. Fractions "ENABLES LEARNING" of Decimals -- same two nodes as the dependency lens, but the arrowhead direction and the relationship label both reverse.',
+        caption: 'Switched to the <strong>Enablement Graph</strong> lens: the same two concepts as the dependency lens, but the arrow reverses to &ldquo;Fractions ENABLES LEARNING of Decimals&rdquo;.',
         dag: false
     },
     learning: {
         name: 'Learning Graph',
         nodeKeys: ['fractions', 'decimals'],
         edges: [
-            { from: 'decimals', to: 'fractions', label: 'depends on', title: 'depends on' }
+            { from: 'decimals', to: 'fractions', label: 'DEPENDS_ON', title: 'DEPENDS_ON' }
         ],
         info: 'A learning graph is a dependency graph with a rule: it must be a Directed Acyclic Graph (DAG) -- no prerequisite loops. The edge set is identical to the dependency lens, but validity is now a requirement.',
         caption: 'Switched to the <strong>Learning Graph</strong> lens: identical edge to the dependency lens, plus the guarantee that the whole graph is a valid DAG (no cycles).',

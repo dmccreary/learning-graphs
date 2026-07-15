@@ -139,6 +139,7 @@ function styleEdge(edgeDef, cycleNodes) {
         id: edgeDef.id,
         from: edgeDef.from,
         to: edgeDef.to,
+        label: 'DEPENDS_ON',
         color: {
             color: onCycle ? CYCLE_EDGE : (isTransitive ? DASHED_EDGE : VALID_EDGE),
             highlight: onCycle ? CYCLE_EDGE : (isTransitive ? DASHED_EDGE : VALID_EDGE)
@@ -160,6 +161,33 @@ function styleNode(nodeDef, cycleNodes) {
             highlight: palette.highlight
         }
     };
+}
+
+// ===========================================
+// VIEW PANNING
+// ===========================================
+// vis-network's moveTo(position) sets the CANVAS point that lands in the
+// middle of the viewport. Counter-intuitively, to make the drawn graph
+// appear to shift LEFT on screen, you must move that focal point to the
+// RIGHT (a larger x) - content to the right of the old focal point is what
+// slides into the newly-centered spot. So "shift the content left" means
+// "increase position.x", not decrease it.
+function panLeftOfCenter() {
+    const panel = document.querySelector('.right-panel');
+    if (!panel || !network) {
+        return;
+    }
+    // Reserve roughly half the right panel's on-screen footprint so the
+    // graph centers itself in the space to the left of it rather than in
+    // the full canvas width.
+    const shiftScreenPx = (panel.offsetWidth + 16) / 2;
+    const scale = network.getScale();
+    const view = network.getViewPosition();
+    network.moveTo({
+        position: { x: view.x + (shiftScreenPx / scale), y: view.y },
+        scale: scale,
+        animation: false
+    });
 }
 
 // Recompute cycle membership and repaint all nodes/edges to match state.
@@ -282,6 +310,7 @@ function initializeNetwork() {
     network.on('stabilizationIterationsDone', function () {
         network.setOptions({ physics: { enabled: false } });
         network.fit({ animation: false });
+        panLeftOfCenter();
     });
 
     updateInfobox();
@@ -295,6 +324,9 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('add-btn').addEventListener('click', addCycleEdge);
     document.getElementById('remove-btn').addEventListener('click', removeCycleEdge);
     window.addEventListener('resize', function () {
-        if (network) network.fit({ animation: false });
+        if (network) {
+            network.fit({ animation: false });
+            panLeftOfCenter();
+        }
     });
 });
