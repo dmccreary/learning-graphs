@@ -1,0 +1,3109 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Extends Chapter 1's graph vocabulary with directed-edge orientation, paths, reachability, adjacency representations, and the depth-first and breadth-first traversal algorithms that walk a learning graph systematically.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/learning-graphs/chapters/20-graph-theory-paths-traversal-connectivity/">
+      
+      
+        <link rel="prev" href="../19-skill-generate-learning-graph/references/">
+      
+      
+        <link rel="next" href="quiz/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Graph Theory II - Paths, Traversal, and Connectivity - Learning Graphs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-Z6JDD2PWQZ"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-Z6JDD2PWQZ",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-Z6JDD2PWQZ",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Graph Theory II - Paths, Traversal, and Connectivity - Learning Graphs" >
+      
+        <meta  property="og:description"  content="Extends Chapter 1's graph vocabulary with directed-edge orientation, paths, reachability, adjacency representations, and the depth-first and breadth-first traversal algorithms that walk a learning graph systematically." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/learning-graphs/assets/images/social/chapters/20-graph-theory-paths-traversal-connectivity/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/learning-graphs/chapters/20-graph-theory-paths-traversal-connectivity/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Graph Theory II - Paths, Traversal, and Connectivity - Learning Graphs" >
+      
+        <meta  name="twitter:description"  content="Extends Chapter 1's graph vocabulary with directed-edge orientation, paths, reachability, adjacency representations, and the depth-first and breadth-first traversal algorithms that walk a learning graph systematically." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/learning-graphs/assets/images/social/chapters/20-graph-theory-paths-traversal-connectivity/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#graph-theory-ii-paths-traversal-and-connectivity" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Learning Graphs" class="md-header__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/mascot/neutral.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Learning Graphs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Graph Theory II - Paths, Traversal, and Connectivity
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Learning Graphs" class="md-nav__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/mascot/neutral.png" alt="logo">
+
+    </a>
+    Learning Graphs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../01-foundations-of-concept-graphs/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    1. Foundations of Concept Graphs
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../02-concept-labeling-metadata-standards/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    2. Concept Labeling and Metadata Standards
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../03-concept-dependencies-prerequisites/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    3. Concept Dependencies and Prerequisites
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../04-concept-taxonomies-ontologies/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    4. Concept Taxonomies and Ontologies
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../05-graph-quality-validation-file-formats/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    5. Learning Graph Quality, Validation, and File Formats
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../06-blooms-taxonomy-learning-objectives/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    6. Bloom's Taxonomy and Learning Objectives
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../07-learning-theories-instructional-design/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    7. Learning Theories and Instructional Design
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../08-cognitive-load-knowledge-space-theory/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    8. Cognitive Load and Knowledge Space Theory
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../09-mastery-metacognition-sequencing/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    9. Mastery, Metacognition, and Instructional Sequencing
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../10-assessment-feedback-quizzes/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    10. Assessment, Feedback, and Quizzes
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../11-visjs-fundamentals-node-styling/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    11. Vis.js Fundamentals and Node Styling
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../12-edge-styling-visual-properties/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    12. Edge Styling and Visual Properties
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../13-physics-simulation-graph-layout/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    13. Physics Simulation and Graph Layout
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../14-interactive-navigation-visjs/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    14. Interactive Navigation in Vis.js
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../15-graph-clustering-editing-tools/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    15. Graph Clustering and Editing Tools
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../16-personalization-adaptive-learning-paths/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    16. Personalization and Adaptive Learning Paths
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../17-intelligent-agents-generative-ai/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    17. Intelligent Agents and Generative AI
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../18-intelligent-textbooks-microsims-deployment/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    18. Intelligent Textbooks, MicroSims, and Deployment
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../19-skill-generate-learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    19. Using a Skill to Generate a Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_21" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
+  
+  <span class="md-ellipsis">
+    20. Graph Theory II - Paths, Traversal, and Connectivity
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_4_21" id="__nav_4_21_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_21_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_21">
+            <span class="md-nav__icon md-icon"></span>
+            20. Graph Theory II - Paths, Traversal, and Connectivity
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quiz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quiz
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Annotated References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../21-graph-metrics-path-analysis/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    21. Graph Metrics and Path Analysis
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../22-concept-metadata-semantic-labeling/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    22. Concept Metadata and Semantic Labeling Standards
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../23-advanced-dependency-modeling/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    23. Advanced Dependency Modeling
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../24-taxonomy-design-deep-dive/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    24. Taxonomy Design Deep Dive
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../25-graph-validation-quality-assurance/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    25. Graph Validation and Quality Assurance
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../26-data-pipeline-internals/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    26. Data Pipeline Internals
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../27-learner-modeling-advanced-assessment/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    27. Learner Modeling and Advanced Assessment
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../case-studies/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Case Studies
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../vis/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Vis.js Tutorial
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Sample Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix-graph-libs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix: Graph Visualization Libraries
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How We Built This Site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student-volunteers-wanted/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Student Volunteers Wanted
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#directed-edge-edge-direction-and-the-two-ends-of-a-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Directed Edge, Edge Direction, and the Two Ends of a Connection
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#graph-path-path-length-and-reachability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Path, Path Length, and Reachability
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#weak-connectivity-strong-connectivity-and-connected-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Weak Connectivity, Strong Connectivity, and Connected Components
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adjacency-list-and-adjacency-matrix-two-ways-to-store-a-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adjacency List and Adjacency Matrix: Two Ways to Store a Graph
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#graph-traversal-depth-first-search-and-breadth-first-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Traversal, Depth-First Search, and Breadth-First Search
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Graph Traversal, Depth-First Search, and Breadth-First Search">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-graph-traversal-step-through-dfs-vs-bfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Graph Traversal Step-Through — DFS vs. BFS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#graph-schema-formalizing-the-whole-data-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Schema: Formalizing the Whole Data Model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#synthesis-from-vocabulary-to-mechanics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Synthesis: From Vocabulary to Mechanics
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/learning-graphs/blob/master/docs/chapters/20-graph-theory-paths-traversal-connectivity/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="graph-theory-ii-paths-traversal-and-connectivity">Graph Theory II: Paths, Traversal, and Connectivity</h1>
+<h2 id="summary">Summary</h2>
+<p>Extends Chapter 1's introductory graph vocabulary with the directional mechanics of edges, the paths and reachability relationships those edges create, and the two standard algorithms — depth-first and breadth-first search — for walking a graph systematically. Covers the two representations, adjacency lists and adjacency matrices, that a program uses to store a graph before it can traverse it. After this chapter, readers can trace a path between any two concepts by hand, choose the right traversal algorithm for a given question, and explain why a learning graph's weak connectivity does not guarantee every concept is reachable from every other.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 18 concepts from the learning graph:</p>
+<ol>
+<li>Directed Edge</li>
+<li>Edge Direction</li>
+<li>Incoming Edge</li>
+<li>Outgoing Edge</li>
+<li>Source Node</li>
+<li>Sink Node</li>
+<li>Graph Path</li>
+<li>Path Length</li>
+<li>Reachability</li>
+<li>Weak Connectivity</li>
+<li>Strong Connectivity</li>
+<li>Connected Component</li>
+<li>Adjacency List</li>
+<li>Adjacency Matrix</li>
+<li>Graph Traversal</li>
+<li>Depth-First Search</li>
+<li>Breadth-First Search</li>
+<li>Graph Schema</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-foundations-of-concept-graphs/">Chapter 1: Foundations of Concept Graphs</a></li>
+<li><a href="../03-concept-dependencies-prerequisites/">Chapter 3: Concept Dependencies and Prerequisites</a></li>
+<li><a href="../05-graph-quality-validation-file-formats/">Chapter 5: Learning Graph Quality, Validation, and File Formats</a></li>
+</ul>
+<hr />
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Back to the Edges, One More Time</p>
+<p><img alt="Axiom waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+Let's connect the concepts! Chapter 1 gave you nodes and edges as vocabulary. This chapter gives you the mechanics: which way an edge actually points, what it means for one concept to be <em>reachable</em> from another, and the two algorithms — depth-first and breadth-first search — that a program uses to walk a graph and answer those questions automatically. Everything here is graph theory your book has been quietly running underneath every viewer, validator, and recommendation engine since Chapter 1.</p>
+</div>
+<h2 id="directed-edge-edge-direction-and-the-two-ends-of-a-connection">Directed Edge, Edge Direction, and the Two Ends of a Connection</h2>
+<p>A <strong>Directed Edge</strong> is an edge that points from exactly one node to exactly one other node, carrying a direction rather than merely indicating "these two nodes are related." Directed Edge depends on Edge and Directed Graph in the learning graph — it is the specific kind of edge a directed graph is built from, as opposed to the undirected edges used in graphs where relationships run both ways equally. A learning graph is directed for a concrete reason: "Multiplication depends on Addition" is not a symmetric statement. Addition does not depend on Multiplication back.</p>
+<p>Because a directed edge points somewhere, it has an <strong>Edge Direction</strong> — the specific orientation of a directed edge, identifying which endpoint is the source of the relationship and which is the target. Edge Direction depends directly on Directed Edge in the learning graph. This book has stressed edge direction before, in the danger notice every chapter-generation skill repeats: in this project's <code>learning-graph.json</code>, an edge from concept 5 to concept 1 means "concept 5 depends on concept 1," not the reverse. Getting the direction backward does not throw an error — it silently produces a graph that looks plausible but sequences every chapter wrong.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Direction Is Not Decoration</p>
+<p><img alt="Axiom warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+An arrowhead on a rendered edge is not a stylistic flourish — it is the entire piece of information that makes a dependency graph usable. Flip it, and "Learning Graph depends on Knowledge Graph" silently becomes "Knowledge Graph depends on Learning Graph." Every validator, every chapter-ordering script, and every recommendation engine in this book trusts that arrowhead completely.</p>
+</div>
+<p>Every directed edge touches a node on each end, and those two touches have different names depending on which node you are standing at. An <strong>Incoming Edge</strong>, from the perspective of a given node, is a directed edge whose arrowhead points into that node — meaning some other concept depends on it. An <strong>Outgoing Edge</strong>, from the perspective of a given node, is a directed edge whose tail leaves that node and points toward another node — meaning that node depends on something else. Both Incoming Edge and Outgoing Edge depend directly on Directed Edge in the learning graph; they are the same directed edge, just described from opposite ends. Chapter 5 already gave you the counting versions of these ideas — indegree counts incoming edges, outdegree counts outgoing edges — but Incoming Edge and Outgoing Edge name the edges themselves, not just their tally.</p>
+<p>This distinction produces two special roles a node can play. A <strong>Source Node</strong>, within a specific path or subgraph, is a node with no incoming edges along that path — nothing points into it, so it is where a path can legitimately begin. A <strong>Sink Node</strong>, within a specific path or subgraph, is a node with no outgoing edges along that path — nothing leaves it, so it is where a path must end. Both Source Node and Sink Node depend on Incoming Edge and Outgoing Edge in the learning graph. Don't confuse these path-local roles with Chapter 3's Foundational Concept and Goal Concept — a source or sink is defined relative to one path you are tracing, while foundational and goal concepts describe a node's role in the whole graph.</p>
+<h2 id="graph-path-path-length-and-reachability">Graph Path, Path Length, and Reachability</h2>
+<p>With directed edges and their endpoints defined, the next question is what happens when you chain several of them together. A <strong>Graph Path</strong> is a sequence of nodes connected end-to-end by directed edges, where each edge in the sequence points from one node in the sequence to the next. Graph Path depends on Graph Representation and Directed Edge in the learning graph — it is the first genuinely multi-edge structure this book has named, built directly on top of the single-edge vocabulary above.</p>
+<p>A path has a measurable size. <strong>Path Length</strong> is the number of edges traversed along a graph path — not the number of nodes visited, which is always one greater than the path length. Path Length depends directly on Graph Path in the learning graph. This distinction trips up more learners than it should: a path through four nodes has a path length of three, not four, because length counts the hops, not the stops.</p>
+<p>A path answers a yes-or-no question that this book has relied on implicitly since Chapter 3, and now names explicitly. <strong>Reachability</strong> is the property of one node being connected to another through some graph path, regardless of that path's length. Reachability depends directly on Graph Path in the learning graph. Every "prerequisite chain" Chapter 3 described is really a reachability claim: "Multiplication is reachable from Addition" is the graph-theory way of saying Addition is (possibly indirectly) a prerequisite of Multiplication.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Reachable Does Not Mean Adjacent</p>
+<p><img alt="Axiom thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+A concept ten prerequisite-hops away is still reachable — reachability makes no promise about path length, only that some path exists. This matters for Chapter 21's centrality metrics, which need reachability as a starting definition before they can measure <em>how far</em> things are, not just <em>whether</em> they connect.</p>
+</div>
+<h2 id="weak-connectivity-strong-connectivity-and-connected-components">Weak Connectivity, Strong Connectivity, and Connected Components</h2>
+<p>Reachability describes a relationship between two specific nodes. Connectivity scales that idea up to describe an entire graph, and it comes in two strengths that are easy to conflate. <strong>Weak Connectivity</strong> is the property of a graph in which every pair of nodes is connected by <em>some</em> path if you ignore edge direction entirely — treat every directed edge as if it were undirected, and check whether the graph holds together as one piece. Weak Connectivity depends directly on Graph Connectivity in the learning graph, applying Chapter 5's general connectivity check to the specific case where direction is set aside. <strong>Strong Connectivity</strong> is the stricter property of a graph in which every pair of nodes is mutually reachable — for any two nodes A and B, a directed path exists from A to B <em>and</em> a directed path exists from B to A. Strong Connectivity depends directly on Reachability in the learning graph.</p>
+<p>A well-formed learning graph is essentially never strongly connected, and that is by design, not a defect: strong connectivity would require every concept to depend on every other concept, including its own dependents, which is exactly the cycle a DAG forbids. A learning graph should, however, be weakly connected — every concept should link back to the graph's main body somehow, even if the directed path only runs one way.</p>
+<table>
+<thead>
+<tr>
+<th>Connectivity Type</th>
+<th>Requirement</th>
+<th>Typical in a Learning Graph?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Weak Connectivity</td>
+<td>Every node pair joined by <em>some</em> path, direction ignored</td>
+<td>Yes — this is the healthy default state</td>
+</tr>
+<tr>
+<td>Strong Connectivity</td>
+<td>Every node pair mutually reachable in <em>both</em> directions</td>
+<td>No — would require a cycle, which breaks the DAG property</td>
+</tr>
+</tbody>
+</table>
+<p>When weak connectivity fails, the graph splits into pieces, and each piece has a name. A <strong>Connected Component</strong> is a maximal set of nodes in which every pair is joined by some path (again ignoring direction) but which shares no path with any node outside the set. Connected Component depends directly on Weak Connectivity in the learning graph. Chapter 19's own session log gave you a real example of this concept in action before this chapter ever named it: the first quality-validation pass on this project's own graph found seven separate connected components, and the fix — six targeted edges — merged them into the single connected component a healthy learning graph needs.</p>
+<h2 id="adjacency-list-and-adjacency-matrix-two-ways-to-store-a-graph">Adjacency List and Adjacency Matrix: Two Ways to Store a Graph</h2>
+<p>Before any traversal algorithm can walk a graph, a program needs to store the graph's edges in memory in a form the algorithm can query quickly, and there are two standard choices. An <strong>Adjacency List</strong> is a graph representation in which every node stores a list of the nodes it directly connects to, so looking up "what does this node point to" is a fast, direct lookup for one node at a time. An <strong>Adjacency Matrix</strong> is a graph representation using a two-dimensional grid, one row and one column per node, where a marked cell at row A, column B indicates a directed edge from A to B. Both Adjacency List and Adjacency Matrix depend directly on Graph Representation in the learning graph, and both encode exactly the same information — they simply trade off differently on speed and memory depending on how the graph is shaped.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Pick the Representation That Matches Your Graph's Shape</p>
+<p><img alt="Axiom with a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+An adjacency list is compact and fast for graphs where each node connects to only a few others — exactly the shape of this book's own 400-concept, 490-edge graph, where the average concept has just over one dependency. An adjacency matrix wastes memory on a sparse graph like that (imagine a 400-by-400 grid where fewer than 1% of cells are marked) but becomes competitive when a graph is dense, because checking "does an edge exist between A and B" is a single grid lookup instead of a list scan.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Representation</th>
+<th>Best For</th>
+<th>Cost to Check "Does A → B Exist?"</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adjacency List</td>
+<td>Sparse graphs (few edges relative to nodes) — most learning graphs</td>
+<td>Scan A's list — proportional to A's outdegree</td>
+</tr>
+<tr>
+<td>Adjacency Matrix</td>
+<td>Dense graphs (many edges relative to nodes)</td>
+<td>One direct grid lookup — constant time</td>
+</tr>
+</tbody>
+</table>
+<h2 id="graph-traversal-depth-first-search-and-breadth-first-search">Graph Traversal, Depth-First Search, and Breadth-First Search</h2>
+<p>With a representation chosen, an algorithm can finally walk the graph, and <strong>Graph Traversal</strong> is the general process of visiting every node reachable from a starting node by systematically following edges, without skipping any and without visiting the same node twice. Graph Traversal depends directly on Graph Path in the learning graph — it is what you get when you follow paths outward from a starting point in a disciplined, complete way rather than tracing one path by hand.</p>
+<p>Two disciplines for doing this systematically dominate graph theory, and they differ in exactly one decision: which unvisited node to expand next. <strong>Depth-First Search</strong> is a graph-traversal strategy that follows one path as far as it can go before backtracking to explore alternatives — it commits fully to a single branch before trying the next one. Depth-First Search depends directly on Graph Traversal in the learning graph. <strong>Breadth-First Search</strong> is a graph-traversal strategy that visits all of a node's immediate neighbors before moving on to their neighbors — it explores the graph in expanding rings outward from the start, one hop-distance at a time. Breadth-First Search depends directly on Graph Traversal in the learning graph.</p>
+<p>Both algorithms visit the same set of reachable nodes eventually; they differ only in the <em>order</em> they visit them, and that order has real pedagogical consequences for a learning graph.</p>
+<table>
+<thead>
+<tr>
+<th>Algorithm</th>
+<th>Explores</th>
+<th>Answers Well</th>
+<th>Answers Poorly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Depth-First Search</td>
+<td>One branch fully before backtracking</td>
+<td>"What is the deepest prerequisite chain under this concept?"</td>
+<td>"What can I learn next, closest first?"</td>
+</tr>
+<tr>
+<td>Breadth-First Search</td>
+<td>All neighbors before going deeper</td>
+<td>"What concepts are exactly two prerequisites away?" — closest-first sequencing</td>
+<td>"What is the single longest chain from here?"</td>
+</tr>
+</tbody>
+</table>
+<p>Before we look at how these two strategies diverge on the same graph, let's define the one term the diagram below relies on: a node is <strong>visited</strong> the first time either algorithm reaches it, and once visited, a node is never re-queued, which is what keeps traversal from looping forever on a graph that happens to contain a shared ancestor two different paths pass through.</p>
+<h4 id="diagram-graph-traversal-step-through-dfs-vs-bfs">Diagram: Graph Traversal Step-Through — DFS vs. BFS</h4>
+<details>
+<summary>Graph Traversal Step-Through — DFS vs. BFS</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> graph-traversal-step-through<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>Purpose: Let learners step through Depth-First Search and Breadth-First Search on the same small directed graph, side by side, so the difference in visiting order becomes visible rather than theoretical.</p>
+<p>Bloom Level: Analyze (L4)
+Bloom Verb: compare, trace, differentiate</p>
+<p>Learning objective: Given the same 10-node directed graph rendered twice, the learner can step both a depth-first and a breadth-first traversal from the same start node one click at a time and correctly predict which node is visited next at each step, explaining why the two orders diverge at the first branching node.</p>
+<p>Canvas layout: two side-by-side vis-network panels (DFS left, BFS right), each 340px wide by 380px tall; a shared "Start Node" dropdown and "Step Forward" / "Reset" button row above both panels; a numbered visit-order list below each panel</p>
+<p>Visual elements: identical 10-node, 12-edge sample graph in both panels; unvisited nodes light gray, the current node gold with a pulsing border, visited nodes blue with a small order-number badge (1, 2, 3, ...); the node currently being backtracked from (DFS only) shown with a dashed outline</p>
+<p>Interactive controls: "Step Forward" advances both traversals by exactly one visit simultaneously; "Reset" clears both panels and order lists; hovering any node shows its adjacency list as a tooltip; a "Run to Completion" button animates both traversals at a fixed 600ms-per-step pace</p>
+<p>Default parameters: start node preset to the graph's single source node; both panels reset and empty on load; step counter reads "Step 0 of 10"</p>
+<p>Data Visibility Requirements:
+Stage 1: On each "Step Forward" click, highlight the newly visited node in both panels and append it to that panel's order list
+Stage 2: When DFS and BFS diverge (visit different nodes at the same step number), flash a connecting highlight between the two panels' current-node markers
+Stage 3: On completion, display both final visit-order sequences stacked for direct side-by-side comparison, with the first point of divergence outlined in gold</p>
+<p>Instructional Rationale: An Analyze-level objective requires learners to compare two processes operating on identical input — a single traversal in isolation cannot support that comparison, but two synchronized, steppable traversals on the same graph can.</p>
+<p>Responsive behavior: panels stack vertically below 700px width; controls remain fixed above both panels</p>
+<p>Canvas size: responsive, 100% width, 520px height</p>
+<p>Implementation: vis-network for both graph panels sharing one dataset; a JavaScript step function maintains two independent visited-sets and frontier structures (a stack for DFS, a queue for BFS) and advances both by exactly one dequeue/pop per click</p>
+</details>
+<h2 id="graph-schema-formalizing-the-whole-data-model">Graph Schema: Formalizing the Whole Data Model</h2>
+<p>Every representation and algorithm this chapter has covered assumes the graph's data is shaped consistently — every node has an ID, every edge has a <code>from</code> and a <code>to</code>, every group has a color. That consistent shape has a name. A <strong>Graph Schema</strong> is a formal specification of the fields, types, and required structure that every node, edge, and group in a graph dataset must conform to. Graph Schema depends directly on Graph Representation in the learning graph. This is not an abstract idea for this project — <code>learning-graph-schema.json</code>, referenced throughout this book's own generation pipeline, <em>is</em> a graph schema, and it is what <code>validate-learning-graph.sh</code> checks every generated <code>learning-graph.json</code> file against before anyone trusts it.</p>
+<div class="admonition mascot-encourage">
+<p class="admonition-title">This Is the Last Purely Structural Chapter</p>
+<p><img alt="Axiom encouraging" class="mascot-admonition-img" src="../../img/mascot/encouraging.png" />
+If directed edges, adjacency representations, and two traversal algorithms in one chapter felt dense, that is because this chapter deliberately front-loaded the graph-theory machinery the rest of this book's advanced-topics chapters lean on. Chapter 21 puts these tools to work measuring real graphs rather than defining new structural vocabulary — the hardest vocabulary lift is behind you.</p>
+</div>
+<h2 id="synthesis-from-vocabulary-to-mechanics">Synthesis: From Vocabulary to Mechanics</h2>
+<p>Chapter 1 gave you the nouns — concept, node, edge, DAG. This chapter gave you the mechanics that make those nouns computable: which way an edge points, what a path and its length actually measure, when a graph counts as reachable or connected, how a graph is stored so an algorithm can query it quickly, and the two disciplined strategies — depth-first and breadth-first search — for walking it completely. Every later advanced-topics chapter in this extension leans on this vocabulary directly: Chapter 21's centrality metrics measure distances along the paths defined here, Chapter 23's dependency-modeling patterns describe more nuanced kinds of the directed edges defined here, and Chapter 25's validators run traversal-based checks — reachability from foundational concepts, connected-component counts — to catch the same structural problems Chapter 5 first introduced and this chapter just gave you the machinery to detect by hand.</p>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">You Can Now Trace a Graph by Hand</p>
+<p><img alt="Axiom celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png" />
+Pause and appreciate your progress. You can now look at any small directed graph and correctly identify its sources and sinks, trace a path and state its length, tell weak connectivity from strong connectivity without hesitating, and predict — not just recognize — the visiting order a depth-first or breadth-first search would produce. That is real graph-theory fluency, not just vocabulary recall. Let's connect the concepts — Chapter 21 is waiting to put these tools to work.</p>
+</div>
+<p><a href="references/">See Annotated References</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../19-skill-generate-learning-graph/references/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Annotated References">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Annotated References
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="quiz/" class="md-footer__link md-footer__link--next" aria-label="Next: Quiz">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Quiz
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

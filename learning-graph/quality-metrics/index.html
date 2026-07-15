@@ -18,7 +18,7 @@
         <link rel="prev" href="../taxonomy-distribution/">
       
       
-        <link rel="next" href="../faq-quality-report/">
+        <link rel="next" href="../book-metrics/">
       
       
       <link rel="icon" href="../../img/favicon.ico">
@@ -371,6 +371,22 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -634,6 +650,10 @@
       
         
           
+        
+      
+        
+      
         
       
         
@@ -964,6 +984,48 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../book-metrics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Book Metrics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter-metrics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter Metrics
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1774,12 +1836,12 @@
 <h1 id="learning-graph-quality-metrics-report">Learning Graph Quality Metrics Report</h1>
 <h2 id="overview">Overview</h2>
 <ul>
-<li><strong>Total Concepts</strong>: 266</li>
+<li><strong>Total Concepts</strong>: 400</li>
 <li><strong>Foundational Concepts</strong> (no prerequisites, other concepts depend on them): 18</li>
-<li><strong>Terminal Nodes</strong> (nothing depends on them, but have prerequisites): 122</li>
+<li><strong>Terminal Nodes</strong> (nothing depends on them, but have prerequisites): 201</li>
 <li><strong>Orphaned Nodes</strong> (completely disconnected, no edges): 0</li>
-<li><strong>Concepts with Dependencies</strong>: 248</li>
-<li><strong>Average Dependencies per Concept</strong>: 1.29</li>
+<li><strong>Concepts with Dependencies</strong>: 382</li>
+<li><strong>Average Dependencies per Concept</strong>: 1.28</li>
 </ul>
 <h2 id="graph-structure-validation">Graph Structure Validation</h2>
 <ul>
@@ -1834,7 +1896,7 @@
 <h2 id="terminal-nodes-analysis">Terminal Nodes Analysis</h2>
 <p>Terminal nodes are concepts that nothing else depends on but have prerequisites. They represent natural endpoints of learning paths — culminating or specialized concepts.</p>
 <ul>
-<li><strong>Total Terminal Nodes</strong>: 122 (45.9% of all concepts)</li>
+<li><strong>Total Terminal Nodes</strong>: 201 (50.2% of all concepts)</li>
 <li><strong>Healthy Range</strong>: 5-40% of total concepts</li>
 </ul>
 <p>Concepts at the end of learning paths:</p>
@@ -1843,8 +1905,6 @@
 <li><strong>14</strong>: Journey Map</li>
 <li><strong>15</strong>: Hybrid Graph</li>
 <li><strong>20</strong>: ISO/IEC 11179</li>
-<li><strong>21</strong>: Dublin Core Metadata</li>
-<li><strong>22</strong>: Controlled Vocabulary</li>
 <li><strong>23</strong>: Concept Definition</li>
 <li><strong>24</strong>: Textbook Index</li>
 <li><strong>32</strong>: Immediate Goal</li>
@@ -1853,14 +1913,16 @@
 <li><strong>35</strong>: Learning Goal</li>
 <li><strong>38</strong>: Skill Gap</li>
 <li><strong>41</strong>: Dependency Analysis</li>
-<li><strong>43</strong>: Ontology</li>
 <li><strong>45</strong>: Taxonomy Classifier</li>
 <li><strong>48</strong>: Taxonomy Legend</li>
-<li><strong>50</strong>: Concept-to-Taxonomy Mapping</li>
-<li><strong>51</strong>: Balanced Taxonomy</li>
 <li><strong>52</strong>: Miscellaneous Category</li>
+<li><strong>53</strong>: Abstraction (Graph)</li>
+<li><strong>54</strong>: Clustering (Graph)</li>
+<li><strong>60</strong>: Self-Dependency Prevention</li>
+<li><strong>65</strong>: Structural Check</li>
+<li><strong>68</strong>: Third-Party Certification</li>
 </ul>
-<p><em>...and 102 more</em></p>
+<p><em>...and 181 more</em></p>
 <h2 id="orphaned-nodes-analysis">Orphaned Nodes Analysis</h2>
 <p>Orphaned nodes are completely disconnected concepts with no inbound AND no outbound edges. These indicate a quality problem — every concept should connect to the graph.</p>
 <ul>
@@ -1886,63 +1948,63 @@
 <tbody>
 <tr>
 <td>1</td>
+<td>26</td>
+<td>Concept Dependency</td>
+<td>23</td>
+</tr>
+<tr>
+<td>2</td>
 <td>131</td>
 <td>DataSet</td>
 <td>21</td>
 </tr>
 <tr>
-<td>2</td>
-<td>26</td>
-<td>Concept Dependency</td>
-<td>16</td>
-</tr>
-<tr>
 <td>3</td>
-<td>16</td>
-<td>Concept Label</td>
-<td>8</td>
+<td>42</td>
+<td>Concept Taxonomy</td>
+<td>13</td>
 </tr>
 <tr>
 <td>4</td>
-<td>42</td>
-<td>Concept Taxonomy</td>
-<td>8</td>
+<td>16</td>
+<td>Concept Label</td>
+<td>12</td>
 </tr>
 <tr>
 <td>5</td>
+<td>46</td>
+<td>Taxonomy Category</td>
+<td>10</td>
+</tr>
+<tr>
+<td>6</td>
+<td>55</td>
+<td>Learning Graph Validation</td>
+<td>10</td>
+</tr>
+<tr>
+<td>7</td>
+<td>90</td>
+<td>Learning Path</td>
+<td>8</td>
+</tr>
+<tr>
+<td>8</td>
 <td>157</td>
 <td>Physics Simulation</td>
 <td>8</td>
 </tr>
 <tr>
-<td>6</td>
-<td>46</td>
-<td>Taxonomy Category</td>
-<td>7</td>
-</tr>
-<tr>
-<td>7</td>
-<td>104</td>
-<td>Generative AI</td>
-<td>7</td>
-</tr>
-<tr>
-<td>8</td>
-<td>105</td>
-<td>Intelligent Agent</td>
-<td>7</td>
-</tr>
-<tr>
 <td>9</td>
-<td>2</td>
-<td>Concept Graph</td>
-<td>6</td>
+<td>195</td>
+<td>JSON</td>
+<td>8</td>
 </tr>
 <tr>
 <td>10</td>
-<td>70</td>
-<td>Cognitive Domain</td>
-<td>6</td>
+<td>92</td>
+<td>Adaptive Learning</td>
+<td>7</td>
 </tr>
 </tbody>
 </table>
@@ -1961,15 +2023,15 @@
 </tr>
 <tr>
 <td>1</td>
-<td>186</td>
+<td>284</td>
 </tr>
 <tr>
 <td>2</td>
-<td>55</td>
+<td>90</td>
 </tr>
 <tr>
 <td>3</td>
-<td>5</td>
+<td>6</td>
 </tr>
 <tr>
 <td>4</td>
@@ -1979,7 +2041,7 @@
 </table>
 <h2 id="recommendations">Recommendations</h2>
 <ul>
-<li>ℹ️ <strong>High terminal node percentage</strong> (45.9%): Consider if some terminal concepts should be prerequisites for advanced concepts</li>
+<li>ℹ️ <strong>High terminal node percentage</strong> (50.2%): Consider if some terminal concepts should be prerequisites for advanced concepts</li>
 <li>✅ <strong>DAG structure verified</strong>: Graph supports valid learning progressions</li>
 <li>ℹ️ <strong>Consider adding cross-dependencies</strong>: More connections could create richer learning pathways</li>
 </ul>
@@ -2042,13 +2104,13 @@
         
         
           
-          <a href="../faq-quality-report/" class="md-footer__link md-footer__link--next" aria-label="Next: FAQ Quality Report">
+          <a href="../book-metrics/" class="md-footer__link md-footer__link--next" aria-label="Next: Book Metrics">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                FAQ Quality Report
+                Book Metrics
               </div>
             </div>
             <div class="md-footer__button md-icon">

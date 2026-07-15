@@ -1,0 +1,3059 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Extends Chapter 2's labeling conventions into full SKOS and Dublin Core metadata fields, concept granularity, and the governance practices that keep thousands of concept labels unambiguous and machine-readable.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/learning-graphs/chapters/22-concept-metadata-semantic-labeling/">
+      
+      
+        <link rel="prev" href="../21-graph-metrics-path-analysis/references/">
+      
+      
+        <link rel="next" href="quiz/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Concept Metadata and Semantic Labeling Standards - Learning Graphs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-Z6JDD2PWQZ"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-Z6JDD2PWQZ",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-Z6JDD2PWQZ",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Concept Metadata and Semantic Labeling Standards - Learning Graphs" >
+      
+        <meta  property="og:description"  content="Extends Chapter 2's labeling conventions into full SKOS and Dublin Core metadata fields, concept granularity, and the governance practices that keep thousands of concept labels unambiguous and machine-readable." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/learning-graphs/assets/images/social/chapters/22-concept-metadata-semantic-labeling/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/learning-graphs/chapters/22-concept-metadata-semantic-labeling/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Concept Metadata and Semantic Labeling Standards - Learning Graphs" >
+      
+        <meta  name="twitter:description"  content="Extends Chapter 2's labeling conventions into full SKOS and Dublin Core metadata fields, concept granularity, and the governance practices that keep thousands of concept labels unambiguous and machine-readable." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/learning-graphs/assets/images/social/chapters/22-concept-metadata-semantic-labeling/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#concept-metadata-and-semantic-labeling-standards" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Learning Graphs" class="md-header__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/mascot/neutral.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Learning Graphs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Concept Metadata and Semantic Labeling Standards
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Learning Graphs" class="md-nav__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/mascot/neutral.png" alt="logo">
+
+    </a>
+    Learning Graphs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../01-foundations-of-concept-graphs/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    1. Foundations of Concept Graphs
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../02-concept-labeling-metadata-standards/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    2. Concept Labeling and Metadata Standards
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../03-concept-dependencies-prerequisites/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    3. Concept Dependencies and Prerequisites
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../04-concept-taxonomies-ontologies/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    4. Concept Taxonomies and Ontologies
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../05-graph-quality-validation-file-formats/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    5. Learning Graph Quality, Validation, and File Formats
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../06-blooms-taxonomy-learning-objectives/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    6. Bloom's Taxonomy and Learning Objectives
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../07-learning-theories-instructional-design/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    7. Learning Theories and Instructional Design
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../08-cognitive-load-knowledge-space-theory/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    8. Cognitive Load and Knowledge Space Theory
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../09-mastery-metacognition-sequencing/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    9. Mastery, Metacognition, and Instructional Sequencing
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../10-assessment-feedback-quizzes/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    10. Assessment, Feedback, and Quizzes
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../11-visjs-fundamentals-node-styling/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    11. Vis.js Fundamentals and Node Styling
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../12-edge-styling-visual-properties/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    12. Edge Styling and Visual Properties
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../13-physics-simulation-graph-layout/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    13. Physics Simulation and Graph Layout
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../14-interactive-navigation-visjs/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    14. Interactive Navigation in Vis.js
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../15-graph-clustering-editing-tools/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    15. Graph Clustering and Editing Tools
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../16-personalization-adaptive-learning-paths/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    16. Personalization and Adaptive Learning Paths
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../17-intelligent-agents-generative-ai/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    17. Intelligent Agents and Generative AI
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../18-intelligent-textbooks-microsims-deployment/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    18. Intelligent Textbooks, MicroSims, and Deployment
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../19-skill-generate-learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    19. Using a Skill to Generate a Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../20-graph-theory-paths-traversal-connectivity/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    20. Graph Theory II - Paths, Traversal, and Connectivity
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../21-graph-metrics-path-analysis/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    21. Graph Metrics and Path Analysis
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_23" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
+  
+  <span class="md-ellipsis">
+    22. Concept Metadata and Semantic Labeling Standards
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_4_23" id="__nav_4_23_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_23_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_23">
+            <span class="md-nav__icon md-icon"></span>
+            22. Concept Metadata and Semantic Labeling Standards
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quiz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quiz
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Annotated References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../23-advanced-dependency-modeling/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    23. Advanced Dependency Modeling
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../24-taxonomy-design-deep-dive/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    24. Taxonomy Design Deep Dive
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../25-graph-validation-quality-assurance/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    25. Graph Validation and Quality Assurance
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../26-data-pipeline-internals/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    26. Data Pipeline Internals
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../27-learner-modeling-advanced-assessment/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    27. Learner Modeling and Advanced Assessment
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../case-studies/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Case Studies
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../vis/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Vis.js Tutorial
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Sample Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix-graph-libs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix: Graph Visualization Libraries
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How We Built This Site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../student-volunteers-wanted/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Student Volunteers Wanted
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unique-concept-identifier-concept-granularity-and-the-atomic-composite-split" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unique Concept Identifier, Concept Granularity, and the Atomic-Composite Split
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#label-ambiguity-label-normalization-synonym-management-and-homonym-disambiguation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Label Ambiguity, Label Normalization, Synonym Management, and Homonym Disambiguation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata-field-dublin-core-title-and-dublin-core-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata Field, Dublin Core Title, and Dublin Core Description
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skos-preferred-label-alternate-label-and-the-three-relation-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      SKOS Preferred Label, Alternate Label, and the Three Relation Types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SKOS Preferred Label, Alternate Label, and the Three Relation Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-skos-relation-triple-builder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: SKOS Relation Triple Builder
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#machine-readable-metadata-concept-provenance-and-vocabulary-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Machine-Readable Metadata, Concept Provenance, and Vocabulary Governance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#synthesis-from-one-label-to-a-governed-vocabulary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Synthesis: From One Label to a Governed Vocabulary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/learning-graphs/blob/master/docs/chapters/22-concept-metadata-semantic-labeling/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="concept-metadata-and-semantic-labeling-standards">Concept Metadata and Semantic Labeling Standards</h1>
+<h2 id="summary">Summary</h2>
+<p>Extends Chapter 2's introduction to concept labels and metadata standards into the full mechanics of keeping labels unique, appropriately sized, and unambiguous at scale, and into the specific SKOS and Dublin Core fields a production learning graph actually populates. Covers how synonyms, homonyms, and label drift are managed across a graph with hundreds of concepts, and the governance practice that keeps a vocabulary consistent as a graph grows over time. After this chapter, readers can assign a correctly-grained concept identifier, populate a full SKOS relationship set, and explain why vocabulary governance matters once a graph passes a few hundred concepts.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 21 concepts from the learning graph:</p>
+<ol>
+<li>Unique Concept Identifier</li>
+<li>Concept Granularity</li>
+<li>Atomic Concept</li>
+<li>Composite Concept</li>
+<li>Label Ambiguity</li>
+<li>Label Normalization</li>
+<li>Synonym Management</li>
+<li>Homonym Disambiguation</li>
+<li>Naming Convention</li>
+<li>Metadata Field</li>
+<li>Dublin Core Title</li>
+<li>Dublin Core Description</li>
+<li>SKOS Preferred Label</li>
+<li>SKOS Alternate Label</li>
+<li>SKOS Broader Relation</li>
+<li>SKOS Narrower Relation</li>
+<li>SKOS Related Relation</li>
+<li>Semantic Relationship</li>
+<li>Machine-Readable Metadata</li>
+<li>Concept Provenance</li>
+<li>Vocabulary Governance</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../02-concept-labeling-metadata-standards/">Chapter 2: Concept Labeling and Metadata Standards</a></li>
+</ul>
+<hr />
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Every Label Is a Promise to a Future Reader</p>
+<p><img alt="Axiom waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+Let's connect the concepts! Chapter 2 introduced SKOS and Dublin Core by name. This chapter opens both standards fully — every field a production learning graph actually populates — and tackles the practical mess real concept lists develop at scale: near-duplicate labels, words that mean two different things depending on context, and the slow drift that happens when three different contributors name the same idea three different ways over six months.</p>
+</div>
+<h2 id="unique-concept-identifier-concept-granularity-and-the-atomic-composite-split">Unique Concept Identifier, Concept Granularity, and the Atomic-Composite Split</h2>
+<p>Every concept in a learning graph needs an anchor that never changes even if its label does. A <strong>Unique Concept Identifier</strong> is a stable, permanent identifier assigned to a concept that remains constant even if the concept's label is later renamed — in this project's own <code>learning-graph.csv</code>, the integer <code>ConceptID</code> column plays exactly this role. Unique Concept Identifier depends directly on Concept Label in the learning graph. Renaming "CSV to JSON Conversion" to "CSV-to-JSON Conversion" should never require touching a single dependency edge, because every edge references the stable ID, not the label text.</p>
+<p>Before assigning an identifier, though, a designer has to decide how big a "concept" should be — a question Chapter 2 assumed was already settled and this chapter now opens up. <strong>Concept Granularity</strong> is the level of detail at which a concept is defined — how large or small a unit of knowledge one node in the graph represents. Concept Granularity depends directly on Concept in the learning graph. Granularity is a judgment call with real consequences: too coarse, and a single node like "Graph Theory" hides dozens of distinct prerequisite relationships inside itself; too fine, and a graph fragments into hundreds of nearly-identical nodes that add review overhead without adding pedagogical clarity.</p>
+<p>Two poles anchor that granularity spectrum. An <strong>Atomic Concept</strong> is a concept that cannot be meaningfully decomposed into smaller prerequisite concepts without losing coherence — it names one genuinely indivisible unit of knowledge. Atomic Concept depends directly on Concept Granularity in the learning graph. A <strong>Composite Concept</strong> is a concept that bundles several related sub-ideas under one label, deliberately choosing breadth over the finer granularity a set of atomic concepts would provide. Composite Concept depends directly on Concept Granularity in the learning graph.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">There Is No Universally Correct Granularity</p>
+<p><img alt="Axiom thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+"Depth-First Search" is atomic in this book — Chapter 20 treats it as one indivisible idea. A textbook specifically about algorithm implementation might split it into "DFS Recursive Implementation," "DFS Iterative Implementation," and "DFS Stack Management" as three atomic concepts instead. Neither choice is wrong; granularity should match what the course description's learning outcomes actually require distinguishing.</p>
+</div>
+<h2 id="label-ambiguity-label-normalization-synonym-management-and-homonym-disambiguation">Label Ambiguity, Label Normalization, Synonym Management, and Homonym Disambiguation</h2>
+<p>A concept list drafted quickly, or grown by several contributors over time, accumulates labeling problems that a single pass of Chapter 2's rules does not fully prevent. <strong>Label Ambiguity</strong> is the condition of a concept label being unclear about which specific idea it refers to, either because the wording is vague or because the same wording could plausibly apply to more than one concept in the graph. Label Ambiguity depends directly on Concept Label in the learning graph.</p>
+<p><strong>Label Normalization</strong> is the process of rewriting concept labels to a single consistent form — resolving capitalization, punctuation, and phrasing inconsistencies (such as "CSV-to-JSON" versus "CSV to JSON" versus "csv2json") so that equivalent labels do not silently diverge into apparent duplicates. Label Normalization depends directly on Label Ambiguity in the learning graph.</p>
+<p>Normalization fixes formatting drift; a related but distinct problem is when two <em>different-looking</em> labels genuinely mean the same thing. <strong>Synonym Management</strong> is the practice of tracking which alternate labels refer to the same underlying concept, so a search for either term correctly resolves to one node rather than two. Synonym Management depends directly on Label Ambiguity in the learning graph. The opposite failure mode — one label secretly meaning two different things — gets its own name. <strong>Homonym Disambiguation</strong> is the practice of distinguishing multiple distinct concepts that happen to share the same or a very similar label, ensuring each is assigned its own node rather than being collapsed into one. Homonym Disambiguation depends directly on Label Ambiguity in the learning graph.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Synonym and Homonym Problems Look Identical at First Glance</p>
+<p><img alt="Axiom warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+Both problems surface the same way — two rows in a concept-list review that look suspiciously related. The fix is opposite in each case: a synonym pair should merge into one node with the extra label recorded as an alternate label; a homonym pair should stay two separate nodes with more specific labels. Merging a true homonym pair loses real distinctions; keeping a true synonym pair as two nodes creates a redundant, confusing near-duplicate. Reading each pair's intended meaning carefully, not just its surface text, is what tells them apart.</p>
+</div>
+<p>A <strong>Naming Convention</strong> is a documented, agreed-upon set of rules — capitalization, maximum length, phrasing style — that every concept label in a project must follow, reducing how often ambiguity, normalization, and synonym problems arise in the first place. Naming Convention depends directly on Concept Label in the learning graph. Chapter 2's own rules (Title Case, a 32-character cap, entity phrasing rather than a question) are this project's naming convention, stated once and applied to all 400 concepts.</p>
+<h2 id="metadata-field-dublin-core-title-and-dublin-core-description">Metadata Field, Dublin Core Title, and Dublin Core Description</h2>
+<p>Beyond the label itself, a concept's full metadata record has multiple named slots, and this chapter names the general category before drilling into the two standards Chapter 2 introduced. A <strong>Metadata Field</strong> is any single named attribute in a concept's metadata record — title, description, provenance, and so on are each one metadata field. Metadata Field depends directly on Concept Definition in the learning graph.</p>
+<p>Two Dublin Core fields matter enough to name individually, because this project's own <code>metadata.json</code> and <code>learning-graph.json</code> populate them directly. <strong>Dublin Core Title</strong> is the Dublin Core metadata field holding a resource's formal, human-readable name. Dublin Core Title depends on Metadata Field and Dublin Core Metadata in the learning graph — in this project, the value <code>"Learning Graphs: The Key to Intelligent Textbooks"</code> in <code>metadata.json</code>'s <code>title</code> field is a Dublin Core Title in practice. <strong>Dublin Core Description</strong> is the Dublin Core metadata field holding a free-text summary of what a resource covers. Dublin Core Description depends on Metadata Field and Dublin Core Metadata in the learning graph — this project's <code>metadata.json</code> <code>description</code> field plays this exact role.</p>
+<h2 id="skos-preferred-label-alternate-label-and-the-three-relation-types">SKOS Preferred Label, Alternate Label, and the Three Relation Types</h2>
+<p>SKOS supplies its own labeling fields, distinct from — but compatible with — Dublin Core's resource-level fields. A <strong>SKOS Preferred Label</strong> is the single, canonical, display-quality label SKOS assigns to a concept — the one label a rendered graph or search result should show by default. SKOS Preferred Label depends on Preferred Label and SKOS in the learning graph, applying Chapter 2's general Preferred Label idea specifically within the SKOS vocabulary. A <strong>SKOS Alternate Label</strong> is any additional label SKOS permits a concept to carry beyond its preferred label — synonyms, abbreviations, or alternate phrasings that should still resolve to the same node in a search. SKOS Alternate Label depends on Alternate Label and SKOS in the learning graph, and is the standards-compliant mechanism Synonym Management actually implements with.</p>
+<p>SKOS also formalizes <em>relationships between</em> concepts, not just labels on individual concepts, and it names exactly three kinds. A <strong>SKOS Broader Relation</strong> links a concept to a more general concept that contains it — "Graph Theory" as a SKOS-broader relation of "Depth-First Search." A <strong>SKOS Narrower Relation</strong> links a concept to a more specific concept it contains — the inverse direction of the same pair. A <strong>SKOS Related Relation</strong> links two concepts that are meaningfully associated without either being more general or more specific than the other. All three — SKOS Broader Relation, SKOS Narrower Relation, and SKOS Related Relation — depend directly on SKOS in the learning graph.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">SKOS Relations Are Not the Same as Dependency Edges</p>
+<p><img alt="Axiom with a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+A SKOS broader/narrower pair describes a <em>hierarchical</em> relationship (is-a-kind-of), and a SKOS related pair describes a loose <em>association</em> — neither one is a "depends on" edge. "Depth-First Search" has "Graph Traversal" as a SKOS-broader concept, but the <em>dependency</em> edge in this project's own graph runs the opposite way (Depth-First Search depends on Graph Traversal), because prerequisite order and conceptual hierarchy are two different relationships that happen to often point the same direction without being the same thing.</p>
+</div>
+<p>These three relation types are specific instances of a more general idea this chapter names once, at the top of the hierarchy. A <strong>Semantic Relationship</strong> is any typed, named connection between two concepts that captures <em>how</em> they relate, beyond a simple hierarchy — broader, narrower, related, part-of, and other typed links are all semantic relationships. Semantic Relationship depends on SKOS Broader Relation, SKOS Narrower Relation, and SKOS Related Relation in the learning graph.</p>
+<table>
+<thead>
+<tr>
+<th>SKOS Relation</th>
+<th>Direction</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Broader</td>
+<td>Points to a more general concept</td>
+<td>Depth-First Search → broader → Graph Traversal</td>
+</tr>
+<tr>
+<td>Narrower</td>
+<td>Points to a more specific concept</td>
+<td>Graph Traversal → narrower → Depth-First Search</td>
+</tr>
+<tr>
+<td>Related</td>
+<td>Points to an associated concept, no hierarchy implied</td>
+<td>SKOS → related → Dublin Core Metadata</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-skos-relation-triple-builder">Diagram: SKOS Relation Triple Builder</h4>
+<details>
+<summary>SKOS Relation Triple Builder</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> skos-relation-triple-builder<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>Purpose: Let learners build SKOS broader, narrower, and related relationships between concept pairs by dragging a labeled relation arrow onto a graph, then see it rendered correctly (or flagged if backward) against a small answer key.</p>
+<p>Bloom Level: Apply (L3)
+Bloom Verb: construct, classify, apply</p>
+<p>Learning objective: Given six unlabeled concept-pair prompts drawn from this book's own vocabulary (e.g., "Depth-First Search" and "Graph Traversal"), the learner can correctly select and orient the SKOS relation type (broader, narrower, or related) for each pair and receive immediate correct/incorrect feedback.</p>
+<p>Canvas layout: a two-node mini-graph panel (360px tall) with the current concept pair displayed as two boxes; three relation-type buttons (Broader, Narrower, Related) below the panel; a progress indicator ("Pair 3 of 6") and feedback banner above the panel</p>
+<p>Visual elements: two concept-label boxes per prompt, connected by a dashed placeholder arrow until the learner picks a relation type, at which point the arrow solidifies gold (correct) or red (incorrect) with a labeled arrowhead showing direction</p>
+<p>Interactive controls: clicking a relation-type button applies that relation and checks it against the answer key; a direction-swap icon lets the learner flip which of the two concepts is "broader"; "Next Pair" advances after feedback is shown; "Reset Progress" restarts the six-pair sequence</p>
+<p>Default parameters: starts at Pair 1 of 6 with no relation selected; feedback banner empty until the first attempt</p>
+<p>Data Visibility Requirements:
+Stage 1: Show only the two unlabeled concept boxes and the three relation buttons
+Stage 2: On selection, reveal whether the choice (including direction) was correct, with a one-sentence explanation of the correct SKOS relation
+Stage 3: On completing all six pairs, show a summary scorecard listing each pair and whether it was answered correctly on the first attempt</p>
+<p>Instructional Rationale: An Apply-level objective requires learners to correctly classify and orient a relation type on new concept pairs, not just recognize a definition — a build-and-check interaction, rather than a multiple-choice question, is what verifies the learner can apply the distinction rather than just recall it.</p>
+<p>Responsive behavior: relation buttons wrap to two rows below 500px width; graph panel remains fixed height</p>
+<p>Canvas size: responsive, 100% width, 480px height</p>
+<p>Implementation: vis-network for the two-node mini-graph with a single directed edge whose label and color update on each interaction; a small JSON answer key maps each of the six prompt pairs to its correct relation type and direction</p>
+</details>
+<h2 id="machine-readable-metadata-concept-provenance-and-vocabulary-governance">Machine-Readable Metadata, Concept Provenance, and Vocabulary Governance</h2>
+<p>Every field this chapter has named so far serves one overarching requirement, worth stating explicitly before closing. <strong>Machine-Readable Metadata</strong> is metadata structured in a consistent, parseable format — such as this project's own <code>learning-graph.json</code> — so that a script, rather than only a human reader, can reliably extract and act on it. Machine-Readable Metadata depends on Metadata Field and JSON in the learning graph. Every field discussed above only earns its keep if a viewer, validator, or search feature can actually read it programmatically; a beautifully written but unstructured description defeats the purpose.</p>
+<p>Metadata also needs to record where it came from. <strong>Concept Provenance</strong> is a record of a concept's origin and history — who or what created or last modified it, and when — kept so that a reviewer can trace a questionable label or dependency back to its source. Concept Provenance depends directly on Concept Label in the learning graph. A concept generated by an LLM pipeline, then manually edited by a human reviewer during Concept List Review, ideally carries both events in its provenance record.</p>
+<p>Finally, none of these practices — normalization, synonym tracking, naming conventions, provenance — sustains itself automatically as a graph grows past a few hundred concepts and multiple contributors. <strong>Vocabulary Governance</strong> is the set of policies and review practices that keep a concept vocabulary consistent over time, as new concepts are added and existing ones are revised, preventing the slow labeling drift that ungoverned growth produces. Vocabulary Governance depends on Naming Convention and Controlled Vocabulary in the learning graph.</p>
+<div class="admonition mascot-encourage">
+<p class="admonition-title">Governance Sounds Bureaucratic, But It Is Cheap Insurance</p>
+<p><img alt="Axiom encouraging" class="mascot-admonition-img" src="../../img/mascot/encouraging.png" />
+A one-page naming convention document and a habit of checking new labels against existing ones before adding them is most of what vocabulary governance requires for a project this size — it does not need a formal committee. The payoff shows up later: a 400-concept graph with consistent labels is far cheaper to search, cross-reference, and extend than one where "Assessment," "Assessments," and "Student Assessment" all quietly refer to the same idea.</p>
+</div>
+<h2 id="synthesis-from-one-label-to-a-governed-vocabulary">Synthesis: From One Label to a Governed Vocabulary</h2>
+<p>Chapter 2 taught you to write a single good concept label. This chapter scaled that skill to an entire vocabulary: choosing the right granularity before labeling begins, catching ambiguity and near-duplicates as a graph grows, populating the specific Dublin Core and SKOS fields a real graph needs, and governing the whole vocabulary so it stays trustworthy over time rather than drifting. The SKOS relations defined here — broader, narrower, related — resurface directly in Chapter 24's taxonomy design, where they formalize how categories nest and connect to each other, and Concept Provenance resurfaces in Chapter 23's dependency-review workflows, where knowing who asserted an edge matters as much as knowing the edge exists.</p>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Your Labels Can Now Survive Contact with 400 Concepts</p>
+<p><img alt="Axiom celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png" />
+Pause and appreciate your progress. A vocabulary of a dozen concepts barely needs any of this chapter's tools — ambiguity and drift are easy to catch by eye. A vocabulary of 400 needs every one of them: stable identifiers, disciplined granularity, synonym and homonym tracking, full SKOS relations, and governance that outlives any single contributor. You now have the full toolkit a production learning graph's metadata actually runs on. Let's connect the concepts — Chapter 23 takes this same rigor and applies it to the dependency edges themselves.</p>
+</div>
+<p><a href="references/">See Annotated References</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../21-graph-metrics-path-analysis/references/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Annotated References">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Annotated References
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="quiz/" class="md-footer__link md-footer__link--next" aria-label="Next: Quiz">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Quiz
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
