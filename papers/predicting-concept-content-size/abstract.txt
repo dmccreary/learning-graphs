@@ -35,10 +35,15 @@ and over half the graph's concepts are tied at it, making the bottom tier
 unreachable regardless of true importance); we report the fix (a log-scaled
 Elaboration Score) and the two-chapter cross-check that exposed the bug, as
 a methodological point likely relevant beyond this specific metric. We
-describe a planned blind-comparison study, generating matched chapters under
-uniform, in-degree-weighted, and CIS-weighted budgets at fixed total chapter
-length, rated by both human judges and an LLM-judge rubric, to test whether
-CIS-weighted allocation produces higher-quality generated content than the
-alternatives.
+describe a first pilot (N=1 chapter, Chapter 12, "Exponential Functions"):
+three complete chapter drafts generated independently under fixed total
+length, varying only the per-concept budget (uniform / in-degree-weighted /
+CIS-weighted), scored and ranked by three independent blind LLM judges. All
+three judges produced the identical ranking: CIS-weighted > in-degree-weighted
+> uniform. This is a promising first signal, not a powered result -- the
+judges are the same model family as the generator, not independent humans,
+and only one (specialized, leaf-heavy) chapter has been tested. We lay out
+the remaining steps -- independent human raters and a second, foundational
+chapter -- needed before the finding can be reported as more than preliminary.
 
 TODO: tighten to under 250 words once Sections 4-7 are drafted in full.

@@ -31,7 +31,7 @@ No content has been generated for the evaluation study yet -- see Section 7.
 | 4 | [Formal Definitions](sections/04-formal-definitions/04-formal-definitions.tex) | 450-700 words | Definitions + Proposition 1 drafted, needs proof + Figure 1 |
 | 5 | [Problem Statement](sections/05-problem-statement/05-problem-statement.tex) | 800-1200 words | Outline only, 3 sub-problems specified |
 | 6 | [System](sections/06-system/06-system.tex) | 500-800 words | Outline only, grounded in verified current skill behavior |
-| 7 | [Evaluation](sections/07-evaluation/07-evaluation.tex) | 800-1500 words | **Study not yet run** -- design documented, open items listed |
+| 7 | [Evaluation](sections/07-evaluation/07-evaluation.tex) | 800-1500 words | **Pilot 1 complete** (Chapter 12, N=1, LLM-judge only) -- see `pilot-study/chapter-12/RESULTS.md`; full study still needs human raters + Chapter 1 |
 | 8 | [Discussion & Limitations](sections/08-discussion-limitations/08-discussion-limitations.tex) | 300-500 words | Outline only |
 | 9 | [Conclusion & Future Work](sections/09-conclusion-future-work/09-conclusion-future-work.tex) | 150-250 words | Outline only |
 
@@ -53,6 +53,13 @@ predicting-concept-content-size/
 │   └── algebra1-ch12-elaboration-budget.csv  # Chapter 12 tiered word budget (E(c), global) -- validation check
 ├── figures/
 │   └── suggested-figures.md          # Figure plan, priority order
+├── pilot-study/
+│   └── chapter-12/
+│       ├── condition-a-uniform.md    # Generated chapter, uniform word budget
+│       ├── condition-b-indegree.md   # Generated chapter, in-degree-weighted budget
+│       ├── condition-c-cis.md        # Generated chapter, CIS-weighted budget
+│       ├── blind/                    # Condition-stripped copies used for blind judging
+│       └── RESULTS.md                # Scores, unanimous ranking, caveats
 └── sections/
     ├── 01-abstract/01-abstract.tex
     ├── 02-introduction/02-introduction.tex

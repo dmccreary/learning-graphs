@@ -75,8 +75,36 @@
    claim empirically (re-run under controlled conditions) or drop it to
    future work, given the original comparison data was not preserved.
 
+## Pilot Run 1: Complete (Chapter 12)
+
+- [x] **Specified Condition B** (in-degree weighted) precisely: same
+      log-normalized functional form as Condition C, substituting in-degree
+      for CIS, floor 150 words. Written into `sections/07-evaluation` with a
+      3-condition comparison table. In-degree's lack of a CIS-style floor-tie
+      problem noted explicitly (indeg=0 -> $E_B=0$ cleanly, unlike the
+      earlier percentile-rank bug).
+- [x] **Generated 3 independent chapter drafts** for Chapter 12 (one per
+      condition), each from the same fixed scaffold, no shared context
+      between generations, none with access to the real published chapter.
+      All landed within +/-15% per-concept tolerance and within 1% of the
+      3,722-word chapter total. Files: `pilot-study/chapter-12/condition-{a-uniform,b-indegree,c-cis}.md`.
+- [x] **Ran blind LLM-judge rating**: 3 independent fresh judge sessions,
+      condition labels and word-count footers stripped, rubric from
+      `sections/07-evaluation`. **All 3 judges independently ranked
+      C > B > A** (CIS > in-degree > uniform), unanimous. Full scores and
+      methodology: `pilot-study/chapter-12/RESULTS.md`.
+- [x] Wrote pilot results into `sections/07-evaluation` (new "Pilot Results:
+      Chapter 12" subsection) with explicit caveats: N=1 chapter, judges are
+      same-model-family as generator (not independent humans), single
+      specialized-chapter profile only. Updated `abstract.txt` and open items
+      to reflect what's still needed (human rater, Chapter 1 run, full
+      6-10 chapter sample).
+
 ## Next Immediate Step
 
-Specify Condition B precisely and begin the blind-comparison pilot study
-(items 3-4) -- the tiering rule is now validated on two chapters and ready to
-drive real content generation.
+Two remaining items before this result can be reported as more than
+preliminary: (1) get at least one independent human rating on Chapter 12
+alongside the LLM judges, (2) run the same 3-condition generation + blind
+judging on Chapter 1 (foundational profile, opposite of Chapter 12's
+specialized profile) to check the pattern isn't specific to leaf-heavy
+chapters.
