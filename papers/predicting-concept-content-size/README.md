@@ -17,9 +17,12 @@ section-specific figures together.
 
 ## Paper Status
 
-**Current state: outline draft.** Every section file contains a LaTeX skeleton
-with bulleted outline content and inline `% TODO` comments, not finished prose.
-No content has been generated for the evaluation study yet -- see Section 7.
+**Current state: outline draft, with two completed evaluation pilots.** Most
+section files still contain a LaTeX skeleton with bulleted outline content
+and inline `% TODO` comments, not finished prose -- except Section 7
+(Evaluation), which now reports real pilot results from two generated and
+blind-judged chapters. See `pilot-study/` for the underlying generated
+content and raw judge output.
 
 ### Section Status
 
@@ -31,7 +34,7 @@ No content has been generated for the evaluation study yet -- see Section 7.
 | 4 | [Formal Definitions](sections/04-formal-definitions/04-formal-definitions.tex) | 450-700 words | Definitions + Proposition 1 drafted, needs proof + Figure 1 |
 | 5 | [Problem Statement](sections/05-problem-statement/05-problem-statement.tex) | 800-1200 words | Outline only, 3 sub-problems specified |
 | 6 | [System](sections/06-system/06-system.tex) | 500-800 words | Outline only, grounded in verified current skill behavior |
-| 7 | [Evaluation](sections/07-evaluation/07-evaluation.tex) | 800-1500 words | **Pilot 1 complete** (Chapter 12, N=1, LLM-judge only) -- see `pilot-study/chapter-12/RESULTS.md`; full study still needs human raters + Chapter 1 |
+| 7 | [Evaluation](sections/07-evaluation/07-evaluation.tex) | 800-1500 words | **Pilots 1-2 complete** (Chapters 12 & 1, N=2, LLM-judge only) -- CIS is Condorcet winner in both, B vs A flips between chapters; still needs human raters + more chapters |
 | 8 | [Discussion & Limitations](sections/08-discussion-limitations/08-discussion-limitations.tex) | 300-500 words | Outline only |
 | 9 | [Conclusion & Future Work](sections/09-conclusion-future-work/09-conclusion-future-work.tex) | 150-250 words | Outline only |
 
@@ -48,18 +51,22 @@ predicting-concept-content-size/
 ├── README.md                         # This file
 ├── STATUS.md                         # Working status / next-steps log
 ├── data/
-│   ├── algebra1-concept-impact.csv           # Real computed in-degree/CIS data, all 200 concepts
-│   ├── algebra1-ch1-elaboration-budget.csv   # Chapter 1 tiered word budget (E(c), global)
-│   └── algebra1-ch12-elaboration-budget.csv  # Chapter 12 tiered word budget (E(c), global) -- validation check
+│   ├── algebra1-concept-impact.csv             # Real computed in-degree/CIS data, all 200 concepts
+│   ├── algebra1-ch1-elaboration-budget.csv     # Chapter 1 tiered word budget (E(c), global)
+│   ├── algebra1-ch12-elaboration-budget.csv    # Chapter 12 tiered word budget (E(c), global)
+│   ├── algebra1-ch1-three-conditions.csv       # Chapter 1: A/B/C word budgets side by side
+│   └── algebra1-ch12-three-conditions.csv      # Chapter 12: A/B/C word budgets side by side
 ├── figures/
 │   └── suggested-figures.md          # Figure plan, priority order
 ├── pilot-study/
-│   └── chapter-12/
-│       ├── condition-a-uniform.md    # Generated chapter, uniform word budget
-│       ├── condition-b-indegree.md   # Generated chapter, in-degree-weighted budget
-│       ├── condition-c-cis.md        # Generated chapter, CIS-weighted budget
+│   ├── chapter-12/                   # Pilot 1: specialized chapter (0A/2B/8C tier profile)
+│   │   ├── condition-{a-uniform,b-indegree,c-cis}.md  # Generated chapters, one per condition
+│   │   ├── blind/                    # Condition-stripped copies used for blind judging
+│   │   └── RESULTS.md                # Scores, unanimous C>B>A ranking, caveats
+│   └── chapter-1/                    # Pilot 2: foundational chapter (8A/6B/3C tier profile)
+│       ├── condition-{a-uniform,b-indegree,c-cis}.md  # Generated chapters, one per condition
 │       ├── blind/                    # Condition-stripped copies used for blind judging
-│       └── RESULTS.md                # Scores, unanimous ranking, caveats
+│       └── RESULTS.md                # Scores, split ranking but C is Condorcet winner, caveats
 └── sections/
     ├── 01-abstract/01-abstract.tex
     ├── 02-introduction/02-introduction.tex
@@ -108,6 +115,16 @@ the main document, compiler = pdfLaTeX.
    4), Tables 1-2 in `sections/06-system`, and
    `data/algebra1-ch1-elaboration-budget.csv` /
    `data/algebra1-ch12-elaboration-budget.csv`.
+3. **Condition B ("in-degree weighted") specified.** Same log-normalized
+   functional form as Condition C, substituting in-degree for CIS. See
+   `sections/07-evaluation`.
+4. **Pilot studies run on both chapters.** CIS is the Condorcet winner
+   (undefeated pairwise) in both Chapter 12 (unanimous 3/3 judge agreement:
+   C>B>A) and Chapter 1 (split judge rankings, but C still undefeated
+   pairwise). B's standing relative to A flips between chapters (B beat A on
+   Chapter 12, lost to A on Chapter 1) -- an interesting instability in its
+   own right. See `pilot-study/chapter-12/RESULTS.md` and
+   `pilot-study/chapter-1/RESULTS.md`.
 
 ### Open
 
@@ -115,13 +132,13 @@ the main document, compiler = pdfLaTeX.
    two chapters with opposite expected profiles, but that's a small
    validation set. Consider a third, genuinely-mixed chapter before trusting
    the cut points across the full pilot study.
-2. **Condition B ("in-degree weighted") has no prior documented formula to
-   reproduce.** The original observation came from an informal session in a
-   different project (`wake-word-detection`, Google Antigravity) whose output
-   was not preserved. Condition B will be freshly specified for a fair
-   comparison rather than reconstructed. See `sections/07-evaluation`.
-3. **Word-count-only vs. full elaboration budget** (diagrams, MicroSims,
-   worked examples) for the first pilot study -- simpler vs. more realistic.
+2. **Word-count-only vs. full elaboration budget** (diagrams, MicroSims,
+   worked examples) -- both pilots varied word count only; extending to the
+   full multi-dimensional budget is still open.
+3. **Independent human rater(s)** -- both pilot results rest entirely on
+   same-model-family LLM judges (Claude Sonnet 5 judging Claude Sonnet
+   5-generated content). This is now the top priority; see
+   `sections/07-evaluation` open items.
 
 ## Source Context
 

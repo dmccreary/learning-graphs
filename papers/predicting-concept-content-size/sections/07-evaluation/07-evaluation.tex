@@ -24,13 +24,12 @@
               \item[C --] CIS weighted (proposed): see \S\ref{sec:problem-statement}.
           \end{itemize}
     \item \textbf{Pilot corpus:} Algebra I learning graph and chapters
-          (\texttt{/Users/danmccreary/Documents/ws/algebra-1}). Chapter 12
-          (``Exponential Functions'', 10 concepts) selected for the first pilot
-          run -- already validated as the specialized-chapter contrast case
-          (\S\ref{sec:system}), and its small size (3{,}722 published words)
-          keeps the first full 3-condition run tractable. Chapter 1 remains
-          the planned second pilot chapter (largest CIS/in-degree divergence,
-          \S\ref{sec:system}).
+          (\texttt{/Users/danmccreary/Documents/ws/algebra-1}). Two chapters
+          run so far: Chapter 12 (``Exponential Functions'', 10 concepts,
+          specialized/leaf-heavy CIS profile, \S\ref{sec:pilot-ch12}) and
+          Chapter 1 (``Foundations of Algebra'', 17 concepts, largest
+          CIS/in-degree divergence, foundational profile,
+          \S\ref{sec:pilot-ch1}).
     \item \textbf{Sample:} 6-10 chapters total, spanning varied CIS distributions
           (some with one dominant hub concept, some flatter) and, if feasible, more
           than one book/domain so the finding is not a single-domain artifact.
@@ -177,10 +176,67 @@ generate the drafts (Claude Sonnet 5), not independent human raters --
 same-model self-consistency cannot be ruled out as a contributor to the
 result, and the planned human spot-check (\S\ref{sec:evaluation}, Rating
 Protocol) has not yet been run. Chapter 12 is a specialized, leaf-heavy
-chapter (\S\ref{sec:system}, Table~\ref{tab:ch12-budget}); the equivalent run
-on foundational Chapter 1 (opposite CIS profile) is still outstanding. Treat
-this as a promising first pilot signal that justifies running the full
-study, not as the study's result.
+chapter (\S\ref{sec:system}, Table~\ref{tab:ch12-budget}); see the
+Chapter~1 pilot below for the foundational-chapter contrast case.
+
+\subsection{Pilot Results: Chapter 1}
+\label{sec:pilot-ch1}
+
+% TODO: expand into prose. Full generation transcript, raw judge output, and
+% blinding methodology recorded in pilot-study/chapter-1/RESULTS.md.
+
+Same protocol as \S\ref{sec:pilot-ch12}, applied to Chapter 1 (17 concepts,
+6{,}800-word budget), using the Condition B/C tables implied by
+Table~\ref{tab:ch1-budget} and the Chapter-1 analogue of
+Table~\ref{tab:ch12-three-conditions} (data:
+\texttt{data/algebra1-ch1-three-conditions.csv}). Achieved totals: A 6{,}560;
+B 6{,}809; C 6{,}713 words -- all within $\pm 15\%$ per-concept and within
+3\% of the 6{,}800-word chapter total.
+
+\begin{table}[htbp]
+\centering
+\caption{Pilot judge scores (1-5, mean of 3 independent blind judges), Chapter 1.}
+\label{tab:pilot-ch1-scores}
+\begin{tabular}{lrrrrr}
+\toprule
+Condition & a: depth & b: examples & c: coherence & d: no padding & overall \\
+\midrule
+A (uniform)         & 3.33 & 4.67 & 5.00 & 3.33 & 4.00 \\
+B (in-degree)        & 3.33 & 3.00 & 3.67 & 3.33 & 3.33 \\
+C (CIS, proposed)    & 4.00 & 5.00 & 4.00 & 4.00 & 4.33 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Result -- not unanimous this time; report honestly.} Judges disagreed
+on where Condition A slots in (Judge rankings: C$>$B$>$A; C$>$A$>$B;
+A$>$C$>$B). Unlike Chapter 12, this is \emph{not} a clean 3/3 sweep. But a
+consistent structure survives: pairwise, C beats B 3-0 and beats A 2-1; A
+beats B 2-1. \textbf{C is the Condorcet winner} (undefeated pairwise) and has
+the highest mean overall score (4.33 vs.\ A's 4.00 vs.\ B's 3.33).
+\textbf{B is dominated} here -- losing to both A and C -- which is the
+opposite of Chapter 12, where B beat A. This instability in B's relative
+standing (winning on Chapter 12, losing on Chapter 1), against C's
+consistent Condorcet-winner status in both, is itself informative: naive
+in-degree weighting is not a reliably safe strategy, while CIS's transitive
+smoothing appears more robust across chapter profiles.
+
+\textbf{Qualitative illustration.} ``Constant'' has in-degree 1 (a minor
+concept by that measure) but ranks \#4 of 200 book-wide by CIS (transitively
+foundational). Condition B (302-word target) treats it accordingly briefly:
+a definition plus a bulleted list of three quick examples, no worked
+example. Condition C (559-word target, Tier A) gives it a full labeled
+worked example (a taxi-fare scenario) with a 3-row data table, plus a
+paragraph distinguishing ``fixed within a problem'' from ``fixed forever'' --
+treatment on par with the chapter's most emphasized concepts, matching its
+true book-wide importance despite the low direct in-degree that misleads
+Condition B.
+
+\textbf{Combined picture (both pilot chapters).} C is the Condorcet winner
+in both chapters tested and undefeated against B in both (6-0 combined
+across Chapters 1 and 12). Its margin over uniform narrows on the
+foundational chapter (2-1) versus the specialized one (3-0). Still $N=2$
+chapters, still LLM-judge only -- see open items below.
 
 \subsection{Resolved Items}
 \begin{itemize}
@@ -209,22 +265,24 @@ study, not as the study's result.
 \subsection{Open Items Before Completing the Study}
 % TODO: resolve each of these, then delete this subsection.
 \begin{itemize}
-    \item \textbf{Independent human rater(s) for Chapter 12} -- the pilot
-          result (\S\ref{sec:pilot-ch12}) currently rests entirely on
-          same-model-family LLM judges. This is the single most important
-          remaining gap before the result can be reported as more than
-          preliminary.
-    \item \textbf{Run the same 3-condition generation + blind judging on
-          Chapter 1} (foundational profile, opposite of Chapter 12's
-          specialized profile) to check the pattern isn't specific to
-          leaf-heavy chapters.
-    \item \textbf{Extend to the full 6-10 chapter sample} if the Chapter 1
-          result is consistent with Chapter 12's.
+    \item \textbf{Independent human rater(s)} -- both pilot results
+          (\S\ref{sec:pilot-ch12}, \S\ref{sec:pilot-ch1}) currently rest
+          entirely on same-model-family LLM judges. This is now the single
+          most important remaining gap, and more pressing after the
+          Chapter 1 result than before it: an independent human check is
+          needed to confirm the Condorcet-winner pattern isn't an artifact
+          of same-model self-consistency, particularly given Chapter 1's
+          judges did not even agree among themselves on a strict ranking.
+    \item \textbf{Extend to the full 6-10 chapter sample.} Two chapters in,
+          with a consistent Condorcet-winner result for C but an unstable
+          B-vs-A relationship (B beat A on Chapter 12, lost to A on
+          Chapter 1) -- more chapters are needed to tell whether B's
+          instability itself is a stable finding or noise from $N=2$.
     \item \textbf{$E(c)$ cut points (0.5/0.2) are only lightly validated.}
           Confirmed sensible on two chapters with opposite expected profiles,
           but that is a small validation set.
     \item \textbf{Elaboration-budget dimensions beyond words} (diagrams,
-          MicroSims, worked examples) -- the pilot varied word count only;
+          MicroSims, worked examples) -- both pilots varied word count only;
           decide whether to extend to the full multi-dimensional elaboration
           budget in later runs.
 \end{itemize}

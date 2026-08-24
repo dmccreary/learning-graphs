@@ -100,11 +100,34 @@
       to reflect what's still needed (human rater, Chapter 1 run, full
       6-10 chapter sample).
 
+## Pilot Run 2: Complete (Chapter 1)
+
+- [x] **Generated 3 independent chapter drafts** for Chapter 1 (17
+      concepts, 6,800-word budget), same protocol as Chapter 12 pilot.
+      All within +/-15% per-concept, within 3% of chapter total (achieved:
+      A 6,560; B 6,809; C 6,713).
+- [x] **Ran blind LLM-judge rating** (3 fresh judges, different blind-label
+      assignment than Chapter 12 to prevent pattern-matching). Result was
+      **not** a clean sweep this time: judges disagreed on where uniform
+      (A) ranks (C>B>A, C>A>B, A>C>B across the 3 judges). But CIS (C) is
+      still the **Condorcet winner** (undefeated pairwise: beats B 3-0,
+      beats A 2-1) and has the highest mean score (4.33 vs A's 4.00 vs B's
+      3.33). Notably, **B (in-degree) lost to A here** -- the opposite of
+      Chapter 12, where B beat A. This instability in B's standing, against
+      C's consistent Condorcet-winner status in both chapters, is itself an
+      interesting finding: naive in-degree weighting isn't a reliably safe
+      strategy; CIS appears more robust. Full results:
+      `pilot-study/chapter-1/RESULTS.md`.
+- [x] Updated `sections/07-evaluation` with a new "Pilot Results: Chapter 1"
+      subsection, a combined two-chapter summary table, and revised open
+      items (independent human rater is now the clear top priority given
+      Chapter 1's judges didn't even agree among themselves).
+
 ## Next Immediate Step
 
-Two remaining items before this result can be reported as more than
-preliminary: (1) get at least one independent human rating on Chapter 12
-alongside the LLM judges, (2) run the same 3-condition generation + blind
-judging on Chapter 1 (foundational profile, opposite of Chapter 12's
-specialized profile) to check the pattern isn't specific to leaf-heavy
-chapters.
+Independent human rater(s) are now the single most important remaining gap
+-- both pilot results rest entirely on same-model-family LLM judges, and
+Chapter 1's split judge rankings make external validation more pressing than
+it was after Chapter 12's clean sweep alone. After that: extend to more
+chapters (target the full 6-10 chapter sample) to see whether B's
+chapter-to-chapter instability is a real pattern or noise from N=2.
