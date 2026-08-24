@@ -56,6 +56,8 @@
     
       <link rel="stylesheet" href="../../css/mascot.css">
     
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -2938,9 +2940,9 @@ Let's connect the concepts! Every chapter before this one asked whether your gra
 </div>
 <h2 id="recursive-importance-measure-pagerank-and-the-concept-impact-score-cis">Recursive Importance Measure, PageRank, and the Concept Impact Score (CIS)</h2>
 <p>Chapter 21 gave you indegree and betweenness centrality as ways to rank a concept's importance from its immediate neighborhood. Both share a blind spot: they only count what touches a node directly. A <strong>Recursive Importance Measure</strong> is any importance score for a node in a directed graph that is computed from the importance scores of the nodes pointing to it, rather than from a simple count of those nodes — importance recurses through the graph instead of stopping at the first hop. Recursive Importance Measure depends on Directed Graph in the learning graph, and it is the general category both of this section's other two concepts belong to.</p>
-<p>The best-known recursive importance measure has nothing to do with textbooks. <strong>PageRank</strong> is the recursive importance algorithm originally developed to rank web pages, where a page's score is a damped, iteratively-converged sum of the scores of every page linking to it. PageRank depends directly on Recursive Importance Measure in the learning graph. On the open web, pages can link to each other in cycles, so PageRank needs a damping factor $d$ (traditionally 0.85) and repeated iteration to guarantee the calculation converges to a stable answer at all.</p>
-<p>A learning graph is not the open web. Because Chapter 1 defined it as a Directed Acyclic Graph, cycles are structurally impossible — and that single fact changes everything about how a recursive importance score can be computed on it. The <strong>Concept Impact Score (CIS)</strong> is a PageRank-style recursive importance measure defined over a learning graph's dependency DAG: $\mathrm{CIS}(x) = 1 + \sum \mathrm{CIS}(d)$ for every concept $d$ that directly depends on $x$. CIS depends on PageRank, Directed Acyclic Graph (DAG), and Indegree in the learning graph — it is this book's own answer to the question Chapter 21's indegree metric left open: how do you count influence that passes <em>through</em> other concepts, not just influence that lands directly?</p>
-<p>This book's own graph supplies a clean worked example. <strong>Behaviorism</strong> has an indegree of exactly 1 — only Instructional Design depends on it directly, so a raw dependents-count would rank it as a minor, peripheral concept. But Instructional Design itself has four direct dependents of its own (Scaffolding, Curriculum Design, Metacognition, and Nine Events of Instruction), each with further dependents beyond that. Working the recursion out: $\mathrm{CIS}(\text{Instructional Design}) = 102$, so $\mathrm{CIS}(\text{Behaviorism}) = 1 + 102 = 103$ — a top-15 concept by impact in this entire 410-concept graph, despite an indegree of 1. Indegree only sees the first hop; CIS sees the whole downstream chain Behaviorism ultimately supports.</p>
+<p>The best-known recursive importance measure has nothing to do with textbooks. <strong>PageRank</strong> is the recursive importance algorithm originally developed to rank web pages, where a page's score is a damped, iteratively-converged sum of the scores of every page linking to it. PageRank depends directly on Recursive Importance Measure in the learning graph. On the open web, pages can link to each other in cycles, so PageRank needs a damping factor <span class="arithmatex">\(d\)</span> (traditionally 0.85) and repeated iteration to guarantee the calculation converges to a stable answer at all.</p>
+<p>A learning graph is not the open web. Because Chapter 1 defined it as a Directed Acyclic Graph, cycles are structurally impossible — and that single fact changes everything about how a recursive importance score can be computed on it. The <strong>Concept Impact Score (CIS)</strong> is a PageRank-style recursive importance measure defined over a learning graph's dependency DAG: <span class="arithmatex">\(\mathrm{CIS}(x) = 1 + \sum \mathrm{CIS}(d)\)</span> for every concept <span class="arithmatex">\(d\)</span> that directly depends on <span class="arithmatex">\(x\)</span>. CIS depends on PageRank, Directed Acyclic Graph (DAG), and Indegree in the learning graph — it is this book's own answer to the question Chapter 21's indegree metric left open: how do you count influence that passes <em>through</em> other concepts, not just influence that lands directly?</p>
+<p>This book's own graph supplies a clean worked example. <strong>Behaviorism</strong> has an indegree of exactly 1 — only Instructional Design depends on it directly, so a raw dependents-count would rank it as a minor, peripheral concept. But Instructional Design itself has four direct dependents of its own (Scaffolding, Curriculum Design, Metacognition, and Nine Events of Instruction), each with further dependents beyond that. Working the recursion out: <span class="arithmatex">\(\mathrm{CIS}(\text{Instructional Design}) = 102\)</span>, so <span class="arithmatex">\(\mathrm{CIS}(\text{Behaviorism}) = 1 + 102 = 103\)</span> — a top-15 concept by impact in this entire 410-concept graph, despite an indegree of 1. Indegree only sees the first hop; CIS sees the whole downstream chain Behaviorism ultimately supports.</p>
 <div class="admonition mascot-thinking">
 <p class="admonition-title">One Direct Dependent, Many Indirect Ones</p>
 <p><img alt="Axiom thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
@@ -2950,19 +2952,19 @@ Notice what actually happened with Behaviorism: its own score is small, but the 
 <p>Web-graph PageRank needs damping and iteration because cycles make a single deterministic pass impossible — a page's score can depend on another page whose own score depends back on the first page. <strong>Single-Pass DAG Computation</strong> is the property that, because a learning graph has no cycles, CIS can be computed exactly in one traversal, processing concepts in topological order so that every concept is scored only after all of its dependents have already been scored. Single-Pass DAG Computation depends on Topological Sort and Concept Impact Score (CIS) in the learning graph. Terminal concepts (nothing depends on them) start at CIS 1 and are processed first; foundational hub concepts, scored last, simply sum what has already been finalized beneath them — no damping factor, no fixed-point iteration, and no risk of non-convergence, because none of the conditions that make those safeguards necessary on a general graph can occur here.</p>
 <h2 id="comparing-concepts-book-wide-global-normalization-and-the-elaboration-score">Comparing Concepts Book-Wide: Global Normalization and the Elaboration Score</h2>
 <p>A raw CIS value only means something relative to other CIS values, which raises a scope question: relative to what set of concepts? <strong>Global Normalization</strong> is the decision to compare a concept's CIS against the maximum CIS across the <em>entire</em> book, not just the concepts co-occurring in its own chapter. Global Normalization depends directly on Concept Impact Score (CIS) in the learning graph. The alternative — chapter-local normalization — was tried and rejected during this idea's development: scoring each chapter's concepts only against each other made a chapter's single most-important concept always look book-level important, even in a late, narrow chapter where nothing it contains is actually foundational to the rest of the book. A concept's real-world impact is a claim about the whole book, so the comparison set has to be the whole book too.</p>
-<p>Comparing raw CIS values directly still causes a second, subtler problem: CIS is heavy-tailed, with roughly half of a typical graph's concepts sitting at the minimum score of 1. The <strong>Elaboration Score</strong> is a normalized value, $E(c) = \log(\mathrm{CIS}(c)+1) / \log(\mathrm{CIS}<em _max="\max">{\max}+1)$, that rescales every concept's CIS onto a $[0,1]$ range using this book's single highest CIS value as $\mathrm{CIS}</em> = 661$ (the concept }$. Elaboration Score depends directly on Global Normalization in the learning graph. In this book, $\mathrm{CIS}_{\max<strong>Concept</strong>, at the root of the whole graph), so Recursive Importance Measure's own $E(c) = \log(9)/\log(662) \approx 0.34$ — comfortably mid-range, appropriate for a concept this chapter treats as important but not foundational to the rest of the book.</p>
+<p>Comparing raw CIS values directly still causes a second, subtler problem: CIS is heavy-tailed, with roughly half of a typical graph's concepts sitting at the minimum score of 1. The <strong>Elaboration Score</strong> is a normalized value, <span class="arithmatex">\(E(c) = \log(\mathrm{CIS}(c)+1) / \log(\mathrm{CIS}_{\max}+1)\)</span>, that rescales every concept's CIS onto a <span class="arithmatex">\([0,1]\)</span> range using this book's single highest CIS value as <span class="arithmatex">\(\mathrm{CIS}_{\max}\)</span>. Elaboration Score depends directly on Global Normalization in the learning graph. In this book, <span class="arithmatex">\(\mathrm{CIS}_{\max} = 661\)</span> (the concept <strong>Concept</strong>, at the root of the whole graph), so Recursive Importance Measure's own <span class="arithmatex">\(E(c) = \log(9)/\log(662) \approx 0.34\)</span> — comfortably mid-range, appropriate for a concept this chapter treats as important but not foundational to the rest of the book.</p>
 <div class="admonition mascot-warning">
 <p class="admonition-title">A Percentile Rank Looks Reasonable and Is Not</p>
 <p><img alt="Axiom warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
 The first attempt at this scale did not use a logarithm at all — it ranked concepts by population percentile instead. That version passed every check on one chapter and then broke completely on a second: because CIS has a hard floor of 1, and over half of a typical graph's concepts sit at that floor, the "bottom 35th percentile" cutoff landed <em>at</em> the floor itself, making the lowest tier structurally unreachable no matter how unimportant a concept actually was. The log-scaled Elaboration Score fixes this by scoring the <em>value</em>, not the <em>rank</em> — tied floor concepts separate cleanly from true hubs instead of hiding inside one enormous median band.</p>
 </div>
 <h2 id="from-score-to-budget-elaboration-tier-and-content-budget-allocation">From Score to Budget: Elaboration Tier and Content-Budget Allocation</h2>
-<p>A continuous $[0,1]$ score is precise but awkward to hand to a writer as an instruction. An <strong>Elaboration Tier</strong> is one of three discrete bands — A, B, or C — assigned from a concept's Elaboration Score, each carrying its own target word count and required content elements. Elaboration Tier depends directly on Elaboration Score in the learning graph.</p>
+<p>A continuous <span class="arithmatex">\([0,1]\)</span> score is precise but awkward to hand to a writer as an instruction. An <strong>Elaboration Tier</strong> is one of three discrete bands — A, B, or C — assigned from a concept's Elaboration Score, each carrying its own target word count and required content elements. Elaboration Tier depends directly on Elaboration Score in the learning graph.</p>
 <table>
 <thead>
 <tr>
 <th>Tier</th>
-<th>$E(c)$ range</th>
+<th><span class="arithmatex">\(E(c)\)</span> range</th>
 <th>Target words</th>
 <th>Required elements</th>
 </tr>
@@ -2970,19 +2972,19 @@ The first attempt at this scale did not use a logarithm at all — it ranked con
 <tbody>
 <tr>
 <td>A — full treatment</td>
-<td>$\geq 0.5$</td>
+<td><span class="arithmatex">\(\geq 0.5\)</span></td>
 <td>500–750</td>
 <td>Worked example <strong>and</strong> diagram/chart/table/MicroSim</td>
 </tr>
 <tr>
 <td>B — standard</td>
-<td>$0.2 \leq E(c) &lt; 0.5$</td>
+<td><span class="arithmatex">\(0.2 \leq E(c) &lt; 0.5\)</span></td>
 <td>250–400</td>
 <td>Worked example</td>
 </tr>
 <tr>
 <td>C — brief</td>
-<td>$&lt; 0.2$</td>
+<td><span class="arithmatex">\(&lt; 0.2\)</span></td>
 <td>120–200</td>
 <td>A clear definition; a short example is optional</td>
 </tr>
@@ -2999,7 +3001,7 @@ The first attempt at this scale did not use a logarithm at all — it ranked con
 <tr>
 <th>Concept</th>
 <th>CIS</th>
-<th>$E(c)$</th>
+<th><span class="arithmatex">\(E(c)\)</span></th>
 <th>Tier</th>
 <th>Target Words</th>
 </tr>
@@ -3097,7 +3099,7 @@ Pause and appreciate this: the method this chapter teaches was just used to scor
 <tr>
 <td><code>learning-graph-generator</code></td>
 <td>v1.06 (<code>23a4b4dc</code>)</td>
-<td><code>csv-to-json.py</code> now computes CIS for every node — $\mathrm{CIS}(x) = 1 + \sum \mathrm{CIS}(d)$ over a topological pass — and writes it into <code>learning-graph.json</code> as <code>node.cis</code>. Marked <strong>BREAKING</strong>: every book must regenerate its <code>learning-graph.json</code> before the other three skills below will work correctly.</td>
+<td><code>csv-to-json.py</code> now computes CIS for every node — <span class="arithmatex">\(\mathrm{CIS}(x) = 1 + \sum \mathrm{CIS}(d)\)</span> over a topological pass — and writes it into <code>learning-graph.json</code> as <code>node.cis</code>. Marked <strong>BREAKING</strong>: every book must regenerate its <code>learning-graph.json</code> before the other three skills below will work correctly.</td>
 </tr>
 <tr>
 <td><code>book-chapter-generator</code></td>
@@ -3112,7 +3114,7 @@ Pause and appreciate this: the method this chapter teaches was just used to scor
 <tr>
 <td><code>learning-graph-viewer</code></td>
 <td>v1.04 (<code>24014524</code>)</td>
-<td>The interactive graph viewer (Chapters 11–15) now sizes each node's box using $\log(\mathrm{CIS}+1)$, so high-impact concepts render visibly larger — the same log-normalization used everywhere else in this chapter, applied to layout instead of word count.</td>
+<td>The interactive graph viewer (Chapters 11–15) now sizes each node's box using <span class="arithmatex">\(\log(\mathrm{CIS}+1)\)</span>, so high-impact concepts render visibly larger — the same log-normalization used everywhere else in this chapter, applied to layout instead of word count.</td>
 </tr>
 </tbody>
 </table>
@@ -3226,6 +3228,12 @@ Let's connect the concepts, one final time. You started this book learning what 
     
     
       <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/katex.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

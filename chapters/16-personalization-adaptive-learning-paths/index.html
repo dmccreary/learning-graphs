@@ -56,6 +56,8 @@
     
       <link rel="stylesheet" href="../../css/mascot.css">
     
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -3332,8 +3334,8 @@ When you design a personalized feedback loop, check both directions explicitly. 
 <h2 id="similarity-metric-the-common-mathematical-machinery">Similarity Metric: The Common Mathematical Machinery</h2>
 <p>Concept similarity, student similarity, and content similarity each compare a different kind of thing, but all three need some shared, quantifiable way of expressing "how alike." A <strong>Similarity Metric</strong> is a mathematical function that takes two items — two concepts, two learners, or two pieces of content — and produces a numeric score indicating how alike they are, typically normalized so that identical items score highest and completely unrelated items score lowest. Similarity Metric depends on all three of Concept Similarity, Student Similarity, and Content Similarity in the learning graph — it is the common mathematical formalism underlying all three, since each of the preceding sections described <em>what</em> is being compared without yet specifying precisely <em>how</em> a comparison becomes a number.</p>
 <p>A widely used family of similarity metrics represents each item — a concept, a learner, or a piece of content — as a vector of features, and then measures the angle between two vectors using cosine similarity:</p>
-<p>[ \text{similarity}(A, B) = \frac{A \cdot B}{\lVert A \rVert \, \lVert B \rVert} ]</p>
-<p>In this formula, ( A ) and ( B ) are feature vectors for the two items being compared — for two learners, each vector entry might represent whether a specific concept has been mastered (1) or not (0); for two concepts, each entry might represent taxonomy category membership. The numerator, ( A \cdot B ), is the dot product of the two vectors, which grows larger when both vectors have large values in the same positions. The denominator normalizes by each vector's length, so the result always falls between -1 and 1 (or 0 and 1 for non-negative feature vectors like mastery records), with 1 meaning the two items are identical along every measured feature and 0 meaning they share nothing in common.</p>
+<div class="arithmatex">\[ \text{similarity}(A, B) = \frac{A \cdot B}{\lVert A \rVert \, \lVert B \rVert} \]</div>
+<p>In this formula, <span class="arithmatex">\( A \)</span> and <span class="arithmatex">\( B \)</span> are feature vectors for the two items being compared — for two learners, each vector entry might represent whether a specific concept has been mastered (1) or not (0); for two concepts, each entry might represent taxonomy category membership. The numerator, <span class="arithmatex">\( A \cdot B \)</span>, is the dot product of the two vectors, which grows larger when both vectors have large values in the same positions. The denominator normalizes by each vector's length, so the result always falls between -1 and 1 (or 0 and 1 for non-negative feature vectors like mastery records), with 1 meaning the two items are identical along every measured feature and 0 meaning they share nothing in common.</p>
 <p>Before the interactive comparison below, it is worth being explicit about why a single shared formalism matters for an intelligent textbook: it lets one recommendation engine reuse the same underlying computation for three superficially different tasks, rather than building three unrelated systems.</p>
 <h4 id="diagram-similarity-metric-comparison-tool">Diagram: Similarity Metric Comparison Tool</h4>
 <iframe src="../../sims/similarity-metric-comparison-tool/main.html" width="100%" height="602px" scrolling="no"></iframe>
@@ -3536,6 +3538,12 @@ Pause and appreciate your progress — you have now connected the entire persona
     
     
       <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/katex.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

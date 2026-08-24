@@ -56,6 +56,8 @@
     
       <link rel="stylesheet" href="../../css/mascot.css">
     
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -3198,11 +3200,11 @@ Bloom Verb: explain, summarize, interpret</p>
 </ul>
 <h2 id="partial-order-the-mathematical-structure-underneath">Partial Order: The Mathematical Structure Underneath</h2>
 <p>Topological sort is an algorithm; <strong>Partial Order</strong> names the mathematical structure that makes the algorithm meaningful in the first place. A Partial Order is a mathematical relation over a set of elements that is reflexive, antisymmetric, and transitive, but — critically, unlike a total order such as ordinary number comparison — does not require every pair of elements to be comparable to each other. Partial Order depends directly on Concept Dependency (from Chapter 3) in the learning graph, since the dependency relation defined there is exactly the relation that turns a learning graph into a partially ordered set.</p>
-<p>Those three formal properties are worth stating precisely, since the rest of this section relies on them directly. Writing ( a \preceq b ) to mean "concept (a) must be learned at or before concept (b)":</p>
+<p>Those three formal properties are worth stating precisely, since the rest of this section relies on them directly. Writing <span class="arithmatex">\( a \preceq b \)</span> to mean "concept <span class="arithmatex">\(a\)</span> must be learned at or before concept <span class="arithmatex">\(b\)</span>":</p>
 <ul>
-<li><strong>Reflexive:</strong> every concept precedes itself, ( a \preceq a ) — trivially true and rarely interesting on its own, but required for the mathematics to be well-formed</li>
-<li><strong>Antisymmetric:</strong> if ( a \preceq b ) and ( b \preceq a ), then (a) and (b) must be the same concept — this is exactly what rules out cycles, echoing Chapter 5's cycle-detection validation from a different mathematical angle</li>
-<li><strong>Transitive:</strong> if ( a \preceq b ) and ( b \preceq c ), then ( a \preceq c ) — this is the formal statement of the Transitive Dependency defined in Chapter 3, now given its proper name</li>
+<li><strong>Reflexive:</strong> every concept precedes itself, <span class="arithmatex">\( a \preceq a \)</span> — trivially true and rarely interesting on its own, but required for the mathematics to be well-formed</li>
+<li><strong>Antisymmetric:</strong> if <span class="arithmatex">\( a \preceq b \)</span> and <span class="arithmatex">\( b \preceq a \)</span>, then <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> must be the same concept — this is exactly what rules out cycles, echoing Chapter 5's cycle-detection validation from a different mathematical angle</li>
+<li><strong>Transitive:</strong> if <span class="arithmatex">\( a \preceq b \)</span> and <span class="arithmatex">\( b \preceq c \)</span>, then <span class="arithmatex">\( a \preceq c \)</span> — this is the formal statement of the Transitive Dependency defined in Chapter 3, now given its proper name</li>
 </ul>
 <p>The property that makes a partial order genuinely <em>partial</em>, rather than total, is the one most relevant to course design: two concepts can simply be incomparable, meaning neither depends on the other in either direction. In this book's own learning graph, Chunking (Cognitive Load) and Backward Design are incomparable — neither is a prerequisite for the other — which is exactly why a chapter can present them in either order without violating any dependency constraint. A total order, by contrast, would force an arbitrary decision between every such pair, even when no pedagogical reason favors one order over the other.</p>
 <p>Every valid topological sort of a DAG is a total order that is <em>consistent with</em> the underlying partial order — it resolves every incomparable pair by picking one arbitrary order, without ever violating a genuine dependency. This is the precise mathematical reason Chapter 7's non-linear learning paths and this chapter's topological sort are two views of the same underlying fact: a partial order typically admits many consistent total orders, and each one is a legitimate reading order through the same graph.</p>
@@ -3245,7 +3247,7 @@ A partial order is the mathematical reason a concept dependency graph is not, an
 <p>With sequencing now grounded in graph mathematics, this chapter closes with the theory that unifies both halves of the chapter — cognitive load and graph structure — into a single formal framework. <strong>Knowledge Space Theory</strong> is a mathematical framework, developed by psychologist Jean-Paul Doignon and mathematician Jean-Claude Falmagne, that models a domain of knowledge as a structured collection of "knowledge states," where each state represents a feasible combination of concepts a learner could have mastered given the domain's prerequisite constraints. Knowledge Space Theory depends on both Concept Dependency and Concept Taxonomy (from Chapter 3 and Chapter 4) in the learning graph — it requires both the dependency structure between individual concepts and a way of organizing the full domain those concepts belong to.</p>
 <p>A <strong>knowledge state</strong> is a specific subset of a domain's concepts that respects every prerequisite constraint — a learner cannot be in a knowledge state that includes "Applied Calculus" without also including "Algebra," because the dependency graph forbids it. The full <strong>knowledge space</strong> is the set of every knowledge state that is actually reachable given the domain's prerequisite structure — not every subset of concepts is a valid knowledge state, only those consistent with the partial order defined earlier in this chapter.</p>
 <p>This connects directly to something Chapter 3 already introduced under a different name. Chapter 3's Ready-to-Learn Concept described, for a single learner, which individual concepts are currently available given what they have already mastered. Knowledge Space Theory generalizes that same idea to the entire population of possible learners at once: instead of tracking one learner's position, it describes the full lattice of every valid knowledge state any learner could occupy, and the <strong>learning paths</strong> — sequences of knowledge states connected by adding one newly ready-to-learn concept at a time — that connect the empty state (nothing learned yet) to the full domain (everything mastered).</p>
-<p>Formally, a learning path through a knowledge space is a sequence of knowledge states ( \emptyset = K_0 \subset K_1 \subset K_2 \subset \dots \subset K_n = Q ), where (Q) is the full concept domain, and each step from (K_{i}) to (K_{i+1}) adds exactly one concept that was ready-to-learn in (K_i). Every prerequisite-based sequencing this chapter has discussed — a topological sort, a spiral curriculum's repeated passes, this book's own nineteen-chapter order — is one specific learning path through the knowledge space defined by this book's own learning graph.</p>
+<p>Formally, a learning path through a knowledge space is a sequence of knowledge states <span class="arithmatex">\( \emptyset = K_0 \subset K_1 \subset K_2 \subset \dots \subset K_n = Q \)</span>, where <span class="arithmatex">\(Q\)</span> is the full concept domain, and each step from <span class="arithmatex">\(K_{i}\)</span> to <span class="arithmatex">\(K_{i+1}\)</span> adds exactly one concept that was ready-to-learn in <span class="arithmatex">\(K_i\)</span>. Every prerequisite-based sequencing this chapter has discussed — a topological sort, a spiral curriculum's repeated passes, this book's own nineteen-chapter order — is one specific learning path through the knowledge space defined by this book's own learning graph.</p>
 <p>Before the diagram below, it is worth being explicit about why knowledge space theory matters practically, beyond its mathematical elegance: an intelligent textbook platform that tracks a learner's demonstrated mastery is, whether it uses this vocabulary or not, tracking that learner's current position in a knowledge space, and every "what should this learner do next" recommendation is a proposal for the next step along some valid learning path from that position.</p>
 <h4 id="diagram-knowledge-space-explorer">Diagram: Knowledge Space Explorer</h4>
 <iframe src="../../sims/knowledge-space-explorer/main.html" width="100%" height="622px" scrolling="no"></iframe>
@@ -3265,7 +3267,7 @@ Bloom Verb: examine, distinguish, differentiate</p>
 - One node per valid knowledge state, labeled with its concept subset (e.g., "{}" for empty, "{Arithmetic}", "{Arithmetic, Number Sense}", "{Arithmetic, Number Sense, Algebra}", "{Arithmetic, Number Sense, Algebra, Applied Calculus}" for the full domain)
 - Node shading: light gray for the empty state, deepening blue as more concepts are included, gold outline on the full-domain state</p>
 <p>Edges:
-- A directed edge from state (K_i) to state (K_{i+1}) whenever (K_{i+1}) adds exactly one ready-to-learn concept to (K_i)
+- A directed edge from state <span class="arithmatex">\(K_i\)</span> to state <span class="arithmatex">\(K_{i+1}\)</span> whenever <span class="arithmatex">\(K_{i+1}\)</span> adds exactly one ready-to-learn concept to <span class="arithmatex">\(K_i\)</span>
 - Edges labeled with the single concept name being added at that step</p>
 <p>Layout: vis-network hierarchical layout, empty state at top, full domain state at bottom, states with the same number of concepts arranged on the same horizontal rank</p>
 <p>Interactive features:
@@ -3404,6 +3406,12 @@ Pause and appreciate your progress — you now have the vocabulary to explain no
     
     
       <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/katex.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

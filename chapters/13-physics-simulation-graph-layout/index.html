@@ -56,6 +56,8 @@
     
       <link rel="stylesheet" href="../../css/mascot.css">
     
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -3050,9 +3052,9 @@ A physics-simulated layout has no "correct" final answer the way a hierarchical 
 </tbody>
 </table>
 <h2 id="the-solvers-computing-repulsion-efficiently">The Solvers: Computing Repulsion Efficiently</h2>
-<p>Simulating "every node repels every other node" sounds simple, but it hides a performance problem. A graph with ( n ) nodes has ( n(n-1)/2 ) possible node pairs, so a naive simulation that recalculates every pairwise repulsion force on every animation frame does ( O(n^2) ) work per frame. For a small graph of 20 nodes that is 190 pairwise calculations — trivial. For a 400-concept learning graph, it is nearly 80,000 pairwise calculations, repeated dozens of times per second, which is where naive physics simulation starts to visibly stutter. Vis-network solves this performance problem with <strong>solvers</strong> — selectable algorithms that approximate or restructure the repulsion calculation to keep large graphs responsive.</p>
+<p>Simulating "every node repels every other node" sounds simple, but it hides a performance problem. A graph with <span class="arithmatex">\( n \)</span> nodes has <span class="arithmatex">\( n(n-1)/2 \)</span> possible node pairs, so a naive simulation that recalculates every pairwise repulsion force on every animation frame does <span class="arithmatex">\( O(n^2) \)</span> work per frame. For a small graph of 20 nodes that is 190 pairwise calculations — trivial. For a 400-concept learning graph, it is nearly 80,000 pairwise calculations, repeated dozens of times per second, which is where naive physics simulation starts to visibly stutter. Vis-network solves this performance problem with <strong>solvers</strong> — selectable algorithms that approximate or restructure the repulsion calculation to keep large graphs responsive.</p>
 <h3 id="the-barnes-hut-solver">The Barnes-Hut Solver</h3>
-<p>The <strong>Barnes-Hut Solver</strong> is vis-network's default physics solver, which approximates long-range repulsion forces by grouping distant nodes into clusters and treating each cluster as a single combined force source, reducing the per-frame calculation from ( O(n^2) ) to approximately ( O(n \log n) ). The algorithm originated in astrophysics, where researchers faced the identical problem simulating gravitational attraction between thousands of stars: a star's gravitational pull is felt by every other star, but a distant cluster of stars can be treated as one large mass at its center of gravity without meaningfully changing the simulation's accuracy. Vis-network borrows the same trick for node repulsion — a nearby node's exact position matters, but a cluster of far-away nodes can be approximated as one repulsion source.</p>
+<p>The <strong>Barnes-Hut Solver</strong> is vis-network's default physics solver, which approximates long-range repulsion forces by grouping distant nodes into clusters and treating each cluster as a single combined force source, reducing the per-frame calculation from <span class="arithmatex">\( O(n^2) \)</span> to approximately <span class="arithmatex">\( O(n \log n) \)</span>. The algorithm originated in astrophysics, where researchers faced the identical problem simulating gravitational attraction between thousands of stars: a star's gravitational pull is felt by every other star, but a distant cluster of stars can be treated as one large mass at its center of gravity without meaningfully changing the simulation's accuracy. Vis-network borrows the same trick for node repulsion — a nearby node's exact position matters, but a cluster of far-away nodes can be approximated as one repulsion source.</p>
 <p>Barnes-Hut is configured through the <code>barnesHut</code> sub-object of the <code>physics</code> options:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -3105,7 +3107,7 @@ Barnes-Hut is the right starting point for almost every learning graph — it is
 </div>
 <p>Before comparing every solver side by side, one more force needs a name, because it appears as a parameter in both solvers above and deserves its own explanation.</p>
 <h2 id="repulsion-solver-and-central-gravity">Repulsion Solver and Central Gravity</h2>
-<p>The <strong>Repulsion Solver</strong> is a third, simpler physics solver option, selected with <code>solver: 'repulsion'</code>, that calculates node-to-node repulsion directly for every pair without the Barnes-Hut clustering approximation — trading the performance benefit of Barnes-Hut for a more literal, predictable repulsion calculation. It is the right choice mainly for small graphs (well under 100 nodes) where ( O(n^2) ) performance is a non-issue and an author wants repulsion behavior that is simple to reason about, or for debugging a layout problem by temporarily ruling out Barnes-Hut's approximation as the cause.</p>
+<p>The <strong>Repulsion Solver</strong> is a third, simpler physics solver option, selected with <code>solver: 'repulsion'</code>, that calculates node-to-node repulsion directly for every pair without the Barnes-Hut clustering approximation — trading the performance benefit of Barnes-Hut for a more literal, predictable repulsion calculation. It is the right choice mainly for small graphs (well under 100 nodes) where <span class="arithmatex">\( O(n^2) \)</span> performance is a non-issue and an author wants repulsion behavior that is simple to reason about, or for debugging a layout problem by temporarily ruling out Barnes-Hut's approximation as the cause.</p>
 <p><strong>Central Gravity</strong> is the weak, constant force pulling every node toward the center of the canvas, set through the <code>centralGravity</code> parameter present in every solver's options object (typically a small positive value like <code>0.3</code> for Barnes-Hut or <code>0.01</code> for ForceAtlas2). Without central gravity, a graph's repulsion forces alone would push nodes outward indefinitely, since nothing counteracts repulsion once nodes are already spread far apart — the layout would keep expanding, drifting nodes off the visible canvas entirely. Central gravity is what keeps a "settled" layout centered and bounded rather than sprawling.</p>
 <p>A useful way to see how these forces interact is to increase or decrease each one independently and watch the resulting layout change shape. The MicroSim below does exactly that: it exposes gravitational constant, central gravity, and solver choice as live sliders on the same sample graph, so the abstract description above becomes something you can watch and adjust.</p>
 <h4 id="diagram-physics-force-explorer">Diagram: Physics Force Explorer</h4>
@@ -3373,7 +3375,7 @@ Bloom Verb: justify, assess, recommend</p>
 <h2 id="key-takeaways">Key Takeaways</h2>
 <ul>
 <li><strong>Physics Simulation</strong> treats nodes as repelling particles and edges as springs, recalculating positions frame by frame until the layout reaches equilibrium — the mechanism behind every <strong>Force-Directed Graph Layout</strong>.</li>
-<li>The <strong>Barnes-Hut Solver</strong> approximates distant-node repulsion for ( O(n \log n) ) performance and is vis-network's default; <strong>ForceAtlas2 Layout</strong> handles uneven-degree graphs more evenly; the <strong>Repulsion Solver</strong> computes exact pairwise forces for small graphs.</li>
+<li>The <strong>Barnes-Hut Solver</strong> approximates distant-node repulsion for <span class="arithmatex">\( O(n \log n) \)</span> performance and is vis-network's default; <strong>ForceAtlas2 Layout</strong> handles uneven-degree graphs more evenly; the <strong>Repulsion Solver</strong> computes exact pairwise forces for small graphs.</li>
 <li><strong>Central Gravity</strong> keeps a settled layout centered instead of drifting outward; <strong>Damping</strong> controls how quickly oscillation dies out; the <strong>Spring Length Parameter</strong> sets each edge's ideal resting distance.</li>
 <li><strong>Stabilization</strong> runs the simulation silently before the first render, so learners see a settled graph rather than a chaotic startup animation.</li>
 <li><strong>Hierarchical Layout</strong> replaces physics-based emergence with explicit level rules based on dependency depth, with <strong>Layout Direction</strong> (<code>UD</code>, <code>DU</code>, <code>LR</code>, <code>RL</code>) controlling which way the hierarchy flows.</li>
@@ -3487,6 +3489,12 @@ Pause and appreciate your progress — you now understand not just how a learnin
     
     
       <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/katex.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

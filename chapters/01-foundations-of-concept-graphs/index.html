@@ -56,6 +56,8 @@
     
       <link rel="stylesheet" href="../../css/mascot.css">
     
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -3001,7 +3003,7 @@ Notice that none of those five traits mentions <em>difficulty</em>. A concept ca
 </div>
 <h2 id="nodes-edges-and-graph-representation">Nodes, Edges, and Graph Representation</h2>
 <p>Once a subject has been broken into concepts, those concepts need a formal home. That home is a <strong>graph representation</strong> — a way of modeling entities and their relationships using two primitive building blocks: nodes and edges.</p>
-<p>A <strong>Node</strong> is a single point in a graph that represents one entity — in our case, one concept. An <strong>Edge</strong> is a connection between two nodes that represents a relationship between the entities those nodes stand for. Formally, a graph ( G ) is defined as an ordered pair ( G = (V, E) ), where ( V ) is the set of nodes (vertices) and ( E ) is the set of edges connecting them. <strong>Graph representation</strong> is the general practice of modeling data this way — as entities (nodes) and relationships (edges) — rather than as rows in a table or headings in an outline.</p>
+<p>A <strong>Node</strong> is a single point in a graph that represents one entity — in our case, one concept. An <strong>Edge</strong> is a connection between two nodes that represents a relationship between the entities those nodes stand for. Formally, a graph <span class="arithmatex">\( G \)</span> is defined as an ordered pair <span class="arithmatex">\( G = (V, E) \)</span>, where <span class="arithmatex">\( V \)</span> is the set of nodes (vertices) and <span class="arithmatex">\( E \)</span> is the set of edges connecting them. <strong>Graph representation</strong> is the general practice of modeling data this way — as entities (nodes) and relationships (edges) — rather than as rows in a table or headings in an outline.</p>
 <p>This is worth pausing on, because it is the structural idea that separates a learning graph from a syllabus. A syllabus is a <em>list</em>: item 1, then item 2, then item 3. A graph is a <em>network</em>: item 5 might depend on items 2 and 3, but not on item 4, and item 7 might depend on nothing at all. Lists can only express "comes before" in a single sequence. Graphs can express "depends on" for every concept independently, which is what a real subject actually looks like once you draw it out.</p>
 <p>Before you look at the diagram below, hold onto three terms: a <strong>node</strong> is a concept, an <strong>edge</strong> is a relationship between two concepts, and clicking either one in the diagram will show you its role.</p>
 <h4 id="diagram-graph-anatomy-explorer">Diagram: Graph Anatomy Explorer</h4>
@@ -3047,7 +3049,7 @@ Bloom Verb: identify, classify</p>
 <p>Implementation: vis-network JavaScript library with a DataSet for nodes and edges, click and hover event handlers bound to an infobox <code>&lt;div&gt;</code> beside the canvas</p>
 </details>
 <h2 id="direction-matters-directed-graphs">Direction Matters: Directed Graphs</h2>
-<p>The diagram above used arrows, not plain lines, to connect nodes. That choice is not decorative. A <strong>Directed Graph</strong> is a graph in which every edge has a direction — it points from one node to another, rather than simply connecting them. Formally, each edge is an ordered pair ( (u, v) \in E ), meaning the edge runs <em>from</em> ( u ) <em>to</em> ( v ), and the reverse is not automatically true.</p>
+<p>The diagram above used arrows, not plain lines, to connect nodes. That choice is not decorative. A <strong>Directed Graph</strong> is a graph in which every edge has a direction — it points from one node to another, rather than simply connecting them. Formally, each edge is an ordered pair <span class="arithmatex">\( (u, v) \in E \)</span>, meaning the edge runs <em>from</em> <span class="arithmatex">\( u \)</span> <em>to</em> <span class="arithmatex">\( v \)</span>, and the reverse is not automatically true.</p>
 <p>Direction is what allows a graph to express asymmetric relationships. "Multiplication depends on addition" is true; "addition depends on multiplication" is not. An undirected graph — plain lines with no arrowheads — cannot represent that asymmetry at all; it can only say the two concepts are <em>related</em>, not which one comes first. Every learning graph in this book is a directed graph for exactly this reason.</p>
 <div class="admonition mascot-warning">
 <p class="admonition-title">A Convention Worth Fixing Early</p>
@@ -3268,7 +3270,7 @@ Bloom Verb: demonstrate, construct</p>
 <h2 id="key-takeaways">Key Takeaways</h2>
 <ul>
 <li>A <strong>concept</strong> is a single, testable, nameable unit of knowledge — the atomic building block of a learning graph.</li>
-<li>A <strong>graph representation</strong> models concepts as <strong>nodes</strong> and relationships as <strong>edges</strong>, formally ( G = (V, E) ).</li>
+<li>A <strong>graph representation</strong> models concepts as <strong>nodes</strong> and relationships as <strong>edges</strong>, formally <span class="arithmatex">\( G = (V, E) \)</span>.</li>
 <li>A <strong>directed graph</strong> gives every edge a direction, which is required to express asymmetric "depends on" relationships.</li>
 <li>A <strong>directed acyclic graph (DAG)</strong> additionally forbids cycles, guaranteeing every graph has at least one valid starting point.</li>
 <li><strong>Concept graphs</strong>, <strong>content graphs</strong>, <strong>knowledge graphs</strong>, <strong>dependency graphs</strong>, and <strong>learning graphs</strong> differ in what their nodes and edges represent — a learning graph is the most restrictive: one node type (concepts), one edge meaning (prerequisite), and mandatory DAG structure.</li>
@@ -3382,6 +3384,12 @@ Pause and appreciate your progress — you can now name every structural piece o
     
     
       <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/katex.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
       
     
   </body>
