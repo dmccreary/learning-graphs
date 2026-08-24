@@ -1,4 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.Python
+
+# MkDocs
+site/
 .cache/
-site
+
+# Environments
+.venv/
+venv/
+env/
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
 ~$*
+
+# Vosk speech model -- 68 MB, downloaded by the host server, not committed
+models/
