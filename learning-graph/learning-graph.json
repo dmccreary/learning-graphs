@@ -3,8 +3,8 @@
     "title": "Learning Graphs: The Key to Intelligent Textbooks",
     "description": "A learning graph covering the data structures, standards, and workflows used to design, validate, visualize, and generate interactive intelligent textbooks \u2014 concept dependency graphs (CDGs), taxonomies, generative-AI concept enumeration, vis.js visualization, and the learning-science foundations that justify DAG-based instructional sequencing.",
     "creator": "Dan McCreary",
-    "date": "2026-07-03",
-    "version": "1.0",
+    "date": "2026-08-24",
+    "version": "1.1",
     "format": "Learning Graph JSON v1.0",
     "schema": "https://raw.githubusercontent.com/dmccreary/learning-graphs/refs/heads/main/src/schema/learning-graph-schema.json",
     "license": "CC BY-NC-SA 4.0 DEED"
@@ -128,2019 +128,2479 @@
       "id": 1,
       "label": "Concept",
       "group": "FOUND",
-      "shape": "box"
+      "shape": "box",
+      "cis": 661
     },
     {
       "id": 2,
       "label": "Concept Graph",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 552
     },
     {
       "id": 3,
       "label": "Content Graph",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 2
     },
     {
       "id": 4,
       "label": "Knowledge Graph",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 270
     },
     {
       "id": 5,
       "label": "Dependency Graph",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 270
     },
     {
       "id": 6,
       "label": "Learning Graph",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 269
     },
     {
       "id": 7,
       "label": "Directed Graph",
       "group": "FOUND",
-      "shape": "box"
+      "shape": "box",
+      "cis": 85
     },
     {
       "id": 8,
       "label": "Directed Acyclic Graph (DAG)",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 52
     },
     {
       "id": 9,
       "label": "Node",
       "group": "FOUND",
-      "shape": "box"
+      "shape": "box",
+      "cis": 567
     },
     {
       "id": 10,
       "label": "Edge",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 296
     },
     {
       "id": 11,
       "label": "Hierarchy",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 1
     },
     {
       "id": 12,
       "label": "Graph Representation",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 19
     },
     {
       "id": 13,
       "label": "Cluster (Graph)",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 7
     },
     {
       "id": 14,
       "label": "Journey Map",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 1
     },
     {
       "id": 15,
       "label": "Hybrid Graph",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 1
     },
     {
       "id": 16,
       "label": "Concept Label",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 105
     },
     {
       "id": 17,
       "label": "Preferred Label",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 13
     },
     {
       "id": 18,
       "label": "Alternate Label",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 14
     },
     {
       "id": 19,
       "label": "SKOS",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 11
     },
     {
       "id": 20,
       "label": "ISO/IEC 11179",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 1
     },
     {
       "id": 21,
       "label": "Dublin Core Metadata",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 10
     },
     {
       "id": 22,
       "label": "Controlled Vocabulary",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 2
     },
     {
       "id": 23,
       "label": "Concept Definition",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 1
     },
     {
       "id": 24,
       "label": "Textbook Index",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 1
     },
     {
       "id": 25,
       "label": "Named Concept",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 48
     },
     {
       "id": 26,
       "label": "Concept Dependency",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 251
     },
     {
       "id": 27,
       "label": "Prerequisite Relationship",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 26
     },
     {
       "id": 28,
       "label": "Prerequisite Chain",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 11
     },
     {
       "id": 29,
       "label": "Prerequisite Concept",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 7
     },
     {
       "id": 30,
       "label": "Foundational Concept",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 9
     },
     {
       "id": 31,
       "label": "Goal Concept",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 5
     },
     {
       "id": 32,
       "label": "Immediate Goal",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 1
     },
     {
       "id": 33,
       "label": "Intermediate Goal",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 1
     },
     {
       "id": 34,
       "label": "Ultimate Goal",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 1
     },
     {
       "id": 35,
       "label": "Learning Goal",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 1
     },
     {
       "id": 36,
       "label": "Ready-to-Learn Concept",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 6
     },
     {
       "id": 37,
       "label": "Learned Concept",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 2
     },
     {
       "id": 38,
       "label": "Skill Gap",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 1
     },
     {
       "id": 39,
       "label": "Transitive Dependency",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 7
     },
     {
       "id": 40,
       "label": "Hop Count",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 2
     },
     {
       "id": 41,
       "label": "Dependency Analysis",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 1
     },
     {
       "id": 42,
       "label": "Concept Taxonomy",
-      "group": "TAXON"
+      "group": "TAXON",
+      "cis": 47
     },
     {
       "id": 43,
       "label": "Ontology",
-      "group": "TAXON"
+      "group": "TAXON",
+      "cis": 6
     },
     {
       "id": 44,
       "label": "TaxonomyID",
-      "group": "TAXON"
+      "group": "TAXON",
+      "cis": 24
     },
     {
       "id": 45,
       "label": "Taxonomy Classifier",
-      "group": "TAXON"
+      "group": "TAXON",
+      "cis": 1
     },
     {
       "id": 46,
       "label": "Taxonomy Category",
-      "group": "TAXON"
+      "group": "TAXON",
+      "cis": 19
     },
     {
       "id": 47,
       "label": "Taxonomy Distribution Report",
-      "group": "TAXON"
+      "group": "TAXON",
+      "cis": 4
     },
     {
       "id": 48,
       "label": "Taxonomy Legend",
-      "group": "TAXON"
+      "group": "TAXON",
+      "cis": 1
     },
     {
       "id": 49,
       "label": "Node Group",
-      "group": "TAXON"
+      "group": "TAXON",
+      "cis": 4
     },
     {
       "id": 50,
       "label": "Concept-to-Taxonomy Mapping",
-      "group": "TAXON"
+      "group": "TAXON",
+      "cis": 2
     },
     {
       "id": 51,
       "label": "Balanced Taxonomy",
-      "group": "TAXON"
+      "group": "TAXON",
+      "cis": 3
     },
     {
       "id": 52,
       "label": "Miscellaneous Category",
-      "group": "TAXON"
+      "group": "TAXON",
+      "cis": 1
     },
     {
       "id": 53,
       "label": "Abstraction (Graph)",
-      "group": "TAXON"
+      "group": "TAXON",
+      "cis": 1
     },
     {
       "id": 54,
       "label": "Clustering (Graph)",
-      "group": "TAXON"
+      "group": "TAXON",
+      "cis": 1
     },
     {
       "id": 55,
       "label": "Learning Graph Validation",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 29
     },
     {
       "id": 56,
       "label": "Graph Quality Metric",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 15
     },
     {
       "id": 57,
       "label": "Orphaned Node",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 11
     },
     {
       "id": 58,
       "label": "Disconnected Subgraph",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 17
     },
     {
       "id": 59,
       "label": "Cycle Detection",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 10
     },
     {
       "id": 60,
       "label": "Self-Dependency Prevention",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 1
     },
     {
       "id": 61,
       "label": "Indegree",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 13
     },
     {
       "id": 62,
       "label": "Out-Degree",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 7
     },
     {
       "id": 63,
       "label": "Node Degree",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 3
     },
     {
       "id": 64,
       "label": "Full Coverage Check",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 2
     },
     {
       "id": 65,
       "label": "Structural Check",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 1
     },
     {
       "id": 66,
       "label": "Graph Connectivity",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 4
     },
     {
       "id": 67,
       "label": "Quality Metrics Report",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 9
     },
     {
       "id": 68,
       "label": "Third-Party Certification",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 1
     },
     {
       "id": 69,
       "label": "Bloom's Taxonomy",
       "group": "EDUF",
-      "shape": "box"
+      "shape": "box",
+      "cis": 211
     },
     {
       "id": 70,
       "label": "Cognitive Domain",
-      "group": "EDUF"
+      "group": "EDUF",
+      "cis": 7
     },
     {
       "id": 71,
       "label": "Affective Domain",
-      "group": "EDUF"
+      "group": "EDUF",
+      "cis": 1
     },
     {
       "id": 72,
       "label": "Psychomotor Domain",
-      "group": "EDUF"
+      "group": "EDUF",
+      "cis": 1
     },
     {
       "id": 73,
       "label": "Remembering",
-      "group": "EDUF"
+      "group": "EDUF",
+      "cis": 1
     },
     {
       "id": 74,
       "label": "Understanding",
-      "group": "EDUF"
+      "group": "EDUF",
+      "cis": 1
     },
     {
       "id": 75,
       "label": "Applying",
-      "group": "EDUF"
+      "group": "EDUF",
+      "cis": 1
     },
     {
       "id": 76,
       "label": "Analyzing",
-      "group": "EDUF"
+      "group": "EDUF",
+      "cis": 1
     },
     {
       "id": 77,
       "label": "Evaluating",
-      "group": "EDUF"
+      "group": "EDUF",
+      "cis": 1
     },
     {
       "id": 78,
       "label": "Creating",
-      "group": "EDUF"
+      "group": "EDUF",
+      "cis": 1
     },
     {
       "id": 79,
       "label": "Learning Objective",
-      "group": "EDUF"
+      "group": "EDUF",
+      "cis": 191
     },
     {
       "id": 80,
       "label": "Instructional Design",
-      "group": "EDUF"
+      "group": "EDUF",
+      "cis": 102
     },
     {
       "id": 81,
       "label": "Scaffolding",
-      "group": "EDUF"
+      "group": "EDUF",
+      "cis": 35
     },
     {
       "id": 82,
       "label": "Constructivism",
       "group": "EDUF",
-      "shape": "box"
+      "shape": "box",
+      "cis": 143
     },
     {
       "id": 83,
       "label": "Zone of Proximal Development",
-      "group": "EDUF"
+      "group": "EDUF",
+      "cis": 36
     },
     {
       "id": 84,
       "label": "Rhizombic Learning",
-      "group": "EDUF"
+      "group": "EDUF",
+      "cis": 4
     },
     {
       "id": 85,
       "label": "Non-Linear Learning Path",
-      "group": "EDUF"
+      "group": "EDUF",
+      "cis": 1
     },
     {
       "id": 86,
       "label": "Self-Directed Exploration",
-      "group": "EDUF"
+      "group": "EDUF",
+      "cis": 1
     },
     {
       "id": 87,
       "label": "Emergent Knowledge Structure",
-      "group": "EDUF"
+      "group": "EDUF",
+      "cis": 1
     },
     {
       "id": 88,
       "label": "Mastery Learning",
-      "group": "EDUF"
+      "group": "EDUF",
+      "cis": 34
     },
     {
       "id": 89,
       "label": "Curriculum Design",
-      "group": "EDUF"
+      "group": "EDUF",
+      "cis": 62
     },
     {
       "id": 90,
       "label": "Learning Path",
-      "group": "PERS"
+      "group": "PERS",
+      "cis": 55
     },
     {
       "id": 91,
       "label": "Personalized Learning Path",
-      "group": "PERS"
+      "group": "PERS",
+      "cis": 6
     },
     {
       "id": 92,
       "label": "Adaptive Learning",
-      "group": "PERS"
+      "group": "PERS",
+      "cis": 27
     },
     {
       "id": 93,
       "label": "Adaptive Learning Path",
-      "group": "PERS"
+      "group": "PERS",
+      "cis": 1
     },
     {
       "id": 94,
       "label": "Adaptive Algorithm",
-      "group": "PERS"
+      "group": "PERS",
+      "cis": 8
     },
     {
       "id": 95,
       "label": "Hyper-Personalization",
-      "group": "PERS"
+      "group": "PERS",
+      "cis": 4
     },
     {
       "id": 96,
       "label": "Hyper-Customized Lesson Plan",
-      "group": "PERS"
+      "group": "PERS",
+      "cis": 2
     },
     {
       "id": 97,
       "label": "Custom Learning Plan",
-      "group": "PERS"
+      "group": "PERS",
+      "cis": 1
     },
     {
       "id": 98,
       "label": "Content Recommendation Engine",
-      "group": "PERS"
+      "group": "PERS",
+      "cis": 7
     },
     {
       "id": 99,
       "label": "Recommendation Engine",
-      "group": "PERS"
+      "group": "PERS",
+      "cis": 5
     },
     {
       "id": 100,
       "label": "Concept Similarity",
-      "group": "PERS"
+      "group": "PERS",
+      "cis": 2
     },
     {
       "id": 101,
       "label": "Student Similarity",
-      "group": "PERS"
+      "group": "PERS",
+      "cis": 2
     },
     {
       "id": 102,
       "label": "Content Similarity",
-      "group": "PERS"
+      "group": "PERS",
+      "cis": 2
     },
     {
       "id": 103,
       "label": "Similarity Metric",
-      "group": "PERS"
+      "group": "PERS",
+      "cis": 1
     },
     {
       "id": 104,
       "label": "Generative AI",
       "group": "AI",
-      "shape": "box"
+      "shape": "box",
+      "cis": 66
     },
     {
       "id": 105,
       "label": "Intelligent Agent",
-      "group": "AI"
+      "group": "AI",
+      "cis": 33
     },
     {
       "id": 106,
       "label": "Agent Autonomy",
-      "group": "AI"
+      "group": "AI",
+      "cis": 1
     },
     {
       "id": 107,
       "label": "Multi-Agent Collaboration",
-      "group": "AI"
+      "group": "AI",
+      "cis": 1
     },
     {
       "id": 108,
       "label": "Tool Use (Agent)",
-      "group": "AI"
+      "group": "AI",
+      "cis": 14
     },
     {
       "id": 109,
       "label": "Iterative Workflow",
-      "group": "AI"
+      "group": "AI",
+      "cis": 1
     },
     {
       "id": 110,
       "label": "LLM-Generated Dependency Graph",
-      "group": "AI"
+      "group": "AI",
+      "cis": 2
     },
     {
       "id": 111,
       "label": "Prompt Engineering",
-      "group": "AI"
+      "group": "AI",
+      "cis": 2
     },
     {
       "id": 112,
       "label": "Chatbot",
-      "group": "AI"
+      "group": "AI",
+      "cis": 1
     },
     {
       "id": 113,
       "label": "Retrieval-Augmented Generation",
-      "group": "AI"
+      "group": "AI",
+      "cis": 2
     },
     {
       "id": 114,
       "label": "GraphRAG",
-      "group": "AI"
+      "group": "AI",
+      "cis": 1
     },
     {
       "id": 115,
       "label": "Learning Agent",
-      "group": "AI"
+      "group": "AI",
+      "cis": 1
     },
     {
       "id": 116,
       "label": "Assessment",
-      "group": "ASSESS"
+      "group": "ASSESS",
+      "cis": 16
     },
     {
       "id": 117,
       "label": "Formative Feedback",
-      "group": "ASSESS"
+      "group": "ASSESS",
+      "cis": 5
     },
     {
       "id": 118,
       "label": "Personalized Feedback Loop",
-      "group": "ASSESS"
+      "group": "ASSESS",
+      "cis": 1
     },
     {
       "id": 119,
       "label": "Feedback Loop",
-      "group": "ASSESS"
+      "group": "ASSESS",
+      "cis": 3
     },
     {
       "id": 120,
       "label": "Feedback Log",
-      "group": "ASSESS"
+      "group": "ASSESS",
+      "cis": 2
     },
     {
       "id": 121,
       "label": "Feedback Analysis",
-      "group": "ASSESS"
+      "group": "ASSESS",
+      "cis": 1
     },
     {
       "id": 122,
       "label": "Course Evaluation",
-      "group": "ASSESS"
+      "group": "ASSESS",
+      "cis": 1
     },
     {
       "id": 123,
       "label": "Learning Touchpoint",
-      "group": "ASSESS"
+      "group": "ASSESS",
+      "cis": 2
     },
     {
       "id": 124,
       "label": "Frequently Asked Question",
-      "group": "ASSESS"
+      "group": "ASSESS",
+      "cis": 1
     },
     {
       "id": 125,
       "label": "Quiz",
-      "group": "ASSESS"
+      "group": "ASSESS",
+      "cis": 4
     },
     {
       "id": 126,
       "label": "Multiple-Choice Question",
-      "group": "ASSESS"
+      "group": "ASSESS",
+      "cis": 2
     },
     {
       "id": 127,
       "label": "Quiz Distractor",
-      "group": "ASSESS"
+      "group": "ASSESS",
+      "cis": 1
     },
     {
       "id": 128,
       "label": "True/False Question",
-      "group": "ASSESS"
+      "group": "ASSESS",
+      "cis": 1
     },
     {
       "id": 129,
       "label": "Vis.js",
       "group": "VISCORE",
-      "shape": "box"
+      "shape": "box",
+      "cis": 78
     },
     {
       "id": 130,
       "label": "Vis-Network Library",
-      "group": "VISCORE"
+      "group": "VISCORE",
+      "cis": 76
     },
     {
       "id": 131,
       "label": "DataSet",
-      "group": "VISCORE"
+      "group": "VISCORE",
+      "cis": 57
     },
     {
       "id": 132,
       "label": "Network Container",
-      "group": "VISCORE"
+      "group": "VISCORE",
+      "cis": 18
     },
     {
       "id": 133,
       "label": "Network Initialization",
-      "group": "VISCORE"
+      "group": "VISCORE",
+      "cis": 17
     },
     {
       "id": 134,
       "label": "JSON Data Format",
-      "group": "VISCORE"
+      "group": "VISCORE",
+      "cis": 1
     },
     {
       "id": 135,
       "label": "Force-Directed Graph",
-      "group": "VISCORE"
+      "group": "VISCORE",
+      "cis": 3
     },
     {
       "id": 136,
       "label": "Force-Directed Graph Layout",
-      "group": "VISCORE"
+      "group": "VISCORE",
+      "cis": 2
     },
     {
       "id": 137,
       "label": "Legend Display",
-      "group": "VISCORE"
+      "group": "VISCORE",
+      "cis": 1
     },
     {
       "id": 138,
       "label": "Node Shape",
-      "group": "VISCORE"
+      "group": "VISCORE",
+      "cis": 2
     },
     {
       "id": 139,
       "label": "Node Background Color",
-      "group": "VISCORE"
+      "group": "VISCORE",
+      "cis": 1
     },
     {
       "id": 140,
       "label": "Node Size",
-      "group": "VISCORE"
+      "group": "VISCORE",
+      "cis": 1
     },
     {
       "id": 141,
       "label": "Node Font Color",
-      "group": "VISCORE"
+      "group": "VISCORE",
+      "cis": 1
     },
     {
       "id": 142,
       "label": "Node Border Width",
-      "group": "VISCORE"
+      "group": "VISCORE",
+      "cis": 1
     },
     {
       "id": 143,
       "label": "Node Border Color",
-      "group": "VISCORE"
+      "group": "VISCORE",
+      "cis": 1
     },
     {
       "id": 144,
       "label": "Node Opacity",
-      "group": "VISCORE"
+      "group": "VISCORE",
+      "cis": 1
     },
     {
       "id": 145,
       "label": "Node Icon",
-      "group": "VISCORE"
+      "group": "VISCORE",
+      "cis": 1
     },
     {
       "id": 146,
       "label": "Node Image",
-      "group": "VISCORE"
+      "group": "VISCORE",
+      "cis": 1
     },
     {
       "id": 147,
       "label": "Node Shadow",
-      "group": "VISCORE"
+      "group": "VISCORE",
+      "cis": 1
     },
     {
       "id": 148,
       "label": "Custom Canvas Shape",
-      "group": "VISCORE"
+      "group": "VISCORE",
+      "cis": 1
     },
     {
       "id": 149,
       "label": "Edge Label",
-      "group": "VISCORE"
+      "group": "VISCORE",
+      "cis": 2
     },
     {
       "id": 150,
       "label": "Edge Color",
-      "group": "VISCORE"
+      "group": "VISCORE",
+      "cis": 1
     },
     {
       "id": 151,
       "label": "Edge Width",
-      "group": "VISCORE"
+      "group": "VISCORE",
+      "cis": 3
     },
     {
       "id": 152,
       "label": "Edge Dashes",
-      "group": "VISCORE"
+      "group": "VISCORE",
+      "cis": 1
     },
     {
       "id": 153,
       "label": "Edge Smoothing",
-      "group": "VISCORE"
+      "group": "VISCORE",
+      "cis": 2
     },
     {
       "id": 154,
       "label": "Cubic Bezier Curve",
-      "group": "VISCORE"
+      "group": "VISCORE",
+      "cis": 1
     },
     {
       "id": 155,
       "label": "Edge Arrows",
-      "group": "VISCORE"
+      "group": "VISCORE",
+      "cis": 1
     },
     {
       "id": 156,
       "label": "Edge Font",
-      "group": "VISCORE"
+      "group": "VISCORE",
+      "cis": 1
     },
     {
       "id": 157,
       "label": "Physics Simulation",
-      "group": "VISLAYOUT"
+      "group": "VISLAYOUT",
+      "cis": 13
     },
     {
       "id": 158,
       "label": "Barnes-Hut Solver",
-      "group": "VISLAYOUT"
+      "group": "VISLAYOUT",
+      "cis": 2
     },
     {
       "id": 159,
       "label": "ForceAtlas2 Layout",
-      "group": "VISLAYOUT"
+      "group": "VISLAYOUT",
+      "cis": 2
     },
     {
       "id": 160,
       "label": "Repulsion Solver",
-      "group": "VISLAYOUT"
+      "group": "VISLAYOUT",
+      "cis": 1
     },
     {
       "id": 161,
       "label": "Central Gravity",
-      "group": "VISLAYOUT"
+      "group": "VISLAYOUT",
+      "cis": 1
     },
     {
       "id": 162,
       "label": "Damping",
-      "group": "VISLAYOUT"
+      "group": "VISLAYOUT",
+      "cis": 1
     },
     {
       "id": 163,
       "label": "Hierarchical Layout",
-      "group": "VISLAYOUT"
+      "group": "VISLAYOUT",
+      "cis": 3
     },
     {
       "id": 164,
       "label": "Layout Direction",
-      "group": "VISLAYOUT"
+      "group": "VISLAYOUT",
+      "cis": 1
     },
     {
       "id": 165,
       "label": "Fixed Node Position",
-      "group": "VISLAYOUT"
+      "group": "VISLAYOUT",
+      "cis": 2
     },
     {
       "id": 166,
       "label": "Node Pinning",
-      "group": "VISLAYOUT"
+      "group": "VISLAYOUT",
+      "cis": 1
     },
     {
       "id": 167,
       "label": "Spring Length Parameter",
-      "group": "VISLAYOUT"
+      "group": "VISLAYOUT",
+      "cis": 1
     },
     {
       "id": 168,
       "label": "Stabilization",
-      "group": "VISLAYOUT"
+      "group": "VISLAYOUT",
+      "cis": 1
     },
     {
       "id": 169,
       "label": "Graph Layout Algorithm",
-      "group": "VISLAYOUT"
+      "group": "VISLAYOUT",
+      "cis": 1
     },
     {
       "id": 170,
       "label": "Node Tooltip",
-      "group": "VISLAYOUT"
+      "group": "VISLAYOUT",
+      "cis": 1
     },
     {
       "id": 171,
       "label": "Edge Tooltip",
-      "group": "VISLAYOUT"
+      "group": "VISLAYOUT",
+      "cis": 1
     },
     {
       "id": 172,
       "label": "Hover State",
-      "group": "VISLAYOUT"
+      "group": "VISLAYOUT",
+      "cis": 3
     },
     {
       "id": 173,
       "label": "Double-Click Event",
-      "group": "VISLAYOUT"
+      "group": "VISLAYOUT",
+      "cis": 2
     },
     {
       "id": 174,
       "label": "Node Inspector",
-      "group": "VISLAYOUT"
+      "group": "VISLAYOUT",
+      "cis": 1
     },
     {
       "id": 175,
       "label": "Click Event Handling",
-      "group": "VISLAYOUT"
+      "group": "VISLAYOUT",
+      "cis": 5
     },
     {
       "id": 176,
       "label": "Node URL Property",
-      "group": "VISLAYOUT"
+      "group": "VISLAYOUT",
+      "cis": 2
     },
     {
       "id": 177,
       "label": "Clickable Node",
-      "group": "VISLAYOUT"
+      "group": "VISLAYOUT",
+      "cis": 1
     },
     {
       "id": 178,
       "label": "Search Feature (Graph)",
-      "group": "VISLAYOUT"
+      "group": "VISLAYOUT",
+      "cis": 3
     },
     {
       "id": 179,
       "label": "Type-Ahead Filtering",
-      "group": "VISLAYOUT"
+      "group": "VISLAYOUT",
+      "cis": 1
     },
     {
       "id": 180,
       "label": "Focus Node Navigation",
-      "group": "VISLAYOUT"
+      "group": "VISLAYOUT",
+      "cis": 1
     },
     {
       "id": 181,
       "label": "Graph Cluster",
-      "group": "VISTOOLS"
+      "group": "VISTOOLS",
+      "cis": 5
     },
     {
       "id": 182,
       "label": "Composite Node",
-      "group": "VISTOOLS"
+      "group": "VISTOOLS",
+      "cis": 3
     },
     {
       "id": 183,
       "label": "Cluster Expand/Collapse",
-      "group": "VISTOOLS"
+      "group": "VISTOOLS",
+      "cis": 2
     },
     {
       "id": 184,
       "label": "Group Visibility Checkbox",
-      "group": "VISTOOLS"
+      "group": "VISTOOLS",
+      "cis": 1
     },
     {
       "id": 185,
       "label": "Group Styling",
-      "group": "VISTOOLS"
+      "group": "VISTOOLS",
+      "cis": 1
     },
     {
       "id": 186,
       "label": "Domain Attribute (Clustering)",
-      "group": "VISTOOLS"
+      "group": "VISTOOLS",
+      "cis": 1
     },
     {
       "id": 187,
       "label": "Graph Editor",
-      "group": "VISTOOLS"
+      "group": "VISTOOLS",
+      "cis": 8
     },
     {
       "id": 188,
       "label": "Node Property Editor",
-      "group": "VISTOOLS"
+      "group": "VISTOOLS",
+      "cis": 1
     },
     {
       "id": 189,
       "label": "Edge Property Editor",
-      "group": "VISTOOLS"
+      "group": "VISTOOLS",
+      "cis": 1
     },
     {
       "id": 190,
       "label": "JSON Graph Import",
-      "group": "VISTOOLS"
+      "group": "VISTOOLS",
+      "cis": 4
     },
     {
       "id": 191,
       "label": "JSON Graph Export",
-      "group": "VISTOOLS"
+      "group": "VISTOOLS",
+      "cis": 1
     },
     {
       "id": 192,
       "label": "Node Enricher Script",
-      "group": "VISTOOLS"
+      "group": "VISTOOLS",
+      "cis": 1
     },
     {
       "id": 193,
       "label": "Data Validation on Import",
-      "group": "VISTOOLS"
+      "group": "VISTOOLS",
+      "cis": 2
     },
     {
       "id": 194,
       "label": "Orphaned Node Detection",
-      "group": "VISTOOLS"
+      "group": "VISTOOLS",
+      "cis": 1
     },
     {
       "id": 195,
       "label": "JSON",
       "group": "DATA",
-      "shape": "box"
+      "shape": "box",
+      "cis": 20
     },
     {
       "id": 196,
       "label": "JSON Schema",
-      "group": "DATA"
+      "group": "DATA",
+      "cis": 6
     },
     {
       "id": 197,
       "label": "CSV",
       "group": "DATA",
-      "shape": "box"
+      "shape": "box",
+      "cis": 12
     },
     {
       "id": 198,
       "label": "YAML",
       "group": "DATA",
-      "shape": "box"
+      "shape": "box",
+      "cis": 14
     },
     {
       "id": 199,
       "label": "Markdown",
       "group": "DATA",
-      "shape": "box"
+      "shape": "box",
+      "cis": 14
     },
     {
       "id": 200,
       "label": "CSV to JSON Conversion",
-      "group": "DATA"
+      "group": "DATA",
+      "cis": 3
     },
     {
       "id": 201,
       "label": "groups.json",
-      "group": "DATA"
+      "group": "DATA",
+      "cis": 1
     },
     {
       "id": 202,
       "label": "Intelligent Textbook",
-      "group": "TEXTBOOK"
+      "group": "TEXTBOOK",
+      "cis": 12
     },
     {
       "id": 203,
       "label": "MicroSim",
-      "group": "TEXTBOOK"
+      "group": "TEXTBOOK",
+      "cis": 3
     },
     {
       "id": 204,
       "label": "p5.js",
-      "group": "TEXTBOOK"
+      "group": "TEXTBOOK",
+      "cis": 4
     },
     {
       "id": 205,
       "label": "JavaScript",
       "group": "TEXTBOOK",
-      "shape": "box"
+      "shape": "box",
+      "cis": 5
     },
     {
       "id": 206,
       "label": "Interactive Visualization",
-      "group": "TEXTBOOK"
+      "group": "TEXTBOOK",
+      "cis": 1
     },
     {
       "id": 207,
       "label": "Interactive Simulation",
-      "group": "TEXTBOOK"
+      "group": "TEXTBOOK",
+      "cis": 1
     },
     {
       "id": 208,
       "label": "Book Build Workflow",
-      "group": "TEXTBOOK"
+      "group": "TEXTBOOK",
+      "cis": 8
     },
     {
       "id": 209,
       "label": "Book Metrics",
-      "group": "TEXTBOOK"
+      "group": "TEXTBOOK",
+      "cis": 1
     },
     {
       "id": 210,
       "label": "Chapter Metrics",
-      "group": "TEXTBOOK"
+      "group": "TEXTBOOK",
+      "cis": 1
     },
     {
       "id": 211,
       "label": "Content Generation Pipeline",
-      "group": "TEXTBOOK"
+      "group": "TEXTBOOK",
+      "cis": 5
     },
     {
       "id": 212,
       "label": "Quality Gate",
-      "group": "TEXTBOOK"
+      "group": "TEXTBOOK",
+      "cis": 1
     },
     {
       "id": 213,
       "label": "Concept-to-Content Viewer",
-      "group": "TEXTBOOK"
+      "group": "TEXTBOOK",
+      "cis": 1
     },
     {
       "id": 214,
       "label": "Learning Path Recommendation",
-      "group": "TEXTBOOK"
+      "group": "TEXTBOOK",
+      "cis": 1
     },
     {
       "id": 215,
       "label": "Learning Management System (LMS)",
       "group": "LMS",
-      "shape": "box"
+      "shape": "box",
+      "cis": 2
     },
     {
       "id": 216,
       "label": "LMS Integration",
-      "group": "LMS"
+      "group": "LMS",
+      "cis": 1
     },
     {
       "id": 217,
       "label": "MkDocs",
-      "group": "LMS"
+      "group": "LMS",
+      "cis": 13
     },
     {
       "id": 218,
       "label": "GitHub Pages",
-      "group": "LMS"
+      "group": "LMS",
+      "cis": 9
     },
     {
       "id": 219,
       "label": "Git",
       "group": "LMS",
-      "shape": "box"
+      "shape": "box",
+      "cis": 10
     },
     {
       "id": 220,
       "label": "Case Study",
-      "group": "LMS"
+      "group": "LMS",
+      "cis": 2
     },
     {
       "id": 221,
       "label": "Real-World Application",
-      "group": "LMS"
+      "group": "LMS",
+      "cis": 1
     },
     {
       "id": 222,
       "label": "Cognitivism",
       "group": "LSCI",
-      "shape": "box"
+      "shape": "box",
+      "cis": 108
     },
     {
       "id": 223,
       "label": "Behaviorism",
       "group": "LSCI",
-      "shape": "box"
+      "shape": "box",
+      "cis": 103
     },
     {
       "id": 224,
       "label": "Connectivism",
       "group": "LSCI",
-      "shape": "box"
+      "shape": "box",
+      "cis": 2
     },
     {
       "id": 225,
       "label": "Andragogy",
       "group": "LSCI",
-      "shape": "box"
+      "shape": "box",
+      "cis": 4
     },
     {
       "id": 226,
       "label": "Cognitive Load Theory",
-      "group": "LSCI"
+      "group": "LSCI",
+      "cis": 3
     },
     {
       "id": 227,
       "label": "Working Memory Constraint",
-      "group": "LSCI"
+      "group": "LSCI",
+      "cis": 2
     },
     {
       "id": 228,
       "label": "Schema Theory",
-      "group": "LSCI"
+      "group": "LSCI",
+      "cis": 2
     },
     {
       "id": 229,
       "label": "Prior Knowledge Activation",
-      "group": "LSCI"
+      "group": "LSCI",
+      "cis": 1
     },
     {
       "id": 230,
       "label": "Chunking (Cognitive Load)",
-      "group": "LSCI"
+      "group": "LSCI",
+      "cis": 1
     },
     {
       "id": 231,
       "label": "Knowledge Space Theory",
-      "group": "LSCI"
+      "group": "LSCI",
+      "cis": 1
     },
     {
       "id": 232,
       "label": "Learning Progression",
-      "group": "LSCI"
+      "group": "LSCI",
+      "cis": 5
     },
     {
       "id": 233,
       "label": "Spiral Curriculum",
-      "group": "LSCI"
+      "group": "LSCI",
+      "cis": 1
     },
     {
       "id": 234,
       "label": "Backward Design",
-      "group": "LSCI"
+      "group": "LSCI",
+      "cis": 2
     },
     {
       "id": 235,
       "label": "Constructive Alignment",
-      "group": "LSCI"
+      "group": "LSCI",
+      "cis": 1
     },
     {
       "id": 236,
       "label": "Topological Sort",
-      "group": "LSCI"
+      "group": "LSCI",
+      "cis": 6
     },
     {
       "id": 237,
       "label": "Partial Order",
-      "group": "LSCI"
+      "group": "LSCI",
+      "cis": 4
     },
     {
       "id": 238,
       "label": "Prerequisite-Based Sequencing",
-      "group": "LSCI"
+      "group": "LSCI",
+      "cis": 3
     },
     {
       "id": 239,
       "label": "Content Sequencing Algorithm",
-      "group": "LSCI"
+      "group": "LSCI",
+      "cis": 1
     },
     {
       "id": 240,
       "label": "Competency-Based Education",
-      "group": "LSCI"
+      "group": "LSCI",
+      "cis": 3
     },
     {
       "id": 241,
       "label": "Differentiated Instruction",
-      "group": "LSCI"
+      "group": "LSCI",
+      "cis": 2
     },
     {
       "id": 242,
       "label": "Universal Design for Learning",
-      "group": "LSCI"
+      "group": "LSCI",
+      "cis": 1
     },
     {
       "id": 243,
       "label": "Learning Trajectory",
-      "group": "LSCI"
+      "group": "LSCI",
+      "cis": 1
     },
     {
       "id": 244,
       "label": "Spaced Repetition",
-      "group": "LSCI"
+      "group": "LSCI",
+      "cis": 5
     },
     {
       "id": 245,
       "label": "Retrieval Practice",
-      "group": "LSCI"
+      "group": "LSCI",
+      "cis": 2
     },
     {
       "id": 246,
       "label": "Interleaved Practice",
-      "group": "LSCI"
+      "group": "LSCI",
+      "cis": 2
     },
     {
       "id": 247,
       "label": "Desirable Difficulty",
-      "group": "LSCI"
+      "group": "LSCI",
+      "cis": 1
     },
     {
       "id": 248,
       "label": "Metacognition",
-      "group": "LSCI"
+      "group": "LSCI",
+      "cis": 3
     },
     {
       "id": 249,
       "label": "Self-Regulated Learning",
-      "group": "LSCI"
+      "group": "LSCI",
+      "cis": 2
     },
     {
       "id": 250,
       "label": "Growth Mindset",
-      "group": "LSCI"
+      "group": "LSCI",
+      "cis": 1
     },
     {
       "id": 251,
       "label": "Vygotsky's Social Theory",
-      "group": "LSCI"
+      "group": "LSCI",
+      "cis": 1
     },
     {
       "id": 252,
       "label": "Nine Events of Instruction",
-      "group": "LSCI"
+      "group": "LSCI",
+      "cis": 1
     },
     {
       "id": 253,
       "label": "Just-in-Time Learning",
-      "group": "LSCI"
+      "group": "LSCI",
+      "cis": 1
     },
     {
       "id": 254,
       "label": "Curriculum Alignment",
-      "group": "LSCI"
+      "group": "LSCI",
+      "cis": 1
     },
     {
       "id": 255,
       "label": "Agent Skill",
-      "group": "SKILL"
+      "group": "SKILL",
+      "cis": 13
     },
     {
       "id": 256,
       "label": "Claude Code",
-      "group": "SKILL"
+      "group": "SKILL",
+      "cis": 12
     },
     {
       "id": 257,
       "label": "Skill Invocation",
-      "group": "SKILL"
+      "group": "SKILL",
+      "cis": 11
     },
     {
       "id": 258,
       "label": "Course Description Scoring",
-      "group": "SKILL"
+      "group": "SKILL",
+      "cis": 10
     },
     {
       "id": 259,
       "label": "Concept List Generation",
-      "group": "SKILL"
+      "group": "SKILL",
+      "cis": 9
     },
     {
       "id": 260,
       "label": "Concept List Review",
-      "group": "SKILL"
+      "group": "SKILL",
+      "cis": 8
     },
     {
       "id": 261,
       "label": "Dependency CSV Generation",
-      "group": "SKILL"
+      "group": "SKILL",
+      "cis": 6
     },
     {
       "id": 262,
       "label": "Automated Quality Validation",
-      "group": "SKILL"
+      "group": "SKILL",
+      "cis": 5
     },
     {
       "id": 263,
       "label": "Taxonomy Generation Step",
-      "group": "SKILL"
+      "group": "SKILL",
+      "cis": 4
     },
     {
       "id": 264,
       "label": "Pipeline Session Log",
-      "group": "SKILL"
+      "group": "SKILL",
+      "cis": 3
     },
     {
       "id": 265,
       "label": "Iterative Graph Regeneration",
-      "group": "SKILL"
+      "group": "SKILL",
+      "cis": 2
     },
     {
       "id": 266,
       "label": "Human-in-the-Loop Review",
-      "group": "SKILL"
+      "group": "SKILL",
+      "cis": 1
     },
     {
       "id": 267,
       "label": "Directed Edge",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 24
     },
     {
       "id": 268,
       "label": "Incoming Edge",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 5
     },
     {
       "id": 269,
       "label": "Outgoing Edge",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 5
     },
     {
       "id": 270,
       "label": "Graph Path",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 12
     },
     {
       "id": 271,
       "label": "Path Length",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 5
     },
     {
       "id": 272,
       "label": "Reachability",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 3
     },
     {
       "id": 273,
       "label": "Ancestor Concept",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 1
     },
     {
       "id": 274,
       "label": "Descendant Concept",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 1
     },
     {
       "id": 275,
       "label": "Source Node",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 2
     },
     {
       "id": 276,
       "label": "Sink Node",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 2
     },
     {
       "id": 277,
       "label": "Terminal Concept",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 1
     },
     {
       "id": 278,
       "label": "Root Concept",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 1
     },
     {
       "id": 279,
       "label": "Weak Connectivity",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 3
     },
     {
       "id": 280,
       "label": "Strong Connectivity",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 1
     },
     {
       "id": 281,
       "label": "Connected Component",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 1
     },
     {
       "id": 282,
       "label": "Adjacency List",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 1
     },
     {
       "id": 283,
       "label": "Adjacency Matrix",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 1
     },
     {
       "id": 284,
       "label": "Graph Traversal",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 3
     },
     {
       "id": 285,
       "label": "Depth-First Search",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 1
     },
     {
       "id": 286,
       "label": "Breadth-First Search",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 1
     },
     {
       "id": 287,
       "label": "Graph Density",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 1
     },
     {
       "id": 288,
       "label": "Transitive Closure",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 3
     },
     {
       "id": 289,
       "label": "Transitive Reduction",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 2
     },
     {
       "id": 290,
       "label": "Redundant Dependency",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 1
     },
     {
       "id": 291,
       "label": "Bottleneck Concept",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 1
     },
     {
       "id": 292,
       "label": "Critical Path",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 1
     },
     {
       "id": 293,
       "label": "Maximum Path Length",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 1
     },
     {
       "id": 294,
       "label": "Dependency Depth",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 1
     },
     {
       "id": 295,
       "label": "Concept Centrality",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 2
     },
     {
       "id": 296,
       "label": "Betweenness Centrality",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 1
     },
     {
       "id": 297,
       "label": "Degree Distribution",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 1
     },
     {
       "id": 298,
       "label": "Graph Diameter",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 1
     },
     {
       "id": 299,
       "label": "Graph Schema",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 1
     },
     {
       "id": 300,
       "label": "Edge Direction",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 1
     },
     {
       "id": 301,
       "label": "Unique Concept Identifier",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 1
     },
     {
       "id": 302,
       "label": "Concept Granularity",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 3
     },
     {
       "id": 303,
       "label": "Atomic Concept",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 1
     },
     {
       "id": 304,
       "label": "Composite Concept",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 1
     },
     {
       "id": 305,
       "label": "Label Ambiguity",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 3
     },
     {
       "id": 306,
       "label": "Label Normalization",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 1
     },
     {
       "id": 307,
       "label": "Synonym Management",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 1
     },
     {
       "id": 308,
       "label": "Homonym Disambiguation",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 1
     },
     {
       "id": 309,
       "label": "Naming Convention",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 1
     },
     {
       "id": 310,
       "label": "Metadata Field",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 7
     },
     {
       "id": 311,
       "label": "Dublin Core Title",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 1
     },
     {
       "id": 312,
       "label": "Dublin Core Description",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 1
     },
     {
       "id": 313,
       "label": "SKOS Preferred Label",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 1
     },
     {
       "id": 314,
       "label": "SKOS Alternate Label",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 1
     },
     {
       "id": 315,
       "label": "SKOS Broader Relation",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 2
     },
     {
       "id": 316,
       "label": "SKOS Narrower Relation",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 2
     },
     {
       "id": 317,
       "label": "SKOS Related Relation",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 2
     },
     {
       "id": 318,
       "label": "Semantic Relationship",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 1
     },
     {
       "id": 319,
       "label": "Machine-Readable Metadata",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 1
     },
     {
       "id": 320,
       "label": "Concept Provenance",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 2
     },
     {
       "id": 321,
       "label": "Metadata Validation",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 1
     },
     {
       "id": 322,
       "label": "Vocabulary Governance",
-      "group": "FOUND"
+      "group": "FOUND",
+      "cis": 1
     },
     {
       "id": 323,
       "label": "Dependency Assertion",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 3
     },
     {
       "id": 324,
       "label": "Direct Dependency",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 1
     },
     {
       "id": 325,
       "label": "Indirect Dependency",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 1
     },
     {
       "id": 326,
       "label": "Necessary Prerequisite",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 4
     },
     {
       "id": 327,
       "label": "Recommended Prerequisite",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 2
     },
     {
       "id": 328,
       "label": "Dependency Rationale",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 2
     },
     {
       "id": 329,
       "label": "Dependency Confidence",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 1
     },
     {
       "id": 330,
       "label": "Edge Provenance",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 1
     },
     {
       "id": 331,
       "label": "Dependency Review",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 8
     },
     {
       "id": 332,
       "label": "Dependency Gap",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 1
     },
     {
       "id": 333,
       "label": "Overconstraint",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 1
     },
     {
       "id": 334,
       "label": "Underconstraint",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 1
     },
     {
       "id": 335,
       "label": "False Prerequisite",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 1
     },
     {
       "id": 336,
       "label": "Learning Sequence",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 2
     },
     {
       "id": 337,
       "label": "Parallel Learning Paths",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 1
     },
     {
       "id": 338,
       "label": "Alternative Prerequisite",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 1
     },
     {
       "id": 339,
       "label": "Co-Prerequisite",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 1
     },
     {
       "id": 340,
       "label": "Prerequisite Frontier",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 1
     },
     {
       "id": 341,
       "label": "Mastery Prerequisite",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 1
     },
     {
       "id": 342,
       "label": "Dependency Inference",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 1
     },
     {
       "id": 343,
       "label": "Human Dependency Review",
-      "group": "DEPEND"
+      "group": "DEPEND",
+      "cis": 1
     },
     {
       "id": 344,
       "label": "Classification Scheme",
-      "group": "TAXON"
+      "group": "TAXON",
+      "cis": 2
     },
     {
       "id": 345,
       "label": "Polyhierarchy",
-      "group": "TAXON"
+      "group": "TAXON",
+      "cis": 1
     },
     {
       "id": 346,
       "label": "Exclusive Category",
-      "group": "TAXON"
+      "group": "TAXON",
+      "cis": 1
     },
     {
       "id": 347,
       "label": "Category Boundary",
-      "group": "TAXON"
+      "group": "TAXON",
+      "cis": 2
     },
     {
       "id": 348,
       "label": "Category Balance",
-      "group": "TAXON"
+      "group": "TAXON",
+      "cis": 2
     },
     {
       "id": 349,
       "label": "Category Coverage",
-      "group": "TAXON"
+      "group": "TAXON",
+      "cis": 1
     },
     {
       "id": 350,
       "label": "Category Overlap",
-      "group": "TAXON"
+      "group": "TAXON",
+      "cis": 1
     },
     {
       "id": 351,
       "label": "Category Assignment",
-      "group": "TAXON"
+      "group": "TAXON",
+      "cis": 1
     },
     {
       "id": 352,
       "label": "Taxonomy Depth",
-      "group": "TAXON"
+      "group": "TAXON",
+      "cis": 1
     },
     {
       "id": 353,
       "label": "Taxonomy Breadth",
-      "group": "TAXON"
+      "group": "TAXON",
+      "cis": 1
     },
     {
       "id": 354,
       "label": "Taxonomy Drift",
-      "group": "TAXON"
+      "group": "TAXON",
+      "cis": 1
     },
     {
       "id": 355,
       "label": "Ontology Class",
-      "group": "TAXON"
+      "group": "TAXON",
+      "cis": 2
     },
     {
       "id": 356,
       "label": "Ontology Property",
-      "group": "TAXON"
+      "group": "TAXON",
+      "cis": 1
     },
     {
       "id": 357,
       "label": "Semantic Type",
-      "group": "TAXON"
+      "group": "TAXON",
+      "cis": 1
     },
     {
       "id": 358,
       "label": "Hierarchical Relation",
-      "group": "TAXON"
+      "group": "TAXON",
+      "cis": 1
     },
     {
       "id": 359,
       "label": "Associative Relation",
-      "group": "TAXON"
+      "group": "TAXON",
+      "cis": 1
     },
     {
       "id": 360,
       "label": "Taxonomy Validation",
-      "group": "TAXON"
+      "group": "TAXON",
+      "cis": 1
     },
     {
       "id": 361,
       "label": "Schema Validation",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 4
     },
     {
       "id": 362,
       "label": "Referential Integrity",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 1
     },
     {
       "id": 363,
       "label": "Duplicate Concept Detection",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 1
     },
     {
       "id": 364,
       "label": "Missing Dependency",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 1
     },
     {
       "id": 365,
       "label": "Invalid Dependency ID",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 1
     },
     {
       "id": 366,
       "label": "Graph Completeness",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 1
     },
     {
       "id": 367,
       "label": "Pedagogical Coherence",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 2
     },
     {
       "id": 368,
       "label": "Dependency Plausibility",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 1
     },
     {
       "id": 369,
       "label": "Graph Quality Score",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 5
     },
     {
       "id": 370,
       "label": "Validation Threshold",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 1
     },
     {
       "id": 371,
       "label": "Automated Validator",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 3
     },
     {
       "id": 372,
       "label": "Validation Warning",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 1
     },
     {
       "id": 373,
       "label": "Validation Error",
-      "group": "QUAL"
+      "group": "QUAL",
+      "cis": 1
     },
     {
       "id": 374,
       "label": "Data Pipeline",
-      "group": "DATA"
+      "group": "DATA",
+      "cis": 2
     },
     {
       "id": 375,
       "label": "CSV Header",
-      "group": "DATA"
+      "group": "DATA",
+      "cis": 5
     },
     {
       "id": 376,
       "label": "Pipe-Delimited Field",
-      "group": "DATA"
+      "group": "DATA",
+      "cis": 1
     },
     {
       "id": 377,
       "label": "Node Record",
-      "group": "DATA"
+      "group": "DATA",
+      "cis": 1
     },
     {
       "id": 378,
       "label": "Edge Record",
-      "group": "DATA"
+      "group": "DATA",
+      "cis": 1
     },
     {
       "id": 379,
       "label": "Group Record",
-      "group": "DATA"
+      "group": "DATA",
+      "cis": 1
     },
     {
       "id": 380,
       "label": "Metadata Record",
-      "group": "DATA"
+      "group": "DATA",
+      "cis": 1
     },
     {
       "id": 381,
       "label": "Schema Conformance",
-      "group": "DATA"
+      "group": "DATA",
+      "cis": 1
     },
     {
       "id": 382,
       "label": "Version Metadata",
-      "group": "DATA"
+      "group": "DATA",
+      "cis": 1
     },
     {
       "id": 383,
       "label": "License Metadata",
-      "group": "DATA"
+      "group": "DATA",
+      "cis": 1
     },
     {
       "id": 384,
       "label": "Taxonomy Name Mapping",
-      "group": "DATA"
+      "group": "DATA",
+      "cis": 1
     },
     {
       "id": 385,
       "label": "Color Configuration",
-      "group": "DATA"
+      "group": "DATA",
+      "cis": 1
     },
     {
       "id": 386,
       "label": "JSON Serialization",
-      "group": "DATA"
+      "group": "DATA",
+      "cis": 1
     },
     {
       "id": 387,
       "label": "Data Transformation",
-      "group": "DATA"
+      "group": "DATA",
+      "cis": 2
     },
     {
       "id": 388,
       "label": "Reproducible Generation",
-      "group": "DATA"
+      "group": "DATA",
+      "cis": 1
     },
     {
       "id": 389,
       "label": "Learner Model",
-      "group": "PERS"
+      "group": "PERS",
+      "cis": 9
     },
     {
       "id": 390,
       "label": "Mastery State",
-      "group": "PERS"
+      "group": "PERS",
+      "cis": 2
     },
     {
       "id": 391,
       "label": "Mastery Threshold",
-      "group": "PERS"
+      "group": "PERS",
+      "cis": 1
     },
     {
       "id": 392,
       "label": "Knowledge State",
-      "group": "PERS"
+      "group": "PERS",
+      "cis": 6
     },
     {
       "id": 393,
       "label": "Knowledge Component",
-      "group": "PERS"
+      "group": "PERS",
+      "cis": 3
     },
     {
       "id": 394,
       "label": "Learning Evidence",
-      "group": "ASSESS"
+      "group": "ASSESS",
+      "cis": 1
     },
     {
       "id": 395,
       "label": "Diagnostic Assessment",
-      "group": "ASSESS"
+      "group": "ASSESS",
+      "cis": 1
     },
     {
       "id": 396,
       "label": "Summative Assessment",
-      "group": "ASSESS"
+      "group": "ASSESS",
+      "cis": 1
     },
     {
       "id": 397,
       "label": "Competency Model",
-      "group": "PERS"
+      "group": "PERS",
+      "cis": 2
     },
     {
       "id": 398,
       "label": "Learning Path Constraint",
-      "group": "PERS"
+      "group": "PERS",
+      "cis": 1
     },
     {
       "id": 399,
       "label": "Readiness Estimation",
-      "group": "PERS"
+      "group": "PERS",
+      "cis": 2
     },
     {
       "id": 400,
       "label": "Personalized Sequencing",
-      "group": "PERS"
+      "group": "PERS",
+      "cis": 1
+    },
+    {
+      "id": 401,
+      "label": "Recursive Importance Measure",
+      "group": "QUAL",
+      "cis": 8
+    },
+    {
+      "id": 402,
+      "label": "PageRank",
+      "group": "QUAL",
+      "cis": 7
+    },
+    {
+      "id": 403,
+      "label": "Concept Impact Score (CIS)",
+      "group": "QUAL",
+      "cis": 6
+    },
+    {
+      "id": 404,
+      "label": "Single-Pass DAG Computation",
+      "group": "QUAL",
+      "cis": 1
+    },
+    {
+      "id": 405,
+      "label": "Global Normalization",
+      "group": "QUAL",
+      "cis": 4
+    },
+    {
+      "id": 406,
+      "label": "Elaboration Score",
+      "group": "TEXTBOOK",
+      "cis": 3
+    },
+    {
+      "id": 407,
+      "label": "Elaboration Tier",
+      "group": "TEXTBOOK",
+      "cis": 2
+    },
+    {
+      "id": 408,
+      "label": "Chapter Partitioning Problem",
+      "group": "TEXTBOOK",
+      "cis": 3
+    },
+    {
+      "id": 409,
+      "label": "Within-Chapter Concept Ordering",
+      "group": "TEXTBOOK",
+      "cis": 1
+    },
+    {
+      "id": 410,
+      "label": "Content-Budget Allocation",
+      "group": "TEXTBOOK",
+      "cis": 1
     }
   ],
   "edges": [
@@ -4103,6 +4563,70 @@
     {
       "from": 400,
       "to": 399
+    },
+    {
+      "from": 401,
+      "to": 7
+    },
+    {
+      "from": 402,
+      "to": 401
+    },
+    {
+      "from": 403,
+      "to": 402
+    },
+    {
+      "from": 403,
+      "to": 8
+    },
+    {
+      "from": 403,
+      "to": 61
+    },
+    {
+      "from": 404,
+      "to": 236
+    },
+    {
+      "from": 404,
+      "to": 403
+    },
+    {
+      "from": 405,
+      "to": 403
+    },
+    {
+      "from": 406,
+      "to": 405
+    },
+    {
+      "from": 407,
+      "to": 406
+    },
+    {
+      "from": 408,
+      "to": 6
+    },
+    {
+      "from": 408,
+      "to": 211
+    },
+    {
+      "from": 409,
+      "to": 236
+    },
+    {
+      "from": 409,
+      "to": 408
+    },
+    {
+      "from": 410,
+      "to": 407
+    },
+    {
+      "from": 410,
+      "to": 408
     }
   ]
 }

@@ -399,3 +399,13 @@ ConceptID,ConceptLabel,Dependencies,TaxonomyID
 398,Learning Path Constraint,90|397,PERS
 399,Readiness Estimation,392|36,PERS
 400,Personalized Sequencing,91|399,PERS
+401,Recursive Importance Measure,7,QUAL
+402,PageRank,401,QUAL
+403,Concept Impact Score (CIS),402|8|61,QUAL
+404,Single-Pass DAG Computation,236|403,QUAL
+405,Global Normalization,403,QUAL
+406,Elaboration Score,405,TEXTBOOK
+407,Elaboration Tier,406,TEXTBOOK
+408,Chapter Partitioning Problem,6|211,TEXTBOOK
+409,Within-Chapter Concept Ordering,236|408,TEXTBOOK
+410,Content-Budget Allocation,407|408,TEXTBOOK

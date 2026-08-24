@@ -1,0 +1,3232 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Introduces the Concept Impact Score (CIS), a PageRank-style recursive importance measure computed over a learning graph's dependency DAG, and shows how it replaces flat per-chapter word counts with a per-concept elaboration budget.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/learning-graphs/chapters/28-concept-impact-score-content-length/">
+      
+      
+        <link rel="prev" href="../27-learner-modeling-advanced-assessment/references/">
+      
+      
+        <link rel="next" href="quiz/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Concept Impact Score and Predicting Content Length - Learning Graphs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-Z6JDD2PWQZ"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-Z6JDD2PWQZ",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-Z6JDD2PWQZ",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Concept Impact Score and Predicting Content Length - Learning Graphs" >
+      
+        <meta  property="og:description"  content="Introduces the Concept Impact Score (CIS), a PageRank-style recursive importance measure computed over a learning graph's dependency DAG, and shows how it replaces flat per-chapter word counts with a per-concept elaboration budget." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/learning-graphs/assets/images/social/chapters/28-concept-impact-score-content-length/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/learning-graphs/chapters/28-concept-impact-score-content-length/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Concept Impact Score and Predicting Content Length - Learning Graphs" >
+      
+        <meta  name="twitter:description"  content="Introduces the Concept Impact Score (CIS), a PageRank-style recursive importance measure computed over a learning graph's dependency DAG, and shows how it replaces flat per-chapter word counts with a per-concept elaboration budget." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/learning-graphs/assets/images/social/chapters/28-concept-impact-score-content-length/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#concept-impact-score-and-predicting-content-length" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Learning Graphs" class="md-header__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/mascot/neutral.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Learning Graphs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Concept Impact Score and Predicting Content Length
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Learning Graphs" class="md-nav__button md-logo" aria-label="Learning Graphs" data-md-component="logo">
+      
+  <img src="../../img/mascot/neutral.png" alt="logo">
+
+    </a>
+    Learning Graphs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/learning-graphs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../01-foundations-of-concept-graphs/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    1. Foundations of Concept Graphs
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../02-concept-labeling-metadata-standards/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    2. Concept Labeling and Metadata Standards
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../03-concept-dependencies-prerequisites/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    3. Concept Dependencies and Prerequisites
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../04-concept-taxonomies-ontologies/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    4. Concept Taxonomies and Ontologies
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../05-graph-quality-validation-file-formats/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    5. Learning Graph Quality, Validation, and File Formats
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../06-blooms-taxonomy-learning-objectives/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    6. Bloom's Taxonomy and Learning Objectives
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../07-learning-theories-instructional-design/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    7. Learning Theories and Instructional Design
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../08-cognitive-load-knowledge-space-theory/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    8. Cognitive Load and Knowledge Space Theory
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../09-mastery-metacognition-sequencing/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    9. Mastery, Metacognition, and Instructional Sequencing
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../10-assessment-feedback-quizzes/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    10. Assessment, Feedback, and Quizzes
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../11-visjs-fundamentals-node-styling/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    11. Vis.js Fundamentals and Node Styling
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../12-edge-styling-visual-properties/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    12. Edge Styling and Visual Properties
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../13-physics-simulation-graph-layout/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    13. Physics Simulation and Graph Layout
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../14-interactive-navigation-visjs/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    14. Interactive Navigation in Vis.js
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../15-graph-clustering-editing-tools/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    15. Graph Clustering and Editing Tools
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../16-personalization-adaptive-learning-paths/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    16. Personalization and Adaptive Learning Paths
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../17-intelligent-agents-generative-ai/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    17. Intelligent Agents and Generative AI
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../18-intelligent-textbooks-microsims-deployment/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    18. Intelligent Textbooks, MicroSims, and Deployment
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../19-skill-generate-learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    19. Using a Skill to Generate a Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../20-graph-theory-paths-traversal-connectivity/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    20. Graph Theory II - Paths, Traversal, and Connectivity
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../21-graph-metrics-path-analysis/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    21. Graph Metrics and Path Analysis
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../22-concept-metadata-semantic-labeling/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    22. Concept Metadata and Semantic Labeling Standards
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../23-advanced-dependency-modeling/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    23. Advanced Dependency Modeling
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../24-taxonomy-design-deep-dive/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    24. Taxonomy Design Deep Dive
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../25-graph-validation-quality-assurance/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    25. Graph Validation and Quality Assurance
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../26-data-pipeline-internals/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    26. Data Pipeline Internals
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../27-learner-modeling-advanced-assessment/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    27. Learner Modeling and Advanced Assessment
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_29" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
+  
+  <span class="md-ellipsis">
+    28. Concept Impact Score and Predicting Content Length
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_4_29" id="__nav_4_29_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_29_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_29">
+            <span class="md-nav__icon md-icon"></span>
+            28. Concept Impact Score and Predicting Content Length
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quiz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quiz
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Annotated References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../case-studies/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Case Studies
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../vis/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Vis.js Tutorial
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Sample Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix-graph-libs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix: Graph Visualization Libraries
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursive-importance-measure-pagerank-and-the-concept-impact-score-cis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recursive Importance Measure, PageRank, and the Concept Impact Score (CIS)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#computing-cis-exactly-single-pass-dag-computation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Computing CIS Exactly: Single-Pass DAG Computation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparing-concepts-book-wide-global-normalization-and-the-elaboration-score" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparing Concepts Book-Wide: Global Normalization and the Elaboration Score
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-score-to-budget-elaboration-tier-and-content-budget-allocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      From Score to Budget: Elaboration Tier and Content-Budget Allocation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-other-two-sub-problems-chapter-partitioning-and-within-chapter-concept-ordering" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Other Two Sub-Problems: Chapter Partitioning and Within-Chapter Concept Ordering
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#this-chapter-scored-by-its-own-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      This Chapter, Scored By Its Own Method
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-cis-changed-four-real-agent-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      How CIS Changed Four Real Agent Skills
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#synthesis-the-graph-grades-its-own-book" class="md-nav__link">
+    <span class="md-ellipsis">
+      Synthesis: The Graph Grades Its Own Book
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/learning-graphs/blob/main/docs/chapters/28-concept-impact-score-content-length/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="concept-impact-score-and-predicting-content-length">Concept Impact Score and Predicting Content Length</h1>
+<h2 id="summary">Summary</h2>
+<p>Every earlier chapter in this book treated a learning graph as a structure to validate, visualize, or query. This closing chapter treats it as something else: a source of quantitative evidence about how much explanation each concept deserves. It introduces the Concept Impact Score (CIS), a PageRank-style recursive importance measure computed exactly, in a single pass, over any concept dependency DAG — and shows why raw in-degree, the metric Chapter 21 already gave you, systematically undercounts concepts that are foundational only <em>transitively</em>. From there it covers how a CIS value becomes a normalized Elaboration Score, how that score sorts every concept into an elaboration tier, and how those tiers replace a flat "N words per chapter" instruction with a per-concept content budget. The chapter closes by tracing this idea's actual adoption history: four real agent skills in the <code>ibook-skills</code> repository — the same tooling used to generate this book — were modified within hours of each other to compute, propagate, and consume CIS, a change documented in that repository's own git history.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 10 concepts from the learning graph:</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th><a href="../../glossary/#concept-impact-score-cis">Concept Impact Score</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Recursive Importance Measure</td>
+<td>8</td>
+</tr>
+<tr>
+<td>PageRank</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Concept Impact Score (CIS)</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Single-Pass DAG Computation</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Global Normalization</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Elaboration Score</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Elaboration Tier</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Chapter Partitioning Problem</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Within-Chapter Concept Ordering</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Content-Budget Allocation</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-foundations-of-concept-graphs/">Chapter 1: Foundations of Concept Graphs</a></li>
+<li><a href="../05-graph-quality-validation-file-formats/">Chapter 5: Learning Graph Quality, Validation, and File Formats</a></li>
+<li><a href="../08-cognitive-load-knowledge-space-theory/">Chapter 8: Cognitive Load and Knowledge Space Theory</a></li>
+<li><a href="../18-intelligent-textbooks-microsims-deployment/">Chapter 18: Intelligent Textbooks, MicroSims, and Deployment</a></li>
+<li><a href="../21-graph-metrics-path-analysis/">Chapter 21: Graph Metrics and Path Analysis</a></li>
+</ul>
+<hr />
+<div class="admonition mascot-welcome">
+<p class="admonition-title">How Much Does One Concept Deserve to Say?</p>
+<p><img alt="Axiom waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+Let's connect the concepts! Every chapter before this one asked whether your graph was <em>correct</em>. This one asks a different question: once it's correct, how should that structure decide how many words, examples, and diagrams each concept gets? The answer turns out to live inside the graph itself.</p>
+</div>
+<h2 id="recursive-importance-measure-pagerank-and-the-concept-impact-score-cis">Recursive Importance Measure, PageRank, and the Concept Impact Score (CIS)</h2>
+<p>Chapter 21 gave you indegree and betweenness centrality as ways to rank a concept's importance from its immediate neighborhood. Both share a blind spot: they only count what touches a node directly. A <strong>Recursive Importance Measure</strong> is any importance score for a node in a directed graph that is computed from the importance scores of the nodes pointing to it, rather than from a simple count of those nodes — importance recurses through the graph instead of stopping at the first hop. Recursive Importance Measure depends on Directed Graph in the learning graph, and it is the general category both of this section's other two concepts belong to.</p>
+<p>The best-known recursive importance measure has nothing to do with textbooks. <strong>PageRank</strong> is the recursive importance algorithm originally developed to rank web pages, where a page's score is a damped, iteratively-converged sum of the scores of every page linking to it. PageRank depends directly on Recursive Importance Measure in the learning graph. On the open web, pages can link to each other in cycles, so PageRank needs a damping factor $d$ (traditionally 0.85) and repeated iteration to guarantee the calculation converges to a stable answer at all.</p>
+<p>A learning graph is not the open web. Because Chapter 1 defined it as a Directed Acyclic Graph, cycles are structurally impossible — and that single fact changes everything about how a recursive importance score can be computed on it. The <strong>Concept Impact Score (CIS)</strong> is a PageRank-style recursive importance measure defined over a learning graph's dependency DAG: $\mathrm{CIS}(x) = 1 + \sum \mathrm{CIS}(d)$ for every concept $d$ that directly depends on $x$. CIS depends on PageRank, Directed Acyclic Graph (DAG), and Indegree in the learning graph — it is this book's own answer to the question Chapter 21's indegree metric left open: how do you count influence that passes <em>through</em> other concepts, not just influence that lands directly?</p>
+<p>This book's own graph supplies a clean worked example. <strong>Behaviorism</strong> has an indegree of exactly 1 — only Instructional Design depends on it directly, so a raw dependents-count would rank it as a minor, peripheral concept. But Instructional Design itself has four direct dependents of its own (Scaffolding, Curriculum Design, Metacognition, and Nine Events of Instruction), each with further dependents beyond that. Working the recursion out: $\mathrm{CIS}(\text{Instructional Design}) = 102$, so $\mathrm{CIS}(\text{Behaviorism}) = 1 + 102 = 103$ — a top-15 concept by impact in this entire 410-concept graph, despite an indegree of 1. Indegree only sees the first hop; CIS sees the whole downstream chain Behaviorism ultimately supports.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">One Direct Dependent, Many Indirect Ones</p>
+<p><img alt="Axiom thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+Notice what actually happened with Behaviorism: its own score is small, but the concept depending on it (Instructional Design) turned out to be a hub. CIS's recursive definition passes that hidden importance backward, one hop at a time, all the way to the root cause. That is exactly the failure mode a first-hop-only metric like indegree cannot detect.</p>
+</div>
+<h2 id="computing-cis-exactly-single-pass-dag-computation">Computing CIS Exactly: Single-Pass DAG Computation</h2>
+<p>Web-graph PageRank needs damping and iteration because cycles make a single deterministic pass impossible — a page's score can depend on another page whose own score depends back on the first page. <strong>Single-Pass DAG Computation</strong> is the property that, because a learning graph has no cycles, CIS can be computed exactly in one traversal, processing concepts in topological order so that every concept is scored only after all of its dependents have already been scored. Single-Pass DAG Computation depends on Topological Sort and Concept Impact Score (CIS) in the learning graph. Terminal concepts (nothing depends on them) start at CIS 1 and are processed first; foundational hub concepts, scored last, simply sum what has already been finalized beneath them — no damping factor, no fixed-point iteration, and no risk of non-convergence, because none of the conditions that make those safeguards necessary on a general graph can occur here.</p>
+<h2 id="comparing-concepts-book-wide-global-normalization-and-the-elaboration-score">Comparing Concepts Book-Wide: Global Normalization and the Elaboration Score</h2>
+<p>A raw CIS value only means something relative to other CIS values, which raises a scope question: relative to what set of concepts? <strong>Global Normalization</strong> is the decision to compare a concept's CIS against the maximum CIS across the <em>entire</em> book, not just the concepts co-occurring in its own chapter. Global Normalization depends directly on Concept Impact Score (CIS) in the learning graph. The alternative — chapter-local normalization — was tried and rejected during this idea's development: scoring each chapter's concepts only against each other made a chapter's single most-important concept always look book-level important, even in a late, narrow chapter where nothing it contains is actually foundational to the rest of the book. A concept's real-world impact is a claim about the whole book, so the comparison set has to be the whole book too.</p>
+<p>Comparing raw CIS values directly still causes a second, subtler problem: CIS is heavy-tailed, with roughly half of a typical graph's concepts sitting at the minimum score of 1. The <strong>Elaboration Score</strong> is a normalized value, $E(c) = \log(\mathrm{CIS}(c)+1) / \log(\mathrm{CIS}<em _max="\max">{\max}+1)$, that rescales every concept's CIS onto a $[0,1]$ range using this book's single highest CIS value as $\mathrm{CIS}</em> = 661$ (the concept }$. Elaboration Score depends directly on Global Normalization in the learning graph. In this book, $\mathrm{CIS}_{\max<strong>Concept</strong>, at the root of the whole graph), so Recursive Importance Measure's own $E(c) = \log(9)/\log(662) \approx 0.34$ — comfortably mid-range, appropriate for a concept this chapter treats as important but not foundational to the rest of the book.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">A Percentile Rank Looks Reasonable and Is Not</p>
+<p><img alt="Axiom warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+The first attempt at this scale did not use a logarithm at all — it ranked concepts by population percentile instead. That version passed every check on one chapter and then broke completely on a second: because CIS has a hard floor of 1, and over half of a typical graph's concepts sit at that floor, the "bottom 35th percentile" cutoff landed <em>at</em> the floor itself, making the lowest tier structurally unreachable no matter how unimportant a concept actually was. The log-scaled Elaboration Score fixes this by scoring the <em>value</em>, not the <em>rank</em> — tied floor concepts separate cleanly from true hubs instead of hiding inside one enormous median band.</p>
+</div>
+<h2 id="from-score-to-budget-elaboration-tier-and-content-budget-allocation">From Score to Budget: Elaboration Tier and Content-Budget Allocation</h2>
+<p>A continuous $[0,1]$ score is precise but awkward to hand to a writer as an instruction. An <strong>Elaboration Tier</strong> is one of three discrete bands — A, B, or C — assigned from a concept's Elaboration Score, each carrying its own target word count and required content elements. Elaboration Tier depends directly on Elaboration Score in the learning graph.</p>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>$E(c)$ range</th>
+<th>Target words</th>
+<th>Required elements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A — full treatment</td>
+<td>$\geq 0.5$</td>
+<td>500–750</td>
+<td>Worked example <strong>and</strong> diagram/chart/table/MicroSim</td>
+</tr>
+<tr>
+<td>B — standard</td>
+<td>$0.2 \leq E(c) &lt; 0.5$</td>
+<td>250–400</td>
+<td>Worked example</td>
+</tr>
+<tr>
+<td>C — brief</td>
+<td>$&lt; 0.2$</td>
+<td>120–200</td>
+<td>A clear definition; a short example is optional</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Content-Budget Allocation</strong> is the resulting practice of setting each concept's word count and required content elements from its elaboration tier, rather than dividing a chapter's total word budget evenly across however many concepts it happens to contain. Content-Budget Allocation depends on Elaboration Tier and Chapter Partitioning Problem in the learning graph. A chapter's total length becomes the <em>sum</em> of its concepts' individual targets — a chapter loaded with Tier A concepts will legitimately run longer than one built mostly from Tier C concepts, and that variation is the intended behavior, not an inconsistency to smooth away.</p>
+<h2 id="the-other-two-sub-problems-chapter-partitioning-and-within-chapter-concept-ordering">The Other Two Sub-Problems: Chapter Partitioning and Within-Chapter Concept Ordering</h2>
+<p>Content-budget allocation only makes sense once two prior questions are already answered: which chapter does a concept belong to, and where does it sit within that chapter? The <strong>Chapter Partitioning Problem</strong> is the task of dividing a learning graph's full concept set into an ordered sequence of chapters, respecting the book-wide topological order while keeping each chapter close to a target size. Chapter Partitioning Problem depends on Learning Graph and Content Generation Pipeline in the learning graph. This book is itself the running example: its own 410-concept graph is partitioned into 28 chapters, and this very chapter could not have been placed any earlier than position 28, because every one of its 10 concepts depends — directly or transitively — on material Chapters 1, 5, 8, 18, and 21 already established.</p>
+<p>Partitioning alone does not fix a reading order <em>within</em> one chapter's concept set. <strong>Within-Chapter Concept Ordering</strong> is the task of arranging one chapter's concepts into a single linear sequence that respects every in-chapter prerequisite edge, informed by Elaboration Theory's simple-to-complex sequencing principle. Within-Chapter Concept Ordering depends on Topological Sort and Chapter Partitioning Problem in the learning graph. This chapter's own concept order is an instance of the rule: Recursive Importance Measure had to come before PageRank, which had to come before CIS, which had to come before every concept defined in terms of it — the same dependency-respecting constraint Chapter 3 first introduced for the book as a whole, applied at chapter scale.</p>
+<h2 id="this-chapter-scored-by-its-own-method">This Chapter, Scored By Its Own Method</h2>
+<p>Running this chapter's own 10 concepts through the pipeline just described produces the following Elaboration Budget:</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>CIS</th>
+<th>$E(c)$</th>
+<th>Tier</th>
+<th>Target Words</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Recursive Importance Measure</td>
+<td>8</td>
+<td>0.34</td>
+<td>B</td>
+<td>250–400</td>
+</tr>
+<tr>
+<td>PageRank</td>
+<td>7</td>
+<td>0.32</td>
+<td>B</td>
+<td>250–400</td>
+</tr>
+<tr>
+<td>Concept Impact Score (CIS)</td>
+<td>6</td>
+<td>0.30</td>
+<td>B</td>
+<td>250–400</td>
+</tr>
+<tr>
+<td>Global Normalization</td>
+<td>4</td>
+<td>0.25</td>
+<td>B</td>
+<td>250–400</td>
+</tr>
+<tr>
+<td>Elaboration Score</td>
+<td>3</td>
+<td>0.21</td>
+<td>B</td>
+<td>250–400</td>
+</tr>
+<tr>
+<td>Chapter Partitioning Problem</td>
+<td>3</td>
+<td>0.21</td>
+<td>B</td>
+<td>250–400</td>
+</tr>
+<tr>
+<td>Elaboration Tier</td>
+<td>2</td>
+<td>0.17</td>
+<td>C</td>
+<td>120–200</td>
+</tr>
+<tr>
+<td>Single-Pass DAG Computation</td>
+<td>1</td>
+<td>0.11</td>
+<td>C</td>
+<td>120–200</td>
+</tr>
+<tr>
+<td>Within-Chapter Concept Ordering</td>
+<td>1</td>
+<td>0.11</td>
+<td>C</td>
+<td>120–200</td>
+</tr>
+<tr>
+<td>Content-Budget Allocation</td>
+<td>1</td>
+<td>0.11</td>
+<td>C</td>
+<td>120–200</td>
+</tr>
+</tbody>
+</table>
+<p>Zero Tier A, six Tier B, four Tier C. That profile is not an accident of writing — it is exactly what the theory predicts for a chapter this late and this specialized, and it mirrors the very validation check that motivated Global Normalization in the first place: a book's final, narrowest chapter should skew toward its lowest tiers, not its highest, because nothing later in the book depends on what it introduces.</p>
+<div class="admonition mascot-encourage">
+<p class="admonition-title">The Theory Just Explained Its Own Chapter</p>
+<p><img alt="Axiom encouraging" class="mascot-admonition-img" src="../../img/mascot/encouraging.png" />
+Pause and appreciate this: the method this chapter teaches was just used to score the chapter itself, and it correctly predicted that a closing, specialized chapter should be treated briefly rather than heavily. A metric that can be turned on the very book explaining it, and produce a sane answer, is a good sign the metric is measuring something real.</p>
+</div>
+<h2 id="how-cis-changed-four-real-agent-skills">How CIS Changed Four Real Agent Skills</h2>
+<p>Everything above is not a hypothetical proposal — it shipped. This project's own tooling, the <code>ibook-skills</code> repository, records the exact change as ordinary git history: four skills, each modified within about half an hour of the others, adding CIS support end to end.</p>
+<table>
+<thead>
+<tr>
+<th>Skill</th>
+<th>Version</th>
+<th>What changed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>learning-graph-generator</code></td>
+<td>v1.06 (<code>23a4b4dc</code>)</td>
+<td><code>csv-to-json.py</code> now computes CIS for every node — $\mathrm{CIS}(x) = 1 + \sum \mathrm{CIS}(d)$ over a topological pass — and writes it into <code>learning-graph.json</code> as <code>node.cis</code>. Marked <strong>BREAKING</strong>: every book must regenerate its <code>learning-graph.json</code> before the other three skills below will work correctly.</td>
+</tr>
+<tr>
+<td><code>book-chapter-generator</code></td>
+<td>v1.0.0 (<code>f0d9a049</code>)</td>
+<td>No longer computes its own "dependents count" from the edge list. It now reads <code>node.cis</code> directly and writes it into each generated chapter's "Concepts Covered" section — now a markdown table with <code>Concept</code> and <code>CIS Score</code> columns, replacing the old numbered list. This chapter's own Concepts Covered table, above, follows that table format, spelling the second column out as "Concept Impact Score" rather than the skill's literal <code>CIS Score</code> header — "CIS" already stands for <em>Concept Impact Score</em>, so "CIS Score" is redundant.</td>
+</tr>
+<tr>
+<td><code>chapter-content-generator</code></td>
+<td>v1.09 (<code>dc52df59</code>)</td>
+<td>Replaces the old flat "3000–5000 words, 4–6 non-text elements per chapter" instruction with the per-concept Elaboration Budget this chapter just walked through — Tier A/B/C, driven by each concept's globally normalized Elaboration Score.</td>
+</tr>
+<tr>
+<td><code>learning-graph-viewer</code></td>
+<td>v1.04 (<code>24014524</code>)</td>
+<td>The interactive graph viewer (Chapters 11–15) now sizes each node's box using $\log(\mathrm{CIS}+1)$, so high-impact concepts render visibly larger — the same log-normalization used everywhere else in this chapter, applied to layout instead of word count.</td>
+</tr>
+</tbody>
+</table>
+<p>The dependency order between these four changes is itself worth noticing, because it is the same partitioning-then-ordering logic this chapter just defined for chapters: <code>learning-graph-generator</code> had to change first, since the other three all read a field (<code>node.cis</code>) that did not exist before it. <code>book-chapter-generator</code> had to change next, since <code>chapter-content-generator</code>'s Elaboration Budget reads the <code>CIS Score</code> column that only <code>book-chapter-generator</code>'s new table format provides. <code>learning-graph-viewer</code> had no such dependency on the other two skills and could change independently, which is exactly why its commit sits in parallel with, rather than strictly after, the chapter-generation pair. A concept dependency graph does not just describe <em>what a book teaches</em> — the same acyclic, prerequisite-respecting structure describes <em>how the tools that build the book had to be upgraded</em>.</p>
+<h2 id="synthesis-the-graph-grades-its-own-book">Synthesis: The Graph Grades Its Own Book</h2>
+<p>This chapter closes a loop the rest of the book left open. Chapter 21 gave you indegree and centrality to rank a concept's local importance. This chapter gave you CIS to rank its <em>transitive</em> importance exactly, in one pass, because a learning graph's acyclic structure makes that exact computation possible in the first place. It gave you Global Normalization and the Elaboration Score to make CIS values comparable across an entire book, and Elaboration Tiers and Content-Budget Allocation to turn that comparison into an actual writing instruction — replacing a flat, concept-blind word count with one that spends more explanation where the graph says more explanation is deserved. And it showed you, in this book's own <code>ibook-skills</code> git history, that this is not academic: four real skills changed, in a real dependency order, to make every future chapter — including this one — generated this way.</p>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">You've Reached the End of the Graph</p>
+<p><img alt="Axiom celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png" />
+Let's connect the concepts, one final time. You started this book learning what a node and an edge are. You end it holding a method that turns those same nodes and edges into a number — CIS — precise enough to decide how many words a concept deserves, confident enough to have already rewritten the tools that write books like this one. That is the whole promise of a learning graph, kept: not just a map of what to teach, but a measure of how much each part of that map is worth.</p>
+</div>
+<p><a href="references/">See Annotated References</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../27-learner-modeling-advanced-assessment/references/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Annotated References">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Annotated References
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="quiz/" class="md-footer__link md-footer__link--next" aria-label="Next: Quiz">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Quiz
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

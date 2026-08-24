@@ -523,6 +523,8 @@
       
         
       
+        
+      
     
     
     
@@ -1513,7 +1515,7 @@
                   
 
   
-    <a href="https://github.com/dmccreary/learning-graphs/blob/master/docs/course-description.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/dmccreary/learning-graphs/blob/main/docs/course-description.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1581,6 +1583,12 @@ assemble hyper-personalized lesson plans and generate intelligent textbook conte
 <li>Using an agent skill (e.g. Claude Code) to automate the full learning-graph generation pipeline —
   course description scoring, concept list generation, dependency CSV creation, automated quality
   validation, taxonomy assignment, and iterative regeneration with human-in-the-loop review</li>
+<li>Predicting per-concept content length: the Concept Impact Score (CIS), a PageRank-style recursive
+  importance measure computed over a learning graph's dependency DAG, and why it captures a concept's
+  transitive importance more accurately than raw in-degree</li>
+<li>Allocating chapter content budgets — word counts, worked examples, diagrams, and MicroSims — in
+  proportion to each concept's globally normalized Elaboration Score and assigned elaboration tier,
+  rather than flatly per chapter or per concept</li>
 </ul>
 <h2 id="topics-not-covered">Topics Not Covered</h2>
 <ul>
@@ -1606,6 +1614,7 @@ assemble hyper-personalized lesson plans and generate intelligent textbook conte
 <li>Recall the metadata standards commonly used for concept labeling (SKOS, Dublin Core, ISO/IEC 11179)</li>
 <li>Identify the structural properties that make a graph a valid DAG (no cycles, no self-dependencies)</li>
 <li>Recall the six levels of the 2001 revised Bloom's Taxonomy and their associated action verbs</li>
+<li>Define Concept Impact Score (CIS), PageRank, in-degree, and Elaboration Score</li>
 </ul>
 <h3 id="understand">Understand</h3>
 <p><em>Constructing meaning from instructional messages, including oral, written, and graphic communication.</em></p>
@@ -1620,6 +1629,8 @@ assemble hyper-personalized lesson plans and generate intelligent textbook conte
   learning graph</li>
 <li>Interpret a vis.js network diagram to identify prerequisite chains, bottleneck concepts, and
   orphaned nodes</li>
+<li>Explain why raw in-degree undercounts concepts that are foundational only transitively, and how
+  CIS's recursive, PageRank-style formulation corrects for this on a DAG</li>
 </ul>
 <h3 id="apply">Apply</h3>
 <p><em>Carrying out or using a procedure in a given situation.</em></p>
@@ -1634,6 +1645,9 @@ assemble hyper-personalized lesson plans and generate intelligent textbook conte
   learning graph dataset</li>
 <li>Invoke an agent skill (e.g. Claude Code) to automatically generate a concept list, dependency CSV,
   taxonomy, and validated learning graph JSON from a course description</li>
+<li>Compute a per-concept content budget from a learning graph by calculating CIS scores, normalizing
+  them globally into an Elaboration Score, and assigning elaboration tiers (word counts, worked
+  examples, and non-text elements)</li>
 </ul>
 <h3 id="analyze">Analyze</h3>
 <p><em>Breaking material into constituent parts and determining how the parts relate to one another and to
@@ -1645,6 +1659,8 @@ an overall structure or purpose.</em></p>
 <li>Examine a taxonomy distribution report to identify over-represented or under-represented categories</li>
 <li>Compare the trade-offs of force-directed versus hierarchical graph layouts for a given dataset size
   and audience</li>
+<li>Compare in-degree-weighted, CIS-weighted, and flat content-allocation strategies for a given
+  chapter, and identify which concepts each strategy under- or over-weights</li>
 </ul>
 <h3 id="evaluate">Evaluate</h3>
 <p><em>Making judgments based on criteria and standards through checking and critiquing.</em></p>
@@ -1659,6 +1675,8 @@ an overall structure or purpose.</em></p>
   specified audience and learning goal</li>
 <li>Judge when a skill-generated learning graph needs human-in-the-loop review versus iterative
   regeneration before proceeding to chapter design</li>
+<li>Assess whether a chapter's word-budget allocation and elaboration tiers appropriately reflect each
+  covered concept's graph-wide impact, rather than a flat per-chapter or per-concept default</li>
 </ul>
 <h3 id="create">Create</h3>
 <p><em>Putting elements together to form a coherent or functional whole; reorganizing elements into a new
