@@ -1,0 +1,133 @@
+# Status Report
+
+## Completed
+
+- [x] Paper directory structure created, mirroring
+      `github.com/dmccreary/microsims/tree/main/paper` conventions (main.tex,
+      sections/, figures/, references.bib, build.sh, README.md), adapted to
+      one directory per section.
+- [x] `main.tex` with ArXiv-compatible preamble, `\input` wiring for all 9
+      sections.
+- [x] All 9 section files created with outline-level content (bulleted, with
+      `% TODO` markers) reflecting the "Suggested section budget" discussed
+      in the originating conversation.
+- [x] `references.bib` seeded with 14 entries from initial literature review
+      (elaboration theory, cognitive load theory, concept-network analysis,
+      curriculum/prerequisite graphs, PageRank/TextRank/Eigenfactor/TotalRank,
+      Knowledge Space Theory). Several marked `[snippet]` -- full citation
+      details need verification before submission (some full-text fetches
+      returned 403).
+- [x] Formal definitions drafted for Learning Graph, in-degree, and Concept
+      Impact Score (CIS), including Proposition 1 (CIS has an exact
+      closed-form single-pass computation on a DAG, no damping factor needed)
+      -- proof sketch outlined, not yet written up formally.
+- [x] Real data computed: in-degree, out-degree, and CIS for all 200 concepts
+      in the Algebra I learning graph (`data/algebra1-concept-impact.csv`).
+      Confirmed the graph is a valid DAG (200/200 topologically sortable).
+      Found concrete divergent examples (Constant, Coefficient, Term: low
+      in-degree, top-5 CIS) that motivate the paper's core argument.
+- [x] Verified current system behavior directly from source: neither
+      `/book-chapter-generator` nor `/chapter-content-generator` currently
+      implements in-degree or CIS weighting; content length is a flat
+      3000-5000 words/chapter instruction today.
+- [x] **Global vs. local CIS normalization resolved: global.**
+- [x] **Computed and validated the Chapter 12 table** ("Exponential
+      Functions", 10 concepts, mostly terminal/leaf concepts) as the
+      cross-check for the tiering rule. This caught a real bug: the original
+      tiering rule (population percentile rank) put zero concepts in Tier C
+      for Chapter 12, because CIS has a floor of 1 and 103/200 (51.5%) of
+      Algebra I concepts sit at that floor -- the population 35th-percentile
+      cutoff landed at the floor, making Tier C structurally unreachable.
+- [x] **Fixed the tiering rule: switched from population percentile rank to
+      a log-scaled Elaboration Score** `E(c) = log(CIS+1)/log(CIS_max+1)`,
+      consistent with the word-budget weighting formula which already used
+      log(CIS+1). Re-validated on both chapters: Chapter 1 -> 8A/6B/3C
+      (previously 11A/6B/0C under the broken rule); Chapter 12 -> 0A/2B/8C
+      (previously 1A/9B/0C). The two chapters now show the expected
+      opposite-direction profiles. Regenerated both data CSVs and rewrote
+      Table 1 (Chapter 1) and added Table 2 (Chapter 12) in
+      `sections/06-system`, updated Definition 4 in
+      `sections/04-formal-definitions`, updated `sections/07-evaluation` open
+      items, and added a methodological-caution bullet to
+      `sections/08-discussion-limitations` (heavy-tailed recursive metrics
+      with a floor need value-based, not rank-based, discretization -- a
+      point likely worth generalizing beyond this paper's specific metric).
+
+## Not Yet Done (in priority order)
+
+1. **Optionally validate `E(c)` cut points (0.5/0.2) on a third, mixed-profile
+   chapter** before treating them as final -- currently checked on two
+   chapters with opposite (foundational vs. specialized) profiles only.
+2. **Design/write proof for Proposition 1** in Section 4.
+3. **Specify Condition B precisely** for the evaluation study (no prior
+   formula exists to reproduce -- see README).
+4. **Run the blind-comparison pilot study** (Section 7) on Algebra I Chapter
+   1 at minimum. This is the critical path item -- the paper's central claim
+   is currently a well-motivated hypothesis, not a confirmed result.
+5. **Draft full prose** for all 9 sections from the outlines (currently
+   bullet/TODO form throughout).
+6. **Create figures** per `figures/suggested-figures.md`, starting with the
+   toy-DAG divergence example and the real Algebra I divergence chart (data
+   already available).
+7. **Verify all `[snippet]`-flagged references** in `references.bib` against
+   primary sources before submission.
+8. Decide whether to pursue the cross-model (Claude vs. Gemini/Antigravity)
+   claim empirically (re-run under controlled conditions) or drop it to
+   future work, given the original comparison data was not preserved.
+
+## Pilot Run 1: Complete (Chapter 12)
+
+- [x] **Specified Condition B** (in-degree weighted) precisely: same
+      log-normalized functional form as Condition C, substituting in-degree
+      for CIS, floor 150 words. Written into `sections/07-evaluation` with a
+      3-condition comparison table. In-degree's lack of a CIS-style floor-tie
+      problem noted explicitly (indeg=0 -> $E_B=0$ cleanly, unlike the
+      earlier percentile-rank bug).
+- [x] **Generated 3 independent chapter drafts** for Chapter 12 (one per
+      condition), each from the same fixed scaffold, no shared context
+      between generations, none with access to the real published chapter.
+      All landed within +/-15% per-concept tolerance and within 1% of the
+      3,722-word chapter total. Files: `pilot-study/chapter-12/condition-{a-uniform,b-indegree,c-cis}.md`.
+- [x] **Ran blind LLM-judge rating**: 3 independent fresh judge sessions,
+      condition labels and word-count footers stripped, rubric from
+      `sections/07-evaluation`. **All 3 judges independently ranked
+      C > B > A** (CIS > in-degree > uniform), unanimous. Full scores and
+      methodology: `pilot-study/chapter-12/RESULTS.md`.
+- [x] Wrote pilot results into `sections/07-evaluation` (new "Pilot Results:
+      Chapter 12" subsection) with explicit caveats: N=1 chapter, judges are
+      same-model-family as generator (not independent humans), single
+      specialized-chapter profile only. Updated `abstract.txt` and open items
+      to reflect what's still needed (human rater, Chapter 1 run, full
+      6-10 chapter sample).
+
+## Pilot Run 2: Complete (Chapter 1)
+
+- [x] **Generated 3 independent chapter drafts** for Chapter 1 (17
+      concepts, 6,800-word budget), same protocol as Chapter 12 pilot.
+      All within +/-15% per-concept, within 3% of chapter total (achieved:
+      A 6,560; B 6,809; C 6,713).
+- [x] **Ran blind LLM-judge rating** (3 fresh judges, different blind-label
+      assignment than Chapter 12 to prevent pattern-matching). Result was
+      **not** a clean sweep this time: judges disagreed on where uniform
+      (A) ranks (C>B>A, C>A>B, A>C>B across the 3 judges). But CIS (C) is
+      still the **Condorcet winner** (undefeated pairwise: beats B 3-0,
+      beats A 2-1) and has the highest mean score (4.33 vs A's 4.00 vs B's
+      3.33). Notably, **B (in-degree) lost to A here** -- the opposite of
+      Chapter 12, where B beat A. This instability in B's standing, against
+      C's consistent Condorcet-winner status in both chapters, is itself an
+      interesting finding: naive in-degree weighting isn't a reliably safe
+      strategy; CIS appears more robust. Full results:
+      `pilot-study/chapter-1/RESULTS.md`.
+- [x] Updated `sections/07-evaluation` with a new "Pilot Results: Chapter 1"
+      subsection, a combined two-chapter summary table, and revised open
+      items (independent human rater is now the clear top priority given
+      Chapter 1's judges didn't even agree among themselves).
+
+## Next Immediate Step
+
+Independent human rater(s) are now the single most important remaining gap
+-- both pilot results rest entirely on same-model-family LLM judges, and
+Chapter 1's split judge rankings make external validation more pressing than
+it was after Chapter 12's clean sweep alone. After that: extend to more
+chapters (target the full 6-10 chapter sample) to see whether B's
+chapter-to-chapter instability is a real pattern or noise from N=2.

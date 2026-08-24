@@ -1,0 +1,18 @@
+concept,indegree,CIS,words_A_uniform,words_B_indegree,tier_B,words_C_cis,tier_C
+Variable,8,619,400,631,A,630,A
+Number,13,369,400,727,A,592,A
+Coefficient,2,239,400,390,B,559,A
+Constant,1,238,400,302,B,559,A
+Term,4,237,400,502,A,559,A
+Expression,4,133,400,502,A,516,A
+Equation,5,111,400,542,A,503,A
+Monomial,1,76,400,302,B,475,A
+Inequality,4,13,400,502,A,347,B
+Order of Operations,1,7,400,302,B,305,B
+Like Terms,1,7,400,302,B,305,B
+Evaluating Expressions,3,6,400,453,B,295,B
+Combining Like Terms,4,6,400,502,A,295,B
+Substitution,2,3,400,390,B,254,B
+Simplifying Expressions,0,1,400,150,C,202,C
+Expanding Expressions,0,1,400,150,C,202,C
+Prime Factorization,0,1,400,150,C,202,C

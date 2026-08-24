@@ -1,0 +1,65 @@
+% Section 2: Introduction
+% Target length: 500-700 words
+% Status: OUTLINE ONLY - expand each bullet into prose.
+
+\section{Introduction}
+\label{sec:introduction}
+
+\subsection{Motivating Observation}
+% TODO: expand into 1-2 paragraphs.
+\begin{itemize}
+    \item Two parallel AI-assisted intelligent-textbook projects: an Algebra~I
+          course generated primarily with Claude Sonnet 5, and a wake-word-detection
+          embedded-systems course attempted with Google Antigravity / Gemini.
+    \item Subjective finding: Gemini-generated chapters were ``flat'' --- roughly
+          uniform treatment per concept regardless of importance. Claude-generated
+          chapters gave visibly more elaboration (examples, metaphors, contrasting
+          cases) to concepts that many other concepts depend on.
+    \item Working hypothesis: Claude may be implicitly approximating something like
+          a transitive-importance signal during generation; Gemini/Antigravity does
+          not appear to.
+    \item Informal fix that correlated with a subjective quality increase: explicitly
+          weighting suggested word count per concept by the concept's in-degree in
+          the course's learning graph.
+    \item Caveat to state plainly: this evidence is subjective and small-sample.
+          See \S\ref{sec:evaluation} for the planned controlled test, and
+          \S\ref{sec:discussion} for limitations.
+\end{itemize}
+
+\subsection{The Gap}
+% TODO: expand.
+\begin{itemize}
+    \item Current AI textbook-generation tooling (e.g. our own
+          \texttt{/chapter-content-generator} skill, \S\ref{sec:system}) specifies a
+          flat word-count range per \emph{chapter} (e.g. ``3000--5000 words''),
+          independent of which concepts the chapter contains or how important they
+          are to the rest of the book.
+    \item Chapter length today is effectively a function of concept \emph{count},
+          not concept \emph{importance}.
+    \item Raw in-degree is a plausible first proxy for importance but is shown
+          (\S\ref{sec:formal-definitions}) to undercount concepts that are
+          foundational only transitively.
+\end{itemize}
+
+\subsection{Contributions}
+% TODO: expand into full paragraph or itemized list matching final structure.
+\begin{enumerate}
+    \item A formal definition of a \textbf{Learning Graph} as a monopartite concept
+          dependency DAG (\S\ref{sec:formal-definitions}).
+    \item The \textbf{Concept Impact Score (CIS)}, a PageRank-style recursive
+          importance measure with an exact, closed-form, single-pass computation on
+          DAGs --- no damping factor required (\S\ref{sec:formal-definitions}).
+    \item A decomposition of automated chapter generation into three sub-problems:
+          chapter partitioning, concept ordering, and content-budget allocation
+          (\S\ref{sec:problem-statement}).
+    \item A concrete proposal for CIS-weighted content-budget allocation (words and
+          non-text elements) as an extension to an existing chapter-generation
+          pipeline (\S\ref{sec:system}).
+    \item Empirical demonstration, on a real 200-concept Algebra~I learning graph,
+          that CIS and in-degree diverge sharply for specific concepts
+          (\S\ref{sec:formal-definitions}, \S\ref{sec:system}).
+    \item A planned blind-comparison evaluation design (\S\ref{sec:evaluation}).
+\end{enumerate}
+
+\subsection{Paper Organization}
+% TODO: write once section numbers/titles are final.

@@ -1,0 +1,30 @@
+% Section 1: Abstract
+% Target length: 150-250 words (ArXiv convention: keep under 250)
+% Status: DRAFT - mirrors abstract.txt, needs tightening once Sections 4-7 are final.
+
+\begin{abstract}
+Automated textbook generation with large language models typically allocates
+a flat word budget per chapter or per concept, independent of how important
+each concept is to the rest of the curriculum. We report an informal but
+consistent observation across two AI-assisted textbook projects: generated
+chapter quality improved, by subjective reading, when the word budget for
+each concept was scaled by the concept's in-degree in the course's learning
+graph --- the number of other concepts that directly depend on it. We show
+that raw in-degree undercounts concepts that are foundational only
+\emph{transitively} (few direct dependents but many indirect ones), and
+propose the Concept Impact Score (CIS), a PageRank-style recursive importance
+measure over the concept dependency graph. Because a learning graph is
+acyclic by construction, CIS reduces to an exact, closed-form, single-pass
+computation over a topological ordering, requiring no damping factor. We
+formalize the chapter-generation problem as three separable sub-problems ---
+concept-to-chapter partitioning, within-chapter concept ordering, and
+per-concept content-budget allocation --- and propose CIS-weighted
+allocation for the last of these. On a real 200-concept, 277-edge Algebra~I
+learning graph, CIS and in-degree rank concepts substantially differently;
+several low-in-degree concepts (e.g. \emph{Constant}, \emph{Coefficient})
+rank in the top five by CIS due to transitive reach. We describe a planned
+blind-comparison study across uniform, in-degree-weighted, and CIS-weighted
+conditions at fixed total chapter length to test the hypothesis directly.
+
+% TODO: finalize word count to <=250 words after Sections 4-7 are drafted.
+\end{abstract}

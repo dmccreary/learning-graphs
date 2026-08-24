@@ -1,0 +1,292 @@
+% Section 7: Evaluation
+% Target length: 800-1500 words
+% Status: PILOT RUN 1 COMPLETE (Chapter 12, N=1 chapter, LLM-judge only --
+% see "Pilot Results" subsection below). This is a first, small, promising
+% result, NOT the powered 6-10-chapter study with independent human raters
+% that the Design subsection still calls for. Do not let the pilot's positive
+% result relax the standard for the full study -- see caveats inline.
+
+\section{Evaluation}
+\label{sec:evaluation}
+
+\subsection{Design: Blind Comparison Study}
+% TODO: expand into prose.
+\begin{itemize}
+    \item \textbf{Critical control:} hold total chapter word count constant across
+          conditions. Each condition redistributes the same budget differently;
+          this isolates the allocation effect from a simple ``more words = better''
+          confound.
+    \item \textbf{Conditions} (within-chapter, same concepts, same model = Claude
+          Sonnet 5, same prompt template except the per-concept word target):
+          \begin{itemize}
+              \item[A --] Uniform: $\mathrm{words}(c) = W_i / |Ch_i|$ for all $c$.
+              \item[B --] In-degree weighted (specified below).
+              \item[C --] CIS weighted (proposed): see \S\ref{sec:problem-statement}.
+          \end{itemize}
+    \item \textbf{Pilot corpus:} Algebra I learning graph and chapters
+          (\texttt{/Users/danmccreary/Documents/ws/algebra-1}). Two chapters
+          run so far: Chapter 12 (``Exponential Functions'', 10 concepts,
+          specialized/leaf-heavy CIS profile, \S\ref{sec:pilot-ch12}) and
+          Chapter 1 (``Foundations of Algebra'', 17 concepts, largest
+          CIS/in-degree divergence, foundational profile,
+          \S\ref{sec:pilot-ch1}).
+    \item \textbf{Sample:} 6-10 chapters total, spanning varied CIS distributions
+          (some with one dominant hub concept, some flatter) and, if feasible, more
+          than one book/domain so the finding is not a single-domain artifact.
+\end{itemize}
+
+\subsection{Condition B Specification: In-Degree Weighted}
+\label{sec:condition-b}
+
+There is no single documented ``existing in-degree formula'' to reproduce --
+the original observation (\S\ref{sec:introduction}) came from an informal
+prompting session (wake-word-detection project, Google Antigravity) whose
+output was not preserved. Condition B is therefore specified fresh, using
+the \emph{same functional form} as Condition C so that the only variable
+between B and C is which importance metric drives the weights -- this is
+what makes the comparison a fair test of CIS specifically, not just ``any
+graph-derived weighting beats uniform.''
+
+\[
+E_B(c) \;=\; \frac{\log(\mathrm{indeg}(c) + 1)}{\log(\mathrm{indeg}_{\max} + 1)}, \qquad
+\mathrm{words}_B(c) \;=\; w_{\min} + (W_i - n \cdot w_{\min}) \cdot \frac{\log(\mathrm{indeg}(c)+1)}{\sum_{c' \in Ch_i} \log(\mathrm{indeg}(c')+1)}
+\]
+
+with $\mathrm{indeg}_{\max}$ the maximum in-degree over the whole book (16,
+``Function'', in the Algebra~I graph) and $w_{\min}=150$, matching Condition
+C's floor. Unlike CIS, raw in-degree can be exactly 0 (a concept nobody
+directly depends on), which log-normalizes to $E_B=0$ cleanly -- no
+floor-tie pathology analogous to Definition 4's CIS-population-rank bug,
+since $\log(0+1)=0$ is already the natural bottom of the scale rather than a
+population-dependent cutoff.
+
+\begin{table}[htbp]
+\centering
+\caption{All three conditions' word budgets for Algebra I, Chapter 12, fixed 3{,}722-word total. Condition B is visibly more extreme than C: every concept with in-degree 0 is pinned to the 150-word floor, while CIS's transitive smoothing still differentiates among them (Table~\ref{tab:ch12-budget}).}
+\label{tab:ch12-three-conditions}
+\begin{tabular}{lrr rr r}
+\toprule
+Concept & in-deg & CIS & A (unif.) & B (in-deg) & C (CIS) \\
+\midrule
+Exponential Function             & 6 & 10 & 372 & 1307 & 697 \\
+Exponential Growth                & 2 & 3  & 372 & 803  & 466 \\
+Exponential Decay                 & 1 & 2  & 372 & 562  & 401 \\
+Growth Factor                     & 0 & 1  & 372 & 150  & 308 \\
+Decay Factor                      & 0 & 1  & 372 & 150  & 308 \\
+Initial Value                     & 0 & 1  & 372 & 150  & 308 \\
+Exponential Models                & 0 & 1  & 372 & 150  & 308 \\
+Comparing Linear and Exponential  & 0 & 1  & 372 & 150  & 308 \\
+Graphing Exponentials             & 0 & 1  & 372 & 150  & 308 \\
+Applications of Systems           & 0 & 1  & 372 & 150  & 308 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Condition B allocates \emph{more than three times} the budget to
+``Exponential Function'' (1307 words) as Condition C (697), and slams all
+seven zero-in-degree concepts to the bare 150-word floor rather than C's
+still-differentiated 308. This is the concrete, testable form of the paper's
+central claim: raw in-degree treats every concept nothing directly depends
+on as equally, minimally important, while CIS's transitive reach still
+distinguishes among them by how much the book eventually builds on the
+surrounding neighborhood -- even when direct dependents are zero.
+
+\subsection{Rating Protocol}
+% TODO: expand.
+\begin{itemize}
+    \item \textbf{LLM-judge rubric:} separate model call, blinded to condition,
+          scoring 1-5 on: (a) depth/elaboration on foundational concepts,
+          (b) use of examples/metaphors/contrasting cases, (c) coherence,
+          (d) absence of padding on minor concepts. Run 2-3 times per chapter to
+          check judge consistency (report agreement, e.g. intraclass correlation).
+    \item \textbf{Human spot-check:} a subset of chapters (e.g. 3 of 6-10),
+          blind-rated by the author and, if available, 1-2 additional raters, same
+          rubric, condition labels stripped, presentation order randomized.
+          Purpose: validate the LLM-judge against human judgment and report their
+          agreement -- this is itself a result worth including.
+\end{itemize}
+
+\subsection{Analysis Plan}
+% TODO: expand.
+\begin{itemize}
+    \item Small $N$ expected -- do not assume normality. Report pairwise win/tie/loss
+          tallies (C vs.\ A, C vs.\ B, B vs.\ A) with a sign test or Wilcoxon
+          signed-rank test.
+    \item Secondary check (if feasible): correlate per-concept word allocation
+          under each condition against an independent difficulty/importance
+          signal (e.g. instructor judgment or exam-weighting data, if available)
+          as a construct-validity check on CIS itself, not just on downstream
+          content quality.
+\end{itemize}
+
+\subsection{Pilot Results: Chapter 12}
+\label{sec:pilot-ch12}
+
+% TODO: expand into prose. Full generation transcript, raw judge output, and
+% blinding methodology recorded in pilot-study/chapter-12/RESULTS.md for
+% reproducibility.
+
+\textbf{Generation.} Three complete chapter drafts were generated
+independently -- separate sessions, no shared context, none with access to
+the others' output or to the real published Chapter 12 -- from the same
+fixed scaffold (title, summary, prerequisites, the 10 concepts in order),
+differing only in the per-concept word-budget instruction
+(Table~\ref{tab:ch12-three-conditions}). All three landed within the
+$\pm15\%$ per-concept tolerance and within 1\% of the 3{,}722-word chapter
+total (achieved: A 3{,}626; B 3{,}638; C 3{,}736).
+
+\textbf{Blind judging.} Word Count Report footers (which would leak the
+condition via the target numbers) were stripped, files were relabeled
+Draft~1/2/3 in an order not disclosed to the judges, and three independent
+fresh model sessions each scored all three drafts on the four-dimension
+rubric (\S\ref{sec:evaluation}, Rating Protocol) without seeing each other's
+scores or this paper's hypothesis.
+
+\begin{table}[htbp]
+\centering
+\caption{Pilot judge scores (1-5, mean of 3 independent blind judges), Chapter 12.}
+\label{tab:pilot-ch12-scores}
+\begin{tabular}{lrrrrr}
+\toprule
+Condition & a: depth & b: examples & c: coherence & d: no padding & overall \\
+\midrule
+A (uniform)         & 3.00 & 3.33 & 3.67 & 3.00 & 3.00 \\
+B (in-degree)        & 4.33 & 4.00 & 4.00 & 4.67 & 4.33 \\
+C (CIS, proposed)    & 4.67 & 5.00 & 5.00 & 4.00 & 5.00 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Result.} All three judges independently produced the identical
+ranking: C $>$ B $>$ A (3/3 agreement). Notably B also beat A in this pilot --
+even in-degree's cruder, more extreme skew (Table~\ref{tab:ch12-three-conditions})
+outperformed uniform allocation here -- with C ahead of both.
+
+\textbf{Qualitative illustration.} On ``Growth Factor'' (a low-budget concept
+under both B and C), Condition B (154 words) produces a single definitional
+paragraph with no worked example; Condition C (290 words), despite a similar
+target, still fits a full labeled worked example (a concrete population-growth
+scenario) plus a second technique (recovering the growth factor from a data
+table). This is the mechanism the aggregate scores above are picking up on.
+
+\textbf{Caveats -- read before citing this result.} This is $N=1$ chapter,
+not the powered 6-10-chapter sample the Design subsection calls for. The
+three ``blind judges'' are fresh sessions of the same model family used to
+generate the drafts (Claude Sonnet 5), not independent human raters --
+same-model self-consistency cannot be ruled out as a contributor to the
+result, and the planned human spot-check (\S\ref{sec:evaluation}, Rating
+Protocol) has not yet been run. Chapter 12 is a specialized, leaf-heavy
+chapter (\S\ref{sec:system}, Table~\ref{tab:ch12-budget}); see the
+Chapter~1 pilot below for the foundational-chapter contrast case.
+
+\subsection{Pilot Results: Chapter 1}
+\label{sec:pilot-ch1}
+
+% TODO: expand into prose. Full generation transcript, raw judge output, and
+% blinding methodology recorded in pilot-study/chapter-1/RESULTS.md.
+
+Same protocol as \S\ref{sec:pilot-ch12}, applied to Chapter 1 (17 concepts,
+6{,}800-word budget), using the Condition B/C tables implied by
+Table~\ref{tab:ch1-budget} and the Chapter-1 analogue of
+Table~\ref{tab:ch12-three-conditions} (data:
+\texttt{data/algebra1-ch1-three-conditions.csv}). Achieved totals: A 6{,}560;
+B 6{,}809; C 6{,}713 words -- all within $\pm 15\%$ per-concept and within
+3\% of the 6{,}800-word chapter total.
+
+\begin{table}[htbp]
+\centering
+\caption{Pilot judge scores (1-5, mean of 3 independent blind judges), Chapter 1.}
+\label{tab:pilot-ch1-scores}
+\begin{tabular}{lrrrrr}
+\toprule
+Condition & a: depth & b: examples & c: coherence & d: no padding & overall \\
+\midrule
+A (uniform)         & 3.33 & 4.67 & 5.00 & 3.33 & 4.00 \\
+B (in-degree)        & 3.33 & 3.00 & 3.67 & 3.33 & 3.33 \\
+C (CIS, proposed)    & 4.00 & 5.00 & 4.00 & 4.00 & 4.33 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Result -- not unanimous this time; report honestly.} Judges disagreed
+on where Condition A slots in (Judge rankings: C$>$B$>$A; C$>$A$>$B;
+A$>$C$>$B). Unlike Chapter 12, this is \emph{not} a clean 3/3 sweep. But a
+consistent structure survives: pairwise, C beats B 3-0 and beats A 2-1; A
+beats B 2-1. \textbf{C is the Condorcet winner} (undefeated pairwise) and has
+the highest mean overall score (4.33 vs.\ A's 4.00 vs.\ B's 3.33).
+\textbf{B is dominated} here -- losing to both A and C -- which is the
+opposite of Chapter 12, where B beat A. This instability in B's relative
+standing (winning on Chapter 12, losing on Chapter 1), against C's
+consistent Condorcet-winner status in both, is itself informative: naive
+in-degree weighting is not a reliably safe strategy, while CIS's transitive
+smoothing appears more robust across chapter profiles.
+
+\textbf{Qualitative illustration.} ``Constant'' has in-degree 1 (a minor
+concept by that measure) but ranks \#4 of 200 book-wide by CIS (transitively
+foundational). Condition B (302-word target) treats it accordingly briefly:
+a definition plus a bulleted list of three quick examples, no worked
+example. Condition C (559-word target, Tier A) gives it a full labeled
+worked example (a taxi-fare scenario) with a 3-row data table, plus a
+paragraph distinguishing ``fixed within a problem'' from ``fixed forever'' --
+treatment on par with the chapter's most emphasized concepts, matching its
+true book-wide importance despite the low direct in-degree that misleads
+Condition B.
+
+\textbf{Combined picture (both pilot chapters).} C is the Condorcet winner
+in both chapters tested and undefeated against B in both (6-0 combined
+across Chapters 1 and 12). Its margin over uniform narrows on the
+foundational chapter (2-1) versus the specialized one (3-0). Still $N=2$
+chapters, still LLM-judge only -- see open items below.
+
+\subsection{Resolved Items}
+\begin{itemize}
+    \item \textbf{Global vs. local CIS normalization -- RESOLVED: global.} See
+          \S\ref{sec:formal-definitions} and Table~\ref{tab:ch1-budget}
+          (\S\ref{sec:system}). Condition C content generation should
+          normalize against the full 200-concept Algebra I graph, not just
+          the concepts in one chapter.
+    \item \textbf{Tier-threshold calibration on a non-foundational chapter --
+          RESOLVED, with a correction along the way.} Computing the same
+          table for Chapter 12 exposed that the original tiering rule
+          (population percentile rank) was structurally broken: CIS has a
+          floor of 1, 103/200 Algebra I concepts (51.5\%) sit at that floor,
+          and the population 35th-percentile cutoff landed \emph{at} the
+          floor -- making Tier C unreachable regardless of true importance.
+          Fixed by switching to the log-scaled Elaboration Score $E(c)$
+          (Definition 4, \S\ref{sec:formal-definitions}), which separates
+          floor-tied concepts from true hubs. Re-validated on both chapters:
+          Chapter 1 now gives a real 8/6/3 A/B/C split (previously 11/6/0
+          under percentile rank); Chapter 12 gives 0/2/8, the expected
+          mirror-image profile for a late, specialized chapter
+          (Tables~\ref{tab:ch1-budget}-\ref{tab:ch12-budget}). Condition C
+          generation should use $E(c)$, not population percentile.
+\end{itemize}
+
+\subsection{Open Items Before Completing the Study}
+% TODO: resolve each of these, then delete this subsection.
+\begin{itemize}
+    \item \textbf{Independent human rater(s)} -- both pilot results
+          (\S\ref{sec:pilot-ch12}, \S\ref{sec:pilot-ch1}) currently rest
+          entirely on same-model-family LLM judges. This is now the single
+          most important remaining gap, and more pressing after the
+          Chapter 1 result than before it: an independent human check is
+          needed to confirm the Condorcet-winner pattern isn't an artifact
+          of same-model self-consistency, particularly given Chapter 1's
+          judges did not even agree among themselves on a strict ranking.
+    \item \textbf{Extend to the full 6-10 chapter sample.} Two chapters in,
+          with a consistent Condorcet-winner result for C but an unstable
+          B-vs-A relationship (B beat A on Chapter 12, lost to A on
+          Chapter 1) -- more chapters are needed to tell whether B's
+          instability itself is a stable finding or noise from $N=2$.
+    \item \textbf{$E(c)$ cut points (0.5/0.2) are only lightly validated.}
+          Confirmed sensible on two chapters with opposite expected profiles,
+          but that is a small validation set.
+    \item \textbf{Elaboration-budget dimensions beyond words} (diagrams,
+          MicroSims, worked examples) -- both pilots varied word count only;
+          decide whether to extend to the full multi-dimensional elaboration
+          budget in later runs.
+\end{itemize}
+
+% TODO: once the study runs, replace this section's outline with: study
+% execution details, results table/figure, statistical results, and
+% interpretation.

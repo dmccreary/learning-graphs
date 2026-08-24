@@ -1,0 +1,87 @@
+% Section 3: Related Work
+% Target length: 600-900 words
+% Status: OUTLINE ONLY - each subsection needs prose + \cite{} keys matching references.bib
+
+\section{Related Work}
+\label{sec:related-work}
+
+\subsection{Instructional Design: Elaboration and Cognitive Load}
+% TODO: expand.
+\begin{itemize}
+    \item Elaboration Theory \cite{reigeluth1983} sequences instruction from simple
+          ``epitomes'' outward, deliberately layering analogies, synthesis, and
+          increasing detail onto core ideas --- consistent with what we observed
+          Claude doing for high-importance concepts, but never tied to a graph
+          metric.
+    \item Cognitive Load Theory \cite{sweller1988} and the worked-example effect
+          \cite{renkl2014} motivate why foundational concepts (many downstream
+          dependents) warrant more germane-load investment: schema failures there
+          propagate.
+\end{itemize}
+
+\subsection{Concept Maps and ``What to Teach''}
+% TODO: expand; verify full citation details for concept-network-analysis paper
+% (only saw it via search snippet + 403 on full text -- confirm before submission).
+\begin{itemize}
+    \item Node-level concept-network analysis has been proposed as an operational
+          measure of ``important knowledge'' for curriculum decisions
+          \cite{conceptnetwork2025}.
+    \item This line of work stops at \emph{what to include/emphasize}; it does not
+          propose a quantitative content-length or word-budget formula. That is the
+          gap this paper addresses.
+\end{itemize}
+
+\subsection{Prerequisite and Curriculum Graphs}
+% TODO: expand.
+\begin{itemize}
+    \item In-degree and out-degree are standard structural features in curriculum /
+          prerequisite graph analysis \cite{capire2025, prereqnetworks2024}.
+    \item These works target student modeling and course sequencing, not
+          per-concept instructional content generation.
+    \item \cite{prereqnetworks2024} notes plain in-degree undercounts ``critical
+          introductory'' nodes and proposes a reachability-based alternative ---
+          directly motivating our move from in-degree to CIS.
+\end{itemize}
+
+\subsection{PageRank-Style Recursive Importance}
+% TODO: expand.
+\begin{itemize}
+    \item PageRank \cite{brin1998} popularized recursive importance: a node is
+          important if important nodes point to it.
+    \item The same idea transfers cleanly beyond the web graph: TextRank
+          \cite{mihalcea2004} for keyword/sentence graphs, Eigenfactor
+          \cite{bergstrom2007} for citation-network journal influence.
+    \item PageRank / random-walk-with-restart scores have already been used as
+          \emph{features} for predicting prerequisite relations in educational
+          knowledge graphs \cite{sle2019, cikm2016}, but not as a driver of content
+          \emph{volume}.
+    \item TotalRank \cite{boldi2005} addresses ranking without an arbitrary damping
+          factor; we make a related but distinct observation --- that a DAG
+          (as opposed to a general graph with cycles) admits an \emph{exact}
+          non-iterative solution by construction (\S\ref{sec:formal-definitions},
+          Proposition~1).
+\end{itemize}
+
+\subsection{Knowledge Space Theory}
+% TODO: expand.
+\begin{itemize}
+    \item Knowledge Space Theory \cite{doignon1985} formalizes prerequisite
+          structure and valid learning paths rigorously but does not address
+          content volume per node.
+\end{itemize}
+
+\subsection{A Contrasting Data Point}
+% TODO: expand; verify exact citation for Wikipedia length/PageRank correlation claim.
+\begin{itemize}
+    \item Wikipedia article length correlates only weakly with PageRank-based
+          importance \cite{wikipagerank2016} --- but Wikipedia length is driven by
+          organic editor attention, not top-down instructional design, so this is a
+          different generative process rather than a contradiction of our claim.
+          Worth stating explicitly to preempt the obvious reviewer objection.
+\end{itemize}
+
+\subsection{Positioning}
+% TODO: 2-3 sentence explicit gap statement, e.g.:
+% "No prior work we found combines (a) a transitive/recursive importance metric
+%  computed over a prerequisite DAG, with (b) its use to drive per-concept content
+%  \emph{volume} (words + non-text elements) in LLM-generated instructional text."

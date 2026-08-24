@@ -1,0 +1,78 @@
+% Section 5: Problem Statement
+% Target length: 800-1200 words (~1.25-1.75 pages)
+% Status: OUTLINE ONLY - three sub-problems, each needs expansion + formalization.
+
+\section{Problem Statement: Automated Chapter Generation}
+\label{sec:problem-statement}
+
+% TODO: opening paragraph framing chapter generation as three separable
+% sub-problems, referencing the /book-chapter-generator and
+% /chapter-content-generator pipeline described in Section 6.
+
+\subsection{Sub-problem 1: Chapter Partitioning}
+% TODO: expand.
+\begin{itemize}
+    \item Input: Learning Graph $G=(C,D)$; target number of chapters $k$ (or target
+          chapter size).
+    \item Output: a partition of $C$ into chapters $\{Ch_1, \ldots, Ch_k\}$.
+    \item NOT simply chunking $C$ into equal-count groups. Current
+          \texttt{/book-chapter-generator} implementation respects topological
+          order and clusters ``natural learning units'' heuristically
+          (\S\ref{sec:system}).
+    \item Open question for this paper: is this best framed as constrained graph
+          partitioning / community detection over $G$? State constraints:
+          (a) chapters must respect a valid topological order across the book,
+          (b) target size bounds per chapter, (c) prefer minimizing edges cut
+          between chapters (concepts split across chapters should be minimized).
+\end{itemize}
+
+\subsection{Sub-problem 2: Within-Chapter Concept Ordering}
+% TODO: expand.
+\begin{itemize}
+    \item Input: the concept subset $Ch_i \subseteq C$ assigned to one chapter.
+    \item Output: a linear ordering of $Ch_i$ for presentation.
+    \item Constraint: must be a valid topological order restricted to $Ch_i$
+          (a concept cannot be presented before its in-chapter prerequisites).
+    \item Distinct from partitioning: this is a sequencing problem, informed by
+          Elaboration Theory's simple-to-complex principle \cite{reigeluth1983}
+          (see \S\ref{sec:related-work}).
+\end{itemize}
+
+\subsection{Sub-problem 3: Content-Budget Allocation (this paper's focus)}
+% TODO: expand -- this is the core contribution, give it the most space.
+\begin{itemize}
+    \item Input: chapter $Ch_i$, a total word/content budget $W_i$ for the chapter
+          (or a book-level default range).
+    \item Output: a per-concept budget $\mathrm{words}(c)$ for each $c \in Ch_i$,
+          such that $\sum_{c \in Ch_i} \mathrm{words}(c) \approx W_i$.
+    \item \textbf{Status quo (Section 6):} flat allocation,
+          $\mathrm{words}(c) = W_i / |Ch_i|$ for all $c$ -- i.e. chapter length is
+          a function of concept \emph{count} only.
+    \item \textbf{Proposed:} CIS-weighted allocation.
+          \[
+          \mathrm{words}(c) = w_{\min} + (w_{\max}-w_{\min}) \cdot
+          \mathrm{normalize}\big(f(\mathrm{CIS}(c))\big)
+          \]
+          with $f = \log$ or $\sqrt{\cdot}$ (not identity) to avoid one dominant
+          hub concept consuming a disproportionate share of the chapter; see
+          worked numeric example in \S\ref{sec:system}.
+    \item \textbf{Extension beyond words (per user's explicit direction):} word
+          count alone is too simple. The same CIS-weighted logic should govern an
+          ``elaboration budget'' covering:
+          \begin{itemize}
+              \item number of worked examples
+              \item presence/absence of a dedicated diagram, chart, or MicroSim
+              \item number of contrasting / non-example cases
+              \item number of metaphors or analogies
+          \end{itemize}
+          % TODO: formalize as a small set of discrete "elaboration tiers"
+          % (e.g. A/B/C) rather than continuous per-element formulas -- simpler
+          % to specify as generation instructions. See Section 6 worked table.
+\end{itemize}
+
+% TODO: closing paragraph explicitly stating the paper's central claim: chapter
+% length should not be determined by simply counting concepts, but by weighing
+% concept order (Sub-problem 2) and allocating content in proportion to each
+% concept's "impact" or blast radius into total understanding of the entire
+% textbook (Sub-problem 3, via CIS) -- direct restatement of the user's own
+% framing from the originating conversation.

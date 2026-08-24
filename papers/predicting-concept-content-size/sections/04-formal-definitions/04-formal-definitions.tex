@@ -1,0 +1,136 @@
+% Section 4: Formal Definitions
+% Target length: 450-700 words (~0.75-1 page). Keep tight -- this is a definitions
+% section, not prose-heavy.
+% Status: Definitions and Proposition 1 are drafted at working-notes level below;
+%         needs LaTeX theorem-environment polish and a proof or proof sketch.
+
+\section{Formal Definitions}
+\label{sec:formal-definitions}
+
+\subsection{Learning Graph}
+
+\textbf{Definition 1 (Learning Graph).}
+A \emph{Learning Graph} is a monopartite directed graph $G = (C, D)$ where $C$
+is a set of concept nodes and $D \subseteq C \times C$ is a set of dependency
+edges. An edge $(a, b) \in D$ means concept $a$ depends on (requires) concept
+$b$. $G$ is constrained to be acyclic: a circular dependency would make the
+prerequisite relation unsatisfiable. $G$ is therefore a DAG.
+
+% TODO: cite this repo's own learning-graph-schema.json / documentation as the
+% concrete implementation of this definition (nodes have id/label/group/shape;
+% edges have from/to). Confirm edge direction convention matches (from=dependent,
+% to=prerequisite) -- verified empirically on the Algebra I graph in Section 6.
+
+\textbf{Definition 2 (in-degree).}
+$\mathrm{indeg}(b) = |\{a : (a,b) \in D\}|$, the number of concepts that
+\emph{directly} depend on $b$.
+
+\subsection{Concept Impact Score (CIS)}
+
+% TODO: motivate in 1-2 sentences why in-degree is insufficient before the
+% definition (transitive/indirect dependents undercounted -- see Algebra I
+% example data in Section 6, Table 1).
+
+\textbf{Definition 3 (Concept Impact Score).}
+\[
+\mathrm{CIS}(b) \;=\; \frac{1-d}{|C|} \;+\; d \sum_{a\,:\,(a,b)\in D} \frac{\mathrm{CIS}(a)}{\mathrm{outdeg}(a)}
+\]
+This is standard PageRank applied directly to $G$. Note that the dependency
+edge convention ($a \to b$ means ``$a$ depends on $b$'') already matches the
+citation convention (citing paper $\to$ cited paper), so unlike some
+applications no graph transpose is required.
+
+\textbf{Proposition 1 (Exact single-pass computation on a DAG).}
+Because a Learning Graph is acyclic, CIS admits an exact closed-form solution
+computable in a single pass, without iteration and without a damping factor:
+process concepts in topological order (each concept only after every concept
+that depends on it has already been scored), and
+\[
+\mathrm{CIS}(b) = 1 + \sum_{a\,:\,(a,b)\in D} \mathrm{CIS}(a)
+\]
+falls out directly, in $O(|C|+|D|)$ time.
+
+% TODO: write proof sketch. Outline:
+%  1. G is a DAG => has >=1 valid topological order (standard result).
+%  2. Process nodes in that order; by definition every predecessor a with
+%     (a,b) in D is processed before b, so CIS(a) is already finalized.
+%  3. No back-edges exist (acyclicity), so no node is revisited => the single
+%     pass yields the unique fixed point that damped iterative PageRank would
+%     otherwise converge to in the limit.
+%  4. Contrast with web-graph PageRank, where damping (d < 1) exists SPECIFICALLY
+%     to guarantee convergence in the presence of cycles and dangling nodes --
+%     conditions that cannot occur in a Learning Graph by Definition 1.
+%  Relate to TotalRank \cite{boldi2005} in Related Work, but note this is a
+%  domain-driven simplification, not a general-graph technique.
+
+\textbf{Design decision: global normalization (resolved).}
+Normalization scope was decided as \textbf{global}: a concept's elaboration
+tier is determined relative to the \emph{entire} book's concept set $C$, not
+just the concepts co-occurring in its chapter. Rationale: ``impact on the
+entire textbook'' is a book-level claim by definition
+(\S\ref{sec:problem-statement}), and local normalization produced degenerate
+results in practice -- see \S\ref{sec:system}, where a chapter-local
+normalization forced 16 of 17 Chapter~1 concepts into the lowest tier purely
+because that chapter happens to contain the single globally-highest-CIS
+concept in the book.
+
+\textbf{Definition 4 (Elaboration Score).}
+The first global-normalization attempt used \emph{population percentile
+rank} -- a concept's tier was set by what fraction of all $|C|$ concepts it
+outranked. This failed a second validation check (Chapter 12; see
+\S\ref{sec:system}): because CIS has a hard floor of 1 (every concept
+trivially satisfies $\mathrm{CIS}(b) \geq 1$ from its own base case) and a
+large share of concepts in a real learning graph are true leaves (103 of 200
+in the Algebra~I graph, 51.5\%), the population 35th-percentile cut point
+sits \emph{at} the CIS floor -- making the lowest tier structurally
+unreachable regardless of how unimportant a concept actually is. We instead
+define the \emph{Elaboration Score} as a normalized log-scaled value, not a
+population rank:
+\[
+E(c) \;=\; \frac{\log(\mathrm{CIS}(c) + 1)}{\log(\mathrm{CIS}_{\max} + 1)} \in [0, 1]
+\]
+where $\mathrm{CIS}_{\max}$ is the maximum CIS over the whole book. Tied
+concepts at the CIS floor now separate cleanly from true hubs ($E=0$ is the
+floor, $E=1$ is the book's single most-depended-upon concept), rather than
+being absorbed into the same percentile band as everything else near the
+median. This is also consistent with the word-budget weighting formula
+(\S\ref{sec:problem-statement}), which already used $\log(\mathrm{CIS}+1)$ as
+its weight -- tiering and word-budget weighting now share one normalized
+scale instead of two different ones (population rank for tiers, log-value for
+words).
+
+\textbf{Tier assignment (revised):} Tier A if $E(c) \geq 0.5$; Tier B if
+$0.2 \leq E(c) < 0.5$; Tier C if $E(c) < 0.2$. Validated on two chapters with
+opposite expected profiles (\S\ref{sec:system}, Tables~1-2): Chapter~1
+(foundations) yields 8 A / 6 B / 3 C -- still foundation-skewed but no longer
+degenerate; Chapter~12 (a late, specialized chapter of mostly terminal
+concepts) yields 0 A / 2 B / 8 C -- the mirror-image profile a specialized
+chapter should have. This cross-chapter contrast is the validation check the
+first (percentile-rank) scheme failed.
+
+% TODO: remaining open design choice -- undiluted sum-of-descendants CIS
+% (Proposition 1 form, used above) vs. normalized/diluted PageRank-style CIS
+% (sums to 1 across C). Does not affect the global-vs-local decision, and does
+% not affect E(c)'s qualitative behavior (log of a rescaled quantity is still
+% monotonic), but changes the exact E(c) values -- confirm this doesn't shift
+% any concept across a tier boundary before finalizing.
+%
+% TODO: the 0.5/0.2 cut points for E(c) are themselves a fresh, only lightly
+% validated choice (two chapters). Treat as a starting point, not a settled
+% constant -- revisit once more chapters are run through this table
+% (\S\ref{sec:evaluation}).
+
+% TODO: add Figure 1 -- small toy graph (6-8 nodes) illustrating a case where
+% in-degree ranking and CIS ranking disagree, annotated with both scores.
+% Real candidate data already computed: data/algebra1-concept-impact.csv
+% (Constant: indeg=1 rank #53, CIS=238 rank #4; Coefficient: indeg=2 rank #35,
+% CIS=239 rank #3).
+
+\textbf{Methodological note worth keeping in the paper.} The percentile-rank
+failure above is a useful cautionary example in its own right: a recursive
+importance measure with a hard floor and a heavy-tailed distribution (as CIS
+is on a real learning graph -- most concepts are leaves) should not be
+discretized by population rank without checking for exactly this
+floor-saturation failure mode. This is a generalizable point beyond this
+paper's specific metric and may be worth a short remark in
+\S\ref{sec:discussion}.
