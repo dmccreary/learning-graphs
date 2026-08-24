@@ -1,0 +1,159 @@
+% Section 6: System
+% Target length: 500-800 words
+% Status: OUTLINE ONLY - grounded in actual current skill behavior (verified by
+% reading SKILL.md source directly -- see notes below). Needs prose + the worked
+% table turned into a proper LaTeX table/figure.
+
+\section{System}
+\label{sec:system}
+
+\subsection{Current Pipeline}
+% TODO: expand into prose. Facts verified directly from source, cite paths as
+% footnotes or in a reproducibility appendix rather than in-text:
+\begin{itemize}
+    \item \texttt{/book-chapter-generator}: assigns concepts from
+          \texttt{learning-graph.json} to chapters. Verified behavior: uses
+          topological sorting for validity and heuristic clustering of ``natural
+          learning units''; does not currently use in-degree or CIS.
+    \item \texttt{/chapter-content-generator}: generates chapter prose from a
+          chapter's ``Concepts Covered'' list. Verified current instruction: flat
+          target of \textbf{3000--5000 words per chapter} and \textbf{4-6 non-text
+          elements per chapter}, independent of concept importance.
+    \item Neither skill currently reads or computes in-degree, CIS, or any other
+          graph-centrality measure. The subjectively-observed quality difference
+          between Claude Sonnet 5 and Google Antigravity/Gemini-generated content
+          (\S\ref{sec:introduction}) therefore cannot be attributed to an explicit
+          mechanism in the shared tooling -- if real, it is either an emergent
+          model behavior or an artifact of a different, unrecorded prompting
+          session. See limitations (\S\ref{sec:discussion}) -- the original
+          Gemini/Antigravity output was not preserved and could not be reanalyzed.
+\end{itemize}
+
+\subsection{Proposed Extension: CIS-Annotated Chapter Scaffold}
+% TODO: expand. This is the concrete system contribution -- write as a diff
+% against current behavior.
+\begin{itemize}
+    \item Compute CIS once per book, over the full learning graph (not
+          per-chapter -- see global-vs-local normalization decision,
+          \S\ref{sec:formal-definitions}).
+    \item Extend \texttt{/book-chapter-generator}'s chapter scaffold output: each
+          entry in ``Concepts Covered'' gets annotated with its CIS score, its
+          Elaboration Score $E(c)$ (Definition 4, \S\ref{sec:formal-definitions}),
+          and an assigned elaboration tier.
+    \item Extend \texttt{/chapter-content-generator}'s instructions: replace the
+          flat word-count instruction with a per-concept budget table (words +
+          expected non-text elements), computed from the annotated scaffold.
+\end{itemize}
+
+\subsection{Worked Example: Algebra I, Chapter 1}
+
+% TODO: expand surrounding prose. Real numbers, computed directly from
+% docs/learning-graph/learning-graph.json in the Algebra I repo (200 concepts,
+% 277 edges, confirmed valid DAG). Full ranked data:
+% data/algebra1-concept-impact.csv. Chapter-1-specific budget table source:
+% data/algebra1-ch1-elaboration-budget.csv.
+%
+% Chapter 1 ("Foundations of Algebra", 17 concepts) is the sharpest test case:
+% it contains several concepts with LOW in-degree but very HIGH CIS due to
+% transitive reach (Constant: indeg=1, rank #53 by indeg, but CIS=238, rank #4;
+% Coefficient: indeg=2, rank #35, CIS=239, rank #3; Term: indeg=4, rank #20,
+% CIS=237, rank #5). This directly demonstrates the failure mode of raw
+% in-degree that motivates CIS.
+%
+% Normalization: GLOBAL, tiered by Elaboration Score E(c), NOT population
+% percentile rank (resolved after the Chapter 12 validation check below found
+% percentile rank was structurally broken -- see \S\ref{sec:formal-definitions}
+% Definition 4). Tier cut points: E>=0.5 = Tier A, 0.2<=E<0.5 = Tier B, E<0.2 =
+% Tier C. Word budget: fixed chapter total of 6800 words (matches the current,
+% already-published Chapter 1 word count -- see
+% \texttt{docs/learning-graph/chapter-metrics.md} in the Algebra I repo),
+% redistributed by log-weighted proportional allocation using each concept's
+% GLOBAL CIS value, floor of 150 words/concept -- this word-budget formula is
+% unaffected by the percentile-rank bug fix, since it already used log(CIS+1)
+% directly rather than population rank.
+
+\begin{table}[htbp]
+\centering
+\caption{CIS-weighted elaboration budget for Algebra I, Chapter 1 (``Foundations of Algebra''), 17 concepts, global normalization by Elaboration Score $E(c)$, fixed 6{,}800-word chapter total.}
+\label{tab:ch1-budget}
+\begin{tabular}{lrrrl r}
+\toprule
+Concept & in-deg & CIS & $E(c)$ & Tier & Words \\
+\midrule
+Variable                & 8  & 619 & 1.000 & A & 630 \\
+Number                   & 13 & 369 & 0.920 & A & 592 \\
+Coefficient              & 2  & 239 & 0.852 & A & 559 \\
+Constant                 & 1  & 238 & 0.852 & A & 559 \\
+Term                     & 4  & 237 & 0.851 & A & 559 \\
+Expression               & 4  & 133 & 0.762 & A & 516 \\
+Equation                 & 5  & 111 & 0.734 & A & 503 \\
+Monomial                 & 1  & 76  & 0.676 & A & 475 \\
+Inequality               & 4  & 13  & 0.410 & B & 347 \\
+Order of Operations      & 1  & 7   & 0.323 & B & 305 \\
+Like Terms               & 1  & 7   & 0.323 & B & 305 \\
+Evaluating Expressions   & 3  & 6   & 0.303 & B & 295 \\
+Combining Like Terms     & 4  & 6   & 0.303 & B & 295 \\
+Substitution              & 2  & 3   & 0.216 & B & 254 \\
+Simplifying Expressions  & 0  & 1   & 0.108 & C & 202 \\
+Expanding Expressions    & 0  & 1   & 0.108 & C & 202 \\
+Prime Factorization      & 0  & 1   & 0.108 & C & 202 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Chapter~1 yields 8 Tier-A, 6 Tier-B, and 3 Tier-C concepts -- still skewed
+toward heavy treatment, as expected for the book's foundational chapter, but
+no longer degenerate the way the earlier percentile-rank scheme was.
+
+\subsection{Validation: Algebra I, Chapter 12}
+
+% TODO: expand surrounding prose.
+Chapter 1 alone cannot validate the tiering rule, since a heavy skew toward
+Tier A is plausible there regardless of whether the method is working
+correctly. As a second, contrasting check we computed the same table for
+Chapter 12 (``Exponential Functions'', 10 concepts) -- a late, specialized
+chapter where 8 of 10 concepts have in-degree 0 (true terminal concepts with
+no downstream dependents). Word budget fixed at the chapter's current
+published total, 3{,}722 words
+(\texttt{docs/learning-graph/chapter-metrics.md}).
+
+This check is what first exposed the population-percentile bug (Definition 4,
+\S\ref{sec:formal-definitions}): under percentile rank, every one of these
+zero-in-degree, CIS-floor concepts landed at the 51.5th percentile (since
+103/200 concepts in the book, 51.5\%, sit at the same CIS floor of 1), safely
+above the 35th-percentile Tier-C cutoff -- producing zero Tier-C concepts in
+a chapter that should plausibly have several. The corrected Elaboration Score
+$E(c)$ resolves this by scoring on the log-scaled CIS value rather than
+population rank, so tied floor concepts separate cleanly from true hubs.
+
+\begin{table}[htbp]
+\centering
+\caption{CIS-weighted elaboration budget for Algebra I, Chapter 12 (``Exponential Functions''), 10 concepts, global normalization by Elaboration Score $E(c)$, fixed 3{,}722-word chapter total.}
+\label{tab:ch12-budget}
+\begin{tabular}{lrrrl r}
+\toprule
+Concept & in-deg & CIS & $E(c)$ & Tier & Words \\
+\midrule
+Exponential Function              & 6 & 10 & 0.373 & B & 697 \\
+Exponential Growth                & 2 & 3  & 0.216 & B & 466 \\
+Exponential Decay                 & 1 & 2  & 0.171 & C & 401 \\
+Growth Factor                     & 0 & 1  & 0.108 & C & 308 \\
+Decay Factor                      & 0 & 1  & 0.108 & C & 308 \\
+Initial Value                     & 0 & 1  & 0.108 & C & 308 \\
+Exponential Models                & 0 & 1  & 0.108 & C & 308 \\
+Comparing Linear and Exponential  & 0 & 1  & 0.108 & C & 308 \\
+Graphing Exponentials             & 0 & 1  & 0.108 & C & 308 \\
+Applications of Systems           & 0 & 1  & 0.108 & C & 308 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Chapter~12 yields 0 Tier-A, 2 Tier-B, and 8 Tier-C concepts -- the mirror
+image of Chapter~1's profile, as expected for a late, specialized chapter
+built mostly from terminal concepts. The two chapters together are the
+validation check this tiering rule needed: a real, opposite-direction split
+between a foundational and a specialized chapter, rather than the same
+degenerate all-A or all-B/no-C result regardless of chapter content. The
+0.5/0.2 cut points for $E(c)$ are a first pass validated on exactly these two
+chapters; treat them as a starting point to revisit with more chapters, not a
+settled constant (\S\ref{sec:evaluation}).

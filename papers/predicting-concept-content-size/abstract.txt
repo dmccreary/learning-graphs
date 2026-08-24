@@ -1,0 +1,44 @@
+DRAFT - not yet written to target length/style. Placeholder based on conversation so far.
+
+Automated textbook generation with large language models typically allocates a
+flat word budget per chapter or per concept, independent of how important each
+concept is to the rest of the curriculum. We report an informal but consistent
+observation across two AI-assisted textbook projects: chapter content quality,
+judged subjectively, improved when the word budget for each concept was scaled
+by the concept's in-degree in the course's learning graph -- the number of
+other concepts that directly depend on it. High-in-degree concepts received
+more elaboration: more worked examples, more contrasting cases, and more
+metaphors, mirroring practices recommended by elaboration theory and cognitive
+load theory but never tied to an explicit graph metric.
+
+We formalize the learning graph as a monopartite concept dependency DAG and
+show that raw in-degree undercounts concepts that are foundational only
+transitively -- concepts with few direct dependents but many indirect ones. We
+propose the Concept Impact Score (CIS), a PageRank-style recursive importance
+measure computed over the dependency graph. Because a learning graph is
+acyclic by construction, CIS reduces to an exact, closed-form, single-pass
+computation over a topological ordering, avoiding the damping-factor
+assumptions required for convergence on general (possibly cyclic) graphs such
+as the web graph.
+
+We define the chapter-generation problem as three separable sub-problems --
+concept-to-chapter partitioning, within-chapter concept ordering, and
+per-concept content-budget allocation -- and propose replacing flat or
+in-degree-weighted allocation with CIS-weighted allocation in the last of
+these. On a real 200-concept, 277-edge Algebra I learning graph, CIS and
+in-degree rank concepts very differently: several concepts with in-degree 1-2
+(e.g. "Constant", "Coefficient") rank in the top five by CIS because of their
+transitive reach. Discretizing CIS into elaboration tiers is not trivial:
+an initial population-percentile-rank scheme passed inspection on one
+chapter but proved structurally broken on a second (CIS has a hard floor,
+and over half the graph's concepts are tied at it, making the bottom tier
+unreachable regardless of true importance); we report the fix (a log-scaled
+Elaboration Score) and the two-chapter cross-check that exposed the bug, as
+a methodological point likely relevant beyond this specific metric. We
+describe a planned blind-comparison study, generating matched chapters under
+uniform, in-degree-weighted, and CIS-weighted budgets at fixed total chapter
+length, rated by both human judges and an LLM-judge rubric, to test whether
+CIS-weighted allocation produces higher-quality generated content than the
+alternatives.
+
+TODO: tighten to under 250 words once Sections 4-7 are drafted in full.

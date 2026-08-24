@@ -1,0 +1,18 @@
+concept,indegree,CIS,log_norm_score,tier,target_words,nontext_element
+Variable,8,619,1.0000,A - full treatment,630,diagram + worked example
+Number,13,369,0.9197,A - full treatment,592,diagram + worked example
+Coefficient,2,239,0.8524,A - full treatment,559,diagram + worked example
+Constant,1,238,0.8517,A - full treatment,559,diagram + worked example
+Term,4,237,0.8511,A - full treatment,559,diagram + worked example
+Expression,4,133,0.7618,A - full treatment,516,diagram + worked example
+Equation,5,111,0.7339,A - full treatment,503,diagram + worked example
+Monomial,1,76,0.6756,A - full treatment,475,diagram + worked example
+Inequality,4,13,0.4104,B - standard,347,1 worked example
+Order of Operations,1,7,0.3234,B - standard,305,1 worked example
+Like Terms,1,7,0.3234,B - standard,305,1 worked example
+Evaluating Expressions,3,6,0.3026,B - standard,295,1 worked example
+Combining Like Terms,4,6,0.3026,B - standard,295,1 worked example
+Substitution,2,3,0.2156,B - standard,254,1 worked example
+Simplifying Expressions,0,1,0.1078,C - brief,202,definition only
+Expanding Expressions,0,1,0.1078,C - brief,202,definition only
+Prime Factorization,0,1,0.1078,C - brief,202,definition only

@@ -1,0 +1,113 @@
+% Section 7: Evaluation
+% Target length: 800-1500 words
+% Status: STUDY NOT YET RUN. This section documents the planned design so it can
+% be filled in with results once the study is complete. This is currently the
+% weakest part of the paper's evidence base -- prioritize completing it before
+% claiming the CIS-weighting result as a finding rather than a hypothesis.
+
+\section{Evaluation}
+\label{sec:evaluation}
+
+\subsection{Design: Blind Comparison Study}
+% TODO: expand into prose.
+\begin{itemize}
+    \item \textbf{Critical control:} hold total chapter word count constant across
+          conditions. Each condition redistributes the same budget differently;
+          this isolates the allocation effect from a simple ``more words = better''
+          confound.
+    \item \textbf{Conditions} (within-chapter, same concepts, same model = Claude
+          Sonnet 5, same prompt template except the per-concept word target):
+          \begin{itemize}
+              \item[A --] Uniform: $\mathrm{words}(c) = W_i / |Ch_i|$ for all $c$.
+              \item[B --] In-degree weighted: current informal formula.
+              \item[C --] CIS weighted (proposed): see \S\ref{sec:problem-statement}.
+          \end{itemize}
+    \item \textbf{Pilot corpus:} Algebra I learning graph and chapters
+          (\texttt{/Users/danmccreary/Documents/ws/algebra-1}). Chapter 1
+          (``Foundations of Algebra'') selected first -- highest concentration of
+          concepts where CIS and in-degree diverge sharply
+          (\S\ref{sec:system}).
+    \item \textbf{Sample:} 6-10 chapters total, spanning varied CIS distributions
+          (some with one dominant hub concept, some flatter) and, if feasible, more
+          than one book/domain so the finding is not a single-domain artifact.
+\end{itemize}
+
+\subsection{Rating Protocol}
+% TODO: expand.
+\begin{itemize}
+    \item \textbf{LLM-judge rubric:} separate model call, blinded to condition,
+          scoring 1-5 on: (a) depth/elaboration on foundational concepts,
+          (b) use of examples/metaphors/contrasting cases, (c) coherence,
+          (d) absence of padding on minor concepts. Run 2-3 times per chapter to
+          check judge consistency (report agreement, e.g. intraclass correlation).
+    \item \textbf{Human spot-check:} a subset of chapters (e.g. 3 of 6-10),
+          blind-rated by the author and, if available, 1-2 additional raters, same
+          rubric, condition labels stripped, presentation order randomized.
+          Purpose: validate the LLM-judge against human judgment and report their
+          agreement -- this is itself a result worth including.
+\end{itemize}
+
+\subsection{Analysis Plan}
+% TODO: expand.
+\begin{itemize}
+    \item Small $N$ expected -- do not assume normality. Report pairwise win/tie/loss
+          tallies (C vs.\ A, C vs.\ B, B vs.\ A) with a sign test or Wilcoxon
+          signed-rank test.
+    \item Secondary check (if feasible): correlate per-concept word allocation
+          under each condition against an independent difficulty/importance
+          signal (e.g. instructor judgment or exam-weighting data, if available)
+          as a construct-validity check on CIS itself, not just on downstream
+          content quality.
+\end{itemize}
+
+\subsection{Resolved Items}
+\begin{itemize}
+    \item \textbf{Global vs. local CIS normalization -- RESOLVED: global.} See
+          \S\ref{sec:formal-definitions} and Table~\ref{tab:ch1-budget}
+          (\S\ref{sec:system}). Condition C content generation should
+          normalize against the full 200-concept Algebra I graph, not just
+          the concepts in one chapter.
+    \item \textbf{Tier-threshold calibration on a non-foundational chapter --
+          RESOLVED, with a correction along the way.} Computing the same
+          table for Chapter 12 exposed that the original tiering rule
+          (population percentile rank) was structurally broken: CIS has a
+          floor of 1, 103/200 Algebra I concepts (51.5\%) sit at that floor,
+          and the population 35th-percentile cutoff landed \emph{at} the
+          floor -- making Tier C unreachable regardless of true importance.
+          Fixed by switching to the log-scaled Elaboration Score $E(c)$
+          (Definition 4, \S\ref{sec:formal-definitions}), which separates
+          floor-tied concepts from true hubs. Re-validated on both chapters:
+          Chapter 1 now gives a real 8/6/3 A/B/C split (previously 11/6/0
+          under percentile rank); Chapter 12 gives 0/2/8, the expected
+          mirror-image profile for a late, specialized chapter
+          (Tables~\ref{tab:ch1-budget}-\ref{tab:ch12-budget}). Condition C
+          generation should use $E(c)$, not population percentile.
+\end{itemize}
+
+\subsection{Open Items Before Running the Study}
+% TODO: resolve each of these, then delete this subsection and report results
+% in prose above.
+\begin{itemize}
+    \item \textbf{$E(c)$ cut points (0.5/0.2) are only lightly validated.}
+          Confirmed sensible on two chapters with opposite expected profiles,
+          but that is a small validation set. Consider checking a third
+          chapter with a genuinely mixed profile (neither purely foundational
+          nor purely terminal) before finalizing the cut points for the full
+          pilot.
+    \item \textbf{Condition B definition} -- there is no single documented
+          ``existing in-degree formula''; the original observation came from an
+          informal prompting session (wake-word-detection project, Google
+          Antigravity) that was not preserved in that repo (no committed learning
+          graph or chapter content found). Condition B will therefore be
+          freshly specified (raw in-degree, same $f$/normalization approach as
+          CIS for a fair comparison) rather than reproduced from a prior artifact.
+    \item \textbf{Elaboration-budget dimensions beyond words} (diagrams,
+          MicroSims, worked examples) -- decide whether the pilot study varies
+          only word count first (simpler, cleaner isolation) or the full
+          multi-dimensional elaboration budget from the start (closer to the
+          real recommendation, harder to control).
+\end{itemize}
+
+% TODO: once the study runs, replace this section's outline with: study
+% execution details, results table/figure, statistical results, and
+% interpretation.

@@ -1,0 +1,201 @@
+id,label,group,indegree,outdegree,CIS
+2,Variable,FOUND,8,0,619
+1,Number,FOUND,13,0,369
+4,Coefficient,FOUND,2,1,239
+3,Constant,FOUND,1,0,238
+5,Term,FOUND,4,3,237
+6,Expression,FOUND,4,1,133
+21,Exponent,EXP,8,1,121
+7,Equation,FOUND,5,1,111
+15,Integers,NUMS,4,1,103
+19,Number Line,NUMS,2,2,92
+20,Coordinate System,NUMS,1,1,90
+121,Coordinate Plane,GRAPH,5,1,89
+101,Relation,FUNC,1,1,79
+102,Function,FUNC,16,1,78
+42,Monomial,POLY,1,2,76
+43,Binomial,POLY,2,1,75
+44,Trinomial,POLY,2,1,73
+71,Solving Equations,LIN,7,1,73
+45,Polynomial,POLY,11,1,69
+81,Linear Equation in One Variable,LIN,6,2,55
+122,Ordered Pair,GRAPH,5,1,42
+128,Linear Function,GRAPH,5,2,38
+127,Plotting Points,GRAPH,3,2,37
+129,Graph of a Line,GRAPH,8,2,33
+12,Distributive Property,PROP,3,2,20
+146,System of Equations,SYS,8,1,18
+170,Quadratic Equation,QUAD,5,2,16
+56,Factoring,FACT,9,1,15
+8,Inequality,FOUND,1,1,14
+51,Multiplying Polynomials,POLY,2,2,14
+22,Base,EXP,1,1,13
+91,Inequality,LIN,4,1,13
+132,Slope,GRAPH,10,1,13
+23,Power,EXP,5,2,12
+53,Special Products,POLY,2,1,12
+161,Quadratic Function,QUAD,3,2,11
+181,Exponential Function,QUAD,6,2,10
+55,Perfect Square Trinomial,POLY,2,1,8
+162,Parabola,QUAD,3,2,8
+191,Data Set,DATA,1,1,8
+9,Order of Operations,PROP,1,1,7
+14,Inverse Property,PROP,1,1,7
+38,Like Terms,POLY,1,1,7
+87,Applications of Linear Equations,DATA,5,1,7
+192,Scatterplot,DATA,2,2,7
+36,Evaluating Expressions,FOUND,3,2,6
+39,Combining Like Terms,POLY,4,1,6
+72,One-Step Equations,LIN,1,2,6
+92,Linear Inequality,LIN,2,2,6
+173,Completing the Square,QUAD,1,2,6
+16,Rational Numbers,NUMS,4,1,5
+73,Two-Step Equations,LIN,1,1,5
+174,Quadratic Formula,QUAD,1,2,5
+18,Absolute Value,NUMS,2,1,4
+24,Integer Exponents,EXP,3,2,4
+32,Square Root,EXP,2,1,4
+74,Multi-Step Equations,LIN,3,2,4
+95,Solving Linear Inequalities,LIN,1,2,4
+117,Parent Function,FUNC,1,1,4
+152,Graphing Method,SYS,1,2,4
+156,System of Inequalities,SYS,1,2,4
+163,Vertex,QUAD,3,1,4
+175,Discriminant,QUAD,1,1,4
+193,Correlation,DATA,3,1,4
+33,Cube Root,EXP,1,1,3
+37,Substitution,FOUND,2,2,3
+46,Degree of Polynomial,POLY,1,2,3
+54,Difference of Squares,POLY,1,1,3
+57,Greatest Common Factor,FACT,1,1,3
+59,Factoring Trinomials,FACT,2,2,3
+78,Literal Equations,LIN,1,2,3
+96,Compound Inequalities,LIN,2,1,3
+118,Function Transformation,FUNC,2,1,3
+148,Consistent System,SYS,2,1,3
+157,Graphing Systems,SYS,2,2,3
+176,Nature of Roots,QUAD,1,1,3
+182,Exponential Growth,QUAD,2,1,3
+28,Product Rule for Exponents,EXP,1,1,2
+34,Radical Expression,EXP,1,2,2
+48,Standard Form of Polynomial,POLY,1,2,2
+58,Factoring by GCF,FACT,1,2,2
+60,Factoring Difference of Squares,FACT,1,2,2
+65,Zero Product Property,FACT,1,2,2
+79,Solving for a Variable,LIN,1,1,2
+99,Absolute Value Equations,LIN,1,2,2
+107,Function Notation,FUNC,1,1,2
+114,Piecewise Function,FUNC,1,1,2
+131,Y-Intercept,GRAPH,1,1,2
+139,Zero Slope,GRAPH,1,1,2
+140,Undefined Slope,GRAPH,1,1,2
+154,Elimination Method,SYS,1,2,2
+169,Graphing Quadratics,QUAD,1,2,2
+177,Complex Numbers,QUAD,1,1,2
+179,Applications of Quadratics,DATA,1,2,2
+183,Exponential Decay,QUAD,1,1,2
+197,Line of Best Fit,DATA,1,2,2
+199,Arithmetic Sequence,DATA,1,1,2
+10,Commutative Property,PROP,0,1,1
+11,Associative Property,PROP,0,1,1
+13,Identity Property,PROP,0,1,1
+17,Real Numbers,NUMS,0,1,1
+25,Rational Exponents,EXP,0,2,1
+26,Negative Exponents,EXP,0,1,1
+27,Zero Exponent,EXP,0,1,1
+29,Quotient Rule for Exponents,EXP,0,1,1
+30,Power Rule for Exponents,EXP,0,1,1
+31,Scientific Notation,EXP,0,2,1
+35,Simplifying Radicals,EXP,0,1,1
+40,Simplifying Expressions,POLY,0,2,1
+41,Expanding Expressions,POLY,0,2,1
+47,Leading Coefficient,POLY,0,2,1
+49,Adding Polynomials,POLY,0,2,1
+50,Subtracting Polynomials,POLY,0,2,1
+52,FOIL Method,POLY,0,2,1
+61,Factoring Perfect Squares,FACT,0,2,1
+62,Factoring by Grouping,FACT,0,2,1
+63,Prime Factorization,FACT,0,1,1
+64,Prime Polynomial,FACT,0,1,1
+66,Solving by Factoring,FACT,0,2,1
+67,Factoring Completely,FACT,0,3,1
+68,Sum of Cubes,FACT,0,1,1
+69,Difference of Cubes,FACT,0,1,1
+70,Factoring Quadratic Form,FACT,0,1,1
+75,Variables on Both Sides,LIN,0,1,1
+76,Equations with Fractions,LIN,0,2,1
+77,Equations with Decimals,LIN,0,2,1
+80,Formula Manipulation,LIN,0,1,1
+82,Solution Set,LIN,0,1,1
+83,Identity Equation,LIN,0,1,1
+84,Contradiction,LIN,0,1,1
+85,Conditional Equation,LIN,0,1,1
+86,Checking Solutions,LIN,0,2,1
+88,Consecutive Integers,DATA,0,2,1
+89,Perimeter Problems,DATA,0,1,1
+90,Distance Rate Time Problems,DATA,0,1,1
+93,Inequality Symbols,LIN,0,1,1
+94,Graphing Inequalities,GRAPH,0,2,1
+97,And Inequalities,LIN,0,1,1
+98,Or Inequalities,LIN,0,1,1
+100,Absolute Value Inequalities,LIN,0,2,1
+103,Domain,FUNC,0,1,1
+104,Range,FUNC,0,1,1
+105,Input,FUNC,0,1,1
+106,Output,FUNC,0,1,1
+108,Evaluating Functions,FUNC,0,2,1
+109,Independent Variable,FUNC,0,2,1
+110,Dependent Variable,FUNC,0,2,1
+111,Vertical Line Test,FUNC,0,1,1
+112,Discrete Function,FUNC,0,1,1
+113,Continuous Function,FUNC,0,1,1
+115,Step Function,FUNC,0,1,1
+116,Absolute Value Function,FUNC,0,2,1
+119,Translation,FUNC,0,1,1
+120,Reflection,FUNC,0,1,1
+123,X-Coordinate,GRAPH,0,1,1
+124,Y-Coordinate,GRAPH,0,1,1
+125,Origin,GRAPH,0,1,1
+126,Quadrants,GRAPH,0,1,1
+130,X-Intercept,GRAPH,0,1,1
+133,Rise,GRAPH,0,1,1
+134,Run,GRAPH,0,1,1
+135,Rate of Change,GRAPH,0,1,1
+136,Slope Formula,GRAPH,0,2,1
+137,Positive Slope,GRAPH,0,1,1
+138,Negative Slope,GRAPH,0,1,1
+141,Slope-Intercept Form,GRAPH,0,3,1
+142,Point-Slope Form,GRAPH,0,3,1
+143,Standard Form,GRAPH,0,1,1
+144,Horizontal Line,GRAPH,0,2,1
+145,Vertical Line,GRAPH,0,2,1
+147,Solution of a System,SYS,0,1,1
+149,Inconsistent System,SYS,0,1,1
+150,Independent System,SYS,0,1,1
+151,Dependent System,SYS,0,1,1
+153,Substitution Method,SYS,0,2,1
+155,Linear Combination,SYS,0,1,1
+158,Solution Region,SYS,0,1,1
+159,Boundary Line,SYS,0,1,1
+160,Applications of Systems,DATA,0,2,1
+164,Axis of Symmetry,QUAD,0,1,1
+165,Maximum Value,QUAD,0,1,1
+166,Minimum Value,QUAD,0,1,1
+167,Standard Form of Quadratic,QUAD,0,2,1
+168,Vertex Form,QUAD,0,2,1
+171,Solving Quadratics by Graphing,QUAD,0,2,1
+172,Solving by Square Roots,QUAD,0,2,1
+178,Imaginary Unit,QUAD,0,1,1
+180,Projectile Motion,DATA,0,1,1
+184,Growth Factor,QUAD,0,1,1
+185,Decay Factor,QUAD,0,1,1
+186,Initial Value,QUAD,0,1,1
+187,Compound Interest,DATA,0,1,1
+188,Exponential Models,QUAD,0,1,1
+189,Comparing Linear and Exponential,QUAD,0,2,1
+190,Graphing Exponentials,QUAD,0,2,1
+194,Positive Correlation,DATA,0,1,1
+195,Negative Correlation,DATA,0,1,1
+196,No Correlation,DATA,0,1,1
+198,Linear Regression,DATA,0,1,1
+200,Geometric Sequence,DATA,0,2,1

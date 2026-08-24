@@ -1,0 +1,60 @@
+\documentclass[11pt]{article}
+
+% ArXiv-compatible packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% Page geometry
+\usepackage[margin=1in]{geometry}
+
+% Title and authors
+\title{Predicting Concept Content Size: A Graph-Theoretic Method for Proportional Content Allocation in AI-Generated Textbooks}
+
+\author{
+    Dan McCreary \\
+    \texttt{dan.mccreary@gmail.com}
+    % TODO: add co-authors / affiliations as needed
+}
+
+\date{Version 0.01 (outline draft) \\ \today}
+
+\begin{document}
+
+\maketitle
+
+% Abstract
+\input{sections/01-abstract/01-abstract}
+
+% Main content sections
+\input{sections/02-introduction/02-introduction}
+\input{sections/03-related-work/03-related-work}
+\input{sections/04-formal-definitions/04-formal-definitions}
+\input{sections/05-problem-statement/05-problem-statement}
+\input{sections/06-system/06-system}
+\input{sections/07-evaluation/07-evaluation}
+\input{sections/08-discussion-limitations/08-discussion-limitations}
+\input{sections/09-conclusion-future-work/09-conclusion-future-work}
+
+% Acknowledgments (optional)
+\section*{Acknowledgments}
+% TODO: disclose AI-assisted drafting/analysis (Claude Sonnet 5) per venue norms.
+
+% References
+\bibliographystyle{ieeetr}
+\bibliography{sections/references}
+
+\end{document}

@@ -1,0 +1,56 @@
+% Section 8: Discussion and Limitations
+% Target length: 300-500 words
+% Status: OUTLINE ONLY
+
+\section{Discussion and Limitations}
+\label{sec:discussion}
+
+% TODO: expand each into prose.
+\begin{itemize}
+    \item \textbf{Evidence level.} The originating observation is a subjective
+          quality read across two projects, not a controlled study. Section
+          \ref{sec:evaluation} is designed to address this, but until it is run
+          and reported, CIS-weighted allocation should be presented as a
+          well-motivated hypothesis, not a confirmed result.
+    \item \textbf{Unrecoverable comparison data.} The Google Antigravity/Gemini
+          side of the original Claude-vs-Gemini observation was not preserved
+          (no committed learning graph or chapter content in the source repo).
+          This limits the paper to a single-model (Claude) empirical pipeline;
+          the cross-model claim is anecdotal and should be flagged as such, or
+          reframed as future work (re-run the same 3-condition study with a
+          second model).
+    \item \textbf{Single domain.} Initial data is drawn from one Algebra I course
+          (200 concepts). Generalization to other domains (humanities, embedded
+          systems, etc., where dependency structure and "elaboration" norms may
+          differ) is untested.
+    \item \textbf{Normalization sensitivity.} The global-vs-local scope
+          decision (\S\ref{sec:formal-definitions}) meaningfully changes which
+          concepts get Tier A treatment. This is a real design choice, not a
+          solved problem -- report it as such rather than presenting one option
+          as obviously correct.
+    \item \textbf{Discretizing a heavy-tailed recursive metric is easy to get
+          wrong.} Our first tiering rule (population percentile rank) passed
+          inspection on Chapter 1 alone but was structurally broken: CIS has a
+          hard floor, most concepts in a real learning graph are leaves tied
+          at that floor, and population rank cannot distinguish among them --
+          Tier C was unreachable regardless of actual importance. This was
+          only caught by validating on a second, differently-shaped chapter
+          (\S\ref{sec:system}). The general point -- any recursive/PageRank-style
+          importance measure with a floor and a heavy-tailed distribution needs
+          value-based, not rank-based, discretization, and needs validation on
+          more than one example before the discretization rule is trusted --
+          likely generalizes beyond this paper's specific metric and may be
+          worth stating as a standalone methodological caution for others
+          applying similar graph-centrality metrics to content generation.
+    \item \textbf{Cost/complexity tradeoff.} Adding a graph-analysis step
+          (CIS computation) to an authoring pipeline is a small one-time cost per
+          book (linear time, per Proposition 1) but is additional process
+          complexity relative to a flat word-count instruction. Worth stating this
+          plainly rather than assuming the more sophisticated method is always
+          worth adopting.
+    \item \textbf{Risk of metric gaming / overfitting structure.} A generation
+          pipeline tuned specifically to maximize a CIS-weighted rubric could
+          learn to satisfy the rubric's surface features (e.g. inserting more
+          examples) without actual pedagogical improvement. The human spot-check
+          in \S\ref{sec:evaluation} is a partial mitigation, not a full answer.
+\end{itemize}
