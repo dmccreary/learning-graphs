@@ -1,0 +1,22 @@
+{
+  "title": "Zone of Proximal Development Explorer",
+  "description": "Given a learner's current mastery over a small concept dependency graph, the learner can classify each concept into the comfort zone, the Zone of Proximal Development, or the frustration zone, and can predict which concepts enter the ZPD when a given concept is mastered.",
+  "creator": "Learning Graphs",
+  "author": "Dan McCreary",
+  "date": "2026-07-21",
+  "subject": [
+    "Learning Graphs"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "All rights reserved",
+  "identifier": "https://dmccreary.github.io/learning-graphs/sims/zpd-explorer/",
+  "library": "p5.js",
+  "bloomLevel": "Apply (L3)",
+  "bloomVerb": "apply, classify, predict",
+  "completion_status": "complete",
+  "chapter_number": 7,
+  "chapter_title": "Learning Theories and Instructional Design",
+  "chapter_dir": "07-learning-theories-instructional-design"
+}

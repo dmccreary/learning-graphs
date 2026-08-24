@@ -4,7 +4,7 @@ site_author: 'Dan McCreary'
 repo_name: 'GitHub Repo'
 site_url: 'https://dmccreary.github.io/learning-graphs/'
 repo_url: 'https://github.com/dmccreary/learning-graphs'
-edit_uri: 'blob/master/docs'
+edit_uri: 'blob/main/docs'
 
 # Hooks — runs local Python before/after page processing.
 # `plugins/social_override.py` overrides og:image and twitter:image on any
@@ -131,6 +131,10 @@ nav:
       - Content: chapters/27-learner-modeling-advanced-assessment/index.md
       - Quiz: chapters/27-learner-modeling-advanced-assessment/quiz.md
       - Annotated References: chapters/27-learner-modeling-advanced-assessment/references.md
+    - 28. Concept Impact Score and Predicting Content Length:
+      - Content: chapters/28-concept-impact-score-content-length/index.md
+      - Quiz: chapters/28-concept-impact-score-content-length/quiz.md
+      - Annotated References: chapters/28-concept-impact-score-content-length/references.md
 
   - Case Studies:
     - Introduction: case-studies/index.md
@@ -289,17 +293,14 @@ nav:
     - Topological Sort Step-Through: sims/topological-sort-stepper/index.md
     - Transitive Dependency and Hop Count Finder: sims/transitive-dependency-hop-finder/index.md
     - Working Memory Load Simulator: sims/working-memory-load-simulator/index.md
-
-
+    - Zone of Proximal Development Explorer: sims/zpd-explorer/index.md
 
 
   - Glossary: glossary.md
   - FAQ: faq.md
   - "Appendix: Graph Visualization Libraries": appendix-graph-libs.md
-  - How We Built This Site: how-we-built-this-site.md
   - References: references.md
   - License: license.md
-  - Student Volunteers Wanted: student-volunteers-wanted.md
   - Contact: contact.md
  
 # Dan's MicroSite Standards from here down
@@ -345,9 +346,21 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  # Enable KaTeX LaTeX equation rendering
+  # Using \(...\) for inline math to avoid conflicts with currency $
+  # Block math uses $$ or \[...\]
+  - pymdownx.arithmatex:
+      generic: true
+      inline_syntax: ['round']
+      block_syntax: ['dollar', 'square']
+extra_javascript:
+  - js/katex.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js
 extra_css:
   - css/extra.css
   - css/mascot.css
+  - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css
 extra:
   schema: https://dmccreary.github.io/intelligent-textbooks/ns/textbook/v1
   textbook_name: Learning Graphs

@@ -71,6 +71,12 @@ assemble hyper-personalized lesson plans and generate intelligent textbook conte
 - Using an agent skill (e.g. Claude Code) to automate the full learning-graph generation pipeline —
   course description scoring, concept list generation, dependency CSV creation, automated quality
   validation, taxonomy assignment, and iterative regeneration with human-in-the-loop review
+- Predicting per-concept content length: the Concept Impact Score (CIS), a PageRank-style recursive
+  importance measure computed over a learning graph's dependency DAG, and why it captures a concept's
+  transitive importance more accurately than raw in-degree
+- Allocating chapter content budgets — word counts, worked examples, diagrams, and MicroSims — in
+  proportion to each concept's globally normalized Elaboration Score and assigned elaboration tier,
+  rather than flatly per chapter or per concept
 
 ## Topics Not Covered
 
@@ -98,6 +104,7 @@ After completing this course, students will be able to:
 - Recall the metadata standards commonly used for concept labeling (SKOS, Dublin Core, ISO/IEC 11179)
 - Identify the structural properties that make a graph a valid DAG (no cycles, no self-dependencies)
 - Recall the six levels of the 2001 revised Bloom's Taxonomy and their associated action verbs
+- Define Concept Impact Score (CIS), PageRank, in-degree, and Elaboration Score
 
 ### Understand
 *Constructing meaning from instructional messages, including oral, written, and graphic communication.*
@@ -112,6 +119,8 @@ After completing this course, students will be able to:
   learning graph
 - Interpret a vis.js network diagram to identify prerequisite chains, bottleneck concepts, and
   orphaned nodes
+- Explain why raw in-degree undercounts concepts that are foundational only transitively, and how
+  CIS's recursive, PageRank-style formulation corrects for this on a DAG
 
 ### Apply
 *Carrying out or using a procedure in a given situation.*
@@ -126,6 +135,9 @@ After completing this course, students will be able to:
   learning graph dataset
 - Invoke an agent skill (e.g. Claude Code) to automatically generate a concept list, dependency CSV,
   taxonomy, and validated learning graph JSON from a course description
+- Compute a per-concept content budget from a learning graph by calculating CIS scores, normalizing
+  them globally into an Elaboration Score, and assigning elaboration tiers (word counts, worked
+  examples, and non-text elements)
 
 ### Analyze
 *Breaking material into constituent parts and determining how the parts relate to one another and to
@@ -137,6 +149,8 @@ an overall structure or purpose.*
 - Examine a taxonomy distribution report to identify over-represented or under-represented categories
 - Compare the trade-offs of force-directed versus hierarchical graph layouts for a given dataset size
   and audience
+- Compare in-degree-weighted, CIS-weighted, and flat content-allocation strategies for a given
+  chapter, and identify which concepts each strategy under- or over-weights
 
 ### Evaluate
 *Making judgments based on criteria and standards through checking and critiquing.*
@@ -151,6 +165,8 @@ an overall structure or purpose.*
   specified audience and learning goal
 - Judge when a skill-generated learning graph needs human-in-the-loop review versus iterative
   regeneration before proceeding to chapter design
+- Assess whether a chapter's word-budget allocation and elaboration tiers appropriately reflect each
+  covered concept's graph-wide impact, rather than a flat per-chapter or per-concept default
 
 ### Create
 *Putting elements together to form a coherent or functional whole; reorganizing elements into a new

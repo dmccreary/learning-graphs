@@ -81,6 +81,58 @@ The following table compares the three regions directly, reinforcing the definit
 
 An intelligent textbook has an advantage a printed one never had: it can estimate, from a learner's demonstrated mastery of prior nodes in the graph, roughly where that learner's ZPD currently sits, and can route them toward concepts positioned there rather than concepts too easy or too far ahead.
 
+The MicroSim below makes that estimate concrete. It draws the three regions around one simulated learner working through a small graph-theory dependency graph, with a mastery-confidence number inside each concept circle. Zone membership is computed, not assigned: a concept is amber exactly when every one of its prerequisites is already mastered. Click an amber concept to master it and watch which red concepts move inward as a result.
+
+#### Diagram: Zone of Proximal Development Explorer
+
+<iframe src="../../sims/zpd-explorer/main.html" width="100%" height="730px" scrolling="no"></iframe>
+
+[View Zone of Proximal Development Explorer Fullscreen](../../sims/zpd-explorer/main.html){ .md-button .md-button--primary }
+
+<details markdown="1">
+<summary>Zone of Proximal Development Explorer</summary>
+Type: microsim
+**sim-id:** zpd-explorer<br/>
+**Library:** p5.js<br/>
+**Status:** Implemented
+
+Purpose: Turn the three-region ZPD picture from a static illustration into a model the reader can perturb, so that the key property — the ZPD is a moving frontier determined by what the learner has already mastered, not a fixed difficulty band — becomes something they observe rather than something they are told.
+
+Bloom Level: Apply (L3)
+Bloom Verb: apply, classify, predict
+
+Learning objective: Given a learner's current mastery over a small concept dependency graph, the learner can classify each concept into the comfort zone, the Zone of Proximal Development, or the frustration zone, and can predict which concepts enter the ZPD when a given concept is mastered.
+
+Concept set: thirteen concepts drawn from this book's own graph-theory material (Node, Edge, Directed Graph, Prerequisite, Acyclic Graph, Graph Traversal, Adjacency List, Concept Dependency, Topological Sort, Cycle Detection, Shortest Path, Learning Path Generation, Betweenness Centrality), wired with real prerequisite edges.
+
+Node rendering:
+- Green circle: mastered concept, comfort zone, confidence above 0.90
+- Amber circle: every prerequisite mastered, Zone of Proximal Development, confidence roughly 0.44 to 0.63
+- Red circle: at least one prerequisite unmastered, frustration zone, confidence 0.22 and below
+- Mastery confidence printed inside the circle; concept name in black beneath it
+
+Zone assignment is derived from the prerequisite edges each frame rather than hard-coded, so it updates as the learner's model changes.
+
+Interactive features:
+- Click an amber concept: it is mastered, its confidence rises above 0.90, it animates into the comfort zone, and any concept whose last missing prerequisite was just satisfied animates from the frustration zone into the ZPD. The infobox names the newly reachable concepts.
+- Click a red concept: the infobox names the specific prerequisites still missing and explains why guidance would be wasted.
+- Click a green concept: the infobox explains why more practice there has low instructional value.
+- Hover any concept: its prerequisite edges are highlighted.
+- Checkbox "Show all prerequisite links": draws the full dependency graph at once.
+- Button "Reset Learner": restores the starting model.
+
+Layout strategies (dropdown, animated transitions between them):
+- Concentric (default): nested elliptical zones around a learner marker
+- Left to Right: the three zones as vertical bands
+- Top to Bottom: the three zones as horizontal bands
+
+Color scheme: green (#2e9e4f) comfort zone, amber (#f0a020) ZPD, red (#d94a3d) frustration zone, each over a matching pale zone background
+
+Responsive behavior: circles, labels, and type scale together with container width; the infobox grows taller and the ZPD ring title abbreviates on narrow viewports; controls reflow to two rows below 640px
+
+Canvas size: responsive, 100% width, 728px height
+</details>
+
 ## Rhizombic Learning: Growth Without a Single Root
 
 **Rhizombic Learning** is an educational model, inspired by the way biological rhizomes grow and spread underground in every direction rather than from one central root, that allows for non-linear, interconnected, and expansive pathways of knowledge acquisition. Rhizombic Learning also depends directly on Constructivism in this book's learning graph, but it takes the theory in a different direction than the ZPD does: where the ZPD is about pacing a single learner along a mostly ordered path, Rhizombic Learning questions whether a single ordered path should exist at all.

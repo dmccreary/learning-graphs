@@ -1,9 +1,9 @@
 # Chapters
 
-This textbook is organized into 27 chapters covering 400 concepts. Chapters 1-19 form the
-core course; Chapters 20-27 are an advanced-topics extension covering graph theory, metadata,
-dependency modeling, taxonomy design, validation, data-pipeline internals, and learner modeling
-in greater depth.
+This textbook is organized into 28 chapters covering 410 concepts. Chapters 1-19 form the
+core course; Chapters 20-28 are an advanced-topics extension covering graph theory, metadata,
+dependency modeling, taxonomy design, validation, data-pipeline internals, learner modeling,
+and CIS-driven content-length prediction in greater depth.
 
 ## Chapter Overview
 
@@ -34,10 +34,11 @@ in greater depth.
 25. [Graph Validation and Quality Assurance](25-graph-validation-quality-assurance/index.md) - Extends Chapter 5's validation checks into a full automated-validator toolkit -- schema validation, referential integrity, duplicate detection, and a composite graph quality score -- for catching structural and pedagogical problems before they compound.
 26. [Data Pipeline Internals](26-data-pipeline-internals/index.md) - Opens up the CSV and JSON file formats from Chapter 5 to show the actual record structures, header conventions, and configuration files a generation pipeline reads and writes at each step.
 27. [Learner Modeling and Advanced Assessment](27-learner-modeling-advanced-assessment/index.md) - Extends Chapter 16's personalization concepts with a formal learner model -- mastery state, knowledge components, readiness estimation -- and the assessment types that measure it.
+28. [Concept Impact Score and Predicting Content Length](28-concept-impact-score-content-length/index.md) - Introduces the Concept Impact Score (CIS), a PageRank-style recursive importance measure computed over a learning graph's dependency DAG, and shows how it replaces flat per-chapter word counts with a per-concept elaboration budget -- tracing the idea's real adoption across four agent skills in this project's own tooling.
 
 ## How to Use This Textbook
 
-Chapters are ordered so that every concept appears after all of its prerequisites -- work through them in sequence for the smoothest path. Readers with prior background in a given area (graph theory, learning science, or vis.js) can jump ahead, but should skim the chapter's concept list first to check for any unfamiliar prerequisite terms. Chapters 20-27 form an advanced-topics extension: each assumes the corresponding core chapter (noted in its Prerequisites section) but not the other extension chapters, so they can be read in any order once their single core prerequisite is complete.
+Chapters are ordered so that every concept appears after all of its prerequisites -- work through them in sequence for the smoothest path. Readers with prior background in a given area (graph theory, learning science, or vis.js) can jump ahead, but should skim the chapter's concept list first to check for any unfamiliar prerequisite terms. Chapters 20-28 form an advanced-topics extension: each assumes the corresponding core chapter (noted in its Prerequisites section) but not the other extension chapters, so they can be read in any order once their single core prerequisite is complete.
 
 ---
 

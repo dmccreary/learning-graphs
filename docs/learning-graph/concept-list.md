@@ -1,6 +1,6 @@
 # Learning Graphs — Concept List
 
-Working concept list for the learning-graph-generator v0.05 pipeline, generated from the approved course description. The list contains 400 distinct, concise concepts spanning graph foundations, metadata, dependency modeling, taxonomy design, validation, learning science, visualization, personalization, intelligent agents, publishing, and pipeline automation.
+Working concept list for the learning-graph-generator v0.05 pipeline, generated from the approved course description. The list contains 410 distinct, concise concepts spanning graph foundations, metadata, dependency modeling, taxonomy design, validation, learning science, visualization, personalization, intelligent agents, publishing, pipeline automation, and CIS-driven content-budget allocation.
 
 ---
 
@@ -404,3 +404,13 @@ Working concept list for the learning-graph-generator v0.05 pipeline, generated 
 398. Learning Path Constraint
 399. Readiness Estimation
 400. Personalized Sequencing
+401. Recursive Importance Measure
+402. PageRank
+403. Concept Impact Score (CIS)
+404. Single-Pass DAG Computation
+405. Global Normalization
+406. Elaboration Score
+407. Elaboration Tier
+408. Chapter Partitioning Problem
+409. Within-Chapter Concept Ordering
+410. Content-Budget Allocation

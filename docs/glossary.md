@@ -252,6 +252,14 @@ Measures that summarize the size, assets, assessments, and structure of individu
 
 **Example:** In the textbook site, chapter metrics can connect graph data, Markdown pages, and interactive learning assets.
 
+#### Chapter Partitioning Problem
+
+The task of dividing a learning graph's concept set into an ordered sequence of chapters that respects topological order while keeping each chapter close to a target size.
+
+**Example:** A book-build workflow can use the chapter partitioning problem to decide which concepts belong in chapter 12 versus chapter 13.
+
+See also: Learning Graph, Content Generation Pipeline, Within-Chapter Concept Ordering.
+
 #### Chatbot
 
 A conversational software interface that accepts user messages and returns generated or retrieved responses.
@@ -426,6 +434,14 @@ A graph-based representation that uses nodes for concepts and edges for relation
 
 See also: Learning Graph, Node, Edge.
 
+#### Concept Impact Score (CIS)
+
+A PageRank-style recursive importance measure computed over a learning graph's dependency DAG, equal to one plus the summed impact scores of a concept's direct dependents.
+
+**Example:** A content-budget allocation script can use Concept Impact Score to give a low-indegree but transitively foundational concept more elaboration than raw indegree alone would assign it.
+
+See also: PageRank, Recursive Importance Measure, Elaboration Score, Indegree.
+
 #### Concept Label
 
 The human-readable name assigned to a concept so people and software can identify it consistently.
@@ -541,6 +557,14 @@ See also: Instructional Design, Learning Objective, Mastery Learning.
 A measure of how closely learning resources resemble one another in topic, format, level, or purpose.
 
 **Example:** A dependency review can use content similarity to explain how one concept connects to another.
+
+#### Content-Budget Allocation
+
+The practice of setting each concept's word count and required content elements from its elaboration tier rather than dividing a chapter's total word budget evenly across its concepts.
+
+**Example:** A chapter-content-generator run can use content-budget allocation to give a Tier A concept a worked example and diagram while a Tier C concept gets a brief definition.
+
+See also: Elaboration Tier, Elaboration Score, Chapter Partitioning Problem.
 
 #### Controlled Vocabulary
 
@@ -924,6 +948,22 @@ A visual property that controls the thickness of an edge line.
 
 **Example:** A vis.js activity can use edge width to make graph structure easier to inspect or manipulate.
 
+#### Elaboration Score
+
+A concept's Concept Impact Score rescaled onto a zero-to-one range using a logarithm and the book's maximum CIS value, so concepts tied at the CIS floor separate cleanly from true hubs.
+
+**Example:** A book-build workflow can compute an elaboration score of 0.34 for a concept with a CIS of 8 in a 410-concept graph.
+
+See also: Concept Impact Score (CIS), Global Normalization, Elaboration Tier.
+
+#### Elaboration Tier
+
+One of three discrete bands, A, B, or C, assigned from a concept's elaboration score, each carrying its own target word count and required content elements.
+
+**Example:** A concept with an elaboration score of 0.65 falls into Tier A, requiring both a worked example and a diagram.
+
+See also: Elaboration Score, Content-Budget Allocation.
+
 #### Emergent Knowledge Structure
 
 An organization of understanding that develops from learner activity, concept connections, and context rather than from a fixed outline.
@@ -1045,6 +1085,14 @@ A version control system that records changes to files and supports collaboratio
 A hosting service that publishes static websites from GitHub repositories.
 
 See also: Intelligent Textbook, MkDocs.
+
+#### Global Normalization
+
+The decision to compare a concept's Concept Impact Score against the maximum CIS across an entire book rather than against only the concepts in its own chapter.
+
+**Example:** A book-build workflow can use global normalization to avoid a chapter's own most-important concept always appearing book-level important.
+
+See also: Concept Impact Score (CIS), Elaboration Score.
 
 #### Goal Concept
 
@@ -1964,6 +2012,14 @@ A JavaScript library for creative coding, commonly used to build browser-based e
 
 **Example:** In the textbook site, p5.js can connect graph data, Markdown pages, and interactive learning assets.
 
+#### PageRank
+
+A recursive importance algorithm, originally developed to rank web pages, in which a node's score is a damped, iteratively-converged sum of the scores of the nodes linking to it.
+
+**Example:** A graph-metrics script can contrast PageRank's damping factor with Concept Impact Score's damping-free computation on an acyclic learning graph.
+
+See also: Recursive Importance Measure, Concept Impact Score (CIS), Betweenness Centrality.
+
 #### Parallel Learning Paths
 
 Multiple valid routes through concepts that can be pursued independently or in different orders.
@@ -2144,6 +2200,14 @@ A system that ranks or selects items for a user based on data, rules, similarity
 
 A prerequisite that is helpful for learning a concept but not strictly required.
 
+#### Recursive Importance Measure
+
+An importance score for a node in a directed graph computed from the importance scores of the nodes pointing to it, rather than from a simple count of those nodes.
+
+**Example:** A graph-metrics script can use a recursive importance measure to rank concepts by transitive rather than direct impact.
+
+See also: PageRank, Concept Impact Score (CIS), Indegree.
+
 #### Redundant Dependency
 
 A dependency edge that repeats an indirect relationship already implied by another path.
@@ -2271,6 +2335,14 @@ A calculation used to estimate how alike two objects are along chosen features.
 **Example:** A dependency review can use similarity metric to explain how one concept connects to another.
 
 See also: Adaptive Learning, Learner Model, Personalized Learning Path.
+
+#### Single-Pass DAG Computation
+
+The property that, because a learning graph has no cycles, Concept Impact Score can be computed exactly in one topological-order traversal without damping or iteration.
+
+**Example:** A csv-to-json conversion script can use single-pass DAG computation to compute every concept's CIS in one pass over the graph.
+
+See also: Concept Impact Score (CIS), Topological Sort.
 
 #### Sink Node
 
@@ -2621,6 +2693,14 @@ A theory emphasizing that learning develops through social interaction, language
 #### Weak Connectivity
 
 A directed-graph property in which nodes are connected if edge direction is ignored.
+
+#### Within-Chapter Concept Ordering
+
+The task of arranging one chapter's concepts into a linear sequence that respects every in-chapter prerequisite edge.
+
+**Example:** A book-chapter-generator run can use within-chapter concept ordering to place a prerequisite concept before the concepts that depend on it.
+
+See also: Topological Sort, Chapter Partitioning Problem.
 
 #### Working Memory Constraint
 
